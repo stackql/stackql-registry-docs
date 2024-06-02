@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Extension Located Near A Google Cloud Data Center.  
+Provides ways to manage Bare Metal Solution hardware installed in a regional extension located near a Google Cloud data center.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Ext
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>13</b></span><br />
 <span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>57</b></span><br />
+<span>total methods:&nbsp;<b>62</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Ext
 <tr><td><b>Name</b></td><td><code>google.baremetalsolution</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Bare Metal Solution API</td></tr>
-<tr><td><b>Description</b></td><td>Provides Ways To Manage Bare Metal Solution Hardware Installed In A Regional Extension Located Near A Google Cloud Data Center.</td></tr>
-<tr><td><b>Id</b></td><td><code>baremetalsolution:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Provides ways to manage Bare Metal Solution hardware installed in a regional extension located near a Google Cloud data center.</td></tr>
+<tr><td><b>Id</b></td><td><code>baremetalsolution:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

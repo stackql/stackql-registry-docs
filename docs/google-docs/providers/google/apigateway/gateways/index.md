@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>gateways</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.apigateway.gateways" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="apigateway.gateways" /></td></tr>
 </tbody></table>
 
 ## Fields

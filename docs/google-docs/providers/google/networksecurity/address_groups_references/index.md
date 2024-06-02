@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>address_groups_references</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.address_groups_references" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.address_groups_references" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,6 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="firewallPolicy" /> | `string` | FirewallPolicy that is using the Address Group. |
 | <CopyableCode code="rulePriority" /> | `integer` | Rule priority of the FirewallPolicy that is using the Address Group. |
+| <CopyableCode code="securityPolicy" /> | `string` | Cloud Armor SecurityPolicy that is using the Address Group. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

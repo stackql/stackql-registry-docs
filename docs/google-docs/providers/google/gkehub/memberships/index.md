@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>memberships</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.memberships" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.memberships" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,7 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="externalId" /> | `string` | Optional. An externally-generated and managed ID for this Membership. This ID may be modified after creation, but this is not recommended. The ID must match the regex: `a-zA-Z0-9*` If this Membership represents a Kubernetes cluster, this value should be set to the UID of the `kube-system` namespace object. |
 | <CopyableCode code="labels" /> | `object` | Optional. Labels for this membership. |
 | <CopyableCode code="lastConnectionTime" /> | `string` | Output only. For clusters using Connect, the timestamp of the most recent connection established with Google Cloud. This time is updated every several minutes, not continuously. For clusters that do not use GKE Connect, or that have never connected successfully, this field will be unset. |
-| <CopyableCode code="monitoringConfig" /> | `object` | This field informs Fleet-based applications/services/UIs with the necessary information for where each underlying Cluster reports its metrics. |
+| <CopyableCode code="monitoringConfig" /> | `object` | MonitoringConfig informs Fleet-based applications/services/UIs how the metrics for the underlying cluster is reported to cloud monitoring services. It can be set from empty to non-empty, but can't be mutated directly to prevent accidentally breaking the constinousty of metrics. |
 | <CopyableCode code="state" /> | `object` | MembershipState describes the state of a Membership resource. |
 | <CopyableCode code="uniqueId" /> | `string` | Output only. Google-generated UUID for this resource. This is unique across all Membership resources. If a Membership resource is deleted and another resource with the same name is created, it gets a different unique_id. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. When the Membership was last updated. |

@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-The Cloud Asset API Manages The History And Inventory Of Google Cloud Resources.  
+The Cloud Asset API manages the history and inventory of Google Cloud resources.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ The Cloud Asset API Manages The History And Inventory Of Google Cloud Resources.
 <tr><td><b>Name</b></td><td><code>google.cloudasset</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Asset API</td></tr>
-<tr><td><b>Description</b></td><td>The Cloud Asset API Manages The History And Inventory Of Google Cloud Resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudasset:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>The Cloud Asset API manages the history and inventory of Google Cloud resources.</td></tr>
+<tr><td><b>Id</b></td><td><code>cloudasset:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

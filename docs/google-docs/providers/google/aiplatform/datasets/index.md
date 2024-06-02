@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>datasets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.datasets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.datasets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="metadata" /> | `any` | Required. Additional information about the Dataset. |
 | <CopyableCode code="metadataArtifact" /> | `string` | Output only. The resource name of the Artifact that was created in MetadataStore when creating the Dataset. The Artifact resource name pattern is `projects/&#123;project&#125;/locations/&#123;location&#125;/metadataStores/&#123;metadata_store&#125;/artifacts/&#123;artifact&#125;`. |
 | <CopyableCode code="metadataSchemaUri" /> | `string` | Required. Points to a YAML file stored on Google Cloud Storage describing additional information about the Dataset. The schema is defined as an OpenAPI 3.0.2 Schema Object. The schema files that can be used here are found in gs://google-cloud-aiplatform/schema/dataset/metadata/. |
+| <CopyableCode code="modelReference" /> | `string` | Optional. Reference to the public base model last used by the dataset. Only set for prompt datasets. |
 | <CopyableCode code="savedQueries" /> | `array` | All SavedQueries belong to the Dataset will be returned in List/Get Dataset response. The annotation_specs field will not be populated except for UI cases which will only use annotation_spec_count. In CreateDataset request, a SavedQuery is created together if this field is set, up to one SavedQuery can be set in CreateDatasetRequest. The SavedQuery should not contain any AnnotationSpec. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this Dataset was last updated. |
 ## Methods

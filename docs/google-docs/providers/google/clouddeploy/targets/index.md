@@ -24,17 +24,18 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>targets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.clouddeploy.targets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="clouddeploy.targets" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Optional. Name of the `Target`. Format is projects/&#123;project&#125;/locations/&#123;location&#125;/targets/a-z&#123;0,62&#125;. |
+| <CopyableCode code="name" /> | `string` | Optional. Name of the `Target`. Format is `projects/&#123;project&#125;/locations/&#123;location&#125;/targets/&#123;target&#125;`. The `target` component must match `[a-z]([a-z0-9-]&#123;0,61&#125;[a-z0-9])?` |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the `Target`. Max length is 255 characters. |
 | <CopyableCode code="annotations" /> | `object` | Optional. User annotations. These attributes can only be set and used by the user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations for more details such as format and size limitations. |
 | <CopyableCode code="anthosCluster" /> | `object` | Information specifying an Anthos Cluster. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time at which the `Target` was created. |
+| <CopyableCode code="customTarget" /> | `object` | Information specifying a Custom Target. |
 | <CopyableCode code="deployParameters" /> | `object` | Optional. The deploy parameters to use for this target. |
 | <CopyableCode code="etag" /> | `string` | Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | <CopyableCode code="executionConfigs" /> | `array` | Configurations for all execution that relates to this `Target`. Each `ExecutionEnvironmentUsage` value may only be used in a single configuration; using the same value multiple times is an error. When one or more configurations are specified, they must include the `RENDER` and `DEPLOY` `ExecutionEnvironmentUsage` values. When no configurations are specified, execution will use the default specified in `DefaultPool`. |

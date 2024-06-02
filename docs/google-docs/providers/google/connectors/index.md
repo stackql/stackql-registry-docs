@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Enables Users To Create And Manage Connections To Google Cloud Services And Third-Party Business Applications Using The Connectors Interface.  
+Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Enables Users To Create And Manage Connections To Google Cloud Services And Thir
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>14</b></span><br />
+<span>total methods:&nbsp;<b>20</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Enables Users To Create And Manage Connections To Google Cloud Services And Thir
 <tr><td><b>Name</b></td><td><code>google.connectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Connectors API</td></tr>
-<tr><td><b>Description</b></td><td>Enables Users To Create And Manage Connections To Google Cloud Services And Third-Party Business Applications Using The Connectors Interface.</td></tr>
-<tr><td><b>Id</b></td><td><code>connectors:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.</td></tr>
+<tr><td><b>Id</b></td><td><code>connectors:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

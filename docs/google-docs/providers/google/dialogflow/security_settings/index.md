@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.security_settings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.security_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,7 +39,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="purgeDataTypes" /> | `array` | List of types of data to remove when retention settings triggers purge. |
 | <CopyableCode code="redactionScope" /> | `string` | Defines the data for which Dialogflow applies redaction. Dialogflow does not redact data that it does not have access to – for example, Cloud logging. |
 | <CopyableCode code="redactionStrategy" /> | `string` | Strategy that defines how we do redaction. |
-| <CopyableCode code="retentionWindowDays" /> | `integer` | Retains the data for the specified number of days. User must set a value lower than Dialogflow's default 365d TTL (30 days for Agent Assist traffic), higher value will be ignored and use default. Setting a value higher than that has no effect. A missing value or setting to 0 also means we use default TTL. |
+| <CopyableCode code="retentionStrategy" /> | `string` | Specifies the retention behavior defined by SecuritySettings.RetentionStrategy. |
+| <CopyableCode code="retentionWindowDays" /> | `integer` | Retains the data for the specified number of days. User must set a value lower than Dialogflow's default 365d TTL (30 days for Agent Assist traffic), higher value will be ignored and use default. Setting a value higher than that has no effect. A missing value or setting to 0 also means we use default TTL. When data retention configuration is changed, it only applies to the data created after the change; the TTL of existing data created before the change stays intact. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

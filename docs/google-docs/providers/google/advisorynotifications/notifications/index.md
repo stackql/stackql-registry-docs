@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>notifications</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.advisorynotifications.notifications" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="advisorynotifications.notifications" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the notification. Format: organizations/&#123;organization&#125;/locations/&#123;location&#125;/notifications/&#123;notification&#125;. |
+| <CopyableCode code="name" /> | `string` | The resource name of the notification. Format: organizations/&#123;organization&#125;/locations/&#123;location&#125;/notifications/&#123;notification&#125; or projects/&#123;project&#125;/locations/&#123;location&#125;/notifications/&#123;notification&#125;. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time the notification was created. |
 | <CopyableCode code="messages" /> | `array` | A list of messages in the notification. |
 | <CopyableCode code="notificationType" /> | `string` | Type of notification |

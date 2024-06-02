@@ -24,10 +24,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scanned_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.workloadmanager.scanned_resources" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="workloadmanager.scanned_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="resource" /> | `string` | resource name |
+| <CopyableCode code="type" /> | `string` | resource type |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

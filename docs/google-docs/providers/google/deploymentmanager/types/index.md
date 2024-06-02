@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.deploymentmanager.types" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="deploymentmanager.types" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,7 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` |  |
 | <CopyableCode code="name" /> | `string` | Name of the type. |
 | <CopyableCode code="insertTime" /> | `string` | Output only. Creation timestamp in RFC3339 text format. |
-| <CopyableCode code="operation" /> | `object` | Represents an Operation resource. Google Compute Engine has three Operation resources: * [Global](/compute/docs/reference/rest/&#123;$api_version&#125;/globalOperations) * [Regional](/compute/docs/reference/rest/&#123;$api_version&#125;/regionOperations) * [Zonal](/compute/docs/reference/rest/&#123;$api_version&#125;/zoneOperations) You can use an operation resource to manage asynchronous API requests. For more information, read Handling API responses. Operations can be global, regional or zonal. - For global operations, use the `globalOperations` resource. - For regional operations, use the `regionOperations` resource. - For zonal operations, use the `zoneOperations` resource. For more information, read Global, Regional, and Zonal Resources. |
+| <CopyableCode code="operation" /> | `object` | Represents an Operation resource. Google Compute Engine has three Operation resources: * [Global](/compute/docs/reference/rest/&#123;$api_version&#125;/globalOperations) * [Regional](/compute/docs/reference/rest/&#123;$api_version&#125;/regionOperations) * [Zonal](/compute/docs/reference/rest/&#123;$api_version&#125;/zoneOperations) You can use an operation resource to manage asynchronous API requests. For more information, read Handling API responses. Operations can be global, regional or zonal. - For global operations, use the `globalOperations` resource. - For regional operations, use the `regionOperations` resource. - For zonal operations, use the `zoneOperations` resource. For more information, read Global, Regional, and Zonal Resources. Note that completed Operation resources have a limited retention period. |
 | <CopyableCode code="selfLink" /> | `string` | Output only. Server defined URL for the resource. |
 ## Methods
 | Name | Accessible by | Required Params |

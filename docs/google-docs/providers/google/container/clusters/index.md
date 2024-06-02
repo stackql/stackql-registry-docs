@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.container.clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="container.clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,6 +52,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="enableKubernetesAlpha" /> | `boolean` | Kubernetes alpha features are enabled on this cluster. This includes alpha API groups (e.g. v1alpha1) and features that may not be production ready in the kubernetes version of the master and nodes. The cluster has no SLA for uptime and master/node upgrades are disabled. Alpha enabled clusters are automatically deleted thirty days after creation. |
 | <CopyableCode code="enableTpu" /> | `boolean` | Enable the ability to use Cloud TPUs in this cluster. |
 | <CopyableCode code="endpoint" /> | `string` | [Output only] The IP address of this cluster's master endpoint. The endpoint can be accessed from the internet at `https://username:password@endpoint/`. See the `masterAuth` property of this resource for username and password information. |
+| <CopyableCode code="enterpriseConfig" /> | `object` | EnterpriseConfig is the cluster enterprise configuration. |
 | <CopyableCode code="etag" /> | `string` | This checksum is computed by the server based on the value of cluster fields, and may be sent on update requests to ensure the client has an up-to-date value before proceeding. |
 | <CopyableCode code="expireTime" /> | `string` | [Output only] The time the cluster will be automatically deleted in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. |
 | <CopyableCode code="fleet" /> | `object` | Fleet is the fleet configuration for the cluster. |
@@ -81,10 +82,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nodePoolDefaults" /> | `object` | Subset of Nodepool message that has defaults. |
 | <CopyableCode code="nodePools" /> | `array` | The node pools associated with this cluster. This field should not be set if "node_config" or "initial_node_count" are specified. |
 | <CopyableCode code="notificationConfig" /> | `object` | NotificationConfig is the configuration of notifications. |
+| <CopyableCode code="parentProductConfig" /> | `object` | ParentProductConfig is the configuration of the parent product of the cluster. This field is used by Google internal products that are built on top of a GKE cluster and take the ownership of the cluster. |
 | <CopyableCode code="privateClusterConfig" /> | `object` | Configuration options for private clusters. |
 | <CopyableCode code="releaseChannel" /> | `object` | ReleaseChannel indicates which release channel a cluster is subscribed to. Release channels are arranged in order of risk. When a cluster is subscribed to a release channel, Google maintains both the master version and the node version. Node auto-upgrade defaults to true and cannot be disabled. |
 | <CopyableCode code="resourceLabels" /> | `object` | The resource labels for the cluster to use to annotate any related Google Compute Engine resources. |
 | <CopyableCode code="resourceUsageExportConfig" /> | `object` | Configuration for exporting cluster resource usages. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="securityPostureConfig" /> | `object` | SecurityPostureConfig defines the flags needed to enable/disable features for the Security Posture API. |
 | <CopyableCode code="selfLink" /> | `string` | [Output only] Server-defined URL for the resource. |
 | <CopyableCode code="servicesIpv4Cidr" /> | `string` | [Output only] The IP address range of the Kubernetes services in this cluster, in [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `1.2.3.4/29`). Service addresses are typically put in the last `/16` from the container CIDR. |

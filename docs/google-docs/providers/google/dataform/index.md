@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-  
+Service to develop, version control, and operationalize SQL pipelines in BigQuery.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>16</b></span><br />
-<span>total selectable resources:&nbsp;<b>9</b></span><br />
-<span>total methods:&nbsp;<b>68</b></span><br />
+<span>total resources:&nbsp;<b>18</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>76</b></span><br />
 </div>
 </div>
 
@@ -33,13 +33,15 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Name</b></td><td><code>google.dataform</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dataform API</td></tr>
-<tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>dataform:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Service to develop, version control, and operationalize SQL pipelines in BigQuery.</td></tr>
+<tr><td><b>Id</b></td><td><code>dataform:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/dataform/collections_iam_policies/">collections_iam_policies</a><br />
+<a href="/providers/google/dataform/comment_threads_iam_policies/">comment_threads_iam_policies</a><br />
 <a href="/providers/google/dataform/compilation_results/">compilation_results</a><br />
 <a href="/providers/google/dataform/locations/">locations</a><br />
 <a href="/providers/google/dataform/release_configs/">release_configs</a><br />
@@ -47,9 +49,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <a href="/providers/google/dataform/repositories_history/">repositories_history</a><br />
 <a href="/providers/google/dataform/repositories_iam_policies/">repositories_iam_policies</a><br />
 <a href="/providers/google/dataform/repositories_remote_branches/">repositories_remote_branches</a><br />
-<a href="/providers/google/dataform/workflow_configs/">workflow_configs</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/dataform/workflow_configs/">workflow_configs</a><br />
 <a href="/providers/google/dataform/workflow_invocations/">workflow_invocations</a><br />
 <a href="/providers/google/dataform/workspaces/">workspaces</a><br />
 <a href="/providers/google/dataform/workspaces_directory/">workspaces_directory</a><br />

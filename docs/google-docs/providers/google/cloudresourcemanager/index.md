@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Creates, Reads, And Updates Metadata For Google Cloud Platform Resource Containers.  
+Creates, reads, and updates metadata for Google Cloud Platform resource containers.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Creates, Reads, And Updates Metadata For Google Cloud Platform Resource Containe
 <tr><td><b>Name</b></td><td><code>google.cloudresourcemanager</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Resource Manager API</td></tr>
-<tr><td><b>Description</b></td><td>Creates, Reads, And Updates Metadata For Google Cloud Platform Resource Containers.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudresourcemanager:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Creates, reads, and updates metadata for Google Cloud Platform resource containers.</td></tr>
+<tr><td><b>Id</b></td><td><code>cloudresourcemanager:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

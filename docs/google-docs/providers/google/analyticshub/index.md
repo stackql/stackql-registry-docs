@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Exchange Data And Analytics Assets Securely And Efficiently.  
+Exchange data and analytics assets securely and efficiently.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>32</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>37</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Exchange Data And Analytics Assets Securely And Efficiently.
 <tr><td><b>Name</b></td><td><code>google.analyticshub</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Analytics Hub API</td></tr>
-<tr><td><b>Description</b></td><td>Exchange Data And Analytics Assets Securely And Efficiently.</td></tr>
-<tr><td><b>Id</b></td><td><code>analyticshub:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Exchange data and analytics assets securely and efficiently.</td></tr>
+<tr><td><b>Id</b></td><td><code>analyticshub:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -49,5 +49,6 @@ Exchange Data And Analytics Assets Securely And Efficiently.
 <a href="/providers/google/analyticshub/listings_iam_policies/">listings_iam_policies</a><br />
 <a href="/providers/google/analyticshub/listings_subscriptions/">listings_subscriptions</a><br />
 <a href="/providers/google/analyticshub/subscriptions/">subscriptions</a><br />
+<a href="/providers/google/analyticshub/subscriptions_iam_policies/">subscriptions_iam_policies</a><br />
 </div>
 </div>

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>budgets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.billingbudgets.budgets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="billingbudgets.budgets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -36,6 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | User data for display name in UI. The name must be less than or equal to 60 characters. |
 | <CopyableCode code="etag" /> | `string` | Optional. Etag to validate that the object is unchanged for a read-modify-write operation. An empty etag causes an update to overwrite other changes. |
 | <CopyableCode code="notificationsRule" /> | `object` | NotificationsRule defines notifications that are sent based on budget spend and thresholds. |
+| <CopyableCode code="ownershipScope" /> | `string` |  |
 | <CopyableCode code="thresholdRules" /> | `array` | Optional. Rules that trigger alerts (notifications of thresholds being crossed) when spend exceeds the specified percentages of the budget. Optional for `pubsubTopic` notifications. Required if using email notifications. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.composer.environments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="composer.environments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -34,7 +34,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="config" /> | `object` | Configuration information for an environment. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time at which this environment was created. |
 | <CopyableCode code="labels" /> | `object` | Optional. User-defined labels for this environment. The labels map can contain no more than 64 entries. Entries of the labels map are UTF8 strings that comply with the following restrictions: * Keys must conform to regexp: \p&#123;Ll&#125;\p&#123;Lo&#125;&#123;0,62&#125; * Values must conform to regexp: [\p&#123;Ll&#125;\p&#123;Lo&#125;\p&#123;N&#125;_-]&#123;0,63&#125; * Both keys and values are additionally constrained to be &lt;= 128 bytes in size. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="state" /> | `string` | The current state of the environment. |
+| <CopyableCode code="storageConfig" /> | `object` | The configuration for data storage in the environment. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time at which this environment was last modified. |
 | <CopyableCode code="uuid" /> | `string` | Output only. The UUID (Universally Unique IDentifier) associated with this environment. This value is generated when the environment is created. |
 ## Methods
@@ -45,6 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a new environment. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Delete an environment. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List environments. |
+| <CopyableCode code="check_upgrade" /> | `EXEC` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Check if an upgrade operation on the environment will succeed. In case of problems detailed info can be found in the returned Operation. |
 | <CopyableCode code="database_failover" /> | `EXEC` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Triggers database failover (only for highly resilient environments). |
 | <CopyableCode code="execute_airflow_command" /> | `EXEC` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Executes Airflow CLI command. |
 | <CopyableCode code="load_snapshot" /> | `EXEC` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Loads a snapshot of a Cloud Composer environment. As a result of this operation, a snapshot of environment's specified in LoadSnapshotRequest is loaded into the environment. |

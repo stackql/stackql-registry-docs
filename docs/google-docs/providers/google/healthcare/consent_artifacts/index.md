@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>consent_artifacts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.healthcare.consent_artifacts" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="healthcare.consent_artifacts" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Resource name of the Consent artifact, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/consentArtifacts/&#123;consent_artifact_id&#125;`. Cannot be changed after creation. |
+| <CopyableCode code="name" /> | `string` | Identifier. Resource name of the Consent artifact, of the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/datasets/&#123;dataset_id&#125;/consentStores/&#123;consent_store_id&#125;/consentArtifacts/&#123;consent_artifact_id&#125;`. Cannot be changed after creation. |
 | <CopyableCode code="consentContentScreenshots" /> | `array` | Optional. Screenshots, PDFs, or other binary information documenting the user's consent. |
 | <CopyableCode code="consentContentVersion" /> | `string` | Optional. An string indicating the version of the consent information shown to the user. |
 | <CopyableCode code="guardianSignature" /> | `object` | User signature. |

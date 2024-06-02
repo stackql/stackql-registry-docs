@@ -24,13 +24,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>packages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.artifactregistry.packages" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="artifactregistry.packages" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | The name of the package, for example: `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1`. If the package ID part contains slashes, the slashes are escaped. |
+| <CopyableCode code="annotations" /> | `object` | Optional. Client specified annotations. |
 | <CopyableCode code="createTime" /> | `string` | The time when the package was created. |
 | <CopyableCode code="displayName" /> | `string` | The display name of the package. |
 | <CopyableCode code="updateTime" /> | `string` | The time when the package was last updated. This includes publishing a new version of the package. |
@@ -41,3 +42,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists packages. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Deletes a package and all of its versions and tags. The returned operation will complete once the package has been deleted. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists packages. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Updates a package. |

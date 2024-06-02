@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments_public_key</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudshell.environments_public_key" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="cloudshell.environments_public_key" /></td></tr>
 </tbody></table>
 
 ## Fields

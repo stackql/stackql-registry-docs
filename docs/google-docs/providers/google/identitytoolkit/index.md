@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Help The Third Party Sites To Implement Federated Login.  
+Help the third party sites to implement federated login.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Help The Third Party Sites To Implement Federated Login.
 <tr><td><b>Name</b></td><td><code>google.identitytoolkit</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Identity Toolkit API</td></tr>
-<tr><td><b>Description</b></td><td>Help The Third Party Sites To Implement Federated Login.</td></tr>
-<tr><td><b>Id</b></td><td><code>identitytoolkit:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Help the third party sites to implement federated login.</td></tr>
+<tr><td><b>Id</b></td><td><code>identitytoolkit:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

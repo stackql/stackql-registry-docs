@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.appengine.apps" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="appengine.apps" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="dispatchRules" /> | `array` | HTTP path dispatch rules for requests to the application that do not explicitly target a service or version. Rules are order-dependent. Up to 20 dispatch rules can be supported. |
 | <CopyableCode code="featureSettings" /> | `object` | The feature specific settings to be used in the application. These define behaviors that are user configurable. |
 | <CopyableCode code="gcrDomain" /> | `string` | Output only. The Google Container Registry domain used for storing managed build docker images for this application. |
+| <CopyableCode code="generatedCustomerMetadata" /> | `object` | Additional Google Generated Customer Metadata, this field won't be provided by default and can be requested by setting the IncludeExtraData field in GetApplicationRequest |
 | <CopyableCode code="iap" /> | `object` | Identity-Aware Proxy |
 | <CopyableCode code="locationId" /> | `string` | Location from which this application runs. Application instances run out of the data centers in the specified location, which is also where all of the application's end user content is stored.Defaults to us-central.View the list of supported locations (https://cloud.google.com/appengine/docs/locations). |
 | <CopyableCode code="serviceAccount" /> | `string` | The service account associated with the application. This is the app-level default identity. If no identity provided during create version, Admin API will fallback to this one. |

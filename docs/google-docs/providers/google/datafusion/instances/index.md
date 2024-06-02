@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.datafusion.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datafusion.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="availableVersion" /> | `array` | Output only. Available versions that the instance can be upgraded to using UpdateInstanceRequest. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time the instance was created. |
 | <CopyableCode code="cryptoKeyConfig" /> | `object` | The crypto key configuration. This field is used by the Customer-managed encryption keys (CMEK) feature. |
+| <CopyableCode code="dataplexDataLineageIntegrationEnabled" /> | `boolean` | Optional. Option to enable the Dataplex Lineage Integration feature. |
 | <CopyableCode code="dataprocServiceAccount" /> | `string` | User-managed service account to set on Dataproc when Cloud Data Fusion creates Dataproc to run data processing pipelines. This allows users to have fine-grained access control on Dataproc's accesses to cloud resources. |
 | <CopyableCode code="disabledReason" /> | `array` | Output only. If the instance state is DISABLED, the reason for disabling the instance. |
 | <CopyableCode code="displayName" /> | `string` | Display name for an instance. |
@@ -50,6 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="networkConfig" /> | `object` | Network configuration for a Data Fusion instance. These configurations are used for peering with the customer network. Configurations are optional when a public Data Fusion instance is to be created. However, providing these configurations allows several benefits, such as reduced network latency while accessing the customer resources from managed Data Fusion instance nodes, as well as access to the customer on-prem resources. |
 | <CopyableCode code="options" /> | `object` | Map of additional options used to configure the behavior of Data Fusion instance. |
 | <CopyableCode code="p4ServiceAccount" /> | `string` | Output only. P4 service account for the customer project. |
+| <CopyableCode code="patchRevision" /> | `string` | Optional. Current patch revision of the Data Fusion. |
 | <CopyableCode code="privateInstance" /> | `boolean` | Specifies whether the Data Fusion instance should be private. If set to true, all Data Fusion nodes will have private IP addresses and will not be able to access the public internet. |
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="serviceAccount" /> | `string` | Output only. Deprecated. Use tenant_project_id instead to extract the tenant project ID. |
@@ -60,6 +62,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="type" /> | `string` | Required. Instance type. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time the instance was last updated. |
 | <CopyableCode code="version" /> | `string` | Current version of the Data Fusion. Only specifiable in Update. |
+| <CopyableCode code="workforceIdentityServiceEndpoint" /> | `string` | Output only. Endpoint on which the Data Fusion UI is accessible to third-party users |
 | <CopyableCode code="zone" /> | `string` | Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER instances use this field. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

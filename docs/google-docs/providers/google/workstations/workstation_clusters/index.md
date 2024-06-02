@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workstation_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.workstations.workstation_clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="workstations.workstation_clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Full name of this workstation cluster. |
+| <CopyableCode code="name" /> | `string` | Identifier. Full name of this workstation cluster. |
 | <CopyableCode code="annotations" /> | `object` | Optional. Client-specified annotations. |
 | <CopyableCode code="conditions" /> | `array` | Output only. Status conditions describing the workstation cluster's current state. |
 | <CopyableCode code="controlPlaneIp" /> | `string` | Output only. The private IP address of the control plane for this workstation cluster. Workstation VMs need access to this IP address to work with the service, so make sure that your firewall rules allow egress from the workstation VMs to this address. |
@@ -38,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="degraded" /> | `boolean` | Output only. Whether this workstation cluster is in degraded mode, in which case it may require user action to restore full functionality. Details can be found in conditions. |
 | <CopyableCode code="deleteTime" /> | `string` | Output only. Time when this workstation cluster was soft-deleted. |
 | <CopyableCode code="displayName" /> | `string` | Optional. Human-readable name for this workstation cluster. |
+| <CopyableCode code="domainConfig" /> | `object` | Configuration options for a custom domain. |
 | <CopyableCode code="etag" /> | `string` | Optional. Checksum computed by the server. May be sent on update and delete requests to make sure that the client has an up-to-date value before proceeding. |
 | <CopyableCode code="labels" /> | `object` | Optional. [Labels](https://cloud.google.com/workstations/docs/label-resources) that are applied to the workstation cluster and that are also propagated to the underlying Compute Engine resources. |
 | <CopyableCode code="network" /> | `string` | Immutable. Name of the Compute Engine network in which instances associated with this workstation cluster will be created. |

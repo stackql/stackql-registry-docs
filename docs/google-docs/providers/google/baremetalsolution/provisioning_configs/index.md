@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>provisioning_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.provisioning_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.provisioning_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="instances" /> | `array` | Instances to be created. |
 | <CopyableCode code="location" /> | `string` | Optional. Location name of this ProvisioningConfig. It is optional only for Intake UI transition period. |
 | <CopyableCode code="networks" /> | `array` | Networks to be created. |
+| <CopyableCode code="pod" /> | `string` | Optional. Pod name. Pod is an independent part of infrastructure. Instance can be connected to the assets (networks, volumes, nfsshares) allocated in the same pod only. |
 | <CopyableCode code="state" /> | `string` | Output only. State of ProvisioningConfig. |
 | <CopyableCode code="statusMessage" /> | `string` | Optional status messages associated with the FAILED state. |
 | <CopyableCode code="ticketId" /> | `string` | A generated ticket id to track provisioning request. |

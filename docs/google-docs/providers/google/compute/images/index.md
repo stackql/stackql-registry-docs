@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>images</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.images" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.images" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | <CopyableCode code="deprecated" /> | `object` | Deprecation status for a public resource. |
 | <CopyableCode code="diskSizeGb" /> | `string` | Size of the image when restored onto a persistent disk (in GB). |
+| <CopyableCode code="enableConfidentialCompute" /> | `boolean` | Whether this image is created from a confidential compute mode disk. [Output Only]: This field is not set by user, but from source disk. |
 | <CopyableCode code="family" /> | `string` | The name of the image family to which this image belongs. The image family name can be from a publicly managed image family provided by Compute Engine, or from a custom image family you create. For example, centos-stream-9 is a publicly available image family. For more information, see Image family best practices. When creating disks, you can specify an image family instead of a specific image name. The image family always returns its latest image that is not deprecated. The name of the image family must comply with RFC1035. |
 | <CopyableCode code="guestOsFeatures" /> | `array` | A list of features to enable on the guest operating system. Applicable only for bootable images. To see a list of available options, see the guestOSfeatures[].type parameter. |
 | <CopyableCode code="imageEncryptionKey" /> | `object` |  |
@@ -47,6 +48,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="licenseCodes" /> | `array` | Integer license codes indicating which licenses are attached to this image. |
 | <CopyableCode code="licenses" /> | `array` | Any applicable license URI. |
 | <CopyableCode code="rawDisk" /> | `object` | The parameters of the raw disk image. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | [Output Only] Reserved for future use. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="shieldedInstanceInitialState" /> | `object` | Initial State for shielded instance, these are public keys which are safe to store in public |

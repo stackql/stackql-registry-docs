@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.bigtableadmin.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="bigtableadmin.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -34,6 +34,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. A commit timestamp representing when this Instance was created. For instances created before this field was added (August 2021), this value is `seconds: 0, nanos: 1`. |
 | <CopyableCode code="displayName" /> | `string` | Required. The descriptive name for this instance as it appears in UIs. Can be changed at any time, but should be kept globally unique to avoid confusion. |
 | <CopyableCode code="labels" /> | `object` | Labels are a flexible and lightweight mechanism for organizing cloud resources into groups that reflect a customer's organizational needs and deployment strategies. They can be used to filter resources and aggregate metrics. * Label keys must be between 1 and 63 characters long and must conform to the regular expression: `\p&#123;Ll&#125;\p&#123;Lo&#125;&#123;0,62&#125;`. * Label values must be between 0 and 63 characters long and must conform to the regular expression: `[\p&#123;Ll&#125;\p&#123;Lo&#125;\p&#123;N&#125;_-]&#123;0,63&#125;`. * No more than 64 labels can be associated with a given resource. * Keys and values must both be under 128 bytes. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="state" /> | `string` | Output only. The current state of the instance. |
 | <CopyableCode code="type" /> | `string` | The type of the instance. Defaults to `PRODUCTION`. |

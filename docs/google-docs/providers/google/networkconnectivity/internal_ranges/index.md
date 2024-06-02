@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>internal_ranges</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.networkconnectivity.internal_ranges" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="networkconnectivity.internal_ranges" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -35,7 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Time when the internal range was created. |
 | <CopyableCode code="ipCidrRange" /> | `string` | The IP range that this internal range defines. |
 | <CopyableCode code="labels" /> | `object` | User-defined labels. |
-| <CopyableCode code="network" /> | `string` | The URL or resource ID of the network in which to reserve the internal range. The network cannot be deleted if there are any reserved internal ranges referring to it. Legacy networks are not supported. This can only be specified for a global internal address. Example: - URL: /compute/v1/projects/&#123;project&#125;/global/networks/&#123;resourceId&#125; - ID: network123 |
+| <CopyableCode code="network" /> | `string` | The URL or resource ID of the network in which to reserve the internal range. The network cannot be deleted if there are any reserved internal ranges referring to it. Legacy networks are not supported. For example: https://www.googleapis.com/compute/v1/projects/&#123;project&#125;/locations/global/networks/&#123;network&#125; projects/&#123;project&#125;/locations/global/networks/&#123;network&#125; &#123;network&#125; |
 | <CopyableCode code="overlaps" /> | `array` | Optional. Types of resources that are allowed to overlap with the current internal range. |
 | <CopyableCode code="peering" /> | `string` | The type of peering set for this internal range. |
 | <CopyableCode code="prefixLength" /> | `integer` | An alternate to ip_cidr_range. Can be set when trying to create a reservation that automatically finds a free range of the given size. If both ip_cidr_range and prefix_length are set, there is an error if the range sizes do not match. Can also be used during updates to change the range size. |

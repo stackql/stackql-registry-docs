@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workloads</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.assuredworkloads.workloads" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="assuredworkloads.workloads" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -34,7 +34,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="billingAccount" /> | `string` | Optional. The billing account used for the resources which are direct children of workload. This billing account is initially associated with the resources created as part of Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form `billingAccounts/&#123;billing_account_id&#125;`. For example, `billingAccounts/012345-567890-ABCDEF`. |
 | <CopyableCode code="complianceRegime" /> | `string` | Required. Immutable. Compliance Regime associated with this workload. |
 | <CopyableCode code="complianceStatus" /> | `object` | Represents the Compliance Status of this workload |
-| <CopyableCode code="compliantButDisallowedServices" /> | `array` | Output only. Urls for services which are compliant for this Assured Workload, but which are currently disallowed by the ResourceUsageRestriction org policy. Invoke RestrictAllowedResources endpoint to allow your project developers to use these services in their environment." |
+| <CopyableCode code="compliantButDisallowedServices" /> | `array` | Output only. Urls for services which are compliant for this Assured Workload, but which are currently disallowed by the ResourceUsageRestriction org policy. Invoke RestrictAllowedResources endpoint to allow your project developers to use these services in their environment. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Immutable. The Workload creation timestamp. |
 | <CopyableCode code="displayName" /> | `string` | Required. The user-assigned display name of the Workload. When present it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, and spaces. Example: My Workload |
 | <CopyableCode code="ekmProvisioningResponse" /> | `object` | External key management systems(EKM) Provisioning response |
@@ -46,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="partner" /> | `string` | Optional. Partner regime associated with this workload. |
 | <CopyableCode code="partnerPermissions" /> | `object` | Permissions granted to the AW Partner SA account for the customer workload |
 | <CopyableCode code="provisionedResourcesParent" /> | `string` | Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not specified all resources are created under the parent organization. Format: folders/&#123;folder_id&#125; |
+| <CopyableCode code="resourceMonitoringEnabled" /> | `boolean` | Output only. Indicates whether resource monitoring is enabled for workload or not. It is true when Resource feed is subscribed to AWM topic and AWM Service Agent Role is binded to AW Service Account for resource Assured workload. |
 | <CopyableCode code="resourceSettings" /> | `array` | Input only. Resource properties that are used to customize workload resources. These properties (such as custom project id) will be used to create workload resources if possible. This field is optional. |
 | <CopyableCode code="resources" /> | `array` | Output only. The resources associated with this workload. These resources will be created when creating the workload. If any of the projects already exist, the workload creation will fail. Always read only. |
 | <CopyableCode code="saaEnrollmentResponse" /> | `object` | Signed Access Approvals (SAA) enrollment response. |
@@ -58,6 +59,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, organizationsId" /> | Creates Assured Workload. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Deletes the workload. Make sure that workload's direct children are already in a deleted state, otherwise the request will fail with a FAILED_PRECONDITION error. In addition to assuredworkloads.workload.delete permission, the user should also have orgpolicy.policy.set permission on the deleted folder to remove Assured Workloads OrgPolicies. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists Assured Workloads under a CRM Node. |
+| <CopyableCode code="analyze_workload_move" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Analyzes a hypothetical move of a source resource to a target workload to surface compliance risks. The analysis is best effort and is not guaranteed to be exhaustive. |
+| <CopyableCode code="enable_resource_monitoring" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Enable resource violation monitoring for a workload. |
 | <CopyableCode code="mutate_partner_permissions" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Update the permissions settings for an existing partner workload. For force updates don't set etag field in the Workload. Only one update operation per workload can be in progress. |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Updates an existing workload. Currently allows updating of workload display_name and labels. For force updates don't set etag field in the Workload. Only one update operation per workload can be in progress. |
 | <CopyableCode code="restrict_allowed_resources" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Restrict the list of resources allowed in the Workload environment. The current list of allowed products can be found at https://cloud.google.com/assured-workloads/docs/supported-products In addition to assuredworkloads.workload.update permission, the user should also have orgpolicy.policy.set permission on the folder resource to use this functionality. |

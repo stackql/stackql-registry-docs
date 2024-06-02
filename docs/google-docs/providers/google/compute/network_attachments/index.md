@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_attachments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.network_attachments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.network_attachments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,9 +48,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of all NetworkAttachment resources, regional and global, available to the specified project. |
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of all NetworkAttachment resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networkAttachment, project, region" /> | Returns the specified NetworkAttachment resource in the given scope. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Lists the NetworkAttachments for a project in the given scope. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a NetworkAttachment in the specified project in the given scope using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="networkAttachment, project, region" /> | Deletes the specified NetworkAttachment in the given scope |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves the list of all NetworkAttachment resources, regional and global, available to the specified project. |
+| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves the list of all NetworkAttachment resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="networkAttachment, project, region" /> | Patches the specified NetworkAttachment resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |

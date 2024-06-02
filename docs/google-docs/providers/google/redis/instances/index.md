@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.redis.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="redis.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,9 +55,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="readEndpointPort" /> | `integer` | Output only. The port number of the exposed readonly redis endpoint. Standard tier only. Write requests should target 'port'. |
 | <CopyableCode code="readReplicasMode" /> | `string` | Optional. Read replicas mode for the instance. Defaults to READ_REPLICAS_DISABLED. |
 | <CopyableCode code="redisConfigs" /> | `object` | Optional. Redis configuration parameters, according to http://redis.io/topics/config. Currently, the only supported parameters are: Redis version 3.2 and newer: * maxmemory-policy * notify-keyspace-events Redis version 4.0 and newer: * activedefrag * lfu-decay-time * lfu-log-factor * maxmemory-gb Redis version 5.0 and newer: * stream-node-max-bytes * stream-node-max-entries |
-| <CopyableCode code="redisVersion" /> | `string` | Optional. The version of Redis software. If not provided, latest supported version will be used. Currently, the supported values are: * `REDIS_3_2` for Redis 3.2 compatibility * `REDIS_4_0` for Redis 4.0 compatibility (default) * `REDIS_5_0` for Redis 5.0 compatibility * `REDIS_6_X` for Redis 6.x compatibility |
+| <CopyableCode code="redisVersion" /> | `string` | Optional. The version of Redis software. If not provided, latest supported version will be used. Currently, the supported values are: * `REDIS_3_2` for Redis 3.2 compatibility * `REDIS_4_0` for Redis 4.0 compatibility (default) * `REDIS_5_0` for Redis 5.0 compatibility * `REDIS_6_X` for Redis 6.x compatibility * `REDIS_7_0` for Redis 7.0 compatibility |
 | <CopyableCode code="replicaCount" /> | `integer` | Optional. The number of replica nodes. The valid range for the Standard Tier with read replicas enabled is [1-5] and defaults to 2. If read replicas are not enabled for a Standard Tier instance, the only valid value is 1 and the default is 1. The valid value for basic tier is 0 and the default is also 0. |
 | <CopyableCode code="reservedIpRange" /> | `string` | Optional. For DIRECT_PEERING mode, the CIDR range of internal addresses that are reserved for this instance. Range must be unique and non-overlapping with existing subnets in an authorized network. For PRIVATE_SERVICE_ACCESS mode, the name of one allocated IP address ranges associated with this private service access connection. If not provided, the service will choose an unused /29 block, for example, 10.0.0.0/29 or 192.168.0.0/29. For READ_REPLICAS_ENABLED the default block size is /28. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Optional. Output only. Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Optional. Output only. Reserved for future use. |
 | <CopyableCode code="secondaryIpRange" /> | `string` | Optional. Additional IP range for node placement. Required when enabling read replicas on an existing instance. For DIRECT_PEERING mode value must be a CIDR range of size /28, or "auto". For PRIVATE_SERVICE_ACCESS mode value must be the name of an allocated address range associated with the private service access connection, or "auto". |
 | <CopyableCode code="serverCaCerts" /> | `array` | Output only. List of server CA certificates for the instance. |
 | <CopyableCode code="state" /> | `string` | Output only. The current state of this instance. |

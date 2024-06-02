@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>public_advertised_prefixes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.public_advertised_prefixes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.public_advertised_prefixes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,11 +33,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` | [Output Only] The unique identifier for the resource type. The server generates this identifier. |
 | <CopyableCode code="name" /> | `string` | Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
 | <CopyableCode code="description" /> | `string` | An optional description of this resource. Provide this property when you create the resource. |
+| <CopyableCode code="byoipApiVersion" /> | `string` | [Output Only] The version of BYOIP API. |
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | <CopyableCode code="dnsVerificationIp" /> | `string` | The address to be used for reverse DNS verification. |
 | <CopyableCode code="fingerprint" /> | `string` | Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a new PublicAdvertisedPrefix. An up-to-date fingerprint must be provided in order to update the PublicAdvertisedPrefix, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve a PublicAdvertisedPrefix. |
 | <CopyableCode code="ipCidrRange" /> | `string` | The address range, in CIDR format, represented by this public advertised prefix. |
 | <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#publicAdvertisedPrefix for public advertised prefixes. |
+| <CopyableCode code="pdpScope" /> | `string` | Specifies how child public delegated prefix will be scoped. It could be one of following values: - `REGIONAL`: The public delegated prefix is regional only. The provisioning will take a few minutes. - `GLOBAL`: The public delegated prefix is global only. The provisioning will take ~4 weeks. - `GLOBAL_AND_REGIONAL` [output only]: The public delegated prefixes is BYOIP V1 legacy prefix. This is output only value and no longer supported in BYOIP V2.  |
 | <CopyableCode code="publicDelegatedPrefixs" /> | `array` | [Output Only] The list of public delegated prefixes that exist for this public advertised prefix. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="sharedSecret" /> | `string` | [Output Only] The shared secret to be used for reverse DNS verification. |
@@ -49,4 +51,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Lists the PublicAdvertisedPrefixes for a project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a PublicAdvertisedPrefix in the specified project using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Deletes the specified PublicAdvertisedPrefix |
+| <CopyableCode code="announce" /> | `EXEC` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Announces the specified PublicAdvertisedPrefix |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
+| <CopyableCode code="withdraw" /> | `EXEC` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Withdraws the specified PublicAdvertisedPrefix |

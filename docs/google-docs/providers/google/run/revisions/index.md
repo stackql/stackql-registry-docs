@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>revisions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.run.revisions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="run.revisions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,10 +47,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="launchStage" /> | `string` | The least stable launch stage needed to create this resource, as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports `ALPHA`, `BETA`, and `GA`. Note that this value might not be what was used as input. For example, if ALPHA was provided as input in the parent resource, but only BETA and GA-level features are were, this field will be BETA. |
 | <CopyableCode code="logUri" /> | `string` | Output only. The Google Console URI to obtain logs for the Revision. |
 | <CopyableCode code="maxInstanceRequestConcurrency" /> | `integer` | Sets the maximum number of requests that each serving instance can receive. |
+| <CopyableCode code="nodeSelector" /> | `object` | Hardware constraints configuration. |
 | <CopyableCode code="observedGeneration" /> | `string` | Output only. The generation of this Revision currently serving traffic. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. |
 | <CopyableCode code="reconciling" /> | `boolean` | Output only. Indicates whether the resource's reconciliation is still in progress. See comments in `Service.reconciling` for additional information on reconciliation process in Cloud Run. |
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="scaling" /> | `object` | Settings for revision-level scaling settings. |
+| <CopyableCode code="scalingStatus" /> | `object` | Effective settings for the current revision |
 | <CopyableCode code="service" /> | `string` | Output only. The name of the parent service. |
 | <CopyableCode code="serviceAccount" /> | `string` | Email address of the IAM service account associated with the revision of the service. The service account represents the identity of the running revision, and determines what permissions the revision has. |
 | <CopyableCode code="sessionAffinity" /> | `boolean` | Enable session affinity. |
@@ -58,11 +60,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="uid" /> | `string` | Output only. Server assigned unique identifier for the Revision. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last-modified time. |
 | <CopyableCode code="volumes" /> | `array` | A list of Volumes to make available to containers. |
-| <CopyableCode code="vpcAccess" /> | `object` | VPC Access settings. For more information on creating a VPC Connector, visit https://cloud.google.com/vpc/docs/configure-serverless-vpc-access For information on how to configure Cloud Run with an existing VPC Connector, visit https://cloud.google.com/run/docs/configuring/connecting-vpc |
+| <CopyableCode code="vpcAccess" /> | `object` | VPC Access settings. For more information on sending traffic to a VPC network, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, revisionsId, servicesId" /> | Gets information about a Revision. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Lists Revisions from a given Service, or from a given location. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Lists Revisions from a given Service, or from a given location. Results are sorted by creation time, descending. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, revisionsId, servicesId" /> | Deletes a Revision. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Lists Revisions from a given Service, or from a given location. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Lists Revisions from a given Service, or from a given location. Results are sorted by creation time, descending. |
+| <CopyableCode code="export_status" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, revisionsId, revisionsId1, servicesId" /> | Read the status of an image export operation. |

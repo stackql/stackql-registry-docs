@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Backup For GKE Is A Managed Kubernetes Workload Backup And Restore Service For GKE Clusters.  
+Backup for GKE is a managed Kubernetes workload backup and restore service for GKE clusters.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>14</b></span><br />
-<span>total selectable resources:&nbsp;<b>14</b></span><br />
-<span>total methods:&nbsp;<b>62</b></span><br />
+<span>total resources:&nbsp;<b>15</b></span><br />
+<span>total selectable resources:&nbsp;<b>15</b></span><br />
+<span>total methods:&nbsp;<b>63</b></span><br />
 </div>
 </div>
 
@@ -32,9 +32,9 @@ Backup For GKE Is A Managed Kubernetes Workload Backup And Restore Service For G
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.gkebackup</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Backup For GKE API</td></tr>
-<tr><td><b>Description</b></td><td>Backup For GKE Is A Managed Kubernetes Workload Backup And Restore Service For GKE Clusters.</td></tr>
-<tr><td><b>Id</b></td><td><code>gkebackup:v23.09.00169</code></td></tr>
+<tr><td><b>Title</b></td><td>Backup for GKE API</td></tr>
+<tr><td><b>Description</b></td><td>Backup for GKE is a managed Kubernetes workload backup and restore service for GKE clusters.</td></tr>
+<tr><td><b>Id</b></td><td><code>gkebackup:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,6 +43,7 @@ Backup For GKE Is A Managed Kubernetes Workload Backup And Restore Service For G
 <a href="/providers/google/gkebackup/backup_plans/">backup_plans</a><br />
 <a href="/providers/google/gkebackup/backup_plans_iam_policies/">backup_plans_iam_policies</a><br />
 <a href="/providers/google/gkebackup/backups/">backups</a><br />
+<a href="/providers/google/gkebackup/backups_backup_index_download_url/">backups_backup_index_download_url</a><br />
 <a href="/providers/google/gkebackup/backups_iam_policies/">backups_iam_policies</a><br />
 <a href="/providers/google/gkebackup/locations/">locations</a><br />
 <a href="/providers/google/gkebackup/operations/">operations</a><br />

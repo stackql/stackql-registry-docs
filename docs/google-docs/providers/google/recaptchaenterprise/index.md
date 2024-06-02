@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Help Protect Your Website From Fraudulent Activity, Spam, And Abuse Without Creating Friction.  
+Help protect your website from fraudulent activity, spam, and abuse without creating friction.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Help Protect Your Website From Fraudulent Activity, Spam, And Abuse Without Crea
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
 <span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>22</b></span><br />
+<span>total methods:&nbsp;<b>23</b></span><br />
 </div>
 </div>
 
@@ -32,9 +32,9 @@ Help Protect Your Website From Fraudulent Activity, Spam, And Abuse Without Crea
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.recaptchaenterprise</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>ReCAPTCHA Enterprise API</td></tr>
-<tr><td><b>Description</b></td><td>Help Protect Your Website From Fraudulent Activity, Spam, And Abuse Without Creating Friction.</td></tr>
-<tr><td><b>Id</b></td><td><code>recaptchaenterprise:v23.09.00169</code></td></tr>
+<tr><td><b>Title</b></td><td>reCAPTCHA Enterprise API</td></tr>
+<tr><td><b>Description</b></td><td>Help protect your website from fraudulent activity, spam, and abuse without creating friction.</td></tr>
+<tr><td><b>Id</b></td><td><code>recaptchaenterprise:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

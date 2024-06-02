@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances_auth_string</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.redis.instances_auth_string" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="redis.instances_auth_string" /></td></tr>
 </tbody></table>
 
 ## Fields

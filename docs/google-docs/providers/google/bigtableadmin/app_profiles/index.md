@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>app_profiles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.bigtableadmin.app_profiles" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="bigtableadmin.app_profiles" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,9 +32,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | The unique name of the app profile. Values are of the form `projects/&#123;project&#125;/instances/&#123;instance&#125;/appProfiles/_a-zA-Z0-9*`. |
 | <CopyableCode code="description" /> | `string` | Long form description of the use case for this AppProfile. |
+| <CopyableCode code="dataBoostIsolationReadOnly" /> | `object` | Data Boost is a serverless compute capability that lets you run high-throughput read jobs and queries on your Bigtable data, without impacting the performance of the clusters that handle your application traffic. Data Boost supports read-only use cases with single-cluster routing. |
 | <CopyableCode code="etag" /> | `string` | Strongly validated etag for optimistic concurrency control. Preserve the value returned from `GetAppProfile` when calling `UpdateAppProfile` to fail the request if there has been a modification in the mean time. The `update_mask` of the request need not include `etag` for this protection to apply. See [Wikipedia](https://en.wikipedia.org/wiki/HTTP_ETag) and [RFC 7232](https://tools.ietf.org/html/rfc7232#section-2.3) for more details. |
 | <CopyableCode code="multiClusterRoutingUseAny" /> | `object` | Read/write requests are routed to the nearest cluster in the instance, and will fail over to the nearest cluster that is available in the event of transient errors or delays. Clusters in a region are considered equidistant. Choosing this option sacrifices read-your-writes consistency to improve availability. |
+| <CopyableCode code="priority" /> | `string` | This field has been deprecated in favor of `standard_isolation.priority`. If you set this field, `standard_isolation.priority` will be set instead. The priority of requests sent using this app profile. |
 | <CopyableCode code="singleClusterRouting" /> | `object` | Unconditionally routes all read/write requests to a specific cluster. This option preserves read-your-writes consistency but does not improve availability. |
+| <CopyableCode code="standardIsolation" /> | `object` | Standard options for isolating this app profile's traffic from other use cases. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

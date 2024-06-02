@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Creates Short-Lived Credentials For Impersonating IAM Service Accounts. To Enable This API, You Must Enable The IAM API (Iam.Googleapis.Com).   
+Creates short-lived credentials for impersonating IAM service accounts. Disabling this API also disables the IAM API (iam.googleapis.com). However, enabling this API doesn't enable the IAM API.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Creates Short-Lived Credentials For Impersonating IAM Service Accounts. To Enabl
 <tr><td><b>Name</b></td><td><code>google.iamcredentials</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>IAM Service Account Credentials API</td></tr>
-<tr><td><b>Description</b></td><td>Creates Short-Lived Credentials For Impersonating IAM Service Accounts. To Enable This API, You Must Enable The IAM API (Iam.Googleapis.Com). </td></tr>
-<tr><td><b>Id</b></td><td><code>iamcredentials:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Creates short-lived credentials for impersonating IAM service accounts. Disabling this API also disables the IAM API (iam.googleapis.com). However, enabling this API doesn't enable the IAM API. </td></tr>
+<tr><td><b>Id</b></td><td><code>iamcredentials:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

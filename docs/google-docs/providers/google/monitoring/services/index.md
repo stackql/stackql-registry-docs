@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.monitoring.services" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="monitoring.services" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Resource name for this Service. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]  |
+| <CopyableCode code="name" /> | `string` | Identifier. Resource name for this Service. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]  |
 | <CopyableCode code="appEngine" /> | `object` | App Engine service. Learn more at https://cloud.google.com/appengine. |
 | <CopyableCode code="basicService" /> | `object` | A well-known service type, defined by its service type and service labels. Documentation and examples here (https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli). |
 | <CopyableCode code="cloudEndpoints" /> | `object` | Cloud Endpoints service. Learn more at https://cloud.google.com/endpoints. |
@@ -48,9 +48,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="services_get" /> | `SELECT` | <CopyableCode code="name" /> | Get the named Service. |
 | <CopyableCode code="services_list" /> | `SELECT` | <CopyableCode code="parent, parentType" /> | List Services for this Metrics Scope. |
 | <CopyableCode code="services_create" /> | `INSERT` | <CopyableCode code="parent, parentType" /> | Create a Service. |
-| <CopyableCode code="services_delete" /> | `DELETE` | <CopyableCode code="name" /> | Soft delete this Service. |
 | <CopyableCode code="_services_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | List Services for this Metrics Scope. |
-| <CopyableCode code="services_patch" /> | `EXEC` | <CopyableCode code="name" /> | Update this Service. |

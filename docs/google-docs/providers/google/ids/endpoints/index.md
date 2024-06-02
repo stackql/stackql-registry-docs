@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.ids.endpoints" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="ids.endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,6 +37,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="endpointIp" /> | `string` | Output only. The IP address of the IDS Endpoint's ILB. |
 | <CopyableCode code="labels" /> | `object` | The labels of the endpoint. |
 | <CopyableCode code="network" /> | `string` | Required. The fully qualified URL of the network to which the IDS Endpoint is attached. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. [Output Only] Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. [Output Only] Reserved for future use. |
 | <CopyableCode code="severity" /> | `string` | Required. Lowest threat severity that this endpoint will alert on. |
 | <CopyableCode code="state" /> | `string` | Output only. Current state of the endpoint. |
 | <CopyableCode code="threatExceptions" /> | `array` | List of threat IDs to be excepted from generating alerts. |

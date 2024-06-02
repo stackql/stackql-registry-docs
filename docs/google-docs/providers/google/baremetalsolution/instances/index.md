@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -36,6 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="firmwareVersion" /> | `string` | Output only. The firmware version for the instance. |
 | <CopyableCode code="hyperthreadingEnabled" /> | `boolean` | True if you enable hyperthreading for the server, otherwise false. The default value is false. |
 | <CopyableCode code="interactiveSerialConsoleEnabled" /> | `boolean` | Output only. True if the interactive serial console feature is enabled for the instance, false otherwise. The default value is false. |
+| <CopyableCode code="kmsKeyVersion" /> | `string` | Optional. Name of the KMS crypto key version used to encrypt the initial passwords. The key has to have ASYMMETRIC_DECRYPT purpose. Format is `projects/&#123;project&#125;/locations/&#123;location&#125;/keyRings/&#123;keyring&#125;/cryptoKeys/&#123;key&#125;/cryptoKeyVersions/&#123;version&#125;`. |
 | <CopyableCode code="labels" /> | `object` | Labels as key value pairs. |
 | <CopyableCode code="logicalInterfaces" /> | `array` | List of logical interfaces for the instance. The number of logical interfaces will be the same as number of hardware bond/nic on the chosen network template. For the non-multivlan configurations (for eg, existing servers) that use existing default network template (bondaa-bondaa), both the Instance.networks field and the Instance.logical_interfaces fields will be filled to ensure backward compatibility. For the others, only Instance.logical_interfaces will be filled. |
 | <CopyableCode code="loginInfo" /> | `string` | Output only. Text field about info for logging in. |
@@ -44,7 +45,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="networkTemplate" /> | `string` | Instance network template name. For eg, bondaa-bondaa, bondab-nic, etc. Generally, the template name follows the syntax of "bond" or "nic". |
 | <CopyableCode code="networks" /> | `array` | Output only. List of networks associated with this server. |
 | <CopyableCode code="osImage" /> | `string` | The OS image currently installed on the server. |
-| <CopyableCode code="pod" /> | `string` | Immutable. Pod name. Pod is an independent part of infrastructure. Instance can be connected to the assets (networks, volumes) allocated in the same pod only. |
+| <CopyableCode code="pod" /> | `string` | Immutable. Pod name. Pod is an independent part of infrastructure. Instance can only be connected to the assets (networks, volumes) allocated in the same pod. |
+| <CopyableCode code="sshKeys" /> | `array` | Optional. List of SSH Keys used during instance provisioning. |
 | <CopyableCode code="state" /> | `string` | Output only. The state of the server. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Update a time stamp. |
 | <CopyableCode code="volumes" /> | `array` | Input only. List of Volumes to attach to this Instance on creation. This field won't be populated in Get/List responses. |
@@ -56,9 +58,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List servers in a given project and location. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List servers in a given project and location. |
 | <CopyableCode code="detach_lun" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Detach LUN from Instance. |
+| <CopyableCode code="disable_hyperthreading" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Perform disable hyperthreading operation on a single server. |
 | <CopyableCode code="disable_interactive_serial_console" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Disable the interactive serial console feature on an instance. |
+| <CopyableCode code="enable_hyperthreading" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Perform enable hyperthreading operation on a single server. |
 | <CopyableCode code="enable_interactive_serial_console" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Enable the interactive serial console feature on an instance. |
+| <CopyableCode code="load_auth_info" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Load auth info for a server. |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Update details of a single server. |
+| <CopyableCode code="reimage" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Perform reimage operation on a single server. |
 | <CopyableCode code="rename" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | RenameInstance sets a new name for an instance. Use with caution, previous names become immediately invalidated. |
 | <CopyableCode code="reset" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Perform an ungraceful, hard reset on a server. Equivalent to shutting the power off and then turning it back on. |
 | <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Starts a server that was shutdown. |

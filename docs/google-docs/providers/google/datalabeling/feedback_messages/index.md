@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>feedback_messages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.datalabeling.feedback_messages" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datalabeling.feedback_messages" /></td></tr>
 </tbody></table>
 
 ## Fields

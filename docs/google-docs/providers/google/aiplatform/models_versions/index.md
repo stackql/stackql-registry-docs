@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>models_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.models_versions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.models_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,9 +32,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | The resource name of the Model. |
 | <CopyableCode code="description" /> | `string` | The description of the Model. |
-| <CopyableCode code="artifactUri" /> | `string` | Immutable. The path to the directory containing the Model artifact and any of its supporting files. Not present for AutoML Models or Large Models. |
+| <CopyableCode code="artifactUri" /> | `string` | Immutable. The path to the directory containing the Model artifact and any of its supporting files. Not required for AutoML Models. |
+| <CopyableCode code="baseModelSource" /> | `object` | User input field to specify the base model source. Currently it only supports specifing the Model Garden models and Genie models. |
 | <CopyableCode code="containerSpec" /> | `object` | Specification of a container for serving predictions. Some fields in this message correspond to fields in the [Kubernetes Container v1 core specification](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#container-v1-core). |
 | <CopyableCode code="createTime" /> | `string` | Output only. Timestamp when this Model was uploaded into Vertex AI. |
+| <CopyableCode code="dataStats" /> | `object` | Stats of data used for train or evaluate the Model. |
 | <CopyableCode code="deployedModels" /> | `array` | Output only. The pointers to DeployedModels created from this Model. Note that Model could have been deployed to Endpoints in different Locations. |
 | <CopyableCode code="displayName" /> | `string` | Required. The display name of the Model. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
 | <CopyableCode code="encryptionSpec" /> | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |

@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-A Service To Scan Container Images For Vulnerabilities.  
+A service to scan container images for vulnerabilities.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ A Service To Scan Container Images For Vulnerabilities.
 <tr><td><b>Name</b></td><td><code>google.ondemandscanning</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>On-Demand Scanning API</td></tr>
-<tr><td><b>Description</b></td><td>A Service To Scan Container Images For Vulnerabilities.</td></tr>
-<tr><td><b>Id</b></td><td><code>ondemandscanning:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>A service to scan container images for vulnerabilities.</td></tr>
+<tr><td><b>Id</b></td><td><code>ondemandscanning:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

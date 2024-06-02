@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>devices</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.sasportal.devices" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sasportal.devices" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -35,7 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="currentChannels" /> | `array` | Output only. Current channels with scores. |
 | <CopyableCode code="deviceMetadata" /> | `object` | Device data overridable by both SAS Portal and registration requests. |
 | <CopyableCode code="displayName" /> | `string` | Device display name. |
-| <CopyableCode code="fccId" /> | `string` | The FCC identifier of the device. |
+| <CopyableCode code="fccId" /> | `string` | The FCC identifier of the device. Refer to https://www.fcc.gov/oet/ea/fccid for FccID format. Accept underscores and periods because some test-SAS customers use them. |
 | <CopyableCode code="grantRangeAllowlists" /> | `array` | Only ranges that are within the allowlists are available for new grants. |
 | <CopyableCode code="grants" /> | `array` | Output only. Grants held by the device. |
 | <CopyableCode code="preloadedConfig" /> | `object` | Information about the device configuration. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>import_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.migrationcenter.import_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="migrationcenter.import_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -34,7 +34,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="assetSource" /> | `string` | Required. Reference to a source. |
 | <CopyableCode code="completeTime" /> | `string` | Output only. The timestamp when the import job was completed. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when the import job was created. |
-| <CopyableCode code="displayName" /> | `string` | User-friendly display name. Maximum length is 63 characters. |
+| <CopyableCode code="displayName" /> | `string` | Optional. User-friendly display name. Maximum length is 256 characters. |
 | <CopyableCode code="executionReport" /> | `object` | A resource that reports result of the import job execution. |
 | <CopyableCode code="labels" /> | `object` | Labels as key value pairs. |
 | <CopyableCode code="state" /> | `string` | Output only. The state of the import job. |

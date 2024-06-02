@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-The Managed Service For Microsoft Active Directory API Is Used For Managing A Highly Available, Hardened Service Running Microsoft Active Directory (AD).  
+The Managed Service for Microsoft Active Directory API is used for managing a highly available, hardened service running Microsoft Active Directory (AD).  
     
 :::info Service Summary
 
@@ -32,9 +32,9 @@ The Managed Service For Microsoft Active Directory API Is Used For Managing A Hi
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.managedidentities</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Managed Service For Microsoft Active Directory API</td></tr>
-<tr><td><b>Description</b></td><td>The Managed Service For Microsoft Active Directory API Is Used For Managing A Highly Available, Hardened Service Running Microsoft Active Directory (AD).</td></tr>
-<tr><td><b>Id</b></td><td><code>managedidentities:v23.09.00169</code></td></tr>
+<tr><td><b>Title</b></td><td>Managed Service for Microsoft Active Directory API</td></tr>
+<tr><td><b>Description</b></td><td>The Managed Service for Microsoft Active Directory API is used for managing a highly available, hardened service running Microsoft Active Directory (AD).</td></tr>
+<tr><td><b>Id</b></td><td><code>managedidentities:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -22,7 +22,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>9</b></span><br />
 <span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>46</b></span><br />
+<span>total methods:&nbsp;<b>49</b></span><br />
 </div>
 </div>
 
@@ -34,7 +34,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Contact Center AI Insights API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>contactcenterinsights:v23.09.00169</code></td></tr>
+<tr><td><b>Id</b></td><td><code>contactcenterinsights:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

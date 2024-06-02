@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>agents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.agents" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.agents" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,13 +33,17 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | The unique identifier of the agent. Required for the Agents.UpdateAgent method. Agents.CreateAgent populates the name automatically. Format: `projects//locations//agents/`. |
 | <CopyableCode code="description" /> | `string` | The description of the agent. The maximum length is 500 characters. If exceeded, the request is rejected. |
 | <CopyableCode code="advancedSettings" /> | `object` | Hierarchical advanced settings for agent/flow/page/fulfillment/parameter. Settings exposed at lower level overrides the settings exposed at higher level. Overriding occurs at the sub-setting level. For example, the playback_interruption_settings at fulfillment level only overrides the playback_interruption_settings at the agent level, leaving other settings at the agent level unchanged. DTMF settings does not override each other. DTMF settings set at different levels define DTMF detections running in parallel. Hierarchy: Agent-&gt;Flow-&gt;Page-&gt;Fulfillment/Parameter. |
+| <CopyableCode code="answerFeedbackSettings" /> | `object` | Settings for answer feedback collection. |
 | <CopyableCode code="avatarUri" /> | `string` | The URI of the agent's avatar. Avatars are used throughout the Dialogflow console and in the self-hosted [Web Demo](https://cloud.google.com/dialogflow/docs/integrations/web-demo) integration. |
 | <CopyableCode code="defaultLanguageCode" /> | `string` | Required. Immutable. The default language of the agent as a language tag. See [Language Support](https://cloud.google.com/dialogflow/cx/docs/reference/language) for a list of the currently supported language codes. This field cannot be set by the Agents.UpdateAgent method. |
 | <CopyableCode code="displayName" /> | `string` | Required. The human-readable name of the agent, unique within the location. |
+| <CopyableCode code="enableMultiLanguageTraining" /> | `boolean` | Optional. Enable training multi-lingual models for this agent. These models will be trained on all the languages supported by the agent. |
 | <CopyableCode code="enableSpellCorrection" /> | `boolean` | Indicates if automatic spell correction is enabled in detect intent requests. |
 | <CopyableCode code="enableStackdriverLogging" /> | `boolean` | Indicates if stackdriver logging is enabled for the agent. Please use agent.advanced_settings instead. |
+| <CopyableCode code="genAppBuilderSettings" /> | `object` | Settings for Gen App Builder. |
 | <CopyableCode code="gitIntegrationSettings" /> | `object` | Settings for connecting to Git repository for an agent. |
 | <CopyableCode code="locked" /> | `boolean` | Indicates whether the agent is locked for changes. If the agent is locked, modifications to the agent will be rejected except for RestoreAgent. |
+| <CopyableCode code="personalizationSettings" /> | `object` | Settings for end user personalization. |
 | <CopyableCode code="securitySettings" /> | `string` | Name of the SecuritySettings reference for the agent. Format: `projects//locations//securitySettings/`. |
 | <CopyableCode code="speechToTextSettings" /> | `object` | Settings related to speech recognition. |
 | <CopyableCode code="startFlow" /> | `string` | Immutable. Name of the start flow in this agent. A start flow will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: `projects//locations//agents//flows/`. |

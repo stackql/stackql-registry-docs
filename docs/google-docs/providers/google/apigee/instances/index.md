@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="apigee.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,9 +32,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Required. Resource ID of the instance. Values must match the regular expression `^a-z&#123;0,30&#125;[a-z\d]$`. |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the instance. |
+| <CopyableCode code="accessLoggingConfig" /> | `object` | Access logging configuration enables customers to ship the access logs from the tenant projects to their own project's cloud logging. The feature is at the instance level ad disabled by default. It can be enabled during CreateInstance or UpdateInstance. |
 | <CopyableCode code="consumerAcceptList" /> | `array` | Optional. Customer accept list represents the list of projects (id/number) on customer side that can privately connect to the service attachment. It is an optional field which the customers can provide during the instance creation. By default, the customer project associated with the Apigee organization will be included to the list. |
 | <CopyableCode code="createdAt" /> | `string` | Output only. Time the instance was created in milliseconds since epoch. |
-| <CopyableCode code="diskEncryptionKeyName" /> | `string` | Customer Managed Encryption Key (CMEK) used for disk and volume encryption. Required for Apigee paid subscriptions only. Use the following format: `projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)` |
+| <CopyableCode code="diskEncryptionKeyName" /> | `string` | Customer Managed Encryption Key (CMEK) used for disk and volume encryption. If not specified, a Google-Managed encryption key will be used. Use the following format: `projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)` |
 | <CopyableCode code="displayName" /> | `string` | Optional. Display name for the instance. |
 | <CopyableCode code="host" /> | `string` | Output only. Internal hostname or IP address of the Apigee endpoint used by clients to connect to the service. |
 | <CopyableCode code="ipRange" /> | `string` | Optional. Comma-separated list of CIDR blocks of length 22 and/or 28 used to create the Apigee instance. Providing CIDR ranges is optional. You can provide just /22 or /28 or both (or neither). Ranges you provide should be freely available as part of a larger named range you have allocated to the Service Networking peering. If this parameter is not provided, Apigee automatically requests an available /22 and /28 CIDR block from Service Networking. Use the /22 CIDR block for configuring your firewall needs to allow traffic from Apigee. Input formats: `a.b.c.d/22` or `e.f.g.h/28` or `a.b.c.d/22,e.f.g.h/28` |

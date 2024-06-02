@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entity_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.connectors.entity_types" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="connectors.entity_types" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,8 +32,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | The name of the entity type. |
 | <CopyableCode code="fields" /> | `array` | List containing metadata information about each field of the entity type. |
+| <CopyableCode code="jsonSchema" /> | `object` | JsonSchema representation of schema metadata |
+| <CopyableCode code="operations" /> | `array` |  |
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="connectionsId, entityTypesId, locationsId, projectsId" /> | Gets metadata of given entity type |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists metadata related to all entity types present in the external system. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists metadata related to all entity types present in the external system. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -62,6 +62,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="reservationAffinity" /> | `object` | Specifies the reservations that this instance can consume from. |
 | <CopyableCode code="resourcePolicies" /> | `array` | Resource policies applied to this instance. |
 | <CopyableCode code="resourceStatus" /> | `object` | Contains output only fields. Use this sub-message for actual values set on Instance attributes as compared to the value requested by the user (intent) in their instance CRUD calls. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | [Output Only] Reserved for future use. |
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | [Output Only] Reserved for future use. |
 | <CopyableCode code="scheduling" /> | `object` | Sets the scheduling options for an Instance. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for this resource. |
@@ -78,15 +79,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. |
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instance, project, zone" /> | Returns the specified Instance resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves the list of instances contained within the specified zone. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates an instance resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instance, project, zone" /> | Deletes the specified Instance resource. For more information, see Deleting an instance. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. |
+| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="attach_disk" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Attaches an existing Disk resource to an instance. You must first create the disk before you can attach it. It is not possible to create and attach a disk at the same time. For more information, read Adding a persistent disk to your instance. |
 | <CopyableCode code="bulk_insert" /> | `EXEC` | <CopyableCode code="project, zone" /> | Creates multiple instances. Count specifies the number of instances to create. For more information, see About bulk creation of VMs. |
 | <CopyableCode code="detach_disk" /> | `EXEC` | <CopyableCode code="deviceName, instance, project, zone" /> | Detaches a disk from an instance. |
+| <CopyableCode code="perform_maintenance" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Perform a manual maintenance on the instance. |
 | <CopyableCode code="reset" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Performs a reset on the instance. This is a hard reset. The VM does not do a graceful shutdown. For more information, see Resetting an instance. |
 | <CopyableCode code="resume" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Resumes an instance that was suspended using the instances().suspend method. |
 | <CopyableCode code="send_diagnostic_interrupt" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Sends diagnostic interrupt to the instance. |
@@ -99,6 +101,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="set_min_cpu_platform" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Changes the minimum CPU platform that this instance should use. This method can only be called on a stopped instance. For more information, read Specifying a Minimum CPU Platform. |
 | <CopyableCode code="set_name" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Sets name of an instance. |
 | <CopyableCode code="set_scheduling" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Sets an instance's scheduling options. You can only call this method on a stopped instance, that is, a VM instance that is in a `TERMINATED` state. See Instance Life Cycle for more information on the possible instance states. For more information about setting scheduling options for a VM, see Set VM host maintenance policy. |
+| <CopyableCode code="set_security_policy" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Sets the Google Cloud Armor security policy for the specified instance. For more information, see Google Cloud Armor Overview |
 | <CopyableCode code="set_service_account" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Sets the service account on the instance. For more information, read Changing the service account and access scopes for an instance. |
 | <CopyableCode code="set_shielded_instance_integrity_policy" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Sets the Shielded Instance integrity policy for an instance. You can only use this method on a running instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
 | <CopyableCode code="set_tags" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Sets network tags for the specified instance to the data included in the request. |

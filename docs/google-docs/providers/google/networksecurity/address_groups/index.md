@@ -24,10 +24,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>address_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.address_groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.address_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | Required. Name of the AddressGroup resource. It matches pattern `projects/*/locations/&#123;location&#125;/addressGroups/`. |
+| <CopyableCode code="description" /> | `string` | Optional. Free-text description of the resource. |
+| <CopyableCode code="capacity" /> | `integer` | Required. Capacity of the Address Group |
+| <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when the resource was created. |
+| <CopyableCode code="items" /> | `array` | Optional. List of items. |
+| <CopyableCode code="labels" /> | `object` | Optional. Set of label tags associated with the AddressGroup resource. |
+| <CopyableCode code="selfLink" /> | `string` | Output only. Server-defined fully-qualified URL for this resource. |
+| <CopyableCode code="type" /> | `string` | Required. The type of the Address Group. Possible values are "IPv4" or "IPV6". |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the resource was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

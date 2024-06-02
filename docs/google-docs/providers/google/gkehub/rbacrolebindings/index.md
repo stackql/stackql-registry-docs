@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>rbacrolebindings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.rbacrolebindings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.rbacrolebindings" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name for the rbacrolebinding `projects/&#123;project&#125;/locations/&#123;location&#125;/namespaces/&#123;namespace&#125;/rbacrolebindings/&#123;rbacrolebinding&#125;` or `projects/&#123;project&#125;/locations/&#123;location&#125;/memberships/&#123;membership&#125;/rbacrolebindings/&#123;rbacrolebinding&#125;` |
+| <CopyableCode code="name" /> | `string` | The resource name for the rbacrolebinding `projects/&#123;project&#125;/locations/&#123;location&#125;/scopes/&#123;scope&#125;/rbacrolebindings/&#123;rbacrolebinding&#125;` or `projects/&#123;project&#125;/locations/&#123;location&#125;/memberships/&#123;membership&#125;/rbacrolebindings/&#123;rbacrolebinding&#125;` |
 | <CopyableCode code="createTime" /> | `string` | Output only. When the rbacrolebinding was created. |
 | <CopyableCode code="deleteTime" /> | `string` | Output only. When the rbacrolebinding was deleted. |
 | <CopyableCode code="group" /> | `string` | group is the group, as seen by the kubernetes cluster. |

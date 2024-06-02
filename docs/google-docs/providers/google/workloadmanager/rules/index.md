@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.workloadmanager.rules" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="workloadmanager.rules" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,6 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="revisionId" /> | `string` | Output only. the version of the rule |
 | <CopyableCode code="secondaryCategory" /> | `string` | the secondary category |
 | <CopyableCode code="severity" /> | `string` | the severity of the rule |
+| <CopyableCode code="tags" /> | `array` | List of user-defined tags |
 | <CopyableCode code="uri" /> | `string` | the docuement url for the rule |
 ## Methods
 | Name | Accessible by | Required Params |

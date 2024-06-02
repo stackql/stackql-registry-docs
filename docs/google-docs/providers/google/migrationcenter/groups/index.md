@@ -24,16 +24,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.migrationcenter.groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="migrationcenter.groups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Output only. The name of the group. |
-| <CopyableCode code="description" /> | `string` | The description of the resource. |
+| <CopyableCode code="description" /> | `string` | Optional. The description of the group. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when the group was created. |
-| <CopyableCode code="displayName" /> | `string` | User-friendly display name. |
+| <CopyableCode code="displayName" /> | `string` | Optional. User-friendly display name. |
 | <CopyableCode code="labels" /> | `object` | Labels as key value pairs. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the group was last updated. |
 ## Methods

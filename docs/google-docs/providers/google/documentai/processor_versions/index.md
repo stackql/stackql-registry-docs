@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>processor_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.documentai.processor_versions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="documentai.processor_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the processor version. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/processors/&#123;processor&#125;/processorVersions/&#123;processor_version&#125;` |
+| <CopyableCode code="name" /> | `string` | Identifier. The resource name of the processor version. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/processors/&#123;processor&#125;/processorVersions/&#123;processor_version&#125;` |
 | <CopyableCode code="createTime" /> | `string` | The time the processor version was created. |
 | <CopyableCode code="deprecationInfo" /> | `object` | Information about the upcoming deprecation of this processor version. |
 | <CopyableCode code="displayName" /> | `string` | The display name of the processor version. |
@@ -39,7 +39,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kmsKeyName" /> | `string` | The KMS key name used for encryption. |
 | <CopyableCode code="kmsKeyVersionName" /> | `string` | The KMS key version with which data is encrypted. |
 | <CopyableCode code="latestEvaluation" /> | `object` | Gives a short summary of an evaluation, and links to the evaluation itself. |
-| <CopyableCode code="state" /> | `string` | The state of the processor version. |
+| <CopyableCode code="modelType" /> | `string` | Output only. The model type of this processor version. |
+| <CopyableCode code="state" /> | `string` | Output only. The state of the processor version. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

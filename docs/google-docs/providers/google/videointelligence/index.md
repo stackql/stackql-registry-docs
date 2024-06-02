@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Detects Objects, Explicit Content, And Scene Changes In Videos. It Also Specifies The Region For Annotation And Transcribes Speech To Text. Supports Both Asynchronous API And Streaming API.  
+Detects objects, explicit content, and scene changes in videos. It also specifies the region for annotation and transcribes speech to text. Supports both asynchronous API and streaming API.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Detects Objects, Explicit Content, And Scene Changes In Videos. It Also Specifie
 <tr><td><b>Name</b></td><td><code>google.videointelligence</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Video Intelligence API</td></tr>
-<tr><td><b>Description</b></td><td>Detects Objects, Explicit Content, And Scene Changes In Videos. It Also Specifies The Region For Annotation And Transcribes Speech To Text. Supports Both Asynchronous API And Streaming API.</td></tr>
-<tr><td><b>Id</b></td><td><code>videointelligence:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Detects objects, explicit content, and scene changes in videos. It also specifies the region for annotation and transcribes speech to text. Supports both asynchronous API and streaming API.</td></tr>
+<tr><td><b>Id</b></td><td><code>videointelligence:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

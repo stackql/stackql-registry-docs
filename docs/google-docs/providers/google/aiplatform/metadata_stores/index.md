@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>metadata_stores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.metadata_stores" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.metadata_stores" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,6 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. The resource name of the MetadataStore instance. |
 | <CopyableCode code="description" /> | `string` | Description of the MetadataStore. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Timestamp when this MetadataStore was created. |
+| <CopyableCode code="dataplexConfig" /> | `object` | Represents Dataplex integration settings. |
 | <CopyableCode code="encryptionSpec" /> | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
 | <CopyableCode code="state" /> | `object` | Represents state information for a MetadataStore. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this MetadataStore was last updated. |

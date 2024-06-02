@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-An API For Accessing Advisory Notifications In Google Cloud  
+An API for accessing Advisory Notifications in Google Cloud  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
-<span>total selectable resources:&nbsp;<b>1</b></span><br />
-<span>total methods:&nbsp;<b>3</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ An API For Accessing Advisory Notifications In Google Cloud
 <tr><td><b>Name</b></td><td><code>google.advisorynotifications</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Advisory Notifications API</td></tr>
-<tr><td><b>Description</b></td><td>An API For Accessing Advisory Notifications In Google Cloud</td></tr>
-<tr><td><b>Id</b></td><td><code>advisorynotifications:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>An API for accessing Advisory Notifications in Google Cloud</td></tr>
+<tr><td><b>Id</b></td><td><code>advisorynotifications:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -43,5 +43,6 @@ An API For Accessing Advisory Notifications In Google Cloud
 <a href="/providers/google/advisorynotifications/notifications/">notifications</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/advisorynotifications/settings/">settings</a><br />
 </div>
 </div>

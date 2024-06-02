@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Google Cloud Memorystore For Memcached API Is Used For Creating And Managing Memcached Instances In GCP.  
+Google Cloud Memorystore for Memcached API is used for creating and managing Memcached instances in GCP.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Google Cloud Memorystore For Memcached API Is Used For Creating And Managing Mem
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>17</b></span><br />
+<span>total methods:&nbsp;<b>18</b></span><br />
 </div>
 </div>
 
@@ -32,9 +32,9 @@ Google Cloud Memorystore For Memcached API Is Used For Creating And Managing Mem
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.memcache</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Cloud Memorystore For Memcached API</td></tr>
-<tr><td><b>Description</b></td><td>Google Cloud Memorystore For Memcached API Is Used For Creating And Managing Memcached Instances In GCP.</td></tr>
-<tr><td><b>Id</b></td><td><code>memcache:v23.09.00169</code></td></tr>
+<tr><td><b>Title</b></td><td>Cloud Memorystore for Memcached API</td></tr>
+<tr><td><b>Description</b></td><td>Google Cloud Memorystore for Memcached API is used for creating and managing Memcached instances in GCP.</td></tr>
+<tr><td><b>Id</b></td><td><code>memcache:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

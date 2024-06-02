@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>luns</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.luns" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.luns" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,7 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="instances" /> | `array` | Output only. Instances this Lun is attached to. |
 | <CopyableCode code="multiprotocolType" /> | `string` | The LUN multiprotocol type ensures the characteristics of the LUN are optimized for each operating system. |
 | <CopyableCode code="shareable" /> | `boolean` | Display if this LUN can be shared between multiple physical servers. |
-| <CopyableCode code="sizeGb" /> | `string` | The size of this LUN, in gigabytes. |
+| <CopyableCode code="sizeGb" /> | `string` | The size of this LUN, in GiB. |
 | <CopyableCode code="state" /> | `string` | The state of this storage volume. |
 | <CopyableCode code="storageType" /> | `string` | The storage type for this LUN. |
 | <CopyableCode code="storageVolume" /> | `string` | Display the storage volume for this LUN. |

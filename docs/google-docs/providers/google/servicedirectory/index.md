@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Service Directory Is A Platform For Discovering, Publishing, And Connecting Services.   
+Service Directory is a platform for discovering, publishing, and connecting services.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Service Directory Is A Platform For Discovering, Publishing, And Connecting Serv
 <tr><td><b>Name</b></td><td><code>google.servicedirectory</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Directory API</td></tr>
-<tr><td><b>Description</b></td><td>Service Directory Is A Platform For Discovering, Publishing, And Connecting Services. </td></tr>
-<tr><td><b>Id</b></td><td><code>servicedirectory:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Service Directory is a platform for discovering, publishing, and connecting services. </td></tr>
+<tr><td><b>Id</b></td><td><code>servicedirectory:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>relatedaccountgroups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.recaptchaenterprise.relatedaccountgroups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="recaptchaenterprise.relatedaccountgroups" /></td></tr>
 </tbody></table>
 
 ## Fields

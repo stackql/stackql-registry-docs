@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Stores Sensitive Data Such As API Keys, Passwords, And Certificates. Provides Convenience While Improving Security.   
+Stores sensitive data such as API keys, passwords, and certificates. Provides convenience while improving security.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Stores Sensitive Data Such As API Keys, Passwords, And Certificates. Provides Co
 <tr><td><b>Name</b></td><td><code>google.secretmanager</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Secret Manager API</td></tr>
-<tr><td><b>Description</b></td><td>Stores Sensitive Data Such As API Keys, Passwords, And Certificates. Provides Convenience While Improving Security. </td></tr>
-<tr><td><b>Id</b></td><td><code>secretmanager:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Stores sensitive data such as API keys, passwords, and certificates. Provides convenience while improving security. </td></tr>
+<tr><td><b>Id</b></td><td><code>secretmanager:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

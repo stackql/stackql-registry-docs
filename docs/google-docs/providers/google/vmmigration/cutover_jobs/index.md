@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cutover_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.vmmigration.cutover_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vmmigration.cutover_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,7 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="cutoverJobsId, locationsId, migratingVmsId, projectsId, sourcesId" /> | Gets details of a single CutoverJob. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists CutoverJobs of a given migrating VM. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists the CutoverJobs of a migrating VM. Only 25 most recent CutoverJobs are listed. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Initiates a Cutover of a specific migrating VM. The returned LRO is completed when the cutover job resource is created and the job is initiated. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists CutoverJobs of a given migrating VM. |
+| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists the CutoverJobs of a migrating VM. Only 25 most recent CutoverJobs are listed. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="cutoverJobsId, locationsId, migratingVmsId, projectsId, sourcesId" /> | Initiates the cancellation of a running cutover job. |

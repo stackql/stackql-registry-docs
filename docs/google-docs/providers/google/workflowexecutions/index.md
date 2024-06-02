@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Execute Workflows Created With Workflows API.  
+Execute workflows created with Workflows API.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>1</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>12</b></span><br />
 </div>
 </div>
 
@@ -33,16 +33,18 @@ Execute Workflows Created With Workflows API.
 <tr><td><b>Name</b></td><td><code>google.workflowexecutions</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Workflow Executions API</td></tr>
-<tr><td><b>Description</b></td><td>Execute Workflows Created With Workflows API.</td></tr>
-<tr><td><b>Id</b></td><td><code>workflowexecutions:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Execute workflows created with Workflows API.</td></tr>
+<tr><td><b>Id</b></td><td><code>workflowexecutions:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/workflowexecutions/callbacks/">callbacks</a><br />
 <a href="/providers/google/workflowexecutions/executions/">executions</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/workflowexecutions/step_entries/">step_entries</a><br />
 <a href="/providers/google/workflowexecutions/workflows/">workflows</a><br />
 </div>
 </div>

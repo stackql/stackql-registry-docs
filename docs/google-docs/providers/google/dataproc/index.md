@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.  
+Manages Hadoop-based clusters and jobs on Google Cloud Platform.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>14</b></span><br />
 <span>total selectable resources:&nbsp;<b>14</b></span><br />
-<span>total methods:&nbsp;<b>99</b></span><br />
+<span>total methods:&nbsp;<b>107</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.
 <tr><td><b>Name</b></td><td><code>google.dataproc</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Dataproc API</td></tr>
-<tr><td><b>Description</b></td><td>Manages Hadoop-Based Clusters And Jobs On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataproc:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages Hadoop-based clusters and jobs on Google Cloud Platform.</td></tr>
+<tr><td><b>Id</b></td><td><code>dataproc:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

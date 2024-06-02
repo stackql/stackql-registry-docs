@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>recommendations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.recommender.recommendations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="recommender.recommendations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of recommendation. |
+| <CopyableCode code="name" /> | `string` | Identifier. Name of recommendation. |
 | <CopyableCode code="description" /> | `string` | Free-form human readable summary in English. The maximum length is 500 characters. |
 | <CopyableCode code="additionalImpact" /> | `array` | Optional set of additional impact that this recommendation may have when trying to optimize for the primary category. These may be positive or negative. |
 | <CopyableCode code="associatedInsights" /> | `array` | Insights that led to this recommendation. |
@@ -41,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="priority" /> | `string` | Recommendation's priority. |
 | <CopyableCode code="recommenderSubtype" /> | `string` | Contains an identifier for a subtype of recommendations produced for the same recommender. Subtype is a function of content and impact, meaning a new subtype might be added when significant changes to `content` or `primary_impact.category` are introduced. See the Recommenders section to see a list of subtypes for a given Recommender. Examples: For recommender = "google.iam.policy.Recommender", recommender_subtype can be one of "REMOVE_ROLE"/"REPLACE_ROLE" |
 | <CopyableCode code="stateInfo" /> | `object` | Information for state. Contains state and metadata. |
+| <CopyableCode code="targetResources" /> | `array` | Fully qualified resource names that this recommendation is targeting. |
 | <CopyableCode code="xorGroupId" /> | `string` | Corresponds to a mutually exclusive group ID within a recommender. A non-empty ID indicates that the recommendation belongs to a mutually exclusive group. This means that only one recommendation within the group is suggested to be applied. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

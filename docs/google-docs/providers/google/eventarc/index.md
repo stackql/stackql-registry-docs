@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Build Event-Driven Applications On Google Cloud Platform.  
+Build event-driven applications on Google Cloud Platform.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Build Event-Driven Applications On Google Cloud Platform.
 <tr><td><b>Name</b></td><td><code>google.eventarc</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Eventarc API</td></tr>
-<tr><td><b>Description</b></td><td>Build Event-Driven Applications On Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>eventarc:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Build event-driven applications on Google Cloud Platform.</td></tr>
+<tr><td><b>Id</b></td><td><code>eventarc:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

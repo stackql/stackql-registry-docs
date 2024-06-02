@@ -24,13 +24,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.sqladmin.operations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="sqladmin.operations" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | An identifier that uniquely identifies the operation. You can use this identifier to retrieve the Operations resource that has information about the operation. |
+| <CopyableCode code="acquireSsrsLeaseContext" /> | `object` | Acquire SSRS lease context. |
+| <CopyableCode code="apiWarning" /> | `object` | An Admin API warning message. |
 | <CopyableCode code="backupContext" /> | `object` | Backup context. |
 | <CopyableCode code="endTime" /> | `string` | The time this operation finished in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. |
 | <CopyableCode code="error" /> | `object` | Database instance operation errors list wrapper. |

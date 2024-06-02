@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>locations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.translate.locations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="translate.locations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Gets information about a location. |
 | <CopyableCode code="projects_locations_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists information about the supported locations for this service. |
 | <CopyableCode code="_projects_locations_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists information about the supported locations for this service. |
+| <CopyableCode code="projects_locations_adaptive_mt_translate" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Translate text using Adaptive MT. |
 | <CopyableCode code="projects_locations_batch_translate_document" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Translates a large volume of document in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller cancels a request, the partial results (for an input file, it's all or nothing) may still be available on the specified output location. This call returns immediately and you can use google.longrunning.Operation.name to poll the status of the call. |
 | <CopyableCode code="projects_locations_batch_translate_text" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Translates a large volume of text in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller cancels a request, the partial results (for an input file, it's all or nothing) may still be available on the specified output location. This call returns immediately and you can use google.longrunning.Operation.name to poll the status of the call. |
 | <CopyableCode code="projects_locations_detect_language" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Detects the language of text within a request. |

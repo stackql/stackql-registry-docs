@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>target_projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.vmmigration.target_projects" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vmmigration.target_projects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,7 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. The name of the target project. |
 | <CopyableCode code="description" /> | `string` | The target project's description. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time this target project resource was created (not related to when the Compute Engine project it points to was created). |
-| <CopyableCode code="project" /> | `string` | The target project ID (number) or project name. |
+| <CopyableCode code="project" /> | `string` | Required. The target project ID (number) or project name. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last time the target project resource was updated. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

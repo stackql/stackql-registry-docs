@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vmware_admin_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.gkeonprem.vmware_admin_clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="gkeonprem.vmware_admin_clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -35,6 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="addonNode" /> | `object` | VmwareAdminAddonNodeConfig contains add-on node configurations for VMware admin cluster. |
 | <CopyableCode code="annotations" /> | `object` | Annotations on the VMware admin cluster. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. |
 | <CopyableCode code="antiAffinityGroups" /> | `object` | Specifies anti affinity group config for the VMware user cluster. |
+| <CopyableCode code="authorization" /> | `object` | VmwareAdminAuthorizationConfig represents configuration for admin cluster authorization. |
 | <CopyableCode code="autoRepairConfig" /> | `object` | Specifies config to enable/disable auto repair. The cluster-health-controller is deployed only if Enabled is true. |
 | <CopyableCode code="bootstrapClusterMembership" /> | `string` | The bootstrap cluster this VMware admin cluster belongs to. |
 | <CopyableCode code="controlPlaneNode" /> | `object` | VmwareAdminControlPlaneNodeConfig contains control plane node configuration for VMware admin cluster. |
@@ -48,6 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="networkConfig" /> | `object` | VmwareAdminNetworkConfig contains network configuration for VMware admin cluster. |
 | <CopyableCode code="onPremVersion" /> | `string` | The Anthos clusters on the VMware version for the admin cluster. |
 | <CopyableCode code="platformConfig" /> | `object` | VmwarePlatformConfig represents configuration for the VMware platform. |
+| <CopyableCode code="preparedSecrets" /> | `object` | VmwareAdminPreparedSecretsConfig represents configuration for admin cluster prepared secrets. |
 | <CopyableCode code="reconciling" /> | `boolean` | Output only. If set, there are currently changes in flight to the VMware admin cluster. |
 | <CopyableCode code="state" /> | `string` | Output only. The current state of VMware admin cluster. |
 | <CopyableCode code="status" /> | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |

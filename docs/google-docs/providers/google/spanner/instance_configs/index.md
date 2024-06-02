@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.spanner.instance_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="spanner.instance_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,9 +39,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Cloud Labels are a flexible and lightweight mechanism for organizing cloud resources into groups that reflect a customer's organizational needs and deployment strategies. Cloud Labels can be used to filter collections of resources. They can be used to control how resource metrics are aggregated. And they can be used as arguments to policy management rules (e.g. route, firewall, load balancing, etc.). * Label keys must be between 1 and 63 characters long and must conform to the following regular expression: `a-z&#123;0,62&#125;`. * Label values must be between 0 and 63 characters long and must conform to the regular expression `[a-z0-9_-]&#123;0,63&#125;`. * No more than 64 labels can be associated with a given resource. See https://goo.gl/xmQnxf for more information on and examples of labels. If you plan to use labels in your own code, please note that additional characters may be allowed in the future. Therefore, you are advised to use an internal label representation, such as JSON, which doesn't rely upon specific characters being disallowed. For example, representing labels as the string: name + "_" + value would prove problematic if we were to allow "_" in a future release. |
 | <CopyableCode code="leaderOptions" /> | `array` | Allowed values of the "default_leader" schema option for databases in instances that use this instance configuration. |
 | <CopyableCode code="optionalReplicas" /> | `array` | Output only. The available optional replicas to choose from for user managed configurations. Populated for Google managed configurations. |
+| <CopyableCode code="quorumType" /> | `string` | Output only. The `QuorumType` of the instance configuration. |
 | <CopyableCode code="reconciling" /> | `boolean` | Output only. If true, the instance config is being created or updated. If false, there are no ongoing operations for the instance config. |
 | <CopyableCode code="replicas" /> | `array` | The geographic placement of nodes in this instance configuration and their replication properties. |
 | <CopyableCode code="state" /> | `string` | Output only. The current instance config state. Applicable only for USER_MANAGED configs. |
+| <CopyableCode code="storageLimitPerProcessingUnit" /> | `string` | Output only. The storage limit in bytes per processing unit. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

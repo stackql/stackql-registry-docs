@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.deploymentmanager.deployments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="deploymentmanager.deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -37,7 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insertTime" /> | `string` | Output only. Creation timestamp in RFC3339 text format. |
 | <CopyableCode code="labels" /> | `array` | Map of One Platform labels; provided by the client when the resource is created or updated. Specifically: Label keys must be between 1 and 63 characters long and must conform to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?` Label values must be between 0 and 63 characters long and must conform to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`. |
 | <CopyableCode code="manifest" /> | `string` | Output only. URL of the manifest representing the last manifest that was successfully deployed. If no manifest has been successfully deployed, this field will be absent. |
-| <CopyableCode code="operation" /> | `object` | Represents an Operation resource. Google Compute Engine has three Operation resources: * [Global](/compute/docs/reference/rest/&#123;$api_version&#125;/globalOperations) * [Regional](/compute/docs/reference/rest/&#123;$api_version&#125;/regionOperations) * [Zonal](/compute/docs/reference/rest/&#123;$api_version&#125;/zoneOperations) You can use an operation resource to manage asynchronous API requests. For more information, read Handling API responses. Operations can be global, regional or zonal. - For global operations, use the `globalOperations` resource. - For regional operations, use the `regionOperations` resource. - For zonal operations, use the `zoneOperations` resource. For more information, read Global, Regional, and Zonal Resources. |
+| <CopyableCode code="operation" /> | `object` | Represents an Operation resource. Google Compute Engine has three Operation resources: * [Global](/compute/docs/reference/rest/&#123;$api_version&#125;/globalOperations) * [Regional](/compute/docs/reference/rest/&#123;$api_version&#125;/regionOperations) * [Zonal](/compute/docs/reference/rest/&#123;$api_version&#125;/zoneOperations) You can use an operation resource to manage asynchronous API requests. For more information, read Handling API responses. Operations can be global, regional or zonal. - For global operations, use the `globalOperations` resource. - For regional operations, use the `regionOperations` resource. - For zonal operations, use the `zoneOperations` resource. For more information, read Global, Regional, and Zonal Resources. Note that completed Operation resources have a limited retention period. |
 | <CopyableCode code="selfLink" /> | `string` | Output only. Server defined URL for the resource. |
 | <CopyableCode code="target" /> | `object` |  |
 | <CopyableCode code="update" /> | `object` |  |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>target_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.target_instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.target_instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,14 +38,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | [Output Only] The type of the resource. Always compute#targetInstance for target instances. |
 | <CopyableCode code="natPolicy" /> | `string` | Must have a value of NO_NAT. Protocol forwarding delivers packets while preserving the destination IP address of the forwarding rule referencing the target instance. |
 | <CopyableCode code="network" /> | `string` | The URL of the network this target instance uses to forward traffic. If not specified, the traffic will be forwarded to the network that the default network interface belongs to. |
+| <CopyableCode code="securityPolicy" /> | `string` | [Output Only] The resource URL for the security policy associated with this target instance. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] URL of the zone where the target instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of target instances. |
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of target instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project, targetInstance, zone" /> | Returns the specified TargetInstance resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves a list of TargetInstance resources available to the specified project and zone. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates a TargetInstance resource in the specified project and zone using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, targetInstance, zone" /> | Deletes the specified TargetInstance resource. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of target instances. |
+| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of target instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+| <CopyableCode code="set_security_policy" /> | `EXEC` | <CopyableCode code="project, targetInstance, zone" /> | Sets the Google Cloud Armor security policy for the specified target instance. For more information, see Google Cloud Armor Overview |

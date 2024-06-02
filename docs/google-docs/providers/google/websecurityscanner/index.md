@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Scans Your Compute And App Engine Apps For Common Web Vulnerabilities.  
+Scans your Compute and App Engine apps for common web vulnerabilities.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Scans Your Compute And App Engine Apps For Common Web Vulnerabilities.
 <tr><td><b>Name</b></td><td><code>google.websecurityscanner</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Web Security Scanner API</td></tr>
-<tr><td><b>Description</b></td><td>Scans Your Compute And App Engine Apps For Common Web Vulnerabilities.</td></tr>
-<tr><td><b>Id</b></td><td><code>websecurityscanner:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Scans your Compute and App Engine apps for common web vulnerabilities.</td></tr>
+<tr><td><b>Id</b></td><td><code>websecurityscanner:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

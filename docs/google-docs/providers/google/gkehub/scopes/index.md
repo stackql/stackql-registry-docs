@@ -24,14 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scopes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.scopes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.scopes" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | The resource name for the scope `projects/&#123;project&#125;/locations/&#123;location&#125;/scopes/&#123;scope&#125;` |
-| <CopyableCode code="allMemberships" /> | `boolean` | If true, all Memberships in the Fleet bind to this Scope. |
 | <CopyableCode code="createTime" /> | `string` | Output only. When the scope was created. |
 | <CopyableCode code="deleteTime" /> | `string` | Output only. When the scope was deleted. |
 | <CopyableCode code="labels" /> | `object` | Optional. Labels for this Scope. |

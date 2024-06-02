@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>executions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.workflowexecutions.executions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="workflowexecutions.executions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,6 +33,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. The resource name of the execution. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/workflows/&#123;workflow&#125;/executions/&#123;execution&#125; |
 | <CopyableCode code="argument" /> | `string` | Input parameters of the execution represented as a JSON string. The size limit is 32KB. *Note*: If you are using the REST API directly to run your workflow, you must escape any JSON string value of `argument`. Example: `'&#123;"argument":"&#123;\"firstName\":\"FIRST\",\"lastName\":\"LAST\"&#125;"&#125;'` |
 | <CopyableCode code="callLogLevel" /> | `string` | The call logging level associated to this execution. |
+| <CopyableCode code="createTime" /> | `string` | Output only. Marks the creation of the execution. |
+| <CopyableCode code="disableConcurrencyQuotaOverflowBuffering" /> | `boolean` | Optional. If set to true, the execution will not be backlogged when the concurrency quota is exhausted. The backlog execution starts when the concurrency quota becomes available. |
 | <CopyableCode code="duration" /> | `string` | Output only. Measures the duration of the execution. |
 | <CopyableCode code="endTime" /> | `string` | Output only. Marks the end of execution, successful or not. |
 | <CopyableCode code="error" /> | `object` | Error describes why the execution was abnormally terminated. |
@@ -48,6 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="executionsId, locationsId, projectsId, workflowsId" /> | Returns an execution of the given name. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, workflowsId" /> | Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start time (newest first). |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, workflowsId" /> | Creates a new execution using the latest revision of the given workflow. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, workflowsId" /> | Creates a new execution using the latest revision of the given workflow. For more information, see Execute a workflow. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, workflowsId" /> | Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start time (newest first). |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="executionsId, locationsId, projectsId, workflowsId" /> | Cancels an execution of the given name. |
+| <CopyableCode code="export_data" /> | `EXEC` | <CopyableCode code="executionsId, locationsId, projectsId, workflowsId" /> | Returns all metadata stored about an execution, excluding most data that is already accessible using other API methods. |

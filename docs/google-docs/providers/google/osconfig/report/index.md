@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>report</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.osconfig.report" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="osconfig.report" /></td></tr>
 </tbody></table>
 
 ## Fields

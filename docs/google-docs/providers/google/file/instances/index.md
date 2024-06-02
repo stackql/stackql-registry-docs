@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.file.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="file.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,6 +38,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kmsKeyName" /> | `string` | KMS key name used for data encryption. |
 | <CopyableCode code="labels" /> | `object` | Resource labels to represent user provided metadata. |
 | <CopyableCode code="networks" /> | `array` | VPC networks to which the instance is connected. For this version, only a single network is supported. |
+| <CopyableCode code="replication" /> | `object` | Replication specifications. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="state" /> | `string` | Output only. The instance state. |
 | <CopyableCode code="statusMessage" /> | `string` | Output only. Additional information about the instance state, if available. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>attachments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudsupport.attachments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="cloudsupport.attachments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Output only. The resource name of the attachment. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time at which the attachment was created. |
-| <CopyableCode code="creator" /> | `object` | An object containing information about the effective user and authenticated principal responsible for an action. |
+| <CopyableCode code="creator" /> | `object` | An Actor represents an entity that performed an action. For example, an actor could be a user who posted a comment on a support case, a user who uploaded an attachment, or a service account that created a support case. |
 | <CopyableCode code="filename" /> | `string` | The filename of the attachment (e.g. `"graph.jpg"`). |
 | <CopyableCode code="mimeType" /> | `string` | Output only. The MIME type of the attachment (e.g. text/plain). |
 | <CopyableCode code="sizeBytes" /> | `string` | Output only. The size of the attachment in bytes. |

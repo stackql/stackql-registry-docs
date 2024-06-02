@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Use The Apigee API To Programmatically Develop And Manage APIs With A Set Of RESTful Operations. Develop And Secure API Proxies, Deploy And Undeploy API Proxy Revisions, Monitor APIs, Configure Environments, Manage Users, And More. Note: This Product Is Available As A Free Trial For A Time Period Of 60 Days.  
+Use the Apigee API to programmatically develop and manage APIs with a set of RESTful operations. Develop and secure API proxies, deploy and undeploy API proxy revisions, monitor APIs, configure environments, manage users, and more. Note: This product is available as a free trial for a time period of 60 days.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>90</b></span><br />
-<span>total selectable resources:&nbsp;<b>72</b></span><br />
-<span>total methods:&nbsp;<b>313</b></span><br />
+<span>total resources:&nbsp;<b>98</b></span><br />
+<span>total selectable resources:&nbsp;<b>78</b></span><br />
+<span>total methods:&nbsp;<b>339</b></span><br />
 </div>
 </div>
 
@@ -33,17 +33,20 @@ Use The Apigee API To Programmatically Develop And Manage APIs With A Set Of RES
 <tr><td><b>Name</b></td><td><code>google.apigee</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Apigee API</td></tr>
-<tr><td><b>Description</b></td><td>Use The Apigee API To Programmatically Develop And Manage APIs With A Set Of RESTful Operations. Develop And Secure API Proxies, Deploy And Undeploy API Proxy Revisions, Monitor APIs, Configure Environments, Manage Users, And More. Note: This Product Is Available As A Free Trial For A Time Period Of 60 Days.</td></tr>
-<tr><td><b>Id</b></td><td><code>apigee:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Use the Apigee API to programmatically develop and manage APIs with a set of RESTful operations. Develop and secure API proxies, deploy and undeploy API proxy revisions, monitor APIs, configure environments, manage users, and more. Note: This product is available as a free trial for a time period of 60 days.</td></tr>
+<tr><td><b>Id</b></td><td><code>apigee:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/apigee/addons_config/">addons_config</a><br />
 <a href="/providers/google/apigee/admin_schemav2/">admin_schemav2</a><br />
 <a href="/providers/google/apigee/aliases/">aliases</a><br />
 <a href="/providers/google/apigee/aliases_certificate/">aliases_certificate</a><br />
 <a href="/providers/google/apigee/apicategories/">apicategories</a><br />
+<a href="/providers/google/apigee/apidocs/">apidocs</a><br />
+<a href="/providers/google/apigee/apidocs_documentation/">apidocs_documentation</a><br />
 <a href="/providers/google/apigee/apiproducts/">apiproducts</a><br />
 <a href="/providers/google/apigee/apiproducts_app_group_app_key_api_product/">apiproducts_app_group_app_key_api_product</a><br />
 <a href="/providers/google/apigee/apiproducts_developer_app_key_api_product/">apiproducts_developer_app_key_api_product</a><br />
@@ -75,18 +78,20 @@ Use The Apigee API To Programmatically Develop And Manage APIs With A Set Of RES
 <a href="/providers/google/apigee/envgroups/">envgroups</a><br />
 <a href="/providers/google/apigee/envgroups_deployed_ingress_config/">envgroups_deployed_ingress_config</a><br />
 <a href="/providers/google/apigee/environments/">environments</a><br />
+<a href="/providers/google/apigee/environments_addons_config/">environments_addons_config</a><br />
 <a href="/providers/google/apigee/environments_api_security_runtime_config/">environments_api_security_runtime_config</a><br />
 <a href="/providers/google/apigee/environments_debugmask/">environments_debugmask</a><br />
 <a href="/providers/google/apigee/environments_deployed_config/">environments_deployed_config</a><br />
 <a href="/providers/google/apigee/environments_environment/">environments_environment</a><br />
 <a href="/providers/google/apigee/environments_iam_policies/">environments_iam_policies</a><br />
+<a href="/providers/google/apigee/environments_security_actions_config/">environments_security_actions_config</a><br />
 <a href="/providers/google/apigee/environments_trace_config/">environments_trace_config</a><br />
 <a href="/providers/google/apigee/exports/">exports</a><br />
 <a href="/providers/google/apigee/flowhooks/">flowhooks</a><br />
 <a href="/providers/google/apigee/host_queries/">host_queries</a><br />
-<a href="/providers/google/apigee/host_queries_result/">host_queries_result</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/apigee/host_queries_result/">host_queries_result</a><br />
 <a href="/providers/google/apigee/host_queries_result_view/">host_queries_result_view</a><br />
 <a href="/providers/google/apigee/host_security_reports/">host_security_reports</a><br />
 <a href="/providers/google/apigee/host_security_reports_result/">host_security_reports_result</a><br />
@@ -120,12 +125,15 @@ Use The Apigee API To Programmatically Develop And Manage APIs With A Set Of RES
 <a href="/providers/google/apigee/revisions_deployments/">revisions_deployments</a><br />
 <a href="/providers/google/apigee/revisions_shared_flow_revision/">revisions_shared_flow_revision</a><br />
 <a href="/providers/google/apigee/runtime_config/">runtime_config</a><br />
+<a href="/providers/google/apigee/security_actions/">security_actions</a><br />
+<a href="/providers/google/apigee/security_assessment_results/">security_assessment_results</a><br />
 <a href="/providers/google/apigee/security_incidents/">security_incidents</a><br />
 <a href="/providers/google/apigee/security_profiles/">security_profiles</a><br />
 <a href="/providers/google/apigee/security_profiles_revisions/">security_profiles_revisions</a><br />
 <a href="/providers/google/apigee/security_reports/">security_reports</a><br />
 <a href="/providers/google/apigee/security_reports_result/">security_reports_result</a><br />
 <a href="/providers/google/apigee/security_reports_result_view/">security_reports_result_view</a><br />
+<a href="/providers/google/apigee/security_settings/">security_settings</a><br />
 <a href="/providers/google/apigee/security_stats/">security_stats</a><br />
 <a href="/providers/google/apigee/sharedflows/">sharedflows</a><br />
 <a href="/providers/google/apigee/stats/">stats</a><br />

@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages The Service Consumers Of A Service Infrastructure Service.  
+Manages the service consumers of a Service Infrastructure service.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Manages The Service Consumers Of A Service Infrastructure Service.
 <tr><td><b>Name</b></td><td><code>google.serviceconsumermanagement</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Consumer Management API</td></tr>
-<tr><td><b>Description</b></td><td>Manages The Service Consumers Of A Service Infrastructure Service.</td></tr>
-<tr><td><b>Id</b></td><td><code>serviceconsumermanagement:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages the service consumers of a Service Infrastructure service.</td></tr>
+<tr><td><b>Id</b></td><td><code>serviceconsumermanagement:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

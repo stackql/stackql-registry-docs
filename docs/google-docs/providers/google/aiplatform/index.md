@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Train High-Quality Custom Machine Learning Models With Minimal Machine Learning Expertise And Effort.  
+Train high-quality custom machine learning models with minimal machine learning expertise and effort.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>51</b></span><br />
-<span>total selectable resources:&nbsp;<b>41</b></span><br />
-<span>total methods:&nbsp;<b>275</b></span><br />
+<span>total resources:&nbsp;<b>65</b></span><br />
+<span>total selectable resources:&nbsp;<b>54</b></span><br />
+<span>total methods:&nbsp;<b>361</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Train High-Quality Custom Machine Learning Models With Minimal Machine Learning 
 <tr><td><b>Name</b></td><td><code>google.aiplatform</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Vertex AI API</td></tr>
-<tr><td><b>Description</b></td><td>Train High-Quality Custom Machine Learning Models With Minimal Machine Learning Expertise And Effort.</td></tr>
-<tr><td><b>Id</b></td><td><code>aiplatform:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Train high-quality custom machine learning models with minimal machine learning expertise and effort.</td></tr>
+<tr><td><b>Id</b></td><td><code>aiplatform:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -50,7 +50,9 @@ Train High-Quality Custom Machine Learning Models With Minimal Machine Learning 
 <a href="/providers/google/aiplatform/custom_jobs/">custom_jobs</a><br />
 <a href="/providers/google/aiplatform/data_items/">data_items</a><br />
 <a href="/providers/google/aiplatform/data_labeling_jobs/">data_labeling_jobs</a><br />
+<a href="/providers/google/aiplatform/dataset_versions/">dataset_versions</a><br />
 <a href="/providers/google/aiplatform/datasets/">datasets</a><br />
+<a href="/providers/google/aiplatform/deployment_resource_pools/">deployment_resource_pools</a><br />
 <a href="/providers/google/aiplatform/endpoints/">endpoints</a><br />
 <a href="/providers/google/aiplatform/entity_types/">entity_types</a><br />
 <a href="/providers/google/aiplatform/entity_types_feature_values/">entity_types_feature_values</a><br />
@@ -59,6 +61,11 @@ Train High-Quality Custom Machine Learning Models With Minimal Machine Learning 
 <a href="/providers/google/aiplatform/executions/">executions</a><br />
 <a href="/providers/google/aiplatform/executions_execution_events/">executions_execution_events</a><br />
 <a href="/providers/google/aiplatform/experiments/">experiments</a><br />
+<a href="/providers/google/aiplatform/feature_groups/">feature_groups</a><br />
+<a href="/providers/google/aiplatform/feature_online_stores/">feature_online_stores</a><br />
+<a href="/providers/google/aiplatform/feature_view_syncs/">feature_view_syncs</a><br />
+<a href="/providers/google/aiplatform/feature_views/">feature_views</a><br />
+<a href="/providers/google/aiplatform/feature_views_feature_values/">feature_views_feature_values</a><br />
 <a href="/providers/google/aiplatform/features/">features</a><br />
 <a href="/providers/google/aiplatform/featurestores/">featurestores</a><br />
 <a href="/providers/google/aiplatform/featurestores_iam_policies/">featurestores_iam_policies</a><br />
@@ -75,11 +82,17 @@ Train High-Quality Custom Machine Learning Models With Minimal Machine Learning 
 <a href="/providers/google/aiplatform/model_deployment_monitoring_jobs/">model_deployment_monitoring_jobs</a><br />
 <a href="/providers/google/aiplatform/models/">models</a><br />
 <a href="/providers/google/aiplatform/models_explanation_dataset/">models_explanation_dataset</a><br />
+<a href="/providers/google/aiplatform/models_iam_policies/">models_iam_policies</a><br />
 <a href="/providers/google/aiplatform/models_version/">models_version</a><br />
 <a href="/providers/google/aiplatform/models_versions/">models_versions</a><br />
 <a href="/providers/google/aiplatform/nas_jobs/">nas_jobs</a><br />
 <a href="/providers/google/aiplatform/nas_trial_details/">nas_trial_details</a><br />
+<a href="/providers/google/aiplatform/notebook_runtime_templates/">notebook_runtime_templates</a><br />
+<a href="/providers/google/aiplatform/notebook_runtime_templates_iam_policies/">notebook_runtime_templates_iam_policies</a><br />
+<a href="/providers/google/aiplatform/notebook_runtimes/">notebook_runtimes</a><br />
 <a href="/providers/google/aiplatform/operations/">operations</a><br />
+<a href="/providers/google/aiplatform/operations_wait/">operations_wait</a><br />
+<a href="/providers/google/aiplatform/persistent_resources/">persistent_resources</a><br />
 <a href="/providers/google/aiplatform/pipeline_jobs/">pipeline_jobs</a><br />
 <a href="/providers/google/aiplatform/runs/">runs</a><br />
 <a href="/providers/google/aiplatform/saved_queries/">saved_queries</a><br />
@@ -93,5 +106,6 @@ Train High-Quality Custom Machine Learning Models With Minimal Machine Learning 
 <a href="/providers/google/aiplatform/trials/">trials</a><br />
 <a href="/providers/google/aiplatform/trials_optimal_trials/">trials_optimal_trials</a><br />
 <a href="/providers/google/aiplatform/trials_trial_measurement/">trials_trial_measurement</a><br />
+<a href="/providers/google/aiplatform/tuning_jobs/">tuning_jobs</a><br />
 </div>
 </div>

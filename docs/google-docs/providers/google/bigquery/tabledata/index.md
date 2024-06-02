@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tabledata</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.tabledata" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="bigquery.tabledata" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -34,9 +34,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | The resource type of the response. |
 | <CopyableCode code="pageToken" /> | `string` | A token used for paging results. Providing this token instead of the startIndex parameter can help you retrieve stable results when an underlying table is changing. |
 | <CopyableCode code="rows" /> | `array` | Rows of results. |
-| <CopyableCode code="totalRows" /> | `string` | The total number of rows in the complete table. |
+| <CopyableCode code="totalRows" /> | `string` | Total rows of the entire table. In order to show default value 0 we have to present it as string. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="datasetId, projectId, tableId" /> | Retrieves table data from a specified set of rows. Requires the READER dataset role. |
-| <CopyableCode code="insert_all" /> | `INSERT` | <CopyableCode code="datasetId, projectId, tableId" /> | Streams data into BigQuery one record at a time without needing to run a load job. Requires the WRITER dataset role. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="+datasetId, +tableId, projectId" /> | List the content of a table in rows. |
+| <CopyableCode code="insert_all" /> | `INSERT` | <CopyableCode code="+datasetId, +tableId, projectId" /> | Streams data into BigQuery one record at a time without needing to run a load job. |

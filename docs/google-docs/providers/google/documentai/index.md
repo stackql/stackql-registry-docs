@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Service To Parse Structured Information From Unstructured Or Semi-Structured Documents Using State-Of-The-Art Google AI Such As Natural Language, Computer Vision, Translation, And AutoML.  
+Service to parse structured information from unstructured or semi-structured documents using state-of-the-art Google AI such as natural language, computer vision, translation, and AutoML.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Service To Parse Structured Information From Unstructured Or Semi-Structured Doc
 <tr><td><b>Name</b></td><td><code>google.documentai</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Document AI API</td></tr>
-<tr><td><b>Description</b></td><td>Service To Parse Structured Information From Unstructured Or Semi-Structured Documents Using State-Of-The-Art Google AI Such As Natural Language, Computer Vision, Translation, And AutoML.</td></tr>
-<tr><td><b>Id</b></td><td><code>documentai:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Service to parse structured information from unstructured or semi-structured documents using state-of-the-art Google AI such as natural language, computer vision, translation, and AutoML.</td></tr>
+<tr><td><b>Id</b></td><td><code>documentai:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>products</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.vision.products" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vision.products" /></td></tr>
 </tbody></table>
 
 ## Fields

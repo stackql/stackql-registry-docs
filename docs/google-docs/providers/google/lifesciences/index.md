@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Cloud Life Sciences Is A Suite Of Services And Tools For Managing, Processing, And Transforming Life Sciences Data.  
+Cloud Life Sciences is a suite of services and tools for managing, processing, and transforming life sciences data.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Cloud Life Sciences Is A Suite Of Services And Tools For Managing, Processing, A
 <tr><td><b>Name</b></td><td><code>google.lifesciences</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Life Sciences API</td></tr>
-<tr><td><b>Description</b></td><td>Cloud Life Sciences Is A Suite Of Services And Tools For Managing, Processing, And Transforming Life Sciences Data.</td></tr>
-<tr><td><b>Id</b></td><td><code>lifesciences:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Cloud Life Sciences is a suite of services and tools for managing, processing, and transforming life sciences data.</td></tr>
+<tr><td><b>Id</b></td><td><code>lifesciences:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

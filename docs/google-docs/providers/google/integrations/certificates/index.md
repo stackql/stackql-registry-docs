@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.integrations.certificates" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="integrations.certificates" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,9 +43,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_certificates_get" /> | `SELECT` | <CopyableCode code="certificatesId, locationsId, projectsId" /> | Get a certificates in the specified project. |
+| <CopyableCode code="projects_locations_certificates_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List all the certificates that match the filter. Restrict to certificate of current client only. |
 | <CopyableCode code="projects_locations_products_certificates_get" /> | `SELECT` | <CopyableCode code="certificatesId, locationsId, productsId, projectsId" /> | Get a certificates in the specified project. |
 | <CopyableCode code="projects_locations_products_certificates_list" /> | `SELECT` | <CopyableCode code="locationsId, productsId, projectsId" /> | List all the certificates that match the filter. Restrict to certificate of current client only. |
+| <CopyableCode code="projects_locations_certificates_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate. |
 | <CopyableCode code="projects_locations_products_certificates_create" /> | `INSERT` | <CopyableCode code="locationsId, productsId, projectsId" /> | Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate. |
+| <CopyableCode code="projects_locations_certificates_delete" /> | `DELETE` | <CopyableCode code="certificatesId, locationsId, projectsId" /> | Delete a certificate |
 | <CopyableCode code="projects_locations_products_certificates_delete" /> | `DELETE` | <CopyableCode code="certificatesId, locationsId, productsId, projectsId" /> | Delete a certificate |
+| <CopyableCode code="_projects_locations_certificates_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List all the certificates that match the filter. Restrict to certificate of current client only. |
 | <CopyableCode code="_projects_locations_products_certificates_list" /> | `EXEC` | <CopyableCode code="locationsId, productsId, projectsId" /> | List all the certificates that match the filter. Restrict to certificate of current client only. |
+| <CopyableCode code="projects_locations_certificates_patch" /> | `EXEC` | <CopyableCode code="certificatesId, locationsId, projectsId" /> | Updates the certificate by id. If new certificate file is updated, it will register with the trawler service, re-encrypt with cloud KMS and update the Spanner record. Other fields will directly update the Spanner record. Returns the Certificate. |
 | <CopyableCode code="projects_locations_products_certificates_patch" /> | `EXEC` | <CopyableCode code="certificatesId, locationsId, productsId, projectsId" /> | Updates the certificate by id. If new certificate file is updated, it will register with the trawler service, re-encrypt with cloud KMS and update the Spanner record. Other fields will directly update the Spanner record. Returns the Certificate. |

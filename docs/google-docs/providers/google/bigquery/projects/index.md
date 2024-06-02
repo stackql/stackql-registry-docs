@@ -24,17 +24,17 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>projects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.projects" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="bigquery.projects" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | An opaque ID of this project. |
-| <CopyableCode code="friendlyName" /> | `string` | A descriptive name for this project. |
+| <CopyableCode code="friendlyName" /> | `string` | A descriptive name for this project. A wrapper is used here because friendlyName can be set to the empty string. |
 | <CopyableCode code="kind" /> | `string` | The resource type. |
 | <CopyableCode code="numericId" /> | `string` | The numeric ID of this project. |
-| <CopyableCode code="projectReference" /> | `object` |  |
+| <CopyableCode code="projectReference" /> | `object` | A unique reference to a project. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.appengine.versions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="appengine.versions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,6 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="envVariables" /> | `object` | Environment variables available to the application.Only returned in GET requests if view=FULL is set. |
 | <CopyableCode code="errorHandlers" /> | `array` | Custom static error pages. Limited to 10KB per page.Only returned in GET requests if view=FULL is set. |
 | <CopyableCode code="flexibleRuntimeSettings" /> | `object` | Runtime settings for the App Engine flexible environment. |
+| <CopyableCode code="generatedCustomerMetadata" /> | `object` | Additional Google Generated Customer Metadata, this field won't be provided by default and can be requested by setting the IncludeExtraData field in GetVersionRequest |
 | <CopyableCode code="handlers" /> | `array` | An ordered list of URL-matching patterns that should be applied to incoming requests. The first matching URL handles the request and other request handlers are not attempted.Only returned in GET requests if view=FULL is set. |
 | <CopyableCode code="healthCheck" /> | `object` | Health checking configuration for VM instances. Unhealthy instances are killed and replaced with new instances. Only applicable for instances in App Engine flexible environment. |
 | <CopyableCode code="inboundServices" /> | `array` | Before an application can receive email or XMPP messages, the application must be configured to enable the service. |

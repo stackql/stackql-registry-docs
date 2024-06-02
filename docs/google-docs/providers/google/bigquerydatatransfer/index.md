@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Schedule Queries Or Transfer External Data From SaaS Applications To Google BigQuery On A Regular Basis.  
+Schedule queries or transfer external data from SaaS applications to Google BigQuery on a regular basis.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Schedule Queries Or Transfer External Data From SaaS Applications To Google BigQ
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
 <span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>41</b></span><br />
+<span>total methods:&nbsp;<b>42</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Schedule Queries Or Transfer External Data From SaaS Applications To Google BigQ
 <tr><td><b>Name</b></td><td><code>google.bigquerydatatransfer</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery Data Transfer API</td></tr>
-<tr><td><b>Description</b></td><td>Schedule Queries Or Transfer External Data From SaaS Applications To Google BigQuery On A Regular Basis.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigquerydatatransfer:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Schedule queries or transfer external data from SaaS applications to Google BigQuery on a regular basis.</td></tr>
+<tr><td><b>Id</b></td><td><code>bigquerydatatransfer:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

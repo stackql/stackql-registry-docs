@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>auth_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.integrations.auth_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="integrations.auth_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Resource name of the SFDC instance projects/&#123;project&#125;/locations/&#123;location&#125;/authConfigs/&#123;authConfig&#125;. |
+| <CopyableCode code="name" /> | `string` | Resource name of the auth config. For more information, see Manage authentication profiles. projects/&#123;project&#125;/locations/&#123;location&#125;/authConfigs/&#123;authConfig&#125;. |
 | <CopyableCode code="description" /> | `string` | A description of the auth config. |
 | <CopyableCode code="certificateId" /> | `string` | Certificate id for client certificate |
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when the auth config is created. |

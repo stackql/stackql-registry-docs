@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>target_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.target_pools" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.target_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -40,15 +40,17 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="instances" /> | `array` | A list of resource URLs to the virtual machine instances serving this pool. They must live in zones contained in the same region as this pool. |
 | <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#targetPool for target pools. |
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the target pool resides. |
+| <CopyableCode code="securityPolicy" /> | `string` | [Output Only] The resource URL for the security policy associated with this target pool. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="sessionAffinity" /> | `string` | Session affinity option, must be one of the following values: NONE: Connections from the same client IP may go to any instance in the pool. CLIENT_IP: Connections from the same client IP will go to the same instance in the pool while that instance remains healthy. CLIENT_IP_PROTO: Connections from the same client IP with the same IP protocol will go to the same instance in the pool while that instance remains healthy. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of target pools. |
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of target pools. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project, region, targetPool" /> | Returns the specified target pool. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of target pools available to the specified project and region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a target pool in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, targetPool" /> | Deletes the specified target pool. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of target pools. |
+| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of target pools. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="set_backup" /> | `EXEC` | <CopyableCode code="project, region, targetPool" /> | Changes a backup target pool's configurations. |
+| <CopyableCode code="set_security_policy" /> | `EXEC` | <CopyableCode code="project, region, targetPool" /> | Sets the Google Cloud Armor security policy for the specified target pool. For more information, see Google Cloud Armor Overview |

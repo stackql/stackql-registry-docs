@@ -20,9 +20,9 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>21</b></span><br />
-<span>total selectable resources:&nbsp;<b>19</b></span><br />
-<span>total methods:&nbsp;<b>121</b></span><br />
+<span>total resources:&nbsp;<b>22</b></span><br />
+<span>total selectable resources:&nbsp;<b>20</b></span><br />
+<span>total methods:&nbsp;<b>125</b></span><br />
 </div>
 </div>
 
@@ -34,7 +34,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Apigee Registry API</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>apigeeregistry:v23.09.00169</code></td></tr>
+<tr><td><b>Id</b></td><td><code>apigeeregistry:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -49,10 +49,11 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <a href="/providers/google/apigeeregistry/deployments_iam_policies/">deployments_iam_policies</a><br />
 <a href="/providers/google/apigeeregistry/deployments_revision/">deployments_revision</a><br />
 <a href="/providers/google/apigeeregistry/deployments_revisions/">deployments_revisions</a><br />
+<a href="/providers/google/apigeeregistry/documents_iam_policies/">documents_iam_policies</a><br />
 <a href="/providers/google/apigeeregistry/instances/">instances</a><br />
-<a href="/providers/google/apigeeregistry/instances_iam_policies/">instances_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/apigeeregistry/instances_iam_policies/">instances_iam_policies</a><br />
 <a href="/providers/google/apigeeregistry/locations/">locations</a><br />
 <a href="/providers/google/apigeeregistry/operations/">operations</a><br />
 <a href="/providers/google/apigeeregistry/runtime_iam_policies/">runtime_iam_policies</a><br />

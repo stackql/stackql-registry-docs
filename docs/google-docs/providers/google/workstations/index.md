@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Allows Administrators To Create Managed Developer Environments In The Cloud.   
+Allows administrators to create managed developer environments in the cloud.   
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>38</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>41</b></span><br />
 </div>
 </div>
 
@@ -33,13 +33,14 @@ Allows Administrators To Create Managed Developer Environments In The Cloud.
 <tr><td><b>Name</b></td><td><code>google.workstations</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Workstations API</td></tr>
-<tr><td><b>Description</b></td><td>Allows Administrators To Create Managed Developer Environments In The Cloud. </td></tr>
-<tr><td><b>Id</b></td><td><code>workstations:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Allows administrators to create managed developer environments in the cloud. </td></tr>
+<tr><td><b>Id</b></td><td><code>workstations:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/workstations/locations/">locations</a><br />
 <a href="/providers/google/workstations/operations/">operations</a><br />
 <a href="/providers/google/workstations/workstation_clusters/">workstation_clusters</a><br />
 <a href="/providers/google/workstations/workstation_configs/">workstation_configs</a><br />

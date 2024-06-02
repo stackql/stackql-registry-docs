@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Allows Users To Start, Configure, And Connect To Interactive Shell Sessions Running In The Cloud.   
+Allows users to start, configure, and connect to interactive shell sessions running in the cloud.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Allows Users To Start, Configure, And Connect To Interactive Shell Sessions Runn
 <tr><td><b>Name</b></td><td><code>google.cloudshell</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Shell API</td></tr>
-<tr><td><b>Description</b></td><td>Allows Users To Start, Configure, And Connect To Interactive Shell Sessions Running In The Cloud. </td></tr>
-<tr><td><b>Id</b></td><td><code>cloudshell:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Allows users to start, configure, and connect to interactive shell sessions running in the cloud. </td></tr>
+<tr><td><b>Id</b></td><td><code>cloudshell:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

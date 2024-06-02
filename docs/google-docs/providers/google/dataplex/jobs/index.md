@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,4 +51,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_lakes_tasks_jobs_list" /> | `SELECT` | <CopyableCode code="lakesId, locationsId, projectsId, tasksId" /> | Lists Jobs under the given task. |
 | <CopyableCode code="_projects_locations_data_scans_jobs_list" /> | `EXEC` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Lists DataScanJobs under the given DataScan. |
 | <CopyableCode code="_projects_locations_lakes_tasks_jobs_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId, tasksId" /> | Lists Jobs under the given task. |
+| <CopyableCode code="projects_locations_data_scans_jobs_generate_data_quality_rules" /> | `EXEC` | <CopyableCode code="dataScansId, jobsId, locationsId, projectsId" /> | Generates recommended DataQualityRule from a data profiling DataScan. |
 | <CopyableCode code="projects_locations_lakes_tasks_jobs_cancel" /> | `EXEC` | <CopyableCode code="jobsId, lakesId, locationsId, projectsId, tasksId" /> | Cancel jobs running for the task resource. |

@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Builds Conversational Interfaces (For Example, Chatbots, And Voice-Powered Apps And Devices).  
+Builds conversational interfaces (for example, chatbots, and voice-powered apps and devices).  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>21</b></span><br />
-<span>total selectable resources:&nbsp;<b>20</b></span><br />
-<span>total methods:&nbsp;<b>139</b></span><br />
+<span>total resources:&nbsp;<b>23</b></span><br />
+<span>total selectable resources:&nbsp;<b>22</b></span><br />
+<span>total methods:&nbsp;<b>154</b></span><br />
 </div>
 </div>
 
@@ -33,14 +33,15 @@ Builds Conversational Interfaces (For Example, Chatbots, And Voice-Powered Apps 
 <tr><td><b>Name</b></td><td><code>google.dialogflow</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dialogflow API</td></tr>
-<tr><td><b>Description</b></td><td>Builds Conversational Interfaces (For Example, Chatbots, And Voice-Powered Apps And Devices).</td></tr>
-<tr><td><b>Id</b></td><td><code>dialogflow:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Builds conversational interfaces (for example, chatbots, and voice-powered apps and devices).</td></tr>
+<tr><td><b>Id</b></td><td><code>dialogflow:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/dialogflow/agents/">agents</a><br />
+<a href="/providers/google/dialogflow/agents_generative_settings/">agents_generative_settings</a><br />
 <a href="/providers/google/dialogflow/agents_validation_result/">agents_validation_result</a><br />
 <a href="/providers/google/dialogflow/changelogs/">changelogs</a><br />
 <a href="/providers/google/dialogflow/continuous_test_results/">continuous_test_results</a><br />
@@ -50,9 +51,10 @@ Builds Conversational Interfaces (For Example, Chatbots, And Voice-Powered Apps 
 <a href="/providers/google/dialogflow/experiments/">experiments</a><br />
 <a href="/providers/google/dialogflow/flows/">flows</a><br />
 <a href="/providers/google/dialogflow/flows_validation_result/">flows_validation_result</a><br />
-<a href="/providers/google/dialogflow/intents/">intents</a><br />
+<a href="/providers/google/dialogflow/generators/">generators</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/dialogflow/intents/">intents</a><br />
 <a href="/providers/google/dialogflow/locations/">locations</a><br />
 <a href="/providers/google/dialogflow/operations/">operations</a><br />
 <a href="/providers/google/dialogflow/pages/">pages</a><br />

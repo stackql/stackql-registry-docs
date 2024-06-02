@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>metrics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.logging.metrics" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="logging.metrics" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,6 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="filter" /> | `string` | Required. An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced_filters) which is used to match log entries. Example: "resource.type=gae_app AND severity&gt;=ERROR" The maximum length of the filter is 20000 characters. |
 | <CopyableCode code="labelExtractors" /> | `object` | Optional. A map from a label key string to an extractor expression which is used to extract data from a log entry field and assign as the label value. Each label key specified in the LabelDescriptor must have an associated extractor expression in this map. The syntax of the extractor expression is the same as for the value_extractor field.The extracted value is converted to the type defined in the label descriptor. If either the extraction or the type conversion fails, the label will have a default value. The default value for a string label is an empty string, for an integer label its 0, and for a boolean label its false.Note that there are upper bounds on the maximum number of labels and the number of active time series that are allowed in a project. |
 | <CopyableCode code="metricDescriptor" /> | `object` | Defines a metric type and its schema. Once a metric descriptor is created, deleting or altering it stops data collection and makes the metric type's existing data unusable. |
+| <CopyableCode code="resourceName" /> | `string` | Output only. The resource name of the metric: "projects/[PROJECT_ID]/metrics/[METRIC_ID]"  |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of the metric.This field may not be present for older metrics. |
 | <CopyableCode code="valueExtractor" /> | `string` | Optional. A value_extractor is required when using a distribution logs-based metric to extract the values to record from a log entry. Two functions are supported for value extraction: EXTRACT(field) or REGEXP_EXTRACT(field, regex). The arguments are: field: The name of the log entry field from which the value is to be extracted. regex: A regular expression using the Google RE2 syntax (https://github.com/google/re2/wiki/Syntax) with a single capture group to extract data from the specified log entry field. The value of the field is converted to a string before applying the regex. It is an error to specify a regex that does not include exactly one capture group.The result of the extraction must be convertible to a double type, as the distribution always records double values. If either the extraction or the conversion to double fails, then those values are not recorded in the distribution.Example: REGEXP_EXTRACT(jsonPayload.request, ".*quantity=(\d+).*") |
 | <CopyableCode code="version" /> | `string` | Deprecated. The API version that created or updated this metric. The v2 format is used by default and cannot be changed. |

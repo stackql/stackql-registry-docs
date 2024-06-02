@@ -24,13 +24,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.datacatalog.entries" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="datacatalog.entries" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The resource name of an entry in URL format. Note: The entry itself and its child resources might not be stored in the location specified in its name. |
+| <CopyableCode code="name" /> | `string` | Output only. Identifier. The resource name of an entry in URL format. Note: The entry itself and its child resources might not be stored in the location specified in its name. |
 | <CopyableCode code="description" /> | `string` | Entry description that can consist of several sentences or paragraphs that describe entry contents. The description must not contain Unicode non-characters as well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF). The maximum size is 2000 bytes when encoded in UTF-8. Default value is an empty string. |
 | <CopyableCode code="bigqueryDateShardedSpec" /> | `object` | Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD` name pattern. For more information, see [Introduction to partitioned tables] (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding). |
 | <CopyableCode code="bigqueryTableSpec" /> | `object` | Describes a BigQuery table. |
@@ -41,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="databaseTableSpec" /> | `object` | Specification that applies to a table resource. Valid only for entries with the `TABLE` type. |
 | <CopyableCode code="datasetSpec" /> | `object` | Specification that applies to a dataset. Valid only for entries with the `DATASET` type. |
 | <CopyableCode code="displayName" /> | `string` | Display name of an entry. The maximum size is 500 bytes when encoded in UTF-8. Default value is an empty string. |
+| <CopyableCode code="featureOnlineStoreSpec" /> | `object` | Detail description of the source information of a Vertex Feature Online Store. |
 | <CopyableCode code="filesetSpec" /> | `object` | Specification that applies to a fileset. Valid only for entries with the 'FILESET' type. |
 | <CopyableCode code="fullyQualifiedName" /> | `string` | [Fully Qualified Name (FQN)](https://cloud.google.com//data-catalog/docs/fully-qualified-names) of the resource. Set automatically for entries representing resources from synced systems. Settable only during creation, and read-only later. Can be used for search and lookup of the entries.  |
 | <CopyableCode code="gcsFilesetSpec" /> | `object` | Describes a Cloud Storage fileset entry. |

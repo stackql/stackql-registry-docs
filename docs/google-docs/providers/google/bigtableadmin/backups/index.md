@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.bigtableadmin.backups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="bigtableadmin.backups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -35,7 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="endTime" /> | `string` | Output only. `end_time` is the time that the backup was finished. The row data in the backup will be no newer than this timestamp. |
 | <CopyableCode code="expireTime" /> | `string` | Required. The expiration time of the backup, with microseconds granularity that must be at least 6 hours and at most 90 days from the time the request is received. Once the `expire_time` has passed, Cloud Bigtable will delete the backup and free the resources used by the backup. |
 | <CopyableCode code="sizeBytes" /> | `string` | Output only. Size of the backup in bytes. |
-| <CopyableCode code="sourceBackup" /> | `string` | Output only. Name of the backup from which this backup was copied. If a backup is not created by copying a backup, this field will be empty. Values are of the form: projects//instances//backups/. |
+| <CopyableCode code="sourceBackup" /> | `string` | Output only. Name of the backup from which this backup was copied. If a backup is not created by copying a backup, this field will be empty. Values are of the form: projects//instances//clusters//backups/ |
 | <CopyableCode code="sourceTable" /> | `string` | Required. Immutable. Name of the table from which this backup was created. This needs to be in the same instance as the backup. Values are of the form `projects/&#123;project&#125;/instances/&#123;instance&#125;/tables/&#123;source_table&#125;`. |
 | <CopyableCode code="startTime" /> | `string` | Output only. `start_time` is the time that the backup was started (i.e. approximately the time the CreateBackup request is received). The row data in this backup will be no older than this timestamp. |
 | <CopyableCode code="state" /> | `string` | Output only. The current state of the backup. |

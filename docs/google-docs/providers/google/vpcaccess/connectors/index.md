@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.vpcaccess.connectors" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="vpcaccess.connectors" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -35,9 +35,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="ipCidrRange" /> | `string` | The range of internal addresses that follows RFC 4632 notation. Example: `10.132.0.0/28`. |
 | <CopyableCode code="machineType" /> | `string` | Machine type of VM Instance underlying connector. Default is e2-micro |
 | <CopyableCode code="maxInstances" /> | `integer` | Maximum value of instances in autoscaling group underlying the connector. |
-| <CopyableCode code="maxThroughput" /> | `integer` | Maximum throughput of the connector in Mbps. Default is 300, max is 1000. If both max-throughput and max-instances are provided, max-instances takes precedence over max-throughput. |
+| <CopyableCode code="maxThroughput" /> | `integer` | Maximum throughput of the connector in Mbps. Refers to the expected throughput when using an `e2-micro` machine type. Value must be a multiple of 100 from 300 through 1000. Must be higher than the value specified by --min-throughput. If both max-throughput and max-instances are provided, max-instances takes precedence over max-throughput. The use of `max-throughput` is discouraged in favor of `max-instances`. |
 | <CopyableCode code="minInstances" /> | `integer` | Minimum value of instances in autoscaling group underlying the connector. |
-| <CopyableCode code="minThroughput" /> | `integer` | Minimum throughput of the connector in Mbps. Default and min is 200. If both min-throughput and min-instances are provided, min-instances takes precedence over min-throughput. |
+| <CopyableCode code="minThroughput" /> | `integer` | Minimum throughput of the connector in Mbps. Refers to the expected throughput when using an `e2-micro` machine type. Value must be a multiple of 100 from 200 through 900. Must be lower than the value specified by --max-throughput. If both min-throughput and min-instances are provided, min-instances takes precedence over min-throughput. The use of `min-throughput` is discouraged in favor of `min-instances`. |
 | <CopyableCode code="network" /> | `string` | Name of a VPC network. |
 | <CopyableCode code="state" /> | `string` | Output only. State of the VPC access connector. |
 | <CopyableCode code="subnet" /> | `object` | The subnet in which to house the connector |

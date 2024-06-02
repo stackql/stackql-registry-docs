@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>models</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.models" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="bigquery.models" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,7 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | The labels associated with this model. You can use these to organize and group your models. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key. |
 | <CopyableCode code="lastModifiedTime" /> | `string` | Output only. The time when this model was last modified, in millisecs since the epoch. |
 | <CopyableCode code="location" /> | `string` | Output only. The geographic location where the model resides. This value is inherited from the dataset. |
-| <CopyableCode code="modelReference" /> | `object` |  |
+| <CopyableCode code="modelReference" /> | `object` | Id path of a model. |
 | <CopyableCode code="modelType" /> | `string` | Output only. Type of the model resource. |
 | <CopyableCode code="optimalTrialIds" /> | `array` | Output only. For single-objective [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) models, it only contains the best trial. For multi-objective [hyperparameter tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview) models, it contains all Pareto optimal trials sorted by trial_id. |
 | <CopyableCode code="remoteModelInfo" /> | `object` | Remote Model Info |

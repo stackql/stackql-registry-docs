@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>well_known_openid_configuration</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.container.well_known_openid_configuration" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="container.well_known_openid_configuration" /></td></tr>
 </tbody></table>
 
 ## Fields

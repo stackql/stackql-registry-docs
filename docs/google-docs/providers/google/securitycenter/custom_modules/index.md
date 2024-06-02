@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>custom_modules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.custom_modules" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.custom_modules" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,6 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Immutable. The resource name of the Event Threat Detection custom module. Its format is: * "organizations/&#123;organization&#125;/eventThreatDetectionSettings/customModules/&#123;module&#125;". * "folders/&#123;folder&#125;/eventThreatDetectionSettings/customModules/&#123;module&#125;". * "projects/&#123;project&#125;/eventThreatDetectionSettings/customModules/&#123;module&#125;". |
 | <CopyableCode code="description" /> | `string` | The description for the module. |
+| <CopyableCode code="ancestorModule" /> | `string` | Output only. The closest ancestor module that this module inherits the enablement state from. The format is the same as the EventThreatDetectionCustomModule resource name. |
 | <CopyableCode code="config" /> | `object` | Config for the module. For the resident module, its config value is defined at this level. For the inherited module, its config value is inherited from the ancestor module. |
 | <CopyableCode code="displayName" /> | `string` | The human readable name to be displayed for the module. |
 | <CopyableCode code="enablementState" /> | `string` | The state of enablement for the module at the given level of the hierarchy. |
@@ -41,8 +42,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="folders_event_threat_detection_settings_custom_modules_get" /> | `SELECT` | <CopyableCode code="customModulesId, foldersId" /> | Gets an Event Threat Detection custom module. |
 | <CopyableCode code="organizations_event_threat_detection_settings_custom_modules_get" /> | `SELECT` | <CopyableCode code="customModulesId, organizationsId" /> | Gets an Event Threat Detection custom module. |
+| <CopyableCode code="projects_event_threat_detection_settings_custom_modules_get" /> | `SELECT` | <CopyableCode code="customModulesId, projectsId" /> | Gets an Event Threat Detection custom module. |
+| <CopyableCode code="folders_event_threat_detection_settings_custom_modules_patch" /> | `EXEC` | <CopyableCode code="customModulesId, foldersId" /> | Updates the Event Threat Detection custom module with the given name based on the given update mask. Updating the enablement state is supported for both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name or configuration of a module is supported for resident modules only. The type of a module cannot be changed. |
 | <CopyableCode code="folders_security_health_analytics_settings_custom_modules_patch" /> | `EXEC` | <CopyableCode code="customModulesId, foldersId" /> | Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name and custom config of a module is supported on resident modules only. |
-| <CopyableCode code="organizations_event_threat_detection_settings_custom_modules_patch" /> | `EXEC` | <CopyableCode code="customModulesId, organizationsId" /> | Updates an Event Threat Detection custom module. |
+| <CopyableCode code="folders_security_health_analytics_settings_custom_modules_simulate" /> | `EXEC` | <CopyableCode code="foldersId" /> | Simulates a given SecurityHealthAnalyticsCustomModule and Resource. |
+| <CopyableCode code="organizations_event_threat_detection_settings_custom_modules_patch" /> | `EXEC` | <CopyableCode code="customModulesId, organizationsId" /> | Updates the Event Threat Detection custom module with the given name based on the given update mask. Updating the enablement state is supported for both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name or configuration of a module is supported for resident modules only. The type of a module cannot be changed. |
 | <CopyableCode code="organizations_security_health_analytics_settings_custom_modules_patch" /> | `EXEC` | <CopyableCode code="customModulesId, organizationsId" /> | Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name and custom config of a module is supported on resident modules only. |
+| <CopyableCode code="organizations_security_health_analytics_settings_custom_modules_simulate" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Simulates a given SecurityHealthAnalyticsCustomModule and Resource. |
+| <CopyableCode code="projects_event_threat_detection_settings_custom_modules_patch" /> | `EXEC` | <CopyableCode code="customModulesId, projectsId" /> | Updates the Event Threat Detection custom module with the given name based on the given update mask. Updating the enablement state is supported for both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name or configuration of a module is supported for resident modules only. The type of a module cannot be changed. |
 | <CopyableCode code="projects_security_health_analytics_settings_custom_modules_patch" /> | `EXEC` | <CopyableCode code="customModulesId, projectsId" /> | Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules (though resident modules cannot have an enablement state of "inherited"). Updating the display name and custom config of a module is supported on resident modules only. |
+| <CopyableCode code="projects_security_health_analytics_settings_custom_modules_simulate" /> | `EXEC` | <CopyableCode code="projectsId" /> | Simulates a given SecurityHealthAnalyticsCustomModule and Resource. |

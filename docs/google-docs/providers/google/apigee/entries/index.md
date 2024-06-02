@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.entries" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="apigee.entries" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,3 +50,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="_organizations_apis_keyvaluemaps_entries_list" /> | `EXEC` | <CopyableCode code="apisId, keyvaluemapsId, organizationsId" /> | Lists key value entries for key values maps scoped to an organization, environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and higher. |
 | <CopyableCode code="_organizations_environments_keyvaluemaps_entries_list" /> | `EXEC` | <CopyableCode code="environmentsId, keyvaluemapsId, organizationsId" /> | Lists key value entries for key values maps scoped to an organization, environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and higher. |
 | <CopyableCode code="_organizations_keyvaluemaps_entries_list" /> | `EXEC` | <CopyableCode code="keyvaluemapsId, organizationsId" /> | Lists key value entries for key values maps scoped to an organization, environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and higher. |
+| <CopyableCode code="organizations_apis_keyvaluemaps_entries_update" /> | `EXEC` | <CopyableCode code="apisId, entriesId, keyvaluemapsId, organizationsId" /> | Update key value entry scoped to an organization, environment, or API proxy for an existing key. |
+| <CopyableCode code="organizations_environments_keyvaluemaps_entries_update" /> | `EXEC` | <CopyableCode code="entriesId, environmentsId, keyvaluemapsId, organizationsId" /> | Update key value entry scoped to an organization, environment, or API proxy for an existing key. |
+| <CopyableCode code="organizations_keyvaluemaps_entries_update" /> | `EXEC` | <CopyableCode code="entriesId, keyvaluemapsId, organizationsId" /> | Update key value entry scoped to an organization, environment, or API proxy for an existing key. |

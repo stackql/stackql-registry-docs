@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>catalogs_attributes_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.retail.catalogs_attributes_config" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="retail.catalogs_attributes_config" /></td></tr>
 </tbody></table>
 
 ## Fields

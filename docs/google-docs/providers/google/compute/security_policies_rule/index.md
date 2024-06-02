@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_policies_rule</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.security_policies_rule" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.security_policies_rule" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -35,6 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="headerAction" /> | `object` |  |
 | <CopyableCode code="kind" /> | `string` | [Output only] Type of the resource. Always compute#securityPolicyRule for security policy rules |
 | <CopyableCode code="match" /> | `object` | Represents a match condition that incoming traffic is evaluated against. Exactly one field must be specified. |
+| <CopyableCode code="networkMatch" /> | `object` | Represents a match condition that incoming network traffic is evaluated against. |
 | <CopyableCode code="preconfiguredWafConfig" /> | `object` |  |
 | <CopyableCode code="preview" /> | `boolean` | If set to true, the specified action is not enforced. |
 | <CopyableCode code="priority" /> | `integer` | An integer indicating the priority of a rule in the list. The priority must be a positive value between 0 and 2147483647. Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest priority. |

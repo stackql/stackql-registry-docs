@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.routines" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="bigquery.routines" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,7 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="description" /> | `string` | Optional. The description of the routine, if defined. |
 | <CopyableCode code="arguments" /> | `array` | Optional. |
 | <CopyableCode code="creationTime" /> | `string` | Output only. The time when this routine was created, in milliseconds since the epoch. |
-| <CopyableCode code="dataGovernanceType" /> | `string` | Optional. Data governance specific option, if the value is DATA_MASKING, the function will be validated as masking functions. |
+| <CopyableCode code="dataGovernanceType" /> | `string` | Optional. If set to `DATA_MASKING`, the function is validated and made available as a masking function. For more information, see [Create custom masking routines](https://cloud.google.com/bigquery/docs/user-defined-functions#custom-mask). |
 | <CopyableCode code="definitionBody" /> | `string` | Required. The body of the routine. For functions, this is the expression in the AS clause. If language=SQL, it is the substring inside (but excluding) the parentheses. For example, for the function created with the following statement: `CREATE FUNCTION JoinLines(x string, y string) as (concat(x, "\n", y))` The definition_body is `concat(x, "\n", y)` (\n is not replaced with linebreak). If language=JAVASCRIPT, it is the evaluated string in the AS clause. For example, for the function created with the following statement: `CREATE FUNCTION f() RETURNS STRING LANGUAGE js AS 'return "\n";\n'` The definition_body is `return "\n";\n` Note that both \n are replaced with linebreaks. |
 | <CopyableCode code="determinismLevel" /> | `string` | Optional. The determinism level of the JavaScript UDF, if defined. |
 | <CopyableCode code="etag" /> | `string` | Output only. A hash of this resource. |
@@ -43,10 +43,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="remoteFunctionOptions" /> | `object` | Options for a remote user-defined function. |
 | <CopyableCode code="returnTableType" /> | `object` | A table type |
 | <CopyableCode code="returnType" /> | `object` | The data type of a variable such as a function argument. Examples include: * INT64: `&#123;"typeKind": "INT64"&#125;` * ARRAY: &#123; "typeKind": "ARRAY", "arrayElementType": &#123;"typeKind": "STRING"&#125; &#125; * STRUCT&gt;: &#123; "typeKind": "STRUCT", "structType": &#123; "fields": [ &#123; "name": "x", "type": &#123;"typeKind": "STRING"&#125; &#125;, &#123; "name": "y", "type": &#123; "typeKind": "ARRAY", "arrayElementType": &#123;"typeKind": "DATE"&#125; &#125; &#125; ] &#125; &#125; |
-| <CopyableCode code="routineReference" /> | `object` |  |
+| <CopyableCode code="routineReference" /> | `object` | Id path of a routine. |
 | <CopyableCode code="routineType" /> | `string` | Required. The type of routine. |
+| <CopyableCode code="securityMode" /> | `string` | Optional. The security mode of the routine, if defined. If not defined, the security mode is automatically determined from the routine's configuration. |
 | <CopyableCode code="sparkOptions" /> | `object` | Options for a user-defined Spark routine. |
-| <CopyableCode code="strictMode" /> | `boolean` | Optional. Can be set for procedures only. If true (default), the definition body will be validated in the creation and the updates of the procedure. For procedures with an argument of ANY TYPE, the definition body validtion is not supported at creation/update time, and thus this field must be set to false explicitly. |
+| <CopyableCode code="strictMode" /> | `boolean` | Optional. Use this option to catch many common errors. Error checking is not exhaustive, and successfully creating a procedure doesn't guarantee that the procedure will successfully execute at runtime. If `strictMode` is set to `TRUE`, the procedure body is further checked for errors such as non-existent tables or columns. The `CREATE PROCEDURE` statement fails if the body fails any of these checks. If `strictMode` is set to `FALSE`, the procedure body is checked only for syntax. For procedures that invoke themselves recursively, specify `strictMode=FALSE` to avoid non-existent procedure errors during validation. Default value is `TRUE`. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

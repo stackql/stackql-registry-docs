@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>consents_revision</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.healthcare.consents_revision" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="healthcare.consents_revision" /></td></tr>
 </tbody></table>
 
 ## Fields

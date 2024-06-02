@@ -24,15 +24,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dest_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.iap.dest_groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="iap.dest_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the project and contain only lower case letters (a-z) and dashes (-). |
-| <CopyableCode code="cidrs" /> | `array` | Unordered list. List of CIDRs that this group applies to. |
-| <CopyableCode code="fqdns" /> | `array` | Unordered list. List of FQDNs that this group applies to. |
+| <CopyableCode code="name" /> | `string` | Identifier. Identifier for the TunnelDestGroup. Must be unique within the project and contain only lower case letters (a-z) and dashes (-). |
+| <CopyableCode code="cidrs" /> | `array` | Optional. Unordered list. List of CIDRs that this group applies to. |
+| <CopyableCode code="fqdns" /> | `array` | Optional. Unordered list. List of FQDNs that this group applies to. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

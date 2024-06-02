@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>experiments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.experiments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.experiments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,5 +46,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, tensorboardsId" /> | Creates a TensorboardExperiment. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="experimentsId, locationsId, projectsId, tensorboardsId" /> | Deletes a TensorboardExperiment. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, tensorboardsId" /> | Lists TensorboardExperiments in a Location. |
+| <CopyableCode code="batch_create" /> | `EXEC` | <CopyableCode code="experimentsId, locationsId, projectsId, tensorboardsId" /> | Batch create TensorboardTimeSeries that belong to a TensorboardExperiment. |
 | <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="experimentsId, locationsId, projectsId, tensorboardsId" /> | Updates a TensorboardExperiment. |
 | <CopyableCode code="write" /> | `EXEC` | <CopyableCode code="experimentsId, locationsId, projectsId, tensorboardsId" /> | Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's. If any data fail to be ingested, an error is returned. |

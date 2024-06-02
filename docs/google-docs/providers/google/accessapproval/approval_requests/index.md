@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>approval_requests</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.accessapproval.approval_requests" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="accessapproval.approval_requests" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -34,7 +34,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="approve" /> | `object` | A decision that has been made to approve access to a resource. |
 | <CopyableCode code="dismiss" /> | `object` | A decision that has been made to dismiss an approval request. |
 | <CopyableCode code="requestTime" /> | `string` | The time at which approval was requested. |
-| <CopyableCode code="requestedExpiration" /> | `string` | The requested expiration for the approval. If the request is approved, access will be granted from the time of approval until the expiration time. |
+| <CopyableCode code="requestedDuration" /> | `string` | The requested access duration. |
+| <CopyableCode code="requestedExpiration" /> | `string` | The original requested expiration for the approval. Calculated by adding the requested_duration to the request_time. |
 | <CopyableCode code="requestedLocations" /> | `object` | Home office and physical location of the principal. |
 | <CopyableCode code="requestedReason" /> | `object` |  |
 | <CopyableCode code="requestedResourceName" /> | `string` | The resource for which approval is being requested. The format of the resource name is defined at https://cloud.google.com/apis/design/resource_names. The resource name here may either be a "full" resource name (e.g. "//library.googleapis.com/shelves/shelf1/books/book2") or a "relative" resource name (e.g. "shelves/shelf1/books/book2") as described in the resource name specification. |

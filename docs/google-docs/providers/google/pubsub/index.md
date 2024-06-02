@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Provides Reliable, Many-To-Many, Asynchronous Messaging Between Applications.   
+Provides reliable, many-to-many, asynchronous messaging between applications.   
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Provides Reliable, Many-To-Many, Asynchronous Messaging Between Applications.
 <tr><td><b>Name</b></td><td><code>google.pubsub</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Pub/Sub API</td></tr>
-<tr><td><b>Description</b></td><td>Provides Reliable, Many-To-Many, Asynchronous Messaging Between Applications. </td></tr>
-<tr><td><b>Id</b></td><td><code>pubsub:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Provides reliable, many-to-many, asynchronous messaging between applications. </td></tr>
+<tr><td><b>Id</b></td><td><code>pubsub:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

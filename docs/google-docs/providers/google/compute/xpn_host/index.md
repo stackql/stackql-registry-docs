@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>xpn_host</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.xpn_host" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="compute.xpn_host" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,6 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. This is *not* the project ID, and is just a unique ID used by Compute Engine to identify resources. |
 | <CopyableCode code="name" /> | `string` | The project ID. For example: my-example-project. Use the project ID to make requests to Compute Engine. |
 | <CopyableCode code="description" /> | `string` | An optional textual description of the resource. |
+| <CopyableCode code="cloudArmorTier" /> | `string` | [Output Only] The Cloud Armor tier for this project. It can be one of the following values: CA_STANDARD, CA_ENTERPRISE_PAYGO. If this field is not specified, it is assumed to be CA_STANDARD. |
 | <CopyableCode code="commonInstanceMetadata" /> | `object` | A metadata key/value entry. |
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | <CopyableCode code="defaultNetworkTier" /> | `string` | This signifies the default network tier used for configuring resources of the project and can only take the following values: PREMIUM, STANDARD. Initially the default network tier is PREMIUM. |

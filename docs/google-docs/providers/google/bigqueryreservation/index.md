@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-A Service To Modify Your BigQuery Flat-Rate Reservations.  
+A service to modify your BigQuery flat-rate reservations.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ A Service To Modify Your BigQuery Flat-Rate Reservations.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>24</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ A Service To Modify Your BigQuery Flat-Rate Reservations.
 <tr><td><b>Name</b></td><td><code>google.bigqueryreservation</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery Reservation API</td></tr>
-<tr><td><b>Description</b></td><td>A Service To Modify Your BigQuery Flat-Rate Reservations.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigqueryreservation:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>A service to modify your BigQuery flat-rate reservations.</td></tr>
+<tr><td><b>Id</b></td><td><code>bigqueryreservation:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

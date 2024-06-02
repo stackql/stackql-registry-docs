@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_detail_service_apk_details</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.testing.application_detail_service_apk_details" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="testing.application_detail_service_apk_details" /></td></tr>
 </tbody></table>
 
 ## Fields

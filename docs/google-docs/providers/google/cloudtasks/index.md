@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages The Execution Of Large Numbers Of Distributed Requests.  
+Manages the execution of large numbers of distributed requests.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>22</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -33,13 +33,14 @@ Manages The Execution Of Large Numbers Of Distributed Requests.
 <tr><td><b>Name</b></td><td><code>google.cloudtasks</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Tasks API</td></tr>
-<tr><td><b>Description</b></td><td>Manages The Execution Of Large Numbers Of Distributed Requests.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudtasks:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages the execution of large numbers of distributed requests.</td></tr>
+<tr><td><b>Id</b></td><td><code>cloudtasks:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/google/cloudtasks/cmek_config/">cmek_config</a><br />
 <a href="/providers/google/cloudtasks/locations/">locations</a><br />
 <a href="/providers/google/cloudtasks/queues/">queues</a><br />
 </div>

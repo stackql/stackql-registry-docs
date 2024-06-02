@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-A Fully Managed And Highly Scalable Data Discovery And Metadata Management Service.   
+A fully managed and highly scalable data discovery and metadata management service.   
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ A Fully Managed And Highly Scalable Data Discovery And Metadata Management Servi
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>15</b></span><br />
 <span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>73</b></span><br />
+<span>total methods:&nbsp;<b>78</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ A Fully Managed And Highly Scalable Data Discovery And Metadata Management Servi
 <tr><td><b>Name</b></td><td><code>google.datacatalog</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Cloud Data Catalog API</td></tr>
-<tr><td><b>Description</b></td><td>A Fully Managed And Highly Scalable Data Discovery And Metadata Management Service. </td></tr>
-<tr><td><b>Id</b></td><td><code>datacatalog:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>A fully managed and highly scalable data discovery and metadata management service. </td></tr>
+<tr><td><b>Id</b></td><td><code>datacatalog:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

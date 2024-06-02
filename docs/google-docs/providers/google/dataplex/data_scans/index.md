@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_scans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.data_scans" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.data_scans" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -54,5 +54,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_scans_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a DataScan resource. |
 | <CopyableCode code="projects_locations_data_scans_delete" /> | `DELETE` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Deletes a DataScan resource. |
 | <CopyableCode code="_projects_locations_data_scans_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists DataScans. |
+| <CopyableCode code="projects_locations_data_scans_generate_data_quality_rules" /> | `EXEC` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Generates recommended DataQualityRule from a data profiling DataScan. |
 | <CopyableCode code="projects_locations_data_scans_patch" /> | `EXEC` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Updates a DataScan resource. |
 | <CopyableCode code="projects_locations_data_scans_run" /> | `EXEC` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Runs an on-demand execution of a DataScan |

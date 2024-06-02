@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Cloud Retail Service Enables Customers To Build End-To-End Personalized Recommendation Systems Without Requiring A High Level Of Expertise In Machine Learning, Recommendation System, Or Google Cloud.  
+Vertex AI Search for Retail API is made up of Retail Search, Browse and Recommendations. These discovery AI solutions help you implement personalized search, browse and recommendations, based on machine learning models, across your websites and mobile applications.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Cloud Retail Service Enables Customers To Build End-To-End Personalized Recommen
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>17</b></span><br />
 <span>total selectable resources:&nbsp;<b>9</b></span><br />
-<span>total methods:&nbsp;<b>69</b></span><br />
+<span>total methods:&nbsp;<b>70</b></span><br />
 </div>
 </div>
 
@@ -32,9 +32,9 @@ Cloud Retail Service Enables Customers To Build End-To-End Personalized Recommen
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>google.retail</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Retail API</td></tr>
-<tr><td><b>Description</b></td><td>Cloud Retail Service Enables Customers To Build End-To-End Personalized Recommendation Systems Without Requiring A High Level Of Expertise In Machine Learning, Recommendation System, Or Google Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>retail:v23.09.00169</code></td></tr>
+<tr><td><b>Title</b></td><td>Vertex AI Search for Retail API</td></tr>
+<tr><td><b>Description</b></td><td>Vertex AI Search for Retail API is made up of Retail Search, Browse and Recommendations. These discovery AI solutions help you implement personalized search, browse and recommendations, based on machine learning models, across your websites and mobile applications.</td></tr>
+<tr><td><b>Id</b></td><td><code>retail:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

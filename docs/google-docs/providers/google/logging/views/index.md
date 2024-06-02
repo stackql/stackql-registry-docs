@@ -24,16 +24,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>views</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.logging.views" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="logging.views" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the view.For example:projects/my-project/locations/global/buckets/my-bucket/views/my-view |
-| <CopyableCode code="description" /> | `string` | Describes this view. |
+| <CopyableCode code="name" /> | `string` | Output only. The resource name of the view.For example:projects/my-project/locations/global/buckets/my-bucket/views/my-view |
+| <CopyableCode code="description" /> | `string` | Optional. Describes this view. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation timestamp of the view. |
-| <CopyableCode code="filter" /> | `string` | Filter that restricts which log entries in a bucket are visible in this view.Filters are restricted to be a logical AND of ==/!= of any of the following: originating project/folder/organization/billing account. resource type log idFor example:SOURCE("projects/myproject") AND resource.type = "gce_instance" AND LOG_ID("stdout") |
+| <CopyableCode code="filter" /> | `string` | Optional. Filter that restricts which log entries in a bucket are visible in this view.Filters must be logical conjunctions that use the AND operator, and they can use any of the following qualifiers: SOURCE(), which specifies a project, folder, organization, or billing account of origin. resource.type, which specifies the resource type. LOG_ID(), which identifies the log.They can also use the negations of these qualifiers with the NOT operator.For example:SOURCE("projects/myproject") AND resource.type = "gce_instance" AND NOT LOG_ID("stdout") |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of the view. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -61,7 +61,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Lists views on a log bucket. |
 | <CopyableCode code="_organizations_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Lists views on a log bucket. |
 | <CopyableCode code="_projects_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Lists views on a log bucket. |
-| <CopyableCode code="billing_accounts_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="billingAccountsId, bucketsId, locationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
-| <CopyableCode code="folders_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="bucketsId, foldersId, locationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
-| <CopyableCode code="organizations_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
-| <CopyableCode code="projects_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId, viewsId" /> | Updates a view on a log bucket. This method replaces the following fields in the existing view with values from the new view: filter. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="billing_accounts_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="billingAccountsId, bucketsId, locationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the value of the filter field from the existing view with the corresponding value from the new view. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="folders_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="bucketsId, foldersId, locationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the value of the filter field from the existing view with the corresponding value from the new view. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="organizations_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the value of the filter field from the existing view with the corresponding value from the new view. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
+| <CopyableCode code="projects_locations_buckets_views_patch" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId, viewsId" /> | Updates a view on a log bucket. This method replaces the value of the filter field from the existing view with the corresponding value from the new view. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |

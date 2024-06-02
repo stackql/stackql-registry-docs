@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>devices</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudidentity.devices" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="cloudidentity.devices" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,6 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="enabledDeveloperOptions" /> | `boolean` | Output only. Whether developer options is enabled on device. |
 | <CopyableCode code="enabledUsbDebugging" /> | `boolean` | Output only. Whether USB debugging is enabled on device. |
 | <CopyableCode code="encryptionState" /> | `string` | Output only. Device encryption state. |
+| <CopyableCode code="endpointVerificationSpecificAttributes" /> | `object` | Resource representing the [Endpoint Verification-specific attributes](https://cloud.google.com/endpoint-verification/docs/device-information) of a device. |
 | <CopyableCode code="hostname" /> | `string` | Host name of the device. |
 | <CopyableCode code="imei" /> | `string` | Output only. IMEI number of device if GSM device; empty otherwise. |
 | <CopyableCode code="kernelVersion" /> | `string` | Output only. Kernel version of the device. |
@@ -59,6 +60,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="releaseVersion" /> | `string` | Output only. OS release version. Example: 6.0. |
 | <CopyableCode code="securityPatchTime" /> | `string` | Output only. OS security patch update time on device. |
 | <CopyableCode code="serialNumber" /> | `string` | Serial Number of device. Example: HT82V1A01076. |
+| <CopyableCode code="unifiedDeviceId" /> | `string` | Output only. Unified device id of the device. |
 | <CopyableCode code="wifiMacAddresses" /> | `array` | WiFi MAC addresses of device. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>indexes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.indexes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.indexes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -35,6 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. Timestamp when this Index was created. |
 | <CopyableCode code="deployedIndexes" /> | `array` | Output only. The pointers to DeployedIndexes created from this Index. An Index can be only deleted if all its DeployedIndexes had been undeployed first. |
 | <CopyableCode code="displayName" /> | `string` | Required. The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
+| <CopyableCode code="encryptionSpec" /> | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
 | <CopyableCode code="etag" /> | `string` | Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
 | <CopyableCode code="indexStats" /> | `object` | Stats of the Index. |
 | <CopyableCode code="indexUpdateMethod" /> | `string` | Immutable. The update method to use with this Index. If not set, BATCH_UPDATE will be used by default. |

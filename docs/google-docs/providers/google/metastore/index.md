@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-The Dataproc Metastore API Is Used To Manage The Lifecycle And Configuration Of Metastore Services.  
+The Dataproc Metastore API is used to manage the lifecycle and configuration of metastore services.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>9</b></span><br />
-<span>total selectable resources:&nbsp;<b>9</b></span><br />
-<span>total methods:&nbsp;<b>46</b></span><br />
+<span>total resources:&nbsp;<b>11</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>53</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ The Dataproc Metastore API Is Used To Manage The Lifecycle And Configuration Of 
 <tr><td><b>Name</b></td><td><code>google.metastore</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dataproc Metastore API</td></tr>
-<tr><td><b>Description</b></td><td>The Dataproc Metastore API Is Used To Manage The Lifecycle And Configuration Of Metastore Services.</td></tr>
-<tr><td><b>Id</b></td><td><code>metastore:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>The Dataproc Metastore API is used to manage the lifecycle and configuration of metastore services.</td></tr>
+<tr><td><b>Id</b></td><td><code>metastore:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,6 +42,7 @@ The Dataproc Metastore API Is Used To Manage The Lifecycle And Configuration Of 
 <div class="providerDocColumn">
 <a href="/providers/google/metastore/backups/">backups</a><br />
 <a href="/providers/google/metastore/backups_iam_policies/">backups_iam_policies</a><br />
+<a href="/providers/google/metastore/databases_iam_policies/">databases_iam_policies</a><br />
 <a href="/providers/google/metastore/federations/">federations</a><br />
 <a href="/providers/google/metastore/federations_iam_policies/">federations_iam_policies</a><br />
 <a href="/providers/google/metastore/locations/">locations</a><br />
@@ -51,5 +52,6 @@ The Dataproc Metastore API Is Used To Manage The Lifecycle And Configuration Of 
 <a href="/providers/google/metastore/operations/">operations</a><br />
 <a href="/providers/google/metastore/services/">services</a><br />
 <a href="/providers/google/metastore/services_iam_policies/">services_iam_policies</a><br />
+<a href="/providers/google/metastore/tables_iam_policies/">tables_iam_policies</a><br />
 </div>
 </div>

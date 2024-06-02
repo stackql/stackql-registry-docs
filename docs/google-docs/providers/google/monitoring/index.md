@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages Your Cloud Monitoring Data And Configurations.  
+Manages your Cloud Monitoring data and configurations.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Manages Your Cloud Monitoring Data And Configurations.
 <tr><td><b>Name</b></td><td><code>google.monitoring</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Monitoring API</td></tr>
-<tr><td><b>Description</b></td><td>Manages Your Cloud Monitoring Data And Configurations.</td></tr>
-<tr><td><b>Id</b></td><td><code>monitoring:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages your Cloud Monitoring data and configurations.</td></tr>
+<tr><td><b>Id</b></td><td><code>monitoring:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

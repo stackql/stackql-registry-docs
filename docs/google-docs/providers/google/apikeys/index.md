@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages The API Keys Associated With Developer Projects.  
+Manages the API keys associated with developer projects.  
     
 :::info Service Summary
 
@@ -33,8 +33,8 @@ Manages The API Keys Associated With Developer Projects.
 <tr><td><b>Name</b></td><td><code>google.apikeys</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>API Keys API</td></tr>
-<tr><td><b>Description</b></td><td>Manages The API Keys Associated With Developer Projects.</td></tr>
-<tr><td><b>Id</b></td><td><code>apikeys:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Manages the API keys associated with developer projects.</td></tr>
+<tr><td><b>Id</b></td><td><code>apikeys:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources

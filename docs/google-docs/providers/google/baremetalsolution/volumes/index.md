@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>volumes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.volumes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.volumes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,7 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="notes" /> | `string` | Input only. User-specified notes for new Volume. Used to provision Volumes that require manual intervention. |
 | <CopyableCode code="originallyRequestedSizeGib" /> | `string` | Originally requested size, in GiB. |
 | <CopyableCode code="performanceTier" /> | `string` | Immutable. Performance tier of the Volume. Default is SHARED. |
-| <CopyableCode code="pod" /> | `string` | Immutable. Pod name. |
+| <CopyableCode code="pod" /> | `string` | Immutable. Pod name. Pod is an independent part of infrastructure. Volume can only be connected to the instances allocated in the same pod. |
 | <CopyableCode code="protocol" /> | `string` | Output only. Storage protocol for the Volume. |
 | <CopyableCode code="remainingSpaceGib" /> | `string` | The space remaining in the storage volume for new LUNs, in GiB, excluding space reserved for snapshots. |
 | <CopyableCode code="requestedSizeGib" /> | `string` | The requested size of this storage volume, in GiB. |

@@ -24,13 +24,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments_deployed_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.environments_deployed_config" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="apigee.environments_deployed_config" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Name of the environment configuration in the following format: `organizations/&#123;org&#125;/environments/&#123;env&#125;/configs/&#123;config&#125;` |
+| <CopyableCode code="addonsConfig" /> | `object` | RuntimeAddonsConfig defines the runtime configurations for add-ons in an environment. |
 | <CopyableCode code="arcConfigLocation" /> | `string` | The location for the config blob of API Runtime Control, aka Envoy Adapter, for op-based authentication as a URI, e.g. a Cloud Storage URI. This is only used by Envoy-based gateways. |
 | <CopyableCode code="createTime" /> | `string` | Time that the environment configuration was created. |
 | <CopyableCode code="dataCollectors" /> | `array` | List of data collectors used by the deployments in the environment. |

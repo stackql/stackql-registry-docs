@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Beyondcorp Enterprise Provides Identity And Context Aware Access Controls For Enterprise Resources And Enables Zero-Trust Access. Using The Beyondcorp Enterprise APIs, Enterprises Can Set Up Multi-Cloud And On-Prem Connectivity Solutions.  
+Beyondcorp Enterprise provides identity and context aware access controls for enterprise resources and enables zero-trust access. Using the Beyondcorp Enterprise APIs, enterprises can set up multi-cloud and on-prem connectivity solutions.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>10</b></span><br />
-<span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>53</b></span><br />
+<span>total resources:&nbsp;<b>13</b></span><br />
+<span>total selectable resources:&nbsp;<b>13</b></span><br />
+<span>total methods:&nbsp;<b>65</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Beyondcorp Enterprise Provides Identity And Context Aware Access Controls For En
 <tr><td><b>Name</b></td><td><code>google.beyondcorp</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BeyondCorp API</td></tr>
-<tr><td><b>Description</b></td><td>Beyondcorp Enterprise Provides Identity And Context Aware Access Controls For Enterprise Resources And Enables Zero-Trust Access. Using The Beyondcorp Enterprise APIs, Enterprises Can Set Up Multi-Cloud And On-Prem Connectivity Solutions.</td></tr>
-<tr><td><b>Id</b></td><td><code>beyondcorp:v23.09.00169</code></td></tr>
+<tr><td><b>Description</b></td><td>Beyondcorp Enterprise provides identity and context aware access controls for enterprise resources and enables zero-trust access. Using the Beyondcorp Enterprise APIs, enterprises can set up multi-cloud and on-prem connectivity solutions.</td></tr>
+<tr><td><b>Id</b></td><td><code>beyondcorp:v24.06.00234</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -45,12 +45,15 @@ Beyondcorp Enterprise Provides Identity And Context Aware Access Controls For En
 <a href="/providers/google/beyondcorp/app_connectors/">app_connectors</a><br />
 <a href="/providers/google/beyondcorp/app_connectors_iam_policies/">app_connectors_iam_policies</a><br />
 <a href="/providers/google/beyondcorp/app_gateways/">app_gateways</a><br />
+<a href="/providers/google/beyondcorp/app_gateways_iam_policies/">app_gateways_iam_policies</a><br />
+<a href="/providers/google/beyondcorp/browser_dlp_rules_iam_policies/">browser_dlp_rules_iam_policies</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/beyondcorp/app_gateways_iam_policies/">app_gateways_iam_policies</a><br />
 <a href="/providers/google/beyondcorp/client_connector_services_iam_policies/">client_connector_services_iam_policies</a><br />
 <a href="/providers/google/beyondcorp/client_gateways_iam_policies/">client_gateways_iam_policies</a><br />
 <a href="/providers/google/beyondcorp/locations/">locations</a><br />
 <a href="/providers/google/beyondcorp/operations/">operations</a><br />
+<a href="/providers/google/beyondcorp/partner_tenants_iam_policies/">partner_tenants_iam_policies</a><br />
+<a href="/providers/google/beyondcorp/proxy_configs_iam_policies/">proxy_configs_iam_policies</a><br />
 </div>
 </div>

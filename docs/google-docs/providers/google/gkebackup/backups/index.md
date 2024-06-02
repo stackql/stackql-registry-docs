@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.gkebackup.backups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="gkebackup.backups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="etag" /> | `string` | Output only. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a backup from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform backup updates in order to avoid race conditions: An `etag` is returned in the response to `GetBackup`, and systems are expected to put that etag in the request to `UpdateBackup` or `DeleteBackup` to ensure that their change will be applied to the same version of the resource. |
 | <CopyableCode code="labels" /> | `object` | Optional. A set of custom labels supplied by user. |
 | <CopyableCode code="manual" /> | `boolean` | Output only. This flag indicates whether this Backup resource was created manually by a user or via a schedule in the BackupPlan. A value of True means that the Backup was created manually. |
+| <CopyableCode code="permissiveMode" /> | `boolean` | Output only. If false, Backup will fail when Backup for GKE detects Kubernetes configuration that is non-standard or requires additional setup to restore. Inherited from the parent BackupPlan's permissive_mode value. |
 | <CopyableCode code="podCount" /> | `integer` | Output only. The total number of Kubernetes Pods contained in the Backup. |
 | <CopyableCode code="resourceCount" /> | `integer` | Output only. The total number of Kubernetes resources included in the Backup. |
 | <CopyableCode code="retainDays" /> | `integer` | Optional. The age (in days) after which this Backup will be automatically deleted. Must be an integer value &gt;= 0: - If 0, no automatic deletion will occur for this Backup. - If not 0, this must be &gt;= delete_lock_days and &lt;= 365. Once a Backup is created, this value may only be increased. Defaults to the parent BackupPlan's backup_retain_days value. |

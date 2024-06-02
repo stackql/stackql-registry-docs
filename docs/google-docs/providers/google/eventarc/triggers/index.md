@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>triggers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.eventarc.triggers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="eventarc.triggers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,6 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="eventDataContentType" /> | `string` | Optional. EventDataContentType specifies the type of payload in MIME format that is expected from the CloudEvent data field. This is set to `application/json` if the value is not defined. |
 | <CopyableCode code="eventFilters" /> | `array` | Required. Unordered list. The list of filters that applies to event attributes. Only events that match all the provided filters are sent to the destination. |
 | <CopyableCode code="labels" /> | `object` | Optional. User labels attached to the triggers that can be used to group resources. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Whether or not this Trigger satisfies the requirements of physical zone separation |
 | <CopyableCode code="serviceAccount" /> | `string` | Optional. The IAM service account email associated with the trigger. The service account represents the identity of the trigger. The `iam.serviceAccounts.actAs` permission must be granted on the service account to allow a principal to impersonate the service account. For more information, see the [Roles and permissions](/eventarc/docs/all-roles-permissions) page specific to the trigger destination. |
 | <CopyableCode code="transport" /> | `object` | Represents the transport intermediaries created for the trigger to deliver events. |
 | <CopyableCode code="uid" /> | `string` | Output only. Server-assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
