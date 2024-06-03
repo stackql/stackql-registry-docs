@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_public_delegated_prefixes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.global_public_delegated_prefixes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.global_public_delegated_prefixes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -53,4 +53,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Lists the global PublicDelegatedPrefixes for a project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a global PublicDelegatedPrefix in the specified project using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, publicDelegatedPrefix" /> | Deletes the specified global PublicDelegatedPrefix. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, publicDelegatedPrefix" /> | Patches the specified global PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, publicDelegatedPrefix" /> | Patches the specified global PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |

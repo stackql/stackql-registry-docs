@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>notification_channels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="monitoring.notification_channels" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.monitoring.notification_channels" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,7 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_notification_channels_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the notification channels that have been created for the project. To list the types of notification channels that are supported, use the ListNotificationChannelDescriptors method. |
 | <CopyableCode code="projects_notification_channels_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new notification channel, representing a single notification endpoint such as an email address, SMS number, or PagerDuty service.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel. |
 | <CopyableCode code="projects_notification_channels_delete" /> | `DELETE` | <CopyableCode code="notificationChannelsId, projectsId" /> | Deletes a notification channel.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel. |
+| <CopyableCode code="projects_notification_channels_patch" /> | `UPDATE` | <CopyableCode code="notificationChannelsId, projectsId" /> | Updates a notification channel. Fields not specified in the field mask remain unchanged.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel. |
 | <CopyableCode code="_projects_notification_channels_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the notification channels that have been created for the project. To list the types of notification channels that are supported, use the ListNotificationChannelDescriptors method. |
-| <CopyableCode code="projects_notification_channels_patch" /> | `EXEC` | <CopyableCode code="notificationChannelsId, projectsId" /> | Updates a notification channel. Fields not specified in the field mask remain unchanged.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel. |
 | <CopyableCode code="projects_notification_channels_send_verification_code" /> | `EXEC` | <CopyableCode code="notificationChannelsId, projectsId" /> | Causes a verification code to be delivered to the channel. The code can then be supplied in VerifyNotificationChannel to verify the channel. |
 | <CopyableCode code="projects_notification_channels_verify" /> | `EXEC` | <CopyableCode code="notificationChannelsId, projectsId" /> | Verifies a NotificationChannel by proving receipt of the code delivered to the channel as a result of calling SendNotificationChannelVerificationCode. |

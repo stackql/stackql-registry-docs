@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>contact_centers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="contactcenteraiplatform.contact_centers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.contactcenteraiplatform.contact_centers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -56,5 +56,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists ContactCenters in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new ContactCenter in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="contactCentersId, locationsId, projectsId" /> | Deletes a single ContactCenter. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="contactCentersId, locationsId, projectsId" /> | Updates the parameters of a single ContactCenter. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists ContactCenters in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="contactCentersId, locationsId, projectsId" /> | Updates the parameters of a single ContactCenter. |

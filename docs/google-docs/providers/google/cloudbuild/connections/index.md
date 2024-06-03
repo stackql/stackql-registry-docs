@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudbuild.connections" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudbuild.connections" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,6 +50,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_connections_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Connections in a given project and location. |
 | <CopyableCode code="projects_locations_connections_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Connection. |
 | <CopyableCode code="projects_locations_connections_delete" /> | `DELETE` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Deletes a single connection. |
+| <CopyableCode code="projects_locations_connections_patch" /> | `UPDATE` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Updates a single connection. |
 | <CopyableCode code="_projects_locations_connections_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Connections in a given project and location. |
-| <CopyableCode code="projects_locations_connections_patch" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Updates a single connection. |
 | <CopyableCode code="projects_locations_connections_process_webhook" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | ProcessWebhook is called by the external SCM for notifying of events. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>alert_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="monitoring.alert_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.monitoring.alert_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_alert_policies_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the existing alerting policies for the workspace. |
 | <CopyableCode code="projects_alert_policies_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy. |
 | <CopyableCode code="projects_alert_policies_delete" /> | `DELETE` | <CopyableCode code="alertPoliciesId, projectsId" /> | Deletes an alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy. |
+| <CopyableCode code="projects_alert_policies_patch" /> | `UPDATE` | <CopyableCode code="alertPoliciesId, projectsId" /> | Updates an alerting policy. You can either replace the entire policy with a new one or replace only certain fields in the current alerting policy by specifying the fields to be updated via updateMask. Returns the updated alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy. |
 | <CopyableCode code="_projects_alert_policies_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the existing alerting policies for the workspace. |
-| <CopyableCode code="projects_alert_policies_patch" /> | `EXEC` | <CopyableCode code="alertPoliciesId, projectsId" /> | Updates an alerting policy. You can either replace the entire policy with a new one or replace only certain fields in the current alerting policy by specifying the fields to be updated via updateMask. Returns the updated alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy. |

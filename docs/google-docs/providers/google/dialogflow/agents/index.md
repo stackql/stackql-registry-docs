@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>agents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.agents" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.agents" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -57,8 +57,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Returns the list of all agents in the specified location. |
 | <CopyableCode code="projects_locations_agents_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an agent in the specified location. Note: You should always train flows prior to sending them queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="projects_locations_agents_delete" /> | `DELETE` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Deletes the specified agent. |
+| <CopyableCode code="projects_locations_agents_patch" /> | `UPDATE` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Updates the specified agent. Note: You should always train flows prior to sending them queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="_projects_locations_agents_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns the list of all agents in the specified location. |
 | <CopyableCode code="projects_locations_agents_export" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Exports the specified agent to a binary file. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: ExportAgentResponse |
-| <CopyableCode code="projects_locations_agents_patch" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Updates the specified agent. Note: You should always train flows prior to sending them queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="projects_locations_agents_restore" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Restores the specified agent from a binary file. Replaces the current agent with a new one. Note that all existing resources in agent (e.g. intents, entity types, flows) will be removed. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) Note: You should always train flows prior to sending them queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="projects_locations_agents_validate" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Validates the specified agent and creates or updates validation results. The agent in draft version is validated. Please call this API after the training is completed to get the complete validation results. |

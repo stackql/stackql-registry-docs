@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>index_endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.index_endpoints" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.index_endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,10 +51,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists IndexEndpoints in a Location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an IndexEndpoint. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Deletes an IndexEndpoint. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Updates an IndexEndpoint. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists IndexEndpoints in a Location. |
 | <CopyableCode code="deploy_index" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it. Only non-empty Indexes can be deployed. |
 | <CopyableCode code="find_neighbors" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Finds the nearest neighbors of each vector within the request. |
 | <CopyableCode code="mutate_deployed_index" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Update an existing DeployedIndex under an IndexEndpoint. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Updates an IndexEndpoint. |
 | <CopyableCode code="read_index_datapoints" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Reads the datapoints/vectors of the given IDs. A maximum of 1000 datapoints can be retrieved in a batch. |
 | <CopyableCode code="undeploy_index" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using. |

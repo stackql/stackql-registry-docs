@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="metastore.services" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.metastore.services" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -61,11 +61,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists services in a project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a metastore service in a project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Deletes a single service. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Updates the parameters of a single service. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists services in a project and location. |
 | <CopyableCode code="alter_location" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Alter metadata resource location. The metadata resource can be a database, table, or partition. This functionality only updates the parent directory for the respective metadata resource and does not transfer any existing data to the new location. |
 | <CopyableCode code="alter_table_properties" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Alter metadata table properties. |
 | <CopyableCode code="export_metadata" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Exports metadata from a service. |
 | <CopyableCode code="move_table_to_database" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Move a table to another database. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Updates the parameters of a single service. |
 | <CopyableCode code="query_metadata" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Query Dataproc Metastore metadata. |
 | <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Restores a service from a backup. |

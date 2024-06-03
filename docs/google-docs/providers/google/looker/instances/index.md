@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="looker.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.looker.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -61,8 +61,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Instances in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Instance in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Delete instance. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Update Instance. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Instances in a given project and location. |
 | <CopyableCode code="export" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Export instance. |
 | <CopyableCode code="import" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Import instance. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Update Instance. |
 | <CopyableCode code="restart" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Restart instance. |

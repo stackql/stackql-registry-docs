@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workspaces_file_git_statuses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataform.workspaces_file_git_statuses" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataform.workspaces_file_git_statuses" /></td></tr>
 </tbody></table>
 
 ## Fields

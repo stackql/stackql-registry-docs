@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigateway.configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigateway.configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,5 +48,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="apisId, locationsId, projectsId" /> | Lists ApiConfigs in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="apisId, locationsId, projectsId" /> | Creates a new ApiConfig in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="apisId, configsId, locationsId, projectsId" /> | Deletes a single ApiConfig. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="apisId, configsId, locationsId, projectsId" /> | Updates the parameters of a single ApiConfig. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId" /> | Lists ApiConfigs in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="apisId, configsId, locationsId, projectsId" /> | Updates the parameters of a single ApiConfig. |

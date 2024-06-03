@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>datacollectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.datacollectors" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.datacollectors" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_datacollectors_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all data collectors. |
 | <CopyableCode code="organizations_datacollectors_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a new data collector. |
 | <CopyableCode code="organizations_datacollectors_delete" /> | `DELETE` | <CopyableCode code="datacollectorsId, organizationsId" /> | Deletes a data collector. |
+| <CopyableCode code="organizations_datacollectors_patch" /> | `UPDATE` | <CopyableCode code="datacollectorsId, organizationsId" /> | Updates a data collector. |
 | <CopyableCode code="_organizations_datacollectors_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all data collectors. |
-| <CopyableCode code="organizations_datacollectors_patch" /> | `EXEC` | <CopyableCode code="datacollectorsId, organizationsId" /> | Updates a data collector. |

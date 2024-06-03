@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_policies_external_addresses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmwareengine.network_policies_external_addresses" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmwareengine.network_policies_external_addresses" /></td></tr>
 </tbody></table>
 
 ## Fields

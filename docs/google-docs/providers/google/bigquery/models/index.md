@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>models</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigquery.models" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.models" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -57,5 +57,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="+datasetId, +modelId, projectId" /> | Gets the specified model resource by model ID. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="+datasetId, projectId" /> | Lists all models in the specified dataset. Requires the READER dataset role. After retrieving the list of models, you can get information about a particular model by calling the models.get method. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="+datasetId, +modelId, projectId" /> | Deletes the model specified by modelId from the dataset. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="+datasetId, +modelId, projectId" /> | Patch specific fields in the specified model. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="+datasetId, projectId" /> | Lists all models in the specified dataset. Requires the READER dataset role. After retrieving the list of models, you can get information about a particular model by calling the models.get method. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="+datasetId, +modelId, projectId" /> | Patch specific fields in the specified model. |

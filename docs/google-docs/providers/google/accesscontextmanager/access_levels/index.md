@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_levels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="accesscontextmanager.access_levels" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.accesscontextmanager.access_levels" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,6 +42,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accessPoliciesId" /> | Lists all access levels for an access policy. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accessPoliciesId" /> | Creates an access level. The long-running operation from this RPC has a successful status after the access level propagates to long-lasting storage. If access levels contain errors, an error response is returned for the first error encountered. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accessLevelsId, accessPoliciesId" /> | Deletes an access level based on the resource name. The long-running operation from this RPC has a successful status after the access level has been removed from long-lasting storage. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="accessLevelsId, accessPoliciesId" /> | Updates an access level. The long-running operation from this RPC has a successful status after the changes to the access level propagate to long-lasting storage. If access levels contain errors, an error response is returned for the first error encountered. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="accessPoliciesId" /> | Lists all access levels for an access policy. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="accessLevelsId, accessPoliciesId" /> | Updates an access level. The long-running operation from this RPC has a successful status after the changes to the access level propagate to long-lasting storage. If access levels contain errors, an error response is returned for the first error encountered. |
 | <CopyableCode code="replace_all" /> | `EXEC` | <CopyableCode code="accessPoliciesId" /> | Replaces all existing access levels in an access policy with the access levels provided. This is done atomically. The long-running operation from this RPC has a successful status after all replacements propagate to long-lasting storage. If the replacement contains errors, an error response is returned for the first error encountered. Upon error, the replacement is cancelled, and existing access levels are not affected. The Operation.response field contains ReplaceAccessLevelsResponse. Removing access levels contained in existing service perimeters result in an error. |

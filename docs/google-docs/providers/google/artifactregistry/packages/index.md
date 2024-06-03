@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>packages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="artifactregistry.packages" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.artifactregistry.packages" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,5 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Gets a package. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists packages. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Deletes a package and all of its versions and tags. The returned operation will complete once the package has been deleted. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Updates a package. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists packages. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Updates a package. |

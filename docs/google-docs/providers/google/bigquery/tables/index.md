@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tables</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigquery.tables" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.tables" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -87,6 +87,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="+datasetId, projectId" /> | Lists all tables in the specified dataset. Requires the READER dataset role. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="+datasetId, projectId" /> | Creates a new, empty table in the dataset. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="+datasetId, +tableId, projectId" /> | Deletes the table specified by tableId from the dataset. If the table contains data, all the data will be deleted. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="+datasetId, +tableId, projectId" /> | Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource. This method supports RFC5789 patch semantics. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="+datasetId, +tableId, projectId" /> | Updates information in an existing table. The update method replaces the entire Table resource, whereas the patch method only replaces fields that are provided in the submitted Table resource. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="+datasetId, projectId" /> | Lists all tables in the specified dataset. Requires the READER dataset role. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="+datasetId, +tableId, projectId" /> | Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource. This method supports RFC5789 patch semantics. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="+datasetId, +tableId, projectId" /> | Updates information in an existing table. The update method replaces the entire Table resource, whereas the patch method only replaces fields that are provided in the submitted Table resource. |

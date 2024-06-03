@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transition_route_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.transition_route_groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.transition_route_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,7 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_transition_route_groups_create" /> | `INSERT` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Creates an TransitionRouteGroup in the specified flow. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="projects_locations_agents_flows_transition_route_groups_delete" /> | `DELETE` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, transitionRouteGroupsId" /> | Deletes the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="projects_locations_agents_transition_route_groups_delete" /> | `DELETE` | <CopyableCode code="agentsId, locationsId, projectsId, transitionRouteGroupsId" /> | Deletes the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
+| <CopyableCode code="projects_locations_agents_flows_transition_route_groups_patch" /> | `UPDATE` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, transitionRouteGroupsId" /> | Updates the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
+| <CopyableCode code="projects_locations_agents_transition_route_groups_patch" /> | `UPDATE` | <CopyableCode code="agentsId, locationsId, projectsId, transitionRouteGroupsId" /> | Updates the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="_projects_locations_agents_flows_transition_route_groups_list" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId" /> | Returns the list of all transition route groups in the specified flow. |
 | <CopyableCode code="_projects_locations_agents_transition_route_groups_list" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Returns the list of all transition route groups in the specified flow. |
-| <CopyableCode code="projects_locations_agents_flows_transition_route_groups_patch" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, transitionRouteGroupsId" /> | Updates the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
-| <CopyableCode code="projects_locations_agents_transition_route_groups_patch" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId, transitionRouteGroupsId" /> | Updates the specified TransitionRouteGroup. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |

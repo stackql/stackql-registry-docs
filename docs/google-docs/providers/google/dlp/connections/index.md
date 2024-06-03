@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dlp.connections" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dlp.connections" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,7 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_connections_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Connections in a parent. |
 | <CopyableCode code="projects_locations_connections_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a Connection to an external data source. |
 | <CopyableCode code="projects_locations_connections_delete" /> | `DELETE` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Delete a Connection. |
+| <CopyableCode code="projects_locations_connections_patch" /> | `UPDATE` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Update a Connection. |
 | <CopyableCode code="_projects_locations_connections_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Connections in a parent. |
 | <CopyableCode code="organizations_locations_connections_search" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Searches for Connections in a parent. |
-| <CopyableCode code="projects_locations_connections_patch" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Update a Connection. |
 | <CopyableCode code="projects_locations_connections_search" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Searches for Connections in a parent. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ekm_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudkms.ekm_connections" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudkms.ekm_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,6 +42,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="ekmConnectionsId, locationsId, projectsId" /> | Returns metadata for a given EkmConnection. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists EkmConnections. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new EkmConnection in a given Project and Location. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="ekmConnectionsId, locationsId, projectsId" /> | Updates an EkmConnection's metadata. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists EkmConnections. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="ekmConnectionsId, locationsId, projectsId" /> | Updates an EkmConnection's metadata. |
 | <CopyableCode code="verify_connectivity" /> | `EXEC` | <CopyableCode code="ekmConnectionsId, locationsId, projectsId" /> | Verifies that Cloud KMS can successfully connect to the external key manager specified by an EkmConnection. If there is an error connecting to the EKM, this method returns a FAILED_PRECONDITION status containing structured information as described at https://cloud.google.com/kms/docs/reference/ekm_errors. |

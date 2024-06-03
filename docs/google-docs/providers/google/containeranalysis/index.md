@@ -34,7 +34,7 @@ This API is a prerequisite for leveraging Artifact Analysis scanning capabilitie
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Container Analysis API</td></tr>
 <tr><td><b>Description</b></td><td>This API is a prerequisite for leveraging Artifact Analysis scanning capabilities in both Artifact Registry and with Advanced Vulnerability Insights (runtime scanning) in GKE. In addition, the Container Analysis API is an implementation of the Grafeas API, which enables storing, querying, and retrieval of critical metadata about all of your software artifacts.</td></tr>
-<tr><td><b>Id</b></td><td><code>containeranalysis:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>containeranalysis:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

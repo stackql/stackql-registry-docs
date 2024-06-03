@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.entries" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.entries" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_entry_groups_entries_list" /> | `SELECT` | <CopyableCode code="entryGroupsId, locationsId, projectsId" /> | Lists entries within an entry group. |
 | <CopyableCode code="projects_locations_entry_groups_entries_create" /> | `INSERT` | <CopyableCode code="entryGroupsId, locationsId, projectsId" /> | Creates an Entry. |
 | <CopyableCode code="projects_locations_entry_groups_entries_delete" /> | `DELETE` | <CopyableCode code="entriesId, entryGroupsId, locationsId, projectsId" /> | Deletes an Entry. |
+| <CopyableCode code="projects_locations_entry_groups_entries_patch" /> | `UPDATE` | <CopyableCode code="entriesId, entryGroupsId, locationsId, projectsId" /> | Updates an Entry. |
 | <CopyableCode code="_projects_locations_entry_groups_entries_list" /> | `EXEC` | <CopyableCode code="entryGroupsId, locationsId, projectsId" /> | Lists entries within an entry group. |
-| <CopyableCode code="projects_locations_entry_groups_entries_patch" /> | `EXEC` | <CopyableCode code="entriesId, entryGroupsId, locationsId, projectsId" /> | Updates an Entry. |

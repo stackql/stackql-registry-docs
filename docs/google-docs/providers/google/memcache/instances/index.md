@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="memcache.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.memcache.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -56,8 +56,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Instances in a given location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Instance in a given location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Deletes a single Instance. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Updates an existing Instance in a given project and location. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Instances in a given location. |
 | <CopyableCode code="apply_parameters" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | `ApplyParameters` restarts the set of specified nodes in order to update them to the current set of parameters for the Memcached Instance. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Updates an existing Instance in a given project and location. |
 | <CopyableCode code="reschedule_maintenance" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Reschedules upcoming maintenance event. |
 | <CopyableCode code="upgrade" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Upgrades the Memcache instance to a newer memcached engine version specified in the request. |

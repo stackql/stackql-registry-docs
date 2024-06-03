@@ -34,7 +34,7 @@ The management interface for Binary Authorization, a service that provides polic
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Binary Authorization API</td></tr>
 <tr><td><b>Description</b></td><td>The management interface for Binary Authorization, a service that provides policy-based deployment validation and control for images deployed to Google Kubernetes Engine (GKE), Anthos Service Mesh, Anthos Clusters, and Cloud Run. </td></tr>
-<tr><td><b>Id</b></td><td><code>binaryauthorization:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>binaryauthorization:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

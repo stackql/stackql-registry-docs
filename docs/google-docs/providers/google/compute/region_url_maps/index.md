@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_url_maps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.region_url_maps" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_url_maps" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,6 +52,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves the list of UrlMap resources available to the specified project in the specified region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a UrlMap resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, urlMap" /> | Deletes the specified UrlMap resource. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, region, urlMap" /> | Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, region, urlMap" /> | Updates the specified UrlMap resource with the data included in the request. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, region, urlMap" /> | Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="project, region, urlMap" /> | Updates the specified UrlMap resource with the data included in the request. |
 | <CopyableCode code="validate" /> | `EXEC` | <CopyableCode code="project, region, urlMap" /> | Runs static validation for the UrlMap. In particular, the tests of the provided UrlMap will be run. Calling this method does NOT create the UrlMap. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>forwarding_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.forwarding_rules" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.forwarding_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -73,7 +73,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of ForwardingRule resources available to the specified project and region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a ForwardingRule resource in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="forwardingRule, project, region" /> | Deletes the specified ForwardingRule resource. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="forwardingRule, project, region" /> | Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently, you can only patch the network_tier field. |
 | <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of forwarding rules. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="forwardingRule, project, region" /> | Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently, you can only patch the network_tier field. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Sets the labels on the specified resource. To learn more about labels, read the Labeling Resources documentation. |
 | <CopyableCode code="set_target" /> | `EXEC` | <CopyableCode code="forwardingRule, project, region" /> | Changes target URL for forwarding rule. The new target should be of the same type as the old target. |

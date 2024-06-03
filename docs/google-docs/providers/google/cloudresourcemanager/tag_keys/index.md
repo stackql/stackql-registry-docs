@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tag_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudresourcemanager.tag_keys" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudresourcemanager.tag_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` |  | Lists all TagKeys for a parent resource. |
 | <CopyableCode code="create" /> | `INSERT` |  | Creates a new TagKey. If another request with the same parameters is sent while the original request is in process, the second request will receive an error. A maximum of 1000 TagKeys can exist under a parent at any given time. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="tagKeysId" /> | Deletes a TagKey. The TagKey cannot be deleted if it has any child TagValues. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="tagKeysId" /> | Updates the attributes of the TagKey resource. |
 | <CopyableCode code="_list" /> | `EXEC` |  | Lists all TagKeys for a parent resource. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="tagKeysId" /> | Updates the attributes of the TagKey resource. |

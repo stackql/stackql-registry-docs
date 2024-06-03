@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="alloydb.clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.alloydb.clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -67,7 +67,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Clusters in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Cluster in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Deletes a single Cluster. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Updates the parameters of a single Cluster. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Clusters in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Updates the parameters of a single Cluster. |
 | <CopyableCode code="promote" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Promotes a SECONDARY cluster. This turns down replication from the PRIMARY cluster and promotes a secondary cluster into its own standalone cluster. Imperative only. |
 | <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Cluster in a given project and location, with a volume restored from the provided source, either a backup ID or a point-in-time and a source cluster. |

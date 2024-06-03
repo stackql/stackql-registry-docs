@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ssl_policies_available_features</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.ssl_policies_available_features" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.ssl_policies_available_features" /></td></tr>
 </tbody></table>
 
 ## Fields

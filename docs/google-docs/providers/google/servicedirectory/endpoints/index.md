@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="servicedirectory.endpoints" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.servicedirectory.endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,5 +43,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Lists all endpoints. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Creates an endpoint, and returns the new endpoint. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointsId, locationsId, namespacesId, projectsId, servicesId" /> | Deletes an endpoint. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="endpointsId, locationsId, namespacesId, projectsId, servicesId" /> | Updates an endpoint. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Lists all endpoints. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, namespacesId, projectsId, servicesId" /> | Updates an endpoint. |

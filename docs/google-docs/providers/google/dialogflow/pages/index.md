@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pages</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.pages" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.pages" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_flows_pages_list" /> | `SELECT` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId" /> | Returns the list of all pages in the specified flow. |
 | <CopyableCode code="projects_locations_agents_flows_pages_create" /> | `INSERT` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId" /> | Creates a page in the specified flow. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="projects_locations_agents_flows_pages_delete" /> | `DELETE` | <CopyableCode code="agentsId, flowsId, locationsId, pagesId, projectsId" /> | Deletes the specified page. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
+| <CopyableCode code="projects_locations_agents_flows_pages_patch" /> | `UPDATE` | <CopyableCode code="agentsId, flowsId, locationsId, pagesId, projectsId" /> | Updates the specified page. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |
 | <CopyableCode code="_projects_locations_agents_flows_pages_list" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId" /> | Returns the list of all pages in the specified flow. |
-| <CopyableCode code="projects_locations_agents_flows_pages_patch" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, pagesId, projectsId" /> | Updates the specified page. Note: You should always train a flow prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training). |

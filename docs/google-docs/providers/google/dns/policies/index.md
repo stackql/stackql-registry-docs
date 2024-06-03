@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dns.policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dns.policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,6 +45,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Enumerates all Policies associated with a project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new Policy. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="policy, project" /> | Deletes a previously created Policy. Fails if the policy is still being referenced by a network. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="policy, project" /> | Applies a partial update to an existing Policy. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="policy, project" /> | Updates an existing Policy. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Enumerates all Policies associated with a project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="policy, project" /> | Applies a partial update to an existing Policy. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="policy, project" /> | Updates an existing Policy. |

@@ -34,7 +34,7 @@ Vertex AI Search for Retail API is made up of Retail Search, Browse and Recommen
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Vertex AI Search for Retail API</td></tr>
 <tr><td><b>Description</b></td><td>Vertex AI Search for Retail API is made up of Retail Search, Browse and Recommendations. These discovery AI solutions help you implement personalized search, browse and recommendations, based on machine learning models, across your websites and mobile applications.</td></tr>
-<tr><td><b>Id</b></td><td><code>retail:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>retail:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

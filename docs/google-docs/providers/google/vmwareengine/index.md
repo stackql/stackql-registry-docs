@@ -34,7 +34,7 @@ The Google VMware Engine API lets you programmatically manage VMware environment
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>VMware Engine API</td></tr>
 <tr><td><b>Description</b></td><td>The Google VMware Engine API lets you programmatically manage VMware environments.</td></tr>
-<tr><td><b>Id</b></td><td><code>vmwareengine:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>vmwareengine:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

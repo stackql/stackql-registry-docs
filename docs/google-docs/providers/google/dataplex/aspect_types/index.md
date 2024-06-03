@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>aspect_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.aspect_types" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.aspect_types" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,5 +48,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_aspect_types_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists AspectType resources in a project and location. |
 | <CopyableCode code="projects_locations_aspect_types_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an AspectType |
 | <CopyableCode code="projects_locations_aspect_types_delete" /> | `DELETE` | <CopyableCode code="aspectTypesId, locationsId, projectsId" /> | Deletes a AspectType resource. |
+| <CopyableCode code="projects_locations_aspect_types_patch" /> | `UPDATE` | <CopyableCode code="aspectTypesId, locationsId, projectsId" /> | Updates a AspectType resource. |
 | <CopyableCode code="_projects_locations_aspect_types_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists AspectType resources in a project and location. |
-| <CopyableCode code="projects_locations_aspect_types_patch" /> | `EXEC` | <CopyableCode code="aspectTypesId, locationsId, projectsId" /> | Updates a AspectType resource. |

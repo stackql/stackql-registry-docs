@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>provisioning_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.provisioning_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.provisioning_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, provisioningConfigsId" /> | Get ProvisioningConfig by name. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create new ProvisioningConfig. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, provisioningConfigsId" /> | Update existing ProvisioningConfig. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, provisioningConfigsId" /> | Update existing ProvisioningConfig. |
 | <CopyableCode code="submit" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Submit a provisiong configuration for a given project. |

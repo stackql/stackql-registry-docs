@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>objects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="storage.objects" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storage.objects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -72,12 +72,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="bucket" /> | Retrieves a list of objects matching the criteria. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="bucket" /> | Stores a new object and metadata. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bucket, object" /> | Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="bucket, object" /> | Patches an object's metadata. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="bucket, object" /> | Updates an object's metadata. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="bucket" /> | Retrieves a list of objects matching the criteria. |
 | <CopyableCode code="bulk_restore" /> | `EXEC` | <CopyableCode code="bucket" /> | Initiates a long-running bulk restore operation on the specified bucket. |
 | <CopyableCode code="compose" /> | `EXEC` | <CopyableCode code="destinationBucket, destinationObject" /> | Concatenates a list of existing objects into a new object in the same bucket. |
 | <CopyableCode code="copy" /> | `EXEC` | <CopyableCode code="destinationBucket, destinationObject, sourceBucket, sourceObject" /> | Copies a source object to a destination object. Optionally overrides metadata. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="bucket, object" /> | Patches an object's metadata. |
 | <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="bucket, generation, object" /> | Restores a soft-deleted object. |
 | <CopyableCode code="rewrite" /> | `EXEC` | <CopyableCode code="destinationBucket, destinationObject, sourceBucket, sourceObject" /> | Rewrites a source object to a destination object. Optionally overrides metadata. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="bucket, object" /> | Updates an object's metadata. |
 | <CopyableCode code="watch_all" /> | `EXEC` | <CopyableCode code="bucket" /> | Watch for changes on all objects in a bucket. |

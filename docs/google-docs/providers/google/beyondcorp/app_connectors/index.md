@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>app_connectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="beyondcorp.app_connectors" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.beyondcorp.app_connectors" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,7 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_app_connectors_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists AppConnectors in a given project and location. |
 | <CopyableCode code="projects_locations_app_connectors_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new AppConnector in a given project and location. |
 | <CopyableCode code="projects_locations_app_connectors_delete" /> | `DELETE` | <CopyableCode code="appConnectorsId, locationsId, projectsId" /> | Deletes a single AppConnector. |
+| <CopyableCode code="projects_locations_app_connectors_patch" /> | `UPDATE` | <CopyableCode code="appConnectorsId, locationsId, projectsId" /> | Updates the parameters of a single AppConnector. |
 | <CopyableCode code="_projects_locations_app_connectors_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists AppConnectors in a given project and location. |
-| <CopyableCode code="projects_locations_app_connectors_patch" /> | `EXEC` | <CopyableCode code="appConnectorsId, locationsId, projectsId" /> | Updates the parameters of a single AppConnector. |
 | <CopyableCode code="projects_locations_app_connectors_report_status" /> | `EXEC` | <CopyableCode code="appConnectorsId, locationsId, projectsId" /> | Report status for a given connector. |
 | <CopyableCode code="projects_locations_app_connectors_resolve_instance_config" /> | `EXEC` | <CopyableCode code="appConnectorsId, locationsId, projectsId" /> | Gets instance configuration for a given AppConnector. An internal method called by a AppConnector to get its container config. |

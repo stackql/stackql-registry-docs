@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments_security_actions_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.environments_security_actions_config" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.environments_security_actions_config" /></td></tr>
 </tbody></table>
 
 ## Fields

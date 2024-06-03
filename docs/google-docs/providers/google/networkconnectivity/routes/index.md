@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networkconnectivity.routes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkconnectivity.routes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -36,7 +36,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="ipCidrRange" /> | `string` | The destination IP address range. |
 | <CopyableCode code="labels" /> | `object` | Optional labels in key-value pair format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements). |
 | <CopyableCode code="location" /> | `string` | Output only. The origin location of the route. Uses the following form: "projects/&#123;project&#125;/locations/&#123;location&#125;" Example: projects/1234/locations/us-central1 |
+| <CopyableCode code="nextHopInterconnectAttachment" /> | `object` | A route next hop that leads to an interconnect attachment resource. |
+| <CopyableCode code="nextHopRouterApplianceInstance" /> | `object` | A route next hop that leads to a Router appliance instance. |
 | <CopyableCode code="nextHopVpcNetwork" /> | `object` |  |
+| <CopyableCode code="nextHopVpnTunnel" /> | `object` | A route next hop that leads to a VPN tunnel resource. |
+| <CopyableCode code="priority" /> | `string` | Output only. The priority of this route. Priority is used to break ties in cases where a destination matches more than one route. In these cases the route with the lowest-numbered priority value wins. |
 | <CopyableCode code="spoke" /> | `string` | Immutable. The spoke that this route leads to. Example: projects/12345/locations/global/spokes/SPOKE |
 | <CopyableCode code="state" /> | `string` | Output only. The current lifecycle state of the route. |
 | <CopyableCode code="type" /> | `string` | Output only. The route's type. Its type is determined by the properties of its IP address range. |

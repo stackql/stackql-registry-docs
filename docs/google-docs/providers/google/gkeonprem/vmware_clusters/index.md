@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vmware_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkeonprem.vmware_clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkeonprem.vmware_clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -69,8 +69,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_vmware_clusters_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists VMware Clusters in a given project and location. |
 | <CopyableCode code="projects_locations_vmware_clusters_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new VMware user cluster in a given project and location. |
 | <CopyableCode code="projects_locations_vmware_clusters_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Deletes a single VMware Cluster. |
+| <CopyableCode code="projects_locations_vmware_clusters_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Updates the parameters of a single VMware cluster. |
 | <CopyableCode code="_projects_locations_vmware_clusters_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists VMware Clusters in a given project and location. |
 | <CopyableCode code="projects_locations_vmware_clusters_enroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Enrolls an existing VMware user cluster and its node pools to the Anthos On-Prem API within a given project and location. Through enrollment, an existing cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster and/or its node pools will be expected to be performed through the API. |
-| <CopyableCode code="projects_locations_vmware_clusters_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Updates the parameters of a single VMware cluster. |
 | <CopyableCode code="projects_locations_vmware_clusters_query_version_config" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Queries the VMware user cluster version config. |
 | <CopyableCode code="projects_locations_vmware_clusters_unenroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Unenrolls an existing VMware user cluster and its node pools from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters and node pools will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or UI. |

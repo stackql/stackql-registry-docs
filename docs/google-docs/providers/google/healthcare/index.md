@@ -34,7 +34,7 @@ Manage, store, and access healthcare data in Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Healthcare API</td></tr>
 <tr><td><b>Description</b></td><td>Manage, store, and access healthcare data in Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>healthcare:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>healthcare:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>grpc_routes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networkservices.grpc_routes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkservices.grpc_routes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists GrpcRoutes in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new GrpcRoute in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="grpcRoutesId, locationsId, projectsId" /> | Deletes a single GrpcRoute. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="grpcRoutesId, locationsId, projectsId" /> | Updates the parameters of a single GrpcRoute. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists GrpcRoutes in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="grpcRoutesId, locationsId, projectsId" /> | Updates the parameters of a single GrpcRoute. |

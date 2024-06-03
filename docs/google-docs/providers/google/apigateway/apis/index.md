@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apis</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigateway.apis" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigateway.apis" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,5 +44,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Apis in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Api in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="apisId, locationsId, projectsId" /> | Deletes a single Api. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="apisId, locationsId, projectsId" /> | Updates the parameters of a single Api. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Apis in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId" /> | Updates the parameters of a single Api. |

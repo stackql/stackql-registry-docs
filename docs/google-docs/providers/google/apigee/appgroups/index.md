@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>appgroups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.appgroups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.appgroups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_appgroups_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all AppGroups in an organization. A maximum of 1000 AppGroups are returned in the response if PageSize is not specified, or if the PageSize is greater than 1000. |
 | <CopyableCode code="organizations_appgroups_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates an AppGroup. Once created, user can register apps under the AppGroup to obtain secret key and password. At creation time, the AppGroup's state is set as `active`. |
 | <CopyableCode code="organizations_appgroups_delete" /> | `DELETE` | <CopyableCode code="appgroupsId, organizationsId" /> | Deletes an AppGroup. All app and API keys associations with the AppGroup are also removed. **Warning**: This API will permanently delete the AppGroup and related artifacts. **Note**: The delete operation is asynchronous. The AppGroup app is deleted immediately, but its associated resources, such as apps and API keys, may take anywhere from a few seconds to a few minutes to be deleted. |
+| <CopyableCode code="organizations_appgroups_update" /> | `UPDATE` | <CopyableCode code="appgroupsId, organizationsId" /> | Updates an AppGroup. This API replaces the existing AppGroup details with those specified in the request. Include or exclude any existing details that you want to retain or delete, respectively. Note that the state of the AppGroup should be updated using `action`, and not via AppGroup. |
 | <CopyableCode code="_organizations_appgroups_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all AppGroups in an organization. A maximum of 1000 AppGroups are returned in the response if PageSize is not specified, or if the PageSize is greater than 1000. |
-| <CopyableCode code="organizations_appgroups_update" /> | `EXEC` | <CopyableCode code="appgroupsId, organizationsId" /> | Updates an AppGroup. This API replaces the existing AppGroup details with those specified in the request. Include or exclude any existing details that you want to retain or delete, respectively. Note that the state of the AppGroup should be updated using `action`, and not via AppGroup. |

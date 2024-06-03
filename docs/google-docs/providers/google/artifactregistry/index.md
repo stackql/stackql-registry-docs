@@ -34,7 +34,7 @@ Store and manage build artifacts in a scalable and integrated service built on G
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Artifact Registry API</td></tr>
 <tr><td><b>Description</b></td><td>Store and manage build artifacts in a scalable and integrated service built on Google infrastructure.</td></tr>
-<tr><td><b>Id</b></td><td><code>artifactregistry:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>artifactregistry:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

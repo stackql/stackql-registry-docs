@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>folders</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="storage.folders" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storage.folders" /></td></tr>
 </tbody></table>
 
 ## Fields

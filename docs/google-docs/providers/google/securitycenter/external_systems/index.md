@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>external_systems</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.external_systems" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.external_systems" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,6 +32,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| <CopyableCode code="folders_sources_findings_external_systems_patch" /> | `EXEC` | <CopyableCode code="externalSystemsId, findingsId, foldersId, sourcesId" /> |
-| <CopyableCode code="organizations_sources_findings_external_systems_patch" /> | `EXEC` | <CopyableCode code="externalSystemsId, findingsId, organizationsId, sourcesId" /> |
-| <CopyableCode code="projects_sources_findings_external_systems_patch" /> | `EXEC` | <CopyableCode code="externalSystemsId, findingsId, projectsId, sourcesId" /> |
+| <CopyableCode code="folders_sources_findings_external_systems_patch" /> | `UPDATE` | <CopyableCode code="externalSystemsId, findingsId, foldersId, sourcesId" /> |
+| <CopyableCode code="organizations_sources_findings_external_systems_patch" /> | `UPDATE` | <CopyableCode code="externalSystemsId, findingsId, organizationsId, sourcesId" /> |
+| <CopyableCode code="projects_sources_findings_external_systems_patch" /> | `UPDATE` | <CopyableCode code="externalSystemsId, findingsId, projectsId, sourcesId" /> |

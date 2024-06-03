@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>subnets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmwareengine.subnets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmwareengine.subnets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,5 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, privateCloudsId, projectsId, subnetsId" /> | Gets details of a single subnet. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists subnets in a given private cloud. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, privateCloudsId, projectsId, subnetsId" /> | Updates the parameters of a single subnet. Only fields specified in `update_mask` are applied. *Note*: This API is synchronous and always returns a successful `google.longrunning.Operation` (LRO). The returned LRO will only have `done` and `response` fields. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists subnets in a given private cloud. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, privateCloudsId, projectsId, subnetsId" /> | Updates the parameters of a single subnet. Only fields specified in `update_mask` are applied. *Note*: This API is synchronous and always returns a successful `google.longrunning.Operation` (LRO). The returned LRO will only have `done` and `response` fields. |

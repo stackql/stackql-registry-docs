@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="ids.endpoints" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.ids.endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,5 +51,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Endpoints in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Endpoint in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Deletes a single Endpoint. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Updates the parameters of a single Endpoint. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Endpoints in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Updates the parameters of a single Endpoint. |

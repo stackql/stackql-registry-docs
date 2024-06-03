@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>contacts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="essentialcontacts.contacts" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.essentialcontacts.contacts" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,15 +51,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_contacts_delete" /> | `DELETE` | <CopyableCode code="contactsId, foldersId" /> | Deletes a contact. |
 | <CopyableCode code="organizations_contacts_delete" /> | `DELETE` | <CopyableCode code="contactsId, organizationsId" /> | Deletes a contact. |
 | <CopyableCode code="projects_contacts_delete" /> | `DELETE` | <CopyableCode code="contactsId, projectsId" /> | Deletes a contact. |
+| <CopyableCode code="folders_contacts_patch" /> | `UPDATE` | <CopyableCode code="contactsId, foldersId" /> | Updates a contact. Note: A contact's email address cannot be changed. |
+| <CopyableCode code="organizations_contacts_patch" /> | `UPDATE` | <CopyableCode code="contactsId, organizationsId" /> | Updates a contact. Note: A contact's email address cannot be changed. |
+| <CopyableCode code="projects_contacts_patch" /> | `UPDATE` | <CopyableCode code="contactsId, projectsId" /> | Updates a contact. Note: A contact's email address cannot be changed. |
 | <CopyableCode code="_folders_contacts_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists the contacts that have been set on a resource. |
 | <CopyableCode code="_organizations_contacts_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists the contacts that have been set on a resource. |
 | <CopyableCode code="_projects_contacts_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the contacts that have been set on a resource. |
 | <CopyableCode code="folders_contacts_compute" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. |
-| <CopyableCode code="folders_contacts_patch" /> | `EXEC` | <CopyableCode code="contactsId, foldersId" /> | Updates a contact. Note: A contact's email address cannot be changed. |
 | <CopyableCode code="folders_contacts_send_test_message" /> | `EXEC` | <CopyableCode code="foldersId" /> | Allows a contact admin to send a test message to contact to verify that it has been configured correctly. |
 | <CopyableCode code="organizations_contacts_compute" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. |
-| <CopyableCode code="organizations_contacts_patch" /> | `EXEC` | <CopyableCode code="contactsId, organizationsId" /> | Updates a contact. Note: A contact's email address cannot be changed. |
 | <CopyableCode code="organizations_contacts_send_test_message" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Allows a contact admin to send a test message to contact to verify that it has been configured correctly. |
 | <CopyableCode code="projects_contacts_compute" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. |
-| <CopyableCode code="projects_contacts_patch" /> | `EXEC` | <CopyableCode code="contactsId, projectsId" /> | Updates a contact. Note: A contact's email address cannot be changed. |
 | <CopyableCode code="projects_contacts_send_test_message" /> | `EXEC` | <CopyableCode code="projectsId" /> | Allows a contact admin to send a test message to contact to verify that it has been configured correctly. |

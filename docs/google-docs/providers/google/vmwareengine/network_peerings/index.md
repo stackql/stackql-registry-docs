@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_peerings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmwareengine.network_peerings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmwareengine.network_peerings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -53,5 +53,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists `NetworkPeering` resources in a given project. NetworkPeering is a global resource and location can only be global. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new network peering between the peer network and VMware Engine network provided in a `NetworkPeering` resource. NetworkPeering is a global resource and location can only be global. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, networkPeeringsId, projectsId" /> | Deletes a `NetworkPeering` resource. When a network peering is deleted for a VMware Engine network, the peer network becomes inaccessible to that VMware Engine network. NetworkPeering is a global resource and location can only be global. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, networkPeeringsId, projectsId" /> | Modifies a `NetworkPeering` resource. Only the `description` field can be updated. Only fields specified in `updateMask` are applied. NetworkPeering is a global resource and location can only be global. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists `NetworkPeering` resources in a given project. NetworkPeering is a global resource and location can only be global. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, networkPeeringsId, projectsId" /> | Modifies a `NetworkPeering` resource. Only the `description` field can be updated. Only fields specified in `updateMask` are applied. NetworkPeering is a global resource and location can only be global. |

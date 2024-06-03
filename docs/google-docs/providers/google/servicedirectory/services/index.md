@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="servicedirectory.services" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.servicedirectory.services" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,6 +41,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, namespacesId, projectsId" /> | Lists all services belonging to a namespace. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, namespacesId, projectsId" /> | Creates a service, and returns the new service. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Deletes a service. This also deletes all endpoints associated with the service. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Updates a service. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, namespacesId, projectsId" /> | Lists all services belonging to a namespace. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Updates a service. |
 | <CopyableCode code="resolve" /> | `EXEC` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Returns a service and its associated endpoints. Resolving a service is not considered an active developer method. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>app_profiles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigtableadmin.app_profiles" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigtableadmin.app_profiles" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instancesId, projectsId" /> | Lists information about app profiles in an instance. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="instancesId, projectsId" /> | Creates an app profile within an instance. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appProfilesId, instancesId, projectsId" /> | Deletes an app profile from an instance. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="appProfilesId, instancesId, projectsId" /> | Updates an app profile within an instance. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Lists information about app profiles in an instance. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="appProfilesId, instancesId, projectsId" /> | Updates an app profile within an instance. |

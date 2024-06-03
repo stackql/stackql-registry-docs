@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>snoozes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="monitoring.snoozes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.monitoring.snoozes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -40,5 +40,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_snoozes_get" /> | `SELECT` | <CopyableCode code="projectsId, snoozesId" /> | Retrieves a Snooze by name. |
 | <CopyableCode code="projects_snoozes_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the Snoozes associated with a project. Can optionally pass in filter, which specifies predicates to match Snoozes. |
 | <CopyableCode code="projects_snoozes_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a Snooze that will prevent alerts, which match the provided criteria, from being opened. The Snooze applies for a specific time interval. |
+| <CopyableCode code="projects_snoozes_patch" /> | `UPDATE` | <CopyableCode code="projectsId, snoozesId" /> | Updates a Snooze, identified by its name, with the parameters in the given Snooze object. |
 | <CopyableCode code="_projects_snoozes_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the Snoozes associated with a project. Can optionally pass in filter, which specifies predicates to match Snoozes. |
-| <CopyableCode code="projects_snoozes_patch" /> | `EXEC` | <CopyableCode code="projectsId, snoozesId" /> | Updates a Snooze, identified by its name, with the parameters in the given Snooze object. |

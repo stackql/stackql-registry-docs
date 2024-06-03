@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ssl_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.ssl_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.ssl_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,4 +50,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Lists all the SSL policies that have been configured for the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Returns the specified SSL policy resource. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, sslPolicy" /> | Deletes the specified SSL policy. The SSL policy resource can be deleted only if it is not in use by any TargetHttpsProxy or TargetSslProxy resources. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, sslPolicy" /> | Patches the specified SSL policy with the data included in the request. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, sslPolicy" /> | Patches the specified SSL policy with the data included in the request. |

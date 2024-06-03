@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>attributes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.attributes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.attributes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,5 +49,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_taxonomies_attributes_list" /> | `SELECT` | <CopyableCode code="dataTaxonomiesId, locationsId, projectsId" /> | Lists Data Attribute resources in a DataTaxonomy. |
 | <CopyableCode code="projects_locations_data_taxonomies_attributes_create" /> | `INSERT` | <CopyableCode code="dataTaxonomiesId, locationsId, projectsId" /> | Create a DataAttribute resource. |
 | <CopyableCode code="projects_locations_data_taxonomies_attributes_delete" /> | `DELETE` | <CopyableCode code="attributesId, dataTaxonomiesId, locationsId, projectsId" /> | Deletes a Data Attribute resource. |
+| <CopyableCode code="projects_locations_data_taxonomies_attributes_patch" /> | `UPDATE` | <CopyableCode code="attributesId, dataTaxonomiesId, locationsId, projectsId" /> | Updates a DataAttribute resource. |
 | <CopyableCode code="_projects_locations_data_taxonomies_attributes_list" /> | `EXEC` | <CopyableCode code="dataTaxonomiesId, locationsId, projectsId" /> | Lists Data Attribute resources in a DataTaxonomy. |
-| <CopyableCode code="projects_locations_data_taxonomies_attributes_patch" /> | `EXEC` | <CopyableCode code="attributesId, dataTaxonomiesId, locationsId, projectsId" /> | Updates a DataAttribute resource. |

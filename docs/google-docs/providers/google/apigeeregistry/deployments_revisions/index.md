@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments_revisions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigeeregistry.deployments_revisions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigeeregistry.deployments_revisions" /></td></tr>
 </tbody></table>
 
 ## Fields

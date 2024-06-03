@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>device_sessions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="testing.device_sessions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.testing.device_sessions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,6 +46,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deviceSessionsId, projectsId" /> | GET /v1/projects/&#123;project_id&#125;/deviceSessions/&#123;device_session_id&#125; Return a DeviceSession, which documents the allocation status and whether the device is allocated. Clients making requests from this API must poll GetDeviceSession. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | GET /v1/projects/&#123;project_id&#125;/deviceSessions Lists device Sessions owned by the project user. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | POST /v1/projects/&#123;project_id&#125;/deviceSessions |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="deviceSessionsId, projectsId" /> | PATCH /v1/projects/&#123;projectId&#125;/deviceSessions/deviceSessionId&#125;:updateDeviceSession Updates the current device session to the fields described by the update_mask. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | GET /v1/projects/&#123;project_id&#125;/deviceSessions Lists device Sessions owned by the project user. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="deviceSessionsId, projectsId" /> | POST /v1/projects/&#123;project_id&#125;/deviceSessions/&#123;device_session_id&#125;:cancel Changes the DeviceSession to state FINISHED and terminates all connections. Canceled sessions are not deleted and can be retrieved or listed by the user until they expire based on the 28 day deletion policy. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="deviceSessionsId, projectsId" /> | PATCH /v1/projects/&#123;projectId&#125;/deviceSessions/deviceSessionId&#125;:updateDeviceSession Updates the current device session to the fields described by the update_mask. |

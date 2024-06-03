@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>assets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.assets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.assets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_lakes_zones_assets_list" /> | `SELECT` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Lists asset resources in a zone. |
 | <CopyableCode code="projects_locations_lakes_zones_assets_create" /> | `INSERT` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Creates an asset resource. |
 | <CopyableCode code="projects_locations_lakes_zones_assets_delete" /> | `DELETE` | <CopyableCode code="assetsId, lakesId, locationsId, projectsId, zonesId" /> | Deletes an asset resource. The referenced storage resource is detached (default) or deleted based on the associated Lifecycle policy. |
+| <CopyableCode code="projects_locations_lakes_zones_assets_patch" /> | `UPDATE` | <CopyableCode code="assetsId, lakesId, locationsId, projectsId, zonesId" /> | Updates an asset resource. |
 | <CopyableCode code="_projects_locations_lakes_zones_assets_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Lists asset resources in a zone. |
-| <CopyableCode code="projects_locations_lakes_zones_assets_patch" /> | `EXEC` | <CopyableCode code="assetsId, lakesId, locationsId, projectsId, zonesId" /> | Updates an asset resource. |

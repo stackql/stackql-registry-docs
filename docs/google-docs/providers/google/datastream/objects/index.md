@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>objects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datastream.objects" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datastream.objects" /></td></tr>
 </tbody></table>
 
 ## Fields

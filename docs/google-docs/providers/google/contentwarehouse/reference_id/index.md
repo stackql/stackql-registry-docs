@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reference_id</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="contentwarehouse.reference_id" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.contentwarehouse.reference_id" /></td></tr>
 </tbody></table>
 
 ## Methods
@@ -32,4 +32,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, referenceIdId" /> | Gets a document. Returns NOT_FOUND if the document does not exist. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, referenceIdId" /> | Deletes a document. Returns NOT_FOUND if the document does not exist. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, referenceIdId" /> | Updates a document. Returns INVALID_ARGUMENT if the name of the document is non-empty and does not equal the existing name. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, referenceIdId" /> | Updates a document. Returns INVALID_ARGUMENT if the name of the document is non-empty and does not equal the existing name. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmwareengine.private_connections" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmwareengine.private_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists `PrivateConnection` resources in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new private connection that can be used for accessing private Clouds. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, privateConnectionsId, projectsId" /> | Deletes a `PrivateConnection` resource. When a private connection is deleted for a VMware Engine network, the connected network becomes inaccessible to that VMware Engine network. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, privateConnectionsId, projectsId" /> | Modifies a `PrivateConnection` resource. Only `description` and `routing_mode` fields can be updated. Only fields specified in `updateMask` are applied. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists `PrivateConnection` resources in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, privateConnectionsId, projectsId" /> | Modifies a `PrivateConnection` resource. Only `description` and `routing_mode` fields can be updated. Only fields specified in `updateMask` are applied. |

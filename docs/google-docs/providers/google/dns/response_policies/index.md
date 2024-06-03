@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>response_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dns.response_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dns.response_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,6 +44,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Enumerates all Response Policies associated with a project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new Response Policy |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, responsePolicy" /> | Deletes a previously created Response Policy. Fails if the response policy is non-empty or still being referenced by a network. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, responsePolicy" /> | Applies a partial update to an existing Response Policy. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="project, responsePolicy" /> | Updates an existing Response Policy. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Enumerates all Response Policies associated with a project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, responsePolicy" /> | Applies a partial update to an existing Response Policy. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, responsePolicy" /> | Updates an existing Response Policy. |

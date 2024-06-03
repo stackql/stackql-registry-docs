@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dns_bind_permission</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmwareengine.dns_bind_permission" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmwareengine.dns_bind_permission" /></td></tr>
 </tbody></table>
 
 ## Fields

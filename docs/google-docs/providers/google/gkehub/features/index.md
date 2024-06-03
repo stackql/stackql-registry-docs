@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>features</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.features" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.features" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_features_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Features in a given project and location. |
 | <CopyableCode code="projects_locations_features_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Adds a new Feature. |
 | <CopyableCode code="projects_locations_features_delete" /> | `DELETE` | <CopyableCode code="featuresId, locationsId, projectsId" /> | Removes a Feature. |
+| <CopyableCode code="projects_locations_features_patch" /> | `UPDATE` | <CopyableCode code="featuresId, locationsId, projectsId" /> | Updates an existing Feature. |
 | <CopyableCode code="_projects_locations_features_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Features in a given project and location. |
-| <CopyableCode code="projects_locations_features_patch" /> | `EXEC` | <CopyableCode code="featuresId, locationsId, projectsId" /> | Updates an existing Feature. |

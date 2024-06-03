@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dest_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="iap.dest_groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.iap.dest_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -40,5 +40,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists the existing TunnelDestGroups. To group across all locations, use a `-` as the location ID. For example: `/v1/projects/123/iap_tunnel/locations/-/destGroups` |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new TunnelDestGroup. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="destGroupsId, locationsId, projectsId" /> | Deletes a TunnelDestGroup. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="destGroupsId, locationsId, projectsId" /> | Updates a TunnelDestGroup. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists the existing TunnelDestGroups. To group across all locations, use a `-` as the location ID. For example: `/v1/projects/123/iap_tunnel/locations/-/destGroups` |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="destGroupsId, locationsId, projectsId" /> | Updates a TunnelDestGroup. |

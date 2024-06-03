@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bare_metal_node_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkeonprem.bare_metal_node_pools" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkeonprem.bare_metal_node_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,7 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_list" /> | `SELECT` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Lists bare metal node pools in a given project, location and bare metal cluster. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_create" /> | `INSERT` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Creates a new bare metal node pool in a given project, location and Bare Metal cluster. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_delete" /> | `DELETE` | <CopyableCode code="bareMetalClustersId, bareMetalNodePoolsId, locationsId, projectsId" /> | Deletes a single bare metal node pool. |
+| <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_patch" /> | `UPDATE` | <CopyableCode code="bareMetalClustersId, bareMetalNodePoolsId, locationsId, projectsId" /> | Updates the parameters of a single bare metal node pool. |
 | <CopyableCode code="_projects_locations_bare_metal_clusters_bare_metal_node_pools_list" /> | `EXEC` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Lists bare metal node pools in a given project, location and bare metal cluster. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_enroll" /> | `EXEC` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Enrolls an existing bare metal node pool to the Anthos On-Prem API within a given project and location. Through enrollment, an existing node pool will become Anthos On-Prem API managed. The corresponding GCP resources will be created. |
-| <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_patch" /> | `EXEC` | <CopyableCode code="bareMetalClustersId, bareMetalNodePoolsId, locationsId, projectsId" /> | Updates the parameters of a single bare metal node pool. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_unenroll" /> | `EXEC` | <CopyableCode code="bareMetalClustersId, bareMetalNodePoolsId, locationsId, projectsId" /> | Unenrolls a bare metal node pool from Anthos On-Prem API. |

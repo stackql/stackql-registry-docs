@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -84,6 +84,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves the list of instances contained within the specified zone. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates an instance resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instance, project, zone" /> | Deletes the specified Instance resource. For more information, see Deleting an instance. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="instance, project, zone" /> | Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See Updating a running instance for a list of updatable instance properties. |
 | <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="attach_disk" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Attaches an existing Disk resource to an instance. You must first create the disk before you can attach it. It is not possible to create and attach a disk at the same time. For more information, read Adding a persistent disk to your instance. |
 | <CopyableCode code="bulk_insert" /> | `EXEC` | <CopyableCode code="project, zone" /> | Creates multiple instances. Count specifies the number of instances to create. For more information, see About bulk creation of VMs. |
@@ -110,4 +111,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="start_with_encryption_key" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Starts an instance that was stopped using the instances().stop method. For more information, see Restart an instance. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur VM usage charges while they are stopped. However, resources that the VM is using, such as persistent disks and static IP addresses, will continue to be charged until they are deleted. For more information, see Stopping an instance. |
 | <CopyableCode code="suspend" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | This method suspends a running instance, saving its state to persistent storage, and allows you to resume the instance at a later time. Suspended instances have no compute costs (cores or RAM), and incur only storage charges for the saved VM memory and localSSD data. Any charged resources the virtual machine was using, such as persistent disks and static IP addresses, will continue to be charged while the instance is suspended. For more information, see Suspending and resuming an instance. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See Updating a running instance for a list of updatable instance properties. |

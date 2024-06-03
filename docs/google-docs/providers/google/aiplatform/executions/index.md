@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>executions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.executions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.executions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,7 +48,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Lists Executions in the MetadataStore. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Creates an Execution associated with a MetadataStore. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="executionsId, locationsId, metadataStoresId, projectsId" /> | Deletes an Execution. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="executionsId, locationsId, metadataStoresId, projectsId" /> | Updates a stored Execution. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Lists Executions in the MetadataStore. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="executionsId, locationsId, metadataStoresId, projectsId" /> | Updates a stored Execution. |
 | <CopyableCode code="purge" /> | `EXEC` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Purges Executions. |
 | <CopyableCode code="query_execution_inputs_and_outputs" /> | `EXEC` | <CopyableCode code="executionsId, locationsId, metadataStoresId, projectsId" /> | Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events. |

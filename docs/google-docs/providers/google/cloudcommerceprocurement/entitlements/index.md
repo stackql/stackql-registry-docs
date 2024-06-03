@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entitlements</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudcommerceprocurement.entitlements" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudcommerceprocurement.entitlements" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -61,10 +61,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="entitlementsId, providersId" /> | Gets a requested Entitlement resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="providersId" /> | Lists Entitlements for which the provider has read access. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="entitlementsId, providersId" /> | Updates an existing Entitlement. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="providersId" /> | Lists Entitlements for which the provider has read access. |
 | <CopyableCode code="approve" /> | `EXEC` | <CopyableCode code="entitlementsId, providersId" /> | Approves an entitlement that is in the EntitlementState.ENTITLEMENT_ACTIVATION_REQUESTED state. This method is invoked by the provider to approve the creation of the entitlement resource. |
 | <CopyableCode code="approve_plan_change" /> | `EXEC` | <CopyableCode code="entitlementsId, providersId" /> | Approves an entitlement plan change that is in the EntitlementState.ENTITLEMENT_PENDING_PLAN_CHANGE_APPROVAL state. This method is invoked by the provider to approve the plan change on the entitlement resource. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="entitlementsId, providersId" /> | Updates an existing Entitlement. |
 | <CopyableCode code="reject" /> | `EXEC` | <CopyableCode code="entitlementsId, providersId" /> | Rejects an entitlement that is in the EntitlementState.ENTITLEMENT_ACTIVATION_REQUESTED state. This method is invoked by the provider to reject the creation of the entitlement resource. |
 | <CopyableCode code="reject_plan_change" /> | `EXEC` | <CopyableCode code="entitlementsId, providersId" /> | Rejects an entitlement plan change that is in the EntitlementState.ENTITLEMENT_PENDING_PLAN_CHANGE_APPROVAL state. This method is invoked by the provider to reject the plan change on the entitlement resource. |
 | <CopyableCode code="suspend" /> | `EXEC` | <CopyableCode code="entitlementsId, providersId" /> | Requests suspension of an active Entitlement. This is not yet supported. |

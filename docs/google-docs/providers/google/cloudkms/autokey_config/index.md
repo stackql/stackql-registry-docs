@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>autokey_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudkms.autokey_config" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudkms.autokey_config" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>feature_view_syncs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.feature_view_syncs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.feature_view_syncs" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewallpolicies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="recaptchaenterprise.firewallpolicies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.recaptchaenterprise.firewallpolicies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,6 +42,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Returns the list of all firewall policies that belong to a project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA Enterprise actions can be executed. A project may have a maximum of 1000 policies. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="firewallpoliciesId, projectsId" /> | Deletes the specified firewall policy. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="firewallpoliciesId, projectsId" /> | Updates the specified firewall policy. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Returns the list of all firewall policies that belong to a project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="firewallpoliciesId, projectsId" /> | Updates the specified firewall policy. |
 | <CopyableCode code="reorder" /> | `EXEC` | <CopyableCode code="projectsId" /> | Reorders all firewall policies. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>repos</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="sourcerepo.repos" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sourcerepo.repos" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,6 +42,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Returns all repos belonging to a project. The sizes of the repos are not set by ListRepos. To get the size of a repo, use GetRepo. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a repo in the given project with the given name. If the named repository already exists, `CreateRepo` returns `ALREADY_EXISTS`. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="projectsId, reposId" /> | Deletes a repo. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="projectsId, reposId" /> | Updates information about a repo. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Returns all repos belonging to a project. The sizes of the repos are not set by ListRepos. To get the size of a repo, use GetRepo. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="projectsId, reposId" /> | Updates information about a repo. |
 | <CopyableCode code="sync" /> | `EXEC` | <CopyableCode code="projectsId, reposId" /> | Synchronize a connected repo. The response contains SyncRepoMetadata in the metadata field. |

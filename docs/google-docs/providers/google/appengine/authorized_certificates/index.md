@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>authorized_certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="appengine.authorized_certificates" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.appengine.authorized_certificates" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,5 +46,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="appsId" /> | Lists all SSL certificates the user is authorized to administer. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="appsId" /> | Uploads the specified SSL certificate. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appsId, authorizedCertificatesId" /> | Deletes the specified SSL certificate. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="appsId, authorizedCertificatesId" /> | Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="appsId" /> | Lists all SSL certificates the user is authorized to administer. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="appsId, authorizedCertificatesId" /> | Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. |

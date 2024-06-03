@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>experiments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.experiments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.experiments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,7 +52,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_environments_experiments_list" /> | `SELECT` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> | Returns the list of all experiments in the specified Environment. |
 | <CopyableCode code="projects_locations_agents_environments_experiments_create" /> | `INSERT` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> | Creates an Experiment in the specified Environment. |
 | <CopyableCode code="projects_locations_agents_environments_experiments_delete" /> | `DELETE` | <CopyableCode code="agentsId, environmentsId, experimentsId, locationsId, projectsId" /> | Deletes the specified Experiment. |
+| <CopyableCode code="projects_locations_agents_environments_experiments_patch" /> | `UPDATE` | <CopyableCode code="agentsId, environmentsId, experimentsId, locationsId, projectsId" /> | Updates the specified Experiment. |
 | <CopyableCode code="_projects_locations_agents_environments_experiments_list" /> | `EXEC` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> | Returns the list of all experiments in the specified Environment. |
-| <CopyableCode code="projects_locations_agents_environments_experiments_patch" /> | `EXEC` | <CopyableCode code="agentsId, environmentsId, experimentsId, locationsId, projectsId" /> | Updates the specified Experiment. |
 | <CopyableCode code="projects_locations_agents_environments_experiments_start" /> | `EXEC` | <CopyableCode code="agentsId, environmentsId, experimentsId, locationsId, projectsId" /> | Starts the specified Experiment. This rpc only changes the state of experiment from PENDING to RUNNING. |
 | <CopyableCode code="projects_locations_agents_environments_experiments_stop" /> | `EXEC` | <CopyableCode code="agentsId, environmentsId, experimentsId, locationsId, projectsId" /> | Stops the specified Experiment. This rpc only changes the state of experiment from RUNNING to DONE. |

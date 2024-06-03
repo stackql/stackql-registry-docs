@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="monitoring.groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.monitoring.groups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_groups_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the existing groups. |
 | <CopyableCode code="projects_groups_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new group. |
 | <CopyableCode code="projects_groups_delete" /> | `DELETE` | <CopyableCode code="groupsId, projectsId" /> | Deletes an existing group. |
+| <CopyableCode code="projects_groups_update" /> | `UPDATE` | <CopyableCode code="groupsId, projectsId" /> | Updates an existing group. You can change any group attributes except name. |
 | <CopyableCode code="_projects_groups_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the existing groups. |
-| <CopyableCode code="projects_groups_update" /> | `EXEC` | <CopyableCode code="groupsId, projectsId" /> | Updates an existing group. You can change any group attributes except name. |

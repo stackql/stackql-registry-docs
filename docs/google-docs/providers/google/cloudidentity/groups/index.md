@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudidentity.groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudidentity.groups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,7 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` |  | Lists the `Group` resources under a customer or namespace. |
 | <CopyableCode code="create" /> | `INSERT` |  | Creates a Group. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="groupsId" /> | Deletes a `Group`. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="groupsId" /> | Updates a `Group`. |
 | <CopyableCode code="_list" /> | `EXEC` |  | Lists the `Group` resources under a customer or namespace. |
 | <CopyableCode code="lookup" /> | `EXEC` |  | Looks up the [resource name](https://cloud.google.com/apis/design/resource_names) of a `Group` by its `EntityKey`. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="groupsId" /> | Updates a `Group`. |
 | <CopyableCode code="search" /> | `EXEC` |  | Searches for `Group` resources matching a specified query. |

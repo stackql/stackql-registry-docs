@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudscheduler.jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudscheduler.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,8 +51,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists jobs. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a job. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Deletes a job. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Updates a job. If successful, the updated Job is returned. If the job does not exist, `NOT_FOUND` is returned. If UpdateJob does not successfully return, it is possible for the job to be in an Job.State.UPDATE_FAILED state. A job in this state may not be executed. If this happens, retry the UpdateJob request until a successful response is received. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists jobs. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Updates a job. If successful, the updated Job is returned. If the job does not exist, `NOT_FOUND` is returned. If UpdateJob does not successfully return, it is possible for the job to be in an Job.State.UPDATE_FAILED state. A job in this state may not be executed. If this happens, retry the UpdateJob request until a successful response is received. |
 | <CopyableCode code="pause" /> | `EXEC` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Pauses a job. If a job is paused then the system will stop executing the job until it is re-enabled via ResumeJob. The state of the job is stored in state; if paused it will be set to Job.State.PAUSED. A job must be in Job.State.ENABLED to be paused. |
 | <CopyableCode code="resume" /> | `EXEC` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Resume a job. This method reenables a job after it has been Job.State.PAUSED. The state of a job is stored in Job.state; after calling this method it will be set to Job.State.ENABLED. A job must be in Job.State.PAUSED to be resumed. |
 | <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Forces a job to run now. When this method is called, Cloud Scheduler will dispatch the job, even if the job is already running. |

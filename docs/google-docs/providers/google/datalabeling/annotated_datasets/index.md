@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>annotated_datasets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datalabeling.annotated_datasets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datalabeling.annotated_datasets" /></td></tr>
 </tbody></table>
 
 ## Fields

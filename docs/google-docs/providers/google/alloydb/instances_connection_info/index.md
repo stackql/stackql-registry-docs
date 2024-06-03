@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances_connection_info</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="alloydb.instances_connection_info" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.alloydb.instances_connection_info" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.versions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.versions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,7 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_flows_versions_list" /> | `SELECT` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId" /> | Returns the list of all versions in the specified Flow. |
 | <CopyableCode code="projects_locations_agents_flows_versions_create" /> | `INSERT` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId" /> | Creates a Version in the specified Flow. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: CreateVersionOperationMetadata - `response`: Version |
 | <CopyableCode code="projects_locations_agents_flows_versions_delete" /> | `DELETE` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, versionsId" /> | Deletes the specified Version. |
+| <CopyableCode code="projects_locations_agents_flows_versions_patch" /> | `UPDATE` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, versionsId" /> | Updates the specified Version. |
 | <CopyableCode code="_projects_locations_agents_flows_versions_list" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId" /> | Returns the list of all versions in the specified Flow. |
 | <CopyableCode code="projects_locations_agents_flows_versions_compare_versions" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, versionsId" /> | Compares the specified base version with target version. |
 | <CopyableCode code="projects_locations_agents_flows_versions_load" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, versionsId" /> | Loads resources in the specified version to the draft flow. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) |
-| <CopyableCode code="projects_locations_agents_flows_versions_patch" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, versionsId" /> | Updates the specified Version. |

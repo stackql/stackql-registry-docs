@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>fleets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.fleets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.fleets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,6 +47,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_fleets_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Returns all fleets within an organization or a project that the caller has access to. |
 | <CopyableCode code="projects_locations_fleets_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a fleet. |
 | <CopyableCode code="projects_locations_fleets_delete" /> | `DELETE` | <CopyableCode code="fleetsId, locationsId, projectsId" /> | Removes a Fleet. There must be no memberships remaining in the Fleet. |
+| <CopyableCode code="projects_locations_fleets_patch" /> | `UPDATE` | <CopyableCode code="fleetsId, locationsId, projectsId" /> | Updates a fleet. |
 | <CopyableCode code="_organizations_locations_fleets_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Returns all fleets within an organization or a project that the caller has access to. |
 | <CopyableCode code="_projects_locations_fleets_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns all fleets within an organization or a project that the caller has access to. |
-| <CopyableCode code="projects_locations_fleets_patch" /> | `EXEC` | <CopyableCode code="fleetsId, locationsId, projectsId" /> | Updates a fleet. |

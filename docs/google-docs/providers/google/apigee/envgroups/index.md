@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>envgroups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.envgroups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.envgroups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_envgroups_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all environment groups. |
 | <CopyableCode code="organizations_envgroups_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a new environment group. |
 | <CopyableCode code="organizations_envgroups_delete" /> | `DELETE` | <CopyableCode code="envgroupsId, organizationsId" /> | Deletes an environment group. |
+| <CopyableCode code="organizations_envgroups_patch" /> | `UPDATE` | <CopyableCode code="envgroupsId, organizationsId" /> | Updates an environment group. |
 | <CopyableCode code="_organizations_envgroups_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all environment groups. |
-| <CopyableCode code="organizations_envgroups_patch" /> | `EXEC` | <CopyableCode code="envgroupsId, organizationsId" /> | Updates an environment group. |

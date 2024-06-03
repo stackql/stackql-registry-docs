@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="config.deployments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.config.deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -60,10 +60,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Deployments in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Deployment. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="deploymentsId, locationsId, projectsId" /> | Deletes a Deployment. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="deploymentsId, locationsId, projectsId" /> | Updates a Deployment. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Deployments in a given project and location. |
 | <CopyableCode code="export_lock" /> | `EXEC` | <CopyableCode code="deploymentsId, locationsId, projectsId" /> | Exports the lock info on a locked deployment. |
 | <CopyableCode code="export_state" /> | `EXEC` | <CopyableCode code="deploymentsId, locationsId, projectsId" /> | Exports Terraform state file from a given deployment. |
 | <CopyableCode code="import_state" /> | `EXEC` | <CopyableCode code="deploymentsId, locationsId, projectsId" /> | Imports Terraform state file in a given deployment. The state file does not take effect until the Deployment has been unlocked. |
 | <CopyableCode code="lock" /> | `EXEC` | <CopyableCode code="deploymentsId, locationsId, projectsId" /> | Locks a deployment. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="deploymentsId, locationsId, projectsId" /> | Updates a Deployment. |
 | <CopyableCode code="unlock" /> | `EXEC` | <CopyableCode code="deploymentsId, locationsId, projectsId" /> | Unlocks a locked deployment. |

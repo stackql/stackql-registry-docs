@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>zones</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.zones" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.zones" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,5 +49,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_lakes_zones_list" /> | `SELECT` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Lists zone resources in a lake. |
 | <CopyableCode code="projects_locations_lakes_zones_create" /> | `INSERT` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Creates a zone resource within a lake. |
 | <CopyableCode code="projects_locations_lakes_zones_delete" /> | `DELETE` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Deletes a zone resource. All assets within a zone must be deleted before the zone can be deleted. |
+| <CopyableCode code="projects_locations_lakes_zones_patch" /> | `UPDATE` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Updates a zone resource. |
 | <CopyableCode code="_projects_locations_lakes_zones_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Lists zone resources in a lake. |
-| <CopyableCode code="projects_locations_lakes_zones_patch" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Updates a zone resource. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_profile_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.security_profile_groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.security_profile_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,5 +44,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_security_profile_groups_list" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId" /> | Lists SecurityProfileGroups in a given organization and location. |
 | <CopyableCode code="organizations_locations_security_profile_groups_create" /> | `INSERT` | <CopyableCode code="locationsId, organizationsId" /> | Creates a new SecurityProfileGroup in a given organization and location. |
 | <CopyableCode code="organizations_locations_security_profile_groups_delete" /> | `DELETE` | <CopyableCode code="locationsId, organizationsId, securityProfileGroupsId" /> | Deletes a single SecurityProfileGroup. |
+| <CopyableCode code="organizations_locations_security_profile_groups_patch" /> | `UPDATE` | <CopyableCode code="locationsId, organizationsId, securityProfileGroupsId" /> | Updates the parameters of a single SecurityProfileGroup. |
 | <CopyableCode code="_organizations_locations_security_profile_groups_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists SecurityProfileGroups in a given organization and location. |
-| <CopyableCode code="organizations_locations_security_profile_groups_patch" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, securityProfileGroupsId" /> | Updates the parameters of a single SecurityProfileGroup. |

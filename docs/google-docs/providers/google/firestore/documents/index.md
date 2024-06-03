@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>documents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="firestore.documents" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.firestore.documents" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_documents" /> | `SELECT` | <CopyableCode code="collectionId, databasesId, projectsId" /> | Lists documents. |
 | <CopyableCode code="create_document" /> | `INSERT` | <CopyableCode code="collectionId, databasesId, documentsId, projectsId" /> | Creates a new document. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="databasesId, documentsId, documentsId1, projectsId" /> | Deletes a document. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="databasesId, documentsId, documentsId1, projectsId" /> | Updates or inserts a document. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="collectionId, databasesId, documentsId, documentsId1, projectsId" /> | Lists documents. |
 | <CopyableCode code="_list_documents" /> | `EXEC` | <CopyableCode code="collectionId, databasesId, projectsId" /> | Lists documents. |
 | <CopyableCode code="batch_get" /> | `EXEC` | <CopyableCode code="databasesId, projectsId" /> | Gets multiple documents. Documents returned by this method are not guaranteed to be returned in the same order that they were requested. |
@@ -50,7 +51,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="commit" /> | `EXEC` | <CopyableCode code="databasesId, projectsId" /> | Commits a transaction, while optionally updating documents. |
 | <CopyableCode code="listen" /> | `EXEC` | <CopyableCode code="databasesId, projectsId" /> | Listens to changes. This method is only available via gRPC or WebChannel (not REST). |
 | <CopyableCode code="partition_query" /> | `EXEC` | <CopyableCode code="databasesId, documentsId, documentsId1, projectsId" /> | Partitions a query by returning partition cursors that can be used to run the query in parallel. The returned partition cursors are split points that can be used by RunQuery as starting/end points for the query results. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="databasesId, documentsId, documentsId1, projectsId" /> | Updates or inserts a document. |
 | <CopyableCode code="rollback" /> | `EXEC` | <CopyableCode code="databasesId, projectsId" /> | Rolls back a transaction. |
 | <CopyableCode code="run_aggregation_query" /> | `EXEC` | <CopyableCode code="databasesId, documentsId, documentsId1, projectsId" /> | Runs an aggregation query. Rather than producing Document results like Firestore.RunQuery, this API allows running an aggregation to produce a series of AggregationResult server-side. High-Level Example: ``` -- Return the number of documents in table given a filter. SELECT COUNT(*) FROM ( SELECT * FROM k where a = true ); ``` |
 | <CopyableCode code="run_query" /> | `EXEC` | <CopyableCode code="databasesId, documentsId, documentsId1, projectsId" /> | Runs a query. |

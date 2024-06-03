@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -53,6 +53,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_instances_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all Apigee runtime instances for the organization. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_instances_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates an Apigee runtime instance. The instance is accessible from the authorized network configured on the organization. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_instances_delete" /> | `DELETE` | <CopyableCode code="instancesId, organizationsId" /> | Deletes an Apigee runtime instance. The instance stops serving requests and the runtime data is deleted. **Note:** Not supported for Apigee hybrid. |
+| <CopyableCode code="organizations_instances_patch" /> | `UPDATE` | <CopyableCode code="instancesId, organizationsId" /> | Updates an Apigee runtime instance. You can update the fields described in NodeConfig. No other fields will be updated. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="_organizations_instances_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all Apigee runtime instances for the organization. **Note:** Not supported for Apigee hybrid. |
-| <CopyableCode code="organizations_instances_patch" /> | `EXEC` | <CopyableCode code="instancesId, organizationsId" /> | Updates an Apigee runtime instance. You can update the fields described in NodeConfig. No other fields will be updated. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_instances_report_status" /> | `EXEC` | <CopyableCode code="instancesId, organizationsId" /> | Reports the latest status for a runtime instance. |

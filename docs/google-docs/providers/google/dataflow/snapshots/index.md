@@ -24,10 +24,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>snapshots</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataflow.snapshots" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataflow.snapshots" /></td></tr>
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | The unique ID of this snapshot. |
+| <CopyableCode code="description" /> | `string` | User specified description of the snapshot. Maybe empty. |
+| <CopyableCode code="creationTime" /> | `string` | The time this snapshot was created. |
+| <CopyableCode code="diskSizeBytes" /> | `string` | The disk byte size of the snapshot. Only available for snapshots in READY state. |
+| <CopyableCode code="projectId" /> | `string` | The project this snapshot belongs to. |
+| <CopyableCode code="pubsubMetadata" /> | `array` | Pub/Sub snapshot metadata. |
+| <CopyableCode code="region" /> | `string` | Cloud region where this snapshot lives in, e.g., "us-central1". |
+| <CopyableCode code="sourceJobId" /> | `string` | The job this snapshot was created from. |
+| <CopyableCode code="state" /> | `string` | State of the snapshot. |
+| <CopyableCode code="ttl" /> | `string` | The time after which this snapshot will be automatically deleted. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

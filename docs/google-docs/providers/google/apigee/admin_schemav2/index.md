@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>admin_schemav2</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.admin_schemav2" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.admin_schemav2" /></td></tr>
 </tbody></table>
 
 ## Fields

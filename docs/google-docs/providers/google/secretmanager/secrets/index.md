@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>secrets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="secretmanager.secrets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.secretmanager.secrets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists Secrets. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new Secret containing no SecretVersions. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="projectsId, secretsId" /> | Deletes a Secret. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="projectsId, secretsId" /> | Updates metadata of an existing Secret. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists Secrets. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="projectsId, secretsId" /> | Updates metadata of an existing Secret. |

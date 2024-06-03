@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>models</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="ml.models" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.ml.models" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_models_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the models in a project. Each project can contain multiple models, and each model can have multiple versions. If there are no models that match the request parameters, the list request returns an empty response body: &#123;&#125;. |
 | <CopyableCode code="projects_models_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a model which will later contain one or more versions. You must add at least one version before you can request predictions from the model. Add versions by calling projects.models.versions.create. |
 | <CopyableCode code="projects_models_delete" /> | `DELETE` | <CopyableCode code="modelsId, projectsId" /> | Deletes a model. You can only delete a model if there are no versions in it. You can delete versions by calling projects.models.versions.delete. |
+| <CopyableCode code="projects_models_patch" /> | `UPDATE` | <CopyableCode code="modelsId, projectsId" /> | Updates a specific model resource. Currently the only supported fields to update are `description` and `default_version.name`. |
 | <CopyableCode code="_projects_models_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the models in a project. Each project can contain multiple models, and each model can have multiple versions. If there are no models that match the request parameters, the list request returns an empty response body: &#123;&#125;. |
-| <CopyableCode code="projects_models_patch" /> | `EXEC` | <CopyableCode code="modelsId, projectsId" /> | Updates a specific model resource. Currently the only supported fields to update are `description` and `default_version.name`. |

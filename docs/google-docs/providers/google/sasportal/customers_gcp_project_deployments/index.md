@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>customers_gcp_project_deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="sasportal.customers_gcp_project_deployments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sasportal.customers_gcp_project_deployments" /></td></tr>
 </tbody></table>
 
 ## Fields

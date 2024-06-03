@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dataset_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.dataset_versions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.dataset_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,6 +45,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Lists DatasetVersions in a Dataset. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Create a version from a Dataset. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="datasetVersionsId, datasetsId, locationsId, projectsId" /> | Deletes a Dataset version. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="datasetVersionsId, datasetsId, locationsId, projectsId" /> | Updates a DatasetVersion. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Lists DatasetVersions in a Dataset. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="datasetVersionsId, datasetsId, locationsId, projectsId" /> | Updates a DatasetVersion. |
 | <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="datasetVersionsId, datasetsId, locationsId, projectsId" /> | Restores a dataset version. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_project_feature_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="osconfig.global_project_feature_settings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.osconfig.global_project_feature_settings" /></td></tr>
 </tbody></table>
 
 ## Fields

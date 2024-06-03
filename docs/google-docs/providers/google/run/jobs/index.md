@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="run.jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.run.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -63,6 +63,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Jobs. Results are sorted by creation time, descending. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Job. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Deletes a Job. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Updates a Job. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Jobs. Results are sorted by creation time, descending. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Updates a Job. |
 | <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Triggers creation of a new Execution of this Job. |

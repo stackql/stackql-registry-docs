@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="deploymentmanager.deployments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.deploymentmanager.deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,8 +49,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Lists all deployments for a given project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a deployment and all of the resources described by the deployment manifest. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="deployment, project" /> | Deletes a deployment and all of the resources in the deployment. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="deployment, project" /> | Patches a deployment and all of the resources described by the deployment manifest. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="deployment, project" /> | Updates a deployment and all of the resources described by the deployment manifest. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Lists all deployments for a given project. |
 | <CopyableCode code="cancel_preview" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Cancels and removes the preview currently associated with the deployment. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Patches a deployment and all of the resources described by the deployment manifest. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Stops an ongoing operation. This does not roll back any work that has already been completed, but prevents any new work from being started. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Updates a deployment and all of the resources described by the deployment manifest. |

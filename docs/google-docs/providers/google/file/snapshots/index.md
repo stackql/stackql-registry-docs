@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>snapshots</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="file.snapshots" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.file.snapshots" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,5 +43,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Lists all snapshots in a project for either a specified location or for all locations. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Creates a snapshot. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instancesId, locationsId, projectsId, snapshotsId" /> | Deletes a snapshot. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="instancesId, locationsId, projectsId, snapshotsId" /> | Updates the settings of a specific snapshot. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Lists all snapshots in a project for either a specified location or for all locations. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId, snapshotsId" /> | Updates the settings of a specific snapshot. |

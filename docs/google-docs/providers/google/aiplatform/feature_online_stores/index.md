@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>feature_online_stores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.feature_online_stores" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.feature_online_stores" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists FeatureOnlineStores in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new FeatureOnlineStore in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="featureOnlineStoresId, locationsId, projectsId" /> | Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not contain any FeatureViews. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="featureOnlineStoresId, locationsId, projectsId" /> | Updates the parameters of a single FeatureOnlineStore. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists FeatureOnlineStores in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="featureOnlineStoresId, locationsId, projectsId" /> | Updates the parameters of a single FeatureOnlineStore. |

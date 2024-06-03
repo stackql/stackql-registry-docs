@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="file.backups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.file.backups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,5 +51,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all backups in a project for either a specified location or for all locations. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a backup. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backupsId, locationsId, projectsId" /> | Deletes a backup. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backupsId, locationsId, projectsId" /> | Updates the settings of a specific backup. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all backups in a project for either a specified location or for all locations. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="backupsId, locationsId, projectsId" /> | Updates the settings of a specific backup. |

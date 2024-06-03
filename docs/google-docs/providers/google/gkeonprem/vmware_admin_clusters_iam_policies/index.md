@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vmware_admin_clusters_iam_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkeonprem.vmware_admin_clusters_iam_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkeonprem.vmware_admin_clusters_iam_policies" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.environments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.environments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,8 +51,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_security_profiles_environments_create" /> | `INSERT` | <CopyableCode code="organizationsId, securityProfilesId" /> | CreateSecurityProfileEnvironmentAssociation creates profile environment association i.e. attaches environment to security profile. |
 | <CopyableCode code="organizations_environments_delete" /> | `DELETE` | <CopyableCode code="environmentsId, organizationsId" /> | Deletes an environment from an organization. **Warning: You must delete all key value maps and key value entries before you delete an environment.** Otherwise, if you re-create the environment the key value map entry operations will encounter encryption/decryption discrepancies. |
 | <CopyableCode code="organizations_security_profiles_environments_delete" /> | `DELETE` | <CopyableCode code="environmentsId, organizationsId, securityProfilesId" /> | DeleteSecurityProfileEnvironmentAssociation removes profile environment association i.e. detaches environment from security profile. |
+| <CopyableCode code="organizations_environments_update" /> | `UPDATE` | <CopyableCode code="environmentsId, organizationsId" /> | Updates an existing environment. When updating properties, you must pass all existing properties to the API, even if they are not being changed. If you omit properties from the payload, the properties are removed. To get the current list of properties for the environment, use the [Get Environment API](get). **Note**: Both `PUT` and `POST` methods are supported for updating an existing environment. |
 | <CopyableCode code="organizations_environments_modify_environment" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Updates properties for an Apigee environment with patch semantics using a field mask. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_environments_subscribe" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a subscription for the environment's Pub/Sub topic. The server will assign a random name for this subscription. The "name" and "push_config" must *not* be specified. |
 | <CopyableCode code="organizations_environments_unsubscribe" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Deletes a subscription for the environment's Pub/Sub topic. |
-| <CopyableCode code="organizations_environments_update" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Updates an existing environment. When updating properties, you must pass all existing properties to the API, even if they are not being changed. If you omit properties from the payload, the properties are removed. To get the current list of properties for the environment, use the [Get Environment API](get). **Note**: Both `PUT` and `POST` methods are supported for updating an existing environment. |
 | <CopyableCode code="organizations_security_profiles_environments_compute_environment_scores" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId, securityProfilesId" /> | ComputeEnvironmentScores calculates scores for requested time range for the specified security profile and environment. |

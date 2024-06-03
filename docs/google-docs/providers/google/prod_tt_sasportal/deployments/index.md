@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="prod_tt_sasportal.deployments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.prod_tt_sasportal.deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,11 +49,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nodes_nodes_deployments_create" /> | `INSERT` | <CopyableCode code="nodesId, nodesId1" /> | Creates a new deployment. |
 | <CopyableCode code="customers_deployments_delete" /> | `DELETE` | <CopyableCode code="customersId, deploymentsId" /> | Deletes a deployment. |
 | <CopyableCode code="nodes_deployments_delete" /> | `DELETE` | <CopyableCode code="deploymentsId, nodesId" /> | Deletes a deployment. |
+| <CopyableCode code="customers_deployments_patch" /> | `UPDATE` | <CopyableCode code="customersId, deploymentsId" /> | Updates an existing deployment. |
+| <CopyableCode code="nodes_deployments_patch" /> | `UPDATE` | <CopyableCode code="deploymentsId, nodesId" /> | Updates an existing deployment. |
 | <CopyableCode code="_customers_deployments_list" /> | `EXEC` | <CopyableCode code="customersId" /> | Lists deployments. |
 | <CopyableCode code="_customers_nodes_deployments_list" /> | `EXEC` | <CopyableCode code="customersId, nodesId" /> | Lists deployments. |
 | <CopyableCode code="_nodes_deployments_list" /> | `EXEC` | <CopyableCode code="nodesId" /> | Lists deployments. |
 | <CopyableCode code="_nodes_nodes_deployments_list" /> | `EXEC` | <CopyableCode code="nodesId, nodesId1" /> | Lists deployments. |
 | <CopyableCode code="customers_deployments_move" /> | `EXEC` | <CopyableCode code="customersId, deploymentsId" /> | Moves a deployment under another node or customer. |
-| <CopyableCode code="customers_deployments_patch" /> | `EXEC` | <CopyableCode code="customersId, deploymentsId" /> | Updates an existing deployment. |
 | <CopyableCode code="nodes_deployments_move" /> | `EXEC` | <CopyableCode code="deploymentsId, nodesId" /> | Moves a deployment under another node or customer. |
-| <CopyableCode code="nodes_deployments_patch" /> | `EXEC` | <CopyableCode code="deploymentsId, nodesId" /> | Updates an existing deployment. |

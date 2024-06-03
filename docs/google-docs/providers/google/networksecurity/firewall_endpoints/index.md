@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewall_endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.firewall_endpoints" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.firewall_endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_firewall_endpoints_list" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId" /> | Lists FirewallEndpoints in a given project and location. |
 | <CopyableCode code="organizations_locations_firewall_endpoints_create" /> | `INSERT` | <CopyableCode code="locationsId, organizationsId" /> | Creates a new FirewallEndpoint in a given project and location. |
 | <CopyableCode code="organizations_locations_firewall_endpoints_delete" /> | `DELETE` | <CopyableCode code="firewallEndpointsId, locationsId, organizationsId" /> | Deletes a single Endpoint. |
+| <CopyableCode code="organizations_locations_firewall_endpoints_patch" /> | `UPDATE` | <CopyableCode code="firewallEndpointsId, locationsId, organizationsId" /> | Update a single Endpoint. |
 | <CopyableCode code="_organizations_locations_firewall_endpoints_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists FirewallEndpoints in a given project and location. |
-| <CopyableCode code="organizations_locations_firewall_endpoints_patch" /> | `EXEC` | <CopyableCode code="firewallEndpointsId, locationsId, organizationsId" /> | Update a single Endpoint. |

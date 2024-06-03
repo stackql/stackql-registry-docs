@@ -34,7 +34,7 @@ Transfers data from external data sources to a Google Cloud Storage bucket or be
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Storage Transfer API</td></tr>
 <tr><td><b>Description</b></td><td>Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. </td></tr>
-<tr><td><b>Id</b></td><td><code>storagetransfer:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>storagetransfer:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

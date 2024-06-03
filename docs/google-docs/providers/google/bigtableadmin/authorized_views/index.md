@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>authorized_views</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigtableadmin.authorized_views" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigtableadmin.authorized_views" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,5 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instancesId, projectsId, tablesId" /> | Lists all AuthorizedViews from a specific table. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="instancesId, projectsId, tablesId" /> | Creates a new AuthorizedView in a table. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="authorizedViewsId, instancesId, projectsId, tablesId" /> | Permanently deletes a specified AuthorizedView. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="authorizedViewsId, instancesId, projectsId, tablesId" /> | Updates an AuthorizedView in a table. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="instancesId, projectsId, tablesId" /> | Lists all AuthorizedViews from a specific table. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="authorizedViewsId, instancesId, projectsId, tablesId" /> | Updates an AuthorizedView in a table. |

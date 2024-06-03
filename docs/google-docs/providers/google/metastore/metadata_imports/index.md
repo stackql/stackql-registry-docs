@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>metadata_imports</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="metastore.metadata_imports" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.metastore.metadata_imports" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,5 +43,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, metadataImportsId, projectsId, servicesId" /> | Gets details of a single import. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Lists imports in a service. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Creates a new MetadataImport in a given project and location. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, metadataImportsId, projectsId, servicesId" /> | Updates a single import. Only the description field of MetadataImport is supported to be updated. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Lists imports in a service. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, metadataImportsId, projectsId, servicesId" /> | Updates a single import. Only the description field of MetadataImport is supported to be updated. |

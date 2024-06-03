@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="servicenetworking.connections" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.servicenetworking.connections" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -33,4 +33,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="servicesId" /> | List the private connections that are configured in a service consumer's VPC network. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="servicesId" /> | Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The administrator of the service consumer's VPC network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning subnetworks in the service producer's VPC network. This connection is used for all supported services in the service producer's organization, so it only needs to be invoked once. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="connectionsId, servicesId" /> | Updates the allocated ranges that are assigned to a connection. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="connectionsId, servicesId" /> | Updates the allocated ranges that are assigned to a connection. |

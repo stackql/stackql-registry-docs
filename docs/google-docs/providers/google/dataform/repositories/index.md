@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>repositories</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataform.repositories" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataform.repositories" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,9 +48,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Repositories in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Repository in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Deletes a single Repository. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Updates a single Repository. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Repositories in a given project and location. |
 | <CopyableCode code="commit" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Applies a Git commit to a Repository. The Repository must not have a value for `git_remote_settings.url`. |
 | <CopyableCode code="compute_access_token_status" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Computes a Repository's Git access token status. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Updates a single Repository. |
 | <CopyableCode code="query_directory_contents" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Returns the contents of a given Repository directory. The Repository must not have a value for `git_remote_settings.url`. |
 | <CopyableCode code="read_file" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Returns the contents of a file (inside a Repository). The Repository must not have a value for `git_remote_settings.url`. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backend_buckets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.backend_buckets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.backend_buckets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,6 +49,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of BackendBucket resources available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a BackendBucket resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backendBucket, project" /> | Deletes the specified BackendBucket resource. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="backendBucket, project" /> | Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backendBucket, project" /> | Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="backendBucket, project" /> | Updates the specified BackendBucket resource with the data included in the request. |
 | <CopyableCode code="set_edge_security_policy" /> | `EXEC` | <CopyableCode code="backendBucket, project" /> | Sets the edge security policy for the specified backend bucket. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="backendBucket, project" /> | Updates the specified BackendBucket resource with the data included in the request. |

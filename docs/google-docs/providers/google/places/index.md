@@ -34,7 +34,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Places API (New)</td></tr>
 <tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>places:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>places:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

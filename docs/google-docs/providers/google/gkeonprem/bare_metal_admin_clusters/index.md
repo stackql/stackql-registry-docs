@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bare_metal_admin_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkeonprem.bare_metal_admin_clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkeonprem.bare_metal_admin_clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -65,8 +65,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_get" /> | `SELECT` | <CopyableCode code="bareMetalAdminClustersId, locationsId, projectsId" /> | Gets details of a single bare metal admin cluster. |
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists bare metal admin clusters in a given project and location. |
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new bare metal admin cluster in a given project and location. The API needs to be combined with creating a bootstrap cluster to work. See: https://cloud.google.com/anthos/clusters/docs/bare-metal/latest/installing/creating-clusters/create-admin-cluster-api#prepare_bootstrap_environment |
+| <CopyableCode code="projects_locations_bare_metal_admin_clusters_patch" /> | `UPDATE` | <CopyableCode code="bareMetalAdminClustersId, locationsId, projectsId" /> | Updates the parameters of a single bare metal admin cluster. |
 | <CopyableCode code="_projects_locations_bare_metal_admin_clusters_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists bare metal admin clusters in a given project and location. |
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_enroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Enrolls an existing bare metal admin cluster to the Anthos On-Prem API within a given project and location. Through enrollment, an existing admin cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster will be expected to be performed through the API. |
-| <CopyableCode code="projects_locations_bare_metal_admin_clusters_patch" /> | `EXEC` | <CopyableCode code="bareMetalAdminClustersId, locationsId, projectsId" /> | Updates the parameters of a single bare metal admin cluster. |
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_query_version_config" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Queries the bare metal admin cluster version config. |
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_unenroll" /> | `EXEC` | <CopyableCode code="bareMetalAdminClustersId, locationsId, projectsId" /> | Unenrolls an existing bare metal admin cluster from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. |

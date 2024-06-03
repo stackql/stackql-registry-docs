@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>buckets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="storage.buckets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storage.buckets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -70,7 +70,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves a list of buckets for a given project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new bucket. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bucket" /> | Permanently deletes an empty bucket. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="bucket" /> | Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="bucket" /> | Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves a list of buckets for a given project. |
 | <CopyableCode code="lock_retention_policy" /> | `EXEC` | <CopyableCode code="bucket, ifMetagenerationMatch" /> | Locks retention policy on a bucket. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="bucket" /> | Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="bucket" /> | Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. |

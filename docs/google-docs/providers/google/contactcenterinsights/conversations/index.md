@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>conversations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="contactcenterinsights.conversations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.contactcenterinsights.conversations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -58,10 +58,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists conversations. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a conversation. DEPRECATED: Use UploadConversation instead. CreateConversation does not support audio transcription or DLP redaction. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="conversationsId, locationsId, projectsId" /> | Deletes a conversation. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="conversationsId, locationsId, projectsId" /> | Updates a conversation. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists conversations. |
 | <CopyableCode code="bulk_analyze" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Analyzes multiple conversations in a single request. |
 | <CopyableCode code="bulk_delete" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Deletes multiple conversations in a single request. |
 | <CopyableCode code="calculate_stats" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Gets conversation statistics. |
 | <CopyableCode code="ingest" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Imports conversations and processes them according to the user's configuration. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="conversationsId, locationsId, projectsId" /> | Updates a conversation. |
 | <CopyableCode code="upload" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Create a longrunning conversation upload operation. This method differs from CreateConversation by allowing audio transcription and optional DLP redaction. |

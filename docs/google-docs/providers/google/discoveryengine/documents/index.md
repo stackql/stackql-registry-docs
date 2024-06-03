@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>documents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="discoveryengine.documents" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.documents" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,11 +50,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_stores_branches_documents_create" /> | `INSERT` | <CopyableCode code="branchesId, dataStoresId, locationsId, projectsId" /> | Creates a Document. |
 | <CopyableCode code="projects_locations_collections_data_stores_branches_documents_delete" /> | `DELETE` | <CopyableCode code="branchesId, collectionsId, dataStoresId, documentsId, locationsId, projectsId" /> | Deletes a Document. |
 | <CopyableCode code="projects_locations_data_stores_branches_documents_delete" /> | `DELETE` | <CopyableCode code="branchesId, dataStoresId, documentsId, locationsId, projectsId" /> | Deletes a Document. |
+| <CopyableCode code="projects_locations_collections_data_stores_branches_documents_patch" /> | `UPDATE` | <CopyableCode code="branchesId, collectionsId, dataStoresId, documentsId, locationsId, projectsId" /> | Updates a Document. |
+| <CopyableCode code="projects_locations_data_stores_branches_documents_patch" /> | `UPDATE` | <CopyableCode code="branchesId, dataStoresId, documentsId, locationsId, projectsId" /> | Updates a Document. |
 | <CopyableCode code="_projects_locations_collections_data_stores_branches_documents_list" /> | `EXEC` | <CopyableCode code="branchesId, collectionsId, dataStoresId, locationsId, projectsId" /> | Gets a list of Documents. |
 | <CopyableCode code="_projects_locations_data_stores_branches_documents_list" /> | `EXEC` | <CopyableCode code="branchesId, dataStoresId, locationsId, projectsId" /> | Gets a list of Documents. |
 | <CopyableCode code="projects_locations_collections_data_stores_branches_documents_import" /> | `EXEC` | <CopyableCode code="branchesId, collectionsId, dataStoresId, locationsId, projectsId" /> | Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items are created. Note: It is possible for a subset of the Documents to be successfully updated. |
-| <CopyableCode code="projects_locations_collections_data_stores_branches_documents_patch" /> | `EXEC` | <CopyableCode code="branchesId, collectionsId, dataStoresId, documentsId, locationsId, projectsId" /> | Updates a Document. |
 | <CopyableCode code="projects_locations_collections_data_stores_branches_documents_purge" /> | `EXEC` | <CopyableCode code="branchesId, collectionsId, dataStoresId, locationsId, projectsId" /> | Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false. |
 | <CopyableCode code="projects_locations_data_stores_branches_documents_import" /> | `EXEC` | <CopyableCode code="branchesId, dataStoresId, locationsId, projectsId" /> | Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items are created. Note: It is possible for a subset of the Documents to be successfully updated. |
-| <CopyableCode code="projects_locations_data_stores_branches_documents_patch" /> | `EXEC` | <CopyableCode code="branchesId, dataStoresId, documentsId, locationsId, projectsId" /> | Updates a Document. |
 | <CopyableCode code="projects_locations_data_stores_branches_documents_purge" /> | `EXEC` | <CopyableCode code="branchesId, dataStoresId, locationsId, projectsId" /> | Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false. |

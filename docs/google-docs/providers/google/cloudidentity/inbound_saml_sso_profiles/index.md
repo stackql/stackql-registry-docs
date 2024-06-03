@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>inbound_saml_sso_profiles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudidentity.inbound_saml_sso_profiles" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudidentity.inbound_saml_sso_profiles" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` |  | Lists InboundSamlSsoProfiles for a customer. |
 | <CopyableCode code="create" /> | `INSERT` |  | Creates an InboundSamlSsoProfile for a customer. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="inboundSamlSsoProfilesId" /> | Deletes an InboundSamlSsoProfile. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="inboundSamlSsoProfilesId" /> | Updates an InboundSamlSsoProfile. |
 | <CopyableCode code="_list" /> | `EXEC` |  | Lists InboundSamlSsoProfiles for a customer. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="inboundSamlSsoProfilesId" /> | Updates an InboundSamlSsoProfile. |

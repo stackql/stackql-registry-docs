@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>custom_constraints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="orgpolicy.custom_constraints" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.orgpolicy.custom_constraints" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_custom_constraints_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Retrieves all of the custom constraints that exist on a particular organization resource. |
 | <CopyableCode code="organizations_custom_constraints_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the organization does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the constraint already exists on the given organization. |
 | <CopyableCode code="organizations_custom_constraints_delete" /> | `DELETE` | <CopyableCode code="customConstraintsId, organizationsId" /> | Deletes a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. |
+| <CopyableCode code="organizations_custom_constraints_patch" /> | `UPDATE` | <CopyableCode code="customConstraintsId, organizationsId" /> | Updates a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Note: the supplied policy will perform a full overwrite of all fields. |
 | <CopyableCode code="_organizations_custom_constraints_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Retrieves all of the custom constraints that exist on a particular organization resource. |
-| <CopyableCode code="organizations_custom_constraints_patch" /> | `EXEC` | <CopyableCode code="customConstraintsId, organizationsId" /> | Updates a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Note: the supplied policy will perform a full overwrite of all fields. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>exclusions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="logging.exclusions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.logging.exclusions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -59,13 +59,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_exclusions_delete" /> | `DELETE` | <CopyableCode code="exclusionsId, foldersId" /> | Deletes an exclusion in the _Default sink. |
 | <CopyableCode code="organizations_exclusions_delete" /> | `DELETE` | <CopyableCode code="exclusionsId, organizationsId" /> | Deletes an exclusion in the _Default sink. |
 | <CopyableCode code="projects_exclusions_delete" /> | `DELETE` | <CopyableCode code="exclusionsId, projectsId" /> | Deletes an exclusion in the _Default sink. |
+| <CopyableCode code="billing_accounts_exclusions_patch" /> | `UPDATE` | <CopyableCode code="billingAccountsId, exclusionsId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
+| <CopyableCode code="exclusions_patch" /> | `UPDATE` | <CopyableCode code="name" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
+| <CopyableCode code="folders_exclusions_patch" /> | `UPDATE` | <CopyableCode code="exclusionsId, foldersId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
+| <CopyableCode code="organizations_exclusions_patch" /> | `UPDATE` | <CopyableCode code="exclusionsId, organizationsId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
+| <CopyableCode code="projects_exclusions_patch" /> | `UPDATE` | <CopyableCode code="exclusionsId, projectsId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
 | <CopyableCode code="_billing_accounts_exclusions_list" /> | `EXEC` | <CopyableCode code="billingAccountsId" /> | Lists all the exclusions on the _Default sink in a parent resource. |
 | <CopyableCode code="_exclusions_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Lists all the exclusions on the _Default sink in a parent resource. |
 | <CopyableCode code="_folders_exclusions_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists all the exclusions on the _Default sink in a parent resource. |
 | <CopyableCode code="_organizations_exclusions_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all the exclusions on the _Default sink in a parent resource. |
 | <CopyableCode code="_projects_exclusions_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists all the exclusions on the _Default sink in a parent resource. |
-| <CopyableCode code="billing_accounts_exclusions_patch" /> | `EXEC` | <CopyableCode code="billingAccountsId, exclusionsId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
-| <CopyableCode code="exclusions_patch" /> | `EXEC` | <CopyableCode code="name" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
-| <CopyableCode code="folders_exclusions_patch" /> | `EXEC` | <CopyableCode code="exclusionsId, foldersId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
-| <CopyableCode code="organizations_exclusions_patch" /> | `EXEC` | <CopyableCode code="exclusionsId, organizationsId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
-| <CopyableCode code="projects_exclusions_patch" /> | `EXEC` | <CopyableCode code="exclusionsId, projectsId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |

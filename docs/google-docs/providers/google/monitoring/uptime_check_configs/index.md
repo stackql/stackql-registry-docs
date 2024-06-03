@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>uptime_check_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="monitoring.uptime_check_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.monitoring.uptime_check_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,5 +52,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_uptime_check_configs_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the existing valid Uptime check configurations for the project (leaving out any invalid configurations). |
 | <CopyableCode code="projects_uptime_check_configs_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new Uptime check configuration. |
 | <CopyableCode code="projects_uptime_check_configs_delete" /> | `DELETE` | <CopyableCode code="projectsId, uptimeCheckConfigsId" /> | Deletes an Uptime check configuration. Note that this method will fail if the Uptime check configuration is referenced by an alert policy or other dependent configs that would be rendered invalid by the deletion. |
+| <CopyableCode code="projects_uptime_check_configs_patch" /> | `UPDATE` | <CopyableCode code="projectsId, uptimeCheckConfigsId" /> | Updates an Uptime check configuration. You can either replace the entire configuration with a new one or replace only certain fields in the current configuration by specifying the fields to be updated via updateMask. Returns the updated configuration. |
 | <CopyableCode code="_projects_uptime_check_configs_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the existing valid Uptime check configurations for the project (leaving out any invalid configurations). |
-| <CopyableCode code="projects_uptime_check_configs_patch" /> | `EXEC` | <CopyableCode code="projectsId, uptimeCheckConfigsId" /> | Updates an Uptime check configuration. You can either replace the entire configuration with a new one or replace only certain fields in the current configuration by specifying the fields to be updated via updateMask. Returns the updated configuration. |

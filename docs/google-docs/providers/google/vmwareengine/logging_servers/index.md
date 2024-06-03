@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>logging_servers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmwareengine.logging_servers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmwareengine.logging_servers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists logging servers configured for a given private cloud. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Create a new logging server for a given private cloud. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, loggingServersId, privateCloudsId, projectsId" /> | Deletes a single logging server. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, loggingServersId, privateCloudsId, projectsId" /> | Updates the parameters of a single logging server. Only fields specified in `update_mask` are applied. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists logging servers configured for a given private cloud. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, loggingServersId, privateCloudsId, projectsId" /> | Updates the parameters of a single logging server. Only fields specified in `update_mask` are applied. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>image_family_views</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.image_family_views" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.image_family_views" /></td></tr>
 </tbody></table>
 
 ## Fields

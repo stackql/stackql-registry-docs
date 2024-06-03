@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_value_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.resource_value_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.resource_value_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,6 +47,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_resource_value_configs_get" /> | `SELECT` | <CopyableCode code="organizationsId, resourceValueConfigsId" /> | Gets a ResourceValueConfig. |
 | <CopyableCode code="organizations_resource_value_configs_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all ResourceValueConfigs. |
 | <CopyableCode code="organizations_resource_value_configs_delete" /> | `DELETE` | <CopyableCode code="organizationsId, resourceValueConfigsId" /> | Deletes a ResourceValueConfig. |
+| <CopyableCode code="organizations_resource_value_configs_patch" /> | `UPDATE` | <CopyableCode code="organizationsId, resourceValueConfigsId" /> | Updates an existing ResourceValueConfigs with new rules. |
 | <CopyableCode code="_organizations_resource_value_configs_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all ResourceValueConfigs. |
 | <CopyableCode code="organizations_resource_value_configs_batch_create" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Creates a ResourceValueConfig for an organization. Maps user's tags to difference resource values for use by the attack path simulation. |
-| <CopyableCode code="organizations_resource_value_configs_patch" /> | `EXEC` | <CopyableCode code="organizationsId, resourceValueConfigsId" /> | Updates an existing ResourceValueConfigs with new rules. |

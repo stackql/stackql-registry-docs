@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tenants</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="jobs.tenants" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.jobs.tenants" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,6 +39,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists all tenants associated with the project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new tenant entity. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="projectsId, tenantsId" /> | Deletes specified tenant. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="projectsId, tenantsId" /> | Updates specified tenant. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists all tenants associated with the project. |
 | <CopyableCode code="complete_query" /> | `EXEC` | <CopyableCode code="projectsId, tenantsId" /> | Completes the specified prefix with keyword suggestions. Intended for use by a job search auto-complete search box. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="projectsId, tenantsId" /> | Updates specified tenant. |

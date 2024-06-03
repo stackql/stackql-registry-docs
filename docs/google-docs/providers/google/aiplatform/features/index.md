@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>features</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.features" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.features" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,6 +48,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="featureGroupsId, locationsId, projectsId" /> | Lists Features in a given FeatureGroup. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="featureGroupsId, locationsId, projectsId" /> | Creates a new Feature in a given FeatureGroup. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="featureGroupsId, featuresId, locationsId, projectsId" /> | Deletes a single Feature. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="featureGroupsId, featuresId, locationsId, projectsId" /> | Updates the parameters of a single Feature. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="featureGroupsId, locationsId, projectsId" /> | Lists Features in a given FeatureGroup. |
 | <CopyableCode code="batch_create" /> | `EXEC` | <CopyableCode code="entityTypesId, featurestoresId, locationsId, projectsId" /> | Creates a batch of Features in a given EntityType. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="featureGroupsId, featuresId, locationsId, projectsId" /> | Updates the parameters of a single Feature. |

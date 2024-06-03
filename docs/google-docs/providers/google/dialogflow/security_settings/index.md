@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.security_settings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.security_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,5 +48,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_security_settings_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Returns the list of all security settings in the specified location. |
 | <CopyableCode code="projects_locations_security_settings_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create security settings in the specified location. |
 | <CopyableCode code="projects_locations_security_settings_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, securitySettingsId" /> | Deletes the specified SecuritySettings. |
+| <CopyableCode code="projects_locations_security_settings_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, securitySettingsId" /> | Updates the specified SecuritySettings. |
 | <CopyableCode code="_projects_locations_security_settings_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns the list of all security settings in the specified location. |
-| <CopyableCode code="projects_locations_security_settings_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, securitySettingsId" /> | Updates the specified SecuritySettings. |

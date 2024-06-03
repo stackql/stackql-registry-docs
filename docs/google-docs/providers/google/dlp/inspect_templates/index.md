@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>inspect_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dlp.inspect_templates" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dlp.inspect_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,11 +55,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_inspect_templates_delete" /> | `DELETE` | <CopyableCode code="inspectTemplatesId, locationsId, organizationsId" /> | Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
 | <CopyableCode code="projects_inspect_templates_delete" /> | `DELETE` | <CopyableCode code="inspectTemplatesId, projectsId" /> | Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
 | <CopyableCode code="projects_locations_inspect_templates_delete" /> | `DELETE` | <CopyableCode code="inspectTemplatesId, locationsId, projectsId" /> | Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
+| <CopyableCode code="organizations_inspect_templates_patch" /> | `UPDATE` | <CopyableCode code="inspectTemplatesId, organizationsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
+| <CopyableCode code="organizations_locations_inspect_templates_patch" /> | `UPDATE` | <CopyableCode code="inspectTemplatesId, locationsId, organizationsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
+| <CopyableCode code="projects_inspect_templates_patch" /> | `UPDATE` | <CopyableCode code="inspectTemplatesId, projectsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
+| <CopyableCode code="projects_locations_inspect_templates_patch" /> | `UPDATE` | <CopyableCode code="inspectTemplatesId, locationsId, projectsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
 | <CopyableCode code="_organizations_inspect_templates_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
 | <CopyableCode code="_organizations_locations_inspect_templates_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
 | <CopyableCode code="_projects_inspect_templates_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
 | <CopyableCode code="_projects_locations_inspect_templates_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
-| <CopyableCode code="organizations_inspect_templates_patch" /> | `EXEC` | <CopyableCode code="inspectTemplatesId, organizationsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
-| <CopyableCode code="organizations_locations_inspect_templates_patch" /> | `EXEC` | <CopyableCode code="inspectTemplatesId, locationsId, organizationsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
-| <CopyableCode code="projects_inspect_templates_patch" /> | `EXEC` | <CopyableCode code="inspectTemplatesId, projectsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
-| <CopyableCode code="projects_locations_inspect_templates_patch" /> | `EXEC` | <CopyableCode code="inspectTemplatesId, locationsId, projectsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |

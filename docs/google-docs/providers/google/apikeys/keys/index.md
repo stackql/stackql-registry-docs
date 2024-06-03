@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apikeys.keys" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apikeys.keys" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,7 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists the API keys owned by a project. The key string of the API key isn't included in the response. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new API key. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="keysId, locationsId, projectsId" /> | Deletes an API key. Deleted key can be retrieved within 30 days of deletion. Afterward, key will be purged from the project. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="keysId, locationsId, projectsId" /> | Patches the modifiable fields of an API key. The key string of the API key isn't included in the response. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists the API keys owned by a project. The key string of the API key isn't included in the response. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
 | <CopyableCode code="lookup_key" /> | `EXEC` |  | Find the parent project and resource name of the API key that matches the key string in the request. If the API key has been purged, resource name will not be set. The service account must have the `apikeys.keys.lookup` permission on the parent project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="keysId, locationsId, projectsId" /> | Patches the modifiable fields of an API key. The key string of the API key isn't included in the response. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
 | <CopyableCode code="undelete" /> | `EXEC` | <CopyableCode code="keysId, locationsId, projectsId" /> | Undeletes an API key which was deleted within 30 days. NOTE: Key is a global resource; hence the only supported value for location is `global`. |

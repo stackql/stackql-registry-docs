@@ -34,7 +34,7 @@ Administer your Cloud Bigtable tables and instances.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Bigtable Admin API</td></tr>
 <tr><td><b>Description</b></td><td>Administer your Cloud Bigtable tables and instances.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigtableadmin:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>bigtableadmin:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

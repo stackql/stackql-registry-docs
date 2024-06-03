@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ingress_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="appengine.ingress_rules" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.appengine.ingress_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,6 +41,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="appsId" /> | Lists the firewall rules of an application. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="appsId" /> | Creates a firewall rule for the application. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appsId, ingressRulesId" /> | Deletes the specified firewall rule. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="appsId, ingressRulesId" /> | Updates the specified firewall rule. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="appsId" /> | Lists the firewall rules of an application. |
 | <CopyableCode code="batch_update" /> | `EXEC` | <CopyableCode code="appsId" /> | Replaces the entire firewall ruleset in one bulk operation. This overrides and replaces the rules of an existing firewall with the new rules.If the final rule does not match traffic with the '*' wildcard IP range, then an "allow all" rule is explicitly added to the end of the list. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="appsId, ingressRulesId" /> | Updates the specified firewall rule. |

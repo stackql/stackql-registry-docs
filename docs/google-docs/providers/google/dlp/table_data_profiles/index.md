@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>table_data_profiles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dlp.table_data_profiles" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dlp.table_data_profiles" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>namespaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="servicedirectory.namespaces" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.servicedirectory.namespaces" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -40,5 +40,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all namespaces. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a namespace, and returns the new namespace. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, namespacesId, projectsId" /> | Deletes a namespace. This also deletes all services and endpoints in the namespace. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, namespacesId, projectsId" /> | Updates a namespace. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all namespaces. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, namespacesId, projectsId" /> | Updates a namespace. |

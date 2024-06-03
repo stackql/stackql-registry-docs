@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigtableadmin.clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigtableadmin.clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,6 +44,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instancesId, projectsId" /> | Lists information about clusters in an instance. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="instancesId, projectsId" /> | Creates a cluster within an instance. Note that exactly one of Cluster.serve_nodes and Cluster.cluster_config.cluster_autoscaling_config can be set. If serve_nodes is set to non-zero, then the cluster is manually scaled. If cluster_config.cluster_autoscaling_config is non-empty, then autoscaling is enabled. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Deletes a cluster from an instance. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Updates a cluster within an instance. Note that UpdateCluster does not support updating cluster_config.cluster_autoscaling_config. In order to update it, you must use PartialUpdateCluster. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Lists information about clusters in an instance. |
 | <CopyableCode code="partial_update_cluster" /> | `EXEC` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Partially updates a cluster within a project. This method is the preferred way to update a Cluster. To enable and update autoscaling, set cluster_config.cluster_autoscaling_config. When autoscaling is enabled, serve_nodes is treated as an OUTPUT_ONLY field, meaning that updates to it are ignored. Note that an update cannot simultaneously set serve_nodes to non-zero and cluster_config.cluster_autoscaling_config to non-empty, and also specify both in the update_mask. To disable autoscaling, clear cluster_config.cluster_autoscaling_config, and explicitly set a serve_node count via the update_mask. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Updates a cluster within an instance. Note that UpdateCluster does not support updating cluster_config.cluster_autoscaling_config. In order to update it, you must use PartialUpdateCluster. |

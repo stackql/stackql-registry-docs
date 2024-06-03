@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>object_access_controls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="storage.object_access_controls" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storage.object_access_controls" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="bucket, object" /> | Retrieves ACL entries on the specified object. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="bucket, object" /> | Creates a new ACL entry on the specified object. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bucket, entity, object" /> | Permanently deletes the ACL entry for the specified entity on the specified object. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="bucket, entity, object" /> | Patches an ACL entry on the specified object. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="bucket, entity, object" /> | Updates an ACL entry on the specified object. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="bucket, entity, object" /> | Patches an ACL entry on the specified object. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="bucket, entity, object" /> | Updates an ACL entry on the specified object. |

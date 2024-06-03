@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>images</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.images" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.images" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -71,6 +71,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of custom images available to the specified project. Custom images are images you create that belong to your project. This method does not get any images that belong to other projects, including publicly-available images, like Debian 8. If you want to get a list of publicly-available images, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates an image in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="image, project" /> | Deletes the specified image. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="image, project" /> | Patches the specified image with the data included in the request. Only the following fields can be modified: family, description, deprecation status. |
 | <CopyableCode code="deprecate" /> | `EXEC` | <CopyableCode code="image, project" /> | Sets the deprecation status of an image. If an empty request body is given, clears the deprecation status instead. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="image, project" /> | Patches the specified image with the data included in the request. Only the following fields can be modified: family, description, deprecation status. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, resource" /> | Sets the labels on an image. To learn more about labels, read the Labeling Resources documentation. |

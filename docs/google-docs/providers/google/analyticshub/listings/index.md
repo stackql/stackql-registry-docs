@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>listings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="analyticshub.listings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.analyticshub.listings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,6 +50,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_exchanges_listings_list" /> | `SELECT` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Lists all listings in a given project and location. |
 | <CopyableCode code="projects_locations_data_exchanges_listings_create" /> | `INSERT` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Creates a new listing. |
 | <CopyableCode code="projects_locations_data_exchanges_listings_delete" /> | `DELETE` | <CopyableCode code="dataExchangesId, listingsId, locationsId, projectsId" /> | Deletes a listing. |
+| <CopyableCode code="projects_locations_data_exchanges_listings_patch" /> | `UPDATE` | <CopyableCode code="dataExchangesId, listingsId, locationsId, projectsId" /> | Updates an existing listing. |
 | <CopyableCode code="_projects_locations_data_exchanges_listings_list" /> | `EXEC` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Lists all listings in a given project and location. |
-| <CopyableCode code="projects_locations_data_exchanges_listings_patch" /> | `EXEC` | <CopyableCode code="dataExchangesId, listingsId, locationsId, projectsId" /> | Updates an existing listing. |
 | <CopyableCode code="projects_locations_data_exchanges_listings_subscribe" /> | `EXEC` | <CopyableCode code="dataExchangesId, listingsId, locationsId, projectsId" /> | Subscribes to a listing. Currently, with Analytics Hub, you can create listings that reference only BigQuery datasets. Upon subscription to a listing for a BigQuery dataset, Analytics Hub creates a linked dataset in the subscriber's project. |

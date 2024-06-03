@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>engines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="discoveryengine.engines" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.engines" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,5 +48,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_collections_engines_list" /> | `SELECT` | <CopyableCode code="collectionsId, locationsId, projectsId" /> | Lists all the Engines associated with the project. |
 | <CopyableCode code="projects_locations_collections_engines_create" /> | `INSERT` | <CopyableCode code="collectionsId, locationsId, projectsId" /> | Creates a Engine. |
 | <CopyableCode code="projects_locations_collections_engines_delete" /> | `DELETE` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId" /> | Deletes a Engine. |
+| <CopyableCode code="projects_locations_collections_engines_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId" /> | Updates an Engine |
 | <CopyableCode code="_projects_locations_collections_engines_list" /> | `EXEC` | <CopyableCode code="collectionsId, locationsId, projectsId" /> | Lists all the Engines associated with the project. |
-| <CopyableCode code="projects_locations_collections_engines_patch" /> | `EXEC` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId" /> | Updates an Engine |

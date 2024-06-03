@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>catalog_items</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="recommendationengine.catalog_items" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.recommendationengine.catalog_items" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,6 +46,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_catalogs_catalog_items_list" /> | `SELECT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Gets a list of catalog items. |
 | <CopyableCode code="projects_locations_catalogs_catalog_items_create" /> | `INSERT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Creates a catalog item. |
 | <CopyableCode code="projects_locations_catalogs_catalog_items_delete" /> | `DELETE` | <CopyableCode code="catalogItemsId, catalogsId, locationsId, projectsId" /> | Deletes a catalog item. |
+| <CopyableCode code="projects_locations_catalogs_catalog_items_patch" /> | `UPDATE` | <CopyableCode code="catalogItemsId, catalogsId, locationsId, projectsId" /> | Updates a catalog item. Partial updating is supported. Non-existing items will be created. |
 | <CopyableCode code="_projects_locations_catalogs_catalog_items_list" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Gets a list of catalog items. |
 | <CopyableCode code="projects_locations_catalogs_catalog_items_import" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Bulk import of multiple catalog items. Request processing may be synchronous. No partial updating supported. Non-existing items will be created. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully updated. |
-| <CopyableCode code="projects_locations_catalogs_catalog_items_patch" /> | `EXEC` | <CopyableCode code="catalogItemsId, catalogsId, locationsId, projectsId" /> | Updates a catalog item. Partial updating is supported. Non-existing items will be created. |

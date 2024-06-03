@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigquerydatapolicy.data_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquerydatapolicy.data_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,6 +42,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List all of the data policies in the specified parent project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new data policy under a project with the given `dataPolicyId` (used as the display name), policy tag, and data policy type. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Deletes the data policy specified by its resource name. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Updates the metadata for an existing data policy. The target data policy can be specified by the resource name. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List all of the data policies in the specified parent project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Updates the metadata for an existing data policy. The target data policy can be specified by the resource name. |
 | <CopyableCode code="rename" /> | `EXEC` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Renames the id (display name) of the specified data policy. |

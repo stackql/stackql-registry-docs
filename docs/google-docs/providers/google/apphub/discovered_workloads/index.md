@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>discovered_workloads</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apphub.discovered_workloads" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apphub.discovered_workloads" /></td></tr>
 </tbody></table>
 
 ## Fields

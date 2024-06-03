@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reservations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.reservations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.reservations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -54,6 +54,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | A list of all the reservations that have been configured for the specified project in specified zone. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates a new reservation. For more information, read Reserving zonal resources. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, reservation, zone" /> | Deletes the specified reservation. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="project, reservation, zone" /> | Update share settings of the reservation. |
 | <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of reservations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="resize" /> | `EXEC` | <CopyableCode code="project, reservation, zone" /> | Resizes the reservation (applicable to standalone reservations only). For more information, read Modifying reservations. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, reservation, zone" /> | Update share settings of the reservation. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>notes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="containeranalysis.notes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.containeranalysis.notes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -60,7 +60,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_notes_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists notes for the specified project. |
 | <CopyableCode code="projects_notes_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new note. |
 | <CopyableCode code="projects_notes_delete" /> | `DELETE` | <CopyableCode code="notesId, projectsId" /> | Deletes the specified note. |
+| <CopyableCode code="projects_notes_patch" /> | `UPDATE` | <CopyableCode code="notesId, projectsId" /> | Updates the specified note. |
 | <CopyableCode code="_projects_locations_notes_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists notes for the specified project. |
 | <CopyableCode code="_projects_notes_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists notes for the specified project. |
 | <CopyableCode code="projects_notes_batch_create" /> | `EXEC` | <CopyableCode code="projectsId" /> | Creates new notes in batch. |
-| <CopyableCode code="projects_notes_patch" /> | `EXEC` | <CopyableCode code="notesId, projectsId" /> | Updates the specified note. |

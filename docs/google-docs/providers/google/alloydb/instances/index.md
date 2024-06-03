@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="alloydb.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.alloydb.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -63,8 +63,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Lists Instances in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Creates a new Instance in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clustersId, instancesId, locationsId, projectsId" /> | Deletes a single Instance. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="clustersId, instancesId, locationsId, projectsId" /> | Updates the parameters of a single Instance. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Lists Instances in a given project and location. |
 | <CopyableCode code="failover" /> | `EXEC` | <CopyableCode code="clustersId, instancesId, locationsId, projectsId" /> | Forces a Failover for a highly available instance. Failover promotes the HA standby instance as the new primary. Imperative only. |
 | <CopyableCode code="inject_fault" /> | `EXEC` | <CopyableCode code="clustersId, instancesId, locationsId, projectsId" /> | Injects fault in an instance. Imperative only. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="clustersId, instancesId, locationsId, projectsId" /> | Updates the parameters of a single Instance. |
 | <CopyableCode code="restart" /> | `EXEC` | <CopyableCode code="clustersId, instancesId, locationsId, projectsId" /> | Restart an Instance in a cluster. Imperative only. |

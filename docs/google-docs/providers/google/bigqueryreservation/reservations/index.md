@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reservations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigqueryreservation.reservations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigqueryreservation.reservations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,6 +49,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all the reservations for the project in the specified location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new reservation resource. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, reservationsId" /> | Deletes a reservation. Returns `google.rpc.Code.FAILED_PRECONDITION` when reservation has assignments. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, reservationsId" /> | Updates an existing reservation resource. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all the reservations for the project in the specified location. |
 | <CopyableCode code="failover_reservation" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, reservationsId" /> | Failover a reservation to the secondary location. The operation should be done in the current secondary location, which will be promoted to the new primary location for the reservation. Attempting to failover a reservation in the current primary location will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, reservationsId" /> | Updates an existing reservation resource. |

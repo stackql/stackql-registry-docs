@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>compilation_results</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataform.compilation_results" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataform.compilation_results" /></td></tr>
 </tbody></table>
 
 ## Fields

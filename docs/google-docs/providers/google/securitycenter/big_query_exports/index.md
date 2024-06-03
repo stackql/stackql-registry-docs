@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>big_query_exports</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.big_query_exports" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.big_query_exports" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -53,9 +53,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_big_query_exports_delete" /> | `DELETE` | <CopyableCode code="bigQueryExportsId, foldersId" /> | Deletes an existing BigQuery export. |
 | <CopyableCode code="organizations_big_query_exports_delete" /> | `DELETE` | <CopyableCode code="bigQueryExportsId, organizationsId" /> | Deletes an existing BigQuery export. |
 | <CopyableCode code="projects_big_query_exports_delete" /> | `DELETE` | <CopyableCode code="bigQueryExportsId, projectsId" /> | Deletes an existing BigQuery export. |
+| <CopyableCode code="folders_big_query_exports_patch" /> | `UPDATE` | <CopyableCode code="bigQueryExportsId, foldersId" /> | Updates a BigQuery export. |
+| <CopyableCode code="organizations_big_query_exports_patch" /> | `UPDATE` | <CopyableCode code="bigQueryExportsId, organizationsId" /> | Updates a BigQuery export. |
+| <CopyableCode code="projects_big_query_exports_patch" /> | `UPDATE` | <CopyableCode code="bigQueryExportsId, projectsId" /> | Updates a BigQuery export. |
 | <CopyableCode code="_folders_big_query_exports_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists BigQuery exports. Note that when requesting BigQuery exports at a given level all exports under that level are also returned e.g. if requesting BigQuery exports under a folder, then all BigQuery exports immediately under the folder plus the ones created under the projects within the folder are returned. |
 | <CopyableCode code="_organizations_big_query_exports_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists BigQuery exports. Note that when requesting BigQuery exports at a given level all exports under that level are also returned e.g. if requesting BigQuery exports under a folder, then all BigQuery exports immediately under the folder plus the ones created under the projects within the folder are returned. |
 | <CopyableCode code="_projects_big_query_exports_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists BigQuery exports. Note that when requesting BigQuery exports at a given level all exports under that level are also returned e.g. if requesting BigQuery exports under a folder, then all BigQuery exports immediately under the folder plus the ones created under the projects within the folder are returned. |
-| <CopyableCode code="folders_big_query_exports_patch" /> | `EXEC` | <CopyableCode code="bigQueryExportsId, foldersId" /> | Updates a BigQuery export. |
-| <CopyableCode code="organizations_big_query_exports_patch" /> | `EXEC` | <CopyableCode code="bigQueryExportsId, organizationsId" /> | Updates a BigQuery export. |
-| <CopyableCode code="projects_big_query_exports_patch" /> | `EXEC` | <CopyableCode code="bigQueryExportsId, projectsId" /> | Updates a BigQuery export. |

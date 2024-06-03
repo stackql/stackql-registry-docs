@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>interconnects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.interconnects" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.interconnects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -67,5 +67,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of Interconnects available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates an Interconnect in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="interconnect, project" /> | Deletes the specified Interconnect. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="interconnect, project" /> | Updates the specified Interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="interconnect, project" /> | Updates the specified Interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, resource" /> | Sets the labels on an Interconnect. To learn more about labels, read the Labeling Resources documentation. |

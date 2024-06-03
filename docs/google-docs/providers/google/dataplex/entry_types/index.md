@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entry_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.entry_types" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.entry_types" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_entry_types_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists EntryType resources in a project and location. |
 | <CopyableCode code="projects_locations_entry_types_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an EntryType |
 | <CopyableCode code="projects_locations_entry_types_delete" /> | `DELETE` | <CopyableCode code="entryTypesId, locationsId, projectsId" /> | Deletes a EntryType resource. |
+| <CopyableCode code="projects_locations_entry_types_patch" /> | `UPDATE` | <CopyableCode code="entryTypesId, locationsId, projectsId" /> | Updates a EntryType resource. |
 | <CopyableCode code="_projects_locations_entry_types_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists EntryType resources in a project and location. |
-| <CopyableCode code="projects_locations_entry_types_patch" /> | `EXEC` | <CopyableCode code="entryTypesId, locationsId, projectsId" /> | Updates a EntryType resource. |

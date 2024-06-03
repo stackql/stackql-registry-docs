@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>databases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="sqladmin.databases" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sqladmin.databases" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,5 +46,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instance, project" /> | Lists databases in the specified Cloud SQL instance. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="instance, project" /> | Inserts a resource containing information about a database inside a Cloud SQL instance. **Note:** You can't modify the default character set and collation. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="database, instance, project" /> | Deletes a database from a Cloud SQL instance. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="database, instance, project" /> | Partially updates a resource containing information about a database inside a Cloud SQL instance. This method supports patch semantics. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="database, instance, project" /> | Updates a resource containing information about a database inside a Cloud SQL instance. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="database, instance, project" /> | Partially updates a resource containing information about a database inside a Cloud SQL instance. This method supports patch semantics. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="database, instance, project" /> | Updates a resource containing information about a database inside a Cloud SQL instance. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>workstations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="workstations.workstations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.workstations.workstations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,8 +52,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId" /> | Returns all Workstations using the specified workstation configuration. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId" /> | Creates a new workstation. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId" /> | Deletes the specified workstation. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId" /> | Updates an existing workstation. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId" /> | Returns all Workstations using the specified workstation configuration. |
 | <CopyableCode code="generate_access_token" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId" /> | Returns a short-lived credential that can be used to send authenticated and authorized traffic to a workstation. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId" /> | Updates an existing workstation. |
 | <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId" /> | Starts running a workstation so that users can connect to it. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId, workstationsId" /> | Stops running a workstation, reducing costs. |

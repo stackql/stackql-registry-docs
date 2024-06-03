@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>gcp_user_access_bindings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="accesscontextmanager.gcp_user_access_bindings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.accesscontextmanager.gcp_user_access_bindings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all GcpUserAccessBindings for a Google Cloud organization. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a GcpUserAccessBinding. If the client specifies a name, the server ignores it. Fails if a resource already exists with the same group_key. Completion of this long-running operation does not necessarily signify that the new binding is deployed onto all affected users, which may take more time. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="gcpUserAccessBindingsId, organizationsId" /> | Deletes a GcpUserAccessBinding. Completion of this long-running operation does not necessarily signify that the binding deletion is deployed onto all affected users, which may take more time. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="gcpUserAccessBindingsId, organizationsId" /> | Updates a GcpUserAccessBinding. Completion of this long-running operation does not necessarily signify that the changed binding is deployed onto all affected users, which may take more time. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all GcpUserAccessBindings for a Google Cloud organization. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="gcpUserAccessBindingsId, organizationsId" /> | Updates a GcpUserAccessBinding. Completion of this long-running operation does not necessarily signify that the changed binding is deployed onto all affected users, which may take more time. |

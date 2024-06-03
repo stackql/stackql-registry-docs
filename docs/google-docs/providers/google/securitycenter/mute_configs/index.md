@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>mute_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.mute_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.mute_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -64,15 +64,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_mute_configs_delete" /> | `DELETE` | <CopyableCode code="muteConfigsId, organizationsId" /> | Deletes an existing mute config. |
 | <CopyableCode code="projects_locations_mute_configs_delete" /> | `DELETE` | <CopyableCode code="locationsId, muteConfigsId, projectsId" /> | Deletes an existing mute config. |
 | <CopyableCode code="projects_mute_configs_delete" /> | `DELETE` | <CopyableCode code="muteConfigsId, projectsId" /> | Deletes an existing mute config. |
+| <CopyableCode code="folders_locations_mute_configs_patch" /> | `UPDATE` | <CopyableCode code="foldersId, locationsId, muteConfigsId" /> | Updates a mute config. |
+| <CopyableCode code="folders_mute_configs_patch" /> | `UPDATE` | <CopyableCode code="foldersId, muteConfigsId" /> | Updates a mute config. |
+| <CopyableCode code="organizations_locations_mute_configs_patch" /> | `UPDATE` | <CopyableCode code="locationsId, muteConfigsId, organizationsId" /> | Updates a mute config. |
+| <CopyableCode code="organizations_mute_configs_patch" /> | `UPDATE` | <CopyableCode code="muteConfigsId, organizationsId" /> | Updates a mute config. |
+| <CopyableCode code="projects_locations_mute_configs_patch" /> | `UPDATE` | <CopyableCode code="locationsId, muteConfigsId, projectsId" /> | Updates a mute config. |
+| <CopyableCode code="projects_mute_configs_patch" /> | `UPDATE` | <CopyableCode code="muteConfigsId, projectsId" /> | Updates a mute config. |
 | <CopyableCode code="_folders_locations_mute_configs_list" /> | `EXEC` | <CopyableCode code="foldersId, locationsId" /> | Lists mute configs. |
 | <CopyableCode code="_folders_mute_configs_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists mute configs. |
 | <CopyableCode code="_organizations_locations_mute_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists mute configs. |
 | <CopyableCode code="_organizations_mute_configs_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists mute configs. |
 | <CopyableCode code="_projects_locations_mute_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists mute configs. |
 | <CopyableCode code="_projects_mute_configs_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists mute configs. |
-| <CopyableCode code="folders_locations_mute_configs_patch" /> | `EXEC` | <CopyableCode code="foldersId, locationsId, muteConfigsId" /> | Updates a mute config. |
-| <CopyableCode code="folders_mute_configs_patch" /> | `EXEC` | <CopyableCode code="foldersId, muteConfigsId" /> | Updates a mute config. |
-| <CopyableCode code="organizations_locations_mute_configs_patch" /> | `EXEC` | <CopyableCode code="locationsId, muteConfigsId, organizationsId" /> | Updates a mute config. |
-| <CopyableCode code="organizations_mute_configs_patch" /> | `EXEC` | <CopyableCode code="muteConfigsId, organizationsId" /> | Updates a mute config. |
-| <CopyableCode code="projects_locations_mute_configs_patch" /> | `EXEC` | <CopyableCode code="locationsId, muteConfigsId, projectsId" /> | Updates a mute config. |
-| <CopyableCode code="projects_mute_configs_patch" /> | `EXEC` | <CopyableCode code="muteConfigsId, projectsId" /> | Updates a mute config. |

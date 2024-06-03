@@ -34,7 +34,7 @@ The Managed Service for Microsoft Active Directory API is used for managing a hi
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Managed Service for Microsoft Active Directory API</td></tr>
 <tr><td><b>Description</b></td><td>The Managed Service for Microsoft Active Directory API is used for managing a highly available, hardened service running Microsoft Active Directory (AD).</td></tr>
-<tr><td><b>Id</b></td><td><code>managedidentities:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>managedidentities:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

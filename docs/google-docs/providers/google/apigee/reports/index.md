@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reports</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.reports" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.reports" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -59,4 +59,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_reports_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Return a list of Custom Reports |
 | <CopyableCode code="organizations_reports_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a Custom Report for an Organization. A Custom Report provides Apigee Customers to create custom dashboards in addition to the standard dashboards which are provided. The Custom Report in its simplest form contains specifications about metrics, dimensions and filters. It is important to note that the custom report by itself does not provide an executable entity. The Edge UI converts the custom report definition into an analytics query and displays the result in a chart. |
 | <CopyableCode code="organizations_reports_delete" /> | `DELETE` | <CopyableCode code="organizationsId, reportsId" /> | Deletes an existing custom report definition |
-| <CopyableCode code="organizations_reports_update" /> | `EXEC` | <CopyableCode code="organizationsId, reportsId" /> | Update an existing custom report definition |
+| <CopyableCode code="organizations_reports_update" /> | `UPDATE` | <CopyableCode code="organizationsId, reportsId" /> | Update an existing custom report definition |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>cmek_config</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudtasks.cmek_config" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudtasks.cmek_config" /></td></tr>
 </tbody></table>
 
 ## Fields

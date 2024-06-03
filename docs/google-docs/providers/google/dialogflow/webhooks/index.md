@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>webhooks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.webhooks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.webhooks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,5 +43,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_webhooks_list" /> | `SELECT` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Returns the list of all webhooks in the specified agent. |
 | <CopyableCode code="projects_locations_agents_webhooks_create" /> | `INSERT` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Creates a webhook in the specified agent. |
 | <CopyableCode code="projects_locations_agents_webhooks_delete" /> | `DELETE` | <CopyableCode code="agentsId, locationsId, projectsId, webhooksId" /> | Deletes the specified webhook. |
+| <CopyableCode code="projects_locations_agents_webhooks_patch" /> | `UPDATE` | <CopyableCode code="agentsId, locationsId, projectsId, webhooksId" /> | Updates the specified webhook. |
 | <CopyableCode code="_projects_locations_agents_webhooks_list" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Returns the list of all webhooks in the specified agent. |
-| <CopyableCode code="projects_locations_agents_webhooks_patch" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId, webhooksId" /> | Updates the specified webhook. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>import_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="migrationcenter.import_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.migrationcenter.import_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,7 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all import jobs. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an import job. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | Deletes an import job. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | Updates an import job. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all import jobs. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | Updates an import job. |
 | <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | Runs an import job. |
 | <CopyableCode code="validate" /> | `EXEC` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | Validates an import job. |

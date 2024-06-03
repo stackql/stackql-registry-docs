@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>discovery_clients</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="migrationcenter.discovery_clients" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.migrationcenter.discovery_clients" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,6 +52,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all the discovery clients in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new discovery client. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="discoveryClientsId, locationsId, projectsId" /> | Deletes a discovery client. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="discoveryClientsId, locationsId, projectsId" /> | Updates a discovery client. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all the discovery clients in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="discoveryClientsId, locationsId, projectsId" /> | Updates a discovery client. |
 | <CopyableCode code="send_heartbeat" /> | `EXEC` | <CopyableCode code="discoveryClientsId, locationsId, projectsId" /> | Sends a discovery client heartbeat. Healthy clients are expected to send heartbeats regularly (normally every few minutes). |

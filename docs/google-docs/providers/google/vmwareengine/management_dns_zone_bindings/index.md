@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>management_dns_zone_bindings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmwareengine.management_dns_zone_bindings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmwareengine.management_dns_zone_bindings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,6 +45,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists Consumer VPCs bound to Management DNS Zone of a given private cloud. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Creates a new `ManagementDnsZoneBinding` resource in a private cloud. This RPC creates the DNS binding and the resource that represents the DNS binding of the consumer VPC network to the management DNS zone. A management DNS zone is the Cloud DNS cross-project binding zone that VMware Engine creates for each private cloud. It contains FQDNs and corresponding IP addresses for the private cloud's ESXi hosts and management VM appliances like vCenter and NSX Manager. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, managementDnsZoneBindingsId, privateCloudsId, projectsId" /> | Deletes a `ManagementDnsZoneBinding` resource. When a management DNS zone binding is deleted, the corresponding consumer VPC network is no longer bound to the management DNS zone. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, managementDnsZoneBindingsId, privateCloudsId, projectsId" /> | Updates a `ManagementDnsZoneBinding` resource. Only fields specified in `update_mask` are applied. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists Consumer VPCs bound to Management DNS Zone of a given private cloud. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, managementDnsZoneBindingsId, privateCloudsId, projectsId" /> | Updates a `ManagementDnsZoneBinding` resource. Only fields specified in `update_mask` are applied. |
 | <CopyableCode code="repair" /> | `EXEC` | <CopyableCode code="locationsId, managementDnsZoneBindingsId, privateCloudsId, projectsId" /> | Retries to create a `ManagementDnsZoneBinding` resource that is in failed state. |

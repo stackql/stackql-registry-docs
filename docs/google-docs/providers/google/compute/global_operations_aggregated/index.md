@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_operations_aggregated</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.global_operations_aggregated" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.global_operations_aggregated" /></td></tr>
 </tbody></table>
 
 ## Fields

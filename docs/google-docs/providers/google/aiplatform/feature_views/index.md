@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>feature_views</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.feature_views" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.feature_views" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,7 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="featureOnlineStoresId, locationsId, projectsId" /> | Lists FeatureViews in a given FeatureOnlineStore. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="featureOnlineStoresId, locationsId, projectsId" /> | Creates a new FeatureView in a given FeatureOnlineStore. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="featureOnlineStoresId, featureViewsId, locationsId, projectsId" /> | Deletes a single FeatureView. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="featureOnlineStoresId, featureViewsId, locationsId, projectsId" /> | Updates the parameters of a single FeatureView. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="featureOnlineStoresId, locationsId, projectsId" /> | Lists FeatureViews in a given FeatureOnlineStore. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="featureOnlineStoresId, featureViewsId, locationsId, projectsId" /> | Updates the parameters of a single FeatureView. |
 | <CopyableCode code="search_nearest_entities" /> | `EXEC` | <CopyableCode code="featureOnlineStoresId, featureViewsId, locationsId, projectsId" /> | Search the nearest entities under a FeatureView. Search only works for indexable feature view; if a feature view isn't indexable, returns Invalid argument response. |
 | <CopyableCode code="sync" /> | `EXEC` | <CopyableCode code="featureOnlineStoresId, featureViewsId, locationsId, projectsId" /> | Triggers on-demand sync for the FeatureView. |

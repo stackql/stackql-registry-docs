@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>nodes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="tpu.nodes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.tpu.nodes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -61,7 +61,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists nodes. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a node. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, nodesId, projectsId" /> | Deletes a node. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, nodesId, projectsId" /> | Updates the configurations of a node. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists nodes. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, nodesId, projectsId" /> | Updates the configurations of a node. |
 | <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="locationsId, nodesId, projectsId" /> | Starts a node. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="locationsId, nodesId, projectsId" /> | Stops a node. This operation is only available with single TPU nodes. |

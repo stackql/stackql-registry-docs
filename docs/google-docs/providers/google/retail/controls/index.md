@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>controls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="retail.controls" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.retail.controls" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,5 +43,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_catalogs_controls_list" /> | `SELECT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Lists all Controls by their parent Catalog. |
 | <CopyableCode code="projects_locations_catalogs_controls_create" /> | `INSERT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Creates a Control. If the Control to create already exists, an ALREADY_EXISTS error is returned. |
 | <CopyableCode code="projects_locations_catalogs_controls_delete" /> | `DELETE` | <CopyableCode code="catalogsId, controlsId, locationsId, projectsId" /> | Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_catalogs_controls_patch" /> | `UPDATE` | <CopyableCode code="catalogsId, controlsId, locationsId, projectsId" /> | Updates a Control. Control cannot be set to a different oneof field, if so an INVALID_ARGUMENT is returned. If the Control to update does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="_projects_locations_catalogs_controls_list" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Lists all Controls by their parent Catalog. |
-| <CopyableCode code="projects_locations_catalogs_controls_patch" /> | `EXEC` | <CopyableCode code="catalogsId, controlsId, locationsId, projectsId" /> | Updates a Control. Control cannot be set to a different oneof field, if so an INVALID_ARGUMENT is returned. If the Control to update does not exist, a NOT_FOUND error is returned. |

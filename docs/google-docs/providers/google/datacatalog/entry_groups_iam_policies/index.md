@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entry_groups_iam_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datacatalog.entry_groups_iam_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datacatalog.entry_groups_iam_policies" /></td></tr>
 </tbody></table>
 
 ## Fields

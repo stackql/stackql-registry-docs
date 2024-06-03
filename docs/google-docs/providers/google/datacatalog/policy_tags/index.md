@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policy_tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datacatalog.policy_tags" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datacatalog.policy_tags" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_taxonomies_policy_tags_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Lists all policy tags in a taxonomy. |
 | <CopyableCode code="projects_locations_taxonomies_policy_tags_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Creates a policy tag in a taxonomy. |
 | <CopyableCode code="projects_locations_taxonomies_policy_tags_delete" /> | `DELETE` | <CopyableCode code="locationsId, policyTagsId, projectsId, taxonomiesId" /> | Deletes a policy tag together with the following: * All of its descendant policy tags, if any * Policies associated with the policy tag and its descendants * References from BigQuery table schema of the policy tag and its descendants |
+| <CopyableCode code="projects_locations_taxonomies_policy_tags_patch" /> | `UPDATE` | <CopyableCode code="locationsId, policyTagsId, projectsId, taxonomiesId" /> | Updates a policy tag, including its display name, description, and parent policy tag. |
 | <CopyableCode code="_projects_locations_taxonomies_policy_tags_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Lists all policy tags in a taxonomy. |
-| <CopyableCode code="projects_locations_taxonomies_policy_tags_patch" /> | `EXEC` | <CopyableCode code="locationsId, policyTagsId, projectsId, taxonomiesId" /> | Updates a policy tag, including its display name, description, and parent policy tag. |

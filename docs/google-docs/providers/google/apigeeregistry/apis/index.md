@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apis</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigeeregistry.apis" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigeeregistry.apis" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_apis_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Returns matching APIs. |
 | <CopyableCode code="projects_locations_apis_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a specified API. |
 | <CopyableCode code="projects_locations_apis_delete" /> | `DELETE` | <CopyableCode code="apisId, locationsId, projectsId" /> | Removes a specified API and all of the resources that it owns. |
+| <CopyableCode code="projects_locations_apis_patch" /> | `UPDATE` | <CopyableCode code="apisId, locationsId, projectsId" /> | Used to modify a specified API. |
 | <CopyableCode code="_projects_locations_apis_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns matching APIs. |
-| <CopyableCode code="projects_locations_apis_patch" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId" /> | Used to modify a specified API. |

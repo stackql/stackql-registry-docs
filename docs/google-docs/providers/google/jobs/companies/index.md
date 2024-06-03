@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>companies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="jobs.companies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.jobs.companies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId, tenantsId" /> | Lists all companies associated with the project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId, tenantsId" /> | Creates a new company entity. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="companiesId, projectsId, tenantsId" /> | Deletes specified company. Prerequisite: The company has no jobs associated with it. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="companiesId, projectsId, tenantsId" /> | Updates specified company. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId, tenantsId" /> | Lists all companies associated with the project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="companiesId, projectsId, tenantsId" /> | Updates specified company. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>volumes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.volumes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.volumes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -59,8 +59,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, volumesId" /> | Get details of a single storage volume. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List storage volumes in a given project and location. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, volumesId" /> | Update details of a single storage volume. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List storage volumes in a given project and location. |
 | <CopyableCode code="evict" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, volumesId" /> | Skips volume's cooloff and deletes it now. Volume must be in cooloff state. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, volumesId" /> | Update details of a single storage volume. |
 | <CopyableCode code="rename" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, volumesId" /> | RenameVolume sets a new name for a volume. Use with caution, previous names become immediately invalidated. |
 | <CopyableCode code="resize" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, volumesId" /> | Emergency Volume resize. |

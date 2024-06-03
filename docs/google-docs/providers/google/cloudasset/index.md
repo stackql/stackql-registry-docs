@@ -34,7 +34,7 @@ The Cloud Asset API manages the history and inventory of Google Cloud resources.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Asset API</td></tr>
 <tr><td><b>Description</b></td><td>The Cloud Asset API manages the history and inventory of Google Cloud resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudasset:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudasset:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>operations_wait</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.operations_wait" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.operations_wait" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,5 +38,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| <CopyableCode code="list_wait" /> | `SELECT` | <CopyableCode code="featureGroupsId, locationsId, operationsId, projectsId" /> |
-| <CopyableCode code="_list_wait" /> | `EXEC` | <CopyableCode code="featureGroupsId, locationsId, operationsId, projectsId" /> |
+| <CopyableCode code="list_wait" /> | `SELECT` | <CopyableCode code="featureOnlineStoresId, locationsId, operationsId, projectsId" /> |
+| <CopyableCode code="_list_wait" /> | `EXEC` | <CopyableCode code="featureOnlineStoresId, locationsId, operationsId, projectsId" /> |

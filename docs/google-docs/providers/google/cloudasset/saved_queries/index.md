@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>saved_queries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudasset.saved_queries" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudasset.saved_queries" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="parent, parentType" /> | Lists all saved queries in a parent project/folder/organization. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="parent, parentType" /> | Creates a saved query in a parent project/folder/organization. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="name" /> | Deletes a saved query. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="name" /> | Updates a saved query. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Lists all saved queries in a parent project/folder/organization. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="name" /> | Updates a saved query. |

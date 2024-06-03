@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>documents_collection_ids</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="firestore.documents_collection_ids" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.firestore.documents_collection_ids" /></td></tr>
 </tbody></table>
 
 ## Fields

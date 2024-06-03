@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routers_nat_ip_info</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.routers_nat_ip_info" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.routers_nat_ip_info" /></td></tr>
 </tbody></table>
 
 ## Fields

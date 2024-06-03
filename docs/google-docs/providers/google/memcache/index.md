@@ -34,7 +34,7 @@ Google Cloud Memorystore for Memcached API is used for creating and managing Mem
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Memorystore for Memcached API</td></tr>
 <tr><td><b>Description</b></td><td>Google Cloud Memorystore for Memcached API is used for creating and managing Memcached instances in GCP.</td></tr>
-<tr><td><b>Id</b></td><td><code>memcache:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>memcache:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

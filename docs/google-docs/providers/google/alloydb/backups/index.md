@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="alloydb.backups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.alloydb.backups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -59,5 +59,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Backups in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Backup in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backupsId, locationsId, projectsId" /> | Deletes a single Backup. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backupsId, locationsId, projectsId" /> | Updates the parameters of a single Backup. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Backups in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="backupsId, locationsId, projectsId" /> | Updates the parameters of a single Backup. |

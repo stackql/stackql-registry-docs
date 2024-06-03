@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tag_values</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudresourcemanager.tag_values" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudresourcemanager.tag_values" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` |  | Lists all TagValues for a specific TagKey. |
 | <CopyableCode code="create" /> | `INSERT` |  | Creates a TagValue as a child of the specified TagKey. If a another request with the same parameters is sent while the original request is in process the second request will receive an error. A maximum of 1000 TagValues can exist under a TagKey at any given time. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="tagValuesId" /> | Deletes a TagValue. The TagValue cannot have any bindings when it is deleted. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="tagValuesId" /> | Updates the attributes of the TagValue resource. |
 | <CopyableCode code="_list" /> | `EXEC` |  | Lists all TagValues for a specific TagKey. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="tagValuesId" /> | Updates the attributes of the TagValue resource. |

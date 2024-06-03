@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connections_github_installations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="developerconnect.connections_github_installations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.developerconnect.connections_github_installations" /></td></tr>
 </tbody></table>
 
 ## Fields

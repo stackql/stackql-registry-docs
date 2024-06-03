@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>specs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigeeregistry.specs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigeeregistry.specs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,7 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_apis_versions_specs_list" /> | `SELECT` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Returns matching specs. |
 | <CopyableCode code="projects_locations_apis_versions_specs_create" /> | `INSERT` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Creates a specified spec. |
 | <CopyableCode code="projects_locations_apis_versions_specs_delete" /> | `DELETE` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Removes a specified spec, all revisions, and all child resources (e.g., artifacts). |
+| <CopyableCode code="projects_locations_apis_versions_specs_patch" /> | `UPDATE` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Used to modify a specified spec. |
 | <CopyableCode code="_projects_locations_apis_versions_specs_list" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Returns matching specs. |
-| <CopyableCode code="projects_locations_apis_versions_specs_patch" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Used to modify a specified spec. |
 | <CopyableCode code="projects_locations_apis_versions_specs_rollback" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Sets the current revision to a specified prior revision. Note that this creates a new revision with a new revision ID. |
 | <CopyableCode code="projects_locations_apis_versions_specs_tag_revision" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Adds a tag to a specified revision of a spec. |

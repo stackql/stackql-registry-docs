@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>target_grpc_proxies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.target_grpc_proxies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.target_grpc_proxies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,4 +47,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Lists the TargetGrpcProxies for a project in the given scope. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a TargetGrpcProxy in the specified project in the given scope using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, targetGrpcProxy" /> | Deletes the specified TargetGrpcProxy in the given scope |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, targetGrpcProxy" /> | Patches the specified TargetGrpcProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, targetGrpcProxy" /> | Patches the specified TargetGrpcProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |

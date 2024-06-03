@@ -34,7 +34,7 @@ Allows administrators to create managed developer environments in the cloud.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Workstations API</td></tr>
 <tr><td><b>Description</b></td><td>Allows administrators to create managed developer environments in the cloud. </td></tr>
-<tr><td><b>Id</b></td><td><code>workstations:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>workstations:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>reservations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="pubsublite.reservations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.pubsublite.reservations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,5 +39,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="admin_projects_locations_reservations_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Returns the list of reservations for the given project. |
 | <CopyableCode code="admin_projects_locations_reservations_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new reservation. |
 | <CopyableCode code="admin_projects_locations_reservations_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, reservationsId" /> | Deletes the specified reservation. |
+| <CopyableCode code="admin_projects_locations_reservations_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, reservationsId" /> | Updates properties of the specified reservation. |
 | <CopyableCode code="_admin_projects_locations_reservations_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns the list of reservations for the given project. |
-| <CopyableCode code="admin_projects_locations_reservations_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, reservationsId" /> | Updates properties of the specified reservation. |

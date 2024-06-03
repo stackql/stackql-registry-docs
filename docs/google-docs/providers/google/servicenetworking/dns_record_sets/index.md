@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dns_record_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="servicenetworking.dns_record_sets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.servicenetworking.dns_record_sets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -32,6 +32,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="servicesId" /> | Producers can use this method to retrieve a list of available DNS RecordSets available inside the private zone on the tenant host project accessible from their network. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="servicesId" /> | Service producers can use this method to update DNS record sets from private DNS zones in the shared producer host project. |
 | <CopyableCode code="add" /> | `EXEC` | <CopyableCode code="servicesId" /> | Service producers can use this method to add DNS record sets to private DNS zones in the shared producer host project. |
 | <CopyableCode code="remove" /> | `EXEC` | <CopyableCode code="servicesId" /> | Service producers can use this method to remove DNS record sets from private DNS zones in the shared producer host project. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="servicesId" /> | Service producers can use this method to update DNS record sets from private DNS zones in the shared producer host project. |

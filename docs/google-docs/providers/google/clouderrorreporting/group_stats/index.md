@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>group_stats</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="clouderrorreporting.group_stats" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.clouderrorreporting.group_stats" /></td></tr>
 </tbody></table>
 
 ## Fields

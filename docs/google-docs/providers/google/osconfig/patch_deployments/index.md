@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>patch_deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="osconfig.patch_deployments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.osconfig.patch_deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,7 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Get a page of OS Config patch deployments. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Create an OS Config patch deployment. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="patchDeploymentsId, projectsId" /> | Delete an OS Config patch deployment. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="patchDeploymentsId, projectsId" /> | Update an OS Config patch deployment. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Get a page of OS Config patch deployments. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="patchDeploymentsId, projectsId" /> | Update an OS Config patch deployment. |
 | <CopyableCode code="pause" /> | `EXEC` | <CopyableCode code="patchDeploymentsId, projectsId" /> | Change state of patch deployment to "PAUSED". Patch deployment in paused state doesn't generate patch jobs. |
 | <CopyableCode code="resume" /> | `EXEC` | <CopyableCode code="patchDeploymentsId, projectsId" /> | Change state of patch deployment back to "ACTIVE". Patch deployment in active state continues to generate patch jobs. |

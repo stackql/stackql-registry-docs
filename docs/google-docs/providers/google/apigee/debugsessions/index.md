@@ -24,14 +24,19 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>debugsessions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.debugsessions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.debugsessions" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | The debug session ID. |
-| <CopyableCode code="timestampMs" /> | `string` | The first transaction creation timestamp in millisecond, recorded by UAP. |
+| <CopyableCode code="name" /> | `string` | A unique ID for this DebugSession. |
+| <CopyableCode code="count" /> | `integer` | Optional. The number of request to be traced. Min = 1, Max = 15, Default = 10. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The first transaction creation timestamp, recorded by UAP. |
+| <CopyableCode code="filter" /> | `string` | Optional. A conditional statement which is evaluated against the request message to determine if it should be traced. Syntax matches that of on API Proxy bundle flow Condition. |
+| <CopyableCode code="timeout" /> | `string` | Optional. The time in seconds after which this DebugSession should end. This value will override the value in query param, if both are provided. |
+| <CopyableCode code="tracesize" /> | `integer` | Optional. The maximum number of bytes captured from the response payload. Min = 0, Max = 5120, Default = 5120. |
+| <CopyableCode code="validity" /> | `integer` | Optional. The length of time, in seconds, that this debug session is valid, starting from when it's received in the control plane. Min = 1, Max = 15, Default = 10. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

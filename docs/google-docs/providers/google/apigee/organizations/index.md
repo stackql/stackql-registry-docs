@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>organizations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.organizations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.organizations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -65,6 +65,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_list" /> | `SELECT` |  | Lists the Apigee organizations and associated Google Cloud projects that you have permission to access. See [Understanding organizations](https://cloud.google.com/apigee/docs/api-platform/fundamentals/organization-structure). |
 | <CopyableCode code="organizations_create" /> | `INSERT` |  | Creates an Apigee organization. See [Create an Apigee organization](https://cloud.google.com/apigee/docs/api-platform/get-started/create-org). |
 | <CopyableCode code="organizations_delete" /> | `DELETE` | <CopyableCode code="organizationsId" /> | Delete an Apigee organization. For organizations with BillingType EVALUATION, an immediate deletion is performed. For paid organizations (Subscription or Pay-as-you-go), a soft-deletion is performed. The organization can be restored within the soft-deletion period, which is specified using the `retention` field in the request or by filing a support ticket with Apigee. During the data retention period specified in the request, the Apigee organization cannot be recreated in the same Google Cloud project. **IMPORTANT: The default data retention setting for this operation is 7 days. To permanently delete the organization in 24 hours, set the retention parameter to `MINIMUM`.** |
+| <CopyableCode code="organizations_update" /> | `UPDATE` | <CopyableCode code="organizationsId" /> | Updates the properties for an Apigee organization. No other fields in the organization profile will be updated. |
 | <CopyableCode code="organizations_set_addons" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Configures the add-ons for the Apigee organization. The existing add-on configuration will be fully replaced. |
 | <CopyableCode code="organizations_set_sync_authorization" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Sets the permissions required to allow the Synchronizer to download environment data from the control plane. You must call this API to enable proper functioning of hybrid. Pass the ETag when calling `setSyncAuthorization` to ensure that you are updating the correct version. To get an ETag, call [getSyncAuthorization](getSyncAuthorization). If you don't pass the ETag in the call to `setSyncAuthorization`, then the existing authorization is overwritten indiscriminately. For more information, see [Configure the Synchronizer](https://cloud.google.com/apigee/docs/hybrid/latest/synchronizer-access). **Note**: Available to Apigee hybrid only. |
-| <CopyableCode code="organizations_update" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Updates the properties for an Apigee organization. No other fields in the organization profile will be updated. |

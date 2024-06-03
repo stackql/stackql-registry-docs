@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>ssh_public_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="oslogin.ssh_public_keys" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.oslogin.ssh_public_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -40,4 +40,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="sshPublicKeysId, usersId" /> | Retrieves an SSH public key. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="usersId" /> | Create an SSH public key |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="sshPublicKeysId, usersId" /> | Deletes an SSH public key. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="sshPublicKeysId, usersId" /> | Updates an SSH public key and returns the profile information. This method supports patch semantics. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="sshPublicKeysId, usersId" /> | Updates an SSH public key and returns the profile information. This method supports patch semantics. |

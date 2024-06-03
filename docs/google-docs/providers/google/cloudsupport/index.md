@@ -34,7 +34,7 @@ Manages Google Cloud technical support cases for Customer Care support offerings
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Cloud Support API</td></tr>
 <tr><td><b>Description</b></td><td>Manages Google Cloud technical support cases for Customer Care support offerings. </td></tr>
-<tr><td><b>Id</b></td><td><code>cloudsupport:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudsupport:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

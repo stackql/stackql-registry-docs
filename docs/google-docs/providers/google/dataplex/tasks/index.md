@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tasks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.tasks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.tasks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,6 +50,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_lakes_tasks_list" /> | `SELECT` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Lists tasks under the given lake. |
 | <CopyableCode code="projects_locations_lakes_tasks_create" /> | `INSERT` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Creates a task resource within a lake. |
 | <CopyableCode code="projects_locations_lakes_tasks_delete" /> | `DELETE` | <CopyableCode code="lakesId, locationsId, projectsId, tasksId" /> | Delete the task resource. |
+| <CopyableCode code="projects_locations_lakes_tasks_patch" /> | `UPDATE` | <CopyableCode code="lakesId, locationsId, projectsId, tasksId" /> | Update the task resource. |
 | <CopyableCode code="_projects_locations_lakes_tasks_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Lists tasks under the given lake. |
-| <CopyableCode code="projects_locations_lakes_tasks_patch" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId, tasksId" /> | Update the task resource. |
 | <CopyableCode code="projects_locations_lakes_tasks_run" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId, tasksId" /> | Run an on demand execution of a Task. |

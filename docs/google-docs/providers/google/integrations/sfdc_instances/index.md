@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sfdc_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="integrations.sfdc_instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.integrations.sfdc_instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,7 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_sfdc_instances_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance. |
 | <CopyableCode code="projects_locations_products_sfdc_instances_delete" /> | `DELETE` | <CopyableCode code="locationsId, productsId, projectsId, sfdcInstancesId" /> | Deletes an sfdc instance. |
 | <CopyableCode code="projects_locations_sfdc_instances_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, sfdcInstancesId" /> | Deletes an sfdc instance. |
+| <CopyableCode code="projects_locations_products_sfdc_instances_patch" /> | `UPDATE` | <CopyableCode code="locationsId, productsId, projectsId, sfdcInstancesId" /> | Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance. |
+| <CopyableCode code="projects_locations_sfdc_instances_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, sfdcInstancesId" /> | Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance. |
 | <CopyableCode code="_projects_locations_products_sfdc_instances_list" /> | `EXEC` | <CopyableCode code="locationsId, productsId, projectsId" /> | Lists all sfdc instances that match the filter. Restrict to sfdc instances belonging to the current client only. |
 | <CopyableCode code="_projects_locations_sfdc_instances_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all sfdc instances that match the filter. Restrict to sfdc instances belonging to the current client only. |
-| <CopyableCode code="projects_locations_products_sfdc_instances_patch" /> | `EXEC` | <CopyableCode code="locationsId, productsId, projectsId, sfdcInstancesId" /> | Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance. |
-| <CopyableCode code="projects_locations_sfdc_instances_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sfdcInstancesId" /> | Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance. |

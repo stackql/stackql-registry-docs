@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigtableadmin.backups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigtableadmin.backups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,6 +46,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Lists Cloud Bigtable backups. Returns both completed and pending backups. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Starts creating a new Cloud Bigtable Backup. The returned backup long-running operation can be used to track creation of the backup. The metadata field type is CreateBackupMetadata. The response field type is Backup, if successful. Cancelling the returned operation will stop the creation and delete the backup. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backupsId, clustersId, instancesId, projectsId" /> | Deletes a pending or completed Cloud Bigtable backup. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backupsId, clustersId, instancesId, projectsId" /> | Updates a pending or completed Cloud Bigtable Backup. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Lists Cloud Bigtable backups. Returns both completed and pending backups. |
 | <CopyableCode code="copy" /> | `EXEC` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Copy a Cloud Bigtable backup to a new backup in the destination cluster located in the destination instance and project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="backupsId, clustersId, instancesId, projectsId" /> | Updates a pending or completed Cloud Bigtable Backup. |

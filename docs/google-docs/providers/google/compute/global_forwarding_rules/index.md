@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>global_forwarding_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.global_forwarding_rules" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.global_forwarding_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -72,6 +72,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves a list of GlobalForwardingRule resources available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a GlobalForwardingRule resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="forwardingRule, project" /> | Deletes the specified GlobalForwardingRule resource. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="forwardingRule, project" /> | Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently, you can only patch the network_tier field. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="forwardingRule, project" /> | Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently, you can only patch the network_tier field. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, resource" /> | Sets the labels on the specified resource. To learn more about labels, read the Labeling resources documentation. |
 | <CopyableCode code="set_target" /> | `EXEC` | <CopyableCode code="forwardingRule, project" /> | Changes target URL for the GlobalForwardingRule resource. The new target should be of the same type as the old target. |

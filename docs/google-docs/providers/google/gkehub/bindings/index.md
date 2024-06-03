@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bindings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.bindings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.bindings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_memberships_bindings_list" /> | `SELECT` | <CopyableCode code="locationsId, membershipsId, projectsId" /> | Lists MembershipBindings. |
 | <CopyableCode code="projects_locations_memberships_bindings_create" /> | `INSERT` | <CopyableCode code="locationsId, membershipsId, projectsId" /> | Creates a MembershipBinding. |
 | <CopyableCode code="projects_locations_memberships_bindings_delete" /> | `DELETE` | <CopyableCode code="bindingsId, locationsId, membershipsId, projectsId" /> | Deletes a MembershipBinding. |
+| <CopyableCode code="projects_locations_memberships_bindings_patch" /> | `UPDATE` | <CopyableCode code="bindingsId, locationsId, membershipsId, projectsId" /> | Updates a MembershipBinding. |
 | <CopyableCode code="_projects_locations_memberships_bindings_list" /> | `EXEC` | <CopyableCode code="locationsId, membershipsId, projectsId" /> | Lists MembershipBindings. |
-| <CopyableCode code="projects_locations_memberships_bindings_patch" /> | `EXEC` | <CopyableCode code="bindingsId, locationsId, membershipsId, projectsId" /> | Updates a MembershipBinding. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>disk_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.disk_types" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.disk_types" /></td></tr>
 </tbody></table>
 
 ## Fields

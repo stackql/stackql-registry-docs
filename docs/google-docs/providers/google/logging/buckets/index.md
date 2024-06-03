@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>buckets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="logging.buckets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.logging.buckets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -62,17 +62,17 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_locations_buckets_delete" /> | `DELETE` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. |
 | <CopyableCode code="organizations_locations_buckets_delete" /> | `DELETE` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. |
 | <CopyableCode code="projects_locations_buckets_delete" /> | `DELETE` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Deletes a log bucket.Changes the bucket's lifecycle_state to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all log entries in the bucket will be permanently deleted. |
+| <CopyableCode code="billing_accounts_locations_buckets_patch" /> | `UPDATE` | <CopyableCode code="billingAccountsId, bucketsId, locationsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
+| <CopyableCode code="folders_locations_buckets_patch" /> | `UPDATE` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
+| <CopyableCode code="organizations_locations_buckets_patch" /> | `UPDATE` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
+| <CopyableCode code="projects_locations_buckets_patch" /> | `UPDATE` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
 | <CopyableCode code="_billing_accounts_locations_buckets_list" /> | `EXEC` | <CopyableCode code="billingAccountsId, locationsId" /> | Lists log buckets. |
 | <CopyableCode code="_folders_locations_buckets_list" /> | `EXEC` | <CopyableCode code="foldersId, locationsId" /> | Lists log buckets. |
 | <CopyableCode code="_locations_buckets_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Lists log buckets. |
 | <CopyableCode code="_organizations_locations_buckets_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists log buckets. |
 | <CopyableCode code="_projects_locations_buckets_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists log buckets. |
-| <CopyableCode code="billing_accounts_locations_buckets_patch" /> | `EXEC` | <CopyableCode code="billingAccountsId, bucketsId, locationsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
 | <CopyableCode code="billing_accounts_locations_buckets_undelete" /> | `EXEC` | <CopyableCode code="billingAccountsId, bucketsId, locationsId" /> | Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. |
-| <CopyableCode code="folders_locations_buckets_patch" /> | `EXEC` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
 | <CopyableCode code="folders_locations_buckets_undelete" /> | `EXEC` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. |
 | <CopyableCode code="locations_buckets_undelete" /> | `EXEC` | <CopyableCode code="name" /> | Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. |
-| <CopyableCode code="organizations_locations_buckets_patch" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
 | <CopyableCode code="organizations_locations_buckets_undelete" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. |
-| <CopyableCode code="projects_locations_buckets_patch" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
 | <CopyableCode code="projects_locations_buckets_undelete" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. |

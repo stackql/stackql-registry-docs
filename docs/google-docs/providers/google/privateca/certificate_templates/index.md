@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="privateca.certificate_templates" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.privateca.certificate_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,5 +46,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists CertificateTemplates. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a new CertificateTemplate in a given Project and Location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="certificateTemplatesId, locationsId, projectsId" /> | DeleteCertificateTemplate deletes a CertificateTemplate. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="certificateTemplatesId, locationsId, projectsId" /> | Update a CertificateTemplate. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists CertificateTemplates. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="certificateTemplatesId, locationsId, projectsId" /> | Update a CertificateTemplate. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>issues</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="contactcenterinsights.issues" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.contactcenterinsights.issues" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,4 +41,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="issueModelsId, issuesId, locationsId, projectsId" /> | Gets an issue. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="issueModelsId, locationsId, projectsId" /> | Lists issues. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="issueModelsId, issuesId, locationsId, projectsId" /> | Deletes an issue. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="issueModelsId, issuesId, locationsId, projectsId" /> | Updates an issue. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="issueModelsId, issuesId, locationsId, projectsId" /> | Updates an issue. |

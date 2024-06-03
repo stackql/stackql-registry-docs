@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>product_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vision.product_sets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vision.product_sets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,6 +41,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_product_sets_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists ProductSets in an unspecified order. Possible errors: * Returns INVALID_ARGUMENT if page_size is greater than 100, or less than 1. |
 | <CopyableCode code="projects_locations_product_sets_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates and returns a new ProductSet resource. Possible errors: * Returns INVALID_ARGUMENT if display_name is missing, or is longer than 4096 characters. |
 | <CopyableCode code="projects_locations_product_sets_delete" /> | `DELETE` | <CopyableCode code="locationsId, productSetsId, projectsId" /> | Permanently deletes a ProductSet. Products and ReferenceImages in the ProductSet are not deleted. The actual image files are not deleted from Google Cloud Storage. |
+| <CopyableCode code="projects_locations_product_sets_patch" /> | `UPDATE` | <CopyableCode code="locationsId, productSetsId, projectsId" /> | Makes changes to a ProductSet resource. Only display_name can be updated currently. Possible errors: * Returns NOT_FOUND if the ProductSet does not exist. * Returns INVALID_ARGUMENT if display_name is present in update_mask but missing from the request or longer than 4096 characters. |
 | <CopyableCode code="_projects_locations_product_sets_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists ProductSets in an unspecified order. Possible errors: * Returns INVALID_ARGUMENT if page_size is greater than 100, or less than 1. |
 | <CopyableCode code="projects_locations_product_sets_import" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Asynchronous API that imports a list of reference images to specified product sets based on a list of image information. The google.longrunning.Operation API can be used to keep track of the progress and results of the request. `Operation.metadata` contains `BatchOperationMetadata`. (progress) `Operation.response` contains `ImportProductSetsResponse`. (results) The input source of this method is a csv file on Google Cloud Storage. For the format of the csv file please see ImportProductSetsGcsSource.csv_file_uri. |
-| <CopyableCode code="projects_locations_product_sets_patch" /> | `EXEC` | <CopyableCode code="locationsId, productSetsId, projectsId" /> | Makes changes to a ProductSet resource. Only display_name can be updated currently. Possible errors: * Returns NOT_FOUND if the ProductSet does not exist. * Returns INVALID_ARGUMENT if display_name is present in update_mask but missing from the request or longer than 4096 characters. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>attribute_definitions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="healthcare.attribute_definitions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.healthcare.attribute_definitions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,5 +43,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId" /> | Lists the Attribute definitions in the specified consent store. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId" /> | Creates a new Attribute definition in the parent consent store. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="attributeDefinitionsId, consentStoresId, datasetsId, locationsId, projectsId" /> | Deletes the specified Attribute definition. Fails if the Attribute definition is referenced by any User data mapping, or the latest revision of any Consent. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="attributeDefinitionsId, consentStoresId, datasetsId, locationsId, projectsId" /> | Updates the specified Attribute definition. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId" /> | Lists the Attribute definitions in the specified consent store. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="attributeDefinitionsId, consentStoresId, datasetsId, locationsId, projectsId" /> | Updates the specified Attribute definition. |

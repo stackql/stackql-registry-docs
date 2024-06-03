@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>discovery_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dlp.discovery_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dlp.discovery_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,7 +52,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_discovery_configs_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a config for discovery to scan and profile storage. |
 | <CopyableCode code="organizations_locations_discovery_configs_delete" /> | `DELETE` | <CopyableCode code="discoveryConfigsId, locationsId, organizationsId" /> | Deletes a discovery configuration. |
 | <CopyableCode code="projects_locations_discovery_configs_delete" /> | `DELETE` | <CopyableCode code="discoveryConfigsId, locationsId, projectsId" /> | Deletes a discovery configuration. |
+| <CopyableCode code="organizations_locations_discovery_configs_patch" /> | `UPDATE` | <CopyableCode code="discoveryConfigsId, locationsId, organizationsId" /> | Updates a discovery configuration. |
+| <CopyableCode code="projects_locations_discovery_configs_patch" /> | `UPDATE` | <CopyableCode code="discoveryConfigsId, locationsId, projectsId" /> | Updates a discovery configuration. |
 | <CopyableCode code="_organizations_locations_discovery_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists discovery configurations. |
 | <CopyableCode code="_projects_locations_discovery_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists discovery configurations. |
-| <CopyableCode code="organizations_locations_discovery_configs_patch" /> | `EXEC` | <CopyableCode code="discoveryConfigsId, locationsId, organizationsId" /> | Updates a discovery configuration. |
-| <CopyableCode code="projects_locations_discovery_configs_patch" /> | `EXEC` | <CopyableCode code="discoveryConfigsId, locationsId, projectsId" /> | Updates a discovery configuration. |

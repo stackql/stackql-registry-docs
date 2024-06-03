@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>controls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="discoveryengine.controls" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.controls" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,9 +55,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_collections_data_stores_controls_delete" /> | `DELETE` | <CopyableCode code="collectionsId, controlsId, dataStoresId, locationsId, projectsId" /> | Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="projects_locations_collections_engines_controls_delete" /> | `DELETE` | <CopyableCode code="collectionsId, controlsId, enginesId, locationsId, projectsId" /> | Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="projects_locations_data_stores_controls_delete" /> | `DELETE` | <CopyableCode code="controlsId, dataStoresId, locationsId, projectsId" /> | Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_collections_data_stores_controls_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, controlsId, dataStoresId, locationsId, projectsId" /> | Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_collections_engines_controls_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, controlsId, enginesId, locationsId, projectsId" /> | Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_data_stores_controls_patch" /> | `UPDATE` | <CopyableCode code="controlsId, dataStoresId, locationsId, projectsId" /> | Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="_projects_locations_collections_data_stores_controls_list" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Lists all Controls by their parent DataStore. |
 | <CopyableCode code="_projects_locations_collections_engines_controls_list" /> | `EXEC` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId" /> | Lists all Controls by their parent DataStore. |
 | <CopyableCode code="_projects_locations_data_stores_controls_list" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Lists all Controls by their parent DataStore. |
-| <CopyableCode code="projects_locations_collections_data_stores_controls_patch" /> | `EXEC` | <CopyableCode code="collectionsId, controlsId, dataStoresId, locationsId, projectsId" /> | Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. |
-| <CopyableCode code="projects_locations_collections_engines_controls_patch" /> | `EXEC` | <CopyableCode code="collectionsId, controlsId, enginesId, locationsId, projectsId" /> | Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. |
-| <CopyableCode code="projects_locations_data_stores_controls_patch" /> | `EXEC` | <CopyableCode code="controlsId, dataStoresId, locationsId, projectsId" /> | Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>subnetworks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.subnetworks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.subnetworks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -63,7 +63,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of subnetworks available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a subnetwork in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, subnetwork" /> | Deletes the specified subnetwork. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, region, subnetwork" /> | Patches the specified subnetwork with the data included in the request. Only certain fields can be updated with a patch request as indicated in the field descriptions. You must specify the current fingerprint of the subnetwork resource being patched. |
 | <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of subnetworks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="expand_ip_cidr_range" /> | `EXEC` | <CopyableCode code="project, region, subnetwork" /> | Expands the IP CIDR range of the subnetwork to a specified value. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, region, subnetwork" /> | Patches the specified subnetwork with the data included in the request. Only certain fields can be updated with a patch request as indicated in the field descriptions. You must specify the current fingerprint of the subnetwork resource being patched. |
 | <CopyableCode code="set_private_ip_google_access" /> | `EXEC` | <CopyableCode code="project, region, subnetwork" /> | Set whether VMs in this subnet can access Google services without assigning external IP addresses through Private Google Access. |

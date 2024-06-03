@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>glossaries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="translate.glossaries" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.translate.glossaries" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_glossaries_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't exist. |
 | <CopyableCode code="projects_locations_glossaries_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a glossary and returns the long-running operation. Returns NOT_FOUND, if the project doesn't exist. |
 | <CopyableCode code="projects_locations_glossaries_delete" /> | `DELETE` | <CopyableCode code="glossariesId, locationsId, projectsId" /> | Deletes a glossary, or cancels glossary construction if the glossary isn't created yet. Returns NOT_FOUND, if the glossary doesn't exist. |
+| <CopyableCode code="projects_locations_glossaries_patch" /> | `UPDATE` | <CopyableCode code="glossariesId, locationsId, projectsId" /> | Updates a glossary. A LRO is used since the update can be async if the glossary's entry file is updated. |
 | <CopyableCode code="_projects_locations_glossaries_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't exist. |
-| <CopyableCode code="projects_locations_glossaries_patch" /> | `EXEC` | <CopyableCode code="glossariesId, locationsId, projectsId" /> | Updates a glossary. A LRO is used since the update can be async if the glossary's entry file is updated. |

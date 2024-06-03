@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apis</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.apis" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.apis" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,4 +44,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_apis_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists the names of all API proxies in an organization. The names returned correspond to the names defined in the configuration files for each API proxy. |
 | <CopyableCode code="organizations_apis_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates an API proxy. The API proxy created will not be accessible at runtime until it is deployed to an environment. Create a new API proxy by setting the `name` query parameter to the name of the API proxy. Import an API proxy configuration bundle stored in zip format on your local machine to your organization by doing the following: * Set the `name` query parameter to the name of the API proxy. * Set the `action` query parameter to `import`. * Set the `Content-Type` header to `multipart/form-data`. * Pass as a file the name of API proxy configuration bundle stored in zip format on your local machine using the `file` form field. **Note**: To validate the API proxy configuration bundle only without importing it, set the `action` query parameter to `validate`. When importing an API proxy configuration bundle, if the API proxy does not exist, it will be created. If the API proxy exists, then a new revision is created. Invalid API proxy configurations are rejected, and a list of validation errors is returned to the client. |
 | <CopyableCode code="organizations_apis_delete" /> | `DELETE` | <CopyableCode code="apisId, organizationsId" /> | Deletes an API proxy and all associated endpoints, policies, resources, and revisions. The API proxy must be undeployed before you can delete it. |
-| <CopyableCode code="organizations_apis_patch" /> | `EXEC` | <CopyableCode code="apisId, organizationsId" /> | Updates an existing API proxy. |
+| <CopyableCode code="organizations_apis_patch" /> | `UPDATE` | <CopyableCode code="apisId, organizationsId" /> | Updates an existing API proxy. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>rbacrolebindings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.rbacrolebindings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.rbacrolebindings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_scopes_rbacrolebindings_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, scopesId" /> | Lists all Scope RBACRoleBindings. |
 | <CopyableCode code="projects_locations_scopes_rbacrolebindings_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, scopesId" /> | Creates a Scope RBACRoleBinding. |
 | <CopyableCode code="projects_locations_scopes_rbacrolebindings_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, rbacrolebindingsId, scopesId" /> | Deletes a Scope RBACRoleBinding. |
+| <CopyableCode code="projects_locations_scopes_rbacrolebindings_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, rbacrolebindingsId, scopesId" /> | Updates a Scope RBACRoleBinding. |
 | <CopyableCode code="_projects_locations_scopes_rbacrolebindings_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, scopesId" /> | Lists all Scope RBACRoleBindings. |
-| <CopyableCode code="projects_locations_scopes_rbacrolebindings_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, rbacrolebindingsId, scopesId" /> | Updates a Scope RBACRoleBinding. |

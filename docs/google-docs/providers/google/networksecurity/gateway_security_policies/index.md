@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>gateway_security_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.gateway_security_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.gateway_security_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_gateway_security_policies_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists GatewaySecurityPolicies in a given project and location. |
 | <CopyableCode code="projects_locations_gateway_security_policies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new GatewaySecurityPolicy in a given project and location. |
 | <CopyableCode code="projects_locations_gateway_security_policies_delete" /> | `DELETE` | <CopyableCode code="gatewaySecurityPoliciesId, locationsId, projectsId" /> | Deletes a single GatewaySecurityPolicy. |
+| <CopyableCode code="projects_locations_gateway_security_policies_patch" /> | `UPDATE` | <CopyableCode code="gatewaySecurityPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single GatewaySecurityPolicy. |
 | <CopyableCode code="_projects_locations_gateway_security_policies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists GatewaySecurityPolicies in a given project and location. |
-| <CopyableCode code="projects_locations_gateway_security_policies_patch" /> | `EXEC` | <CopyableCode code="gatewaySecurityPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single GatewaySecurityPolicy. |

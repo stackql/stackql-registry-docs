@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>default_object_access_controls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="storage.default_object_access_controls" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storage.default_object_access_controls" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="bucket" /> | Retrieves default object ACL entries on the specified bucket. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="bucket" /> | Creates a new default object ACL entry on the specified bucket. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bucket, entity" /> | Permanently deletes the default object ACL entry for the specified entity on the specified bucket. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="bucket, entity" /> | Patches a default object ACL entry on the specified bucket. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="bucket, entity" /> | Updates a default object ACL entry on the specified bucket. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="bucket, entity" /> | Patches a default object ACL entry on the specified bucket. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="bucket, entity" /> | Updates a default object ACL entry on the specified bucket. |

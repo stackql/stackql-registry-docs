@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_stores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="discoveryengine.data_stores" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.data_stores" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,9 +50,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_stores_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately. |
 | <CopyableCode code="projects_locations_collections_data_stores_delete" /> | `DELETE` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Deletes a DataStore. |
 | <CopyableCode code="projects_locations_data_stores_delete" /> | `DELETE` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Deletes a DataStore. |
+| <CopyableCode code="projects_locations_collections_data_stores_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Updates a DataStore |
+| <CopyableCode code="projects_locations_data_stores_patch" /> | `UPDATE` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Updates a DataStore |
 | <CopyableCode code="_projects_locations_collections_data_stores_list" /> | `EXEC` | <CopyableCode code="collectionsId, locationsId, projectsId" /> | Lists all the DataStores associated with the project. |
 | <CopyableCode code="_projects_locations_data_stores_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all the DataStores associated with the project. |
 | <CopyableCode code="projects_locations_collections_data_stores_complete_query" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Completes the specified user input with keyword suggestions. |
-| <CopyableCode code="projects_locations_collections_data_stores_patch" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Updates a DataStore |
 | <CopyableCode code="projects_locations_data_stores_complete_query" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Completes the specified user input with keyword suggestions. |
-| <CopyableCode code="projects_locations_data_stores_patch" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Updates a DataStore |

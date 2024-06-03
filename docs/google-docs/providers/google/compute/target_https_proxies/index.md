@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>target_https_proxies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.target_https_proxies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.target_https_proxies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,7 +55,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of TargetHttpsProxy resources available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a TargetHttpsProxy resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, targetHttpsProxy" /> | Deletes the specified TargetHttpsProxy resource. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, targetHttpsProxy" /> | Patches the specified TargetHttpsProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, targetHttpsProxy" /> | Patches the specified TargetHttpsProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
 | <CopyableCode code="set_certificate_map" /> | `EXEC` | <CopyableCode code="project, targetHttpsProxy" /> | Changes the Certificate Map for TargetHttpsProxy. |
 | <CopyableCode code="set_quic_override" /> | `EXEC` | <CopyableCode code="project, targetHttpsProxy" /> | Sets the QUIC override policy for TargetHttpsProxy. |
 | <CopyableCode code="set_ssl_certificates" /> | `EXEC` | <CopyableCode code="project, targetHttpsProxy" /> | Replaces SslCertificates for TargetHttpsProxy. |

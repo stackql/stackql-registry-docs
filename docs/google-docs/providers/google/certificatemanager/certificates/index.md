@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="certificatemanager.certificates" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.certificatemanager.certificates" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,5 +48,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Certificates in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Certificate in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="certificatesId, locationsId, projectsId" /> | Deletes a single Certificate. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="certificatesId, locationsId, projectsId" /> | Updates a Certificate. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Certificates in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="certificatesId, locationsId, projectsId" /> | Updates a Certificate. |

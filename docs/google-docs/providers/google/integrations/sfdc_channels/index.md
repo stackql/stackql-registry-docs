@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sfdc_channels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="integrations.sfdc_channels" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.integrations.sfdc_channels" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,7 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_sfdc_instances_sfdc_channels_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, sfdcInstancesId" /> | Creates an sfdc channel record. Store the sfdc channel in Spanner. Returns the sfdc channel. |
 | <CopyableCode code="projects_locations_products_sfdc_instances_sfdc_channels_delete" /> | `DELETE` | <CopyableCode code="locationsId, productsId, projectsId, sfdcChannelsId, sfdcInstancesId" /> | Deletes an sfdc channel. |
 | <CopyableCode code="projects_locations_sfdc_instances_sfdc_channels_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, sfdcChannelsId, sfdcInstancesId" /> | Deletes an sfdc channel. |
+| <CopyableCode code="projects_locations_products_sfdc_instances_sfdc_channels_patch" /> | `UPDATE` | <CopyableCode code="locationsId, productsId, projectsId, sfdcChannelsId, sfdcInstancesId" /> | Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel. |
+| <CopyableCode code="projects_locations_sfdc_instances_sfdc_channels_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, sfdcChannelsId, sfdcInstancesId" /> | Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel. |
 | <CopyableCode code="_projects_locations_products_sfdc_instances_sfdc_channels_list" /> | `EXEC` | <CopyableCode code="locationsId, productsId, projectsId, sfdcInstancesId" /> | Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only. |
 | <CopyableCode code="_projects_locations_sfdc_instances_sfdc_channels_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sfdcInstancesId" /> | Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only. |
-| <CopyableCode code="projects_locations_products_sfdc_instances_sfdc_channels_patch" /> | `EXEC` | <CopyableCode code="locationsId, productsId, projectsId, sfdcChannelsId, sfdcInstancesId" /> | Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel. |
-| <CopyableCode code="projects_locations_sfdc_instances_sfdc_channels_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sfdcChannelsId, sfdcInstancesId" /> | Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel. |
