@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_maps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="certificatemanager.certificate_maps" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.certificatemanager.certificate_maps" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,5 +43,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists CertificateMaps in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new CertificateMap in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="certificateMapsId, locationsId, projectsId" /> | Deletes a single CertificateMap. A Certificate Map can't be deleted if it contains Certificate Map Entries. Remove all the entries from the map before calling this method. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="certificateMapsId, locationsId, projectsId" /> | Updates a CertificateMap. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists CertificateMaps in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="certificateMapsId, locationsId, projectsId" /> | Updates a CertificateMap. |

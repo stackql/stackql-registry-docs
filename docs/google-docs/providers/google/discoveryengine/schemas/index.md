@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>schemas</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="discoveryengine.schemas" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.schemas" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,7 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_stores_schemas_create" /> | `INSERT` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Creates a Schema. |
 | <CopyableCode code="projects_locations_collections_data_stores_schemas_delete" /> | `DELETE` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, schemasId" /> | Deletes a Schema. |
 | <CopyableCode code="projects_locations_data_stores_schemas_delete" /> | `DELETE` | <CopyableCode code="dataStoresId, locationsId, projectsId, schemasId" /> | Deletes a Schema. |
+| <CopyableCode code="projects_locations_collections_data_stores_schemas_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, schemasId" /> | Updates a Schema. |
+| <CopyableCode code="projects_locations_data_stores_schemas_patch" /> | `UPDATE` | <CopyableCode code="dataStoresId, locationsId, projectsId, schemasId" /> | Updates a Schema. |
 | <CopyableCode code="_projects_locations_collections_data_stores_schemas_list" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Gets a list of Schemas. |
 | <CopyableCode code="_projects_locations_data_stores_schemas_list" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Gets a list of Schemas. |
-| <CopyableCode code="projects_locations_collections_data_stores_schemas_patch" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, schemasId" /> | Updates a Schema. |
-| <CopyableCode code="projects_locations_data_stores_schemas_patch" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId, schemasId" /> | Updates a Schema. |

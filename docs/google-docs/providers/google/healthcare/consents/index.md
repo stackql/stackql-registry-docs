@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>consents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="healthcare.consents" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.healthcare.consents" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,8 +47,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId" /> | Lists the Consent in the given consent store, returning each Consent's latest revision. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId" /> | Creates a new Consent in the parent consent store. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="consentStoresId, consentsId, datasetsId, locationsId, projectsId" /> | Deletes the Consent and its revisions. To keep a record of the Consent but mark it inactive, see [RevokeConsent]. To delete a revision of a Consent, see [DeleteConsentRevision]. This operation does not delete the related Consent artifact. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="consentStoresId, consentsId, datasetsId, locationsId, projectsId" /> | Updates the latest revision of the specified Consent by committing a new revision with the changes. A FAILED_PRECONDITION error occurs if the latest revision of the specified Consent is in the `REJECTED` or `REVOKED` state. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId" /> | Lists the Consent in the given consent store, returning each Consent's latest revision. |
 | <CopyableCode code="activate" /> | `EXEC` | <CopyableCode code="consentStoresId, consentsId, datasetsId, locationsId, projectsId" /> | Activates the latest revision of the specified Consent by committing a new revision with `state` updated to `ACTIVE`. If the latest revision of the specified Consent is in the `ACTIVE` state, no new revision is committed. A FAILED_PRECONDITION error occurs if the latest revision of the specified Consent is in the `REJECTED` or `REVOKED` state. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="consentStoresId, consentsId, datasetsId, locationsId, projectsId" /> | Updates the latest revision of the specified Consent by committing a new revision with the changes. A FAILED_PRECONDITION error occurs if the latest revision of the specified Consent is in the `REJECTED` or `REVOKED` state. |
 | <CopyableCode code="reject" /> | `EXEC` | <CopyableCode code="consentStoresId, consentsId, datasetsId, locationsId, projectsId" /> | Rejects the latest revision of the specified Consent by committing a new revision with `state` updated to `REJECTED`. If the latest revision of the specified Consent is in the `REJECTED` state, no new revision is committed. A FAILED_PRECONDITION error occurs if the latest revision of the specified Consent is in the `ACTIVE` or `REVOKED` state. |
 | <CopyableCode code="revoke" /> | `EXEC` | <CopyableCode code="consentStoresId, consentsId, datasetsId, locationsId, projectsId" /> | Revokes the latest revision of the specified Consent by committing a new revision with `state` updated to `REVOKED`. If the latest revision of the specified Consent is in the `REVOKED` state, no new revision is committed. A FAILED_PRECONDITION error occurs if the latest revision of the given consent is in `DRAFT` or `REJECTED` state. |

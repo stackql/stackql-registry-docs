@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backend_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.backend_services" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.backend_services" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -79,7 +79,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of BackendService resources available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a BackendService resource in the specified project using the data included in the request. For more information, see Backend services overview . |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backendService, project" /> | Deletes the specified BackendService resource. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="backendService, project" /> | Patches the specified BackendService resource with the data included in the request. For more information, see Backend services overview. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backendService, project" /> | Patches the specified BackendService resource with the data included in the request. For more information, see Backend services overview. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="backendService, project" /> | Updates the specified BackendService resource with the data included in the request. For more information, see Backend services overview. |
 | <CopyableCode code="set_edge_security_policy" /> | `EXEC` | <CopyableCode code="backendService, project" /> | Sets the edge security policy for the specified backend service. |
 | <CopyableCode code="set_security_policy" /> | `EXEC` | <CopyableCode code="backendService, project" /> | Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="backendService, project" /> | Updates the specified BackendService resource with the data included in the request. For more information, see Backend services overview. |

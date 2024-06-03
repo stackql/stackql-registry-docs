@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>models</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="retail.models" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.retail.models" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,8 +52,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_catalogs_models_list" /> | `SELECT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Lists all the models linked to this event store. |
 | <CopyableCode code="projects_locations_catalogs_models_create" /> | `INSERT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Creates a new model. |
 | <CopyableCode code="projects_locations_catalogs_models_delete" /> | `DELETE` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Deletes an existing model. |
+| <CopyableCode code="projects_locations_catalogs_models_patch" /> | `UPDATE` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Update of model metadata. Only fields that currently can be updated are: `filtering_option` and `periodic_tuning_state`. If other values are provided, this API method ignores them. |
 | <CopyableCode code="_projects_locations_catalogs_models_list" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Lists all the models linked to this event store. |
-| <CopyableCode code="projects_locations_catalogs_models_patch" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Update of model metadata. Only fields that currently can be updated are: `filtering_option` and `periodic_tuning_state`. If other values are provided, this API method ignores them. |
 | <CopyableCode code="projects_locations_catalogs_models_pause" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Pauses the training of an existing model. |
 | <CopyableCode code="projects_locations_catalogs_models_resume" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Resumes the training of an existing model. |
 | <CopyableCode code="projects_locations_catalogs_models_tune" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Tunes an existing model. |

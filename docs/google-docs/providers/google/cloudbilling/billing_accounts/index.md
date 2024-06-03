@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>billing_accounts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudbilling.billing_accounts" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudbilling.billing_accounts" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,6 +41,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="billingAccountsId" /> | Gets information about a billing account. The current authenticated user must be a [viewer of the billing account](https://cloud.google.com/billing/docs/how-to/billing-access). |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists the billing accounts that the current authenticated user has permission to [view](https://cloud.google.com/billing/docs/how-to/billing-access). |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | This method creates [billing subaccounts](https://cloud.google.com/billing/docs/concepts#subaccounts). Google Cloud resellers should use the Channel Services APIs, [accounts.customers.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers/create) and [accounts.customers.entitlements.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers.entitlements/create). When creating a subaccount, the current authenticated user must have the `billing.accounts.update` IAM permission on the parent account, which is typically given to billing account [administrators](https://cloud.google.com/billing/docs/how-to/billing-access). This method will return an error if the parent account has not been provisioned for subaccounts. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="billingAccountsId" /> | Updates a billing account's fields. Currently the only field that can be edited is `display_name`. The current authenticated user must have the `billing.accounts.update` IAM permission, which is typically given to the [administrator](https://cloud.google.com/billing/docs/how-to/billing-access) of the billing account. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists the billing accounts that the current authenticated user has permission to [view](https://cloud.google.com/billing/docs/how-to/billing-access). |
 | <CopyableCode code="move" /> | `EXEC` | <CopyableCode code="billingAccountsId, organizationsId" /> | Changes which parent organization a billing account belongs to. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="billingAccountsId" /> | Updates a billing account's fields. Currently the only field that can be edited is `display_name`. The current authenticated user must have the `billing.accounts.update` IAM permission, which is typically given to the [administrator](https://cloud.google.com/billing/docs/how-to/billing-access) of the billing account. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_profiles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.security_profiles" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.security_profiles" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,5 +49,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_security_profiles_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | ListSecurityProfiles lists all the security profiles associated with the org including attached and unattached profiles. |
 | <CopyableCode code="organizations_security_profiles_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | CreateSecurityProfile create a new custom security profile. |
 | <CopyableCode code="organizations_security_profiles_delete" /> | `DELETE` | <CopyableCode code="organizationsId, securityProfilesId" /> | DeleteSecurityProfile delete a profile with all its revisions. |
+| <CopyableCode code="organizations_security_profiles_patch" /> | `UPDATE` | <CopyableCode code="organizationsId, securityProfilesId" /> | UpdateSecurityProfile update the metadata of security profile. |
 | <CopyableCode code="_organizations_security_profiles_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | ListSecurityProfiles lists all the security profiles associated with the org including attached and unattached profiles. |
-| <CopyableCode code="organizations_security_profiles_patch" /> | `EXEC` | <CopyableCode code="organizationsId, securityProfilesId" /> | UpdateSecurityProfile update the metadata of security profile. |

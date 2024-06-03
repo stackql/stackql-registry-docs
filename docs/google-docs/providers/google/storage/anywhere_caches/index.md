@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>anywhere_caches</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="storage.anywhere_caches" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storage.anywhere_caches" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,8 +48,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="anywhereCacheId, bucket" /> | Returns the metadata of an Anywhere Cache instance. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="bucket" /> | Returns a list of Anywhere Cache instances of the bucket matching the criteria. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="bucket" /> | Creates an Anywhere Cache instance. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="anywhereCacheId, bucket" /> | Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="bucket" /> | Returns a list of Anywhere Cache instances of the bucket matching the criteria. |
 | <CopyableCode code="disable" /> | `EXEC` | <CopyableCode code="anywhereCacheId, bucket" /> | Disables an Anywhere Cache instance. |
 | <CopyableCode code="pause" /> | `EXEC` | <CopyableCode code="anywhereCacheId, bucket" /> | Pauses an Anywhere Cache instance. |
 | <CopyableCode code="resume" /> | `EXEC` | <CopyableCode code="anywhereCacheId, bucket" /> | Resumes a paused or disabled Anywhere Cache instance. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="anywhereCacheId, bucket" /> | Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance. |

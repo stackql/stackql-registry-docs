@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances_latest_recovery_time</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="sqladmin.instances_latest_recovery_time" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sqladmin.instances_latest_recovery_time" /></td></tr>
 </tbody></table>
 
 ## Fields

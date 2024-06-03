@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>topics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="pubsub.topics" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.pubsub.topics" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,7 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_topics_get" /> | `SELECT` | <CopyableCode code="projectsId, topicsId" /> | Gets the configuration of a topic. |
 | <CopyableCode code="projects_topics_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists matching topics. |
 | <CopyableCode code="projects_topics_delete" /> | `DELETE` | <CopyableCode code="projectsId, topicsId" /> | Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does not exist. After a topic is deleted, a new topic may be created with the same name; this is an entirely new topic with none of the old configuration or subscriptions. Existing subscriptions to this topic are not deleted, but their `topic` field is set to `_deleted-topic_`. |
+| <CopyableCode code="projects_topics_patch" /> | `UPDATE` | <CopyableCode code="projectsId, topicsId" /> | Updates an existing topic by updating the fields specified in the update mask. Note that certain properties of a topic are not modifiable. |
 | <CopyableCode code="_projects_topics_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists matching topics. |
 | <CopyableCode code="projects_topics_create" /> | `EXEC` | <CopyableCode code="projectsId, topicsId" /> | Creates the given topic with the given name. See the [resource name rules] (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). |
-| <CopyableCode code="projects_topics_patch" /> | `EXEC` | <CopyableCode code="projectsId, topicsId" /> | Updates an existing topic by updating the fields specified in the update mask. Note that certain properties of a topic are not modifiable. |
 | <CopyableCode code="projects_topics_publish" /> | `EXEC` | <CopyableCode code="projectsId, topicsId" /> | Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic does not exist. |

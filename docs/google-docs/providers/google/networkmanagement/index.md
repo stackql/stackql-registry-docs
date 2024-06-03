@@ -34,7 +34,7 @@ The Network Management API provides a collection of network performance monitori
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Network Management API</td></tr>
 <tr><td><b>Description</b></td><td>The Network Management API provides a collection of network performance monitoring and diagnostic capabilities.</td></tr>
-<tr><td><b>Id</b></td><td><code>networkmanagement:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>networkmanagement:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

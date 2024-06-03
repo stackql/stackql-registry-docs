@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>managed_zones</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dns.managed_zones" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dns.managed_zones" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -54,6 +54,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Enumerates ManagedZones that have been created but not yet deleted. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new ManagedZone. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="managedZone, project" /> | Deletes a previously created ManagedZone. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="managedZone, project" /> | Applies a partial update to an existing ManagedZone. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="managedZone, project" /> | Updates an existing ManagedZone. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Enumerates ManagedZones that have been created but not yet deleted. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="managedZone, project" /> | Applies a partial update to an existing ManagedZone. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="managedZone, project" /> | Updates an existing ManagedZone. |

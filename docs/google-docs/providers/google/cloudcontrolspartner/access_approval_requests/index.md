@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_approval_requests</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudcontrolspartner.access_approval_requests" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudcontrolspartner.access_approval_requests" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="sqladmin.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sqladmin.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -81,6 +81,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Lists instances under a given project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new Cloud SQL instance. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instance, project" /> | Deletes a Cloud SQL instance. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="instance, project" /> | Partially updates settings of a Cloud SQL instance by merging the request with the current configuration. This method supports patch semantics. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="instance, project" /> | Updates settings of a Cloud SQL instance. Using this operation might cause your instance to restart. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Lists instances under a given project. |
 | <CopyableCode code="acquire_ssrs_lease" /> | `EXEC` | <CopyableCode code="instance, project" /> | Acquire a lease for the setup of SQL Server Reporting Services (SSRS). |
 | <CopyableCode code="clone" /> | `EXEC` | <CopyableCode code="instance, project" /> | Creates a Cloud SQL instance as a clone of the source instance. Using this operation might cause your instance to restart. |
@@ -89,7 +91,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="export" /> | `EXEC` | <CopyableCode code="instance, project" /> | Exports data from a Cloud SQL instance to a Cloud Storage bucket as a SQL dump or CSV file. |
 | <CopyableCode code="failover" /> | `EXEC` | <CopyableCode code="instance, project" /> | Initiates a manual failover of a high availability (HA) primary instance to a standby instance, which becomes the primary instance. Users are then rerouted to the new primary. For more information, see the [Overview of high availability](https://cloud.google.com/sql/docs/mysql/high-availability) page in the Cloud SQL documentation. If using Legacy HA (MySQL only), this causes the instance to failover to its failover replica instance. |
 | <CopyableCode code="import" /> | `EXEC` | <CopyableCode code="instance, project" /> | Imports data into a Cloud SQL instance from a SQL dump or CSV file in Cloud Storage. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="instance, project" /> | Partially updates settings of a Cloud SQL instance by merging the request with the current configuration. This method supports patch semantics. |
 | <CopyableCode code="perform_disk_shrink" /> | `EXEC` | <CopyableCode code="instance, project" /> | Perform Disk Shrink on primary instance. |
 | <CopyableCode code="promote_replica" /> | `EXEC` | <CopyableCode code="instance, project" /> | Promotes the read replica instance to be an independent Cloud SQL primary instance. Using this operation might cause your instance to restart. |
 | <CopyableCode code="reencrypt" /> | `EXEC` | <CopyableCode code="instance, project" /> | Reencrypt CMEK instance with latest key version. |
@@ -105,5 +106,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="stop_replica" /> | `EXEC` | <CopyableCode code="instance, project" /> | Stops the replication in the read replica instance. |
 | <CopyableCode code="switchover" /> | `EXEC` | <CopyableCode code="instance, project" /> | Switches over from the primary instance to the designated DR replica instance. |
 | <CopyableCode code="truncate_log" /> | `EXEC` | <CopyableCode code="instance, project" /> | Truncate MySQL general and slow query log tables MySQL only. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instance, project" /> | Updates settings of a Cloud SQL instance. Using this operation might cause your instance to restart. |
 | <CopyableCode code="verify_external_sync_settings" /> | `EXEC` | <CopyableCode code="instance, project" /> | Verify External primary instance external sync settings. |

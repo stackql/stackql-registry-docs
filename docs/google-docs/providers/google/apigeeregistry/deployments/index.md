@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigeeregistry.deployments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigeeregistry.deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,7 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_apis_deployments_list" /> | `SELECT` | <CopyableCode code="apisId, locationsId, projectsId" /> | Returns matching deployments. |
 | <CopyableCode code="projects_locations_apis_deployments_create" /> | `INSERT` | <CopyableCode code="apisId, locationsId, projectsId" /> | Creates a specified deployment. |
 | <CopyableCode code="projects_locations_apis_deployments_delete" /> | `DELETE` | <CopyableCode code="apisId, deploymentsId, locationsId, projectsId" /> | Removes a specified deployment, all revisions, and all child resources (e.g., artifacts). |
+| <CopyableCode code="projects_locations_apis_deployments_patch" /> | `UPDATE` | <CopyableCode code="apisId, deploymentsId, locationsId, projectsId" /> | Used to modify a specified deployment. |
 | <CopyableCode code="_projects_locations_apis_deployments_list" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId" /> | Returns matching deployments. |
-| <CopyableCode code="projects_locations_apis_deployments_patch" /> | `EXEC` | <CopyableCode code="apisId, deploymentsId, locationsId, projectsId" /> | Used to modify a specified deployment. |
 | <CopyableCode code="projects_locations_apis_deployments_rollback" /> | `EXEC` | <CopyableCode code="apisId, deploymentsId, locationsId, projectsId" /> | Sets the current revision to a specified prior revision. Note that this creates a new revision with a new revision ID. |
 | <CopyableCode code="projects_locations_apis_deployments_tag_revision" /> | `EXEC` | <CopyableCode code="apisId, deploymentsId, locationsId, projectsId" /> | Adds a tag to a specified revision of a deployment. |

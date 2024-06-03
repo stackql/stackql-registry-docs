@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>namespaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.namespaces" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.namespaces" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,5 +46,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_scopes_namespaces_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, scopesId" /> | Lists fleet namespaces. |
 | <CopyableCode code="projects_locations_scopes_namespaces_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, scopesId" /> | Creates a fleet namespace. |
 | <CopyableCode code="projects_locations_scopes_namespaces_delete" /> | `DELETE` | <CopyableCode code="locationsId, namespacesId, projectsId, scopesId" /> | Deletes a fleet namespace. |
+| <CopyableCode code="projects_locations_scopes_namespaces_patch" /> | `UPDATE` | <CopyableCode code="locationsId, namespacesId, projectsId, scopesId" /> | Updates a fleet namespace. |
 | <CopyableCode code="_projects_locations_scopes_namespaces_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, scopesId" /> | Lists fleet namespaces. |
-| <CopyableCode code="projects_locations_scopes_namespaces_patch" /> | `EXEC` | <CopyableCode code="locationsId, namespacesId, projectsId, scopesId" /> | Updates a fleet namespace. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_incidents</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.security_incidents" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.security_incidents" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,6 +44,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_environments_security_incidents_get" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId, securityIncidentsId" /> | GetSecurityIncident gets the specified security incident. Returns NOT_FOUND if security incident is not present for the specified organization and environment. |
 | <CopyableCode code="organizations_environments_security_incidents_list" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | ListSecurityIncidents lists all the security incident associated with the environment. |
+| <CopyableCode code="organizations_environments_security_incidents_patch" /> | `UPDATE` | <CopyableCode code="environmentsId, organizationsId, securityIncidentsId" /> | UpdateSecurityIncidents updates an existing security incident. |
 | <CopyableCode code="_organizations_environments_security_incidents_list" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | ListSecurityIncidents lists all the security incident associated with the environment. |
 | <CopyableCode code="organizations_environments_security_incidents_batch_update" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | BatchUpdateSecurityIncident updates multiple existing security incidents. |
-| <CopyableCode code="organizations_environments_security_incidents_patch" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId, securityIncidentsId" /> | UpdateSecurityIncidents updates an existing security incident. |

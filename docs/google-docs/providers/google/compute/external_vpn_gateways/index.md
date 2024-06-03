@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>external_vpn_gateways</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.external_vpn_gateways" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.external_vpn_gateways" /></td></tr>
 </tbody></table>
 
 ## Fields

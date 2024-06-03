@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>content</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.content" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.content" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_lakes_content_list" /> | `SELECT` | <CopyableCode code="lakesId, locationsId, projectsId" /> | List content. |
 | <CopyableCode code="projects_locations_lakes_content_create" /> | `INSERT` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Create a content. |
 | <CopyableCode code="projects_locations_lakes_content_delete" /> | `DELETE` | <CopyableCode code="contentId, lakesId, locationsId, projectsId" /> | Delete a content. |
+| <CopyableCode code="projects_locations_lakes_content_patch" /> | `UPDATE` | <CopyableCode code="contentId, lakesId, locationsId, projectsId" /> | Update a content. Only supports full resource update. |
 | <CopyableCode code="_projects_locations_lakes_content_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId" /> | List content. |
-| <CopyableCode code="projects_locations_lakes_content_patch" /> | `EXEC` | <CopyableCode code="contentId, lakesId, locationsId, projectsId" /> | Update a content. Only supports full resource update. |

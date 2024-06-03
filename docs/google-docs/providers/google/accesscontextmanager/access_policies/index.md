@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>access_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="accesscontextmanager.access_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.accesscontextmanager.access_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` |  | Lists all access policies in an organization. |
 | <CopyableCode code="create" /> | `INSERT` |  | Creates an access policy. This method fails if the organization already has an access policy. The long-running operation has a successful status after the access policy propagates to long-lasting storage. Syntactic and basic semantic errors are returned in `metadata` as a BadRequest proto. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accessPoliciesId" /> | Deletes an access policy based on the resource name. The long-running operation has a successful status after the access policy is removed from long-lasting storage. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="accessPoliciesId" /> | Updates an access policy. The long-running operation from this RPC has a successful status after the changes to the access policy propagate to long-lasting storage. |
 | <CopyableCode code="_list" /> | `EXEC` |  | Lists all access policies in an organization. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="accessPoliciesId" /> | Updates an access policy. The long-running operation from this RPC has a successful status after the changes to the access policy propagate to long-lasting storage. |

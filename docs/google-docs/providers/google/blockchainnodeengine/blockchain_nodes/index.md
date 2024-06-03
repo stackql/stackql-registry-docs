@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>blockchain_nodes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="blockchainnodeengine.blockchain_nodes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.blockchainnodeengine.blockchain_nodes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,5 +46,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists blockchain nodes in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new blockchain node in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="blockchainNodesId, locationsId, projectsId" /> | Deletes a single blockchain node. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="blockchainNodesId, locationsId, projectsId" /> | Updates the parameters of a single blockchain node. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists blockchain nodes in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="blockchainNodesId, locationsId, projectsId" /> | Updates the parameters of a single blockchain node. |

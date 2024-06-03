@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>geo_tiff</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="solar.geo_tiff" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.solar.geo_tiff" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>authorized_orgs_descs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="accesscontextmanager.authorized_orgs_descs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.accesscontextmanager.authorized_orgs_descs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accessPoliciesId" /> | Lists all authorized orgs descs for an access policy. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accessPoliciesId" /> | Creates an authorized orgs desc. The long-running operation from this RPC has a successful status after the authorized orgs desc propagates to long-lasting storage. If a authorized orgs desc contains errors, an error response is returned for the first error encountered. The name of this `AuthorizedOrgsDesc` will be assigned during creation. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accessPoliciesId, authorizedOrgsDescsId" /> | Deletes an authorized orgs desc based on the resource name. The long-running operation from this RPC has a successful status after the authorized orgs desc is removed from long-lasting storage. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="accessPoliciesId, authorizedOrgsDescsId" /> | Updates an authorized orgs desc. The long-running operation from this RPC has a successful status after the authorized orgs desc propagates to long-lasting storage. If a authorized orgs desc contains errors, an error response is returned for the first error encountered. Only the organization list in `AuthorizedOrgsDesc` can be updated. The name, authorization_type, asset_type and authorization_direction cannot be updated. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="accessPoliciesId" /> | Lists all authorized orgs descs for an access policy. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="accessPoliciesId, authorizedOrgsDescsId" /> | Updates an authorized orgs desc. The long-running operation from this RPC has a successful status after the authorized orgs desc propagates to long-lasting storage. If a authorized orgs desc contains errors, an error response is returned for the first error encountered. Only the organization list in `AuthorizedOrgsDesc` can be updated. The name, authorization_type, asset_type and authorization_direction cannot be updated. |

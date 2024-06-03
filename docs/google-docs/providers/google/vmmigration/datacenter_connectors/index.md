@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>datacenter_connectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmmigration.datacenter_connectors" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmmigration.datacenter_connectors" /></td></tr>
 </tbody></table>
 
 ## Fields

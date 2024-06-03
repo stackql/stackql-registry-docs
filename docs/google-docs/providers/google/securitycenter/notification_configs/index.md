@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>notification_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.notification_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.notification_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,9 +50,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_notification_configs_delete" /> | `DELETE` | <CopyableCode code="foldersId, notificationConfigsId" /> | Deletes a notification config. |
 | <CopyableCode code="organizations_notification_configs_delete" /> | `DELETE` | <CopyableCode code="notificationConfigsId, organizationsId" /> | Deletes a notification config. |
 | <CopyableCode code="projects_notification_configs_delete" /> | `DELETE` | <CopyableCode code="notificationConfigsId, projectsId" /> | Deletes a notification config. |
+| <CopyableCode code="folders_notification_configs_patch" /> | `UPDATE` | <CopyableCode code="foldersId, notificationConfigsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
+| <CopyableCode code="organizations_notification_configs_patch" /> | `UPDATE` | <CopyableCode code="notificationConfigsId, organizationsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
+| <CopyableCode code="projects_notification_configs_patch" /> | `UPDATE` | <CopyableCode code="notificationConfigsId, projectsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
 | <CopyableCode code="_folders_notification_configs_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists notification configs. |
 | <CopyableCode code="_organizations_notification_configs_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists notification configs. |
 | <CopyableCode code="_projects_notification_configs_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists notification configs. |
-| <CopyableCode code="folders_notification_configs_patch" /> | `EXEC` | <CopyableCode code="foldersId, notificationConfigsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
-| <CopyableCode code="organizations_notification_configs_patch" /> | `EXEC` | <CopyableCode code="notificationConfigsId, organizationsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
-| <CopyableCode code="projects_notification_configs_patch" /> | `EXEC` | <CopyableCode code="notificationConfigsId, projectsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |

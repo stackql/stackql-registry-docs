@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>databases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="biglake.databases" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.biglake.databases" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,5 +44,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | List all databases in a specified catalog. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Creates a new database. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="catalogsId, databasesId, locationsId, projectsId" /> | Deletes an existing database specified by the database ID. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="catalogsId, databasesId, locationsId, projectsId" /> | Updates an existing database specified by the database ID. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | List all databases in a specified catalog. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="catalogsId, databasesId, locationsId, projectsId" /> | Updates an existing database specified by the database ID. |

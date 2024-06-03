@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>disks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.disks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.disks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -88,6 +88,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves a list of persistent disks contained within the specified zone. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates a persistent disk in the specified project using the data in the request. You can create a disk from a source (sourceImage, sourceSnapshot, or sourceDisk) or create an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by specifying the sizeGb property. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="disk, project, zone" /> | Deletes the specified persistent disk. Deleting a disk removes its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="disk, project, zone" /> | Updates the specified disk with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license. |
 | <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of persistent disks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="bulk_insert" /> | `EXEC` | <CopyableCode code="project, zone" /> | Bulk create a set of disks. |
 | <CopyableCode code="resize" /> | `EXEC` | <CopyableCode code="disk, project, zone" /> | Resizes the specified persistent disk. You can only increase the size of the disk. |
@@ -95,4 +96,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="start_async_replication" /> | `EXEC` | <CopyableCode code="disk, project, zone" /> | Starts asynchronous replication. Must be invoked on the primary disk. |
 | <CopyableCode code="stop_async_replication" /> | `EXEC` | <CopyableCode code="disk, project, zone" /> | Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. |
 | <CopyableCode code="stop_group_async_replication" /> | `EXEC` | <CopyableCode code="project, zone" /> | Stops asynchronous replication for a consistency group of disks. Can be invoked either in the primary or secondary scope. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="disk, project, zone" /> | Updates the specified disk with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license. |

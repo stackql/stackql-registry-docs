@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>step_entries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="workflowexecutions.step_entries" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.workflowexecutions.step_entries" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>org_policy_violations_previews</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="policysimulator.org_policy_violations_previews" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.policysimulator.org_policy_violations_previews" /></td></tr>
 </tbody></table>
 
 ## Fields

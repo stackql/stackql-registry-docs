@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_level_objectives</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="monitoring.service_level_objectives" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.monitoring.service_level_objectives" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,5 +44,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="services_service_level_objectives_list" /> | `SELECT` | <CopyableCode code="parent, parentType" /> | List the ServiceLevelObjectives for the given Service. |
 | <CopyableCode code="services_service_level_objectives_create" /> | `INSERT` | <CopyableCode code="parent, parentType" /> | Create a ServiceLevelObjective for the given Service. |
 | <CopyableCode code="services_service_level_objectives_delete" /> | `DELETE` | <CopyableCode code="name" /> | Delete the given ServiceLevelObjective. |
+| <CopyableCode code="services_service_level_objectives_patch" /> | `UPDATE` | <CopyableCode code="name" /> | Update the given ServiceLevelObjective. |
 | <CopyableCode code="_services_service_level_objectives_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | List the ServiceLevelObjectives for the given Service. |
-| <CopyableCode code="services_service_level_objectives_patch" /> | `EXEC` | <CopyableCode code="name" /> | Update the given ServiceLevelObjective. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>lb_route_extensions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networkservices.lb_route_extensions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkservices.lb_route_extensions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,5 +46,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists `LbRouteExtension` resources in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new `LbRouteExtension` resource in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="lbRouteExtensionsId, locationsId, projectsId" /> | Deletes the specified `LbRouteExtension` resource. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="lbRouteExtensionsId, locationsId, projectsId" /> | Updates the parameters of the specified `LbRouteExtension` resource. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists `LbRouteExtension` resources in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="lbRouteExtensionsId, locationsId, projectsId" /> | Updates the parameters of the specified `LbRouteExtension` resource. |

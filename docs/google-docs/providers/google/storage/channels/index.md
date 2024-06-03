@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>channels</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="storage.channels" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storage.channels" /></td></tr>
 </tbody></table>
 
 ## Fields

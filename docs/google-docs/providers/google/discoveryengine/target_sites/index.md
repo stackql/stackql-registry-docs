@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>target_sites</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="discoveryengine.target_sites" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.target_sites" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,9 +51,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_stores_site_search_engine_target_sites_create" /> | `INSERT` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Creates a TargetSite. |
 | <CopyableCode code="projects_locations_collections_data_stores_site_search_engine_target_sites_delete" /> | `DELETE` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, targetSitesId" /> | Deletes a TargetSite. |
 | <CopyableCode code="projects_locations_data_stores_site_search_engine_target_sites_delete" /> | `DELETE` | <CopyableCode code="dataStoresId, locationsId, projectsId, targetSitesId" /> | Deletes a TargetSite. |
+| <CopyableCode code="projects_locations_collections_data_stores_site_search_engine_target_sites_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, targetSitesId" /> | Updates a TargetSite. |
+| <CopyableCode code="projects_locations_data_stores_site_search_engine_target_sites_patch" /> | `UPDATE` | <CopyableCode code="dataStoresId, locationsId, projectsId, targetSitesId" /> | Updates a TargetSite. |
 | <CopyableCode code="_projects_locations_collections_data_stores_site_search_engine_target_sites_list" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Gets a list of TargetSites. |
 | <CopyableCode code="_projects_locations_data_stores_site_search_engine_target_sites_list" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Gets a list of TargetSites. |
 | <CopyableCode code="projects_locations_collections_data_stores_site_search_engine_target_sites_batch_create" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Creates TargetSite in a batch. |
-| <CopyableCode code="projects_locations_collections_data_stores_site_search_engine_target_sites_patch" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, targetSitesId" /> | Updates a TargetSite. |
 | <CopyableCode code="projects_locations_data_stores_site_search_engine_target_sites_batch_create" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Creates TargetSite in a batch. |
-| <CopyableCode code="projects_locations_data_stores_site_search_engine_target_sites_patch" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId, targetSitesId" /> | Updates a TargetSite. |

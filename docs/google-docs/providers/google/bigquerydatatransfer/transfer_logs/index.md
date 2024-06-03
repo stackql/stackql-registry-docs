@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transfer_logs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigquerydatatransfer.transfer_logs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquerydatatransfer.transfer_logs" /></td></tr>
 </tbody></table>
 
 ## Fields

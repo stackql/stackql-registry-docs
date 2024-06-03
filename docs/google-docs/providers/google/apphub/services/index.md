@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apphub.services" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apphub.services" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,5 +48,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="applicationsId, locationsId, projectsId" /> | Lists Services in an Application. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="applicationsId, locationsId, projectsId" /> | Creates a Service in an Application. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="applicationsId, locationsId, projectsId, servicesId" /> | Deletes a Service from an Application. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="applicationsId, locationsId, projectsId, servicesId" /> | Updates a Service in an Application. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="applicationsId, locationsId, projectsId" /> | Lists Services in an Application. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="applicationsId, locationsId, projectsId, servicesId" /> | Updates a Service in an Application. |

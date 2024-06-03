@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>nfs_shares</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.nfs_shares" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.nfs_shares" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,6 +47,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List NFS shares. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create an NFS share. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, nfsSharesId, projectsId" /> | Delete an NFS share. The underlying volume is automatically deleted. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, nfsSharesId, projectsId" /> | Update details of a single NFS share. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List NFS shares. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, nfsSharesId, projectsId" /> | Update details of a single NFS share. |
 | <CopyableCode code="rename" /> | `EXEC` | <CopyableCode code="locationsId, nfsSharesId, projectsId" /> | RenameNfsShare sets a new name for an nfsshare. Use with caution, previous names become immediately invalidated. |

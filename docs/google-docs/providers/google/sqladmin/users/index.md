@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>users</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="sqladmin.users" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sqladmin.users" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,5 +48,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instance, project" /> | Lists users in the specified Cloud SQL instance. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="instance, project" /> | Creates a new user in a Cloud SQL instance. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instance, project" /> | Deletes a user from a Cloud SQL instance. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="instance, project" /> | Updates an existing user in a Cloud SQL instance. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="instance, project" /> | Lists users in the specified Cloud SQL instance. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instance, project" /> | Updates an existing user in a Cloud SQL instance. |

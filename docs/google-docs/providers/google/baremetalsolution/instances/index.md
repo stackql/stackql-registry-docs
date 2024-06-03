@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -56,6 +56,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Get details about a single server. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List servers in a given project and location. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Update details of a single server. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List servers in a given project and location. |
 | <CopyableCode code="detach_lun" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Detach LUN from Instance. |
 | <CopyableCode code="disable_hyperthreading" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Perform disable hyperthreading operation on a single server. |
@@ -63,7 +64,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="enable_hyperthreading" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Perform enable hyperthreading operation on a single server. |
 | <CopyableCode code="enable_interactive_serial_console" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Enable the interactive serial console feature on an instance. |
 | <CopyableCode code="load_auth_info" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Load auth info for a server. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Update details of a single server. |
 | <CopyableCode code="reimage" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Perform reimage operation on a single server. |
 | <CopyableCode code="rename" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | RenameInstance sets a new name for an instance. Use with caution, previous names become immediately invalidated. |
 | <CopyableCode code="reset" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Perform an ungraceful, hard reset on a server. Equivalent to shutting the power off and then turning it back on. |

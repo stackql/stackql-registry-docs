@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>aliases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.aliases" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.aliases" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,5 +39,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_environments_keystores_aliases_get" /> | `SELECT` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> | Gets an alias. |
 | <CopyableCode code="organizations_environments_keystores_aliases_create" /> | `INSERT` | <CopyableCode code="environmentsId, keystoresId, organizationsId" /> | Creates an alias from a key/certificate pair. The structure of the request is controlled by the `format` query parameter: - `keycertfile` - Separate PEM-encoded key and certificate files are uploaded. Set `Content-Type: multipart/form-data` and include the `keyFile`, `certFile`, and `password` (if keys are encrypted) fields in the request body. If uploading to a truststore, omit `keyFile`. - `pkcs12` - A PKCS12 file is uploaded. Set `Content-Type: multipart/form-data`, provide the file in the `file` field, and include the `password` field if the file is encrypted in the request body. - `selfsignedcert` - A new private key and certificate are generated. Set `Content-Type: application/json` and include CertificateGenerationSpec in the request body. |
 | <CopyableCode code="organizations_environments_keystores_aliases_delete" /> | `DELETE` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> | Deletes an alias. |
+| <CopyableCode code="organizations_environments_keystores_aliases_update" /> | `UPDATE` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> | Updates the certificate in an alias. |
 | <CopyableCode code="organizations_environments_keystores_aliases_csr" /> | `EXEC` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> | Generates a PKCS #10 Certificate Signing Request for the private key in an alias. |
-| <CopyableCode code="organizations_environments_keystores_aliases_update" /> | `EXEC` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> | Updates the certificate in an alias. |

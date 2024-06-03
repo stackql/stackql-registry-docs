@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>environments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.environments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.environments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,5 +49,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_lakes_environments_list" /> | `SELECT` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Lists environments under the given lake. |
 | <CopyableCode code="projects_locations_lakes_environments_create" /> | `INSERT` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Create an environment resource. |
 | <CopyableCode code="projects_locations_lakes_environments_delete" /> | `DELETE` | <CopyableCode code="environmentsId, lakesId, locationsId, projectsId" /> | Delete the environment resource. All the child resources must have been deleted before environment deletion can be initiated. |
+| <CopyableCode code="projects_locations_lakes_environments_patch" /> | `UPDATE` | <CopyableCode code="environmentsId, lakesId, locationsId, projectsId" /> | Update the environment resource. |
 | <CopyableCode code="_projects_locations_lakes_environments_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Lists environments under the given lake. |
-| <CopyableCode code="projects_locations_lakes_environments_patch" /> | `EXEC` | <CopyableCode code="environmentsId, lakesId, locationsId, projectsId" /> | Update the environment resource. |

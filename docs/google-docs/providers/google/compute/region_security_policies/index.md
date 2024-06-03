@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_security_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.region_security_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_security_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -54,5 +54,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | List all the policies that have been configured for the specified project and region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a new policy in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, securityPolicy" /> | Deletes the specified policy. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, region, securityPolicy" /> | Patches the specified policy with the data included in the request. To clear fields in the policy, leave the fields empty and specify them in the updateMask. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, region, securityPolicy" /> | Patches the specified policy with the data included in the request. To clear fields in the policy, leave the fields empty and specify them in the updateMask. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead. |
 | <CopyableCode code="patch_rule" /> | `EXEC` | <CopyableCode code="project, region, securityPolicy" /> | Patches a rule at the specified priority. To clear fields in the rule, leave the fields empty and specify them in the updateMask. |

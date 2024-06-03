@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>users</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="alloydb.users" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.alloydb.users" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,5 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Lists Users in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Creates a new User in a given project, location, and cluster. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clustersId, locationsId, projectsId, usersId" /> | Deletes a single User. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="clustersId, locationsId, projectsId, usersId" /> | Updates the parameters of a single User. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Lists Users in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId, usersId" /> | Updates the parameters of a single User. |

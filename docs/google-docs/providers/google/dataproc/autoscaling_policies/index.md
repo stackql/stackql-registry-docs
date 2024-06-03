@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>autoscaling_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataproc.autoscaling_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataproc.autoscaling_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,7 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_regions_autoscaling_policies_create" /> | `INSERT` | <CopyableCode code="projectsId, regionsId" /> | Creates new autoscaling policy. |
 | <CopyableCode code="projects_locations_autoscaling_policies_delete" /> | `DELETE` | <CopyableCode code="autoscalingPoliciesId, locationsId, projectsId" /> | Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. |
 | <CopyableCode code="projects_regions_autoscaling_policies_delete" /> | `DELETE` | <CopyableCode code="autoscalingPoliciesId, projectsId, regionsId" /> | Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. |
+| <CopyableCode code="projects_locations_autoscaling_policies_update" /> | `UPDATE` | <CopyableCode code="autoscalingPoliciesId, locationsId, projectsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
+| <CopyableCode code="projects_regions_autoscaling_policies_update" /> | `UPDATE` | <CopyableCode code="autoscalingPoliciesId, projectsId, regionsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
 | <CopyableCode code="_projects_locations_autoscaling_policies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists autoscaling policies in the project. |
 | <CopyableCode code="_projects_regions_autoscaling_policies_list" /> | `EXEC` | <CopyableCode code="projectsId, regionsId" /> | Lists autoscaling policies in the project. |
-| <CopyableCode code="projects_locations_autoscaling_policies_update" /> | `EXEC` | <CopyableCode code="autoscalingPoliciesId, locationsId, projectsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
-| <CopyableCode code="projects_regions_autoscaling_policies_update" /> | `EXEC` | <CopyableCode code="autoscalingPoliciesId, projectsId, regionsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |

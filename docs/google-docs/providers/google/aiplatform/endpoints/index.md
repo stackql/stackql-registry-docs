@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.endpoints" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,6 +52,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Endpoints in a Location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an Endpoint. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Deletes an Endpoint. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Updates an Endpoint. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Endpoints in a Location. |
 | <CopyableCode code="compute_tokens" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Return a list of tokens based on the input text. |
 | <CopyableCode code="count_tokens" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform a token counting. |
@@ -61,7 +62,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="explain" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform an online explanation. If deployed_model_id is specified, the corresponding DeployModel must have explanation_spec populated. If deployed_model_id is not specified, all DeployedModels must have explanation_spec populated. |
 | <CopyableCode code="generate_content" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Generate content with multimodal inputs. |
 | <CopyableCode code="mutate_deployed_model" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Updates an existing deployed model. Updatable fields include `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and `enable_container_logging` (v1beta1 only). |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Updates an Endpoint. |
 | <CopyableCode code="predict" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform an online prediction. |
 | <CopyableCode code="raw_predict" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform an online prediction with an arbitrary HTTP payload. The response includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the Endpoint that served this prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's DeployedModel that served this prediction. |
 | <CopyableCode code="server_streaming_predict" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform a server-side streaming online prediction request for Vertex LLM streaming. |

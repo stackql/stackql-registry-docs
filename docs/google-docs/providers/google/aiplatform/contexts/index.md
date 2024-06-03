@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>contexts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.contexts" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.contexts" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,7 +48,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Lists Contexts on the MetadataStore. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Creates a Context associated with a MetadataStore. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="contextsId, locationsId, metadataStoresId, projectsId" /> | Deletes a stored Context. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="contextsId, locationsId, metadataStoresId, projectsId" /> | Updates a stored Context. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Lists Contexts on the MetadataStore. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="contextsId, locationsId, metadataStoresId, projectsId" /> | Updates a stored Context. |
 | <CopyableCode code="purge" /> | `EXEC` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Purges Contexts. |
 | <CopyableCode code="query_context_lineage_subgraph" /> | `EXEC` | <CopyableCode code="contextsId, locationsId, metadataStoresId, projectsId" /> | Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph. |

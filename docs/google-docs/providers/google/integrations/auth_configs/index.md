@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>auth_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="integrations.auth_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.integrations.auth_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -58,7 +58,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_products_auth_configs_create" /> | `INSERT` | <CopyableCode code="locationsId, productsId, projectsId" /> | Creates an auth config record. Fetch corresponding credentials for specific auth types, e.g. access token for OAuth 2.0, JWT token for JWT. Encrypt the auth config with Cloud KMS and store the encrypted credentials in Spanner. Returns the encrypted auth config. |
 | <CopyableCode code="projects_locations_auth_configs_delete" /> | `DELETE` | <CopyableCode code="authConfigsId, locationsId, projectsId" /> | Deletes an auth config. |
 | <CopyableCode code="projects_locations_products_auth_configs_delete" /> | `DELETE` | <CopyableCode code="authConfigsId, locationsId, productsId, projectsId" /> | Deletes an auth config. |
+| <CopyableCode code="projects_locations_auth_configs_patch" /> | `UPDATE` | <CopyableCode code="authConfigsId, locationsId, projectsId" /> | Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config. |
+| <CopyableCode code="projects_locations_products_auth_configs_patch" /> | `UPDATE` | <CopyableCode code="authConfigsId, locationsId, productsId, projectsId" /> | Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config. |
 | <CopyableCode code="_projects_locations_auth_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only. |
 | <CopyableCode code="_projects_locations_products_auth_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, productsId, projectsId" /> | Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only. |
-| <CopyableCode code="projects_locations_auth_configs_patch" /> | `EXEC` | <CopyableCode code="authConfigsId, locationsId, projectsId" /> | Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config. |
-| <CopyableCode code="projects_locations_products_auth_configs_patch" /> | `EXEC` | <CopyableCode code="authConfigsId, locationsId, productsId, projectsId" /> | Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config. |

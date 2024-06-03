@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entities</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.entities" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.entities" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,5 +55,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_lakes_zones_entities_list" /> | `SELECT` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | List metadata entities in a zone. |
 | <CopyableCode code="projects_locations_lakes_zones_entities_create" /> | `INSERT` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Create a metadata entity. |
 | <CopyableCode code="projects_locations_lakes_zones_entities_delete" /> | `DELETE` | <CopyableCode code="entitiesId, lakesId, locationsId, projectsId, zonesId" /> | Delete a metadata entity. |
+| <CopyableCode code="projects_locations_lakes_zones_entities_update" /> | `UPDATE` | <CopyableCode code="entitiesId, lakesId, locationsId, projectsId, zonesId" /> | Update a metadata entity. Only supports full resource update. |
 | <CopyableCode code="_projects_locations_lakes_zones_entities_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | List metadata entities in a zone. |
-| <CopyableCode code="projects_locations_lakes_zones_entities_update" /> | `EXEC` | <CopyableCode code="entitiesId, lakesId, locationsId, projectsId, zonesId" /> | Update a metadata entity. Only supports full resource update. |

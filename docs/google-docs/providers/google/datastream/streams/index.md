@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>streams</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datastream.streams" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datastream.streams" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,6 +50,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Use this method to list streams in a project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Use this method to create a stream. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, streamsId" /> | Use this method to delete a stream. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, streamsId" /> | Use this method to update the configuration of a stream. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Use this method to list streams in a project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, streamsId" /> | Use this method to update the configuration of a stream. |
 | <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, streamsId" /> | Use this method to start, resume or recover a stream with a non default CDC strategy. NOTE: This feature is currently experimental. |

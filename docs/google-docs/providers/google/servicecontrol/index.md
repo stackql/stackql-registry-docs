@@ -34,7 +34,7 @@ Provides admission control and telemetry reporting for services integrated with 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Service Control API</td></tr>
 <tr><td><b>Description</b></td><td>Provides admission control and telemetry reporting for services integrated with Service Infrastructure. </td></tr>
-<tr><td><b>Id</b></td><td><code>servicecontrol:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>servicecontrol:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

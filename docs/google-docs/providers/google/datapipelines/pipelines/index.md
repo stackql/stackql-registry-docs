@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>pipelines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datapipelines.pipelines" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datapipelines.pipelines" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,7 +48,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have permission to access it. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a pipeline. For a batch pipeline, you can pass scheduler information. Data Pipelines uses the scheduler information to create an internal scheduler that runs jobs periodically. If the internal scheduler is not configured, you can use RunPipeline to run jobs. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, pipelinesId, projectsId" /> | Deletes a pipeline. If a scheduler job is attached to the pipeline, it will be deleted. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, pipelinesId, projectsId" /> | Updates a pipeline. If successful, the updated Pipeline is returned. Returns `NOT_FOUND` if the pipeline doesn't exist. If UpdatePipeline does not return successfully, you can retry the UpdatePipeline request until you receive a successful response. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have permission to access it. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, pipelinesId, projectsId" /> | Updates a pipeline. If successful, the updated Pipeline is returned. Returns `NOT_FOUND` if the pipeline doesn't exist. If UpdatePipeline does not return successfully, you can retry the UpdatePipeline request until you receive a successful response. |
 | <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="locationsId, pipelinesId, projectsId" /> | Creates a job for the specified pipeline directly. You can use this method when the internal scheduler is not configured and you want to trigger the job directly or through an external system. Returns a "NOT_FOUND" error if the pipeline doesn't exist. Returns a "FORBIDDEN" error if the user doesn't have permission to access the pipeline or run jobs for the pipeline. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="locationsId, pipelinesId, projectsId" /> | Freezes pipeline execution permanently. If there's a corresponding scheduler entry, it's deleted, and the pipeline state is changed to "ARCHIVED". However, pipeline metadata is retained. |

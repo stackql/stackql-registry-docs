@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>models_explanation_dataset</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.models_explanation_dataset" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.models_explanation_dataset" /></td></tr>
 </tbody></table>
 
 ## Fields

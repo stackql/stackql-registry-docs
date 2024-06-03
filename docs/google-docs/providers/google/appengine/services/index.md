@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="appengine.services" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.appengine.services" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="appsId, servicesId" /> | Gets the current configuration of the specified service. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="appsId" /> | Lists all the services in the application. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appsId, servicesId" /> | Deletes the specified service and all enclosed versions. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="appsId, servicesId" /> | Updates the configuration of the specified service. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="appsId" /> | Lists all the services in the application. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="appsId, servicesId" /> | Updates the configuration of the specified service. |

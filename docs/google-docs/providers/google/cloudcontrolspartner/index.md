@@ -34,7 +34,7 @@ Provides insights about your customers and their Assured Workloads based on your
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Controls Partner API</td></tr>
 <tr><td><b>Description</b></td><td>Provides insights about your customers and their Assured Workloads based on your Sovereign Controls by Partners offering.</td></tr>
-<tr><td><b>Id</b></td><td><code>cloudcontrolspartner:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>cloudcontrolspartner:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.resource_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.resource_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,5 +51,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | A list all the resource policies that have been configured for the specified project in specified region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a new resource policy. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, resourcePolicy" /> | Deletes the specified resource policy. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, region, resourcePolicy" /> | Modify the specified resource policy. |
 | <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, region, resourcePolicy" /> | Modify the specified resource policy. |

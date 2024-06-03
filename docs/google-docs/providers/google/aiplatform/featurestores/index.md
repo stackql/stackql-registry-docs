@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>featurestores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.featurestores" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.featurestores" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,7 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Featurestores in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Featurestore in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="featurestoresId, locationsId, projectsId" /> | Deletes a single Featurestore. The Featurestore must not contain any EntityTypes or `force` must be set to true for the request to succeed. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="featurestoresId, locationsId, projectsId" /> | Updates the parameters of a single Featurestore. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Featurestores in a given project and location. |
 | <CopyableCode code="batch_read_feature_values" /> | `EXEC` | <CopyableCode code="featurestoresId, locationsId, projectsId" /> | Batch reads Feature values from a Featurestore. This API enables batch reading Feature values, where each read instance in the batch may read Feature values of entities from one or more EntityTypes. Point-in-time correctness is guaranteed for Feature values of each read instance as of each instance's read timestamp. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="featurestoresId, locationsId, projectsId" /> | Updates the parameters of a single Featurestore. |
 | <CopyableCode code="search_features" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Searches Features matching a query in a given project. |

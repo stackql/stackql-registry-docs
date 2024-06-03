@@ -19,12 +19,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Cloud computing services offered by Google.  
     
-:::info Provider Summary (v24.06.00234)
+:::info Provider Summary (v24.06.00236)
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>163</b></span><br />
-<span>total methods:&nbsp;<b>8364</b></span><br />
+<span>total methods:&nbsp;<b>8365</b></span><br />
 </div>
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>1706</b></span><br />

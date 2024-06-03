@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>supported_database_flags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="alloydb.supported_database_flags" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.alloydb.supported_database_flags" /></td></tr>
 </tbody></table>
 
 ## Fields

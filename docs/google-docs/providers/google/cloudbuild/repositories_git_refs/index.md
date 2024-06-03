@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>repositories_git_refs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudbuild.repositories_git_refs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudbuild.repositories_git_refs" /></td></tr>
 </tbody></table>
 
 ## Fields

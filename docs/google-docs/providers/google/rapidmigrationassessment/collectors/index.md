@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>collectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="rapidmigrationassessment.collectors" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.rapidmigrationassessment.collectors" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,8 +52,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Collectors in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a Collector to manage the on-prem appliance which collects information about Customer assets. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="collectorsId, locationsId, projectsId" /> | Deletes a single Collector - changes state of collector to "Deleting". Background jobs does final deletion thorugh producer api. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="collectorsId, locationsId, projectsId" /> | Updates the parameters of a single Collector. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Collectors in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="collectorsId, locationsId, projectsId" /> | Updates the parameters of a single Collector. |
 | <CopyableCode code="pause" /> | `EXEC` | <CopyableCode code="collectorsId, locationsId, projectsId" /> | Pauses the given collector. |
 | <CopyableCode code="register" /> | `EXEC` | <CopyableCode code="collectorsId, locationsId, projectsId" /> | Registers the given collector. |
 | <CopyableCode code="resume" /> | `EXEC` | <CopyableCode code="collectorsId, locationsId, projectsId" /> | Resumes the given collector. |

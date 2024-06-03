@@ -34,7 +34,7 @@ The Address Validation API allows developers to verify the accuracy of addresses
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Address Validation API</td></tr>
 <tr><td><b>Description</b></td><td>The Address Validation API allows developers to verify the accuracy of addresses. Given an address, it returns information about the correctness of the components of the parsed address, a geocode, and a verdict on the deliverability of the parsed address.</td></tr>
-<tr><td><b>Id</b></td><td><code>addressvalidation:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>addressvalidation:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>channel_connections_iam_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="eventarc.channel_connections_iam_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.eventarc.channel_connections_iam_policies" /></td></tr>
 </tbody></table>
 
 ## Fields

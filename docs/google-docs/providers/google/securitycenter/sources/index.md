@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.sources" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.sources" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,7 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_sources_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all sources belonging to an organization. |
 | <CopyableCode code="projects_sources_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists all sources belonging to an organization. |
 | <CopyableCode code="organizations_sources_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a source. |
+| <CopyableCode code="organizations_sources_patch" /> | `UPDATE` | <CopyableCode code="organizationsId, sourcesId" /> | Updates a source. |
 | <CopyableCode code="_folders_sources_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists all sources belonging to an organization. |
 | <CopyableCode code="_organizations_sources_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all sources belonging to an organization. |
 | <CopyableCode code="_projects_sources_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists all sources belonging to an organization. |
-| <CopyableCode code="organizations_sources_patch" /> | `EXEC` | <CopyableCode code="organizationsId, sourcesId" /> | Updates a source. |

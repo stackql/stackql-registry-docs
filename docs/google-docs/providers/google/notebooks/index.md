@@ -34,7 +34,7 @@ Notebooks API is used to manage notebook resources in Google Cloud.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Notebooks API</td></tr>
 <tr><td><b>Description</b></td><td>Notebooks API is used to manage notebook resources in Google Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>notebooks:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>notebooks:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

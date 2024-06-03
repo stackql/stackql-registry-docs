@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="clouderrorreporting.groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.clouderrorreporting.groups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,4 +38,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupsId, projectsId" /> | Get the specified group. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="groupsId, projectsId" /> | Replace the data for the specified group. Fails if the group does not exist. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="groupsId, projectsId" /> | Replace the data for the specified group. Fails if the group does not exist. |

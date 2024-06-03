@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dns_authorizations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="certificatemanager.dns_authorizations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.certificatemanager.dns_authorizations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists DnsAuthorizations in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new DnsAuthorization in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="dnsAuthorizationsId, locationsId, projectsId" /> | Deletes a single DnsAuthorization. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="dnsAuthorizationsId, locationsId, projectsId" /> | Updates a DnsAuthorization. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists DnsAuthorizations in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="dnsAuthorizationsId, locationsId, projectsId" /> | Updates a DnsAuthorization. |

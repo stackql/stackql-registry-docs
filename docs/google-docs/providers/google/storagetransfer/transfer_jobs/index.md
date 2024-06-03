@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transfer_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="storagetransfer.transfer_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storagetransfer.transfer_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,6 +51,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="filter" /> | Lists transfer jobs. |
 | <CopyableCode code="create" /> | `INSERT` |  | Creates a transfer job that runs periodically. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="projectId, transferJobsId" /> | Deletes a transfer job. Deleting a transfer job sets its status to DELETED. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="transferJobsId" /> | Updates a transfer job. Updating a job's transfer spec does not affect transfer operations that are running already. **Note:** The job's status field can be modified using this RPC (for example, to set a job's status to DELETED, DISABLED, or ENABLED). |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="filter" /> | Lists transfer jobs. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="transferJobsId" /> | Updates a transfer job. Updating a job's transfer spec does not affect transfer operations that are running already. **Note:** The job's status field can be modified using this RPC (for example, to set a job's status to DELETED, DISABLED, or ENABLED). |
 | <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="transferJobsId" /> | Starts a new operation for the specified transfer job. A `TransferJob` has a maximum of one active `TransferOperation`. If this method is called while a `TransferOperation` is active, an error is returned. |

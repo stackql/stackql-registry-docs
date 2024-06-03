@@ -34,7 +34,7 @@ A simple Google Example Library API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Library Agent API</td></tr>
 <tr><td><b>Description</b></td><td>A simple Google Example Library API.</td></tr>
-<tr><td><b>Id</b></td><td><code>libraryagent:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>libraryagent:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

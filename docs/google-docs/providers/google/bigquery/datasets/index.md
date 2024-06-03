@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>datasets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigquery.datasets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.datasets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -66,7 +66,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectId" /> | Lists all datasets in the specified project to which the user has been granted the READER dataset role. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="projectId" /> | Creates a new empty dataset. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="+datasetId, projectId" /> | Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables, either manually or by specifying deleteContents. Immediately after deletion, you can create another dataset with the same name. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="+datasetId, projectId" /> | Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. This method supports RFC5789 patch semantics. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="+datasetId, projectId" /> | Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectId" /> | Lists all datasets in the specified project to which the user has been granted the READER dataset role. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="+datasetId, projectId" /> | Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. This method supports RFC5789 patch semantics. |
 | <CopyableCode code="undelete" /> | `EXEC` | <CopyableCode code="+datasetId, projectId" /> | Undeletes a dataset which is within time travel window based on datasetId. If a time is specified, the dataset version deleted at that time is undeleted, else the last live version is undeleted. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="+datasetId, projectId" /> | Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. |

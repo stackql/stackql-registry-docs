@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_attribute_bindings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.data_attribute_bindings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.data_attribute_bindings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,5 +48,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_attribute_bindings_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists DataAttributeBinding resources in a project and location. |
 | <CopyableCode code="projects_locations_data_attribute_bindings_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a DataAttributeBinding resource. |
 | <CopyableCode code="projects_locations_data_attribute_bindings_delete" /> | `DELETE` | <CopyableCode code="dataAttributeBindingsId, locationsId, projectsId" /> | Deletes a DataAttributeBinding resource. All attributes within the DataAttributeBinding must be deleted before the DataAttributeBinding can be deleted. |
+| <CopyableCode code="projects_locations_data_attribute_bindings_patch" /> | `UPDATE` | <CopyableCode code="dataAttributeBindingsId, locationsId, projectsId" /> | Updates a DataAttributeBinding resource. |
 | <CopyableCode code="_projects_locations_data_attribute_bindings_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists DataAttributeBinding resources in a project and location. |
-| <CopyableCode code="projects_locations_data_attribute_bindings_patch" /> | `EXEC` | <CopyableCode code="dataAttributeBindingsId, locationsId, projectsId" /> | Updates a DataAttributeBinding resource. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance_group_managers_per_instance_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.instance_group_managers_per_instance_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.instance_group_managers_per_instance_configs" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -34,7 +34,7 @@ The Rapid Migration Assessment service is our first-party migration assessment a
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Rapid Migration Assessment API</td></tr>
 <tr><td><b>Description</b></td><td>The Rapid Migration Assessment service is our first-party migration assessment and planning tool.</td></tr>
-<tr><td><b>Id</b></td><td><code>rapidmigrationassessment:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>rapidmigrationassessment:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

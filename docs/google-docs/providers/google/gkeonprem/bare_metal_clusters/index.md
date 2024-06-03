@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>bare_metal_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkeonprem.bare_metal_clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkeonprem.bare_metal_clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -69,8 +69,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_bare_metal_clusters_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists bare metal clusters in a given project and location. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new bare metal cluster in a given project and location. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_delete" /> | `DELETE` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Deletes a single bare metal Cluster. |
+| <CopyableCode code="projects_locations_bare_metal_clusters_patch" /> | `UPDATE` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Updates the parameters of a single bare metal Cluster. |
 | <CopyableCode code="_projects_locations_bare_metal_clusters_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists bare metal clusters in a given project and location. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_enroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Enrolls an existing bare metal user cluster and its node pools to the Anthos On-Prem API within a given project and location. Through enrollment, an existing cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster and/or its node pools will be expected to be performed through the API. |
-| <CopyableCode code="projects_locations_bare_metal_clusters_patch" /> | `EXEC` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Updates the parameters of a single bare metal Cluster. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_query_version_config" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Queries the bare metal user cluster version config. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_unenroll" /> | `EXEC` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Unenrolls an existing bare metal user cluster and its node pools from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters and node pools will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. |

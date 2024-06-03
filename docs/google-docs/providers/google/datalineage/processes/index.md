@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>processes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datalineage.processes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datalineage.processes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,5 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List processes in the given project and location. List order is descending by insertion time. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new process. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, processesId, projectsId" /> | Deletes the process with the specified name. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, processesId, projectsId" /> | Updates a process. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List processes in the given project and location. List order is descending by insertion time. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, processesId, projectsId" /> | Updates a process. |

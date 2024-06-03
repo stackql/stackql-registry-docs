@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>lb_traffic_extensions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networkservices.lb_traffic_extensions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkservices.lb_traffic_extensions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,5 +46,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists `LbTrafficExtension` resources in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new `LbTrafficExtension` resource in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="lbTrafficExtensionsId, locationsId, projectsId" /> | Deletes the specified `LbTrafficExtension` resource. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="lbTrafficExtensionsId, locationsId, projectsId" /> | Updates the parameters of the specified `LbTrafficExtension` resource. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists `LbTrafficExtension` resources in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="lbTrafficExtensionsId, locationsId, projectsId" /> | Updates the parameters of the specified `LbTrafficExtension` resource. |

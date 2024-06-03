@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>transfer_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigquerydatatransfer.transfer_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquerydatatransfer.transfer_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -59,11 +59,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_transfer_configs_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new data transfer configuration. |
 | <CopyableCode code="projects_locations_transfer_configs_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, transferConfigsId" /> | Deletes a data transfer configuration, including any associated transfer runs and logs. |
 | <CopyableCode code="projects_transfer_configs_delete" /> | `DELETE` | <CopyableCode code="projectsId, transferConfigsId" /> | Deletes a data transfer configuration, including any associated transfer runs and logs. |
+| <CopyableCode code="projects_locations_transfer_configs_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, transferConfigsId" /> | Updates a data transfer configuration. All fields must be set, even if they are not updated. |
+| <CopyableCode code="projects_transfer_configs_patch" /> | `UPDATE` | <CopyableCode code="projectsId, transferConfigsId" /> | Updates a data transfer configuration. All fields must be set, even if they are not updated. |
 | <CopyableCode code="_projects_locations_transfer_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns information about all transfer configs owned by a project in the specified location. |
 | <CopyableCode code="_projects_transfer_configs_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Returns information about all transfer configs owned by a project in the specified location. |
-| <CopyableCode code="projects_locations_transfer_configs_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, transferConfigsId" /> | Updates a data transfer configuration. All fields must be set, even if they are not updated. |
 | <CopyableCode code="projects_locations_transfer_configs_schedule_runs" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, transferConfigsId" /> | Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one transfer run is created. Note that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead. |
 | <CopyableCode code="projects_locations_transfer_configs_start_manual_runs" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, transferConfigsId" /> | Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the run_time is between start_time (inclusive) and end_time (exclusive), or for a specific run_time. |
-| <CopyableCode code="projects_transfer_configs_patch" /> | `EXEC` | <CopyableCode code="projectsId, transferConfigsId" /> | Updates a data transfer configuration. All fields must be set, even if they are not updated. |
 | <CopyableCode code="projects_transfer_configs_schedule_runs" /> | `EXEC` | <CopyableCode code="projectsId, transferConfigsId" /> | Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one transfer run is created. Note that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead. |
 | <CopyableCode code="projects_transfer_configs_start_manual_runs" /> | `EXEC` | <CopyableCode code="projectsId, transferConfigsId" /> | Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the run_time is between start_time (inclusive) and end_time (exclusive), or for a specific run_time. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="jobs.jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.jobs.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -67,10 +67,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId, tenantsId" /> | Lists jobs by filter. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId, tenantsId" /> | Creates a new job. Typically, the job becomes searchable within 10 seconds, but it may take up to 5 minutes. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="jobsId, projectsId, tenantsId" /> | Deletes the specified job. Typically, the job becomes unsearchable within 10 seconds, but it may take up to 5 minutes. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="jobsId, projectsId, tenantsId" /> | Updates specified job. Typically, updated contents become visible in search results within 10 seconds, but it may take up to 5 minutes. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId, tenantsId" /> | Lists jobs by filter. |
 | <CopyableCode code="batch_create" /> | `EXEC` | <CopyableCode code="projectsId, tenantsId" /> | Begins executing a batch create jobs operation. |
 | <CopyableCode code="batch_delete" /> | `EXEC` | <CopyableCode code="projectsId, tenantsId" /> | Begins executing a batch delete jobs operation. |
 | <CopyableCode code="batch_update" /> | `EXEC` | <CopyableCode code="projectsId, tenantsId" /> | Begins executing a batch update jobs operation. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="jobsId, projectsId, tenantsId" /> | Updates specified job. Typically, updated contents become visible in search results within 10 seconds, but it may take up to 5 minutes. |
 | <CopyableCode code="search" /> | `EXEC` | <CopyableCode code="projectsId, tenantsId" /> | Searches for jobs using the provided SearchJobsRequest. This call constrains the visibility of jobs present in the database, and only returns jobs that the caller has permission to search against. |
 | <CopyableCode code="search_for_alert" /> | `EXEC` | <CopyableCode code="projectsId, tenantsId" /> | Searches for jobs using the provided SearchJobsRequest. This API call is intended for the use case of targeting passive job seekers (for example, job seekers who have signed up to receive email alerts about potential job opportunities), it has different algorithmic adjustments that are designed to specifically target passive job seekers. This call constrains the visibility of jobs present in the database, and only returns jobs the caller has permission to search against. |

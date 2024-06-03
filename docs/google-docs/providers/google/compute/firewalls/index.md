@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewalls</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.firewalls" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.firewalls" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -56,5 +56,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of firewall rules available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a firewall rule in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="firewall, project" /> | Deletes the specified firewall. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="firewall, project" /> | Updates the specified firewall rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="firewall, project" /> | Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not specified. To update individual fields, please use PATCH instead. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="firewall, project" /> | Updates the specified firewall rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="firewall, project" /> | Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not specified. To update individual fields, please use PATCH instead. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>glossary_entries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="translate.glossary_entries" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.translate.glossary_entries" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,5 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_glossaries_glossary_entries_list" /> | `SELECT` | <CopyableCode code="glossariesId, locationsId, projectsId" /> | List the entries for the glossary. |
 | <CopyableCode code="projects_locations_glossaries_glossary_entries_create" /> | `INSERT` | <CopyableCode code="glossariesId, locationsId, projectsId" /> | Creates a glossary entry. |
 | <CopyableCode code="projects_locations_glossaries_glossary_entries_delete" /> | `DELETE` | <CopyableCode code="glossariesId, glossaryEntriesId, locationsId, projectsId" /> | Deletes a single entry from the glossary |
+| <CopyableCode code="projects_locations_glossaries_glossary_entries_patch" /> | `UPDATE` | <CopyableCode code="glossariesId, glossaryEntriesId, locationsId, projectsId" /> | Updates a glossary entry. |
 | <CopyableCode code="_projects_locations_glossaries_glossary_entries_list" /> | `EXEC` | <CopyableCode code="glossariesId, locationsId, projectsId" /> | List the entries for the glossary. |
-| <CopyableCode code="projects_locations_glossaries_glossary_entries_patch" /> | `EXEC` | <CopyableCode code="glossariesId, glossaryEntriesId, locationsId, projectsId" /> | Updates a glossary entry. |

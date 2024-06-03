@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>sessions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="discoveryengine.sessions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.sessions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,9 +51,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_collections_data_stores_sessions_delete" /> | `DELETE` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, sessionsId" /> | Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="projects_locations_collections_engines_sessions_delete" /> | `DELETE` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId, sessionsId" /> | Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="projects_locations_data_stores_sessions_delete" /> | `DELETE` | <CopyableCode code="dataStoresId, locationsId, projectsId, sessionsId" /> | Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_collections_data_stores_sessions_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, sessionsId" /> | Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_collections_engines_sessions_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId, sessionsId" /> | Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_data_stores_sessions_patch" /> | `UPDATE` | <CopyableCode code="dataStoresId, locationsId, projectsId, sessionsId" /> | Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="_projects_locations_collections_data_stores_sessions_list" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Lists all Sessions by their parent DataStore. |
 | <CopyableCode code="_projects_locations_collections_engines_sessions_list" /> | `EXEC` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId" /> | Lists all Sessions by their parent DataStore. |
 | <CopyableCode code="_projects_locations_data_stores_sessions_list" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Lists all Sessions by their parent DataStore. |
-| <CopyableCode code="projects_locations_collections_data_stores_sessions_patch" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, sessionsId" /> | Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. |
-| <CopyableCode code="projects_locations_collections_engines_sessions_patch" /> | `EXEC` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId, sessionsId" /> | Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. |
-| <CopyableCode code="projects_locations_data_stores_sessions_patch" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId, sessionsId" /> | Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. |

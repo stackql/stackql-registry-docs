@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>rateplans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.rateplans" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.rateplans" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -56,4 +56,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_apiproducts_rateplans_list" /> | `SELECT` | <CopyableCode code="apiproductsId, organizationsId" /> | Lists all the rate plans for an API product. |
 | <CopyableCode code="organizations_apiproducts_rateplans_create" /> | `INSERT` | <CopyableCode code="apiproductsId, organizationsId" /> | Create a rate plan that is associated with an API product in an organization. Using rate plans, API product owners can monetize their API products by configuring one or more of the following: - Billing frequency - Initial setup fees for using an API product - Payment funding model (postpaid only) - Fixed recurring or consumption-based charges for using an API product - Revenue sharing with developer partners An API product can have multiple rate plans associated with it but *only one* rate plan can be active at any point of time. **Note: From the developer's perspective, they purchase API products not rate plans. |
 | <CopyableCode code="organizations_apiproducts_rateplans_delete" /> | `DELETE` | <CopyableCode code="apiproductsId, organizationsId, rateplansId" /> | Deletes a rate plan. |
-| <CopyableCode code="organizations_apiproducts_rateplans_update" /> | `EXEC` | <CopyableCode code="apiproductsId, organizationsId, rateplansId" /> | Updates an existing rate plan. |
+| <CopyableCode code="organizations_apiproducts_rateplans_update" /> | `UPDATE` | <CopyableCode code="apiproductsId, organizationsId, rateplansId" /> | Updates an existing rate plan. |

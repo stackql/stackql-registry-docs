@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>catalogs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="recommendationengine.catalogs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.recommendationengine.catalogs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,5 +38,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_catalogs_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all the catalog configurations associated with the project. |
+| <CopyableCode code="projects_locations_catalogs_patch" /> | `UPDATE` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Updates the catalog configuration. |
 | <CopyableCode code="_projects_locations_catalogs_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all the catalog configurations associated with the project. |
-| <CopyableCode code="projects_locations_catalogs_patch" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Updates the catalog configuration. |

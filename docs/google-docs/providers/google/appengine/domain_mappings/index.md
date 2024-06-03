@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>domain_mappings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="appengine.domain_mappings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.appengine.domain_mappings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,5 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="appsId" /> | Lists the domain mappings on an application. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="appsId" /> | Maps a domain to an application. A user must be authorized to administer a domain in order to map it to an application. For a list of available authorized domains, see AuthorizedDomains.ListAuthorizedDomains. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appsId, domainMappingsId" /> | Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="appsId, domainMappingsId" /> | Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized to administer the associated domain in order to update a DomainMapping resource. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="appsId" /> | Lists the domain mappings on an application. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="appsId, domainMappingsId" /> | Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized to administer the associated domain in order to update a DomainMapping resource. |

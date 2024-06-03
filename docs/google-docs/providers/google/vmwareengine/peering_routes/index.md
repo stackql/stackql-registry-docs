@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>peering_routes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmwareengine.peering_routes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmwareengine.peering_routes" /></td></tr>
 </tbody></table>
 
 ## Fields

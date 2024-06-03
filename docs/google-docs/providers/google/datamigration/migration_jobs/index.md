@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>migration_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datamigration.migration_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datamigration.migration_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -63,11 +63,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists migration jobs in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new migration job in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, migrationJobsId, projectsId" /> | Deletes a single migration job. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, migrationJobsId, projectsId" /> | Updates the parameters of a single migration job. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists migration jobs in a given project and location. |
 | <CopyableCode code="demote_destination" /> | `EXEC` | <CopyableCode code="locationsId, migrationJobsId, projectsId" /> | Demotes the destination database to become a read replica of the source. This is applicable for the following migrations: 1. MySQL to Cloud SQL for MySQL 2. PostgreSQL to Cloud SQL for PostgreSQL 3. PostgreSQL to AlloyDB for PostgreSQL. |
 | <CopyableCode code="generate_ssh_script" /> | `EXEC` | <CopyableCode code="locationsId, migrationJobsId, projectsId" /> | Generate a SSH configuration script to configure the reverse SSH connectivity. |
 | <CopyableCode code="generate_tcp_proxy_script" /> | `EXEC` | <CopyableCode code="locationsId, migrationJobsId, projectsId" /> | Generate a TCP Proxy configuration script to configure a cloud-hosted VM running a TCP Proxy. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, migrationJobsId, projectsId" /> | Updates the parameters of a single migration job. |
 | <CopyableCode code="promote" /> | `EXEC` | <CopyableCode code="locationsId, migrationJobsId, projectsId" /> | Promote a migration job, stopping replication to the destination and promoting the destination to be a standalone database. |
 | <CopyableCode code="restart" /> | `EXEC` | <CopyableCode code="locationsId, migrationJobsId, projectsId" /> | Restart a stopped or failed migration job, resetting the destination instance to its original state and starting the migration process from scratch. |
 | <CopyableCode code="resume" /> | `EXEC` | <CopyableCode code="locationsId, migrationJobsId, projectsId" /> | Resume a migration job that is currently stopped and is resumable (was stopped during CDC phase). |

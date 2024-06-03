@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>releases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="clouddeploy.releases" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.clouddeploy.releases" /></td></tr>
 </tbody></table>
 
 ## Fields

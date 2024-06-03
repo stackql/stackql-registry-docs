@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>peerings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="managedidentities.peerings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.managedidentities.peerings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists Peerings in a given project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a Peering for Managed AD instance. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="peeringsId, projectsId" /> | Deletes identified Peering. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="peeringsId, projectsId" /> | Updates the labels for specified Peering. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists Peerings in a given project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="peeringsId, projectsId" /> | Updates the labels for specified Peering. |

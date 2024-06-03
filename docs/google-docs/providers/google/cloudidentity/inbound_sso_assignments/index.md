@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>inbound_sso_assignments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudidentity.inbound_sso_assignments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudidentity.inbound_sso_assignments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` |  | Lists the InboundSsoAssignments for a `Customer`. |
 | <CopyableCode code="create" /> | `INSERT` |  | Creates an InboundSsoAssignment for users and devices in a `Customer` under a given `Group` or `OrgUnit`. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="inboundSsoAssignmentsId" /> | Deletes an InboundSsoAssignment. To disable SSO, Create (or Update) an assignment that has `sso_mode` == `SSO_OFF`. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="inboundSsoAssignmentsId" /> | Updates an InboundSsoAssignment. The body of this request is the `inbound_sso_assignment` field and the `update_mask` is relative to that. For example: a PATCH to `/v1/inboundSsoAssignments/0abcdefg1234567&update_mask=rank` with a body of `&#123; "rank": 1 &#125;` moves that (presumably group-targeted) SSO assignment to the highest priority and shifts any other group-targeted assignments down in priority. |
 | <CopyableCode code="_list" /> | `EXEC` |  | Lists the InboundSsoAssignments for a `Customer`. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="inboundSsoAssignmentsId" /> | Updates an InboundSsoAssignment. The body of this request is the `inbound_sso_assignment` field and the `update_mask` is relative to that. For example: a PATCH to `/v1/inboundSsoAssignments/0abcdefg1234567&update_mask=rank` with a body of `&#123; "rank": 1 &#125;` moves that (presumably group-targeted) SSO assignment to the highest priority and shifts any other group-targeted assignments down in priority. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hubs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networkconnectivity.hubs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkconnectivity.hubs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,7 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the Network Connectivity Center hubs associated with a given project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new Network Connectivity Center hub in the specified project. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="hubsId, projectsId" /> | Deletes a Network Connectivity Center hub. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="hubsId, projectsId" /> | Updates the description and/or labels of a Network Connectivity Center hub. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the Network Connectivity Center hubs associated with a given project. |
 | <CopyableCode code="accept_spoke" /> | `EXEC` | <CopyableCode code="hubsId, projectsId" /> | Accepts a proposal to attach a Network Connectivity Center spoke to a hub. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="hubsId, projectsId" /> | Updates the description and/or labels of a Network Connectivity Center hub. |
 | <CopyableCode code="reject_spoke" /> | `EXEC` | <CopyableCode code="hubsId, projectsId" /> | Rejects a Network Connectivity Center spoke from being attached to a hub. If the spoke was previously in the `ACTIVE` state, it transitions to the `INACTIVE` state and is no longer able to connect to other spokes that are attached to the hub. |

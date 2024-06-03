@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_network_firewall_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.region_network_firewall_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_network_firewall_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,6 +52,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Lists all the network firewall policies that have been configured for the specified project in the given region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a new network firewall policy in the specified project and region. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="firewallPolicy, project, region" /> | Deletes the specified network firewall policy. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="firewallPolicy, project, region" /> | Patches the specified network firewall policy. |
 | <CopyableCode code="clone_rules" /> | `EXEC` | <CopyableCode code="firewallPolicy, project, region" /> | Copies rules to the specified network firewall policy. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="firewallPolicy, project, region" /> | Patches the specified network firewall policy. |
 | <CopyableCode code="patch_rule" /> | `EXEC` | <CopyableCode code="firewallPolicy, project, region" /> | Patches a rule of the specified priority. |

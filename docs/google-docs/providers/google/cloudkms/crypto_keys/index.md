@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>crypto_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudkms.crypto_keys" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudkms.crypto_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,7 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="cryptoKeysId, keyRingsId, locationsId, projectsId" /> | Returns metadata for a given CryptoKey, as well as its primary CryptoKeyVersion. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="keyRingsId, locationsId, projectsId" /> | Lists CryptoKeys. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="keyRingsId, locationsId, projectsId" /> | Create a new CryptoKey within a KeyRing. CryptoKey.purpose and CryptoKey.version_template.algorithm are required. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="cryptoKeysId, keyRingsId, locationsId, projectsId" /> | Update a CryptoKey. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="keyRingsId, locationsId, projectsId" /> | Lists CryptoKeys. |
 | <CopyableCode code="decrypt" /> | `EXEC` | <CopyableCode code="cryptoKeysId, keyRingsId, locationsId, projectsId" /> | Decrypts data that was protected by Encrypt. The CryptoKey.purpose must be ENCRYPT_DECRYPT. |
 | <CopyableCode code="encrypt" /> | `EXEC` | <CopyableCode code="cryptoKeysId, keyRingsId, locationsId, projectsId" /> | Encrypts data, so that it can only be recovered by a call to Decrypt. The CryptoKey.purpose must be ENCRYPT_DECRYPT. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="cryptoKeysId, keyRingsId, locationsId, projectsId" /> | Update a CryptoKey. |

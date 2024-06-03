@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>endpoint_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networkservices.endpoint_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkservices.endpoint_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,5 +48,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists EndpointPolicies in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new EndpointPolicy in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointPoliciesId, locationsId, projectsId" /> | Deletes a single EndpointPolicy. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="endpointPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single EndpointPolicy. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists EndpointPolicies in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="endpointPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single EndpointPolicy. |

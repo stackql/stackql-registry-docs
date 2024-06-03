@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>taxonomies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datacatalog.taxonomies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datacatalog.taxonomies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,8 +44,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_taxonomies_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all taxonomies in a project in a particular location that you have a permission to view. |
 | <CopyableCode code="projects_locations_taxonomies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a taxonomy in a specified project. The taxonomy is initially empty, that is, it doesn't contain policy tags. |
 | <CopyableCode code="projects_locations_taxonomies_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Deletes a taxonomy, including all policy tags in this taxonomy, their associated policies, and the policy tags references from BigQuery columns. |
+| <CopyableCode code="projects_locations_taxonomies_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Updates a taxonomy, including its display name, description, and activated policy types. |
 | <CopyableCode code="_projects_locations_taxonomies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all taxonomies in a project in a particular location that you have a permission to view. |
 | <CopyableCode code="projects_locations_taxonomies_export" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Exports taxonomies in the requested type and returns them, including their policy tags. The requested taxonomies must belong to the same project. This method generates `SerializedTaxonomy` protocol buffers with nested policy tags that can be used as input for `ImportTaxonomies` calls. |
 | <CopyableCode code="projects_locations_taxonomies_import" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Creates new taxonomies (including their policy tags) in a given project by importing from inlined or cross-regional sources. For a cross-regional source, new taxonomies are created by copying from a source in another region. For an inlined source, taxonomies and policy tags are created in bulk using nested protocol buffer structures. |
-| <CopyableCode code="projects_locations_taxonomies_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Updates a taxonomy, including its display name, description, and activated policy types. |
 | <CopyableCode code="projects_locations_taxonomies_replace" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Replaces (updates) a taxonomy and all its policy tags. The taxonomy and its entire hierarchy of policy tags must be represented literally by `SerializedTaxonomy` and the nested `SerializedPolicyTag` messages. This operation automatically does the following: - Deletes the existing policy tags that are missing from the `SerializedPolicyTag`. - Creates policy tags that don't have resource names. They are considered new. - Updates policy tags with valid resources names accordingly. |

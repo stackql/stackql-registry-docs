@@ -34,7 +34,7 @@ Cloud Spanner is a managed, mission-critical, globally consistent and scalable r
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Spanner API</td></tr>
 <tr><td><b>Description</b></td><td>Cloud Spanner is a managed, mission-critical, globally consistent and scalable relational database service.</td></tr>
-<tr><td><b>Id</b></td><td><code>spanner:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>spanner:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

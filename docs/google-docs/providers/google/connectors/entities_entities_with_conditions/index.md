@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entities_entities_with_conditions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="connectors.entities_entities_with_conditions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.connectors.entities_entities_with_conditions" /></td></tr>
 </tbody></table>
 
 ## Fields

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>nodes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="sasportal.nodes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.sasportal.nodes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,9 +41,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nodes_nodes_create" /> | `INSERT` | <CopyableCode code="nodesId" /> | Creates a new node. |
 | <CopyableCode code="nodes_nodes_nodes_create" /> | `INSERT` | <CopyableCode code="nodesId, nodesId1" /> | Creates a new node. |
 | <CopyableCode code="nodes_nodes_delete" /> | `DELETE` | <CopyableCode code="nodesId, nodesId1" /> | Deletes a node. |
+| <CopyableCode code="customers_nodes_patch" /> | `UPDATE` | <CopyableCode code="customersId, nodesId" /> | Updates an existing node. |
+| <CopyableCode code="nodes_nodes_patch" /> | `UPDATE` | <CopyableCode code="nodesId, nodesId1" /> | Updates an existing node. |
 | <CopyableCode code="_nodes_nodes_list" /> | `EXEC` | <CopyableCode code="nodesId" /> | Lists nodes. |
 | <CopyableCode code="_nodes_nodes_nodes_list" /> | `EXEC` | <CopyableCode code="nodesId, nodesId1" /> | Lists nodes. |
 | <CopyableCode code="customers_nodes_move" /> | `EXEC` | <CopyableCode code="customersId, nodesId" /> | Moves a node under another node or customer. |
-| <CopyableCode code="customers_nodes_patch" /> | `EXEC` | <CopyableCode code="customersId, nodesId" /> | Updates an existing node. |
 | <CopyableCode code="nodes_nodes_move" /> | `EXEC` | <CopyableCode code="nodesId, nodesId1" /> | Moves a node under another node or customer. |
-| <CopyableCode code="nodes_nodes_patch" /> | `EXEC` | <CopyableCode code="nodesId, nodesId1" /> | Updates an existing node. |

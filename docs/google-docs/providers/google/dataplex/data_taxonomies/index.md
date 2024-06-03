@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_taxonomies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataplex.data_taxonomies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataplex.data_taxonomies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_taxonomies_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists DataTaxonomy resources in a project and location. |
 | <CopyableCode code="projects_locations_data_taxonomies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a DataTaxonomy resource. |
 | <CopyableCode code="projects_locations_data_taxonomies_delete" /> | `DELETE` | <CopyableCode code="dataTaxonomiesId, locationsId, projectsId" /> | Deletes a DataTaxonomy resource. All attributes within the DataTaxonomy must be deleted before the DataTaxonomy can be deleted. |
+| <CopyableCode code="projects_locations_data_taxonomies_patch" /> | `UPDATE` | <CopyableCode code="dataTaxonomiesId, locationsId, projectsId" /> | Updates a DataTaxonomy resource. |
 | <CopyableCode code="_projects_locations_data_taxonomies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists DataTaxonomy resources in a project and location. |
-| <CopyableCode code="projects_locations_data_taxonomies_patch" /> | `EXEC` | <CopyableCode code="dataTaxonomiesId, locationsId, projectsId" /> | Updates a DataTaxonomy resource. |

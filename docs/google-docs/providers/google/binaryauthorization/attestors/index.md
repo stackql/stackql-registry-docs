@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>attestors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="binaryauthorization.attestors" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.binaryauthorization.attestors" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,6 +42,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists attestors. Returns `INVALID_ARGUMENT` if the project does not exist. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates an attestor, and returns a copy of the new attestor. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed, `ALREADY_EXISTS` if the attestor already exists. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="attestorsId, projectsId" /> | Deletes an attestor. Returns `NOT_FOUND` if the attestor does not exist. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="attestorsId, projectsId" /> | Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists attestors. Returns `INVALID_ARGUMENT` if the project does not exist. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="attestorsId, projectsId" /> | Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist. |
 | <CopyableCode code="validate_attestation_occurrence" /> | `EXEC` | <CopyableCode code="attestorsId, projectsId" /> | Returns whether the given `Attestation` for the given image URI was signed by the given `Attestor` |

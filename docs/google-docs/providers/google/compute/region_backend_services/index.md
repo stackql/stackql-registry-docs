@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_backend_services</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.region_backend_services" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_backend_services" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -79,6 +79,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves the list of regional BackendService resources available to the specified project in the given region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a regional BackendService resource in the specified project using the data included in the request. For more information, see Backend services overview. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backendService, project, region" /> | Deletes the specified regional BackendService resource. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="backendService, project, region" /> | Updates the specified regional BackendService resource with the data included in the request. For more information, see Understanding backend services This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backendService, project, region" /> | Updates the specified regional BackendService resource with the data included in the request. For more information, see Understanding backend services This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="backendService, project, region" /> | Updates the specified regional BackendService resource with the data included in the request. For more information, see Backend services overview . |
 | <CopyableCode code="set_security_policy" /> | `EXEC` | <CopyableCode code="backendService, project, region" /> | Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="backendService, project, region" /> | Updates the specified regional BackendService resource with the data included in the request. For more information, see Backend services overview . |

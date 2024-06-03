@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>overrides</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.overrides" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.overrides" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -40,5 +40,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_environments_trace_config_overrides_list" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Lists all of the distributed trace configuration overrides in an environment. |
 | <CopyableCode code="organizations_environments_trace_config_overrides_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a trace configuration override. The response contains a system-generated UUID, that can be used to view, update, or delete the configuration override. Use the List API to view the existing trace configuration overrides. |
 | <CopyableCode code="organizations_environments_trace_config_overrides_delete" /> | `DELETE` | <CopyableCode code="environmentsId, organizationsId, overridesId" /> | Deletes a distributed trace configuration override. |
+| <CopyableCode code="organizations_environments_trace_config_overrides_patch" /> | `UPDATE` | <CopyableCode code="environmentsId, organizationsId, overridesId" /> | Updates a distributed trace configuration override. Note that the repeated fields have replace semantics when included in the field mask and that they will be overwritten by the value of the fields in the request body. |
 | <CopyableCode code="_organizations_environments_trace_config_overrides_list" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Lists all of the distributed trace configuration overrides in an environment. |
-| <CopyableCode code="organizations_environments_trace_config_overrides_patch" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId, overridesId" /> | Updates a distributed trace configuration override. Note that the repeated fields have replace semantics when included in the field mask and that they will be overwritten by the value of the fields in the request body. |

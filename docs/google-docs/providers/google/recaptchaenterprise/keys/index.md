@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="recaptchaenterprise.keys" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.recaptchaenterprise.keys" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,6 +46,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Returns the list of all keys that belong to a project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new reCAPTCHA Enterprise key. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="keysId, projectsId" /> | Deletes the specified key. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="keysId, projectsId" /> | Updates the specified key. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Returns the list of all keys that belong to a project. |
 | <CopyableCode code="migrate" /> | `EXEC` | <CopyableCode code="keysId, projectsId" /> | Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls. You must be authenticated as one of the current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="keysId, projectsId" /> | Updates the specified key. |

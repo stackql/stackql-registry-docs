@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>crypto_keys_protected_resources_summary</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="kmsinventory.crypto_keys_protected_resources_summary" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.kmsinventory.crypto_keys_protected_resources_summary" /></td></tr>
 </tbody></table>
 
 ## Fields

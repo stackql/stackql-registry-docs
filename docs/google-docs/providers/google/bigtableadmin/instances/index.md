@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigtableadmin.instances" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigtableadmin.instances" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,6 +45,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists information about instances in a project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Create an instance within a project. Note that exactly one of Cluster.serve_nodes and Cluster.cluster_config.cluster_autoscaling_config can be set. If serve_nodes is set to non-zero, then the cluster is manually scaled. If cluster_config.cluster_autoscaling_config is non-empty, then autoscaling is enabled. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instancesId, projectsId" /> | Delete an instance from a project. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="instancesId, projectsId" /> | Updates an instance within a project. This method updates only the display name and type for an Instance. To update other Instance properties, such as labels, use PartialUpdateInstance. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists information about instances in a project. |
 | <CopyableCode code="partial_update_instance" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Partially updates an instance within a project. This method can modify all fields of an Instance and is the preferred way to update an Instance. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Updates an instance within a project. This method updates only the display name and type for an Instance. To update other Instance properties, such as labels, use PartialUpdateInstance. |

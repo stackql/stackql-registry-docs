@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataproc.jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataproc.jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -58,8 +58,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_regions_jobs_get" /> | `SELECT` | <CopyableCode code="jobId, projectId, region" /> | Gets the resource representation for a job in a project. |
 | <CopyableCode code="projects_regions_jobs_list" /> | `SELECT` | <CopyableCode code="projectId, region" /> | Lists regions/&#123;region&#125;/jobs in a project. |
 | <CopyableCode code="projects_regions_jobs_delete" /> | `DELETE` | <CopyableCode code="jobId, projectId, region" /> | Deletes the job from the project. If the job is active, the delete fails, and the response returns FAILED_PRECONDITION. |
+| <CopyableCode code="projects_regions_jobs_patch" /> | `UPDATE` | <CopyableCode code="jobId, projectId, region" /> | Updates a job in a project. |
 | <CopyableCode code="_projects_regions_jobs_list" /> | `EXEC` | <CopyableCode code="projectId, region" /> | Lists regions/&#123;region&#125;/jobs in a project. |
 | <CopyableCode code="projects_regions_jobs_cancel" /> | `EXEC` | <CopyableCode code="jobId, projectId, region" /> | Starts a job cancellation request. To access the job resource after cancellation, call regions/&#123;region&#125;/jobs.list (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/list) or regions/&#123;region&#125;/jobs.get (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/get). |
-| <CopyableCode code="projects_regions_jobs_patch" /> | `EXEC` | <CopyableCode code="jobId, projectId, region" /> | Updates a job in a project. |
 | <CopyableCode code="projects_regions_jobs_submit" /> | `EXEC` | <CopyableCode code="projectId, region" /> | Submits a job to a cluster. |
 | <CopyableCode code="projects_regions_jobs_submit_as_operation" /> | `EXEC` | <CopyableCode code="projectId, region" /> | Submits job to a cluster. |

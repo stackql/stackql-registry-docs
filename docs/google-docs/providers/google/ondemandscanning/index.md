@@ -34,7 +34,7 @@ A service to scan container images for vulnerabilities.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>On-Demand Scanning API</td></tr>
 <tr><td><b>Description</b></td><td>A service to scan container images for vulnerabilities.</td></tr>
-<tr><td><b>Id</b></td><td><code>ondemandscanning:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>ondemandscanning:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

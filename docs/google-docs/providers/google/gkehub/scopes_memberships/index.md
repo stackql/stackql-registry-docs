@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scopes_memberships</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.scopes_memberships" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.scopes_memberships" /></td></tr>
 </tbody></table>
 
 ## Fields

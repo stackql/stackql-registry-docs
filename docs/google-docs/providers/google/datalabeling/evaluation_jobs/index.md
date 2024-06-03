@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>evaluation_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datalabeling.evaluation_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datalabeling.evaluation_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,7 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_evaluation_jobs_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists all evaluation jobs within a project with possible filters. Pagination is supported. |
 | <CopyableCode code="projects_evaluation_jobs_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates an evaluation job. |
 | <CopyableCode code="projects_evaluation_jobs_delete" /> | `DELETE` | <CopyableCode code="evaluationJobsId, projectsId" /> | Stops and deletes an evaluation job. |
+| <CopyableCode code="projects_evaluation_jobs_patch" /> | `UPDATE` | <CopyableCode code="evaluationJobsId, projectsId" /> | Updates an evaluation job. You can only update certain fields of the job's EvaluationJobConfig: `humanAnnotationConfig.instruction`, `exampleCount`, and `exampleSamplePercentage`. If you want to change any other aspect of the evaluation job, you must delete the job and create a new one. |
 | <CopyableCode code="_projects_evaluation_jobs_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists all evaluation jobs within a project with possible filters. Pagination is supported. |
-| <CopyableCode code="projects_evaluation_jobs_patch" /> | `EXEC` | <CopyableCode code="evaluationJobsId, projectsId" /> | Updates an evaluation job. You can only update certain fields of the job's EvaluationJobConfig: `humanAnnotationConfig.instruction`, `exampleCount`, and `exampleSamplePercentage`. If you want to change any other aspect of the evaluation job, you must delete the job and create a new one. |
 | <CopyableCode code="projects_evaluation_jobs_pause" /> | `EXEC` | <CopyableCode code="evaluationJobsId, projectsId" /> | Pauses an evaluation job. Pausing an evaluation job that is already in a `PAUSED` state is a no-op. |
 | <CopyableCode code="projects_evaluation_jobs_resume" /> | `EXEC` | <CopyableCode code="evaluationJobsId, projectsId" /> | Resumes a paused evaluation job. A deleted evaluation job can't be resumed. Resuming a running or scheduled evaluation job is a no-op. |

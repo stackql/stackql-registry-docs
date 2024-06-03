@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>runs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datalineage.runs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datalineage.runs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,5 +43,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, processesId, projectsId" /> | Lists runs in the given project and location. List order is descending by `start_time`. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, processesId, projectsId" /> | Creates a new run. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, processesId, projectsId, runsId" /> | Deletes the run with the specified name. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, processesId, projectsId, runsId" /> | Updates a run. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, processesId, projectsId" /> | Lists runs in the given project and location. List order is descending by `start_time`. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, processesId, projectsId, runsId" /> | Updates a run. |

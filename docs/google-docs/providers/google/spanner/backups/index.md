@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="spanner.backups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.spanner.backups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,6 +50,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_instances_backups_list" /> | `SELECT` | <CopyableCode code="instancesId, projectsId" /> | Lists completed and pending backups. Backups returned are ordered by `create_time` in descending order, starting from the most recent `create_time`. |
 | <CopyableCode code="projects_instances_backups_create" /> | `INSERT` | <CopyableCode code="instancesId, projectsId" /> | Starts creating a new Cloud Spanner Backup. The returned backup long-running operation will have a name of the format `projects//instances//backups//operations/` and can be used to track creation of the backup. The metadata field type is CreateBackupMetadata. The response field type is Backup, if successful. Cancelling the returned operation will stop the creation and delete the backup. There can be only one pending backup creation per database. Backup creation of different databases can run concurrently. |
 | <CopyableCode code="projects_instances_backups_delete" /> | `DELETE` | <CopyableCode code="backupsId, instancesId, projectsId" /> | Deletes a pending or completed Backup. |
+| <CopyableCode code="projects_instances_backups_patch" /> | `UPDATE` | <CopyableCode code="backupsId, instancesId, projectsId" /> | Updates a pending or completed Backup. |
 | <CopyableCode code="_projects_instances_backups_list" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Lists completed and pending backups. Backups returned are ordered by `create_time` in descending order, starting from the most recent `create_time`. |
 | <CopyableCode code="projects_instances_backups_copy" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Starts copying a Cloud Spanner Backup. The returned backup long-running operation will have a name of the format `projects//instances//backups//operations/` and can be used to track copying of the backup. The operation is associated with the destination backup. The metadata field type is CopyBackupMetadata. The response field type is Backup, if successful. Cancelling the returned operation will stop the copying and delete the destination backup. Concurrent CopyBackup requests can run on the same source backup. |
-| <CopyableCode code="projects_instances_backups_patch" /> | `EXEC` | <CopyableCode code="backupsId, instancesId, projectsId" /> | Updates a pending or completed Backup. |

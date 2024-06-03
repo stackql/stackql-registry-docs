@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>scan_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="websecurityscanner.scan_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.websecurityscanner.scan_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,6 +50,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists ScanConfigs under a given project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new ScanConfig. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="projectsId, scanConfigsId" /> | Deletes an existing ScanConfig and its child resources. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="projectsId, scanConfigsId" /> | Updates a ScanConfig. This method support partial update of a ScanConfig. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists ScanConfigs under a given project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="projectsId, scanConfigsId" /> | Updates a ScanConfig. This method support partial update of a ScanConfig. |
 | <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="projectsId, scanConfigsId" /> | Start a ScanRun according to the given ScanConfig. |

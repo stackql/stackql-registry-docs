@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>private_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datastream.private_connections" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datastream.private_connections" /></td></tr>
 </tbody></table>
 
 ## Fields

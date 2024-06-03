@@ -34,7 +34,7 @@ Discovery Engine API.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Discovery Engine API</td></tr>
 <tr><td><b>Description</b></td><td>Discovery Engine API.</td></tr>
-<tr><td><b>Id</b></td><td><code>discoveryengine:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>discoveryengine:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

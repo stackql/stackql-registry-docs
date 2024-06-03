@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>artifacts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.artifacts" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.artifacts" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,7 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Lists Artifacts in the MetadataStore. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Creates an Artifact associated with a MetadataStore. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="artifactsId, locationsId, metadataStoresId, projectsId" /> | Deletes an Artifact. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="artifactsId, locationsId, metadataStoresId, projectsId" /> | Updates a stored Artifact. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Lists Artifacts in the MetadataStore. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="artifactsId, locationsId, metadataStoresId, projectsId" /> | Updates a stored Artifact. |
 | <CopyableCode code="purge" /> | `EXEC` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Purges Artifacts. |
 | <CopyableCode code="query_artifact_lineage_subgraph" /> | `EXEC` | <CopyableCode code="artifactsId, locationsId, metadataStoresId, projectsId" /> | Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph. |

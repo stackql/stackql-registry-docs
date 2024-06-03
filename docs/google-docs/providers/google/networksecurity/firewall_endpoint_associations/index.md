@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewall_endpoint_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.firewall_endpoint_associations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.firewall_endpoint_associations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_firewall_endpoint_associations_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Associations in a given project and location. |
 | <CopyableCode code="projects_locations_firewall_endpoint_associations_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new FirewallEndpointAssociation in a given project and location. |
 | <CopyableCode code="projects_locations_firewall_endpoint_associations_delete" /> | `DELETE` | <CopyableCode code="firewallEndpointAssociationsId, locationsId, projectsId" /> | Deletes a single FirewallEndpointAssociation. |
+| <CopyableCode code="projects_locations_firewall_endpoint_associations_patch" /> | `UPDATE` | <CopyableCode code="firewallEndpointAssociationsId, locationsId, projectsId" /> | Update a single FirewallEndpointAssociation. |
 | <CopyableCode code="_projects_locations_firewall_endpoint_associations_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Associations in a given project and location. |
-| <CopyableCode code="projects_locations_firewall_endpoint_associations_patch" /> | `EXEC` | <CopyableCode code="firewallEndpointAssociationsId, locationsId, projectsId" /> | Update a single FirewallEndpointAssociation. |

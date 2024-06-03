@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tag_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datacatalog.tag_templates" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datacatalog.tag_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,4 +41,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_tag_templates_get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, tagTemplatesId" /> | Gets a tag template. |
 | <CopyableCode code="projects_locations_tag_templates_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a tag template. You must enable the Data Catalog API in the project identified by the `parent` parameter. For more information, see [Data Catalog resource project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project). |
 | <CopyableCode code="projects_locations_tag_templates_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, tagTemplatesId" /> | Deletes a tag template and all tags that use it. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). |
-| <CopyableCode code="projects_locations_tag_templates_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, tagTemplatesId" /> | Updates a tag template. You can't update template fields with this method. These fields are separate resources with their own create, update, and delete methods. You must enable the Data Catalog API in the project identified by the `tag_template.name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). |
+| <CopyableCode code="projects_locations_tag_templates_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, tagTemplatesId" /> | Updates a tag template. You can't update template fields with this method. These fields are separate resources with their own create, update, and delete methods. You must enable the Data Catalog API in the project identified by the `tag_template.name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). |

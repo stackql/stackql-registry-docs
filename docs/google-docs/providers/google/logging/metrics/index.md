@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>metrics</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="logging.metrics" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.logging.metrics" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_metrics_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists logs-based metrics. |
 | <CopyableCode code="projects_metrics_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a logs-based metric. |
 | <CopyableCode code="projects_metrics_delete" /> | `DELETE` | <CopyableCode code="metricsId, projectsId" /> | Deletes a logs-based metric. |
+| <CopyableCode code="projects_metrics_update" /> | `UPDATE` | <CopyableCode code="metricsId, projectsId" /> | Creates or updates a logs-based metric. |
 | <CopyableCode code="_projects_metrics_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists logs-based metrics. |
-| <CopyableCode code="projects_metrics_update" /> | `EXEC` | <CopyableCode code="metricsId, projectsId" /> | Creates or updates a logs-based metric. |

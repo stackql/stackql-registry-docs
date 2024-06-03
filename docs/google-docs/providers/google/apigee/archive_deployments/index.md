@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>archive_deployments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.archive_deployments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.archive_deployments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,7 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_environments_archive_deployments_list" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Lists the ArchiveDeployments in the specified Environment. |
 | <CopyableCode code="organizations_environments_archive_deployments_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a new ArchiveDeployment. |
 | <CopyableCode code="organizations_environments_archive_deployments_delete" /> | `DELETE` | <CopyableCode code="archiveDeploymentsId, environmentsId, organizationsId" /> | Deletes an archive deployment. |
+| <CopyableCode code="organizations_environments_archive_deployments_patch" /> | `UPDATE` | <CopyableCode code="archiveDeploymentsId, environmentsId, organizationsId" /> | Updates an existing ArchiveDeployment. Labels can modified but most of the other fields are not modifiable. |
 | <CopyableCode code="_organizations_environments_archive_deployments_list" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Lists the ArchiveDeployments in the specified Environment. |
 | <CopyableCode code="organizations_environments_archive_deployments_generate_download_url" /> | `EXEC` | <CopyableCode code="archiveDeploymentsId, environmentsId, organizationsId" /> | Generates a signed URL for downloading the original zip file used to create an Archive Deployment. The URL is only valid for a limited period and should be used within minutes after generation. Each call returns a new upload URL. |
 | <CopyableCode code="organizations_environments_archive_deployments_generate_upload_url" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Generates a signed URL for uploading an Archive zip file to Google Cloud Storage. Once the upload is complete, the signed URL should be passed to CreateArchiveDeployment. When uploading to the generated signed URL, please follow these restrictions: * Source file type should be a zip file. * Source file size should not exceed 1GB limit. * No credentials should be attached - the signed URLs provide access to the target bucket using internal service identity; if credentials were attached, the identity from the credentials would be used, but that identity does not have permissions to upload files to the URL. When making a HTTP PUT request, these two headers need to be specified: * `content-type: application/zip` * `x-goog-content-length-range: 0,1073741824` And this header SHOULD NOT be specified: * `Authorization: Bearer YOUR_TOKEN` |
-| <CopyableCode code="organizations_environments_archive_deployments_patch" /> | `EXEC` | <CopyableCode code="archiveDeploymentsId, environmentsId, organizationsId" /> | Updates an existing ArchiveDeployment. Labels can modified but most of the other fields are not modifiable. |

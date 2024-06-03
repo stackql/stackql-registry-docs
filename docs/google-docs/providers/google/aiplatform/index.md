@@ -34,7 +34,7 @@ Train high-quality custom machine learning models with minimal machine learning 
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Vertex AI API</td></tr>
 <tr><td><b>Description</b></td><td>Train high-quality custom machine learning models with minimal machine learning expertise and effort.</td></tr>
-<tr><td><b>Id</b></td><td><code>aiplatform:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>aiplatform:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

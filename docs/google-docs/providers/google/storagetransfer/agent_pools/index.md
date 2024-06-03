@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>agent_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="storagetransfer.agent_pools" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storagetransfer.agent_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,5 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists agent pools. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates an agent pool resource. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="agentPoolsId, projectsId" /> | Deletes an agent pool. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="agentPoolsId, projectsId" /> | Updates an existing agent pool resource. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists agent pools. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="agentPoolsId, projectsId" /> | Updates an existing agent pool resource. |

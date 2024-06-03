@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>memberships</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkehub.memberships" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkehub.memberships" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,6 +50,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_memberships_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Memberships in a given project and location. |
 | <CopyableCode code="projects_locations_memberships_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Membership. **This is currently only supported for GKE clusters on Google Cloud**. To register other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster. |
 | <CopyableCode code="projects_locations_memberships_delete" /> | `DELETE` | <CopyableCode code="locationsId, membershipsId, projectsId" /> | Removes a Membership. **This is currently only supported for GKE clusters on Google Cloud**. To unregister other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster. |
+| <CopyableCode code="projects_locations_memberships_patch" /> | `UPDATE` | <CopyableCode code="locationsId, membershipsId, projectsId" /> | Updates an existing Membership. |
 | <CopyableCode code="_projects_locations_memberships_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Memberships in a given project and location. |
 | <CopyableCode code="projects_locations_memberships_generate_connect_manifest" /> | `EXEC` | <CopyableCode code="locationsId, membershipsId, projectsId" /> | Generates the manifest for deployment of the GKE connect agent. **This method is used internally by Google-provided libraries.** Most clients should not need to call this method directly. |
-| <CopyableCode code="projects_locations_memberships_patch" /> | `EXEC` | <CopyableCode code="locationsId, membershipsId, projectsId" /> | Updates an existing Membership. |

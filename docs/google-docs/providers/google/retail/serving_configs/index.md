@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>serving_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="retail.serving_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.retail.serving_configs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -57,7 +57,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_catalogs_serving_configs_list" /> | `SELECT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Lists all ServingConfigs linked to this catalog. |
 | <CopyableCode code="projects_locations_catalogs_serving_configs_create" /> | `INSERT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Creates a ServingConfig. A maximum of 100 ServingConfigs are allowed in a Catalog, otherwise a FAILED_PRECONDITION error is returned. |
 | <CopyableCode code="projects_locations_catalogs_serving_configs_delete" /> | `DELETE` | <CopyableCode code="catalogsId, locationsId, projectsId, servingConfigsId" /> | Deletes a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. |
+| <CopyableCode code="projects_locations_catalogs_serving_configs_patch" /> | `UPDATE` | <CopyableCode code="catalogsId, locationsId, projectsId, servingConfigsId" /> | Updates a ServingConfig. |
 | <CopyableCode code="_projects_locations_catalogs_serving_configs_list" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Lists all ServingConfigs linked to this catalog. |
-| <CopyableCode code="projects_locations_catalogs_serving_configs_patch" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId, servingConfigsId" /> | Updates a ServingConfig. |
 | <CopyableCode code="projects_locations_catalogs_serving_configs_predict" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId, servingConfigsId" /> | Makes a recommendation prediction. |
 | <CopyableCode code="projects_locations_catalogs_serving_configs_search" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId, servingConfigsId" /> | Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. |

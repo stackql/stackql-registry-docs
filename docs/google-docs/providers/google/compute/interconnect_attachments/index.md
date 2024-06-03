@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>interconnect_attachments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.interconnect_attachments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.interconnect_attachments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -78,6 +78,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves the list of interconnect attachments contained within the specified region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates an InterconnectAttachment in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="interconnectAttachment, project, region" /> | Deletes the specified interconnect attachment. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="interconnectAttachment, project, region" /> | Updates the specified interconnect attachment with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
 | <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of interconnect attachments. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="interconnectAttachment, project, region" /> | Updates the specified interconnect attachment with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Sets the labels on an InterconnectAttachment. To learn more about labels, read the Labeling Resources documentation. |

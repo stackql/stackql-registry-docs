@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>assets_security_marks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="securitycenter.assets_security_marks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.securitycenter.assets_security_marks" /></td></tr>
 </tbody></table>
 
 ## Fields

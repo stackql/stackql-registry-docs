@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>session_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dataproc.session_templates" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dataproc.session_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_session_templates_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists session templates. |
 | <CopyableCode code="projects_locations_session_templates_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a session template synchronously. |
 | <CopyableCode code="projects_locations_session_templates_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, sessionTemplatesId" /> | Deletes a session template. |
+| <CopyableCode code="projects_locations_session_templates_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, sessionTemplatesId" /> | Updates the session template synchronously. |
 | <CopyableCode code="_projects_locations_session_templates_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists session templates. |
-| <CopyableCode code="projects_locations_session_templates_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sessionTemplatesId" /> | Updates the session template synchronously. |

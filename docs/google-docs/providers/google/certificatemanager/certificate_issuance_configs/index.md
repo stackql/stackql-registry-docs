@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_issuance_configs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="certificatemanager.certificate_issuance_configs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.certificatemanager.certificate_issuance_configs" /></td></tr>
 </tbody></table>
 
 ## Fields

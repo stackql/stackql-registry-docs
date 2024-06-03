@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_autoscalers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.region_autoscalers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_autoscalers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,5 +51,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of autoscalers contained within the specified region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates an autoscaler in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="autoscaler, project, region" /> | Deletes the specified autoscaler. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, region" /> | Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, region" /> | Updates an autoscaler in the specified project using the data included in the request. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, region" /> | Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="project, region" /> | Updates an autoscaler in the specified project using the data included in the request. |

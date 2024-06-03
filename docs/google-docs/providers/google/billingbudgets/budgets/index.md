@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>budgets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="billingbudgets.budgets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.billingbudgets.budgets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="billingAccountsId" /> | Returns a list of budgets for a billing account. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. When reading from the API, you will not see these fields in the return value, though they may have been set in the Cloud Console. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="billingAccountsId" /> | Creates a new budget. See [Quotas and limits](https://cloud.google.com/billing/quotas) for more information on the limits of the number of budgets you can create. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="billingAccountsId, budgetsId" /> | Deletes a budget. Returns successfully if already deleted. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="billingAccountsId, budgetsId" /> | Updates a budget and returns the updated budget. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. Budget fields that are not exposed in this API will not be changed by this method. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="billingAccountsId" /> | Returns a list of budgets for a billing account. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. When reading from the API, you will not see these fields in the return value, though they may have been set in the Cloud Console. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="billingAccountsId, budgetsId" /> | Updates a budget and returns the updated budget. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. Budget fields that are not exposed in this API will not be changed by this method. |

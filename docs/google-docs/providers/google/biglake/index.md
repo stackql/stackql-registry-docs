@@ -34,7 +34,7 @@ The BigLake API provides access to BigLake Metastore, a serverless, fully manage
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigLake API</td></tr>
 <tr><td><b>Description</b></td><td>The BigLake API provides access to BigLake Metastore, a serverless, fully managed, and highly available metastore for open-source data that can be used for querying Apache Iceberg tables in BigQuery.</td></tr>
-<tr><td><b>Id</b></td><td><code>biglake:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>biglake:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

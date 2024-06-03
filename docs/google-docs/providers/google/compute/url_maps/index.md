@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>url_maps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.url_maps" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.url_maps" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,7 +52,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of UrlMap resources available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a UrlMap resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, urlMap" /> | Deletes the specified UrlMap resource. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, urlMap" /> | Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="project, urlMap" /> | Updates the specified UrlMap resource with the data included in the request. |
 | <CopyableCode code="invalidate_cache" /> | `EXEC` | <CopyableCode code="project, urlMap" /> | Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap. For more information, see [Invalidating cached content](/cdn/docs/invalidating-cached-content). |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, urlMap" /> | Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, urlMap" /> | Updates the specified UrlMap resource with the data included in the request. |
 | <CopyableCode code="validate" /> | `EXEC` | <CopyableCode code="project, urlMap" /> | Runs static validation for the UrlMap. In particular, the tests of the provided UrlMap will be run. Calling this method does NOT create the UrlMap. |

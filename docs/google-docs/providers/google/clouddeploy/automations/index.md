@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>automations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="clouddeploy.automations" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.clouddeploy.automations" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -49,5 +49,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Lists Automations in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Creates a new Automation in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="automationsId, deliveryPipelinesId, locationsId, projectsId" /> | Deletes a single Automation resource. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="automationsId, deliveryPipelinesId, locationsId, projectsId" /> | Updates the parameters of a single Automation resource. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Lists Automations in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="automationsId, deliveryPipelinesId, locationsId, projectsId" /> | Updates the parameters of a single Automation resource. |

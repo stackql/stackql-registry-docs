@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigeeregistry.versions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigeeregistry.versions" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,5 +46,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_apis_versions_list" /> | `SELECT` | <CopyableCode code="apisId, locationsId, projectsId" /> | Returns matching versions. |
 | <CopyableCode code="projects_locations_apis_versions_create" /> | `INSERT` | <CopyableCode code="apisId, locationsId, projectsId" /> | Creates a specified version. |
 | <CopyableCode code="projects_locations_apis_versions_delete" /> | `DELETE` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Removes a specified version and all of the resources that it owns. |
+| <CopyableCode code="projects_locations_apis_versions_patch" /> | `UPDATE` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Used to modify a specified version. |
 | <CopyableCode code="_projects_locations_apis_versions_list" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId" /> | Returns matching versions. |
-| <CopyableCode code="projects_locations_apis_versions_patch" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Used to modify a specified version. |

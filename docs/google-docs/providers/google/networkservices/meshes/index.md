@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>meshes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networkservices.meshes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkservices.meshes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Meshes in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Mesh in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, meshesId, projectsId" /> | Deletes a single Mesh. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, meshesId, projectsId" /> | Updates the parameters of a single Mesh. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Meshes in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, meshesId, projectsId" /> | Updates the parameters of a single Mesh. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>job_triggers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dlp.job_triggers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dlp.job_triggers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,12 +55,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_job_triggers_delete" /> | `DELETE` | <CopyableCode code="jobTriggersId, locationsId, organizationsId" /> | Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
 | <CopyableCode code="projects_job_triggers_delete" /> | `DELETE` | <CopyableCode code="jobTriggersId, projectsId" /> | Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
 | <CopyableCode code="projects_locations_job_triggers_delete" /> | `DELETE` | <CopyableCode code="jobTriggersId, locationsId, projectsId" /> | Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
+| <CopyableCode code="organizations_locations_job_triggers_patch" /> | `UPDATE` | <CopyableCode code="jobTriggersId, locationsId, organizationsId" /> | Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
+| <CopyableCode code="projects_job_triggers_patch" /> | `UPDATE` | <CopyableCode code="jobTriggersId, projectsId" /> | Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
+| <CopyableCode code="projects_locations_job_triggers_patch" /> | `UPDATE` | <CopyableCode code="jobTriggersId, locationsId, projectsId" /> | Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
 | <CopyableCode code="_organizations_locations_job_triggers_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
 | <CopyableCode code="_projects_job_triggers_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
 | <CopyableCode code="_projects_locations_job_triggers_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
-| <CopyableCode code="organizations_locations_job_triggers_patch" /> | `EXEC` | <CopyableCode code="jobTriggersId, locationsId, organizationsId" /> | Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
 | <CopyableCode code="projects_job_triggers_activate" /> | `EXEC` | <CopyableCode code="jobTriggersId, projectsId" /> | Activate a job trigger. Causes the immediate execute of a trigger instead of waiting on the trigger event to occur. |
-| <CopyableCode code="projects_job_triggers_patch" /> | `EXEC` | <CopyableCode code="jobTriggersId, projectsId" /> | Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |
 | <CopyableCode code="projects_locations_job_triggers_activate" /> | `EXEC` | <CopyableCode code="jobTriggersId, locationsId, projectsId" /> | Activate a job trigger. Causes the immediate execute of a trigger instead of waiting on the trigger event to occur. |
 | <CopyableCode code="projects_locations_job_triggers_hybrid_inspect" /> | `EXEC` | <CopyableCode code="jobTriggersId, locationsId, projectsId" /> | Inspect hybrid content and store findings to a trigger. The inspection will be processed asynchronously. To review the findings monitor the jobs within the trigger. |
-| <CopyableCode code="projects_locations_job_triggers_patch" /> | `EXEC` | <CopyableCode code="jobTriggersId, locationsId, projectsId" /> | Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. |

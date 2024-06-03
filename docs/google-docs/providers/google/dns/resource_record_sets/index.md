@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resource_record_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dns.resource_record_sets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dns.resource_record_sets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,5 +44,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="managedZone, project" /> | Enumerates ResourceRecordSets that you have created but not yet deleted. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="managedZone, project" /> | Creates a new ResourceRecordSet. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="managedZone, name, project, type" /> | Deletes a previously created ResourceRecordSet. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="managedZone, name, project, type" /> | Applies a partial update to an existing ResourceRecordSet. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="managedZone, project" /> | Enumerates ResourceRecordSets that you have created but not yet deleted. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="managedZone, name, project, type" /> | Applies a partial update to an existing ResourceRecordSet. |

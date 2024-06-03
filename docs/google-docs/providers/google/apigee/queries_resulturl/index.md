@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>queries_resulturl</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.queries_resulturl" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.queries_resulturl" /></td></tr>
 </tbody></table>
 
 ## Fields

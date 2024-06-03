@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>autoscalers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.autoscalers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.autoscalers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,6 +52,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves a list of autoscalers contained within the specified zone. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates an autoscaler in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="autoscaler, project, zone" /> | Deletes the specified autoscaler. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, zone" /> | Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="project, zone" /> | Updates an autoscaler in the specified project using the data included in the request. |
 | <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of autoscalers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, zone" /> | Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, zone" /> | Updates an autoscaler in the specified project using the data included in the request. |

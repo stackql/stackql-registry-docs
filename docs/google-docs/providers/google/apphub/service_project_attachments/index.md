@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>service_project_attachments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apphub.service_project_attachments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apphub.service_project_attachments" /></td></tr>
 </tbody></table>
 
 ## Fields

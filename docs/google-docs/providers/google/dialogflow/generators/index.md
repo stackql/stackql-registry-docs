@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>generators</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.generators" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.generators" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -41,5 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_generators_list" /> | `SELECT` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Returns the list of all generators in the specified agent. |
 | <CopyableCode code="projects_locations_agents_generators_create" /> | `INSERT` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Creates a generator in the specified agent. |
 | <CopyableCode code="projects_locations_agents_generators_delete" /> | `DELETE` | <CopyableCode code="agentsId, generatorsId, locationsId, projectsId" /> | Deletes the specified generators. |
+| <CopyableCode code="projects_locations_agents_generators_patch" /> | `UPDATE` | <CopyableCode code="agentsId, generatorsId, locationsId, projectsId" /> | Update the specified generator. |
 | <CopyableCode code="_projects_locations_agents_generators_list" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Returns the list of all generators in the specified agent. |
-| <CopyableCode code="projects_locations_agents_generators_patch" /> | `EXEC` | <CopyableCode code="agentsId, generatorsId, locationsId, projectsId" /> | Update the specified generator. |

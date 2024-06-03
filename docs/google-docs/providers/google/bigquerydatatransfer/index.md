@@ -34,7 +34,7 @@ Schedule queries or transfer external data from SaaS applications to Google BigQ
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>BigQuery Data Transfer API</td></tr>
 <tr><td><b>Description</b></td><td>Schedule queries or transfer external data from SaaS applications to Google BigQuery on a regular basis.</td></tr>
-<tr><td><b>Id</b></td><td><code>bigquerydatatransfer:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>bigquerydatatransfer:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

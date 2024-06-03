@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>connectors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vpcaccess.connectors" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vpcaccess.connectors" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,5 +48,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Serverless VPC Access connectors. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Serverless VPC Access connector, returns an operation. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="connectorsId, locationsId, projectsId" /> | Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="connectorsId, locationsId, projectsId" /> | Updates a Serverless VPC Access connector, returns an operation. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Serverless VPC Access connectors. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="connectorsId, locationsId, projectsId" /> | Updates a Serverless VPC Access connector, returns an operation. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>node_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.node_groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.node_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,8 +55,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves a list of node groups available to the specified project. Note: use nodeGroups.listNodes for more details about each group. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="initialNodeCount, project, zone" /> | Creates a NodeGroup resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="nodeGroup, project, zone" /> | Deletes the specified NodeGroup resource. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="nodeGroup, project, zone" /> | Updates the specified node group. |
 | <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes for more details about each group. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="nodeGroup, project, zone" /> | Updates the specified node group. |
 | <CopyableCode code="perform_maintenance" /> | `EXEC` | <CopyableCode code="nodeGroup, project, zone" /> | Perform maintenance on a subset of nodes in the node group. |
 | <CopyableCode code="set_node_template" /> | `EXEC` | <CopyableCode code="nodeGroup, project, zone" /> | Updates the node template of the node group. |
 | <CopyableCode code="simulate_maintenance_event" /> | `EXEC` | <CopyableCode code="nodeGroup, project, zone" /> | Simulates maintenance event on specified nodes from the node group. |

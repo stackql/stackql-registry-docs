@@ -34,7 +34,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Policy Simulator API</td></tr>
 <tr><td><b>Description</b></td><td> Policy Simulator is a collection of endpoints for creating, running, and viewing a Replay. A `Replay` is a type of simulation that lets you see how your members' access to resources might change if you changed your IAM policy. During a `Replay`, Policy Simulator re-evaluates, or replays, past access attempts under both the current policy and your proposed policy, and compares those results to determine how your members' access might change under the proposed policy.</td></tr>
-<tr><td><b>Id</b></td><td><code>policysimulator:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>policysimulator:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

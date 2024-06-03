@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deidentify_templates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dlp.deidentify_templates" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dlp.deidentify_templates" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,11 +55,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_deidentify_templates_delete" /> | `DELETE` | <CopyableCode code="deidentifyTemplatesId, locationsId, organizationsId" /> | Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
 | <CopyableCode code="projects_deidentify_templates_delete" /> | `DELETE` | <CopyableCode code="deidentifyTemplatesId, projectsId" /> | Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
 | <CopyableCode code="projects_locations_deidentify_templates_delete" /> | `DELETE` | <CopyableCode code="deidentifyTemplatesId, locationsId, projectsId" /> | Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
+| <CopyableCode code="organizations_deidentify_templates_patch" /> | `UPDATE` | <CopyableCode code="deidentifyTemplatesId, organizationsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
+| <CopyableCode code="organizations_locations_deidentify_templates_patch" /> | `UPDATE` | <CopyableCode code="deidentifyTemplatesId, locationsId, organizationsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
+| <CopyableCode code="projects_deidentify_templates_patch" /> | `UPDATE` | <CopyableCode code="deidentifyTemplatesId, projectsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
+| <CopyableCode code="projects_locations_deidentify_templates_patch" /> | `UPDATE` | <CopyableCode code="deidentifyTemplatesId, locationsId, projectsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
 | <CopyableCode code="_organizations_deidentify_templates_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
 | <CopyableCode code="_organizations_locations_deidentify_templates_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
 | <CopyableCode code="_projects_deidentify_templates_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
 | <CopyableCode code="_projects_locations_deidentify_templates_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
-| <CopyableCode code="organizations_deidentify_templates_patch" /> | `EXEC` | <CopyableCode code="deidentifyTemplatesId, organizationsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
-| <CopyableCode code="organizations_locations_deidentify_templates_patch" /> | `EXEC` | <CopyableCode code="deidentifyTemplatesId, locationsId, organizationsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
-| <CopyableCode code="projects_deidentify_templates_patch" /> | `EXEC` | <CopyableCode code="deidentifyTemplatesId, projectsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
-| <CopyableCode code="projects_locations_deidentify_templates_patch" /> | `EXEC` | <CopyableCode code="deidentifyTemplatesId, locationsId, projectsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |

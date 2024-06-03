@@ -34,7 +34,7 @@ Builds and manages container-based applications, powered by the open source Kube
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Kubernetes Engine API</td></tr>
 <tr><td><b>Description</b></td><td>Builds and manages container-based applications, powered by the open source Kubernetes technology.</td></tr>
-<tr><td><b>Id</b></td><td><code>container:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>container:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

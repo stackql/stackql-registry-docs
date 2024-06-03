@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>internal_ranges</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networkconnectivity.internal_ranges" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkconnectivity.internal_ranges" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists internal ranges in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new internal range in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="internalRangesId, locationsId, projectsId" /> | Deletes a single internal range. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="internalRangesId, locationsId, projectsId" /> | Updates the parameters of a single internal range. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists internal ranges in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="internalRangesId, locationsId, projectsId" /> | Updates the parameters of a single internal range. |

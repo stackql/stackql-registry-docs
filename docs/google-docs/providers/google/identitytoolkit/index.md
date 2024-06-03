@@ -34,7 +34,7 @@ Help the third party sites to implement federated login.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Google Identity Toolkit API</td></tr>
 <tr><td><b>Description</b></td><td>Help the third party sites to implement federated login.</td></tr>
-<tr><td><b>Id</b></td><td><code>identitytoolkit:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>identitytoolkit:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

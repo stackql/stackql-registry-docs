@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>annotation_specs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.annotation_specs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.annotation_specs" /></td></tr>
 </tbody></table>
 
 ## Fields

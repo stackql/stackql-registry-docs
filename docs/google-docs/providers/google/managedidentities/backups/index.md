@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="managedidentities.backups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.managedidentities.backups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,5 +44,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="domainsId, projectsId" /> | Lists Backup in a given project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="domainsId, projectsId" /> | Creates a Backup for a domain. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backupsId, domainsId, projectsId" /> | Deletes identified Backup. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backupsId, domainsId, projectsId" /> | Updates the labels for specified Backup. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Lists Backup in a given project. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="backupsId, domainsId, projectsId" /> | Updates the labels for specified Backup. |

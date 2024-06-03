@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>external_addresses</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmwareengine.external_addresses" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmwareengine.external_addresses" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists external IP addresses assigned to VMware workload VMs in a given private cloud. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Creates a new `ExternalAddress` resource in a given private cloud. The network policy that corresponds to the private cloud must have the external IP address network service enabled (`NetworkPolicy.external_ip`). |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="externalAddressesId, locationsId, privateCloudsId, projectsId" /> | Deletes a single external IP address. When you delete an external IP address, connectivity between the external IP address and the corresponding internal IP address is lost. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="externalAddressesId, locationsId, privateCloudsId, projectsId" /> | Updates the parameters of a single external IP address. Only fields specified in `update_mask` are applied. During operation processing, the resource is temporarily in the `ACTIVE` state before the operation fully completes. For that period of time, you can't update the resource. Use the operation status to determine when the processing fully completes. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists external IP addresses assigned to VMware workload VMs in a given private cloud. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="externalAddressesId, locationsId, privateCloudsId, projectsId" /> | Updates the parameters of a single external IP address. Only fields specified in `update_mask` are applied. During operation processing, the resource is temporarily in the `ACTIVE` state before the operation fully completes. For that period of time, you can't update the resource. Use the operation status to determine when the processing fully completes. |

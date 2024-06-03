@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>devices</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="prod_tt_sasportal.devices" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.prod_tt_sasportal.devices" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -62,6 +62,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="customers_devices_delete" /> | `DELETE` | <CopyableCode code="customersId, devicesId" /> | Deletes a device. |
 | <CopyableCode code="deployments_devices_delete" /> | `DELETE` | <CopyableCode code="deploymentsId, devicesId" /> | Deletes a device. |
 | <CopyableCode code="nodes_devices_delete" /> | `DELETE` | <CopyableCode code="devicesId, nodesId" /> | Deletes a device. |
+| <CopyableCode code="customers_devices_patch" /> | `UPDATE` | <CopyableCode code="customersId, devicesId" /> | Updates a device. |
+| <CopyableCode code="deployments_devices_patch" /> | `UPDATE` | <CopyableCode code="deploymentsId, devicesId" /> | Updates a device. |
+| <CopyableCode code="nodes_devices_patch" /> | `UPDATE` | <CopyableCode code="devicesId, nodesId" /> | Updates a device. |
 | <CopyableCode code="_customers_deployments_devices_list" /> | `EXEC` | <CopyableCode code="customersId, deploymentsId" /> | Lists devices under a node or customer. |
 | <CopyableCode code="_customers_devices_list" /> | `EXEC` | <CopyableCode code="customersId" /> | Lists devices under a node or customer. |
 | <CopyableCode code="_customers_nodes_devices_list" /> | `EXEC` | <CopyableCode code="customersId, nodesId" /> | Lists devices under a node or customer. |
@@ -69,11 +72,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="_nodes_devices_list" /> | `EXEC` | <CopyableCode code="nodesId" /> | Lists devices under a node or customer. |
 | <CopyableCode code="_nodes_nodes_devices_list" /> | `EXEC` | <CopyableCode code="nodesId, nodesId1" /> | Lists devices under a node or customer. |
 | <CopyableCode code="customers_devices_move" /> | `EXEC` | <CopyableCode code="customersId, devicesId" /> | Moves a device under another node or customer. |
-| <CopyableCode code="customers_devices_patch" /> | `EXEC` | <CopyableCode code="customersId, devicesId" /> | Updates a device. |
 | <CopyableCode code="customers_devices_sign_device" /> | `EXEC` | <CopyableCode code="customersId, devicesId" /> | Signs a device. |
 | <CopyableCode code="deployments_devices_move" /> | `EXEC` | <CopyableCode code="deploymentsId, devicesId" /> | Moves a device under another node or customer. |
-| <CopyableCode code="deployments_devices_patch" /> | `EXEC` | <CopyableCode code="deploymentsId, devicesId" /> | Updates a device. |
 | <CopyableCode code="deployments_devices_sign_device" /> | `EXEC` | <CopyableCode code="deploymentsId, devicesId" /> | Signs a device. |
 | <CopyableCode code="nodes_devices_move" /> | `EXEC` | <CopyableCode code="devicesId, nodesId" /> | Moves a device under another node or customer. |
-| <CopyableCode code="nodes_devices_patch" /> | `EXEC` | <CopyableCode code="devicesId, nodesId" /> | Updates a device. |
 | <CopyableCode code="nodes_devices_sign_device" /> | `EXEC` | <CopyableCode code="devicesId, nodesId" /> | Signs a device. |

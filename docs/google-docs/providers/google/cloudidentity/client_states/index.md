@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>client_states</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudidentity.client_states" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudidentity.client_states" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clientStatesId, deviceUsersId, devicesId" /> | Gets the client state for the device user |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="deviceUsersId, devicesId" /> | Lists the client states for the given search query. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="clientStatesId, deviceUsersId, devicesId" /> | Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise for Education, and Cloud Identity Premium |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="deviceUsersId, devicesId" /> | Lists the client states for the given search query. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="clientStatesId, deviceUsersId, devicesId" /> | Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise for Education, and Cloud Identity Premium |

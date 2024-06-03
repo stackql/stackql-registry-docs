@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>conversion_workspaces</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="datamigration.conversion_workspaces" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.datamigration.conversion_workspaces" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,13 +47,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists conversion workspaces in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new conversion workspace in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Deletes a single conversion workspace. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Updates the parameters of a single conversion workspace. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists conversion workspaces in a given project and location. |
 | <CopyableCode code="apply" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Applies draft tree onto a specific destination database. |
 | <CopyableCode code="commit" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Marks all the data in the conversion workspace as committed. |
 | <CopyableCode code="convert" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Creates a draft tree schema for the destination database. |
 | <CopyableCode code="describe_conversion_workspace_revisions" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Retrieves a list of committed revisions of a specific conversion workspace. |
 | <CopyableCode code="describe_database_entities" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Describes the database entities tree for a specific conversion workspace and a specific tree type. Database entities are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are simple data objects describing the structure of the client database. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Updates the parameters of a single conversion workspace. |
 | <CopyableCode code="rollback" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Rolls back a conversion workspace to the last committed snapshot. |
 | <CopyableCode code="search_background_jobs" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Searches/lists the background jobs for a specific conversion workspace. The background jobs are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are a way to expose the data plane jobs log. |
 | <CopyableCode code="seed" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Imports a snapshot of the source database into the conversion workspace. |

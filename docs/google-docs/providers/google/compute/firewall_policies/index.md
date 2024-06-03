@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>firewall_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.firewall_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.firewall_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,7 +52,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` |  | Lists all the policies that have been configured for the specified folder or organization. |
 | <CopyableCode code="insert" /> | `INSERT` |  | Creates a new policy in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="firewallPolicy" /> | Deletes the specified policy. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="firewallPolicy" /> | Patches the specified policy with the data included in the request. |
 | <CopyableCode code="clone_rules" /> | `EXEC` | <CopyableCode code="firewallPolicy" /> | Copies rules to the specified firewall policy. |
 | <CopyableCode code="move" /> | `EXEC` | <CopyableCode code="firewallPolicy" /> | Moves the specified firewall policy. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="firewallPolicy" /> | Patches the specified policy with the data included in the request. |
 | <CopyableCode code="patch_rule" /> | `EXEC` | <CopyableCode code="firewallPolicy" /> | Patches a rule of the specified priority. |

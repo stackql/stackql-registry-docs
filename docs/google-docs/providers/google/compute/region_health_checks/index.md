@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_health_checks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.region_health_checks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_health_checks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -56,5 +56,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves the list of HealthCheck resources available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a HealthCheck resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="healthCheck, project, region" /> | Deletes the specified HealthCheck resource. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="healthCheck, project, region" /> | Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="healthCheck, project, region" /> | Updates a HealthCheck resource in the specified project using the data included in the request. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="healthCheck, project, region" /> | Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="healthCheck, project, region" /> | Updates a HealthCheck resource in the specified project using the data included in the request. |

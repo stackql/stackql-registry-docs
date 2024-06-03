@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vmware_admin_clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkeonprem.vmware_admin_clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkeonprem.vmware_admin_clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -61,7 +61,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_vmware_admin_clusters_get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, vmwareAdminClustersId" /> | Gets details of a single VMware admin cluster. |
 | <CopyableCode code="projects_locations_vmware_admin_clusters_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists VMware admin clusters in a given project and location. |
+| <CopyableCode code="projects_locations_vmware_admin_clusters_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, vmwareAdminClustersId" /> | Updates the parameters of a single VMware admin cluster. |
 | <CopyableCode code="_projects_locations_vmware_admin_clusters_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists VMware admin clusters in a given project and location. |
 | <CopyableCode code="projects_locations_vmware_admin_clusters_enroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Enrolls an existing VMware admin cluster to the Anthos On-Prem API within a given project and location. Through enrollment, an existing admin cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster will be expected to be performed through the API. |
-| <CopyableCode code="projects_locations_vmware_admin_clusters_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareAdminClustersId" /> | Updates the parameters of a single VMware admin cluster. |
 | <CopyableCode code="projects_locations_vmware_admin_clusters_unenroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareAdminClustersId" /> | Unenrolls an existing VMware admin cluster from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. |

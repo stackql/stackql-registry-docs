@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>runtime_action_schemas</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="integrations.runtime_action_schemas" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.integrations.runtime_action_schemas" /></td></tr>
 </tbody></table>
 
 ## Fields

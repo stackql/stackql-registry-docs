@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>hmac_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="storage.hmac_keys" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.storage.hmac_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectId" /> | Retrieves a list of HMAC keys matching the criteria. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectId, serviceAccountEmail" /> | Creates a new HMAC key for the specified service account. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accessId, projectId" /> | Deletes an HMAC key. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="accessId, projectId" /> | Updates the state of an HMAC key. See the HMAC Key resource descriptor for valid states. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectId" /> | Retrieves a list of HMAC keys matching the criteria. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accessId, projectId" /> | Updates the state of an HMAC key. See the HMAC Key resource descriptor for valid states. |

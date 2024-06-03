@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>persistent_resources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.persistent_resources" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.persistent_resources" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,6 +51,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists PersistentResources in a Location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a PersistentResource. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, persistentResourcesId, projectsId" /> | Deletes a PersistentResource. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, persistentResourcesId, projectsId" /> | Updates a PersistentResource. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists PersistentResources in a Location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, persistentResourcesId, projectsId" /> | Updates a PersistentResource. |
 | <CopyableCode code="reboot" /> | `EXEC` | <CopyableCode code="locationsId, persistentResourcesId, projectsId" /> | Reboots a PersistentResource. |

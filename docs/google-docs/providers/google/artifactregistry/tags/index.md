@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="artifactregistry.tags" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.artifactregistry.tags" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,5 +39,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Lists tags. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Creates a tag. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId, tagsId" /> | Deletes a tag. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId, tagsId" /> | Updates a tag. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Lists tags. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId, tagsId" /> | Updates a tag. |

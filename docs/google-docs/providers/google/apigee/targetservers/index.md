@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>targetservers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.targetservers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.targetservers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,4 +43,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_environments_targetservers_get" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId, targetserversId" /> | Gets a TargetServer resource. |
 | <CopyableCode code="organizations_environments_targetservers_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a TargetServer in the specified environment. |
 | <CopyableCode code="organizations_environments_targetservers_delete" /> | `DELETE` | <CopyableCode code="environmentsId, organizationsId, targetserversId" /> | Deletes a TargetServer from an environment. Returns the deleted TargetServer resource. |
-| <CopyableCode code="organizations_environments_targetservers_update" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId, targetserversId" /> | Updates an existing TargetServer. Note that this operation has PUT semantics; it will replace the entirety of the existing TargetServer with the resource in the request body. |
+| <CopyableCode code="organizations_environments_targetservers_update" /> | `UPDATE` | <CopyableCode code="environmentsId, organizationsId, targetserversId" /> | Updates an existing TargetServer. Note that this operation has PUT semantics; it will replace the entirety of the existing TargetServer with the resource in the request body. |

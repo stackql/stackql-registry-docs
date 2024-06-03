@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>external_access_rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmwareengine.external_access_rules" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmwareengine.external_access_rules" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, networkPoliciesId, projectsId" /> | Lists `ExternalAccessRule` resources in the specified network policy. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, networkPoliciesId, projectsId" /> | Creates a new external access rule in a given network policy. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="externalAccessRulesId, locationsId, networkPoliciesId, projectsId" /> | Deletes a single external access rule. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="externalAccessRulesId, locationsId, networkPoliciesId, projectsId" /> | Updates the parameters of a single external access rule. Only fields specified in `update_mask` are applied. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, networkPoliciesId, projectsId" /> | Lists `ExternalAccessRule` resources in the specified network policy. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="externalAccessRulesId, locationsId, networkPoliciesId, projectsId" /> | Updates the parameters of a single external access rule. Only fields specified in `update_mask` are applied. |

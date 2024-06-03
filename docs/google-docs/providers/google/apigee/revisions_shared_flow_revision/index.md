@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>revisions_shared_flow_revision</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.revisions_shared_flow_revision" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.revisions_shared_flow_revision" /></td></tr>
 </tbody></table>
 
 ## Fields

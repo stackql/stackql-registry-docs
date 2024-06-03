@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>test_cases</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="dialogflow.test_cases" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.dialogflow.test_cases" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,11 +44,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_test_cases_get" /> | `SELECT` | <CopyableCode code="agentsId, locationsId, projectsId, testCasesId" /> | Gets a test case. |
 | <CopyableCode code="projects_locations_agents_test_cases_list" /> | `SELECT` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Fetches a list of test cases for a given agent. |
 | <CopyableCode code="projects_locations_agents_test_cases_create" /> | `INSERT` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Creates a test case for the given agent. |
+| <CopyableCode code="projects_locations_agents_test_cases_patch" /> | `UPDATE` | <CopyableCode code="agentsId, locationsId, projectsId, testCasesId" /> | Updates the specified test case. |
 | <CopyableCode code="_projects_locations_agents_test_cases_list" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Fetches a list of test cases for a given agent. |
 | <CopyableCode code="projects_locations_agents_test_cases_batch_delete" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Batch deletes test cases. |
 | <CopyableCode code="projects_locations_agents_test_cases_batch_run" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Kicks off a batch run of test cases. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: BatchRunTestCasesMetadata - `response`: BatchRunTestCasesResponse |
 | <CopyableCode code="projects_locations_agents_test_cases_calculate_coverage" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Calculates the test coverage for an agent. |
 | <CopyableCode code="projects_locations_agents_test_cases_export" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Exports the test cases under the agent to a Cloud Storage bucket or a local file. Filter can be applied to export a subset of test cases. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: ExportTestCasesMetadata - `response`: ExportTestCasesResponse |
 | <CopyableCode code="projects_locations_agents_test_cases_import" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Imports the test cases from a Cloud Storage bucket or a local file. It always creates new test cases and won't overwrite any existing ones. The provided ID in the imported test case is neglected. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: ImportTestCasesMetadata - `response`: ImportTestCasesResponse |
-| <CopyableCode code="projects_locations_agents_test_cases_patch" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId, testCasesId" /> | Updates the specified test case. |
 | <CopyableCode code="projects_locations_agents_test_cases_run" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId, testCasesId" /> | Kicks off a test case run. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: RunTestCaseMetadata - `response`: RunTestCaseResponse |

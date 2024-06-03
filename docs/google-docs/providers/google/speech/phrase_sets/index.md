@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>phrase_sets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="speech.phrase_sets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.speech.phrase_sets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,5 +50,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List phrase sets. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a set of phrase hints. Each item in the set can be a single word or a multi-word phrase. The items in the PhraseSet are favored by the recognition model when you send a call that includes the PhraseSet. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, phraseSetsId, projectsId" /> | Delete a phrase set. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, phraseSetsId, projectsId" /> | Update a phrase set. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List phrase sets. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, phraseSetsId, projectsId" /> | Update a phrase set. |

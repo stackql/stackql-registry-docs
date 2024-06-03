@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>backup_plans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkebackup.backup_plans" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkebackup.backup_plans" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -54,5 +54,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists BackupPlans in a given location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new BackupPlan in a given location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backupPlansId, locationsId, projectsId" /> | Deletes an existing BackupPlan. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backupPlansId, locationsId, projectsId" /> | Update a BackupPlan. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists BackupPlans in a given location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="backupPlansId, locationsId, projectsId" /> | Update a BackupPlan. |

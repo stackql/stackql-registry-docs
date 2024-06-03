@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>url_lists</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.url_lists" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.url_lists" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,5 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_url_lists_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists UrlLists in a given project and location. |
 | <CopyableCode code="projects_locations_url_lists_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new UrlList in a given project and location. |
 | <CopyableCode code="projects_locations_url_lists_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, urlListsId" /> | Deletes a single UrlList. |
+| <CopyableCode code="projects_locations_url_lists_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, urlListsId" /> | Updates the parameters of a single UrlList. |
 | <CopyableCode code="_projects_locations_url_lists_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists UrlLists in a given project and location. |
-| <CopyableCode code="projects_locations_url_lists_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, urlListsId" /> | Updates the parameters of a single UrlList. |

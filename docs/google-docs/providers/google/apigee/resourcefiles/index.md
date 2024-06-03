@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>resourcefiles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.resourcefiles" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.resourcefiles" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -40,4 +40,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_environments_resourcefiles_list" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Lists all resource files, optionally filtering by type. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
 | <CopyableCode code="organizations_environments_resourcefiles_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a resource file. Specify the `Content-Type` as `application/octet-stream` or `multipart/form-data`. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
 | <CopyableCode code="organizations_environments_resourcefiles_delete" /> | `DELETE` | <CopyableCode code="environmentsId, name, organizationsId, type" /> | Deletes a resource file. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
-| <CopyableCode code="organizations_environments_resourcefiles_update" /> | `EXEC` | <CopyableCode code="environmentsId, name, organizationsId, type" /> | Updates a resource file. Specify the `Content-Type` as `application/octet-stream` or `multipart/form-data`. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
+| <CopyableCode code="organizations_environments_resourcefiles_update" /> | `UPDATE` | <CopyableCode code="environmentsId, name, organizationsId, type" /> | Updates a resource file. Specify the `Content-Type` as `application/octet-stream` or `multipart/form-data`. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |

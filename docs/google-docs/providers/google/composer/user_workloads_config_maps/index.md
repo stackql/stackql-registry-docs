@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user_workloads_config_maps</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="composer.user_workloads_config_maps" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.composer.user_workloads_config_maps" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,5 +39,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Lists user workloads ConfigMaps. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Creates a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="environmentsId, locationsId, projectsId, userWorkloadsConfigMapsId" /> | Deletes a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="environmentsId, locationsId, projectsId, userWorkloadsConfigMapsId" /> | Updates a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Lists user workloads ConfigMaps. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="environmentsId, locationsId, projectsId, userWorkloadsConfigMapsId" /> | Updates a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |

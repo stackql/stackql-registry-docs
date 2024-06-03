@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user_data_mappings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="healthcare.user_data_mappings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.healthcare.user_data_mappings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,6 +43,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId" /> | Lists the User data mappings in the specified consent store. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId" /> | Creates a new User data mapping in the parent consent store. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId, userDataMappingsId" /> | Deletes the specified User data mapping. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId, userDataMappingsId" /> | Updates the specified User data mapping. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId" /> | Lists the User data mappings in the specified consent store. |
 | <CopyableCode code="archive" /> | `EXEC` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId, userDataMappingsId" /> | Archives the specified User data mapping. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="consentStoresId, datasetsId, locationsId, projectsId, userDataMappingsId" /> | Updates the specified User data mapping. |

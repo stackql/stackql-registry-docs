@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>clusters</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="container.clusters" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.container.clusters" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -111,6 +111,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_zones_clusters_create" /> | `INSERT` | <CopyableCode code="projectId, zone" /> | Creates a cluster, consisting of the specified number and type of Google Compute Engine instances. By default, the cluster is created in the project's [default network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks). One firewall is added for the cluster. After cluster creation, the Kubelet creates routes for each node to allow the containers on that node to communicate with all other instances in the cluster. Finally, an entry is added to the project's global metadata indicating which CIDR range the cluster is using. |
 | <CopyableCode code="projects_locations_clusters_delete" /> | `DELETE` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Deletes the cluster, including the Kubernetes endpoint and all worker nodes. Firewalls and routes that were configured during cluster creation are also deleted. Other Google Compute Engine resources that might be in use by the cluster, such as load balancer resources, are not deleted if they weren't present when the cluster was initially created. |
 | <CopyableCode code="projects_zones_clusters_delete" /> | `DELETE` | <CopyableCode code="clusterId, projectId, zone" /> | Deletes the cluster, including the Kubernetes endpoint and all worker nodes. Firewalls and routes that were configured during cluster creation are also deleted. Other Google Compute Engine resources that might be in use by the cluster, such as load balancer resources, are not deleted if they weren't present when the cluster was initially created. |
+| <CopyableCode code="projects_locations_clusters_update" /> | `UPDATE` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Updates the settings of a specific cluster. |
+| <CopyableCode code="projects_zones_clusters_update" /> | `UPDATE` | <CopyableCode code="clusterId, projectId, zone" /> | Updates the settings of a specific cluster. |
 | <CopyableCode code="_projects_locations_clusters_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all clusters owned by a project in either the specified zone or all zones. |
 | <CopyableCode code="projects_locations_clusters_check_autopilot_compatibility" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Checks the cluster compatibility with Autopilot mode, and returns a list of compatibility issues. |
 | <CopyableCode code="projects_locations_clusters_complete_ip_rotation" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Completes master IP rotation. |
@@ -124,7 +126,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_clusters_set_network_policy" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Enables or disables Network Policy for a cluster. |
 | <CopyableCode code="projects_locations_clusters_set_resource_labels" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Sets labels on a cluster. |
 | <CopyableCode code="projects_locations_clusters_start_ip_rotation" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Starts master IP rotation. |
-| <CopyableCode code="projects_locations_clusters_update" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Updates the settings of a specific cluster. |
 | <CopyableCode code="projects_zones_clusters_complete_ip_rotation" /> | `EXEC` | <CopyableCode code="clusterId, projectId, zone" /> | Completes master IP rotation. |
 | <CopyableCode code="projects_zones_clusters_legacy_abac" /> | `EXEC` | <CopyableCode code="clusterId, projectId, zone" /> | Enables or disables the ABAC authorization mechanism on a cluster. |
 | <CopyableCode code="projects_zones_clusters_locations" /> | `EXEC` | <CopyableCode code="clusterId, projectId, zone" /> | Sets the locations for a specific cluster. Deprecated. Use [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update) instead. |
@@ -136,4 +137,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_zones_clusters_set_master_auth" /> | `EXEC` | <CopyableCode code="clusterId, projectId, zone" /> | Sets master auth materials. Currently supports changing the admin password or a specific cluster, either via password generation or explicitly setting the password. |
 | <CopyableCode code="projects_zones_clusters_set_network_policy" /> | `EXEC` | <CopyableCode code="clusterId, projectId, zone" /> | Enables or disables Network Policy for a cluster. |
 | <CopyableCode code="projects_zones_clusters_start_ip_rotation" /> | `EXEC` | <CopyableCode code="clusterId, projectId, zone" /> | Starts master IP rotation. |
-| <CopyableCode code="projects_zones_clusters_update" /> | `EXEC` | <CopyableCode code="clusterId, projectId, zone" /> | Updates the settings of a specific cluster. |

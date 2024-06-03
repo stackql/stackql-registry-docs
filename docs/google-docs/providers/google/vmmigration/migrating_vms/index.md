@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>migrating_vms</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="vmmigration.migrating_vms" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.vmmigration.migrating_vms" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -60,9 +60,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Lists MigratingVms in a given Source. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Creates a new MigratingVm in a given Source. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Deletes a single MigratingVm. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Updates the parameters of a single MigratingVm. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Lists MigratingVms in a given Source. |
 | <CopyableCode code="finalize_migration" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Marks a migration as completed, deleting migration resources that are no longer being used. Only applicable after cutover is done. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Updates the parameters of a single MigratingVm. |
 | <CopyableCode code="pause_migration" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Pauses a migration for a VM. If cycle tasks are running they will be cancelled, preserving source task data. Further replication cycles will not be triggered while the VM is paused. |
 | <CopyableCode code="resume_migration" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Resumes a migration for a VM. When called on a paused migration, will start the process of uploading data and creating snapshots; when called on a completed cut-over migration, will update the migration to active state and start the process of uploading data and creating snapshots. |
 | <CopyableCode code="start_migration" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Starts migration for a VM. Starts the process of uploading data and creating snapshots, in replication cycles scheduled by the policy. |

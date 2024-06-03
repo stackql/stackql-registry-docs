@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>models</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.models" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.models" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -67,6 +67,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, modelsId, projectsId" /> | Gets a Model. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Models in a Location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, modelsId, projectsId" /> | Deletes a Model. A model cannot be deleted if any Endpoint resource has a DeployedModel based on the model in its deployed_models field. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, modelsId, projectsId" /> | Updates a Model. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Models in a Location. |
 | <CopyableCode code="compute_tokens" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId, publishersId" /> | Return a list of tokens based on the input text. |
 | <CopyableCode code="copy" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Copies an already existing Vertex AI Model into the specified Location. The source Model must exist in the same Project. When copying custom Models, the users themselves are responsible for Model.metadata content to be region-agnostic, as well as making sure that any resources (e.g. files) it depends on remain accessible. |
@@ -74,7 +75,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="export" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId" /> | Exports a trained, exportable Model to a location specified by the user. A Model is considered to be exportable if it has at least one supported export format. |
 | <CopyableCode code="generate_content" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId, publishersId" /> | Generate content with multimodal inputs. |
 | <CopyableCode code="merge_version_aliases" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId" /> | Merges a set of aliases for a Model version. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId" /> | Updates a Model. |
 | <CopyableCode code="predict" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId, publishersId" /> | Perform an online prediction. |
 | <CopyableCode code="raw_predict" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId, publishersId" /> | Perform an online prediction with an arbitrary HTTP payload. The response includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the Endpoint that served this prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's DeployedModel that served this prediction. |
 | <CopyableCode code="server_streaming_predict" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId, publishersId" /> | Perform a server-side streaming online prediction request for Vertex LLM streaming. |

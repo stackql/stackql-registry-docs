@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vmware_node_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkeonprem.vmware_node_pools" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkeonprem.vmware_node_pools" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,7 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Lists VMware node pools in a given project, location and VMWare cluster. |
 | <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Creates a new VMware node pool in a given project, location and VMWare cluster. |
 | <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, vmwareClustersId, vmwareNodePoolsId" /> | Deletes a single VMware node pool. |
+| <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, vmwareClustersId, vmwareNodePoolsId" /> | Updates the parameters of a single VMware node pool. |
 | <CopyableCode code="_projects_locations_vmware_clusters_vmware_node_pools_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Lists VMware node pools in a given project, location and VMWare cluster. |
 | <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_enroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Enrolls a VMware node pool to Anthos On-Prem API |
-| <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareClustersId, vmwareNodePoolsId" /> | Updates the parameters of a single VMware node pool. |
 | <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_unenroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareClustersId, vmwareNodePoolsId" /> | Unenrolls a VMware node pool to Anthos On-Prem API |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>model_deployment_monitoring_jobs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.model_deployment_monitoring_jobs" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.model_deployment_monitoring_jobs" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -60,8 +60,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists ModelDeploymentMonitoringJobs in a Location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a ModelDeploymentMonitoringJob. It will run periodically on a configured interval. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, modelDeploymentMonitoringJobsId, projectsId" /> | Deletes a ModelDeploymentMonitoringJob. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, modelDeploymentMonitoringJobsId, projectsId" /> | Updates a ModelDeploymentMonitoringJob. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists ModelDeploymentMonitoringJobs in a Location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, modelDeploymentMonitoringJobsId, projectsId" /> | Updates a ModelDeploymentMonitoringJob. |
 | <CopyableCode code="pause" /> | `EXEC` | <CopyableCode code="locationsId, modelDeploymentMonitoringJobsId, projectsId" /> | Pauses a ModelDeploymentMonitoringJob. If the job is running, the server makes a best effort to cancel the job. Will mark ModelDeploymentMonitoringJob.state to 'PAUSED'. |
 | <CopyableCode code="resume" /> | `EXEC` | <CopyableCode code="locationsId, modelDeploymentMonitoringJobsId, projectsId" /> | Resumes a paused ModelDeploymentMonitoringJob. It will start to run from next scheduled time. A deleted ModelDeploymentMonitoringJob can't be resumed. |
 | <CopyableCode code="search_model_deployment_monitoring_stats_anomalies" /> | `EXEC` | <CopyableCode code="locationsId, modelDeploymentMonitoringJobsId, projectsId" /> | Searches Model Monitoring Statistics generated within a given time window. |

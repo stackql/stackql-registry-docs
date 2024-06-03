@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>databases_scans</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="spanner.databases_scans" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.spanner.databases_scans" /></td></tr>
 </tbody></table>
 
 ## Fields

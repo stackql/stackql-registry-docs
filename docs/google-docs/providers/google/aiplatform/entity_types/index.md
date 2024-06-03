@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>entity_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.entity_types" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.entity_types" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,10 +45,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="featurestoresId, locationsId, projectsId" /> | Lists EntityTypes in a given Featurestore. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="featurestoresId, locationsId, projectsId" /> | Creates a new EntityType in a given Featurestore. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="entityTypesId, featurestoresId, locationsId, projectsId" /> | Deletes a single EntityType. The EntityType must not have any Features or `force` must be set to true for the request to succeed. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="entityTypesId, featurestoresId, locationsId, projectsId" /> | Updates the parameters of a single EntityType. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="featurestoresId, locationsId, projectsId" /> | Lists EntityTypes in a given Featurestore. |
 | <CopyableCode code="export_feature_values" /> | `EXEC` | <CopyableCode code="entityTypesId, featurestoresId, locationsId, projectsId" /> | Exports Feature values from all the entities of a target EntityType. |
 | <CopyableCode code="import_feature_values" /> | `EXEC` | <CopyableCode code="entityTypesId, featurestoresId, locationsId, projectsId" /> | Imports Feature values into the Featurestore from a source storage. The progress of the import is tracked by the returned operation. The imported features are guaranteed to be visible to subsequent read operations after the operation is marked as successfully done. If an import operation fails, the Feature values returned from reads and exports may be inconsistent. If consistency is required, the caller must retry the same import request again and wait till the new operation returned is marked as successfully done. There are also scenarios where the caller can cause inconsistency. - Source data for import contains multiple distinct Feature values for the same entity ID and timestamp. - Source is modified during an import. This includes adding, updating, or removing source data and/or metadata. Examples of updating metadata include but are not limited to changing storage location, storage class, or retention policy. - Online serving cluster is under-provisioned. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="entityTypesId, featurestoresId, locationsId, projectsId" /> | Updates the parameters of a single EntityType. |
 | <CopyableCode code="read_feature_values" /> | `EXEC` | <CopyableCode code="entityTypesId, featurestoresId, locationsId, projectsId" /> | Reads Feature values of a specific entity of an EntityType. For reading feature values of multiple entities of an EntityType, please use StreamingReadFeatureValues. |
 | <CopyableCode code="streaming_read_feature_values" /> | `EXEC` | <CopyableCode code="entityTypesId, featurestoresId, locationsId, projectsId" /> | Reads Feature values for multiple entities. Depending on their size, data for different entities may be broken up across multiple responses. |
 | <CopyableCode code="write_feature_values" /> | `EXEC` | <CopyableCode code="entityTypesId, featurestoresId, locationsId, projectsId" /> | Writes Feature values of one or more entities of an EntityType. The Feature values are merged into existing entities if any. The Feature values to be written must have timestamp within the online storage retention. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instance_settings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.instance_settings" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.instance_settings" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -38,4 +38,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project, zone" /> | Get Instance settings. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, zone" /> | Patch Instance settings |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, zone" /> | Patch Instance settings |

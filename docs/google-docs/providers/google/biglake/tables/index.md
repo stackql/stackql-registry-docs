@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tables</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="biglake.tables" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.biglake.tables" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,6 +45,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="catalogsId, databasesId, locationsId, projectsId" /> | List all tables in a specified database. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="catalogsId, databasesId, locationsId, projectsId" /> | Creates a new table. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="catalogsId, databasesId, locationsId, projectsId, tablesId" /> | Deletes an existing table specified by the table ID. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="catalogsId, databasesId, locationsId, projectsId, tablesId" /> | Updates an existing table specified by the table ID. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="catalogsId, databasesId, locationsId, projectsId" /> | List all tables in a specified database. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="catalogsId, databasesId, locationsId, projectsId, tablesId" /> | Updates an existing table specified by the table ID. |
 | <CopyableCode code="rename" /> | `EXEC` | <CopyableCode code="catalogsId, databasesId, locationsId, projectsId, tablesId" /> | Renames an existing table specified by the table ID. |

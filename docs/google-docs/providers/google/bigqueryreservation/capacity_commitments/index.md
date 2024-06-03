@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>capacity_commitments</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigqueryreservation.capacity_commitments" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigqueryreservation.capacity_commitments" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,7 +48,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all the capacity commitments for the admin project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new capacity commitment resource. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="capacityCommitmentsId, locationsId, projectsId" /> | Deletes a capacity commitment. Attempting to delete capacity commitment before its commitment_end_time will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="capacityCommitmentsId, locationsId, projectsId" /> | Updates an existing capacity commitment. Only `plan` and `renewal_plan` fields can be updated. Plan can only be changed to a plan of a longer commitment period. Attempting to change to a plan with shorter commitment period will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all the capacity commitments for the admin project. |
 | <CopyableCode code="merge" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Merges capacity commitments of the same plan into a single commitment. The resulting capacity commitment has the greater commitment_end_time out of the to-be-merged capacity commitments. Attempting to merge capacity commitments of different plan will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="capacityCommitmentsId, locationsId, projectsId" /> | Updates an existing capacity commitment. Only `plan` and `renewal_plan` fields can be updated. Plan can only be changed to a plan of a longer commitment period. Attempting to change to a plan with shorter commitment period will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`. |
 | <CopyableCode code="split" /> | `EXEC` | <CopyableCode code="capacityCommitmentsId, locationsId, projectsId" /> | Splits capacity commitment to two commitments of the same plan and `commitment_end_time`. A common use case is to enable downgrading commitments. For example, in order to downgrade from 10000 slots to 8000, you might split a 10000 capacity commitment into commitments of 2000 and 8000. Then, you delete the first one after the commitment end time passes. |

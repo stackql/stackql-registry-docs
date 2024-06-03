@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user_workloads_secrets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="composer.user_workloads_secrets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.composer.user_workloads_secrets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -39,5 +39,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Lists user workloads Secrets. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Creates a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="environmentsId, locationsId, projectsId, userWorkloadsSecretsId" /> | Deletes a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="environmentsId, locationsId, projectsId, userWorkloadsSecretsId" /> | Updates a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Lists user workloads Secrets. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="environmentsId, locationsId, projectsId, userWorkloadsSecretsId" /> | Updates a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |

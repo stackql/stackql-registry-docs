@@ -24,19 +24,19 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.keys" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="apiProducts" /> | `array` | Output only. List of API products and its status for which the credential can be used. **Note**: Use UpdateAppGroupAppKeyApiProductRequest API to make the association after the consumer key and secret are created. |
+| <CopyableCode code="apiProducts" /> | `array` | List of API products for which the credential can be used. **Note**: Do not specify the list of API products when creating a consumer key and secret for a developer app. Instead, use the UpdateDeveloperAppKey API to make the association after the consumer key and secret are created. |
 | <CopyableCode code="attributes" /> | `array` | List of attributes associated with the credential. |
-| <CopyableCode code="consumerKey" /> | `string` | Immutable. Consumer key. |
+| <CopyableCode code="consumerKey" /> | `string` | Consumer key. |
 | <CopyableCode code="consumerSecret" /> | `string` | Secret key. |
-| <CopyableCode code="expiresAt" /> | `string` | Output only. Time the AppGroup app expires in milliseconds since epoch. |
-| <CopyableCode code="expiresInSeconds" /> | `string` | Immutable. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
-| <CopyableCode code="issuedAt" /> | `string` | Output only. Time the AppGroup app was created in milliseconds since epoch. |
+| <CopyableCode code="expiresAt" /> | `string` | Time the developer app expires in milliseconds since epoch. |
+| <CopyableCode code="expiresInSeconds" /> | `string` | Input only. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
+| <CopyableCode code="issuedAt" /> | `string` | Time the developer app was created in milliseconds since epoch. |
 | <CopyableCode code="scopes" /> | `array` | Scopes to apply to the app. The specified scope names must already be defined for the API product that you associate with the app. |
 | <CopyableCode code="status" /> | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
 ## Methods

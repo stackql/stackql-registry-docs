@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>public_delegated_prefixes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.public_delegated_prefixes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.public_delegated_prefixes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -54,7 +54,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Lists the PublicDelegatedPrefixes for a project in the given region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a PublicDelegatedPrefix in the specified project in the given region using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, publicDelegatedPrefix, region" /> | Deletes the specified PublicDelegatedPrefix in the given region. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, publicDelegatedPrefix, region" /> | Patches the specified PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
 | <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Lists all PublicDelegatedPrefix resources owned by the specific project across all scopes. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="announce" /> | `EXEC` | <CopyableCode code="project, publicDelegatedPrefix, region" /> | Announces the specified PublicDelegatedPrefix in the given region. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, publicDelegatedPrefix, region" /> | Patches the specified PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
 | <CopyableCode code="withdraw" /> | `EXEC` | <CopyableCode code="project, publicDelegatedPrefix, region" /> | Withdraws the specified PublicDelegatedPrefix in the given region. |

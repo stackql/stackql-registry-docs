@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>security_profiles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.security_profiles" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.security_profiles" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_security_profiles_list" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId" /> | Lists SecurityProfiles in a given organization and location. |
 | <CopyableCode code="organizations_locations_security_profiles_create" /> | `INSERT` | <CopyableCode code="locationsId, organizationsId" /> | Creates a new SecurityProfile in a given organization and location. |
 | <CopyableCode code="organizations_locations_security_profiles_delete" /> | `DELETE` | <CopyableCode code="locationsId, organizationsId, securityProfilesId" /> | Deletes a single SecurityProfile. |
+| <CopyableCode code="organizations_locations_security_profiles_patch" /> | `UPDATE` | <CopyableCode code="locationsId, organizationsId, securityProfilesId" /> | Updates the parameters of a single SecurityProfile. |
 | <CopyableCode code="_organizations_locations_security_profiles_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists SecurityProfiles in a given organization and location. |
-| <CopyableCode code="organizations_locations_security_profiles_patch" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, securityProfilesId" /> | Updates the parameters of a single SecurityProfile. |

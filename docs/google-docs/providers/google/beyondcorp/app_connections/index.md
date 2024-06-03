@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>app_connections</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="beyondcorp.app_connections" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.beyondcorp.app_connections" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,6 +50,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_app_connections_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists AppConnections in a given project and location. |
 | <CopyableCode code="projects_locations_app_connections_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new AppConnection in a given project and location. |
 | <CopyableCode code="projects_locations_app_connections_delete" /> | `DELETE` | <CopyableCode code="appConnectionsId, locationsId, projectsId" /> | Deletes a single AppConnection. |
+| <CopyableCode code="projects_locations_app_connections_patch" /> | `UPDATE` | <CopyableCode code="appConnectionsId, locationsId, projectsId" /> | Updates the parameters of a single AppConnection. |
 | <CopyableCode code="_projects_locations_app_connections_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists AppConnections in a given project and location. |
-| <CopyableCode code="projects_locations_app_connections_patch" /> | `EXEC` | <CopyableCode code="appConnectionsId, locationsId, projectsId" /> | Updates the parameters of a single AppConnection. |
 | <CopyableCode code="projects_locations_app_connections_resolve" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Resolves AppConnections details for a given AppConnector. An internal method called by a connector to find AppConnections to connect to. |

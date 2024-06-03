@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>networks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="baremetalsolution.networks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.baremetalsolution.networks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -52,6 +52,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, networksId, projectsId" /> | Get details of a single network. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List network in a given project and location. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, networksId, projectsId" /> | Update details of a single network. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List network in a given project and location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, networksId, projectsId" /> | Update details of a single network. |
 | <CopyableCode code="rename" /> | `EXEC` | <CopyableCode code="locationsId, networksId, projectsId" /> | RenameNetwork sets a new name for a network. Use with caution, previous names become immediately invalidated. |

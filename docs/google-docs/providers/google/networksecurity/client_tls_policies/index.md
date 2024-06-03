@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>client_tls_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.client_tls_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.client_tls_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_client_tls_policies_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists ClientTlsPolicies in a given project and location. |
 | <CopyableCode code="projects_locations_client_tls_policies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new ClientTlsPolicy in a given project and location. |
 | <CopyableCode code="projects_locations_client_tls_policies_delete" /> | `DELETE` | <CopyableCode code="clientTlsPoliciesId, locationsId, projectsId" /> | Deletes a single ClientTlsPolicy. |
+| <CopyableCode code="projects_locations_client_tls_policies_patch" /> | `UPDATE` | <CopyableCode code="clientTlsPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single ClientTlsPolicy. |
 | <CopyableCode code="_projects_locations_client_tls_policies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists ClientTlsPolicies in a given project and location. |
-| <CopyableCode code="projects_locations_client_tls_policies_patch" /> | `EXEC` | <CopyableCode code="clientTlsPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single ClientTlsPolicy. |

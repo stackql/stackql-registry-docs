@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>datasets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.datasets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.datasets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,8 +51,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Datasets in a Location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Dataset. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Deletes a Dataset. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Updates a Dataset. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Datasets in a Location. |
 | <CopyableCode code="export" /> | `EXEC` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Exports data from a Dataset. |
 | <CopyableCode code="import" /> | `EXEC` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Imports data into a Dataset. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Updates a Dataset. |
 | <CopyableCode code="search_data_items" /> | `EXEC` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Searches DataItems in a Dataset. |

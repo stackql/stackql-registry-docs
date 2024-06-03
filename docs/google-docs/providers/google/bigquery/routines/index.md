@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>routines</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="bigquery.routines" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.bigquery.routines" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,5 +55,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="+datasetId, projectId" /> | Lists all routines in the specified dataset. Requires the READER dataset role. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="+datasetId, projectId" /> | Creates a new routine in the dataset. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="+datasetId, +routineId, projectId" /> | Deletes the routine specified by routineId from the dataset. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="+datasetId, +routineId, projectId" /> | Updates information in an existing routine. The update method replaces the entire Routine resource. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="+datasetId, projectId" /> | Lists all routines in the specified dataset. Requires the READER dataset role. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="+datasetId, +routineId, projectId" /> | Updates information in an existing routine. The update method replaces the entire Routine resource. |

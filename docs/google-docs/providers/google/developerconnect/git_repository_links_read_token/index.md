@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>git_repository_links_read_token</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="developerconnect.git_repository_links_read_token" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.developerconnect.git_repository_links_read_token" /></td></tr>
 </tbody></table>
 
 ## Fields

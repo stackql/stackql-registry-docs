@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>instances_shielded_instance_identity</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.instances_shielded_instance_identity" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.instances_shielded_instance_identity" /></td></tr>
 </tbody></table>
 
 ## Fields

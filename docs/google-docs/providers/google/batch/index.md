@@ -34,7 +34,7 @@ An API to manage the running of Batch resources on Google Cloud Platform.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Batch API</td></tr>
 <tr><td><b>Description</b></td><td>An API to manage the running of Batch resources on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>batch:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>batch:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

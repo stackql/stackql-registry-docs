@@ -34,7 +34,7 @@ Allows developers to run automated tests for their mobile applications on Google
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Cloud Testing API</td></tr>
 <tr><td><b>Description</b></td><td>Allows developers to run automated tests for their mobile applications on Google infrastructure.</td></tr>
-<tr><td><b>Id</b></td><td><code>testing:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>testing:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

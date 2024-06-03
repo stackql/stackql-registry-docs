@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>assets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="migrationcenter.assets" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.migrationcenter.assets" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,9 +46,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="assetsId, locationsId, projectsId" /> | Gets the details of an asset. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all the assets in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="assetsId, locationsId, projectsId" /> | Deletes an asset. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="assetsId, locationsId, projectsId" /> | Updates the parameters of an asset. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all the assets in a given project and location. |
 | <CopyableCode code="aggregate_values" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Aggregates the requested fields based on provided function. |
 | <CopyableCode code="batch_delete" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Deletes list of Assets. |
 | <CopyableCode code="batch_update" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Updates the parameters of a list of assets. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="assetsId, locationsId, projectsId" /> | Updates the parameters of an asset. |
 | <CopyableCode code="report_asset_frames" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Reports a set of frames. |

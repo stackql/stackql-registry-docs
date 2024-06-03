@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_exchanges</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="analyticshub.data_exchanges" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.analyticshub.data_exchanges" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -46,7 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_exchanges_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all data exchanges in a given project and location. |
 | <CopyableCode code="projects_locations_data_exchanges_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new data exchange. |
 | <CopyableCode code="projects_locations_data_exchanges_delete" /> | `DELETE` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Deletes an existing data exchange. |
+| <CopyableCode code="projects_locations_data_exchanges_patch" /> | `UPDATE` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Updates an existing data exchange. |
 | <CopyableCode code="_organizations_locations_data_exchanges_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists all data exchanges from projects in a given organization and location. |
 | <CopyableCode code="_projects_locations_data_exchanges_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all data exchanges in a given project and location. |
-| <CopyableCode code="projects_locations_data_exchanges_patch" /> | `EXEC` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Updates an existing data exchange. |
 | <CopyableCode code="projects_locations_data_exchanges_subscribe" /> | `EXEC` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Creates a Subscription to a Data Exchange. This is a long-running operation as it will create one or more linked datasets. |

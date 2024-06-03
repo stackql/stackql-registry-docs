@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>public_advertised_prefixes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.public_advertised_prefixes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.public_advertised_prefixes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -51,6 +51,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Lists the PublicAdvertisedPrefixes for a project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a PublicAdvertisedPrefix in the specified project using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Deletes the specified PublicAdvertisedPrefix |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
 | <CopyableCode code="announce" /> | `EXEC` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Announces the specified PublicAdvertisedPrefix |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
 | <CopyableCode code="withdraw" /> | `EXEC` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Withdraws the specified PublicAdvertisedPrefix |

@@ -24,10 +24,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>key_handles</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="cloudkms.key_handles" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.cloudkms.key_handles" /></td></tr>
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | Identifier. Name of the KeyHandle resource, e.g. `projects/&#123;PROJECT_ID&#125;/locations/&#123;LOCATION&#125;/keyHandles/&#123;KEY_HANDLE_ID&#125;`. |
+| <CopyableCode code="kmsKey" /> | `string` | Output only. Name of a CryptoKey that has been provisioned for Customer Managed Encryption Key (CMEK) use in the KeyHandle project and location for the requested resource type. The CryptoKey project will reflect the value configured in the AutokeyConfig on the resource project's ancestor folder at the time of the KeyHandle creation. If more than one ancestor folder has a configured AutokeyConfig, the nearest of these configurations is used. |
+| <CopyableCode code="resourceTypeSelector" /> | `string` | Required. Indicates the resource type that the resulting CryptoKey is meant to protect, e.g. `&#123;SERVICE&#125;.googleapis.com/&#123;TYPE&#125;`. See documentation for supported resource types. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

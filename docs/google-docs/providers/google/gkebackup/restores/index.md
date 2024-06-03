@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>restores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="gkebackup.restores" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.gkebackup.restores" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -56,5 +56,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, restorePlansId" /> | Lists the Restores for a given RestorePlan. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, restorePlansId" /> | Creates a new Restore for the given RestorePlan. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, restorePlansId, restoresId" /> | Deletes an existing Restore. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, restorePlansId, restoresId" /> | Update a Restore. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, restorePlansId" /> | Lists the Restores for a given RestorePlan. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, restorePlansId, restoresId" /> | Update a Restore. |

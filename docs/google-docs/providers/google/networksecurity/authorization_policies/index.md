@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>authorization_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.authorization_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.authorization_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,5 +44,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_authorization_policies_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists AuthorizationPolicies in a given project and location. |
 | <CopyableCode code="projects_locations_authorization_policies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new AuthorizationPolicy in a given project and location. |
 | <CopyableCode code="projects_locations_authorization_policies_delete" /> | `DELETE` | <CopyableCode code="authorizationPoliciesId, locationsId, projectsId" /> | Deletes a single AuthorizationPolicy. |
+| <CopyableCode code="projects_locations_authorization_policies_patch" /> | `UPDATE` | <CopyableCode code="authorizationPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single AuthorizationPolicy. |
 | <CopyableCode code="_projects_locations_authorization_policies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists AuthorizationPolicies in a given project and location. |
-| <CopyableCode code="projects_locations_authorization_policies_patch" /> | `EXEC` | <CopyableCode code="authorizationPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single AuthorizationPolicy. |

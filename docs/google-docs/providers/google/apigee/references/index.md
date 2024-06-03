@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>references</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.references" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.references" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -40,4 +40,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_environments_references_get" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Gets a Reference resource. |
 | <CopyableCode code="organizations_environments_references_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a Reference in the specified environment. |
 | <CopyableCode code="organizations_environments_references_delete" /> | `DELETE` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Deletes a Reference from an environment. Returns the deleted Reference resource. |
-| <CopyableCode code="organizations_environments_references_update" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Updates an existing Reference. Note that this operation has PUT semantics; it will replace the entirety of the existing Reference with the resource in the request body. |
+| <CopyableCode code="organizations_environments_references_update" /> | `UPDATE` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Updates an existing Reference. Note that this operation has PUT semantics; it will replace the entirety of the existing Reference with the resource in the request body. |

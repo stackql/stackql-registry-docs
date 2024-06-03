@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>domains</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="managedidentities.domains" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.managedidentities.domains" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,6 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists domains in a project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a Microsoft AD domain. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="domainsId, projectsId" /> | Deletes a domain. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="domainsId, projectsId" /> | Updates the metadata and configuration of a domain. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists domains in a project. |
 | <CopyableCode code="attach_trust" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Adds an AD trust to a domain. |
 | <CopyableCode code="check_migration_permission" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | CheckMigrationPermission API gets the current state of DomainMigration |
@@ -58,7 +59,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="domain_join_machine" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | DomainJoinMachine API joins a Compute Engine VM to the domain |
 | <CopyableCode code="enable_migration" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Enable Domain Migration |
 | <CopyableCode code="extend_schema" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Extend Schema for Domain |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Updates the metadata and configuration of a domain. |
 | <CopyableCode code="reconfigure_trust" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Updates the DNS conditional forwarder. |
 | <CopyableCode code="reset_admin_password" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Resets a domain's administrator password. |
 | <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | RestoreDomain restores domain backup mentioned in the RestoreDomainRequest |

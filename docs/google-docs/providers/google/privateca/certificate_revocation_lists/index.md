@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_revocation_lists</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="privateca.certificate_revocation_lists" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.privateca.certificate_revocation_lists" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -45,5 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId" /> | Returns a CertificateRevocationList. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Lists CertificateRevocationLists. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId" /> | Update a CertificateRevocationList. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Lists CertificateRevocationLists. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId" /> | Update a CertificateRevocationList. |

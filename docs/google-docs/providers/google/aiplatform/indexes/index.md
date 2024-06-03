@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>indexes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.indexes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.indexes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -50,6 +50,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Indexes in a Location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an Index. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="indexesId, locationsId, projectsId" /> | Deletes an Index. An Index can only be deleted when all its DeployedIndexes had been undeployed. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="indexesId, locationsId, projectsId" /> | Updates an Index. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Indexes in a Location. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="indexesId, locationsId, projectsId" /> | Updates an Index. |
 | <CopyableCode code="upsert_datapoints" /> | `EXEC` | <CopyableCode code="indexesId, locationsId, projectsId" /> | Add/update Datapoints into an Index. |

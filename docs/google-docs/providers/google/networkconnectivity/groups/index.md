@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networkconnectivity.groups" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkconnectivity.groups" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,5 +44,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupsId, hubsId, projectsId" /> | Gets details about a Network Connectivity Center group. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="hubsId, projectsId" /> | Lists groups in a given hub. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="groupsId, hubsId, projectsId" /> | Updates the parameters of a Network Connectivity Center group. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="hubsId, projectsId" /> | Lists groups in a given hub. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="groupsId, hubsId, projectsId" /> | Updates the parameters of a Network Connectivity Center group. |

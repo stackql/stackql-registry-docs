@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tls_inspection_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networksecurity.tls_inspection_policies" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networksecurity.tls_inspection_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -47,5 +47,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_tls_inspection_policies_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists TlsInspectionPolicies in a given project and location. |
 | <CopyableCode code="projects_locations_tls_inspection_policies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new TlsInspectionPolicy in a given project and location. |
 | <CopyableCode code="projects_locations_tls_inspection_policies_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, tlsInspectionPoliciesId" /> | Deletes a single TlsInspectionPolicy. |
+| <CopyableCode code="projects_locations_tls_inspection_policies_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, tlsInspectionPoliciesId" /> | Updates the parameters of a single TlsInspectionPolicy. |
 | <CopyableCode code="_projects_locations_tls_inspection_policies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists TlsInspectionPolicies in a given project and location. |
-| <CopyableCode code="projects_locations_tls_inspection_policies_patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, tlsInspectionPoliciesId" /> | Updates the parameters of a single TlsInspectionPolicy. |

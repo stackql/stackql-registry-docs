@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policy_based_routes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="networkconnectivity.policy_based_routes" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.networkconnectivity.policy_based_routes" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -43,7 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="priority" /> | `integer` | Optional. The priority of this policy-based route. Priority is used to break ties in cases where there are more than one matching policy-based routes found. In cases where multiple policy-based routes are matched, the one with the lowest-numbered priority value wins. The default value is 1000. The priority value must be from 1 to 65535, inclusive. |
 | <CopyableCode code="selfLink" /> | `string` | Output only. Server-defined fully-qualified URL for this resource. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the policy-based route was updated. |
-| <CopyableCode code="virtualMachine" /> | `object` | VM instances to which this policy-based route applies to. |
+| <CopyableCode code="virtualMachine" /> | `object` | VM instances that this policy-based route applies to. |
 | <CopyableCode code="warnings" /> | `array` | Output only. If potential misconfigurations are detected for this route, this field will be populated with warning messages. |
 ## Methods
 | Name | Accessible by | Required Params | Description |

@@ -34,7 +34,7 @@ Discover and protect your sensitive data. A fully managed service designed to he
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Sensitive Data Protection (DLP)</td></tr>
 <tr><td><b>Description</b></td><td>Discover and protect your sensitive data. A fully managed service designed to help you discover, classify, and protect your valuable data assets with ease.</td></tr>
-<tr><td><b>Id</b></td><td><code>dlp:v24.06.00234</code></td></tr>
+<tr><td><b>Id</b></td><td><code>dlp:v24.06.00236</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>tensorboards</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="aiplatform.tensorboards" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.aiplatform.tensorboards" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -48,8 +48,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Tensorboards in a Location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Tensorboard. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, tensorboardsId" /> | Deletes a Tensorboard. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, tensorboardsId" /> | Updates a Tensorboard. |
 | <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Tensorboards in a Location. |
 | <CopyableCode code="batch_read" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, tensorboardsId" /> | Reads multiple TensorboardTimeSeries' data. The data point number limit is 1000 for scalars, 100 for tensors and blob references. If the number of data points stored is less than the limit, all data is returned. Otherwise, the number limit of data points is randomly selected from this time series and returned. |
-| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, tensorboardsId" /> | Updates a Tensorboard. |
 | <CopyableCode code="read_size" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, tensorboardsId" /> | Returns the storage size for a given TensorBoard instance. |
 | <CopyableCode code="read_usage" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, tensorboardsId" /> | Returns a list of monthly active users for a given TensorBoard instance. |

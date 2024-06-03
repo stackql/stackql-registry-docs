@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>apicategories</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="apigee.apicategories" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.apigee.apicategories" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -42,4 +42,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_sites_apicategories_list" /> | `SELECT` | <CopyableCode code="organizationsId, sitesId" /> | Returns the API categories associated with a portal. |
 | <CopyableCode code="organizations_sites_apicategories_create" /> | `INSERT` | <CopyableCode code="organizationsId, sitesId" /> | Creates a new API category. |
 | <CopyableCode code="organizations_sites_apicategories_delete" /> | `DELETE` | <CopyableCode code="apicategoriesId, organizationsId, sitesId" /> | Deletes an API category. |
-| <CopyableCode code="organizations_sites_apicategories_patch" /> | `EXEC` | <CopyableCode code="apicategoriesId, organizationsId, sitesId" /> | Updates an API category. |
+| <CopyableCode code="organizations_sites_apicategories_patch" /> | `UPDATE` | <CopyableCode code="apicategoriesId, organizationsId, sitesId" /> | Updates an API category. |

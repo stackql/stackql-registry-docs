@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>region_disks</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="compute.region_disks" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.compute.region_disks" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -87,10 +87,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves the list of persistent disks contained within the specified region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a persistent regional disk in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="disk, project, region" /> | Deletes the specified regional persistent disk. Deleting a regional disk removes all the replicas of its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="disk, project, region" /> | Update the specified disk with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license. |
 | <CopyableCode code="bulk_insert" /> | `EXEC` | <CopyableCode code="project, region" /> | Bulk create a set of disks. |
 | <CopyableCode code="resize" /> | `EXEC` | <CopyableCode code="disk, project, region" /> | Resizes the specified regional persistent disk. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Sets the labels on the target regional disk. |
 | <CopyableCode code="start_async_replication" /> | `EXEC` | <CopyableCode code="disk, project, region" /> | Starts asynchronous replication. Must be invoked on the primary disk. |
 | <CopyableCode code="stop_async_replication" /> | `EXEC` | <CopyableCode code="disk, project, region" /> | Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. |
 | <CopyableCode code="stop_group_async_replication" /> | `EXEC` | <CopyableCode code="project, region" /> | Stops asynchronous replication for a consistency group of disks. Can be invoked either in the primary or secondary scope. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="disk, project, region" /> | Update the specified disk with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license. |

@@ -24,7 +24,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>site_search_engine</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="discoveryengine.site_search_engine" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.discoveryengine.site_search_engine" /></td></tr>
 </tbody></table>
 
 ## Fields
