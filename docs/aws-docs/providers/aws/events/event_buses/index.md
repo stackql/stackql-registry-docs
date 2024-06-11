@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>event_buses</code> in a region or to create or delete a <code>event_buses</code> resource, use <code>event_bus</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>event_bus</code> resource or lists <code>event_buses</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>event_buses</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="event_source_name" /></td><td><code>string</code></td><td>If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the event bus.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags assigned to the event bus.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the event bus.</td></tr>
+<tr><td><CopyableCode code="kms_key_identifier" /></td><td><code>string</code></td><td>Kms Key Identifier used to encrypt events at rest in the event bus.</td></tr>
+<tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td>A JSON string that describes the permission policy statement for the event bus.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the event bus.</td></tr>
+<tr><td><CopyableCode code="dead_letter_config" /></td><td><code>object</code></td><td>Dead Letter Queue for the event bus.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>event_buses</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>event_buses</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ name
 FROM aws.events.event_buses
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>event_bus</code>.
+```sql
+SELECT
+region,
+event_source_name,
+name,
+tags,
+description,
+kms_key_identifier,
+policy,
+arn,
+dead_letter_config
+FROM aws.events.event_buses
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>event_bus</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -105,14 +135,20 @@ INSERT INTO aws.events.event_buses (
  EventSourceName,
  Name,
  Tags,
+ Description,
+ KmsKeyIdentifier,
  Policy,
+ DeadLetterConfig,
  region
 )
 SELECT 
  '{{ EventSourceName }}',
  '{{ Name }}',
  '{{ Tags }}',
+ '{{ Description }}',
+ '{{ KmsKeyIdentifier }}',
  '{{ Policy }}',
+ '{{ DeadLetterConfig }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -138,14 +174,21 @@ resources:
         value:
           - Value: '{{ Value }}'
             Key: '{{ Key }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: KmsKeyIdentifier
+        value: '{{ KmsKeyIdentifier }}'
       - name: Policy
         value: {}
+      - name: DeadLetterConfig
+        value:
+          Arn: '{{ Arn }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -164,12 +207,37 @@ events:CreateEventBus,
 events:DescribeEventBus,
 events:PutPermission,
 events:ListTagsForResource,
-events:TagResource
+events:TagResource,
+kms:DescribeKey,
+kms:GenerateDataKey,
+kms:Decrypt
+```
+
+### Read
+```json
+events:DescribeEventBus,
+events:ListTagsForResource
+```
+
+### Update
+```json
+events:TagResource,
+events:UntagResource,
+events:PutPermission,
+events:DescribeEventBus,
+events:UpdateEventBus,
+kms:DescribeKey,
+kms:GenerateDataKey,
+kms:Decrypt
 ```
 
 ### Delete
 ```json
 events:DescribeEventBus,
+events:UpdateEventBus,
+events:ListTagsForResource,
+events:UntagResource,
+events:RemovePermission,
 events:DeleteEventBus
 ```
 

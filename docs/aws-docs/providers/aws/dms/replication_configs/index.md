@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>replication_configs</code> in a region or to create or delete a <code>replication_configs</code> resource, use <code>replication_config</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>replication_config</code> resource or lists <code>replication_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>replication_configs</code> in a region or to cr
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="replication_config_identifier" /></td><td><code>string</code></td><td>A unique identifier of replication configuration</td></tr>
 <tr><td><CopyableCode code="replication_config_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Replication Config</td></tr>
+<tr><td><CopyableCode code="source_endpoint_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration</td></tr>
+<tr><td><CopyableCode code="target_endpoint_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration</td></tr>
+<tr><td><CopyableCode code="replication_type" /></td><td><code>string</code></td><td>The type of AWS DMS Serverless replication to provision using this replication configuration</td></tr>
+<tr><td><CopyableCode code="compute_config" /></td><td><code>Configuration parameters for provisioning a AWS DMS Serverless replication</code></td><td></td></tr>
+<tr><td><CopyableCode code="replication_settings" /></td><td><code>object</code></td><td>JSON settings for Servereless replications that are provisioned using this replication configuration</td></tr>
+<tr><td><CopyableCode code="supplemental_settings" /></td><td><code>object</code></td><td>JSON settings for specifying supplemental data</td></tr>
+<tr><td><CopyableCode code="resource_identifier" /></td><td><code>string</code></td><td>A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource</td></tr>
+<tr><td><CopyableCode code="table_mappings" /></td><td><code>object</code></td><td>JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td><p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>replication_configs</code> in a region or to cr
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>replication_configs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ replication_config_arn
 FROM aws.dms.replication_configs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>replication_config</code>.
+```sql
+SELECT
+region,
+replication_config_identifier,
+replication_config_arn,
+source_endpoint_arn,
+target_endpoint_arn,
+replication_type,
+compute_config,
+replication_settings,
+supplemental_settings,
+resource_identifier,
+table_mappings,
+tags
+FROM aws.dms.replication_configs
+WHERE region = 'us-east-1' AND data__Identifier = '<ReplicationConfigArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>replication_config</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -203,7 +239,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -220,6 +256,24 @@ To operate on the <code>replication_configs</code> resource, the following permi
 ```json
 dms:CreateReplicationConfig,
 dms:AddTagsToResource,
+dms:ListTagsForResource,
+iam:CreateServiceLinkedRole,
+iam:AttachRolePolicy,
+iam:PutRolePolicy,
+iam:UpdateRoleDescription
+```
+
+### Read
+```json
+dms:DescribeReplicationConfigs,
+dms:ListTagsForResource
+```
+
+### Update
+```json
+dms:ModifyReplicationConfig,
+dms:AddTagsToResource,
+dms:RemoveTagsToResource,
 dms:ListTagsForResource,
 iam:CreateServiceLinkedRole,
 iam:AttachRolePolicy,

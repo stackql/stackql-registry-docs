@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>serverless_clusters</code> in a region or to create or delete a <code>serverless_clusters</code> resource, use <code>serverless_cluster</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>serverless_cluster</code> resource or lists <code>serverless_clusters</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>serverless_clusters</code> in a region or to cr
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_configs" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_authentication" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +61,15 @@ Used to retrieve a list of <code>serverless_clusters</code> in a region or to cr
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>serverless_clusters</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +77,21 @@ arn
 FROM aws.msk.serverless_clusters
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>serverless_cluster</code>.
+```sql
+SELECT
+region,
+arn,
+cluster_name,
+vpc_configs,
+client_authentication,
+tags
+FROM aws.msk.serverless_clusters
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>serverless_cluster</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -154,7 +173,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -179,6 +198,11 @@ ec2:DescribeSubnets,
 ec2:DescribeVpcEndpoints,
 ec2:DescribeVpcs,
 ec2:DescribeSecurityGroups
+```
+
+### Read
+```json
+kafka:DescribeClusterV2
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>route_calculators</code> in a region or to create or delete a <code>route_calculators</code> resource, use <code>route_calculator</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>route_calculator</code> resource or lists <code>route_calculators</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>route_calculators</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="calculator_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="calculator_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="create_time" /></td><td><code>The datetime value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ss.sssZ)</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_source" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="pricing_plan" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="update_time" /></td><td><code>The datetime value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ss.sssZ)</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>route_calculators</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>route_calculators</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ calculator_name
 FROM aws.location.route_calculators
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>route_calculator</code>.
+```sql
+SELECT
+region,
+calculator_arn,
+calculator_name,
+create_time,
+data_source,
+description,
+pricing_plan,
+tags,
+update_time,
+arn
+FROM aws.location.route_calculators
+WHERE region = 'us-east-1' AND data__Identifier = '<CalculatorName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>route_calculator</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +183,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -170,6 +202,20 @@ geo:CreateRouteCalculator,
 geo:DescribeRouteCalculator,
 geo:TagResource,
 geo:UntagResource
+```
+
+### Read
+```json
+geo:DescribeRouteCalculator
+```
+
+### Update
+```json
+geo:CreateRouteCalculator,
+geo:DescribeRouteCalculator,
+geo:TagResource,
+geo:UntagResource,
+geo:UpdateRouteCalculator
 ```
 
 ### Delete

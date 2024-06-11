@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>pipelines</code> in a region or to create or delete a <code>pipelines</code> resource, use <code>pipeline</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>pipeline</code> resource or lists <code>pipelines</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>pipelines</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="pipeline_name" /></td><td><code>string</code></td><td>The name of the Pipeline.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="pipeline_name" /></td><td><code>string</code></td><td>The name of the Pipeline.</td></tr>
+<tr><td><CopyableCode code="pipeline_display_name" /></td><td><code>string</code></td><td>The display name of the Pipeline.</td></tr>
+<tr><td><CopyableCode code="pipeline_description" /></td><td><code>string</code></td><td>The description of the Pipeline.</td></tr>
+<tr><td><CopyableCode code="pipeline_definition" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Role Arn</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="parallelism_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>pipelines</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>pipelines</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ pipeline_name
 FROM aws.sagemaker.pipelines
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>pipeline</code>.
+```sql
+SELECT
+region,
+pipeline_name,
+pipeline_display_name,
+pipeline_description,
+pipeline_definition,
+role_arn,
+tags,
+parallelism_configuration
+FROM aws.sagemaker.pipelines
+WHERE region = 'us-east-1' AND data__Identifier = '<PipelineName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>pipeline</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -162,7 +190,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -182,6 +210,23 @@ s3:GetObject,
 sagemaker:CreatePipeline,
 sagemaker:DescribePipeline,
 sagemaker:AddTags,
+sagemaker:ListTags
+```
+
+### Read
+```json
+sagemaker:DescribePipeline,
+sagemaker:ListTags
+```
+
+### Update
+```json
+iam:PassRole,
+s3:GetObject,
+sagemaker:UpdatePipeline,
+sagemaker:DescribePipeline,
+sagemaker:AddTags,
+sagemaker:DeleteTags,
 sagemaker:ListTags
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>prepared_statements</code> in a region or to create or delete a <code>prepared_statements</code> resource, use <code>prepared_statement</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>prepared_statement</code> resource or lists <code>prepared_statements</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>prepared_statements</code> in a region or to cr
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="statement_name" /></td><td><code>string</code></td><td>The name of the prepared statement.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="statement_name" /></td><td><code>string</code></td><td>The name of the prepared statement.</td></tr>
 <tr><td><CopyableCode code="work_group" /></td><td><code>string</code></td><td>The name of the workgroup to which the prepared statement belongs.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the prepared statement.</td></tr>
+<tr><td><CopyableCode code="query_statement" /></td><td><code>string</code></td><td>The query string for the prepared statement.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +56,24 @@ Used to retrieve a list of <code>prepared_statements</code> in a region or to cr
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>prepared_statements</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +82,20 @@ work_group
 FROM aws.athena.prepared_statements
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>prepared_statement</code>.
+```sql
+SELECT
+region,
+statement_name,
+work_group,
+description,
+query_statement
+FROM aws.athena.prepared_statements
+WHERE region = 'us-east-1' AND data__Identifier = '<StatementName>|<WorkGroup>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>prepared_statement</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +170,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -166,6 +187,16 @@ To operate on the <code>prepared_statements</code> resource, the following permi
 ```json
 athena:CreatePreparedStatement,
 athena:GetPreparedStatement
+```
+
+### Read
+```json
+athena:GetPreparedStatement
+```
+
+### Update
+```json
+athena:UpdatePreparedStatement
 ```
 
 ### Delete

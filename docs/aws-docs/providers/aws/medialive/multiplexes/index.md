@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>multiplexes</code> in a region or to create or delete a <code>multiplexes</code> resource, use <code>multiplex</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>multiplex</code> resource or lists <code>multiplexes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>multiplexes</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The unique arn of the multiplex.</td></tr>
+<tr><td><CopyableCode code="availability_zones" /></td><td><code>array</code></td><td>A list of availability zones for the multiplex.</td></tr>
+<tr><td><CopyableCode code="destinations" /></td><td><code>array</code></td><td>A list of the multiplex output destinations.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique id of the multiplex.</td></tr>
+<tr><td><CopyableCode code="multiplex_settings" /></td><td><code>object</code></td><td>Configuration for a multiplex event.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of multiplex.</td></tr>
+<tr><td><CopyableCode code="pipelines_running_count" /></td><td><code>integer</code></td><td>The number of currently healthy pipelines.</td></tr>
+<tr><td><CopyableCode code="program_count" /></td><td><code>integer</code></td><td>The number of programs in the multiplex.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of key-value pairs.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>multiplexes</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>multiplexes</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ id
 FROM aws.medialive.multiplexes
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>multiplex</code>.
+```sql
+SELECT
+region,
+arn,
+availability_zones,
+destinations,
+id,
+multiplex_settings,
+name,
+pipelines_running_count,
+program_count,
+state,
+tags
+FROM aws.medialive.multiplexes
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>multiplex</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -159,7 +193,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -177,6 +211,19 @@ To operate on the <code>multiplexes</code> resource, the following permissions a
 medialive:CreateMultiplex,
 medialive:DescribeMultiplex,
 medialive:CreateTags
+```
+
+### Read
+```json
+medialive:DescribeMultiplex
+```
+
+### Update
+```json
+medialive:UpdateMultiplex,
+medialive:DescribeMultiplex,
+medialive:CreateTags,
+medialive:DeleteTags
 ```
 
 ### Delete

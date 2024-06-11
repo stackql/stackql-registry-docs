@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>connectors</code> in a region or to create or delete a <code>connectors</code> resource, use <code>connector</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>connector</code> resource or lists <code>connectors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>connectors</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="connector_label" /></td><td><code>string</code></td><td> The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="connector_label" /></td><td><code>string</code></td><td> The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.</td></tr>
+<tr><td><CopyableCode code="connector_arn" /></td><td><code>string</code></td><td> The arn of the connector. The arn is unique for each ConnectorRegistration in your AWS account.</td></tr>
+<tr><td><CopyableCode code="connector_provisioning_type" /></td><td><code>string</code></td><td>The provisioning type of the connector. Currently the only supported value is LAMBDA. </td></tr>
+<tr><td><CopyableCode code="connector_provisioning_config" /></td><td><code>object</code></td><td>Contains information about the configuration of the connector being registered.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description about the connector that's being registered.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>connectors</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>connectors</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ connector_label
 FROM aws.appflow.connectors
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>connector</code>.
+```sql
+SELECT
+region,
+connector_label,
+connector_arn,
+connector_provisioning_type,
+connector_provisioning_config,
+description
+FROM aws.appflow.connectors
+WHERE region = 'us-east-1' AND data__Identifier = '<ConnectorLabel>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>connector</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +171,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -166,6 +190,11 @@ appflow:RegisterConnector,
 lambda:InvokeFunction
 ```
 
+### Read
+```json
+appflow:DescribeConnector
+```
+
 ### Delete
 ```json
 appflow:UnRegisterConnector
@@ -174,5 +203,11 @@ appflow:UnRegisterConnector
 ### List
 ```json
 appflow:ListConnectors
+```
+
+### Update
+```json
+appflow:UpdateConnectorRegistration,
+lambda:InvokeFunction
 ```
 

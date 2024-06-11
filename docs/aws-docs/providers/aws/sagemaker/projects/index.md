@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>projects</code> in a region or to create or delete a <code>projects</code> resource, use <code>project</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>project</code> resource or lists <code>projects</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>projects</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="project_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="project_arn" /></td><td><code>The Amazon Resource Name (ARN) of the Project.</code></td><td></td></tr>
+<tr><td><CopyableCode code="project_id" /></td><td><code>Project Id.</code></td><td></td></tr>
+<tr><td><CopyableCode code="project_name" /></td><td><code>The name of the project.</code></td><td></td></tr>
+<tr><td><CopyableCode code="project_description" /></td><td><code>The description of the project.</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The time at which the project was created.</td></tr>
+<tr><td><CopyableCode code="service_catalog_provisioning_details" /></td><td><code>object</code></td><td>Input ServiceCatalog Provisioning Details</td></tr>
+<tr><td><CopyableCode code="service_catalog_provisioned_product_details" /></td><td><code>object</code></td><td>Provisioned ServiceCatalog  Details</td></tr>
+<tr><td><CopyableCode code="project_status" /></td><td><code>string</code></td><td>The status of a project.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>projects</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>projects</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ project_arn
 FROM aws.sagemaker.projects
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>project</code>.
+```sql
+SELECT
+region,
+tags,
+project_arn,
+project_id,
+project_name,
+project_description,
+creation_time,
+service_catalog_provisioning_details,
+service_catalog_provisioned_product_details,
+project_status
+FROM aws.sagemaker.projects
+WHERE region = 'us-east-1' AND data__Identifier = '<ProjectArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>project</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -159,7 +191,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -183,6 +215,20 @@ servicecatalog:DescribeProvisioningArtifact,
 servicecatalog:ProvisionProduct,
 servicecatalog:DescribeProvisionedProduct,
 servicecatalog:TerminateProvisionedProduct
+```
+
+### Read
+```json
+sagemaker:DescribeProject,
+sagemaker:ListTags
+```
+
+### Update
+```json
+sagemaker:DescribeProject,
+sagemaker:ListTags,
+sagemaker:AddTags,
+sagemaker:DeleteTags
 ```
 
 ### Delete

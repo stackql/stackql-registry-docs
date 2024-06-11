@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>organizations</code> in a region or to create or delete a <code>organizations</code> resource, use <code>organization</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>organization</code> resource or lists <code>organizations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>organizations</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique identifier (ID) of an organization.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique identifier (ID) of an organization.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an organization.</td></tr>
+<tr><td><CopyableCode code="feature_set" /></td><td><code>string</code></td><td>Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.</td></tr>
+<tr><td><CopyableCode code="management_account_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.</td></tr>
+<tr><td><CopyableCode code="management_account_id" /></td><td><code>string</code></td><td>The unique identifier (ID) of the management account of an organization.</td></tr>
+<tr><td><CopyableCode code="management_account_email" /></td><td><code>string</code></td><td>The email address that is associated with the AWS account that is designated as the management account for the organization.</td></tr>
+<tr><td><CopyableCode code="root_id" /></td><td><code>string</code></td><td>The unique identifier (ID) for the root.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +63,15 @@ Used to retrieve a list of <code>organizations</code> in a region or to create o
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>organizations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +79,23 @@ id
 FROM aws.organizations.organizations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>organization</code>.
+```sql
+SELECT
+region,
+id,
+arn,
+feature_set,
+management_account_arn,
+management_account_id,
+management_account_email,
+root_id
+FROM aws.organizations.organizations
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>organization</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -131,7 +154,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -149,6 +172,12 @@ To operate on the <code>organizations</code> resource, the following permissions
 organizations:CreateOrganization,
 organizations:DescribeOrganization,
 iam:CreateServiceLinkedRole,
+organizations:ListRoots
+```
+
+### Read
+```json
+organizations:DescribeOrganization,
 organizations:ListRoots
 ```
 

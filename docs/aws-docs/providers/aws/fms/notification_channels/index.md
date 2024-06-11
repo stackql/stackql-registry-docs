@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>notification_channels</code> in a region or to create or delete a <code>notification_channels</code> resource, use <code>notification_channel</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>notification_channel</code> resource or lists <code>notification_channels</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,9 @@ Used to retrieve a list of <code>notification_channels</code> in a region or to 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="sns_topic_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="sns_role_name" /></td><td><code>A resource ARN.</code></td><td></td></tr>
+<tr><td><CopyableCode code="sns_topic_arn" /></td><td><code>A resource ARN.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +54,24 @@ Used to retrieve a list of <code>notification_channels</code> in a region or to 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>notification_channels</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +79,18 @@ sns_topic_arn
 FROM aws.fms.notification_channels
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>notification_channel</code>.
+```sql
+SELECT
+region,
+sns_role_name,
+sns_topic_arn
+FROM aws.fms.notification_channels
+WHERE region = 'us-east-1' AND data__Identifier = '<SnsTopicArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>notification_channel</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +155,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -154,6 +172,17 @@ To operate on the <code>notification_channels</code> resource, the following per
 ```json
 fms:PutNotificationChannel,
 iam:PassRole
+```
+
+### Update
+```json
+fms:PutNotificationChannel,
+iam:PassRole
+```
+
+### Read
+```json
+fms:GetNotificationChannel
 ```
 
 ### Delete

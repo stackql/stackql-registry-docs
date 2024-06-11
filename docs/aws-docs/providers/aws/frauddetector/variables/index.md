@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>variables</code> in a region or to create or delete a <code>variables</code> resource, use <code>variable</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>variable</code> resource or lists <code>variables</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>variables</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the variable.</td></tr>
+<tr><td><CopyableCode code="data_source" /></td><td><code>string</code></td><td>The source of the data.</td></tr>
+<tr><td><CopyableCode code="data_type" /></td><td><code>string</code></td><td>The data type.</td></tr>
+<tr><td><CopyableCode code="default_value" /></td><td><code>string</code></td><td>The default value for the variable when no value is received.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags associated with this variable.</td></tr>
+<tr><td><CopyableCode code="variable_type" /></td><td><code>string</code></td><td>The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the variable.</td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td>The time when the variable was created.</td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The time when the variable was last updated.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>variables</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>variables</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ arn
 FROM aws.frauddetector.variables
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>variable</code>.
+```sql
+SELECT
+region,
+name,
+data_source,
+data_type,
+default_value,
+description,
+tags,
+variable_type,
+arn,
+created_time,
+last_updated_time
+FROM aws.frauddetector.variables
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>variable</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -163,7 +197,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -182,6 +216,21 @@ frauddetector:GetVariables,
 frauddetector:CreateVariable,
 frauddetector:ListTagsForResource,
 frauddetector:TagResource
+```
+
+### Read
+```json
+frauddetector:GetVariables,
+frauddetector:ListTagsForResource
+```
+
+### Update
+```json
+frauddetector:GetVariables,
+frauddetector:UpdateVariable,
+frauddetector:ListTagsForResource,
+frauddetector:TagResource,
+frauddetector:UntagResource
 ```
 
 ### Delete

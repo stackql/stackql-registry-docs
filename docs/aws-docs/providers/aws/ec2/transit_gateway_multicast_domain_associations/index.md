@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>transit_gateway_multicast_domain_associations</code> in a region or to create or delete a <code>transit_gateway_multicast_domain_associations</code> resource, use <code>transit_gateway_multicast_domain_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>transit_gateway_multicast_domain_association</code> resource or lists <code>transit_gateway_multicast_domain_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,13 @@ Used to retrieve a list of <code>transit_gateway_multicast_domain_associations</
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="transit_gateway_multicast_domain_id" /></td><td><code>string</code></td><td>The ID of the transit gateway multicast domain.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="transit_gateway_multicast_domain_id" /></td><td><code>string</code></td><td>The ID of the transit gateway multicast domain.</td></tr>
 <tr><td><CopyableCode code="transit_gateway_attachment_id" /></td><td><code>string</code></td><td>The ID of the transit gateway attachment.</td></tr>
+<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>The ID of the resource.</td></tr>
+<tr><td><CopyableCode code="resource_type" /></td><td><code>string</code></td><td>The type of resource, for example a VPC attachment.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the subnet association.</td></tr>
 <tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The IDs of the subnets to associate with the transit gateway multicast domain.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -63,9 +62,15 @@ Used to retrieve a list of <code>transit_gateway_multicast_domain_associations</
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>transit_gateway_multicast_domain_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +80,22 @@ subnet_id
 FROM aws.ec2.transit_gateway_multicast_domain_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>transit_gateway_multicast_domain_association</code>.
+```sql
+SELECT
+region,
+transit_gateway_multicast_domain_id,
+transit_gateway_attachment_id,
+resource_id,
+resource_type,
+state,
+subnet_id
+FROM aws.ec2.transit_gateway_multicast_domain_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<TransitGatewayMulticastDomainId>|<TransitGatewayAttachmentId>|<SubnetId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>transit_gateway_multicast_domain_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +166,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -163,6 +182,11 @@ To operate on the <code>transit_gateway_multicast_domain_associations</code> res
 ### Create
 ```json
 ec2:AssociateTransitGatewayMulticastDomain,
+ec2:GetTransitGatewayMulticastDomainAssociations
+```
+
+### Read
+```json
 ec2:GetTransitGatewayMulticastDomainAssociations
 ```
 

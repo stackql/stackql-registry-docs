@@ -20,9 +20,9 @@ The rolesanywhere service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -31,13 +31,10 @@ The rolesanywhere service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/rolesanywhere/crl/">crl</a><br />
 <a href="/providers/aws/rolesanywhere/crls/">crls</a><br />
-<a href="/providers/aws/rolesanywhere/profile/">profile</a>
+<a href="/providers/aws/rolesanywhere/profiles/">profiles</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/rolesanywhere/profiles/">profiles</a><br />
-<a href="/providers/aws/rolesanywhere/trust_anchor/">trust_anchor</a><br />
 <a href="/providers/aws/rolesanywhere/trust_anchors/">trust_anchors</a>
 </div>
 </div>

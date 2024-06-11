@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>flywheels</code> in a region or to create or delete a <code>flywheels</code> resource, use <code>flywheel</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>flywheel</code> resource or lists <code>flywheels</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>flywheels</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="active_model_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_access_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_lake_s3_uri" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_security_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="flywheel_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="task_config" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>flywheels</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>flywheels</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ arn
 FROM aws.comprehend.flywheels
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>flywheel</code>.
+```sql
+SELECT
+region,
+active_model_arn,
+data_access_role_arn,
+data_lake_s3_uri,
+data_security_config,
+flywheel_name,
+model_type,
+tags,
+task_config,
+arn
+FROM aws.comprehend.flywheels
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>flywheel</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -181,7 +213,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -200,6 +232,22 @@ iam:PassRole,
 comprehend:CreateFlywheel,
 comprehend:DescribeFlywheel,
 comprehend:ListTagsForResource
+```
+
+### Read
+```json
+comprehend:DescribeFlywheel,
+comprehend:ListTagsForResource
+```
+
+### Update
+```json
+iam:PassRole,
+comprehend:DescribeFlywheel,
+comprehend:UpdateFlywheel,
+comprehend:ListTagsForResource,
+comprehend:TagResource,
+comprehend:UntagResource
 ```
 
 ### Delete

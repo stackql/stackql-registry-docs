@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>transit_gateways</code> in a region or to create or delete a <code>transit_gateways</code> resource, use <code>transit_gateway</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>transit_gateway</code> resource or lists <code>transit_gateways</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,21 @@ Used to retrieve a list of <code>transit_gateways</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="association_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_accept_shared_attachments" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="transit_gateway_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_route_table_propagation" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="transit_gateway_cidr_blocks" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="propagation_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_route_table_association" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpn_ecmp_support" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="dns_support" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="multicast_support" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="amazon_side_asn" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +66,24 @@ Used to retrieve a list of <code>transit_gateways</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>transit_gateways</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +91,30 @@ id
 FROM aws.ec2.transit_gateways
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>transit_gateway</code>.
+```sql
+SELECT
+region,
+description,
+association_default_route_table_id,
+auto_accept_shared_attachments,
+transit_gateway_arn,
+default_route_table_propagation,
+transit_gateway_cidr_blocks,
+propagation_default_route_table_id,
+default_route_table_association,
+id,
+vpn_ecmp_support,
+dns_support,
+multicast_support,
+amazon_side_asn,
+tags
+FROM aws.ec2.transit_gateways
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>transit_gateway</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -200,7 +242,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -213,7 +255,31 @@ AND region = 'us-east-1';
 
 To operate on the <code>transit_gateways</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:CreateTransitGateway,
+ec2:CreateTags,
+ec2:DescribeTransitGateways,
+ec2:DescribeTags,
+ec2:DeleteTransitGateway,
+ec2:DeleteTags,
+ec2:ModifyTransitGateway,
+ec2:ModifyTransitGatewayOptions
+```
+
 ### Create
+```json
+ec2:CreateTransitGateway,
+ec2:CreateTags,
+ec2:DescribeTransitGateways,
+ec2:DescribeTags,
+ec2:DeleteTransitGateway,
+ec2:DeleteTags,
+ec2:ModifyTransitGateway,
+ec2:ModifyTransitGatewayOptions
+```
+
+### Update
 ```json
 ec2:CreateTransitGateway,
 ec2:CreateTags,

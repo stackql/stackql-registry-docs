@@ -20,9 +20,9 @@ The cloudtrail service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>8</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>4</b></span><br />
 </div>
 </div>
 
@@ -31,15 +31,11 @@ The cloudtrail service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/cloudtrail/channel/">channel</a><br />
 <a href="/providers/aws/cloudtrail/channels/">channels</a><br />
-<a href="/providers/aws/cloudtrail/event_data_store/">event_data_store</a><br />
 <a href="/providers/aws/cloudtrail/event_data_stores/">event_data_stores</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/aws/cloudtrail/resource_policies/">resource_policies</a><br />
-<a href="/providers/aws/cloudtrail/resource_policy/">resource_policy</a><br />
-<a href="/providers/aws/cloudtrail/trail/">trail</a><br />
 <a href="/providers/aws/cloudtrail/trails/">trails</a>
 </div>
 </div>

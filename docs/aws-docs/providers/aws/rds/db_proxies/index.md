@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>db_proxies</code> in a region or to create or delete a <code>db_proxies</code> resource, use <code>db_proxy</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>db_proxy</code> resource or lists <code>db_proxies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>db_proxies</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="auth" /></td><td><code>array</code></td><td>The authorization mechanism that the proxy uses.</td></tr>
+<tr><td><CopyableCode code="db_proxy_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the proxy.</td></tr>
 <tr><td><CopyableCode code="db_proxy_name" /></td><td><code>string</code></td><td>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</td></tr>
+<tr><td><CopyableCode code="debug_logging" /></td><td><code>boolean</code></td><td>Whether the proxy includes detailed information about SQL statements in its logs.</td></tr>
+<tr><td><CopyableCode code="endpoint" /></td><td><code>string</code></td><td>The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.</td></tr>
+<tr><td><CopyableCode code="engine_family" /></td><td><code>string</code></td><td>The kinds of databases that the proxy can connect to.</td></tr>
+<tr><td><CopyableCode code="idle_client_timeout" /></td><td><code>integer</code></td><td>The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.</td></tr>
+<tr><td><CopyableCode code="require_tls" /></td><td><code>boolean</code></td><td>A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.</td></tr>
+<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>VPC ID to associate with the new DB proxy.</td></tr>
+<tr><td><CopyableCode code="vpc_security_group_ids" /></td><td><code>array</code></td><td>VPC security group IDs to associate with the new proxy.</td></tr>
+<tr><td><CopyableCode code="vpc_subnet_ids" /></td><td><code>array</code></td><td>VPC subnet IDs to associate with the new proxy.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>db_proxies</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>db_proxies</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ db_proxy_name
 FROM aws.rds.db_proxies
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>db_proxy</code>.
+```sql
+SELECT
+region,
+auth,
+db_proxy_arn,
+db_proxy_name,
+debug_logging,
+endpoint,
+engine_family,
+idle_client_timeout,
+require_tls,
+role_arn,
+tags,
+vpc_id,
+vpc_security_group_ids,
+vpc_subnet_ids
+FROM aws.rds.db_proxies
+WHERE region = 'us-east-1' AND data__Identifier = '<DBProxyName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>db_proxy</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -184,7 +224,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -201,6 +241,19 @@ To operate on the <code>db_proxies</code> resource, the following permissions ar
 ```json
 rds:CreateDBProxy,
 rds:DescribeDBProxies,
+iam:PassRole
+```
+
+### Read
+```json
+rds:DescribeDBProxies
+```
+
+### Update
+```json
+rds:ModifyDBProxy,
+rds:AddTagsToResource,
+rds:RemoveTagsFromResource,
 iam:PassRole
 ```
 

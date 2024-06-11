@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>regex_pattern_sets</code> in a region or to create or delete a <code>regex_pattern_sets</code> resource, use <code>regex_pattern_set</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>regex_pattern_set</code> resource or lists <code>regex_pattern_sets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,14 @@ Used to retrieve a list of <code>regex_pattern_sets</code> in a region or to cre
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>ARN of the WAF entity.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the entity.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the RegexPatternSet.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id of the RegexPatternSet</td></tr>
+<tr><td><CopyableCode code="regular_expression_list" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="scope" /></td><td><code>string</code></td><td>Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +59,24 @@ Used to retrieve a list of <code>regex_pattern_sets</code> in a region or to cre
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>regex_pattern_sets</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +86,23 @@ scope
 FROM aws.wafv2.regex_pattern_sets
 ;
 ```
+Gets all properties from a <code>regex_pattern_set</code>.
+```sql
+SELECT
+region,
+arn,
+description,
+name,
+id,
+regular_expression_list,
+scope,
+tags
+FROM aws.wafv2.regex_pattern_sets
+WHERE data__Identifier = '<Name>|<Id>|<Scope>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>regex_pattern_set</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -156,7 +182,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -180,6 +206,19 @@ wafv2:ListTagsForResource
 ```json
 wafv2:DeleteRegexPatternSet,
 wafv2:GetRegexPatternSet
+```
+
+### Read
+```json
+wafv2:GetRegexPatternSet,
+wafv2:ListTagsForResource
+```
+
+### Update
+```json
+wafv2:UpdateRegexPatternSet,
+wafv2:GetRegexPatternSet,
+wafv2:ListTagsForResource
 ```
 
 ### List

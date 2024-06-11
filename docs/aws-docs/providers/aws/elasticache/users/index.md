@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>users</code> in a region or to create or delete a <code>users</code> resource, use <code>user</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>user</code> resource or lists <code>users</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>users</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Indicates the user status. Can be "active", "modifying" or "deleting".</td></tr>
 <tr><td><CopyableCode code="user_id" /></td><td><code>string</code></td><td>The ID of the user.</td></tr>
+<tr><td><CopyableCode code="user_name" /></td><td><code>string</code></td><td>The username of the user.</td></tr>
+<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>Must be redis.</td></tr>
+<tr><td><CopyableCode code="access_string" /></td><td><code>string</code></td><td>Access permissions string used for this user account.</td></tr>
+<tr><td><CopyableCode code="no_password_required" /></td><td><code>boolean</code></td><td>Indicates a password is not required for this user account.</td></tr>
+<tr><td><CopyableCode code="passwords" /></td><td><code>array</code></td><td>Passwords used for this user account. You can create up to two passwords for each user.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the user account.</td></tr>
+<tr><td><CopyableCode code="authentication_mode" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this user.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>users</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>users</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ user_id
 FROM aws.elasticache.users
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>user</code>.
+```sql
+SELECT
+region,
+status,
+user_id,
+user_name,
+engine,
+access_string,
+no_password_required,
+passwords,
+arn,
+authentication_mode,
+tags
+FROM aws.elasticache.users
+WHERE region = 'us-east-1' AND data__Identifier = '<UserId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>user</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -169,7 +203,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -188,6 +222,21 @@ elasticache:CreateUser,
 elasticache:DescribeUsers,
 elasticache:ListTagsForResource,
 elasticache:AddTagsToResource
+```
+
+### Read
+```json
+elasticache:DescribeUsers,
+elasticache:ListTagsForResource
+```
+
+### Update
+```json
+elasticache:ModifyUser,
+elasticache:DescribeUsers,
+elasticache:ListTagsForResource,
+elasticache:AddTagsToResource,
+elasticache:RemoveTagsFromResource
 ```
 
 ### Delete

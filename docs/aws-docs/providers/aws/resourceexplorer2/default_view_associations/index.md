@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>default_view_associations</code> in a region or to create or delete a <code>default_view_associations</code> resource, use <code>default_view_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>default_view_association</code> resource or lists <code>default_view_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,9 @@ Used to retrieve a list of <code>default_view_associations</code> in a region or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="view_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="associated_aws_principal" /></td><td><code>string</code></td><td>The AWS principal that the default view is associated with, used as the unique identifier for this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +54,31 @@ Used to retrieve a list of <code>default_view_associations</code> in a region or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>default_view_association</code>.
 ```sql
 SELECT
 region,
+view_arn,
 associated_aws_principal
 FROM aws.resourceexplorer2.default_view_associations
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<AssociatedAwsPrincipal>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>default_view_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -131,7 +137,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -148,6 +154,17 @@ To operate on the <code>default_view_associations</code> resource, the following
 ```json
 resource-explorer-2:GetDefaultView,
 resource-explorer-2:AssociateDefaultView
+```
+
+### Update
+```json
+resource-explorer-2:GetDefaultView,
+resource-explorer-2:AssociateDefaultView
+```
+
+### Read
+```json
+resource-explorer-2:GetDefaultView
 ```
 
 ### Delete

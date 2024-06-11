@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>state_machines</code> in a region or to create or delete a <code>state_machines</code> resource, use <code>state_machine</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>state_machine</code> resource or lists <code>state_machines</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>state_machines</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="definition_substitutions" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="state_machine_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tracing_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition_string" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="logging_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="state_machine_revision_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition_s3_location" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="state_machine_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>state_machines</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>state_machines</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ arn
 FROM aws.stepfunctions.state_machines
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>state_machine</code>.
+```sql
+SELECT
+region,
+definition_substitutions,
+definition,
+role_arn,
+name,
+state_machine_type,
+tracing_configuration,
+definition_string,
+logging_configuration,
+state_machine_revision_id,
+definition_s3_location,
+arn,
+state_machine_name,
+tags
+FROM aws.stepfunctions.state_machines
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>state_machine</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -178,7 +218,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -191,6 +231,12 @@ AND region = 'us-east-1';
 
 To operate on the <code>state_machines</code> resource, the following permissions are required:
 
+### Read
+```json
+states:DescribeStateMachine,
+states:ListTagsForResource
+```
+
 ### Create
 ```json
 states:CreateStateMachine,
@@ -198,6 +244,15 @@ states:DescribeStateMachine,
 states:TagResource,
 iam:PassRole,
 s3:GetObject
+```
+
+### Update
+```json
+states:UpdateStateMachine,
+states:TagResource,
+states:UntagResource,
+states:ListTagsForResource,
+iam:PassRole
 ```
 
 ### List

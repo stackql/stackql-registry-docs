@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>services</code> in a region or to create or delete a <code>services</code> resource, use <code>service</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>service</code> resource or lists <code>services</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,18 @@ Used to retrieve a list of <code>services</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="environment_identifier" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="application_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="endpoint_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="environment_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="lambda_endpoint" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="service_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="url_endpoint" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -63,9 +67,15 @@ Used to retrieve a list of <code>services</code> in a region or to create or del
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>services</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +85,27 @@ service_identifier
 FROM aws.refactorspaces.services
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>service</code>.
+```sql
+SELECT
+region,
+arn,
+application_identifier,
+description,
+endpoint_type,
+environment_identifier,
+lambda_endpoint,
+name,
+service_identifier,
+url_endpoint,
+vpc_id,
+tags
+FROM aws.refactorspaces.services
+WHERE region = 'us-east-1' AND data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>|<ServiceIdentifier>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>service</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -178,7 +207,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -206,6 +235,12 @@ ec2:CreateSecurityGroup,
 ec2:AuthorizeSecurityGroupIngress,
 ec2:CreateRoute,
 lambda:GetFunctionConfiguration
+```
+
+### Read
+```json
+refactor-spacess:GetService,
+refactor-spaces:ListTagsForResource
 ```
 
 ### Delete

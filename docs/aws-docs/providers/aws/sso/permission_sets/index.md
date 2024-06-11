@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>permission_sets</code> in a region or to create or delete a <code>permission_sets</code> resource, use <code>permission_set</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>permission_set</code> resource or lists <code>permission_sets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,18 @@ Used to retrieve a list of <code>permission_sets</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The sso instance arn that the permission set is owned.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name you want to assign to this permission set.</td></tr>
 <tr><td><CopyableCode code="permission_set_arn" /></td><td><code>string</code></td><td>The permission set that the policy will be attached to</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The permission set description.</td></tr>
+<tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The sso instance arn that the permission set is owned.</td></tr>
+<tr><td><CopyableCode code="session_duration" /></td><td><code>string</code></td><td>The length of time that a user can be signed in to an AWS account.</td></tr>
+<tr><td><CopyableCode code="relay_state_type" /></td><td><code>string</code></td><td>The relay state URL that redirect links to any service in the AWS Management Console.</td></tr>
+<tr><td><CopyableCode code="managed_policies" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="inline_policy" /></td><td><code>object</code></td><td>The inline policy to put in permission set.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="customer_managed_policy_references" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="permissions_boundary" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +63,24 @@ Used to retrieve a list of <code>permission_sets</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>permission_sets</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +89,27 @@ permission_set_arn
 FROM aws.sso.permission_sets
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>permission_set</code>.
+```sql
+SELECT
+region,
+name,
+permission_set_arn,
+description,
+instance_arn,
+session_duration,
+relay_state_type,
+managed_policies,
+inline_policy,
+tags,
+customer_managed_policy_references,
+permissions_boundary
+FROM aws.sso.permission_sets
+WHERE region = 'us-east-1' AND data__Identifier = '<InstanceArn>|<PermissionSetArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>permission_set</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -178,7 +213,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -205,6 +240,39 @@ sso:ListManagedPoliciesInPermissionSet,
 sso:ListCustomerManagedPolicyReferencesInPermissionSet,
 sso:GetInlinePolicyForPermissionSet,
 sso:GetPermissionsBoundaryForPermissionSet
+```
+
+### Read
+```json
+sso:DescribePermissionSet,
+sso:ListTagsForResource,
+sso:ListManagedPoliciesInPermissionSet,
+sso:ListCustomerManagedPolicyReferencesInPermissionSet,
+sso:GetInlinePolicyForPermissionSet,
+sso:GetPermissionsBoundaryForPermissionSet
+```
+
+### Update
+```json
+sso:UpdatePermissionSet,
+sso:TagResource,
+sso:UntagResource,
+sso:ListTagsForResource,
+sso:AttachManagedPolicyToPermissionSet,
+sso:AttachCustomerManagedPolicyReferenceToPermissionSet,
+sso:DetachManagedPolicyFromPermissionSet,
+sso:DetachCustomerManagedPolicyReferenceFromPermissionSet,
+sso:ListManagedPoliciesInPermissionSet,
+sso:ListCustomerManagedPolicyReferencesInPermissionSet,
+sso:PutInlinePolicyToPermissionSet,
+sso:GetPermissionsBoundaryForPermissionSet,
+sso:DeletePermissionsBoundaryFromPermissionSet,
+sso:PutPermissionsBoundaryToPermissionSet,
+sso:DeleteInlinePolicyFromPermissionSet,
+sso:ProvisionPermissionSet,
+sso:DescribePermissionSet,
+sso:GetInlinePolicyForPermissionSet,
+sso:DescribePermissionSetProvisioningStatus
 ```
 
 ### Delete

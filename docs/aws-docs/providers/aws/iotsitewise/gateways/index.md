@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>gateways</code> in a region or to create or delete a <code>gateways</code> resource, use <code>gateway</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>gateway</code> resource or lists <code>gateways</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>gateways</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="gateway_name" /></td><td><code>string</code></td><td>A unique, friendly name for the gateway.</td></tr>
+<tr><td><CopyableCode code="gateway_platform" /></td><td><code>object</code></td><td>The gateway's platform. You can only specify one platform in a gateway.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the gateway.</td></tr>
 <tr><td><CopyableCode code="gateway_id" /></td><td><code>string</code></td><td>The ID of the gateway device.</td></tr>
+<tr><td><CopyableCode code="gateway_capability_summaries" /></td><td><code>array</code></td><td>A list of gateway capability summaries that each contain a namespace and status.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>gateways</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>gateways</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ gateway_id
 FROM aws.iotsitewise.gateways
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>gateway</code>.
+```sql
+SELECT
+region,
+gateway_name,
+gateway_platform,
+tags,
+gateway_id,
+gateway_capability_summaries
+FROM aws.iotsitewise.gateways
+WHERE region = 'us-east-1' AND data__Identifier = '<GatewayId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>gateway</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -155,7 +179,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -180,6 +204,24 @@ greengrass:GetCoreDevice,
 iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
 iot:DescribeThing
+```
+
+### Read
+```json
+iotsitewise:DescribeGateway,
+iotsitewise:DescribeGatewayCapabilityConfiguration,
+iotsitewise:ListTagsForResource
+```
+
+### Update
+```json
+iotsitewise:UpdateGateway,
+iotsitewise:UpdateGatewayCapabilityConfiguration,
+iotsitewise:TagResource,
+iotsitewise:UntagResource,
+iotsitewise:DescribeGateway,
+iotsitewise:DescribeGatewayCapabilityConfiguration,
+iotsitewise:ListTagsForResource
 ```
 
 ### Delete

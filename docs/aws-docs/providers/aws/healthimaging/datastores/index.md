@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>datastores</code> in a region or to create or delete a <code>datastores</code> resource, use <code>datastore</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>datastore</code> resource or lists <code>datastores</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>datastores</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="datastore_arn" /></td><td><code>The Datastore's ARN.</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_name" /></td><td><code>User friendly name for Datastore.</code></td><td></td></tr>
 <tr><td><CopyableCode code="datastore_id" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_status" /></td><td><code>A string to denote the Datastore's state.</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key_arn" /></td><td><code>ARN referencing a KMS key or KMS key alias.</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>The timestamp when the data store was created.</code></td><td></td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>The timestamp when the data store was created.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>A Map of key value pairs for Tags.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +64,15 @@ Used to retrieve a list of <code>datastores</code> in a region or to create or d
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>datastores</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,24 @@ datastore_id
 FROM aws.healthimaging.datastores
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>datastore</code>.
+```sql
+SELECT
+region,
+datastore_arn,
+datastore_name,
+datastore_id,
+datastore_status,
+kms_key_arn,
+created_at,
+updated_at,
+tags
+FROM aws.healthimaging.datastores
+WHERE region = 'us-east-1' AND data__Identifier = '<DatastoreId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>datastore</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -139,7 +164,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -164,6 +189,12 @@ kms:Decrypt,
 lambda:InvokeFunction,
 medical-imaging:TagResource,
 medical-imaging:UntagResource,
+medical-imaging:ListTagsForResource
+```
+
+### Read
+```json
+medical-imaging:GetDatastore,
 medical-imaging:ListTagsForResource
 ```
 

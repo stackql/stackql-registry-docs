@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Gets or updates an individual <code>storage_lens</code> resource, use <code>storage_lens</code> to retrieve a list of resources or to create or delete a resource.
+Creates, updates, deletes or gets a <code>storage_len</code> resource or lists <code>storage_lens</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,9 @@ Gets or updates an individual <code>storage_lens</code> resource, use <code>stor
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="storage_lens_configuration" /></td><td><code>object</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="storage_lens_configuration" /></td><td><code>Specifies the details of Amazon S3 Storage Lens configuration.</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -48,9 +44,24 @@ Gets or updates an individual <code>storage_lens</code> resource, use <code>stor
     <th>Required Params</th>
   </tr>
   <tr>
+    <td><CopyableCode code="create_resource" /></td>
+    <td><code>INSERT</code></td>
+    <td><CopyableCode code="StorageLensConfiguration, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="list_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="get_resource" /></td>
@@ -59,7 +70,16 @@ Gets or updates an individual <code>storage_lens</code> resource, use <code>stor
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>storage_lens</code> in a region.
+```sql
+SELECT
+region,
+storage_lens_configuration/id
+FROM aws.s3.storage_lens
+WHERE region = 'us-east-1';
+```
+Gets all properties from a <code>storage_len</code>.
 ```sql
 SELECT
 region,
@@ -70,9 +90,144 @@ WHERE region = 'us-east-1' AND data__Identifier = '<StorageLensConfiguration/Id>
 ```
 
 
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>storage_len</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO aws.s3.storage_lens (
+ StorageLensConfiguration,
+ region
+)
+SELECT 
+'{{ StorageLensConfiguration }}',
+'{{ region }}';
+```
+</TabItem>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO aws.s3.storage_lens (
+ StorageLensConfiguration,
+ Tags,
+ region
+)
+SELECT 
+ '{{ StorageLensConfiguration }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: storage_len
+    props:
+      - name: StorageLensConfiguration
+        value:
+          Id: '{{ Id }}'
+          Include:
+            Buckets:
+              - '{{ Buckets[0] }}'
+            Regions:
+              - '{{ Regions[0] }}'
+          Exclude: null
+          AwsOrg:
+            Arn: null
+          AccountLevel:
+            ActivityMetrics:
+              IsEnabled: '{{ IsEnabled }}'
+            AdvancedCostOptimizationMetrics:
+              IsEnabled: '{{ IsEnabled }}'
+            AdvancedDataProtectionMetrics:
+              IsEnabled: '{{ IsEnabled }}'
+            DetailedStatusCodesMetrics:
+              IsEnabled: '{{ IsEnabled }}'
+            BucketLevel:
+              ActivityMetrics: null
+              AdvancedCostOptimizationMetrics: null
+              AdvancedDataProtectionMetrics: null
+              DetailedStatusCodesMetrics: null
+              PrefixLevel:
+                StorageMetrics:
+                  IsEnabled: '{{ IsEnabled }}'
+                  SelectionCriteria:
+                    MaxDepth: '{{ MaxDepth }}'
+                    Delimiter: '{{ Delimiter }}'
+                    MinStorageBytesPercentage: null
+            StorageLensGroupLevel:
+              StorageLensGroupSelectionCriteria:
+                Include:
+                  - '{{ Include[0] }}'
+                Exclude:
+                  - null
+          DataExport:
+            S3BucketDestination:
+              OutputSchemaVersion: '{{ OutputSchemaVersion }}'
+              Format: '{{ Format }}'
+              AccountId: '{{ AccountId }}'
+              Arn: '{{ Arn }}'
+              Prefix: '{{ Prefix }}'
+              Encryption: {}
+            CloudWatchMetrics:
+              IsEnabled: '{{ IsEnabled }}'
+          IsEnabled: '{{ IsEnabled }}'
+          StorageLensArn: '{{ StorageLensArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+```sql
+/*+ delete */
+DELETE FROM aws.s3.storage_lens
+WHERE data__Identifier = '<StorageLensConfiguration/Id>'
+AND region = 'us-east-1';
+```
+
 ## Permissions
 
 To operate on the <code>storage_lens</code> resource, the following permissions are required:
+
+### Create
+```json
+s3:PutStorageLensConfiguration,
+s3:PutStorageLensConfigurationTagging,
+s3:GetStorageLensConfiguration,
+s3:GetStorageLensConfigurationTagging,
+organizations:DescribeOrganization,
+organizations:ListAccounts,
+organizations:ListAWSServiceAccessForOrganization,
+organizations:ListDelegatedAdministrators,
+iam:CreateServiceLinkedRole
+```
 
 ### Read
 ```json
@@ -91,5 +246,16 @@ organizations:ListAccounts,
 organizations:ListAWSServiceAccessForOrganization,
 organizations:ListDelegatedAdministrators,
 iam:CreateServiceLinkedRole
+```
+
+### Delete
+```json
+s3:DeleteStorageLensConfiguration,
+s3:DeleteStorageLensConfigurationTagging
+```
+
+### List
+```json
+s3:ListStorageLensConfigurations
 ```
 

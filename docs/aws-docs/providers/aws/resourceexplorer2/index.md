@@ -20,9 +20,9 @@ The resourceexplorer2 service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -31,13 +31,10 @@ The resourceexplorer2 service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/resourceexplorer2/default_view_association/">default_view_association</a><br />
 <a href="/providers/aws/resourceexplorer2/default_view_associations/">default_view_associations</a><br />
-<a href="/providers/aws/resourceexplorer2/index/">index</a>
+<a href="/providers/aws/resourceexplorer2/indices/">indices</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/resourceexplorer2/indices/">indices</a><br />
-<a href="/providers/aws/resourceexplorer2/view/">view</a><br />
 <a href="/providers/aws/resourceexplorer2/views/">views</a>
 </div>
 </div>

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>enabled_controls</code> in a region or to create or delete a <code>enabled_controls</code> resource, use <code>enabled_control</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>enabled_control</code> resource or lists <code>enabled_controls</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>enabled_controls</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="control_identifier" /></td><td><code>string</code></td><td>Arn of the control.</td></tr>
 <tr><td><CopyableCode code="target_identifier" /></td><td><code>string</code></td><td>Arn for Organizational unit to which the control needs to be applied</td></tr>
-<tr><td><CopyableCode code="control_identifier" /></td><td><code>string</code></td><td>Arn of the control.</td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code>array</code></td><td>Parameters to configure the enabled control behavior.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A set of tags to assign to the enabled control.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +56,24 @@ Used to retrieve a list of <code>enabled_controls</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>enabled_controls</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +82,20 @@ control_identifier
 FROM aws.controltower.enabled_controls
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>enabled_control</code>.
+```sql
+SELECT
+region,
+control_identifier,
+target_identifier,
+parameters,
+tags
+FROM aws.controltower.enabled_controls
+WHERE region = 'us-east-1' AND data__Identifier = '<TargetIdentifier>|<ControlIdentifier>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>enabled_control</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +172,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -180,6 +201,23 @@ organizations:ListTargetsForPolicy,
 organizations:DescribePolicy
 ```
 
+### Update
+```json
+controltower:ListEnabledControls,
+controltower:GetEnabledControl,
+controltower:GetControlOperation,
+controltower:UpdateEnabledControl,
+controltower:UntagResource,
+controltower:TagResource,
+organizations:UpdatePolicy,
+organizations:CreatePolicy,
+organizations:AttachPolicy,
+organizations:DetachPolicy,
+organizations:ListPoliciesForTarget,
+organizations:ListTargetsForPolicy,
+organizations:DescribePolicy
+```
+
 ### Delete
 ```json
 controltower:GetControlOperation,
@@ -192,6 +230,13 @@ organizations:DetachPolicy,
 organizations:ListPoliciesForTarget,
 organizations:ListTargetsForPolicy,
 organizations:DescribePolicy
+```
+
+### Read
+```json
+controltower:ListEnabledControls,
+controltower:GetEnabledControl,
+controltower:ListTagsForResource
 ```
 
 ### List

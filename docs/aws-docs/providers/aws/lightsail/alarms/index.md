@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>alarms</code> in a region or to create or delete a <code>alarms</code> resource, use <code>alarm</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>alarm</code> resource or lists <code>alarms</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>alarms</code> in a region or to create or delet
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="alarm_name" /></td><td><code>string</code></td><td>The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="alarm_name" /></td><td><code>string</code></td><td>The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.</td></tr>
+<tr><td><CopyableCode code="monitored_resource_name" /></td><td><code>string</code></td><td>The validation status of the SSL/TLS certificate.</td></tr>
+<tr><td><CopyableCode code="metric_name" /></td><td><code>string</code></td><td>The name of the metric to associate with the alarm.</td></tr>
+<tr><td><CopyableCode code="comparison_operator" /></td><td><code>string</code></td><td>The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand.</td></tr>
+<tr><td><CopyableCode code="contact_protocols" /></td><td><code>array</code></td><td>The contact protocols to use for the alarm, such as Email, SMS (text messaging), or both.</td></tr>
+<tr><td><CopyableCode code="alarm_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="datapoints_to_alarm" /></td><td><code>integer</code></td><td>The number of data points that must be not within the specified threshold to trigger the alarm. If you are setting an "M out of N" alarm, this value (datapointsToAlarm) is the M.</td></tr>
+<tr><td><CopyableCode code="evaluation_periods" /></td><td><code>integer</code></td><td>The number of most recent periods over which data is compared to the specified threshold. If you are setting an "M out of N" alarm, this value (evaluationPeriods) is the N.</td></tr>
+<tr><td><CopyableCode code="notification_enabled" /></td><td><code>boolean</code></td><td>Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter.</td></tr>
+<tr><td><CopyableCode code="notification_triggers" /></td><td><code>array</code></td><td>The alarm states that trigger a notification.</td></tr>
+<tr><td><CopyableCode code="threshold" /></td><td><code>number</code></td><td>The value against which the specified statistic is compared.</td></tr>
+<tr><td><CopyableCode code="treat_missing_data" /></td><td><code>string</code></td><td>Sets how this alarm will handle missing data points.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The current state of the alarm.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>alarms</code> in a region or to create or delet
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>alarms</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ alarm_name
 FROM aws.lightsail.alarms
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>alarm</code>.
+```sql
+SELECT
+region,
+alarm_name,
+monitored_resource_name,
+metric_name,
+comparison_operator,
+contact_protocols,
+alarm_arn,
+datapoints_to_alarm,
+evaluation_periods,
+notification_enabled,
+notification_triggers,
+threshold,
+treat_missing_data,
+state
+FROM aws.lightsail.alarms
+WHERE region = 'us-east-1' AND data__Identifier = '<AlarmName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>alarm</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -183,7 +223,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -197,6 +237,17 @@ AND region = 'us-east-1';
 To operate on the <code>alarms</code> resource, the following permissions are required:
 
 ### Create
+```json
+lightsail:PutAlarm,
+lightsail:GetAlarms
+```
+
+### Read
+```json
+lightsail:GetAlarms
+```
+
+### Update
 ```json
 lightsail:PutAlarm,
 lightsail:GetAlarms

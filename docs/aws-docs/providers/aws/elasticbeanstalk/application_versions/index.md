@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>application_versions</code> in a region or to create or delete a <code>application_versions</code> resource, use <code>application_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>application_version</code> resource or lists <code>application_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>application_versions</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="application_name" /></td><td><code>string</code></td><td>The name of the Elastic Beanstalk application that is associated with this application version. </td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of this application version.</td></tr>
+<tr><td><CopyableCode code="source_bundle" /></td><td><code>object</code></td><td>The Amazon S3 bucket and key that identify the location of the source bundle for this version. </td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +56,24 @@ Used to retrieve a list of <code>application_versions</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>application_versions</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +82,20 @@ id
 FROM aws.elasticbeanstalk.application_versions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>application_version</code>.
+```sql
+SELECT
+region,
+id,
+application_name,
+description,
+source_bundle
+FROM aws.elasticbeanstalk.application_versions
+WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationName>|<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>application_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -145,7 +166,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -164,6 +185,16 @@ elasticbeanstalk:CreateApplicationVersion,
 elasticbeanstalk:DescribeApplicationVersions,
 s3:GetObject,
 s3:PutObject
+```
+
+### Read
+```json
+elasticbeanstalk:DescribeApplicationVersions
+```
+
+### Update
+```json
+elasticbeanstalk:UpdateApplicationVersion
 ```
 
 ### Delete

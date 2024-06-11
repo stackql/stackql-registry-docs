@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>datasets</code> in a region or to create or delete a <code>datasets</code> resource, use <code>dataset</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>dataset</code> resource or lists <code>datasets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>datasets</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name for the dataset</td></tr>
 <tr><td><CopyableCode code="dataset_arn" /></td><td><code>string</code></td><td>The ARN of the dataset</td></tr>
+<tr><td><CopyableCode code="dataset_type" /></td><td><code>string</code></td><td>The type of dataset</td></tr>
+<tr><td><CopyableCode code="dataset_group_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group to add the dataset to</td></tr>
+<tr><td><CopyableCode code="schema_arn" /></td><td><code>string</code></td><td>The ARN of the schema to associate with the dataset. The schema defines the dataset fields.</td></tr>
+<tr><td><CopyableCode code="dataset_import_job" /></td><td><code>Initial DatasetImportJob for the created dataset</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>datasets</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>datasets</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ dataset_arn
 FROM aws.personalize.datasets
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>dataset</code>.
+```sql
+SELECT
+region,
+name,
+dataset_arn,
+dataset_type,
+dataset_group_arn,
+schema_arn,
+dataset_import_job
+FROM aws.personalize.datasets
+WHERE region = 'us-east-1' AND data__Identifier = '<DatasetArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>dataset</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -159,7 +185,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -175,6 +201,19 @@ To operate on the <code>datasets</code> resource, the following permissions are 
 ### Create
 ```json
 personalize:CreateDataset,
+personalize:DescribeDataset,
+personalize:CreateDatasetImportJob,
+personalize:DescribeDatasetImportJob,
+iam:PassRole
+```
+
+### Read
+```json
+personalize:DescribeDataset
+```
+
+### Update
+```json
 personalize:DescribeDataset,
 personalize:CreateDatasetImportJob,
 personalize:DescribeDatasetImportJob,

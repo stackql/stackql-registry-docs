@@ -20,9 +20,9 @@ The lookoutequipment service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>1</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ The lookoutequipment service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/lookoutequipment/inference_scheduler/">inference_scheduler</a>
+<a href="/providers/aws/lookoutequipment/inference_schedulers/">inference_schedulers</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/lookoutequipment/inference_schedulers/">inference_schedulers</a>
+
 </div>
 </div>

@@ -20,9 +20,9 @@ The oam service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -31,11 +31,9 @@ The oam service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/oam/link/">link</a><br />
 <a href="/providers/aws/oam/links/">links</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/oam/sink/">sink</a><br />
 <a href="/providers/aws/oam/sinks/">sinks</a>
 </div>
 </div>

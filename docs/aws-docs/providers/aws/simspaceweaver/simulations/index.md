@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>simulations</code> in a region or to create or delete a <code>simulations</code> resource, use <code>simulation</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>simulation</code> resource or lists <code>simulations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>simulations</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the simulation.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the simulation.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Role ARN.</td></tr>
+<tr><td><CopyableCode code="schema_s3_location" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="describe_payload" /></td><td><code>string</code></td><td>Json object with all simulation details</td></tr>
+<tr><td><CopyableCode code="maximum_duration" /></td><td><code>string</code></td><td>The maximum running time of the simulation.</td></tr>
+<tr><td><CopyableCode code="snapshot_s3_location" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>simulations</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>simulations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ name
 FROM aws.simspaceweaver.simulations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>simulation</code>.
+```sql
+SELECT
+region,
+name,
+role_arn,
+schema_s3_location,
+describe_payload,
+maximum_duration,
+snapshot_s3_location
+FROM aws.simspaceweaver.simulations
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>simulation</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +177,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -170,6 +196,19 @@ simspaceweaver:StartSimulation,
 simspaceweaver:DescribeSimulation,
 iam:GetRole,
 iam:PassRole
+```
+
+### Read
+```json
+simspaceweaver:DescribeSimulation
+```
+
+### Update
+```json
+simspaceweaver:StartSimulation,
+simspaceweaver:StopSimulation,
+simspaceweaver:DeleteSimulation,
+simspaceweaver:DescribeSimulation
 ```
 
 ### Delete

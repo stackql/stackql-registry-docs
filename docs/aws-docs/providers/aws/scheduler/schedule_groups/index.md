@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>schedule_groups</code> in a region or to create or delete a <code>schedule_groups</code> resource, use <code>schedule_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>schedule_group</code> resource or lists <code>schedule_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>schedule_groups</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the schedule group.</td></tr>
+<tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td>The time at which the schedule group was created.</td></tr>
+<tr><td><CopyableCode code="last_modification_date" /></td><td><code>string</code></td><td>The time at which the schedule group was last modified.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>Specifies the state of the schedule group.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The list of tags to associate with the schedule group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>schedule_groups</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>schedule_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ name
 FROM aws.scheduler.schedule_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>schedule_group</code>.
+```sql
+SELECT
+region,
+arn,
+creation_date,
+last_modification_date,
+name,
+state,
+tags
+FROM aws.scheduler.schedule_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>schedule_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -139,7 +165,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -158,6 +184,20 @@ scheduler:TagResource,
 scheduler:CreateScheduleGroup,
 scheduler:GetScheduleGroup,
 scheduler:ListTagsForResource
+```
+
+### Read
+```json
+scheduler:GetScheduleGroup,
+scheduler:ListTagsForResource
+```
+
+### Update
+```json
+scheduler:TagResource,
+scheduler:UntagResource,
+scheduler:ListTagsForResource,
+scheduler:GetScheduleGroup
 ```
 
 ### Delete

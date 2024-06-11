@@ -19,24 +19,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>certificates</code> in a region or to create or delete a <code>certificates</code> resource, use <code>certificate</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>certificate</code> resource or lists <code>certificates</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The <code>AWS::ACMPCA::Certificate</code> resource is used to issue a certificate using your private certificate authority. For more information, see the &#91;IssueCertificate&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;privateca&#x2F;latest&#x2F;APIReference&#x2F;API_IssueCertificate.html) action.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ACMPCA::Certificate</code> resource is used to issue a certificate using your private certificate authority. For more information, see the &#91;IssueCertificate&#93;(https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.acmpca.certificates" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="api_passthrough" /></td><td><code>object</code></td><td>Specifies X.509 certificate information to be included in the issued certificate. An <code>APIPassthrough</code> or <code>APICSRPassthrough</code> template variant must be selected, or else this parameter is ignored.</td></tr>
+<tr><td><CopyableCode code="certificate_authority_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the private CA issues the certificate.</td></tr>
+<tr><td><CopyableCode code="certificate_signing_request" /></td><td><code>string</code></td><td>The certificate signing request (CSR) for the certificate.</td></tr>
+<tr><td><CopyableCode code="signing_algorithm" /></td><td><code>string</code></td><td>The name of the algorithm that will be used to sign the certificate to be issued. <br/> This parameter should not be confused with the <code>SigningAlgorithm</code> parameter used to sign a CSR in the <code>CreateCertificateAuthority</code> action.<br/>  The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.</td></tr>
+<tr><td><CopyableCode code="template_arn" /></td><td><code>string</code></td><td>Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the <code>EndEntityCertificate/V1</code> template. For more information about PCAshort templates, see &#91;Using Templates&#93;(https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).</td></tr>
+<tr><td><CopyableCode code="validity" /></td><td><code>object</code></td><td>The period of time during which the certificate will be valid.</td></tr>
+<tr><td><CopyableCode code="validity_not_before" /></td><td><code>object</code></td><td>Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.<br/> By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The <code>ValidityNotBefore</code> parameter can be used to customize the “Not Before” value. <br/> Unlike the <code>Validity</code> parameter, the <code>ValidityNotBefore</code> parameter is optional.<br/> The <code>ValidityNotBefore</code> value is expressed as an explicit date and time, using the <code>Validity</code> type value <code>ABSOLUTE</code>.</td></tr>
+<tr><td><CopyableCode code="certificate" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="certificate_authority_arn" /></td><td><code>undefined</code></td><td>The Amazon Resource Name (ARN) for the private CA issues the certificate.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,23 +61,33 @@ Used to retrieve a list of <code>certificates</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>certificate</code>.
 ```sql
 SELECT
 region,
-arn,
-certificate_authority_arn
+api_passthrough,
+certificate_authority_arn,
+certificate_signing_request,
+signing_algorithm,
+template_arn,
+validity,
+validity_not_before,
+certificate,
+arn
 FROM aws.acmpca.certificates
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>|<CertificateAuthorityArn>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>certificate</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -220,7 +233,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -236,6 +249,11 @@ To operate on the <code>certificates</code> resource, the following permissions 
 ### Create
 ```json
 acm-pca:IssueCertificate,
+acm-pca:GetCertificate
+```
+
+### Read
+```json
 acm-pca:GetCertificate
 ```
 

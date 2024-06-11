@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>calculated_attribute_definitions</code> in a region or to create or delete a <code>calculated_attribute_definitions</code> resource, use <code>calculated_attribute_definition</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>calculated_attribute_definition</code> resource or lists <code>calculated_attribute_definitions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,17 @@ Used to retrieve a list of <code>calculated_attribute_definitions</code> in a re
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="domain_name" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="calculated_attribute_name" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_name" /></td><td><code>The unique name of the domain.</code></td><td></td></tr>
+<tr><td><CopyableCode code="calculated_attribute_name" /></td><td><code>The unique name of the calculated attribute.</code></td><td></td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>The display name of the calculated attribute.</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>The description of the calculated attribute.</code></td><td></td></tr>
+<tr><td><CopyableCode code="attribute_details" /></td><td><code>Mathematical expression and a list of attribute items specified in that expression.</code></td><td></td></tr>
+<tr><td><CopyableCode code="conditions" /></td><td><code>The conditions including range, object count, and threshold for the calculated attribute.</code></td><td></td></tr>
+<tr><td><CopyableCode code="statistic" /></td><td><code>The aggregation operation to perform for the calculated attribute.</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The timestamp of when the calculated attribute definition was created.</td></tr>
+<tr><td><CopyableCode code="last_updated_at" /></td><td><code>string</code></td><td>The timestamp of when the calculated attribute definition was most recently edited.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>An array of key-value pairs to apply to this resource.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +62,24 @@ Used to retrieve a list of <code>calculated_attribute_definitions</code> in a re
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>calculated_attribute_definitions</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +88,26 @@ calculated_attribute_name
 FROM aws.customerprofiles.calculated_attribute_definitions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>calculated_attribute_definition</code>.
+```sql
+SELECT
+region,
+domain_name,
+calculated_attribute_name,
+display_name,
+description,
+attribute_details,
+conditions,
+statistic,
+created_at,
+last_updated_at,
+tags
+FROM aws.customerprofiles.calculated_attribute_definitions
+WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>|<CalculatedAttributeName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>calculated_attribute_definition</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -179,7 +212,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -195,6 +228,19 @@ To operate on the <code>calculated_attribute_definitions</code> resource, the fo
 ### Create
 ```json
 profile:CreateCalculatedAttributeDefinition,
+profile:TagResource
+```
+
+### Read
+```json
+profile:GetCalculatedAttributeDefinition
+```
+
+### Update
+```json
+profile:GetCalculatedAttributeDefinition,
+profile:UpdateCalculatedAttributeDefinition,
+profile:UntagResource,
 profile:TagResource
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>configuration_templates</code> in a region or to create or delete a <code>configuration_templates</code> resource, use <code>configuration_template</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>configuration_template</code> resource or lists <code>configuration_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,15 @@ Used to retrieve a list of <code>configuration_templates</code> in a region or t
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="application_name" /></td><td><code>string</code></td><td>The name of the Elastic Beanstalk application to associate with this configuration template. </td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_name" /></td><td><code>string</code></td><td>The name of the Elastic Beanstalk application to associate with this configuration template. </td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>An optional description for this configuration.</td></tr>
+<tr><td><CopyableCode code="environment_id" /></td><td><code>string</code></td><td>The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration. </td></tr>
+<tr><td><CopyableCode code="option_settings" /></td><td><code>array</code></td><td>Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see &#91;Option Values&#93;(https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide. </td></tr>
+<tr><td><CopyableCode code="platform_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the custom platform. For more information, see &#91;Custom Platforms&#93;(https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide. </td></tr>
+<tr><td><CopyableCode code="solution_stack_name" /></td><td><code>string</code></td><td>The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see &#91;Supported Platforms&#93;(https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) in the AWS Elastic Beanstalk Developer Guide.<br/><br/> You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.<br/><br/> Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks. </td></tr>
+<tr><td><CopyableCode code="source_configuration" /></td><td><code>object</code></td><td>An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.<br/><br/>Values specified in OptionSettings override any values obtained from the SourceConfiguration.<br/><br/>You must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.<br/><br/>Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name. </td></tr>
 <tr><td><CopyableCode code="template_name" /></td><td><code>string</code></td><td>The name of the configuration template</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +60,24 @@ Used to retrieve a list of <code>configuration_templates</code> in a region or t
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>configuration_templates</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +86,24 @@ template_name
 FROM aws.elasticbeanstalk.configuration_templates
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>configuration_template</code>.
+```sql
+SELECT
+region,
+application_name,
+description,
+environment_id,
+option_settings,
+platform_arn,
+solution_stack_name,
+source_configuration,
+template_name
+FROM aws.elasticbeanstalk.configuration_templates
+WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationName>|<TemplateName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>configuration_template</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -163,7 +192,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -179,6 +208,16 @@ To operate on the <code>configuration_templates</code> resource, the following p
 ### Create
 ```json
 elasticbeanstalk:CreateConfigurationTemplate
+```
+
+### Read
+```json
+elasticbeanstalk:DescribeConfigurationSettings
+```
+
+### Update
+```json
+elasticbeanstalk:UpdateConfigurationTemplate
 ```
 
 ### Delete

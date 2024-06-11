@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>primary_task_sets</code> in a region or to create or delete a <code>primary_task_sets</code> resource, use <code>primary_task_set</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>primary_task_set</code> resource or lists <code>primary_task_sets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,10 @@ Used to retrieve a list of <code>primary_task_sets</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="cluster" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.</td></tr>
+<tr><td><CopyableCode code="task_set_id" /></td><td><code>string</code></td><td>The ID or full Amazon Resource Name (ARN) of the task set.</td></tr>
 <tr><td><CopyableCode code="service" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the service to create the task set in.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -53,23 +50,32 @@ Used to retrieve a list of <code>primary_task_sets</code> in a region or to crea
     <td><CopyableCode code="Cluster, Service, TaskSetId, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>primary_task_set</code>.
 ```sql
 SELECT
 region,
 cluster,
+task_set_id,
 service
 FROM aws.ecs.primary_task_sets
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<Cluster>|<Service>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>primary_task_set</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -145,6 +151,12 @@ resources:
 To operate on the <code>primary_task_sets</code> resource, the following permissions are required:
 
 ### Create
+```json
+ecs:DescribeTaskSets,
+ecs:UpdateServicePrimaryTaskSet
+```
+
+### Update
 ```json
 ecs:DescribeTaskSets,
 ecs:UpdateServicePrimaryTaskSet

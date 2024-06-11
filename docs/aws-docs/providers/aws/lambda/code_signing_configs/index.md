@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>code_signing_configs</code> in a region or to create or delete a <code>code_signing_configs</code> resource, use <code>code_signing_config</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>code_signing_config</code> resource or lists <code>code_signing_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>code_signing_configs</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the CodeSigningConfig</td></tr>
+<tr><td><CopyableCode code="allowed_publishers" /></td><td><code>object</code></td><td>When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list</td></tr>
+<tr><td><CopyableCode code="code_signing_policies" /></td><td><code>object</code></td><td>Policies to control how to act if a signature is invalid</td></tr>
+<tr><td><CopyableCode code="code_signing_config_id" /></td><td><code>string</code></td><td>A unique identifier for CodeSigningConfig resource</td></tr>
 <tr><td><CopyableCode code="code_signing_config_arn" /></td><td><code>string</code></td><td>A unique Arn for CodeSigningConfig resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>code_signing_configs</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>code_signing_configs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ code_signing_config_arn
 FROM aws.lambda.code_signing_configs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>code_signing_config</code>.
+```sql
+SELECT
+region,
+description,
+allowed_publishers,
+code_signing_policies,
+code_signing_config_id,
+code_signing_config_arn
+FROM aws.lambda.code_signing_configs
+WHERE region = 'us-east-1' AND data__Identifier = '<CodeSigningConfigArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>code_signing_config</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -142,7 +166,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -158,6 +182,16 @@ To operate on the <code>code_signing_configs</code> resource, the following perm
 ### Create
 ```json
 lambda:CreateCodeSigningConfig
+```
+
+### Read
+```json
+lambda:GetCodeSigningConfig
+```
+
+### Update
+```json
+lambda:UpdateCodeSigningConfig
 ```
 
 ### Delete

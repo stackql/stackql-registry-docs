@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>members</code> in a region or to create or delete a <code>members</code> resource, use <code>member</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>member</code> resource or lists <code>members</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,13 @@ Used to retrieve a list of <code>members</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="detector_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="member_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="email" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="disable_email_notification" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="detector_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +58,24 @@ Used to retrieve a list of <code>members</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>members</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +84,22 @@ member_id
 FROM aws.guardduty.members
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>member</code>.
+```sql
+SELECT
+region,
+status,
+member_id,
+email,
+message,
+disable_email_notification,
+detector_id
+FROM aws.guardduty.members
+WHERE region = 'us-east-1' AND data__Identifier = '<DetectorId>|<MemberId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>member</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -153,7 +178,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -172,11 +197,26 @@ guardduty:CreateMembers,
 guardduty:GetMembers
 ```
 
+### Read
+```json
+guardduty:GetMembers
+```
+
 ### Delete
 ```json
 guardduty:GetMembers,
 guardduty:DisassociateMembers,
 guardduty:DeleteMembers
+```
+
+### Update
+```json
+guardduty:GetMembers,
+guardduty:CreateMembers,
+guardduty:DisassociateMembers,
+guardduty:StartMonitoringMembers,
+guardduty:StopMonitoringMembers,
+guardduty:InviteMembers
 ```
 
 ### List

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>anomaly_subscriptions</code> in a region or to create or delete a <code>anomaly_subscriptions</code> resource, use <code>anomaly_subscription</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>anomaly_subscription</code> resource or lists <code>anomaly_subscriptions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>anomaly_subscriptions</code> in a region or to 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="subscription_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="subscription_arn" /></td><td><code>Subscription ARN</code></td><td></td></tr>
+<tr><td><CopyableCode code="subscription_name" /></td><td><code>string</code></td><td>The name of the subscription.</td></tr>
+<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>The accountId</td></tr>
+<tr><td><CopyableCode code="monitor_arn_list" /></td><td><code>array</code></td><td>A list of cost anomaly monitors.</td></tr>
+<tr><td><CopyableCode code="subscribers" /></td><td><code>array</code></td><td>A list of subscriber</td></tr>
+<tr><td><CopyableCode code="threshold" /></td><td><code>number</code></td><td>The dollar value that triggers a notification if the threshold is exceeded. </td></tr>
+<tr><td><CopyableCode code="threshold_expression" /></td><td><code>string</code></td><td>An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.</td></tr>
+<tr><td><CopyableCode code="frequency" /></td><td><code>string</code></td><td>The frequency at which anomaly reports are sent over email. </td></tr>
+<tr><td><CopyableCode code="resource_tags" /></td><td><code>array</code></td><td>Tags to assign to subscription.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>anomaly_subscriptions</code> in a region or to 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>anomaly_subscriptions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ subscription_arn
 FROM aws.ce.anomaly_subscriptions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>anomaly_subscription</code>.
+```sql
+SELECT
+region,
+subscription_arn,
+subscription_name,
+account_id,
+monitor_arn_list,
+subscribers,
+threshold,
+threshold_expression,
+frequency,
+resource_tags
+FROM aws.ce.anomaly_subscriptions
+WHERE region = 'us-east-1' AND data__Identifier = '<SubscriptionArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>anomaly_subscription</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -167,7 +199,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -184,6 +216,16 @@ To operate on the <code>anomaly_subscriptions</code> resource, the following per
 ```json
 ce:CreateAnomalySubscription,
 ce:TagResource
+```
+
+### Read
+```json
+ce:GetAnomalySubscriptions
+```
+
+### Update
+```json
+ce:UpdateAnomalySubscription
 ```
 
 ### Delete

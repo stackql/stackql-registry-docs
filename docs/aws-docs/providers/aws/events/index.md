@@ -20,9 +20,9 @@ The events service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -31,19 +31,13 @@ The events service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/events/api_destination/">api_destination</a><br />
 <a href="/providers/aws/events/api_destinations/">api_destinations</a><br />
-<a href="/providers/aws/events/archive/">archive</a><br />
 <a href="/providers/aws/events/archives/">archives</a><br />
-<a href="/providers/aws/events/connection/">connection</a><br />
 <a href="/providers/aws/events/connections/">connections</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/events/endpoint/">endpoint</a><br />
 <a href="/providers/aws/events/endpoints/">endpoints</a><br />
-<a href="/providers/aws/events/event_bus/">event_bus</a><br />
 <a href="/providers/aws/events/event_buses/">event_buses</a><br />
-<a href="/providers/aws/events/rule/">rule</a><br />
 <a href="/providers/aws/events/rules/">rules</a>
 </div>
 </div>

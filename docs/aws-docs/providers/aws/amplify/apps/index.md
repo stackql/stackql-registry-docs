@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>apps</code> in a region or to create or delete a <code>apps</code> resource, use <code>app</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>app</code> resource or lists <code>apps</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,26 @@ Used to retrieve a list of <code>apps</code> in a region or to create or delete 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_token" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="app_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="app_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_branch_creation_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="basic_auth_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="build_spec" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_headers" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_rules" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_domain" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="enable_branch_auto_deletion" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="environment_variables" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="iam_service_role" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="oauth_token" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="platform" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="repository" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +71,24 @@ Used to retrieve a list of <code>apps</code> in a region or to create or delete 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>apps</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +96,35 @@ arn
 FROM aws.amplify.apps
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>app</code>.
+```sql
+SELECT
+region,
+access_token,
+app_id,
+app_name,
+arn,
+auto_branch_creation_config,
+basic_auth_config,
+build_spec,
+custom_headers,
+custom_rules,
+default_domain,
+description,
+enable_branch_auto_deletion,
+environment_variables,
+iam_service_role,
+name,
+oauth_token,
+platform,
+repository,
+tags
+FROM aws.amplify.apps
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>app</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -211,7 +263,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -253,6 +305,31 @@ iam:PassRole
 amplify:GetApp,
 amplify:ListApps,
 amplify:ListTagsForResource,
+iam:PassRole
+```
+
+### Read
+```json
+amplify:GetApp,
+amplify:ListTagsForResource,
+codecommit:GetRepository,
+codecommit:GetRepositoryTriggers,
+iam:PassRole
+```
+
+### Update
+```json
+amplify:GetApp,
+amplify:UpdateApp,
+amplify:ListTagsForResource,
+amplify:TagResource,
+amplify:UntagResource,
+codecommit:GetRepository,
+codecommit:PutRepositoryTriggers,
+codecommit:GetRepositoryTriggers,
+sns:CreateTopic,
+sns:Subscribe,
+sns:Unsubscribe,
 iam:PassRole
 ```
 

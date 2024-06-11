@@ -20,9 +20,9 @@ The route53recoveryreadiness service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>8</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>4</b></span><br />
 </div>
 </div>
 
@@ -31,15 +31,11 @@ The route53recoveryreadiness service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/route53recoveryreadiness/cell/">cell</a><br />
 <a href="/providers/aws/route53recoveryreadiness/cells/">cells</a><br />
-<a href="/providers/aws/route53recoveryreadiness/readiness_check/">readiness_check</a><br />
 <a href="/providers/aws/route53recoveryreadiness/readiness_checks/">readiness_checks</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/route53recoveryreadiness/recovery_group/">recovery_group</a><br />
 <a href="/providers/aws/route53recoveryreadiness/recovery_groups/">recovery_groups</a><br />
-<a href="/providers/aws/route53recoveryreadiness/resource_set/">resource_set</a><br />
 <a href="/providers/aws/route53recoveryreadiness/resource_sets/">resource_sets</a>
 </div>
 </div>

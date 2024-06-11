@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>ipams</code> in a region or to create or delete a <code>ipams</code> resource, use <code>ipam</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>ipam</code> resource or lists <code>ipams</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>ipams</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="ipam_id" /></td><td><code>string</code></td><td>Id of the IPAM.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="ipam_id" /></td><td><code>string</code></td><td>Id of the IPAM.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IPAM.</td></tr>
+<tr><td><CopyableCode code="default_resource_discovery_id" /></td><td><code>string</code></td><td>The Id of the default resource discovery, created with this IPAM.</td></tr>
+<tr><td><CopyableCode code="default_resource_discovery_association_id" /></td><td><code>string</code></td><td>The Id of the default association to the default resource discovery, created with this IPAM.</td></tr>
+<tr><td><CopyableCode code="resource_discovery_association_count" /></td><td><code>integer</code></td><td>The count of resource discoveries associated with this IPAM.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="public_default_scope_id" /></td><td><code>string</code></td><td>The Id of the default scope for publicly routable IP space, created with this IPAM.</td></tr>
+<tr><td><CopyableCode code="private_default_scope_id" /></td><td><code>string</code></td><td>The Id of the default scope for publicly routable IP space, created with this IPAM.</td></tr>
+<tr><td><CopyableCode code="scope_count" /></td><td><code>integer</code></td><td>The number of scopes that currently exist in this IPAM.</td></tr>
+<tr><td><CopyableCode code="operating_regions" /></td><td><code>array</code></td><td>The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring</td></tr>
+<tr><td><CopyableCode code="tier" /></td><td><code>string</code></td><td>The tier of the IPAM.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>ipams</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>ipams</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ ipam_id
 FROM aws.ec2.ipams
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>ipam</code>.
+```sql
+SELECT
+region,
+ipam_id,
+arn,
+default_resource_discovery_id,
+default_resource_discovery_association_id,
+resource_discovery_association_count,
+description,
+public_default_scope_id,
+private_default_scope_id,
+scope_count,
+operating_regions,
+tier,
+tags
+FROM aws.ec2.ipams
+WHERE region = 'us-east-1' AND data__Identifier = '<IpamId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>ipam</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -146,7 +184,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -164,6 +202,19 @@ To operate on the <code>ipams</code> resource, the following permissions are req
 ec2:CreateIpam,
 iam:CreateServiceLinkedRole,
 ec2:CreateTags,
+ec2:DescribeIpams
+```
+
+### Read
+```json
+ec2:DescribeIpams
+```
+
+### Update
+```json
+ec2:ModifyIpam,
+ec2:CreateTags,
+ec2:DeleteTags,
 ec2:DescribeIpams
 ```
 

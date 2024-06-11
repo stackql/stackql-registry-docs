@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>scheduled_actions</code> in a region or to create or delete a <code>scheduled_actions</code> resource, use <code>scheduled_action</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>scheduled_action</code> resource or lists <code>scheduled_actions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,16 @@ Used to retrieve a list of <code>scheduled_actions</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="scheduled_action_name" /></td><td><code>string</code></td><td>Auto-generated unique identifier</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="scheduled_action_name" /></td><td><code>string</code></td><td>Auto-generated unique identifier</td></tr>
+<tr><td><CopyableCode code="min_size" /></td><td><code>integer</code></td><td>The minimum size of the Auto Scaling group.</td></tr>
+<tr><td><CopyableCode code="recurrence" /></td><td><code>string</code></td><td>The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.</td></tr>
+<tr><td><CopyableCode code="time_zone" /></td><td><code>string</code></td><td>The time zone for the cron expression.</td></tr>
+<tr><td><CopyableCode code="end_time" /></td><td><code>string</code></td><td>The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.</td></tr>
 <tr><td><CopyableCode code="auto_scaling_group_name" /></td><td><code>string</code></td><td>The name of the Auto Scaling group.</td></tr>
+<tr><td><CopyableCode code="start_time" /></td><td><code>string</code></td><td>The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.</td></tr>
+<tr><td><CopyableCode code="desired_capacity" /></td><td><code>integer</code></td><td>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.</td></tr>
+<tr><td><CopyableCode code="max_size" /></td><td><code>integer</code></td><td>The minimum size of the Auto Scaling group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +61,24 @@ Used to retrieve a list of <code>scheduled_actions</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>scheduled_actions</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +87,25 @@ auto_scaling_group_name
 FROM aws.autoscaling.scheduled_actions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>scheduled_action</code>.
+```sql
+SELECT
+region,
+scheduled_action_name,
+min_size,
+recurrence,
+time_zone,
+end_time,
+auto_scaling_group_name,
+start_time,
+desired_capacity,
+max_size
+FROM aws.autoscaling.scheduled_actions
+WHERE region = 'us-east-1' AND data__Identifier = '<ScheduledActionName>|<AutoScalingGroupName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>scheduled_action</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -161,7 +192,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -178,6 +209,16 @@ To operate on the <code>scheduled_actions</code> resource, the following permiss
 ```json
 autoscaling:PutScheduledUpdateGroupAction,
 autoscaling:DescribeScheduledActions
+```
+
+### Read
+```json
+autoscaling:DescribeScheduledActions
+```
+
+### Update
+```json
+autoscaling:PutScheduledUpdateGroupAction
 ```
 
 ### Delete

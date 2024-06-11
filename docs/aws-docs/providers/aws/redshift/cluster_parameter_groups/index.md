@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>cluster_parameter_groups</code> in a region or to create or delete a <code>cluster_parameter_groups</code> resource, use <code>cluster_parameter_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>cluster_parameter_group</code> resource or lists <code>cluster_parameter_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>cluster_parameter_groups</code> in a region or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="parameter_group_name" /></td><td><code>string</code></td><td>The name of the cluster parameter group.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="parameter_group_name" /></td><td><code>string</code></td><td>The name of the cluster parameter group.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the parameter group.</td></tr>
+<tr><td><CopyableCode code="parameter_group_family" /></td><td><code>string</code></td><td>The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.</td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code>array</code></td><td>An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>cluster_parameter_groups</code> in a region or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>cluster_parameter_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ parameter_group_name
 FROM aws.redshift.cluster_parameter_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>cluster_parameter_group</code>.
+```sql
+SELECT
+region,
+parameter_group_name,
+description,
+parameter_group_family,
+parameters,
+tags
+FROM aws.redshift.cluster_parameter_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<ParameterGroupName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>cluster_parameter_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -146,14 +170,14 @@ resources:
             ParameterValue: '{{ ParameterValue }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -184,6 +208,26 @@ ec2:DescribeInternetGateways,
 ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
 ec2:DescribeVpcs
+```
+
+### Read
+```json
+redshift:DescribeClusterParameterGroups,
+initech:DescribeReport,
+redshift:DescribeClusterParameters,
+redshift:DescribeTags
+```
+
+### Update
+```json
+redshift:DescribeClusterParameterGroups,
+redshift:ResetClusterParameterGroup,
+redshift:ModifyClusterParameterGroup,
+redshift:DescribeClusterParameters,
+redshift:DescribeTags,
+redshift:CreateTags,
+redshift:DeleteTags,
+initech:UpdateReport
 ```
 
 ### Delete

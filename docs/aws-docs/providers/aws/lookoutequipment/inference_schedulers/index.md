@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>inference_schedulers</code> in a region or to create or delete a <code>inference_schedulers</code> resource, use <code>inference_scheduler</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>inference_scheduler</code> resource or lists <code>inference_schedulers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>inference_schedulers</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="data_delay_offset_in_minutes" /></td><td><code>integer</code></td><td>A period of time (in minutes) by which inference on the data is delayed after the data starts.</td></tr>
+<tr><td><CopyableCode code="data_input_configuration" /></td><td><code>object</code></td><td>Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.</td></tr>
+<tr><td><CopyableCode code="data_output_configuration" /></td><td><code>object</code></td><td>Specifies configuration information for the output results for the inference scheduler, including the S3 location for the output.</td></tr>
+<tr><td><CopyableCode code="data_upload_frequency" /></td><td><code>string</code></td><td>How often data is uploaded to the source S3 bucket for the input data.</td></tr>
 <tr><td><CopyableCode code="inference_scheduler_name" /></td><td><code>string</code></td><td>The name of the inference scheduler being created.</td></tr>
+<tr><td><CopyableCode code="model_name" /></td><td><code>string</code></td><td>The name of the previously trained ML model being used to create the inference scheduler.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of a role with permission to access the data source being used for the inference.</td></tr>
+<tr><td><CopyableCode code="server_side_kms_key_id" /></td><td><code>string</code></td><td>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags associated with the inference scheduler.</td></tr>
+<tr><td><CopyableCode code="inference_scheduler_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the inference scheduler being created.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>inference_schedulers</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>inference_schedulers</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ inference_scheduler_name
 FROM aws.lookoutequipment.inference_schedulers
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>inference_scheduler</code>.
+```sql
+SELECT
+region,
+data_delay_offset_in_minutes,
+data_input_configuration,
+data_output_configuration,
+data_upload_frequency,
+inference_scheduler_name,
+model_name,
+role_arn,
+server_side_kms_key_id,
+tags,
+inference_scheduler_arn
+FROM aws.lookoutequipment.inference_schedulers
+WHERE region = 'us-east-1' AND data__Identifier = '<InferenceSchedulerName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>inference_scheduler</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -184,7 +218,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -204,11 +238,24 @@ lookoutequipment:CreateInferenceScheduler,
 lookoutequipment:DescribeInferenceScheduler
 ```
 
+### Read
+```json
+lookoutequipment:DescribeInferenceScheduler
+```
+
 ### Delete
 ```json
 lookoutequipment:DeleteInferenceScheduler,
 lookoutequipment:StopInferenceScheduler,
 lookoutequipment:DescribeInferenceScheduler
+```
+
+### Update
+```json
+lookoutequipment:UpdateInferenceScheduler,
+lookoutequipment:DescribeInferenceScheduler,
+lookoutequipment:StopInferenceScheduler,
+lookoutequipment:StartInferenceScheduler
 ```
 
 ### List

@@ -20,9 +20,9 @@ The location service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>14</b></span><br />
-<span>total selectable resources:&nbsp;<b>14</b></span><br />
-<span>total methods:&nbsp;<b>14</b></span><br />
+<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total selectable resources:&nbsp;<b>7</b></span><br />
+<span>total methods:&nbsp;<b>7</b></span><br />
 </div>
 </div>
 
@@ -31,20 +31,13 @@ The location service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/location/api_key/">api_key</a><br />
 <a href="/providers/aws/location/api_keys/">api_keys</a><br />
-<a href="/providers/aws/location/geofence_collection/">geofence_collection</a><br />
 <a href="/providers/aws/location/geofence_collections/">geofence_collections</a><br />
-<a href="/providers/aws/location/map/">map</a><br />
 <a href="/providers/aws/location/maps/">maps</a><br />
-<a href="/providers/aws/location/place_index/">place_index</a>
+<a href="/providers/aws/location/place_indices/">place_indices</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/location/place_indices/">place_indices</a><br />
-<a href="/providers/aws/location/route_calculator/">route_calculator</a><br />
 <a href="/providers/aws/location/route_calculators/">route_calculators</a><br />
-<a href="/providers/aws/location/tracker/">tracker</a><br />
-<a href="/providers/aws/location/tracker_consumer/">tracker_consumer</a><br />
 <a href="/providers/aws/location/tracker_consumers/">tracker_consumers</a><br />
 <a href="/providers/aws/location/trackers/">trackers</a>
 </div>

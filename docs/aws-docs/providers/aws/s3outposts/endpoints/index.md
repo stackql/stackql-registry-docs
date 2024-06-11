@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>endpoints</code> in a region or to create or delete a <code>endpoints</code> resource, use <code>endpoint</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>endpoint</code> resource or lists <code>endpoints</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>endpoints</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the endpoint.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the endpoint.</td></tr>
+<tr><td><CopyableCode code="cidr_block" /></td><td><code>string</code></td><td>The VPC CIDR committed by this endpoint.</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The time the endpoint was created.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the endpoint.</td></tr>
+<tr><td><CopyableCode code="network_interfaces" /></td><td><code>array</code></td><td>The network interfaces of the endpoint.</td></tr>
+<tr><td><CopyableCode code="outpost_id" /></td><td><code>string</code></td><td>The id of the customer outpost on which the bucket resides.</td></tr>
+<tr><td><CopyableCode code="security_group_id" /></td><td><code>string</code></td><td>The ID of the security group to use with the endpoint.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.</td></tr>
+<tr><td><CopyableCode code="access_type" /></td><td><code>string</code></td><td>The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.</td></tr>
+<tr><td><CopyableCode code="customer_owned_ipv4_pool" /></td><td><code>string</code></td><td>The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.</td></tr>
+<tr><td><CopyableCode code="failed_reason" /></td><td><code>object</code></td><td>The failure reason, if any, for a create or delete endpoint operation.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +68,15 @@ Used to retrieve a list of <code>endpoints</code> in a region or to create or de
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>endpoints</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,28 @@ arn
 FROM aws.s3outposts.endpoints
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>endpoint</code>.
+```sql
+SELECT
+region,
+arn,
+cidr_block,
+creation_time,
+id,
+network_interfaces,
+outpost_id,
+security_group_id,
+status,
+subnet_id,
+access_type,
+customer_owned_ipv4_pool,
+failed_reason
+FROM aws.s3outposts.endpoints
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>endpoint</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -157,7 +190,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -173,6 +206,11 @@ To operate on the <code>endpoints</code> resource, the following permissions are
 ### Create
 ```json
 s3-outposts:CreateEndpoint
+```
+
+### Read
+```json
+s3-outposts:ListEndpoints
 ```
 
 ### Delete

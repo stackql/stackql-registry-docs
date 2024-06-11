@@ -20,9 +20,9 @@ The opensearchserverless service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -32,18 +32,12 @@ The opensearchserverless service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/aws/opensearchserverless/access_policies/">access_policies</a><br />
-<a href="/providers/aws/opensearchserverless/access_policy/">access_policy</a><br />
-<a href="/providers/aws/opensearchserverless/collection/">collection</a><br />
 <a href="/providers/aws/opensearchserverless/collections/">collections</a><br />
-<a href="/providers/aws/opensearchserverless/lifecycle_policies/">lifecycle_policies</a><br />
-<a href="/providers/aws/opensearchserverless/lifecycle_policy/">lifecycle_policy</a>
+<a href="/providers/aws/opensearchserverless/lifecycle_policies/">lifecycle_policies</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/opensearchserverless/security_config/">security_config</a><br />
 <a href="/providers/aws/opensearchserverless/security_configs/">security_configs</a><br />
 <a href="/providers/aws/opensearchserverless/security_policies/">security_policies</a><br />
-<a href="/providers/aws/opensearchserverless/security_policy/">security_policy</a><br />
-<a href="/providers/aws/opensearchserverless/vpc_endpoint/">vpc_endpoint</a><br />
 <a href="/providers/aws/opensearchserverless/vpc_endpoints/">vpc_endpoints</a>
 </div>
 </div>

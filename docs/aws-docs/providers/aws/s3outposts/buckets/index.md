@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>buckets</code> in a region or to create or delete a <code>buckets</code> resource, use <code>bucket</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>bucket</code> resource or lists <code>buckets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>buckets</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified bucket.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified bucket.</td></tr>
+<tr><td><CopyableCode code="bucket_name" /></td><td><code>string</code></td><td>A name for the bucket.</td></tr>
+<tr><td><CopyableCode code="outpost_id" /></td><td><code>string</code></td><td>The id of the customer outpost on which the bucket resides.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.</td></tr>
+<tr><td><CopyableCode code="lifecycle_configuration" /></td><td><code>object</code></td><td>Rules that define how Amazon S3Outposts manages objects during their lifetime.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>buckets</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>buckets</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ arn
 FROM aws.s3outposts.buckets
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>bucket</code>.
+```sql
+SELECT
+region,
+arn,
+bucket_name,
+outpost_id,
+tags,
+lifecycle_configuration
+FROM aws.s3outposts.buckets
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>bucket</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -160,7 +184,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -177,6 +201,20 @@ To operate on the <code>buckets</code> resource, the following permissions are r
 ```json
 s3-outposts:CreateBucket,
 s3-outposts:PutBucketTagging,
+s3-outposts:PutLifecycleConfiguration
+```
+
+### Read
+```json
+s3-outposts:GetBucket,
+s3-outposts:GetBucketTagging,
+s3-outposts:GetLifecycleConfiguration
+```
+
+### Update
+```json
+s3-outposts:PutBucketTagging,
+s3-outposts:DeleteBucketTagging,
 s3-outposts:PutLifecycleConfiguration
 ```
 

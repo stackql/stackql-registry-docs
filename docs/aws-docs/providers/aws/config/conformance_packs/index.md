@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>conformance_packs</code> in a region or to create or delete a <code>conformance_packs</code> resource, use <code>conformance_pack</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>conformance_pack</code> resource or lists <code>conformance_packs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>conformance_packs</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="conformance_pack_name" /></td><td><code>string</code></td><td>Name of the conformance pack which will be assigned as the unique identifier.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="conformance_pack_name" /></td><td><code>string</code></td><td>Name of the conformance pack which will be assigned as the unique identifier.</td></tr>
+<tr><td><CopyableCode code="delivery_s3_bucket" /></td><td><code>string</code></td><td>AWS Config stores intermediate files while processing conformance pack template.</td></tr>
+<tr><td><CopyableCode code="delivery_s3_key_prefix" /></td><td><code>string</code></td><td>The prefix for delivery S3 bucket.</td></tr>
+<tr><td><CopyableCode code="template_body" /></td><td><code>string</code></td><td>A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.</td></tr>
+<tr><td><CopyableCode code="template_s3_uri" /></td><td><code>string</code></td><td>Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.</td></tr>
+<tr><td><CopyableCode code="template_ssm_document_details" /></td><td><code>object</code></td><td>The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.</td></tr>
+<tr><td><CopyableCode code="conformance_pack_input_parameters" /></td><td><code>array</code></td><td>A list of ConformancePackInputParameter objects.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>conformance_packs</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>conformance_packs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ conformance_pack_name
 FROM aws.config.conformance_packs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>conformance_pack</code>.
+```sql
+SELECT
+region,
+conformance_pack_name,
+delivery_s3_bucket,
+delivery_s3_key_prefix,
+template_body,
+template_s3_uri,
+template_ssm_document_details,
+conformance_pack_input_parameters
+FROM aws.config.conformance_packs
+WHERE region = 'us-east-1' AND data__Identifier = '<ConformancePackName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>conformance_pack</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -159,7 +187,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -177,6 +205,21 @@ To operate on the <code>conformance_packs</code> resource, the following permiss
 config:PutConformancePack,
 config:DescribeConformancePackStatus,
 config:DescribeConformancePacks,
+s3:GetObject,
+s3:GetBucketAcl,
+iam:CreateServiceLinkedRole,
+iam:PassRole
+```
+
+### Read
+```json
+config:DescribeConformancePacks
+```
+
+### Update
+```json
+config:PutConformancePack,
+config:DescribeConformancePackStatus,
 s3:GetObject,
 s3:GetBucketAcl,
 iam:CreateServiceLinkedRole,

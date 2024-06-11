@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>domain_name_api_associations</code> in a region or to create or delete a <code>domain_name_api_associations</code> resource, use <code>domain_name_api_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>domain_name_api_association</code> resource or lists <code>domain_name_api_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>domain_name_api_associations</code> in a region
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="api_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="api_association_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +55,32 @@ Used to retrieve a list of <code>domain_name_api_associations</code> in a region
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>domain_name_api_association</code>.
 ```sql
 SELECT
 region,
+domain_name,
+api_id,
 api_association_identifier
 FROM aws.appsync.domain_name_api_associations
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<ApiAssociationIdentifier>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>domain_name_api_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +145,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -159,6 +167,17 @@ appsync:GetApiAssociation
 ### Delete
 ```json
 appsync:DisassociateApi,
+appsync:GetApiAssociation
+```
+
+### Update
+```json
+appsync:AssociateApi,
+appsync:GetApiAssociation
+```
+
+### Read
+```json
 appsync:GetApiAssociation
 ```
 

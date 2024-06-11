@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>groups</code> in a region or to create or delete a <code>groups</code> resource, use <code>group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>group</code> resource or lists <code>groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>groups</code> in a region or to create or delet
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A string containing the description of the group.</td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td>A string containing the name of the group. This value is commonly displayed when the group is referenced.</td></tr>
 <tr><td><CopyableCode code="group_id" /></td><td><code>string</code></td><td>The unique identifier for a group in the identity store.</td></tr>
 <tr><td><CopyableCode code="identity_store_id" /></td><td><code>string</code></td><td>The globally unique identifier for the identity store.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +56,24 @@ Used to retrieve a list of <code>groups</code> in a region or to create or delet
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +82,20 @@ identity_store_id
 FROM aws.identitystore.groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>group</code>.
+```sql
+SELECT
+region,
+description,
+display_name,
+group_id,
+identity_store_id
+FROM aws.identitystore.groups
+WHERE region = 'us-east-1' AND data__Identifier = '<GroupId>|<IdentityStoreId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -143,7 +164,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -160,6 +181,17 @@ To operate on the <code>groups</code> resource, the following permissions are re
 ```json
 identitystore:CreateGroup,
 identitystore:DescribeGroup
+```
+
+### Read
+```json
+identitystore:DescribeGroup
+```
+
+### Update
+```json
+identitystore:DescribeGroup,
+identitystore:UpdateGroup
 ```
 
 ### Delete

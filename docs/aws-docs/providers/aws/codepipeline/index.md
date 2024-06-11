@@ -20,9 +20,9 @@ The codepipeline service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>1</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ The codepipeline service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/codepipeline/custom_action_type/">custom_action_type</a>
+<a href="/providers/aws/codepipeline/custom_action_types/">custom_action_types</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/codepipeline/custom_action_types/">custom_action_types</a>
+
 </div>
 </div>

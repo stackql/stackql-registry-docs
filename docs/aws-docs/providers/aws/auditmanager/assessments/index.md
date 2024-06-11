@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>assessments</code> in a region or to create or delete a <code>assessments</code> resource, use <code>assessment</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>assessment</code> resource or lists <code>assessments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>assessments</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="framework_id" /></td><td><code>The identifier for the specified framework.</code></td><td></td></tr>
 <tr><td><CopyableCode code="assessment_id" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="aws_account" /></td><td><code>The AWS account associated with the assessment.</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>The Amazon Resource Name (ARN) of the assessment.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags associated with the assessment.</td></tr>
+<tr><td><CopyableCode code="delegations" /></td><td><code>array</code></td><td>The list of delegations.</td></tr>
+<tr><td><CopyableCode code="roles" /></td><td><code>array</code></td><td>The list of roles for the specified assessment.</td></tr>
+<tr><td><CopyableCode code="scope" /></td><td><code>The wrapper that contains the AWS accounts and AWS services in scope for the assessment.</code></td><td></td></tr>
+<tr><td><CopyableCode code="assessment_reports_destination" /></td><td><code>The destination in which evidence reports are stored for the specified assessment.</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>The status of the specified assessment. </code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>The sequence of characters that identifies when the event occurred.</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>The name of the related assessment.</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>The description of the specified assessment.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>assessments</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>assessments</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ assessment_id
 FROM aws.auditmanager.assessments
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>assessment</code>.
+```sql
+SELECT
+region,
+framework_id,
+assessment_id,
+aws_account,
+arn,
+tags,
+delegations,
+roles,
+scope,
+assessment_reports_destination,
+status,
+creation_time,
+name,
+description
+FROM aws.auditmanager.assessments
+WHERE region = 'us-east-1' AND data__Identifier = '<AssessmentId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>assessment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -191,7 +231,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -211,6 +251,19 @@ auditmanager:TagResource,
 auditmanager:ListTagsForResource,
 auditmanager:BatchCreateDelegationByAssessment,
 iam:PassRole
+```
+
+### Read
+```json
+auditmanager:GetAssessment
+```
+
+### Update
+```json
+auditmanager:UpdateAssessment,
+auditmanager:UpdateAssessmentStatus,
+auditmanager:BatchCreateDelegationByAssessment,
+auditmanager:BatchDeleteDelegationByAssessment
 ```
 
 ### Delete

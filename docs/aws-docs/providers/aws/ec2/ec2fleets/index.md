@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>ec2fleets</code> in a region or to create or delete a <code>ec2fleets</code> resource, use <code>ec2fleet</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>ec2fleet</code> resource or lists <code>ec2fleets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>ec2fleets</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="target_capacity_specification" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="on_demand_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="excess_capacity_termination_policy" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tag_specifications" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="spot_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="valid_from" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="replace_unhealthy_instances" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="launch_template_configs" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="fleet_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="terminate_instances_with_expiration" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="valid_until" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="context" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>ec2fleets</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>ec2fleets</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ fleet_id
 FROM aws.ec2.ec2fleets
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>ec2fleet</code>.
+```sql
+SELECT
+region,
+target_capacity_specification,
+on_demand_options,
+type,
+excess_capacity_termination_policy,
+tag_specifications,
+spot_options,
+valid_from,
+replace_unhealthy_instances,
+launch_template_configs,
+fleet_id,
+terminate_instances_with_expiration,
+valid_until,
+context
+FROM aws.ec2.ec2fleets
+WHERE region = 'us-east-1' AND data__Identifier = '<FleetId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>ec2fleet</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -276,7 +316,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -303,6 +343,17 @@ ec2:DeleteFleets
 
 ### List
 ```json
+ec2:DescribeFleets
+```
+
+### Read
+```json
+ec2:DescribeFleets
+```
+
+### Update
+```json
+ec2:ModifyFleet,
 ec2:DescribeFleets
 ```
 

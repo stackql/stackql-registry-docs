@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>contacts</code> in a region or to create or delete a <code>contacts</code> resource, use <code>contact</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>contact</code> resource or lists <code>contacts</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>contacts</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="alias" /></td><td><code>string</code></td><td>Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.</td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td>Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.</td></tr>
+<tr><td><CopyableCode code="plan" /></td><td><code>array</code></td><td>The stages that an escalation plan or engagement plan engages contacts and contact methods in.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the contact.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>contacts</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>contacts</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ arn
 FROM aws.ssmcontacts.contacts
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>contact</code>.
+```sql
+SELECT
+region,
+alias,
+display_name,
+type,
+plan,
+arn
+FROM aws.ssmcontacts.contacts
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>contact</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -155,7 +179,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -171,6 +195,18 @@ To operate on the <code>contacts</code> resource, the following permissions are 
 ### Create
 ```json
 ssm-contacts:CreateContact,
+ssm-contacts:GetContact,
+ssm-contacts:AssociateContact
+```
+
+### Read
+```json
+ssm-contacts:GetContact
+```
+
+### Update
+```json
+ssm-contacts:UpdateContact,
 ssm-contacts:GetContact,
 ssm-contacts:AssociateContact
 ```

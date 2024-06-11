@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>verified_access_trust_providers</code> in a region or to create or delete a <code>verified_access_trust_providers</code> resource, use <code>verified_access_trust_provider</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>verified_access_trust_provider</code> resource or lists <code>verified_access_trust_providers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>verified_access_trust_providers</code> in a reg
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="trust_provider_type" /></td><td><code>string</code></td><td>Type of trust provider. Possible values: user|device</td></tr>
+<tr><td><CopyableCode code="device_trust_provider_type" /></td><td><code>string</code></td><td>The type of device-based trust provider. Possible values: jamf|crowdstrike</td></tr>
+<tr><td><CopyableCode code="user_trust_provider_type" /></td><td><code>string</code></td><td>The type of device-based trust provider. Possible values: oidc|iam-identity-center</td></tr>
+<tr><td><CopyableCode code="oidc_options" /></td><td><code>The OpenID Connect details for an oidc -type, user-identity based trust provider.</code></td><td></td></tr>
+<tr><td><CopyableCode code="device_options" /></td><td><code>The options for device identity based trust providers.</code></td><td></td></tr>
+<tr><td><CopyableCode code="policy_reference_name" /></td><td><code>string</code></td><td>The identifier to be used when working with policy rules.</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The creation time.</td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The last updated time.</td></tr>
 <tr><td><CopyableCode code="verified_access_trust_provider_id" /></td><td><code>string</code></td><td>The ID of the Amazon Web Services Verified Access trust provider.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the Amazon Web Services Verified Access trust provider.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="sse_specification" /></td><td><code>object</code></td><td>The configuration options for customer provided KMS encryption.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>verified_access_trust_providers</code> in a reg
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>verified_access_trust_providers</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ verified_access_trust_provider_id
 FROM aws.ec2.verified_access_trust_providers
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>verified_access_trust_provider</code>.
+```sql
+SELECT
+region,
+trust_provider_type,
+device_trust_provider_type,
+user_trust_provider_type,
+oidc_options,
+device_options,
+policy_reference_name,
+creation_time,
+last_updated_time,
+verified_access_trust_provider_id,
+description,
+tags,
+sse_specification
+FROM aws.ec2.verified_access_trust_providers
+WHERE region = 'us-east-1' AND data__Identifier = '<VerifiedAccessTrustProviderId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>verified_access_trust_provider</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -178,7 +216,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -198,6 +236,29 @@ ec2:DescribeVerifiedAccessTrustProviders,
 ec2:CreateTags,
 ec2:DescribeTags,
 sso:GetSharedSsoConfiguration,
+kms:DescribeKey,
+kms:RetireGrant,
+kms:CreateGrant,
+kms:GenerateDataKey,
+kms:Decrypt
+```
+
+### Read
+```json
+ec2:DescribeVerifiedAccessTrustProviders,
+ec2:DescribeTags,
+kms:DescribeKey,
+kms:GenerateDataKey,
+kms:Decrypt
+```
+
+### Update
+```json
+ec2:ModifyVerifiedAccessTrustProvider,
+ec2:DescribeVerifiedAccessTrustProviders,
+ec2:DescribeTags,
+ec2:DeleteTags,
+ec2:CreateTags,
 kms:DescribeKey,
 kms:RetireGrant,
 kms:CreateGrant,

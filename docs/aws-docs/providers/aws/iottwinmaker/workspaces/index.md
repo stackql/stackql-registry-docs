@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>workspaces</code> in a region or to create or delete a <code>workspaces</code> resource, use <code>workspace</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>workspace</code> resource or lists <code>workspaces</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>workspaces</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="workspace_id" /></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="workspace_id" /></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the workspace.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the workspace.</td></tr>
+<tr><td><CopyableCode code="role" /></td><td><code>string</code></td><td>The ARN of the execution role associated with the workspace.</td></tr>
+<tr><td><CopyableCode code="s3_location" /></td><td><code>string</code></td><td>The ARN of the S3 bucket where resources associated with the workspace are stored.</td></tr>
+<tr><td><CopyableCode code="creation_date_time" /></td><td><code>string</code></td><td>The date and time when the workspace was created.</td></tr>
+<tr><td><CopyableCode code="update_date_time" /></td><td><code>string</code></td><td>The date and time of the current update.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A map of key-value pairs to associate with a resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>workspaces</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>workspaces</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ workspace_id
 FROM aws.iottwinmaker.workspaces
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>workspace</code>.
+```sql
+SELECT
+region,
+workspace_id,
+arn,
+description,
+role,
+s3_location,
+creation_date_time,
+update_date_time,
+tags
+FROM aws.iottwinmaker.workspaces
+WHERE region = 'us-east-1' AND data__Identifier = '<WorkspaceId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>workspace</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +181,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -171,6 +201,21 @@ iottwinmaker:CreateWorkspace,
 iottwinmaker:GetWorkspace,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource
+```
+
+### Read
+```json
+iottwinmaker:GetWorkspace,
+iottwinmaker:ListTagsForResource
+```
+
+### Update
+```json
+iottwinmaker:GetWorkspace,
+iottwinmaker:ListTagsForResource,
+iottwinmaker:TagResource,
+iottwinmaker:UntagResource,
+iottwinmaker:UpdateWorkspace
 ```
 
 ### Delete

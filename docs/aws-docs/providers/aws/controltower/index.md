@@ -20,9 +20,9 @@ The controltower service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -31,13 +31,10 @@ The controltower service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/controltower/enabled_baseline/">enabled_baseline</a><br />
 <a href="/providers/aws/controltower/enabled_baselines/">enabled_baselines</a><br />
-<a href="/providers/aws/controltower/enabled_control/">enabled_control</a>
+<a href="/providers/aws/controltower/enabled_controls/">enabled_controls</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/controltower/enabled_controls/">enabled_controls</a><br />
-<a href="/providers/aws/controltower/landing_zone/">landing_zone</a><br />
 <a href="/providers/aws/controltower/landing_zones/">landing_zones</a>
 </div>
 </div>

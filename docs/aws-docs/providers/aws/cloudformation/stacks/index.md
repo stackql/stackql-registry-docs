@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>stacks</code> in a region or to create or delete a <code>stacks</code> resource, use <code>stack</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>stack</code> resource or lists <code>stacks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,30 @@ Used to retrieve a list of <code>stacks</code> in a region or to create or delet
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="capabilities" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="outputs" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="disable_rollback" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="enable_termination_protection" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="notification_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="parent_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="root_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="change_set_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="stack_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_policy_body" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_policy_url" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stack_status_reason" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="template_body" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="template_url" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="timeout_in_minutes" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_update_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +75,24 @@ Used to retrieve a list of <code>stacks</code> in a region or to create or delet
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>stacks</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +100,39 @@ stack_id
 FROM aws.cloudformation.stacks
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>stack</code>.
+```sql
+SELECT
+region,
+capabilities,
+role_arn,
+outputs,
+description,
+disable_rollback,
+enable_termination_protection,
+notification_arns,
+parameters,
+parent_id,
+root_id,
+change_set_id,
+stack_name,
+stack_id,
+stack_policy_body,
+stack_policy_url,
+stack_status,
+stack_status_reason,
+tags,
+template_body,
+template_url,
+timeout_in_minutes,
+last_update_time,
+creation_time
+FROM aws.cloudformation.stacks
+WHERE region = 'us-east-1' AND data__Identifier = '<StackId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>stack</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -191,7 +251,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -211,10 +271,26 @@ cloudformation:CreateStack,
 iam:PassRole
 ```
 
+### Update
+```json
+cloudformation:DescribeStacks,
+cloudformation:UpdateStack,
+cloudformation:UpdateTerminationProtection,
+cloudformation:SetStackPolicy,
+iam:PassRole
+```
+
 ### Delete
 ```json
 cloudformation:DescribeStacks,
 cloudformation:DeleteStack
+```
+
+### Read
+```json
+cloudformation:DescribeStacks,
+cloudformation:GetStackPolicy,
+cloudformation:GetTemplate
 ```
 
 ### List

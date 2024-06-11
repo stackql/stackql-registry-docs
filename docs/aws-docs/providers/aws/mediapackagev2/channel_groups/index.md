@@ -19,23 +19,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>channel_groups</code> in a region or to create or delete a <code>channel_groups</code> resource, use <code>channel_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>channel_group</code> resource or lists <code>channel_groups</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>channel_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>&lt;p&gt;Represents a channel group that facilitates the grouping of multiple channels.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><b>Description</b></td><td><p>Represents a channel group that facilitates the grouping of multiple channels.</p></td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.mediapackagev2.channel_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>&lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;&#x2F;p&gt;</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) associated with the resource.</p></td></tr>
+<tr><td><CopyableCode code="channel_group_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td><p>The date and time the channel group was created.</p></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>Enter any descriptive text that helps you to identify the channel group.</p></td></tr>
+<tr><td><CopyableCode code="egress_domain" /></td><td><code>string</code></td><td><p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p></td></tr>
+<tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td><p>The date and time the channel group was modified.</p></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>channel_groups</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>channel_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ arn
 FROM aws.mediapackagev2.channel_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>channel_group</code>.
+```sql
+SELECT
+region,
+arn,
+channel_group_name,
+created_at,
+description,
+egress_domain,
+modified_at,
+tags
+FROM aws.mediapackagev2.channel_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>channel_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -141,7 +169,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -158,6 +186,19 @@ To operate on the <code>channel_groups</code> resource, the following permission
 ```json
 mediapackagev2:TagResource,
 mediapackagev2:CreateChannelGroup
+```
+
+### Read
+```json
+mediapackagev2:GetChannelGroup
+```
+
+### Update
+```json
+mediapackagev2:TagResource,
+mediapackagev2:UntagResource,
+mediapackagev2:ListTagsForResource,
+mediapackagev2:UpdateChannelGroup
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>rule_groups</code> in a region or to create or delete a <code>rule_groups</code> resource, use <code>rule_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>rule_group</code> resource or lists <code>rule_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,20 @@ Used to retrieve a list of <code>rule_groups</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="scope" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="capacity" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>Description of the entity.</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>Name of the WebACL.</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>Id of the WebACL</code></td><td></td></tr>
+<tr><td><CopyableCode code="scope" /></td><td><code>Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.</code></td><td></td></tr>
+<tr><td><CopyableCode code="rules" /></td><td><code>array</code></td><td>Collection of Rules.</td></tr>
+<tr><td><CopyableCode code="visibility_config" /></td><td><code>Visibility Metric of the WebACL.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="label_namespace" /></td><td><code>Name of the Label.</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_response_bodies" /></td><td><code>Custom response key and body map.</code></td><td></td></tr>
+<tr><td><CopyableCode code="available_labels" /></td><td><code>array</code></td><td>Collection of Available Labels.</td></tr>
+<tr><td><CopyableCode code="consumed_labels" /></td><td><code>array</code></td><td>Collection of Consumed Labels.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +65,24 @@ Used to retrieve a list of <code>rule_groups</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>rule_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +92,29 @@ scope
 FROM aws.wafv2.rule_groups
 ;
 ```
+Gets all properties from a <code>rule_group</code>.
+```sql
+SELECT
+region,
+arn,
+capacity,
+description,
+name,
+id,
+scope,
+rules,
+visibility_config,
+tags,
+label_namespace,
+custom_response_bodies,
+available_labels,
+consumed_labels
+FROM aws.wafv2.rule_groups
+WHERE data__Identifier = '<Name>|<Id>|<Scope>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>rule_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -407,7 +445,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -431,6 +469,19 @@ wafv2:ListTagsForResource
 ```json
 wafv2:DeleteRuleGroup,
 wafv2:GetRuleGroup
+```
+
+### Read
+```json
+wafv2:GetRuleGroup,
+wafv2:ListTagsForResource
+```
+
+### Update
+```json
+wafv2:UpdateRuleGroup,
+wafv2:GetRuleGroup,
+wafv2:ListTagsForResource
 ```
 
 ### List

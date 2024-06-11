@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>knowledge_bases</code> in a region or to create or delete a <code>knowledge_bases</code> resource, use <code>knowledge_base</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>knowledge_base</code> resource or lists <code>knowledge_bases</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>knowledge_bases</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the Resource.</td></tr>
+<tr><td><CopyableCode code="knowledge_base_configuration" /></td><td><code>Contains details about the embeddings model used for the knowledge base.</code></td><td></td></tr>
 <tr><td><CopyableCode code="knowledge_base_id" /></td><td><code>string</code></td><td>The unique identifier of the knowledge base.</td></tr>
+<tr><td><CopyableCode code="knowledge_base_arn" /></td><td><code>string</code></td><td>The ARN of the knowledge base.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the knowledge base.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>The status of a knowledge base.</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time at which the knowledge base was created.</td></tr>
+<tr><td><CopyableCode code="failure_reasons" /></td><td><code>array</code></td><td>A list of reasons that the API operation on the knowledge base failed.</td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The time at which the knowledge base was last updated.</td></tr>
+<tr><td><CopyableCode code="storage_configuration" /></td><td><code>The vector store service in which the knowledge base is stored.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>A map of tag keys and values</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>knowledge_bases</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>knowledge_bases</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ knowledge_base_id
 FROM aws.bedrock.knowledge_bases
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>knowledge_base</code>.
+```sql
+SELECT
+region,
+description,
+knowledge_base_configuration,
+knowledge_base_id,
+knowledge_base_arn,
+name,
+status,
+role_arn,
+created_at,
+failure_reasons,
+updated_at,
+storage_configuration,
+tags
+FROM aws.bedrock.knowledge_bases
+WHERE region = 'us-east-1' AND data__Identifier = '<KnowledgeBaseId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>knowledge_base</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -185,7 +223,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -203,6 +241,23 @@ To operate on the <code>knowledge_bases</code> resource, the following permissio
 bedrock:CreateKnowledgeBase,
 bedrock:GetKnowledgeBase,
 bedrock:TagResource,
+bedrock:ListTagsForResource,
+bedrock:AssociateThirdPartyKnowledgeBase,
+iam:PassRole
+```
+
+### Read
+```json
+bedrock:GetKnowledgeBase,
+bedrock:ListTagsForResource
+```
+
+### Update
+```json
+bedrock:GetKnowledgeBase,
+bedrock:UpdateKnowledgeBase,
+bedrock:TagResource,
+bedrock:UntagResource,
 bedrock:ListTagsForResource,
 bedrock:AssociateThirdPartyKnowledgeBase,
 iam:PassRole

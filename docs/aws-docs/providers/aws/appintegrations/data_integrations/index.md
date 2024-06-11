@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>data_integrations</code> in a region or to create or delete a <code>data_integrations</code> resource, use <code>data_integration</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>data_integration</code> resource or lists <code>data_integrations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>data_integrations</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The data integration description.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique identifer of the data integration.</td></tr>
+<tr><td><CopyableCode code="data_integration_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the data integration.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the data integration.</td></tr>
+<tr><td><CopyableCode code="kms_key" /></td><td><code>string</code></td><td>The KMS key of the data integration.</td></tr>
+<tr><td><CopyableCode code="schedule_config" /></td><td><code>object</code></td><td>The name of the data and how often it should be pulled from the source.</td></tr>
+<tr><td><CopyableCode code="source_uri" /></td><td><code>string</code></td><td>The URI of the data source.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags (keys and values) associated with the data integration.</td></tr>
+<tr><td><CopyableCode code="file_configuration" /></td><td><code>object</code></td><td>The configuration for what files should be pulled from the source.</td></tr>
+<tr><td><CopyableCode code="object_configuration" /></td><td><code>object</code></td><td>The configuration for what data should be pulled from the source.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>data_integrations</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>data_integrations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ id
 FROM aws.appintegrations.data_integrations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>data_integration</code>.
+```sql
+SELECT
+region,
+description,
+id,
+data_integration_arn,
+name,
+kms_key,
+schedule_config,
+source_uri,
+tags,
+file_configuration,
+object_configuration
+FROM aws.appintegrations.data_integrations
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>data_integration</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -171,7 +205,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -205,9 +239,34 @@ s3:PutBucketNotification,
 s3:GetEncryptionConfiguration
 ```
 
+### Read
+```json
+app-integrations:GetDataIntegration,
+app-integrations:ListTagsForResource
+```
+
 ### List
 ```json
 app-integrations:ListDataIntegrations
+```
+
+### Update
+```json
+app-integrations:GetDataIntegration,
+app-integrations:UpdateDataIntegration,
+app-integrations:TagResource,
+app-integrations:UntagResource,
+appflow:DescribeConnectorProfiles,
+appflow:DeleteFlow,
+appflow:DescribeConnectorEntity,
+appflow:UseConnectorProfile,
+appflow:TagResource,
+appflow:UntagResource,
+kms:CreateGrant,
+kms:DescribeKey,
+kms:ListAliases,
+kms:ListGrants,
+kms:ListKeys
 ```
 
 ### Delete

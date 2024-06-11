@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>ipam_resource_discoveries</code> in a region or to create or delete a <code>ipam_resource_discoveries</code> resource, use <code>ipam_resource_discovery</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>ipam_resource_discovery</code> resource or lists <code>ipam_resource_discoveries</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>ipam_resource_discoveries</code> in a region or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="ipam_resource_discovery_id" /></td><td><code>string</code></td><td>Id of the IPAM Pool.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="ipam_resource_discovery_id" /></td><td><code>string</code></td><td>Id of the IPAM Pool.</td></tr>
+<tr><td><CopyableCode code="owner_id" /></td><td><code>string</code></td><td>Owner Account ID of the Resource Discovery</td></tr>
+<tr><td><CopyableCode code="operating_regions" /></td><td><code>array</code></td><td>The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring</td></tr>
+<tr><td><CopyableCode code="ipam_resource_discovery_region" /></td><td><code>string</code></td><td>The region the resource discovery is setup in. </td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="is_default" /></td><td><code>boolean</code></td><td>Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.</td></tr>
+<tr><td><CopyableCode code="ipam_resource_discovery_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (Arn) for the Resource Discovery.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of this Resource Discovery.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>ipam_resource_discoveries</code> in a region or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>ipam_resource_discoveries</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ ipam_resource_discovery_id
 FROM aws.ec2.ipam_resource_discoveries
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>ipam_resource_discovery</code>.
+```sql
+SELECT
+region,
+ipam_resource_discovery_id,
+owner_id,
+operating_regions,
+ipam_resource_discovery_region,
+description,
+is_default,
+ipam_resource_discovery_arn,
+state,
+tags
+FROM aws.ec2.ipam_resource_discoveries
+WHERE region = 'us-east-1' AND data__Identifier = '<IpamResourceDiscoveryId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>ipam_resource_discovery</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -142,7 +174,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -160,6 +192,19 @@ To operate on the <code>ipam_resource_discoveries</code> resource, the following
 ec2:CreateIpamResourceDiscovery,
 ec2:DescribeIpamResourceDiscoveries,
 ec2:CreateTags
+```
+
+### Read
+```json
+ec2:DescribeIpamResourceDiscoveries
+```
+
+### Update
+```json
+ec2:ModifyIpamResourceDiscovery,
+ec2:DescribeIpamResourceDiscoveries,
+ec2:CreateTags,
+ec2:DeleteTags
 ```
 
 ### Delete

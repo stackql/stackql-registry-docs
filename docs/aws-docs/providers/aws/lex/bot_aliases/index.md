@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>bot_aliases</code> in a region or to create or delete a <code>bot_aliases</code> resource, use <code>bot_alias</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>bot_alias</code> resource or lists <code>bot_aliases</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,18 @@ Used to retrieve a list of <code>bot_aliases</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="bot_alias_id" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_id" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bot_alias_id" /></td><td><code>Unique ID of resource</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_id" /></td><td><code>Unique ID of resource</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_alias_status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_alias_locale_settings" /></td><td><code>A list of bot alias locale settings to add to the bot alias.</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_alias_name" /></td><td><code>A unique identifier for a resource.</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_version" /></td><td><code>A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.</code></td><td></td></tr>
+<tr><td><CopyableCode code="conversation_log_settings" /></td><td><code>Contains information about code hooks that Amazon Lex calls during a conversation.</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>A description of the version. Use the description to help identify the version in lists.</code></td><td></td></tr>
+<tr><td><CopyableCode code="sentiment_analysis_settings" /></td><td><code>object</code></td><td>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.</td></tr>
+<tr><td><CopyableCode code="bot_alias_tags" /></td><td><code>array</code></td><td>A list of tags to add to the bot alias.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +63,24 @@ Used to retrieve a list of <code>bot_aliases</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>bot_aliases</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +89,27 @@ bot_id
 FROM aws.lex.bot_aliases
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>bot_alias</code>.
+```sql
+SELECT
+region,
+bot_alias_id,
+bot_id,
+arn,
+bot_alias_status,
+bot_alias_locale_settings,
+bot_alias_name,
+bot_version,
+conversation_log_settings,
+description,
+sentiment_analysis_settings,
+bot_alias_tags
+FROM aws.lex.bot_aliases
+WHERE region = 'us-east-1' AND data__Identifier = '<BotAliasId>|<BotId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>bot_alias</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -192,7 +227,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -209,6 +244,20 @@ To operate on the <code>bot_aliases</code> resource, the following permissions a
 ```json
 lex:CreateBotAlias,
 lex:DescribeBot
+```
+
+### Update
+```json
+lex:UpdateBotAlias,
+lex:DescribeBotAlias,
+lex:ListTagsForResource,
+lex:TagResource,
+lex:UntagResource
+```
+
+### Read
+```json
+lex:DescribeBotAlias
 ```
 
 ### Delete

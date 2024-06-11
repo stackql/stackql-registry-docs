@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>mitigation_actions</code> in a region or to create or delete a <code>mitigation_actions</code> resource, use <code>mitigation_action</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>mitigation_action</code> resource or lists <code>mitigation_actions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>mitigation_actions</code> in a region or to cre
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="action_name" /></td><td><code>string</code></td><td>A unique identifier for the mitigation action.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="action_name" /></td><td><code>string</code></td><td>A unique identifier for the mitigation action.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="action_params" /></td><td><code>The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).</code></td><td></td></tr>
+<tr><td><CopyableCode code="mitigation_action_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="mitigation_action_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>mitigation_actions</code> in a region or to cre
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>mitigation_actions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ action_name
 FROM aws.iot.mitigation_actions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>mitigation_action</code>.
+```sql
+SELECT
+region,
+action_name,
+role_arn,
+tags,
+action_params,
+mitigation_action_arn,
+mitigation_action_id
+FROM aws.iot.mitigation_actions
+WHERE region = 'us-east-1' AND data__Identifier = '<ActionName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>mitigation_action</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -162,7 +188,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -179,6 +205,21 @@ To operate on the <code>mitigation_actions</code> resource, the following permis
 ```json
 iot:CreateMitigationAction,
 iot:DescribeMitigationAction,
+iot:TagResource,
+iam:PassRole
+```
+
+### Read
+```json
+iot:DescribeMitigationAction,
+iot:ListTagsForResource
+```
+
+### Update
+```json
+iot:UpdateMitigationAction,
+iot:ListTagsForResource,
+iot:UntagResource,
 iot:TagResource,
 iam:PassRole
 ```

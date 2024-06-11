@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>safety_rules</code> in a region or to create or delete a <code>safety_rules</code> resource, use <code>safety_rule</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>safety_rule</code> resource or lists <code>safety_rules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>safety_rules</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="assertion_rule" /></td><td><code>An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.</code></td><td></td></tr>
+<tr><td><CopyableCode code="gating_rule" /></td><td><code>A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>The name for the safety rule.</code></td><td></td></tr>
 <tr><td><CopyableCode code="safety_rule_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the safety rule.</td></tr>
+<tr><td><CopyableCode code="control_panel_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the control panel.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</td></tr>
+<tr><td><CopyableCode code="rule_config" /></td><td><code>The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>safety_rules</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>safety_rules</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ safety_rule_arn
 FROM aws.route53recoverycontrol.safety_rules
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>safety_rule</code>.
+```sql
+SELECT
+region,
+assertion_rule,
+gating_rule,
+name,
+safety_rule_arn,
+control_panel_arn,
+status,
+rule_config,
+tags
+FROM aws.route53recoverycontrol.safety_rules
+WHERE region = 'us-east-1' AND data__Identifier = '<SafetyRuleArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>safety_rule</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -164,7 +194,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -185,6 +215,21 @@ route53-recovery-control-config:DescribeControlPanel,
 route53-recovery-control-config:DescribeRoutingControl,
 route53-recovery-control-config:ListTagsForResource,
 route53-recovery-control-config:TagResource
+```
+
+### Read
+```json
+route53-recovery-control-config:DescribeSafetyRule,
+route53-recovery-control-config:ListTagsForResource
+```
+
+### Update
+```json
+route53-recovery-control-config:UpdateSafetyRule,
+route53-recovery-control-config:DescribeSafetyRule,
+route53-recovery-control-config:ListTagsForResource,
+route53-recovery-control-config:TagResource,
+route53-recovery-control-config:UntagResource
 ```
 
 ### Delete

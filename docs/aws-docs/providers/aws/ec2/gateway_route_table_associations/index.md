@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>gateway_route_table_associations</code> in a region or to create or delete a <code>gateway_route_table_associations</code> resource, use <code>gateway_route_table_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>gateway_route_table_association</code> resource or lists <code>gateway_route_table_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>gateway_route_table_associations</code> in a re
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="route_table_id" /></td><td><code>string</code></td><td>The ID of the route table.</td></tr>
 <tr><td><CopyableCode code="gateway_id" /></td><td><code>string</code></td><td>The ID of the gateway.</td></tr>
+<tr><td><CopyableCode code="association_id" /></td><td><code>string</code></td><td>The route table association ID.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +55,32 @@ Used to retrieve a list of <code>gateway_route_table_associations</code> in a re
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>gateway_route_table_association</code>.
 ```sql
 SELECT
 region,
-gateway_id
+route_table_id,
+gateway_id,
+association_id
 FROM aws.ec2.gateway_route_table_associations
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<GatewayId>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>gateway_route_table_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +145,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -154,6 +162,17 @@ To operate on the <code>gateway_route_table_associations</code> resource, the fo
 ```json
 ec2:DescribeRouteTables,
 ec2:AssociateRouteTable
+```
+
+### Read
+```json
+ec2:DescribeRouteTables
+```
+
+### Update
+```json
+ec2:DescribeRouteTables,
+ec2:ReplaceRouteTableAssociation
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>template_group_access_control_entries</code> in a region or to create or delete a <code>template_group_access_control_entries</code> resource, use <code>template_group_access_control_entry</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>template_group_access_control_entry</code> resource or lists <code>template_group_access_control_entries</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>template_group_access_control_entries</code> in
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_rights" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="group_display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="group_security_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="template_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +56,24 @@ Used to retrieve a list of <code>template_group_access_control_entries</code> in
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>template_group_access_control_entries</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +82,20 @@ template_arn
 FROM aws.pcaconnectorad.template_group_access_control_entries
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>template_group_access_control_entry</code>.
+```sql
+SELECT
+region,
+access_rights,
+group_display_name,
+group_security_identifier,
+template_arn
+FROM aws.pcaconnectorad.template_group_access_control_entries
+WHERE region = 'us-east-1' AND data__Identifier = '<GroupSecurityIdentifier>|<TemplateArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>template_group_access_control_entry</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +170,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -165,6 +186,16 @@ To operate on the <code>template_group_access_control_entries</code> resource, t
 ### Create
 ```json
 pca-connector-ad:CreateTemplateGroupAccessControlEntry
+```
+
+### Read
+```json
+pca-connector-ad:GetTemplateGroupAccessControlEntry
+```
+
+### Update
+```json
+pca-connector-ad:UpdateTemplateGroupAccessControlEntry
 ```
 
 ### Delete

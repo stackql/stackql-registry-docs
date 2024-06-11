@@ -20,9 +20,9 @@ The m2 service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -31,11 +31,9 @@ The m2 service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/m2/application/">application</a><br />
 <a href="/providers/aws/m2/applications/">applications</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/m2/environment/">environment</a><br />
 <a href="/providers/aws/m2/environments/">environments</a>
 </div>
 </div>

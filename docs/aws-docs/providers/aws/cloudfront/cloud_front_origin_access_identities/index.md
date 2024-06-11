@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>cloud_front_origin_access_identities</code> in a region or to create or delete a <code>cloud_front_origin_access_identities</code> resource, use <code>cloud_front_origin_access_identity</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>cloud_front_origin_access_identity</code> resource or lists <code>cloud_front_origin_access_identities</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>cloud_front_origin_access_identities</code> in 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cloud_front_origin_access_identity_config" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="s3_canonical_user_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +55,24 @@ Used to retrieve a list of <code>cloud_front_origin_access_identities</code> in 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>cloud_front_origin_access_identities</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,19 @@ id
 FROM aws.cloudfront.cloud_front_origin_access_identities
 ;
 ```
+Gets all properties from a <code>cloud_front_origin_access_identity</code>.
+```sql
+SELECT
+region,
+cloud_front_origin_access_identity_config,
+id,
+s3_canonical_user_id
+FROM aws.cloudfront.cloud_front_origin_access_identities
+WHERE data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>cloud_front_origin_access_identity</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -132,7 +152,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -159,5 +179,16 @@ cloudfront:GetCloudFrontOriginAccessIdentity
 ### List
 ```json
 cloudfront:ListCloudFrontOriginAccessIdentities
+```
+
+### Read
+```json
+cloudfront:GetCloudFrontOriginAccessIdentity
+```
+
+### Update
+```json
+cloudfront:UpdateCloudFrontOriginAccessIdentity,
+cloudfront:GetCloudFrontOriginAccessIdentity
 ```
 

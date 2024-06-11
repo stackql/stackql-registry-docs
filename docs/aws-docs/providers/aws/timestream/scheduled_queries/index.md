@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>scheduled_queries</code> in a region or to create or delete a <code>scheduled_queries</code> resource, use <code>scheduled_query</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>scheduled_query</code> resource or lists <code>scheduled_queries</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,26 @@ Used to retrieve a list of <code>scheduled_queries</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>Amazon Resource Name of the scheduled query that is generated upon creation.</code></td><td></td></tr>
+<tr><td><CopyableCode code="scheduled_query_name" /></td><td><code>The name of the scheduled query. Scheduled query names must be unique within each Region.</code></td><td></td></tr>
+<tr><td><CopyableCode code="query_string" /></td><td><code>The query string to run. Parameter names can be specified in the query string @ character followed by an identifier. The named Parameter @scheduled_runtime is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of @scheduled_runtime paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the @scheduled_runtime parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule_configuration" /></td><td><code>Configuration for when the scheduled query is executed.</code></td><td></td></tr>
+<tr><td><CopyableCode code="notification_configuration" /></td><td><code>Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_token" /></td><td><code>Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request. If CreateScheduledQuery is called without a ClientToken, the Query SDK generates a ClientToken on your behalf. After 8 hours, any request with the same ClientToken is treated as a new request.</code></td><td></td></tr>
+<tr><td><CopyableCode code="scheduled_query_execution_role_arn" /></td><td><code>The ARN for the IAM role that Timestream will assume when running the scheduled query.</code></td><td></td></tr>
+<tr><td><CopyableCode code="target_configuration" /></td><td><code>Configuration of target store where scheduled query results are written to.</code></td><td></td></tr>
+<tr><td><CopyableCode code="error_report_configuration" /></td><td><code>Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with alias/. If ErrorReportConfiguration uses SSE_KMS as encryption type, the same KmsKeyId is used to encrypt the error report at rest.</code></td><td></td></tr>
+<tr><td><CopyableCode code="sq_name" /></td><td><code>string</code></td><td>The name of the scheduled query. Scheduled query names must be unique within each Region.</td></tr>
+<tr><td><CopyableCode code="sq_query_string" /></td><td><code>string</code></td><td>The query string to run. Parameter names can be specified in the query string @ character followed by an identifier. The named Parameter @scheduled_runtime is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of @scheduled_runtime paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the @scheduled_runtime parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.</td></tr>
+<tr><td><CopyableCode code="sq_schedule_configuration" /></td><td><code>string</code></td><td>Configuration for when the scheduled query is executed.</td></tr>
+<tr><td><CopyableCode code="sq_notification_configuration" /></td><td><code>string</code></td><td>Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.</td></tr>
+<tr><td><CopyableCode code="sq_scheduled_query_execution_role_arn" /></td><td><code>string</code></td><td>The ARN for the IAM role that Timestream will assume when running the scheduled query.</td></tr>
+<tr><td><CopyableCode code="sq_target_configuration" /></td><td><code>string</code></td><td>Configuration of target store where scheduled query results are written to.</td></tr>
+<tr><td><CopyableCode code="sq_error_report_configuration" /></td><td><code>string</code></td><td>Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.</td></tr>
+<tr><td><CopyableCode code="sq_kms_key_id" /></td><td><code>string</code></td><td>The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with alias/. If ErrorReportConfiguration uses SSE_KMS as encryption type, the same KmsKeyId is used to encrypt the error report at rest.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>A list of key-value pairs to label the scheduled query.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +71,24 @@ Used to retrieve a list of <code>scheduled_queries</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>scheduled_queries</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +96,35 @@ arn
 FROM aws.timestream.scheduled_queries
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>scheduled_query</code>.
+```sql
+SELECT
+region,
+arn,
+scheduled_query_name,
+query_string,
+schedule_configuration,
+notification_configuration,
+client_token,
+scheduled_query_execution_role_arn,
+target_configuration,
+error_report_configuration,
+kms_key_id,
+sq_name,
+sq_query_string,
+sq_schedule_configuration,
+sq_notification_configuration,
+sq_scheduled_query_execution_role_arn,
+sq_target_configuration,
+sq_error_report_configuration,
+sq_kms_key_id,
+tags
+FROM aws.timestream.scheduled_queries
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>scheduled_query</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -204,7 +256,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -220,6 +272,21 @@ To operate on the <code>scheduled_queries</code> resource, the following permiss
 ### Create
 ```json
 timestream:CreateScheduledQuery,
+timestream:DescribeEndpoints
+```
+
+### Read
+```json
+timestream:DescribeScheduledQuery,
+timestream:ListTagsForResource,
+timestream:DescribeEndpoints
+```
+
+### Update
+```json
+timestream:UpdateScheduledQuery,
+timestream:TagResource,
+timestream:UntagResource,
 timestream:DescribeEndpoints
 ```
 

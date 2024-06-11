@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>service_action_associations</code> in a region or to create or delete a <code>service_action_associations</code> resource, use <code>service_action_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>service_action_association</code> resource or lists <code>service_action_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,10 @@ Used to retrieve a list of <code>service_action_associations</code> in a region 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="product_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="product_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="provisioning_artifact_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="service_action_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -63,9 +59,15 @@ Used to retrieve a list of <code>service_action_associations</code> in a region 
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>service_action_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +77,19 @@ service_action_id
 FROM aws.servicecatalog.service_action_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>service_action_association</code>.
+```sql
+SELECT
+region,
+product_id,
+provisioning_artifact_id,
+service_action_id
+FROM aws.servicecatalog.service_action_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<ProductId>|<ProvisioningArtifactId>|<ServiceActionId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>service_action_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +160,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -163,6 +176,11 @@ To operate on the <code>service_action_associations</code> resource, the followi
 ### Create
 ```json
 servicecatalog:AssociateServiceActionWithProvisioningArtifact,
+servicecatalog:ListServiceActionsForProvisioningArtifact
+```
+
+### Read
+```json
 servicecatalog:ListServiceActionsForProvisioningArtifact
 ```
 

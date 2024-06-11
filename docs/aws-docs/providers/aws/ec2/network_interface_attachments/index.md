@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>network_interface_attachments</code> in a region or to create or delete a <code>network_interface_attachments</code> resource, use <code>network_interface_attachment</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>network_interface_attachment</code> resource or lists <code>network_interface_attachments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>network_interface_attachments</code> in a regio
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="attachment_id" /></td><td><code>string</code></td><td>The ID of the network interface attachment.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="attachment_id" /></td><td><code>string</code></td><td>The ID of the network interface attachment.</td></tr>
+<tr><td><CopyableCode code="delete_on_termination" /></td><td><code>boolean</code></td><td>Whether to delete the network interface when the instance terminates. By default, this value is set to true.</td></tr>
+<tr><td><CopyableCode code="device_index" /></td><td><code>string</code></td><td>The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.</td></tr>
+<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>The ID of the instance to which you will attach the ENI.</td></tr>
+<tr><td><CopyableCode code="network_interface_id" /></td><td><code>string</code></td><td>The ID of the ENI that you want to attach.</td></tr>
+<tr><td><CopyableCode code="ena_srd_specification" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>network_interface_attachments</code> in a regio
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>network_interface_attachments</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ attachment_id
 FROM aws.ec2.network_interface_attachments
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>network_interface_attachment</code>.
+```sql
+SELECT
+region,
+attachment_id,
+delete_on_termination,
+device_index,
+instance_id,
+network_interface_id,
+ena_srd_specification
+FROM aws.ec2.network_interface_attachments
+WHERE region = 'us-east-1' AND data__Identifier = '<AttachmentId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>network_interface_attachment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -154,7 +180,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -174,9 +200,22 @@ ec2:DescribeNetworkInterfaces,
 ec2:ModifyNetworkInterfaceAttribute
 ```
 
+### Read
+```json
+ec2:DescribeNetworkInterfaces
+```
+
 ### List
 ```json
 ec2:DescribeNetworkInterfaces
+```
+
+### Update
+```json
+ec2:ModifyNetworkInterfaceAttribute,
+ec2:DescribeNetworkInterfaces,
+ec2:AttachNetworkInterface,
+ec2:DetachNetworkInterface
 ```
 
 ### Delete

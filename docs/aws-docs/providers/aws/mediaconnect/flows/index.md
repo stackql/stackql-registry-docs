@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>flows</code> in a region or to create or delete a <code>flows</code> resource, use <code>flow</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>flow</code> resource or lists <code>flows</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>flows</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="flow_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="flow_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
+<tr><td><CopyableCode code="egress_ip" /></td><td><code>string</code></td><td>The IP address from which video will be sent to output destinations.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the flow.</td></tr>
+<tr><td><CopyableCode code="availability_zone" /></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.</td></tr>
+<tr><td><CopyableCode code="flow_availability_zone" /></td><td><code>string</code></td><td>The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)</td></tr>
+<tr><td><CopyableCode code="source" /></td><td><code>object</code></td><td>The source of the flow.</td></tr>
+<tr><td><CopyableCode code="source_failover_config" /></td><td><code>object</code></td><td>The source failover config of the flow.</td></tr>
+<tr><td><CopyableCode code="vpc_interfaces" /></td><td><code>array</code></td><td>The VPC interfaces that you added to this flow.</td></tr>
+<tr><td><CopyableCode code="media_streams" /></td><td><code>array</code></td><td>The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.</td></tr>
+<tr><td><CopyableCode code="maintenance" /></td><td><code>object</code></td><td>The maintenance settings you want to use for the flow. </td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>flows</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>flows</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ flow_arn
 FROM aws.mediaconnect.flows
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>flow</code>.
+```sql
+SELECT
+region,
+flow_arn,
+egress_ip,
+name,
+availability_zone,
+flow_availability_zone,
+source,
+source_failover_config,
+vpc_interfaces,
+media_streams,
+maintenance
+FROM aws.mediaconnect.flows
+WHERE region = 'us-east-1' AND data__Identifier = '<FlowArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>flow</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -108,6 +142,9 @@ INSERT INTO aws.mediaconnect.flows (
  AvailabilityZone,
  Source,
  SourceFailoverConfig,
+ VpcInterfaces,
+ MediaStreams,
+ Maintenance,
  region
 )
 SELECT 
@@ -115,6 +152,9 @@ SELECT
  '{{ AvailabilityZone }}',
  '{{ Source }}',
  '{{ SourceFailoverConfig }}',
+ '{{ VpcInterfaces }}',
+ '{{ MediaStreams }}',
+ '{{ Maintenance }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -170,6 +210,14 @@ resources:
           SourceListenerPort: '{{ SourceListenerPort }}'
           VpcInterfaceName: '{{ VpcInterfaceName }}'
           WhitelistCidr: '{{ WhitelistCidr }}'
+          MaxSyncBuffer: '{{ MaxSyncBuffer }}'
+          MediaStreamSourceConfigurations:
+            - EncodingName: '{{ EncodingName }}'
+              InputConfigurations:
+                - InputPort: '{{ InputPort }}'
+                  Interface:
+                    Name: '{{ Name }}'
+              MediaStreamName: '{{ MediaStreamName }}'
       - name: SourceFailoverConfig
         value:
           State: '{{ State }}'
@@ -177,12 +225,45 @@ resources:
           FailoverMode: '{{ FailoverMode }}'
           SourcePriority:
             PrimarySource: '{{ PrimarySource }}'
+      - name: VpcInterfaces
+        value:
+          - Name: '{{ Name }}'
+            NetworkInterfaceType: '{{ NetworkInterfaceType }}'
+            RoleArn: '{{ RoleArn }}'
+            SecurityGroupIds:
+              - '{{ SecurityGroupIds[0] }}'
+            SubnetId: '{{ SubnetId }}'
+            NetworkInterfaceIds:
+              - '{{ NetworkInterfaceIds[0] }}'
+      - name: MediaStreams
+        value:
+          - MediaStreamId: '{{ MediaStreamId }}'
+            MediaStreamType: '{{ MediaStreamType }}'
+            VideoFormat: '{{ VideoFormat }}'
+            MediaStreamName: '{{ MediaStreamName }}'
+            Description: '{{ Description }}'
+            Attributes:
+              Fmtp:
+                ExactFramerate: '{{ ExactFramerate }}'
+                Colorimetry: '{{ Colorimetry }}'
+                ScanMode: '{{ ScanMode }}'
+                Tcs: '{{ Tcs }}'
+                Range: '{{ Range }}'
+                Par: '{{ Par }}'
+                ChannelOrder: '{{ ChannelOrder }}'
+              Lang: '{{ Lang }}'
+            ClockRate: '{{ ClockRate }}'
+            Fmt: '{{ Fmt }}'
+      - name: Maintenance
+        value:
+          MaintenanceDay: '{{ MaintenanceDay }}'
+          MaintenanceStartHour: '{{ MaintenanceStartHour }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -199,6 +280,23 @@ To operate on the <code>flows</code> resource, the following permissions are req
 ```json
 mediaconnect:CreateFlow,
 iam:PassRole
+```
+
+### Read
+```json
+mediaconnect:DescribeFlow
+```
+
+### Update
+```json
+mediaconnect:DescribeFlow,
+mediaconnect:UpdateFlow,
+mediaconnect:UpdateFlowSource,
+mediaconnect:UpdateFlowMediaStream,
+mediaconnect:AddFlowMediaStreams,
+mediaconnect:RemoveFlowMediaStream,
+mediaconnect:AddFlowVpcInterfaces,
+mediaconnect:RemoveFlowVpcInterface
 ```
 
 ### Delete

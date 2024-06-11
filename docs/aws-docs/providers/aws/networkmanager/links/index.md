@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>links</code> in a region or to create or delete a <code>links</code> resource, use <code>link</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>link</code> resource or lists <code>links</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,18 @@ Used to retrieve a list of <code>links</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="global_network_id" /></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="link_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the link.</td></tr>
 <tr><td><CopyableCode code="link_id" /></td><td><code>string</code></td><td>The ID of the link.</td></tr>
+<tr><td><CopyableCode code="global_network_id" /></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
+<tr><td><CopyableCode code="site_id" /></td><td><code>string</code></td><td>The ID of the site</td></tr>
+<tr><td><CopyableCode code="bandwidth" /></td><td><code>object</code></td><td>The Bandwidth for the link.</td></tr>
+<tr><td><CopyableCode code="provider" /></td><td><code>string</code></td><td>The provider of the link.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the link.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags for the link.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the link.</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The date and time that the device was created.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the link.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +63,24 @@ Used to retrieve a list of <code>links</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>links</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +89,27 @@ link_id
 FROM aws.networkmanager.links
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>link</code>.
+```sql
+SELECT
+region,
+link_arn,
+link_id,
+global_network_id,
+site_id,
+bandwidth,
+provider,
+description,
+tags,
+type,
+created_at,
+state
+FROM aws.networkmanager.links
+WHERE region = 'us-east-1' AND data__Identifier = '<GlobalNetworkId>|<LinkId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>link</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -165,7 +200,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -183,6 +218,20 @@ To operate on the <code>links</code> resource, the following permissions are req
 networkmanager:CreateLink,
 networkmanager:GetLinks,
 networkmanager:TagResource
+```
+
+### Read
+```json
+networkmanager:GetLinks
+```
+
+### Update
+```json
+networkmanager:ListTagsForResource,
+networkmanager:TagResource,
+networkmanager:GetLinks,
+networkmanager:UntagResource,
+networkmanager:UpdateLink
 ```
 
 ### Delete

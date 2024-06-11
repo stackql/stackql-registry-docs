@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Gets or updates an individual <code>ip_access_settings</code> resource, use <code>ip_access_settings</code> to retrieve a list of resources or to create or delete a resource.
+Creates, updates, deletes or gets an <code>ip_access_setting</code> resource or lists <code>ip_access_settings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,9 +30,7 @@ Gets or updates an individual <code>ip_access_settings</code> resource, use <cod
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>object</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="associated_portal_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="customer_managed_key" /></td><td><code>string</code></td><td></td></tr>
@@ -43,7 +40,6 @@ Gets or updates an individual <code>ip_access_settings</code> resource, use <cod
 <tr><td><CopyableCode code="ip_rules" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -55,9 +51,24 @@ Gets or updates an individual <code>ip_access_settings</code> resource, use <cod
     <th>Required Params</th>
   </tr>
   <tr>
+    <td><CopyableCode code="create_resource" /></td>
+    <td><code>INSERT</code></td>
+    <td><CopyableCode code="IpRules, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="list_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="get_resource" /></td>
@@ -66,7 +77,16 @@ Gets or updates an individual <code>ip_access_settings</code> resource, use <cod
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>ip_access_settings</code> in a region.
+```sql
+SELECT
+region,
+ip_access_settings_arn
+FROM aws.workspacesweb.ip_access_settings
+WHERE region = 'us-east-1';
+```
+Gets all properties from an <code>ip_access_setting</code>.
 ```sql
 SELECT
 region,
@@ -84,9 +104,114 @@ WHERE region = 'us-east-1' AND data__Identifier = '<IpAccessSettingsArn>';
 ```
 
 
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>ip_access_setting</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO aws.workspacesweb.ip_access_settings (
+ IpRules,
+ region
+)
+SELECT 
+'{{ IpRules }}',
+'{{ region }}';
+```
+</TabItem>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO aws.workspacesweb.ip_access_settings (
+ AdditionalEncryptionContext,
+ CustomerManagedKey,
+ Description,
+ DisplayName,
+ IpRules,
+ Tags,
+ region
+)
+SELECT 
+ '{{ AdditionalEncryptionContext }}',
+ '{{ CustomerManagedKey }}',
+ '{{ Description }}',
+ '{{ DisplayName }}',
+ '{{ IpRules }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: ip_access_setting
+    props:
+      - name: AdditionalEncryptionContext
+        value: {}
+      - name: CustomerManagedKey
+        value: '{{ CustomerManagedKey }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: DisplayName
+        value: '{{ DisplayName }}'
+      - name: IpRules
+        value:
+          - IpRange: '{{ IpRange }}'
+            Description: '{{ Description }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+```sql
+/*+ delete */
+DELETE FROM aws.workspacesweb.ip_access_settings
+WHERE data__Identifier = '<IpAccessSettingsArn>'
+AND region = 'us-east-1';
+```
+
 ## Permissions
 
 To operate on the <code>ip_access_settings</code> resource, the following permissions are required:
+
+### Create
+```json
+workspaces-web:CreateIpAccessSettings,
+workspaces-web:GetIpAccessSettings,
+workspaces-web:ListIpAccessSettings,
+workspaces-web:ListTagsForResource,
+workspaces-web:TagResource,
+kms:CreateGrant,
+kms:DescribeKey,
+kms:GenerateDataKey,
+kms:Decrypt
+```
 
 ### Read
 ```json
@@ -111,5 +236,21 @@ kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,
 kms:Decrypt
+```
+
+### Delete
+```json
+workspaces-web:GetIpAccessSettings,
+workspaces-web:ListIpAccessSettings,
+workspaces-web:DeleteIpAccessSettings,
+kms:CreateGrant,
+kms:DescribeKey,
+kms:GenerateDataKey,
+kms:Decrypt
+```
+
+### List
+```json
+workspaces-web:ListIpAccessSettings
 ```
 

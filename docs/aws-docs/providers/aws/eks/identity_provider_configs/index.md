@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>identity_provider_configs</code> in a region or to create or delete a <code>identity_provider_configs</code> resource, use <code>identity_provider_config</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>identity_provider_config</code> resource or lists <code>identity_provider_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,13 @@ Used to retrieve a list of <code>identity_provider_configs</code> in a region or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="identity_provider_config_name" /></td><td><code>string</code></td><td>The name of the OIDC provider configuration.</td></tr>
-<tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td>The name of the identity provider configuration.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td>The name of the identity provider configuration.</td></tr>
 <tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the identity provider configuration.</td></tr>
+<tr><td><CopyableCode code="identity_provider_config_name" /></td><td><code>string</code></td><td>The name of the OIDC provider configuration.</td></tr>
+<tr><td><CopyableCode code="oidc" /></td><td><code>An object representing an OpenID Connect (OIDC) configuration.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="identity_provider_config_arn" /></td><td><code>string</code></td><td>The ARN of the configuration.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +58,24 @@ Used to retrieve a list of <code>identity_provider_configs</code> in a region or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>identity_provider_configs</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +85,22 @@ type
 FROM aws.eks.identity_provider_configs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>identity_provider_config</code>.
+```sql
+SELECT
+region,
+cluster_name,
+type,
+identity_provider_config_name,
+oidc,
+tags,
+identity_provider_config_arn
+FROM aws.eks.identity_provider_configs
+WHERE region = 'us-east-1' AND data__Identifier = '<IdentityProviderConfigName>|<ClusterName>|<Type>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>identity_provider_config</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -164,7 +188,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -183,6 +207,18 @@ eks:DescribeUpdate,
 eks:AssociateIdentityProviderConfig,
 eks:DescribeIdentityProviderConfig,
 eks:TagResource
+```
+
+### Read
+```json
+eks:DescribeIdentityProviderConfig
+```
+
+### Update
+```json
+eks:DescribeIdentityProviderConfig,
+eks:TagResource,
+eks:UntagResource
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>assessment_targets</code> in a region or to create or delete a <code>assessment_targets</code> resource, use <code>assessment_target</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>assessment_target</code> resource or lists <code>assessment_targets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>assessment_targets</code> in a region or to cre
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="assessment_target_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_group_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +55,24 @@ Used to retrieve a list of <code>assessment_targets</code> in a region or to cre
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>assessment_targets</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,19 @@ arn
 FROM aws.inspector.assessment_targets
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>assessment_target</code>.
+```sql
+SELECT
+region,
+arn,
+assessment_target_name,
+resource_group_arn
+FROM aws.inspector.assessment_targets
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>assessment_target</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +157,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -154,6 +174,17 @@ To operate on the <code>assessment_targets</code> resource, the following permis
 ```json
 inspector:CreateAssessmentTarget,
 inspector:ListAssessmentTargets,
+inspector:DescribeAssessmentTargets
+```
+
+### Update
+```json
+inspector:DescribeAssessmentTargets,
+inspector:UpdateAssessmentTarget
+```
+
+### Read
+```json
 inspector:DescribeAssessmentTargets
 ```
 

@@ -20,9 +20,9 @@ The codestarnotifications service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>1</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ The codestarnotifications service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/codestarnotifications/notification_rule/">notification_rule</a>
+<a href="/providers/aws/codestarnotifications/notification_rules/">notification_rules</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/codestarnotifications/notification_rules/">notification_rules</a>
+
 </div>
 </div>

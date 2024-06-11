@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>user_profiles</code> in a region or to create or delete a <code>user_profiles</code> resource, use <code>user_profile</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>user_profile</code> resource or lists <code>user_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,14 @@ Used to retrieve a list of <code>user_profiles</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="user_profile_name" /></td><td><code>string</code></td><td>A name for the UserProfile.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="user_profile_arn" /></td><td><code>string</code></td><td>The user profile Amazon Resource Name (ARN).</td></tr>
 <tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td>The ID of the associated Domain.</td></tr>
+<tr><td><CopyableCode code="single_sign_on_user_identifier" /></td><td><code>string</code></td><td>A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.</td></tr>
+<tr><td><CopyableCode code="single_sign_on_user_value" /></td><td><code>string</code></td><td>The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.</td></tr>
+<tr><td><CopyableCode code="user_profile_name" /></td><td><code>string</code></td><td>A name for the UserProfile.</td></tr>
+<tr><td><CopyableCode code="user_settings" /></td><td><code>object</code></td><td>A collection of settings.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of tags to apply to the user profile.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +59,24 @@ Used to retrieve a list of <code>user_profiles</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>user_profiles</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +85,23 @@ domain_id
 FROM aws.sagemaker.user_profiles
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>user_profile</code>.
+```sql
+SELECT
+region,
+user_profile_arn,
+domain_id,
+single_sign_on_user_identifier,
+single_sign_on_user_value,
+user_profile_name,
+user_settings,
+tags
+FROM aws.sagemaker.user_profiles
+WHERE region = 'us-east-1' AND data__Identifier = '<UserProfileName>|<DomainId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>user_profile</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -205,7 +232,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -221,6 +248,20 @@ To operate on the <code>user_profiles</code> resource, the following permissions
 ### Create
 ```json
 sagemaker:CreateUserProfile,
+sagemaker:DescribeUserProfile,
+sagemaker:DescribeImage,
+sagemaker:DescribeImageVersion,
+iam:PassRole
+```
+
+### Read
+```json
+sagemaker:DescribeUserProfile
+```
+
+### Update
+```json
+sagemaker:UpdateUserProfile,
 sagemaker:DescribeUserProfile,
 sagemaker:DescribeImage,
 sagemaker:DescribeImageVersion,

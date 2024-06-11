@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>organization_conformance_packs</code> in a region or to create or delete a <code>organization_conformance_packs</code> resource, use <code>organization_conformance_pack</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>organization_conformance_pack</code> resource or lists <code>organization_conformance_packs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>organization_conformance_packs</code> in a regi
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="organization_conformance_pack_name" /></td><td><code>string</code></td><td>The name of the organization conformance pack.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="organization_conformance_pack_name" /></td><td><code>string</code></td><td>The name of the organization conformance pack.</td></tr>
+<tr><td><CopyableCode code="template_s3_uri" /></td><td><code>string</code></td><td>Location of file containing the template body.</td></tr>
+<tr><td><CopyableCode code="template_body" /></td><td><code>string</code></td><td>A string containing full conformance pack template body.</td></tr>
+<tr><td><CopyableCode code="delivery_s3_bucket" /></td><td><code>string</code></td><td>AWS Config stores intermediate files while processing conformance pack template.</td></tr>
+<tr><td><CopyableCode code="delivery_s3_key_prefix" /></td><td><code>string</code></td><td>The prefix for the delivery S3 bucket.</td></tr>
+<tr><td><CopyableCode code="conformance_pack_input_parameters" /></td><td><code>array</code></td><td>A list of ConformancePackInputParameter objects.</td></tr>
+<tr><td><CopyableCode code="excluded_accounts" /></td><td><code>array</code></td><td>A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>organization_conformance_packs</code> in a regi
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>organization_conformance_packs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ organization_conformance_pack_name
 FROM aws.config.organization_conformance_packs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>organization_conformance_pack</code>.
+```sql
+SELECT
+region,
+organization_conformance_pack_name,
+template_s3_uri,
+template_body,
+delivery_s3_bucket,
+delivery_s3_key_prefix,
+conformance_pack_input_parameters,
+excluded_accounts
+FROM aws.config.organization_conformance_packs
+WHERE region = 'us-east-1' AND data__Identifier = '<OrganizationConformancePackName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>organization_conformance_pack</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -158,7 +186,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -185,12 +213,30 @@ organizations:ListDelegatedAdministrators,
 organizations:EnableAWSServiceAccess
 ```
 
+### Read
+```json
+config:DescribeOrganizationConformancePacks
+```
+
 ### Delete
 ```json
 config:DeleteOrganizationConformancePack,
 config:DescribeOrganizationConformancePackStatuses,
 config:GetOrganizationConformancePackDetailedStatus,
 organizations:ListDelegatedAdministrators
+```
+
+### Update
+```json
+config:PutOrganizationConformancePack,
+config:DescribeOrganizationConformancePackStatuses,
+config:GetOrganizationConformancePackDetailedStatus,
+s3:GetObject,
+s3:GetBucketAcl,
+iam:CreateServiceLinkedRole,
+iam:PassRole,
+organizations:ListDelegatedAdministrators,
+organizations:EnableAWSServiceAccess
 ```
 
 ### List

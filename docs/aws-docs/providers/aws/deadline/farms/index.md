@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>farms</code> in a region or to create or delete a <code>farms</code> resource, use <code>farm</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>farm</code> resource or lists <code>farms</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>farms</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="farm_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>farms</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>farms</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ arn
 FROM aws.deadline.farms
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>farm</code>.
+```sql
+SELECT
+region,
+description,
+display_name,
+farm_id,
+kms_key_arn,
+arn
+FROM aws.deadline.farms
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>farm</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -139,7 +163,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -156,6 +180,27 @@ To operate on the <code>farms</code> resource, the following permissions are req
 ```json
 deadline:CreateFarm,
 deadline:GetFarm,
+kms:Encrypt,
+kms:Decrypt,
+kms:CreateGrant,
+kms:GenerateDataKey
+```
+
+### Read
+```json
+deadline:GetFarm,
+identitystore:ListGroupMembershipsForMember,
+kms:Encrypt,
+kms:Decrypt,
+kms:CreateGrant,
+kms:GenerateDataKey
+```
+
+### Update
+```json
+deadline:UpdateFarm,
+deadline:GetFarm,
+identitystore:ListGroupMembershipsForMember,
 kms:Encrypt,
 kms:Decrypt,
 kms:CreateGrant,

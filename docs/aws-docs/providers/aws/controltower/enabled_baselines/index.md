@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>enabled_baselines</code> in a region or to create or delete a <code>enabled_baselines</code> resource, use <code>enabled_baseline</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>enabled_baseline</code> resource or lists <code>enabled_baselines</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>enabled_baselines</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="baseline_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="baseline_version" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="enabled_baseline_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="target_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>enabled_baselines</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>enabled_baselines</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ enabled_baseline_identifier
 FROM aws.controltower.enabled_baselines
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>enabled_baseline</code>.
+```sql
+SELECT
+region,
+baseline_identifier,
+baseline_version,
+enabled_baseline_identifier,
+target_identifier,
+parameters,
+tags
+FROM aws.controltower.enabled_baselines
+WHERE region = 'us-east-1' AND data__Identifier = '<EnabledBaselineIdentifier>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>enabled_baseline</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -155,7 +181,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -197,6 +223,44 @@ servicecatalog:UpdatePortfolio,
 servicecatalog:UpdateProvisioningArtifact,
 servicecatalog:ListPrincipalsForPortfolio,
 servicecatalog:DeleteProvisioningArtifact
+```
+
+### Read
+```json
+controltower:GetEnabledBaseline,
+controltower:ListEnabledBaselines,
+controltower:ListTagsForResource
+```
+
+### Update
+```json
+controltower:UpdateEnabledBaseline,
+controltower:GetBaselineOperation,
+organizations:CreateOrganizationalUnit,
+organizations:CreateOrganization,
+organizations:UpdatePolicy,
+organizations:CreatePolicy,
+organizations:AttachPolicy,
+organizations:DetachPolicy,
+organizations:DeletePolicy,
+organizations:EnablePolicyType,
+organizations:EnableAWSServiceAccess,
+organizations:ListRoots,
+servicecatalog:AssociatePrincipalWithPortfolio,
+servicecatalog:AssociateProductWithPortfolio,
+servicecatalog:CreatePortfolio,
+servicecatalog:CreateProduct,
+servicecatalog:CreateProvisioningArtifact,
+servicecatalog:ListPortfolios,
+servicecatalog:ListProvisioningArtifacts,
+servicecatalog:SearchProductsAsAdmin,
+servicecatalog:UpdatePortfolio,
+servicecatalog:UpdateProvisioningArtifact,
+servicecatalog:ListPrincipalsForPortfolio,
+servicecatalog:DeleteProvisioningArtifact,
+controltower:TagResource,
+controltower:ListTagsForResource,
+controltower:GetEnabledBaseline
 ```
 
 ### Delete

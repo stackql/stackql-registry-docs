@@ -20,9 +20,9 @@ The mediapackage service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>10</b></span><br />
-<span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>10</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -31,17 +31,12 @@ The mediapackage service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/mediapackage/asset/">asset</a><br />
 <a href="/providers/aws/mediapackage/assets/">assets</a><br />
-<a href="/providers/aws/mediapackage/channel/">channel</a><br />
 <a href="/providers/aws/mediapackage/channels/">channels</a><br />
-<a href="/providers/aws/mediapackage/origin_endpoint/">origin_endpoint</a>
+<a href="/providers/aws/mediapackage/origin_endpoints/">origin_endpoints</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/mediapackage/origin_endpoints/">origin_endpoints</a><br />
-<a href="/providers/aws/mediapackage/packaging_configuration/">packaging_configuration</a><br />
 <a href="/providers/aws/mediapackage/packaging_configurations/">packaging_configurations</a><br />
-<a href="/providers/aws/mediapackage/packaging_group/">packaging_group</a><br />
 <a href="/providers/aws/mediapackage/packaging_groups/">packaging_groups</a>
 </div>
 </div>

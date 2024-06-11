@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Gets or updates an individual <code>vpc_endpoint_service_permissions</code> resource, use <code>vpc_endpoint_service_permissions</code> to retrieve a list of resources or to create or delete a resource.
+Creates, updates, deletes or gets a <code>vpc_endpoint_service_permission</code> resource or lists <code>vpc_endpoint_service_permissions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,9 @@ Gets or updates an individual <code>vpc_endpoint_service_permissions</code> reso
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="allowed_principals" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="allowed_principals" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="service_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -48,9 +44,24 @@ Gets or updates an individual <code>vpc_endpoint_service_permissions</code> reso
     <th>Required Params</th>
   </tr>
   <tr>
+    <td><CopyableCode code="create_resource" /></td>
+    <td><code>INSERT</code></td>
+    <td><CopyableCode code="ServiceId, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="list_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="get_resource" /></td>
@@ -59,7 +70,16 @@ Gets or updates an individual <code>vpc_endpoint_service_permissions</code> reso
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>vpc_endpoint_service_permissions</code> in a region.
+```sql
+SELECT
+region,
+service_id
+FROM aws.ec2.vpc_endpoint_service_permissions
+WHERE region = 'us-east-1';
+```
+Gets all properties from a <code>vpc_endpoint_service_permission</code>.
 ```sql
 SELECT
 region,
@@ -70,9 +90,90 @@ WHERE region = 'us-east-1' AND data__Identifier = '<ServiceId>';
 ```
 
 
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>vpc_endpoint_service_permission</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO aws.ec2.vpc_endpoint_service_permissions (
+ ServiceId,
+ region
+)
+SELECT 
+'{{ ServiceId }}',
+'{{ region }}';
+```
+</TabItem>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO aws.ec2.vpc_endpoint_service_permissions (
+ AllowedPrincipals,
+ ServiceId,
+ region
+)
+SELECT 
+ '{{ AllowedPrincipals }}',
+ '{{ ServiceId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: vpc_endpoint_service_permission
+    props:
+      - name: AllowedPrincipals
+        value:
+          - '{{ AllowedPrincipals[0] }}'
+      - name: ServiceId
+        value: '{{ ServiceId }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+```sql
+/*+ delete */
+DELETE FROM aws.ec2.vpc_endpoint_service_permissions
+WHERE data__Identifier = '<ServiceId>'
+AND region = 'us-east-1';
+```
+
 ## Permissions
 
 To operate on the <code>vpc_endpoint_service_permissions</code> resource, the following permissions are required:
+
+### Create
+```json
+ec2:CreateVpcEndpointServicePermissions,
+ec2:ModifyVpcEndpointServicePermissions,
+ec2:DeleteVpcEndpointServicePermissions,
+ec2:DescribeVpcEndpointServicePermissions
+```
 
 ### Update
 ```json
@@ -83,6 +184,22 @@ ec2:DescribeVpcEndpointServicePermissions
 ```
 
 ### Read
+```json
+ec2:CreateVpcEndpointServicePermissions,
+ec2:ModifyVpcEndpointServicePermissions,
+ec2:DeleteVpcEndpointServicePermissions,
+ec2:DescribeVpcEndpointServicePermissions
+```
+
+### Delete
+```json
+ec2:CreateVpcEndpointServicePermissions,
+ec2:ModifyVpcEndpointServicePermissions,
+ec2:DeleteVpcEndpointServicePermissions,
+ec2:DescribeVpcEndpointServicePermissions
+```
+
+### List
 ```json
 ec2:CreateVpcEndpointServicePermissions,
 ec2:ModifyVpcEndpointServicePermissions,

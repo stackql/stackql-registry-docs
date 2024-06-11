@@ -20,9 +20,9 @@ The pinpoint service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>1</b></span><br />
 </div>
 </div>
 
@@ -31,9 +31,9 @@ The pinpoint service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/pinpoint/in_app_template/">in_app_template</a>
+<a href="/providers/aws/pinpoint/in_app_templates/">in_app_templates</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/pinpoint/in_app_templates/">in_app_templates</a>
+
 </div>
 </div>

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>instances</code> in a region or to create or delete a <code>instances</code> resource, use <code>instance</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>instance</code> resource or lists <code>instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,28 @@ Used to retrieve a list of <code>instances</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="support_code" /></td><td><code>string</code></td><td>Support code to help identify any issues</td></tr>
+<tr><td><CopyableCode code="resource_type" /></td><td><code>string</code></td><td>Resource type of Lightsail instance.</td></tr>
+<tr><td><CopyableCode code="is_static_ip" /></td><td><code>boolean</code></td><td>Is the IP Address of the Instance is the static IP</td></tr>
+<tr><td><CopyableCode code="private_ip_address" /></td><td><code>string</code></td><td>Private IP Address of the Instance</td></tr>
+<tr><td><CopyableCode code="public_ip_address" /></td><td><code>string</code></td><td>Public IP Address of the Instance</td></tr>
+<tr><td><CopyableCode code="ipv6_addresses" /></td><td><code>array</code></td><td>IPv6 addresses of the instance</td></tr>
+<tr><td><CopyableCode code="location" /></td><td><code>Location of a resource.</code></td><td></td></tr>
+<tr><td><CopyableCode code="hardware" /></td><td><code>Hardware of the Instance.</code></td><td></td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>Current State of the Instance.</code></td><td></td></tr>
+<tr><td><CopyableCode code="networking" /></td><td><code>Networking of the Instance.</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_name" /></td><td><code>string</code></td><td>Username of the  Lightsail instance.</td></tr>
+<tr><td><CopyableCode code="ssh_key_name" /></td><td><code>string</code></td><td>SSH Key Name of the  Lightsail instance.</td></tr>
 <tr><td><CopyableCode code="instance_name" /></td><td><code>string</code></td><td>The names to use for your new Lightsail instance.</td></tr>
+<tr><td><CopyableCode code="availability_zone" /></td><td><code>string</code></td><td>The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.</td></tr>
+<tr><td><CopyableCode code="bundle_id" /></td><td><code>string</code></td><td>The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).</td></tr>
+<tr><td><CopyableCode code="blueprint_id" /></td><td><code>string</code></td><td>The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).</td></tr>
+<tr><td><CopyableCode code="add_ons" /></td><td><code>array</code></td><td>An array of objects representing the add-ons to enable for the new instance.</td></tr>
+<tr><td><CopyableCode code="user_data" /></td><td><code>string</code></td><td>A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.</td></tr>
+<tr><td><CopyableCode code="key_pair_name" /></td><td><code>string</code></td><td>The name of your key pair.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +73,24 @@ Used to retrieve a list of <code>instances</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>instances</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +98,37 @@ instance_name
 FROM aws.lightsail.instances
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>instance</code>.
+```sql
+SELECT
+region,
+support_code,
+resource_type,
+is_static_ip,
+private_ip_address,
+public_ip_address,
+ipv6_addresses,
+location,
+hardware,
+state,
+networking,
+user_name,
+ssh_key_name,
+instance_name,
+availability_zone,
+bundle_id,
+blueprint_id,
+add_ons,
+user_data,
+key_pair_name,
+tags,
+instance_arn
+FROM aws.lightsail.instances
+WHERE region = 'us-east-1' AND data__Identifier = '<InstanceName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>instance</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -215,7 +271,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -246,6 +302,12 @@ lightsail:TagResource,
 lightsail:UntagResource
 ```
 
+### Read
+```json
+lightsail:GetInstances,
+lightsail:GetInstance
+```
+
 ### Delete
 ```json
 lightsail:GetInstances,
@@ -256,5 +318,22 @@ lightsail:DeleteInstance
 ### List
 ```json
 lightsail:GetInstances
+```
+
+### Update
+```json
+lightsail:GetInstances,
+lightsail:GetInstance,
+lightsail:DeleteInstance,
+lightsail:EnableAddOn,
+lightsail:DisableAddOn,
+lightsail:PutInstancePublicPorts,
+lightsail:AttachDisk,
+lightsail:DetachDisk,
+lightsail:StartInstance,
+lightsail:StopInstance,
+lightsail:GetDisk,
+lightsail:TagResource,
+lightsail:UntagResource
 ```
 

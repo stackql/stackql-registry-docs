@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>environment_blueprint_configurations</code> in a region or to create or delete a <code>environment_blueprint_configurations</code> resource, use <code>environment_blueprint_configuration</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>environment_blueprint_configuration</code> resource or lists <code>environment_blueprint_configurations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,17 @@ Used to retrieve a list of <code>environment_blueprint_configurations</code> in 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="regional_parameters" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="provisioning_role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="enabled_regions" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="environment_blueprint_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="environment_blueprint_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="manage_access_role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +62,24 @@ Used to retrieve a list of <code>environment_blueprint_configurations</code> in 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>environment_blueprint_configurations</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +88,26 @@ environment_blueprint_id
 FROM aws.datazone.environment_blueprint_configurations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>environment_blueprint_configuration</code>.
+```sql
+SELECT
+region,
+regional_parameters,
+provisioning_role_arn,
+domain_id,
+created_at,
+enabled_regions,
+environment_blueprint_identifier,
+environment_blueprint_id,
+updated_at,
+domain_identifier,
+manage_access_role_arn
+FROM aws.datazone.environment_blueprint_configurations
+WHERE region = 'us-east-1' AND data__Identifier = '<DomainId>|<EnvironmentBlueprintId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>environment_blueprint_configuration</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -160,7 +193,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -173,9 +206,22 @@ AND region = 'us-east-1';
 
 To operate on the <code>environment_blueprint_configurations</code> resource, the following permissions are required:
 
+### Read
+```json
+datazone:GetEnvironmentBlueprintConfiguration
+```
+
 ### Create
 ```json
 datazone:ListEnvironmentBlueprints,
+iam:PassRole,
+datazone:GetEnvironmentBlueprintConfiguration,
+datazone:PutEnvironmentBlueprintConfiguration
+```
+
+### Update
+```json
+datazone:DeleteEnvironmentBlueprintConfiguration,
 iam:PassRole,
 datazone:GetEnvironmentBlueprintConfiguration,
 datazone:PutEnvironmentBlueprintConfiguration

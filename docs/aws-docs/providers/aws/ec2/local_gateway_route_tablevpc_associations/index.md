@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>local_gateway_route_tablevpc_associations</code> in a region or to create or delete a <code>local_gateway_route_tablevpc_associations</code> resource, use <code>local_gateway_route_tablevpc_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>local_gateway_route_tablevpc_association</code> resource or lists <code>local_gateway_route_tablevpc_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>local_gateway_route_tablevpc_associations</code
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="local_gateway_id" /></td><td><code>string</code></td><td>The ID of the local gateway.</td></tr>
+<tr><td><CopyableCode code="local_gateway_route_table_id" /></td><td><code>string</code></td><td>The ID of the local gateway route table.</td></tr>
 <tr><td><CopyableCode code="local_gateway_route_table_vpc_association_id" /></td><td><code>string</code></td><td>The ID of the association.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the association.</td></tr>
+<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags for the association.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>local_gateway_route_tablevpc_associations</code
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>local_gateway_route_tablevpc_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ local_gateway_route_table_vpc_association_id
 FROM aws.ec2.local_gateway_route_tablevpc_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>local_gateway_route_tablevpc_association</code>.
+```sql
+SELECT
+region,
+local_gateway_id,
+local_gateway_route_table_id,
+local_gateway_route_table_vpc_association_id,
+state,
+vpc_id,
+tags
+FROM aws.ec2.local_gateway_route_tablevpc_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<LocalGatewayRouteTableVpcAssociationId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>local_gateway_route_tablevpc_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -143,7 +169,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -161,6 +187,18 @@ To operate on the <code>local_gateway_route_tablevpc_associations</code> resourc
 ec2:CreateLocalGatewayRouteTableVpcAssociation,
 ec2:DescribeLocalGatewayRouteTableVpcAssociations,
 ec2:CreateTags
+```
+
+### Read
+```json
+ec2:DescribeLocalGatewayRouteTableVpcAssociations
+```
+
+### Update
+```json
+ec2:DescribeLocalGatewayRouteTableVpcAssociations,
+ec2:CreateTags,
+ec2:DeleteTags
 ```
 
 ### Delete

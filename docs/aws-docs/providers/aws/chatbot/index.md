@@ -20,9 +20,9 @@ The chatbot service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -31,11 +31,9 @@ The chatbot service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/chatbot/microsoft_teams_channel_configuration/">microsoft_teams_channel_configuration</a><br />
 <a href="/providers/aws/chatbot/microsoft_teams_channel_configurations/">microsoft_teams_channel_configurations</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/chatbot/slack_channel_configuration/">slack_channel_configuration</a><br />
 <a href="/providers/aws/chatbot/slack_channel_configurations/">slack_channel_configurations</a>
 </div>
 </div>

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>assignments</code> in a region or to create or delete a <code>assignments</code> resource, use <code>assignment</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>assignment</code> resource or lists <code>assignments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,16 +30,13 @@ Used to retrieve a list of <code>assignments</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The sso instance that the permission set is owned.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The sso instance that the permission set is owned.</td></tr>
 <tr><td><CopyableCode code="target_id" /></td><td><code>string</code></td><td>The account id to be provisioned.</td></tr>
 <tr><td><CopyableCode code="target_type" /></td><td><code>string</code></td><td>The type of resource to be provsioned to, only aws account now</td></tr>
 <tr><td><CopyableCode code="permission_set_arn" /></td><td><code>string</code></td><td>The permission set that the assignemt will be assigned</td></tr>
-<tr><td><CopyableCode code="principal_type" /></td><td><code>string</code></td><td>The assignee's type, user&#x2F;group</td></tr>
-<tr><td><CopyableCode code="principal_id" /></td><td><code>string</code></td><td>The assignee's identifier, user id&#x2F;group id</td></tr>
+<tr><td><CopyableCode code="principal_type" /></td><td><code>string</code></td><td>The assignee's type, user/group</td></tr>
+<tr><td><CopyableCode code="principal_id" /></td><td><code>string</code></td><td>The assignee's identifier, user id/group id</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -66,9 +62,15 @@ Used to retrieve a list of <code>assignments</code> in a region or to create or 
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>assignments</code> in a region.
 ```sql
 SELECT
 region,
@@ -81,8 +83,22 @@ principal_id
 FROM aws.sso.assignments
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>assignment</code>.
+```sql
+SELECT
+region,
+instance_arn,
+target_id,
+target_type,
+permission_set_arn,
+principal_type,
+principal_id
+FROM aws.sso.assignments
+WHERE region = 'us-east-1' AND data__Identifier = '<InstanceArn>|<TargetId>|<TargetType>|<PermissionSetArn>|<PrincipalType>|<PrincipalId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>assignment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -171,7 +187,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -194,6 +210,13 @@ iam:CreateSAMLProvider,
 iam:AttachRolePolicy,
 iam:PutRolePolicy,
 iam:CreateRole,
+iam:ListRolePolicies
+```
+
+### Read
+```json
+sso:ListAccountAssignments,
+iam:GetSAMLProvider,
 iam:ListRolePolicies
 ```
 

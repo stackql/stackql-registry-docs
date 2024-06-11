@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>lifecycle_policies</code> in a region or to create or delete a <code>lifecycle_policies</code> resource, use <code>lifecycle_policy</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>lifecycle_policy</code> resource or lists <code>lifecycle_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>lifecycle_policies</code> in a region or to cre
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the policy</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the policy</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>The type of lifecycle policy</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the policy</td></tr>
+<tr><td><CopyableCode code="policy" /></td><td><code>string</code></td><td>The JSON policy document that is the content for the policy</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +56,24 @@ Used to retrieve a list of <code>lifecycle_policies</code> in a region or to cre
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>lifecycle_policies</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +82,20 @@ name
 FROM aws.opensearchserverless.lifecycle_policies
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>lifecycle_policy</code>.
+```sql
+SELECT
+region,
+name,
+type,
+description,
+policy
+FROM aws.opensearchserverless.lifecycle_policies
+WHERE region = 'us-east-1' AND data__Identifier = '<Type>|<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>lifecycle_policy</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +170,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -165,6 +186,17 @@ To operate on the <code>lifecycle_policies</code> resource, the following permis
 ### Create
 ```json
 aoss:CreateLifecyclePolicy
+```
+
+### Read
+```json
+aoss:BatchGetLifecyclePolicy
+```
+
+### Update
+```json
+aoss:UpdateLifecyclePolicy,
+aoss:BatchGetLifecyclePolicy
 ```
 
 ### Delete

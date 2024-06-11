@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>data_sets</code> in a region or to create or delete a <code>data_sets</code> resource, use <code>data_set</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>data_set</code> resource or lists <code>data_sets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,34 @@ Used to retrieve a list of <code>data_sets</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the resource.</p></td></tr>
 <tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="column_groups" /></td><td><code>array</code></td><td><p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p></td></tr>
+<tr><td><CopyableCode code="column_level_permission_rules" /></td><td><code>array</code></td><td><p>A set of one or more definitions of a <code><br/>               <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a><br/>            </code>.</p></td></tr>
+<tr><td><CopyableCode code="consumed_spice_capacity_in_bytes" /></td><td><code>number</code></td><td><p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't<br/>            imported into SPICE.</p></td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td><p>The time that this dataset was created.</p></td></tr>
 <tr><td><CopyableCode code="data_set_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_set_refresh_properties" /></td><td><code><p>The refresh properties of a dataset.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="data_set_usage_configuration" /></td><td><code><p>The usage configuration to apply to child datasets that reference this dataset as a source.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="dataset_parameters" /></td><td><code>array</code></td><td><p>The parameter declarations of the dataset.</p></td></tr>
+<tr><td><CopyableCode code="field_folders" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="import_mode" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>The last time that this dataset was updated.</p></td></tr>
+<tr><td><CopyableCode code="logical_table_map" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td><p>The display name for the dataset.</p></td></tr>
+<tr><td><CopyableCode code="output_columns" /></td><td><code>array</code></td><td><p>The list of columns after all transforms. These columns are available in templates,<br/>            analyses, and dashboards.</p></td></tr>
+<tr><td><CopyableCode code="permissions" /></td><td><code>array</code></td><td><p>A list of resource permissions on the dataset.</p></td></tr>
+<tr><td><CopyableCode code="physical_table_map" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="row_level_permission_data_set" /></td><td><code><p>Information about a dataset that contains permissions for row-level security (RLS).
+            The permissions dataset maps fields to users or groups. For more information, see
+            <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+                Guide</i>.</p>
+         <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+            not supported for new RLS datasets.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="row_level_permission_tag_configuration" /></td><td><code><p>The configuration of tags on a dataset to set row-level security. </p></code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td><p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p></td></tr>
+<tr><td><CopyableCode code="ingestion_wait_policy" /></td><td><code><p>Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.</p></code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +79,24 @@ Used to retrieve a list of <code>data_sets</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>data_sets</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +105,38 @@ data_set_id
 FROM aws.quicksight.data_sets
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>data_set</code>.
+```sql
+SELECT
+region,
+arn,
+aws_account_id,
+column_groups,
+column_level_permission_rules,
+consumed_spice_capacity_in_bytes,
+created_time,
+data_set_id,
+data_set_refresh_properties,
+data_set_usage_configuration,
+dataset_parameters,
+field_folders,
+import_mode,
+last_updated_time,
+logical_table_map,
+name,
+output_columns,
+permissions,
+physical_table_map,
+row_level_permission_data_set,
+row_level_permission_tag_configuration,
+tags,
+ingestion_wait_policy
+FROM aws.quicksight.data_sets
+WHERE region = 'us-east-1' AND data__Identifier = '<AwsAccountId>|<DataSetId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>data_set</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -95,6 +157,8 @@ INSERT INTO aws.quicksight.data_sets (
  ColumnGroups,
  ColumnLevelPermissionRules,
  DataSetId,
+ DataSetRefreshProperties,
+ DataSetUsageConfiguration,
  DatasetParameters,
  FieldFolders,
  ImportMode,
@@ -106,8 +170,6 @@ INSERT INTO aws.quicksight.data_sets (
  RowLevelPermissionTagConfiguration,
  Tags,
  IngestionWaitPolicy,
- DataSetUsageConfiguration,
- DataSetRefreshProperties,
  region
 )
 SELECT 
@@ -115,6 +177,8 @@ SELECT
  '{{ ColumnGroups }}',
  '{{ ColumnLevelPermissionRules }}',
  '{{ DataSetId }}',
+ '{{ DataSetRefreshProperties }}',
+ '{{ DataSetUsageConfiguration }}',
  '{{ DatasetParameters }}',
  '{{ FieldFolders }}',
  '{{ ImportMode }}',
@@ -126,8 +190,6 @@ SELECT
  '{{ RowLevelPermissionTagConfiguration }}',
  '{{ Tags }}',
  '{{ IngestionWaitPolicy }}',
- '{{ DataSetUsageConfiguration }}',
- '{{ DataSetRefreshProperties }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -140,6 +202,8 @@ INSERT INTO aws.quicksight.data_sets (
  ColumnGroups,
  ColumnLevelPermissionRules,
  DataSetId,
+ DataSetRefreshProperties,
+ DataSetUsageConfiguration,
  DatasetParameters,
  FieldFolders,
  ImportMode,
@@ -151,8 +215,6 @@ INSERT INTO aws.quicksight.data_sets (
  RowLevelPermissionTagConfiguration,
  Tags,
  IngestionWaitPolicy,
- DataSetUsageConfiguration,
- DataSetRefreshProperties,
  region
 )
 SELECT 
@@ -160,6 +222,8 @@ SELECT
  '{{ ColumnGroups }}',
  '{{ ColumnLevelPermissionRules }}',
  '{{ DataSetId }}',
+ '{{ DataSetRefreshProperties }}',
+ '{{ DataSetUsageConfiguration }}',
  '{{ DatasetParameters }}',
  '{{ FieldFolders }}',
  '{{ ImportMode }}',
@@ -171,8 +235,6 @@ SELECT
  '{{ RowLevelPermissionTagConfiguration }}',
  '{{ Tags }}',
  '{{ IngestionWaitPolicy }}',
- '{{ DataSetUsageConfiguration }}',
- '{{ DataSetRefreshProperties }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -195,18 +257,30 @@ resources:
       - name: ColumnGroups
         value:
           - GeoSpatialColumnGroup:
+              Name: '{{ Name }}'
+              CountryCode: '{{ CountryCode }}'
               Columns:
                 - '{{ Columns[0] }}'
-              CountryCode: '{{ CountryCode }}'
-              Name: '{{ Name }}'
       - name: ColumnLevelPermissionRules
         value:
-          - ColumnNames:
-              - '{{ ColumnNames[0] }}'
-            Principals:
+          - Principals:
               - '{{ Principals[0] }}'
+            ColumnNames:
+              - '{{ ColumnNames[0] }}'
       - name: DataSetId
         value: '{{ DataSetId }}'
+      - name: DataSetRefreshProperties
+        value:
+          RefreshConfiguration:
+            IncrementalRefresh:
+              LookbackWindow:
+                ColumnName: '{{ ColumnName }}'
+                Size: null
+                SizeUnit: '{{ SizeUnit }}'
+      - name: DataSetUsageConfiguration
+        value:
+          DisableUseAsDirectQuerySource: '{{ DisableUseAsDirectQuerySource }}'
+          DisableUseAsImportedSource: '{{ DisableUseAsImportedSource }}'
       - name: DatasetParameters
         value:
           - StringDatasetParameter:
@@ -217,22 +291,22 @@ resources:
                 StaticValues:
                   - '{{ StaticValues[0] }}'
             DecimalDatasetParameter:
-              Id: null
-              Name: null
+              Id: '{{ Id }}'
+              Name: '{{ Name }}'
               ValueType: null
               DefaultValues:
                 StaticValues:
                   - null
             IntegerDatasetParameter:
-              Id: null
-              Name: null
+              Id: '{{ Id }}'
+              Name: '{{ Name }}'
               ValueType: null
               DefaultValues:
                 StaticValues:
                   - null
             DateTimeDatasetParameter:
-              Id: null
-              Name: null
+              Id: '{{ Id }}'
+              Name: '{{ Name }}'
               ValueType: null
               TimeGranularity: '{{ TimeGranularity }}'
               DefaultValues:
@@ -255,8 +329,8 @@ resources:
         value: {}
       - name: RowLevelPermissionDataSet
         value:
-          Arn: '{{ Arn }}'
           Namespace: '{{ Namespace }}'
+          Arn: '{{ Arn }}'
           PermissionPolicy: '{{ PermissionPolicy }}'
           FormatVersion: '{{ FormatVersion }}'
           Status: '{{ Status }}'
@@ -264,38 +338,26 @@ resources:
         value:
           Status: null
           TagRules:
-            - ColumnName: '{{ ColumnName }}'
-              TagKey: '{{ TagKey }}'
-              MatchAllValue: '{{ MatchAllValue }}'
+            - TagKey: '{{ TagKey }}'
+              ColumnName: '{{ ColumnName }}'
               TagMultiValueDelimiter: '{{ TagMultiValueDelimiter }}'
+              MatchAllValue: '{{ MatchAllValue }}'
           TagRuleConfigurations:
             - - '{{ 0[0] }}'
       - name: Tags
         value:
-          - Value: '{{ Value }}'
-            Key: '{{ Key }}'
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
       - name: IngestionWaitPolicy
         value:
           WaitForSpiceIngestion: '{{ WaitForSpiceIngestion }}'
           IngestionWaitTimeInHours: null
-      - name: DataSetUsageConfiguration
-        value:
-          DisableUseAsDirectQuerySource: '{{ DisableUseAsDirectQuerySource }}'
-          DisableUseAsImportedSource: '{{ DisableUseAsImportedSource }}'
-      - name: DataSetRefreshProperties
-        value:
-          RefreshConfiguration:
-            IncrementalRefresh:
-              LookbackWindow:
-                ColumnName: '{{ ColumnName }}'
-                Size: null
-                SizeUnit: '{{ SizeUnit }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -321,6 +383,33 @@ quicksight:TagResource,
 quicksight:ListTagsForResource,
 quicksight:DescribeDataSetRefreshProperties,
 quicksight:PutDataSetRefreshProperties
+```
+
+### Read
+```json
+quicksight:DescribeDataSet,
+quicksight:DescribeDataSetPermissions,
+quicksight:ListTagsForResource,
+quicksight:DescribeDataSetRefreshProperties
+```
+
+### Update
+```json
+quicksight:DescribeDataSet,
+quicksight:DescribeDataSetPermissions,
+quicksight:PassDataSource,
+quicksight:UpdateDataSet,
+quicksight:UpdateDataSetPermissions,
+quicksight:PassDataSet,
+quicksight:DescribeIngestion,
+quicksight:ListIngestions,
+quicksight:CancelIngestion,
+quicksight:TagResource,
+quicksight:UntagResource,
+quicksight:ListTagsForResource,
+quicksight:PutDataSetRefreshProperties,
+quicksight:DescribeDataSetRefreshProperties,
+quicksight:DeleteDataSetRefreshProperties
 ```
 
 ### Delete

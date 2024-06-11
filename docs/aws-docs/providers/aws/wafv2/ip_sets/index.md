@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>ip_sets</code> in a region or to create or delete a <code>ip_sets</code> resource, use <code>ip_set</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>ip_set</code> resource or lists <code>ip_sets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,15 @@ Used to retrieve a list of <code>ip_sets</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="scope" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>Description of the entity.</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>Name of the WebACL.</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>Id of the WebACL</code></td><td></td></tr>
+<tr><td><CopyableCode code="scope" /></td><td><code>Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.</code></td><td></td></tr>
+<tr><td><CopyableCode code="ip_address_version" /></td><td><code>Type of addresses in the IPSet, use IPV4 for IPV4 IP addresses, IPV6 for IPV6 address.</code></td><td></td></tr>
+<tr><td><CopyableCode code="addresses" /></td><td><code>array</code></td><td>List of IPAddresses.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +60,24 @@ Used to retrieve a list of <code>ip_sets</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>ip_sets</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +87,24 @@ scope
 FROM aws.wafv2.ip_sets
 ;
 ```
+Gets all properties from an <code>ip_set</code>.
+```sql
+SELECT
+region,
+arn,
+description,
+name,
+id,
+scope,
+ip_address_version,
+addresses,
+tags
+FROM aws.wafv2.ip_sets
+WHERE data__Identifier = '<Name>|<Id>|<Scope>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>ip_set</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -162,7 +190,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -186,6 +214,19 @@ wafv2:ListTagsForResource
 ```json
 wafv2:DeleteIPSet,
 wafv2:GetIPSet
+```
+
+### Read
+```json
+wafv2:GetIPSet,
+wafv2:ListTagsForResource
+```
+
+### Update
+```json
+wafv2:UpdateIPSet,
+wafv2:GetIPSet,
+wafv2:ListTagsForResource
 ```
 
 ### List

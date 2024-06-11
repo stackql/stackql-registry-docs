@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>domains</code> in a region or to create or delete a <code>domains</code> resource, use <code>domain</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>domains</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,32 @@ Used to retrieve a list of <code>domains</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_config" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="access_policies" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="ip_address_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="advanced_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="log_publishing_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="snapshot_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="node_to_node_encryption_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_endpoint_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="cognito_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="advanced_security_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_endpoint" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_endpoint_v2" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_endpoints" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="ebs_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_at_rest_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this Domain.</td></tr>
+<tr><td><CopyableCode code="service_software_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="off_peak_window_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="software_update_options" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +77,54 @@ Used to retrieve a list of <code>domains</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>domain</code>.
 ```sql
 SELECT
 region,
-domain_name
+cluster_config,
+domain_name,
+access_policies,
+ip_address_type,
+engine_version,
+advanced_options,
+log_publishing_options,
+snapshot_options,
+vpc_options,
+node_to_node_encryption_options,
+domain_endpoint_options,
+cognito_options,
+advanced_security_options,
+domain_endpoint,
+domain_endpoint_v2,
+domain_endpoints,
+ebs_options,
+id,
+arn,
+domain_arn,
+encryption_at_rest_options,
+tags,
+service_software_options,
+off_peak_window_options,
+software_update_options
 FROM aws.opensearchservice.domains
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>domain</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -295,7 +347,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -314,6 +366,23 @@ es:CreateDomain,
 es:DescribeDomain,
 es:AddTags,
 es:ListTags
+```
+
+### Read
+```json
+es:DescribeDomain,
+es:ListTags
+```
+
+### Update
+```json
+es:UpdateDomain,
+es:UpgradeDomain,
+es:DescribeDomain,
+es:AddTags,
+es:RemoveTags,
+es:ListTags,
+es:DescribeDomainChangeProgress
 ```
 
 ### Delete

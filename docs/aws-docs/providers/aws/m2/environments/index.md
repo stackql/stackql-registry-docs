@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>environments</code> in a region or to create or delete a <code>environments</code> resource, use <code>environment</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>environment</code> resource or lists <code>environments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,22 @@ Used to retrieve a list of <code>environments</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the environment.</td></tr>
+<tr><td><CopyableCode code="engine_type" /></td><td><code>The target platform for the environment.</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The version of the runtime engine for the environment.</td></tr>
 <tr><td><CopyableCode code="environment_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the runtime environment.</td></tr>
+<tr><td><CopyableCode code="environment_id" /></td><td><code>string</code></td><td>The unique identifier of the environment.</td></tr>
+<tr><td><CopyableCode code="high_availability_config" /></td><td><code>Defines the details of a high availability configuration.</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td>The type of instance underlying the environment.</td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the environment.</td></tr>
+<tr><td><CopyableCode code="preferred_maintenance_window" /></td><td><code>string</code></td><td>Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.</td></tr>
+<tr><td><CopyableCode code="publicly_accessible" /></td><td><code>boolean</code></td><td>Specifies whether the environment is publicly accessible.</td></tr>
+<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>The list of security groups for the VPC associated with this environment.</td></tr>
+<tr><td><CopyableCode code="storage_configurations" /></td><td><code>array</code></td><td>The storage configurations defined for the runtime environment.</td></tr>
+<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>The unique identifiers of the subnets assigned to this runtime environment.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>Tags associated to this environment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +67,24 @@ Used to retrieve a list of <code>environments</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>environments</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +92,31 @@ environment_arn
 FROM aws.m2.environments
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>environment</code>.
+```sql
+SELECT
+region,
+description,
+engine_type,
+engine_version,
+environment_arn,
+environment_id,
+high_availability_config,
+instance_type,
+kms_key_id,
+name,
+preferred_maintenance_window,
+publicly_accessible,
+security_group_ids,
+storage_configurations,
+subnet_ids,
+tags
+FROM aws.m2.environments
+WHERE region = 'us-east-1' AND data__Identifier = '<EnvironmentArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>environment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -187,7 +231,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -212,6 +256,7 @@ ec2:DescribeVpcs,
 ec2:ModifyNetworkInterfaceAttribute,
 elasticfilesystem:DescribeMountTargets,
 elasticloadbalancing:CreateLoadBalancer,
+elasticloadbalancing:DeleteLoadBalancer,
 elasticloadbalancing:AddTags,
 fsx:DescribeFileSystems,
 iam:CreateServiceLinkedRole,
@@ -221,6 +266,22 @@ m2:CreateEnvironment,
 m2:GetEnvironment,
 m2:ListTagsForResource,
 m2:TagResource
+```
+
+### Read
+```json
+m2:ListTagsForResource,
+m2:GetEnvironment
+```
+
+### Update
+```json
+m2:TagResource,
+m2:UntagResource,
+m2:ListTagsForResource,
+m2:GetEnvironment,
+m2:UpdateEnvironment,
+kms:DescribeKey
 ```
 
 ### Delete

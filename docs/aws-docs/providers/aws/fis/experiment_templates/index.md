@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>experiment_templates</code> in a region or to create or delete a <code>experiment_templates</code> resource, use <code>experiment_template</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>experiment_template</code> resource or lists <code>experiment_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>experiment_templates</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>A description for the experiment template.</code></td><td></td></tr>
+<tr><td><CopyableCode code="targets" /></td><td><code>The targets for the experiment.</code></td><td></td></tr>
+<tr><td><CopyableCode code="actions" /></td><td><code>The actions for the experiment.</code></td><td></td></tr>
+<tr><td><CopyableCode code="stop_conditions" /></td><td><code>One or more stop conditions.</code></td><td></td></tr>
+<tr><td><CopyableCode code="log_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="experiment_options" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>experiment_templates</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>experiment_templates</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ id
 FROM aws.fis.experiment_templates
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>experiment_template</code>.
+```sql
+SELECT
+region,
+id,
+description,
+targets,
+actions,
+stop_conditions,
+log_configuration,
+role_arn,
+tags,
+experiment_options
+FROM aws.fis.experiment_templates
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>experiment_template</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -177,7 +209,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -194,6 +226,20 @@ To operate on the <code>experiment_templates</code> resource, the following perm
 ```json
 fis:CreateExperimentTemplate,
 fis:TagResource,
+iam:PassRole
+```
+
+### Read
+```json
+fis:GetExperimentTemplate,
+fis:ListTagsForResource
+```
+
+### Update
+```json
+fis:UpdateExperimentTemplate,
+fis:TagResource,
+fis:UntagResource,
 iam:PassRole
 ```
 

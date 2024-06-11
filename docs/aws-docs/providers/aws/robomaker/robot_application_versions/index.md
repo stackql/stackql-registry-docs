@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>robot_application_versions</code> in a region or to create or delete a <code>robot_application_versions</code> resource, use <code>robot_application_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>robot_application_version</code> resource or lists <code>robot_application_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>robot_application_versions</code> in a region o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="current_revision_id" /></td><td><code>string</code></td><td>The revision ID of robot application.</td></tr>
+<tr><td><CopyableCode code="application_version" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +56,28 @@ Used to retrieve a list of <code>robot_application_versions</code> in a region o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>robot_application_version</code>.
 ```sql
 SELECT
 region,
+application,
+current_revision_id,
+application_version,
 arn
 FROM aws.robomaker.robot_application_versions
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>robot_application_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -135,7 +140,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -162,6 +167,11 @@ sts:GetServiceBearerToken
 ### Delete
 ```json
 robomaker:DeleteRobotApplication,
+robomaker:DescribeRobotApplication
+```
+
+### Read
+```json
 robomaker:DescribeRobotApplication
 ```
 

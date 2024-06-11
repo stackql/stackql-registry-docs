@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>enclave_certificate_iam_role_associations</code> in a region or to create or delete a <code>enclave_certificate_iam_role_associations</code> resource, use <code>enclave_certificate_iam_role_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>enclave_certificate_iam_role_association</code> resource or lists <code>enclave_certificate_iam_role_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,12 @@ Used to retrieve a list of <code>enclave_certificate_iam_role_associations</code
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.</td></tr>
+<tr><td><CopyableCode code="certificate_s3_bucket_name" /></td><td><code>string</code></td><td>The name of the Amazon S3 bucket to which the certificate was uploaded.</td></tr>
+<tr><td><CopyableCode code="certificate_s3_object_key" /></td><td><code>string</code></td><td>The Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored.</td></tr>
+<tr><td><CopyableCode code="encryption_kms_key_id" /></td><td><code>string</code></td><td>The ID of the AWS KMS CMK used to encrypt the private key of the certificate.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -62,9 +61,15 @@ Used to retrieve a list of <code>enclave_certificate_iam_role_associations</code
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>enclave_certificate_iam_role_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +78,21 @@ role_arn
 FROM aws.ec2.enclave_certificate_iam_role_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>enclave_certificate_iam_role_association</code>.
+```sql
+SELECT
+region,
+certificate_arn,
+role_arn,
+certificate_s3_bucket_name,
+certificate_s3_object_key,
+encryption_kms_key_id
+FROM aws.ec2.enclave_certificate_iam_role_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<CertificateArn>|<RoleArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>enclave_certificate_iam_role_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -139,7 +157,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -155,6 +173,11 @@ To operate on the <code>enclave_certificate_iam_role_associations</code> resourc
 ### Create
 ```json
 ec2:AssociateEnclaveCertificateIamRole
+```
+
+### Read
+```json
+ec2:GetAssociatedEnclaveCertificateIamRoles
 ```
 
 ### Delete

@@ -20,9 +20,9 @@ The wisdom service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -31,13 +31,10 @@ The wisdom service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/wisdom/assistant/">assistant</a><br />
-<a href="/providers/aws/wisdom/assistant_association/">assistant_association</a><br />
-<a href="/providers/aws/wisdom/assistant_associations/">assistant_associations</a>
+<a href="/providers/aws/wisdom/assistant_associations/">assistant_associations</a><br />
+<a href="/providers/aws/wisdom/assistants/">assistants</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/wisdom/assistants/">assistants</a><br />
-<a href="/providers/aws/wisdom/knowledge_base/">knowledge_base</a><br />
 <a href="/providers/aws/wisdom/knowledge_bases/">knowledge_bases</a>
 </div>
 </div>

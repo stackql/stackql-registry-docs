@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>resiliency_policies</code> in a region or to create or delete a <code>resiliency_policies</code> resource, use <code>resiliency_policy</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>resiliency_policy</code> resource or lists <code>resiliency_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>resiliency_policies</code> in a region or to cr
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td>Name of Resiliency Policy.</td></tr>
+<tr><td><CopyableCode code="policy_description" /></td><td><code>string</code></td><td>Description of Resiliency Policy.</td></tr>
+<tr><td><CopyableCode code="data_location_constraint" /></td><td><code>string</code></td><td>Data Location Constraint of the Policy.</td></tr>
+<tr><td><CopyableCode code="tier" /></td><td><code>string</code></td><td>Resiliency Policy Tier.</td></tr>
+<tr><td><CopyableCode code="policy" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="policy_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>resiliency_policies</code> in a region or to cr
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>resiliency_policies</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ policy_arn
 FROM aws.resiliencehub.resiliency_policies
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>resiliency_policy</code>.
+```sql
+SELECT
+region,
+policy_name,
+policy_description,
+data_location_constraint,
+tier,
+policy,
+policy_arn,
+tags
+FROM aws.resiliencehub.resiliency_policies
+WHERE region = 'us-east-1' AND data__Identifier = '<PolicyArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>resiliency_policy</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -161,7 +189,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -179,6 +207,21 @@ To operate on the <code>resiliency_policies</code> resource, the following permi
 resiliencehub:CreateResiliencyPolicy,
 resiliencehub:DescribeResiliencyPolicy,
 resiliencehub:TagResource
+```
+
+### Update
+```json
+resiliencehub:DescribeResiliencyPolicy,
+resiliencehub:UpdateResiliencyPolicy,
+resiliencehub:TagResource,
+resiliencehub:UntagResource,
+resiliencehub:ListTagsForResource
+```
+
+### Read
+```json
+resiliencehub:DescribeResiliencyPolicy,
+resiliencehub:ListTagsForResource
 ```
 
 ### Delete

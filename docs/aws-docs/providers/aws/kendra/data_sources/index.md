@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>data_sources</code> in a region or to create or delete a <code>data_sources</code> resource, use <code>data_source</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>data_source</code> resource or lists <code>data_sources</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,19 @@ Used to retrieve a list of <code>data_sources</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="index_id" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>Unique ID of index</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>Name of index</code></td><td></td></tr>
+<tr><td><CopyableCode code="index_id" /></td><td><code>Unique ID of Index</code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>Data source type</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_source_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule" /></td><td><code>Schedule</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>Role Arn</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags for labeling the data source</td></tr>
+<tr><td><CopyableCode code="custom_document_enrichment_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="language_code" /></td><td><code>The code for a language.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +64,24 @@ Used to retrieve a list of <code>data_sources</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>data_sources</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +90,28 @@ index_id
 FROM aws.kendra.data_sources
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>data_source</code>.
+```sql
+SELECT
+region,
+id,
+arn,
+name,
+index_id,
+type,
+data_source_configuration,
+description,
+schedule,
+role_arn,
+tags,
+custom_document_enrichment_configuration,
+language_code
+FROM aws.kendra.data_sources
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>|<IndexId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>data_source</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -387,7 +424,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -409,6 +446,12 @@ iam:PassRole,
 kendra:TagResource
 ```
 
+### Read
+```json
+kendra:DescribeDataSource,
+kendra:ListTagsForResource
+```
+
 ### Delete
 ```json
 kendra:DescribeDataSource,
@@ -418,5 +461,15 @@ kendra:DeleteDataSource
 ### List
 ```json
 kendra:ListDataSources
+```
+
+### Update
+```json
+kendra:DescribeDataSource,
+kendra:UpdateDataSource,
+kendra:ListTagsForResource,
+kendra:TagResource,
+kendra:UntagResource,
+iam:PassRole
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>module_default_versions</code> in a region or to create or delete a <code>module_default_versions</code> resource, use <code>module_default_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>module_default_version</code> resource or lists <code>module_default_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>module_default_versions</code> in a region or t
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the module version to set as the default version.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the module version to set as the default version.</td></tr>
+<tr><td><CopyableCode code="module_name" /></td><td><code>string</code></td><td>The name of a module existing in the registry.</td></tr>
+<tr><td><CopyableCode code="version_id" /></td><td><code>string</code></td><td>The ID of an existing version of the named module to set as the default.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -56,9 +54,15 @@ Used to retrieve a list of <code>module_default_versions</code> in a region or t
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>module_default_versions</code> in a region.
 ```sql
 SELECT
 region,
@@ -66,8 +70,19 @@ arn
 FROM aws.cloudformation.module_default_versions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>module_default_version</code>.
+```sql
+SELECT
+region,
+arn,
+module_name,
+version_id
+FROM aws.cloudformation.module_default_versions
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>module_default_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -146,6 +161,11 @@ To operate on the <code>module_default_versions</code> resource, the following p
 ```json
 cloudformation:DescribeType,
 cloudformation:SetTypeDefaultVersion
+```
+
+### Read
+```json
+cloudformation:DescribeType
 ```
 
 ### List

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>detectors</code> in a region or to create or delete a <code>detectors</code> resource, use <code>detector</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>detector</code> resource or lists <code>detectors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>detectors</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="detector_id" /></td><td><code>string</code></td><td>The ID of the detector</td></tr>
+<tr><td><CopyableCode code="detector_version_status" /></td><td><code>string</code></td><td>The desired detector version status for the detector</td></tr>
+<tr><td><CopyableCode code="detector_version_id" /></td><td><code>string</code></td><td>The active version ID of the detector</td></tr>
+<tr><td><CopyableCode code="rule_execution_mode" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags associated with this detector.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the detector.</td></tr>
+<tr><td><CopyableCode code="rules" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="event_type" /></td><td><code>object</code></td><td>The event type to associate this detector with.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the detector.</td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td>The time when the detector was created.</td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The time when the detector was last updated.</td></tr>
+<tr><td><CopyableCode code="associated_models" /></td><td><code>array</code></td><td>The models to associate with this detector.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>detectors</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>detectors</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ arn
 FROM aws.frauddetector.detectors
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>detector</code>.
+```sql
+SELECT
+region,
+detector_id,
+detector_version_status,
+detector_version_id,
+rule_execution_mode,
+tags,
+description,
+rules,
+event_type,
+arn,
+created_time,
+last_updated_time,
+associated_models
+FROM aws.frauddetector.detectors
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>detector</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -213,7 +251,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -251,6 +289,40 @@ frauddetector:GetEntityTypes,
 frauddetector:ListTagsForResource
 ```
 
+### Update
+```json
+frauddetector:GetDetectors,
+frauddetector:GetDetectorVersion,
+frauddetector:PutDetector,
+frauddetector:UpdateDetectorVersion,
+frauddetector:UpdateDetectorVersionStatus,
+frauddetector:UpdateDetectorVersionMetadata,
+frauddetector:UpdateRuleVersion,
+frauddetector:UpdateRuleMetadata,
+frauddetector:CreateRule,
+frauddetector:CreateVariable,
+frauddetector:UpdateVariable,
+frauddetector:GetVariables,
+frauddetector:PutLabel,
+frauddetector:PutOutcome,
+frauddetector:PutEntityType,
+frauddetector:PutEventType,
+frauddetector:GetRules,
+frauddetector:GetEventTypes,
+frauddetector:GetLabels,
+frauddetector:GetOutcomes,
+frauddetector:GetEntityTypes,
+frauddetector:GetExternalModels,
+frauddetector:GetModelVersion,
+frauddetector:DeleteEventType,
+frauddetector:DeleteVariable,
+frauddetector:DeleteLabel,
+frauddetector:DeleteEntityType,
+frauddetector:ListTagsForResource,
+frauddetector:TagResource,
+frauddetector:UntagResource
+```
+
 ### Delete
 ```json
 frauddetector:GetDetectors,
@@ -270,6 +342,22 @@ frauddetector:DeleteVariable,
 frauddetector:DeleteLabel,
 frauddetector:DeleteOutcome,
 frauddetector:DeleteEntityType,
+frauddetector:ListTagsForResource
+```
+
+### Read
+```json
+frauddetector:GetDetectors,
+frauddetector:GetDetectorVersion,
+frauddetector:DescribeDetector,
+frauddetector:GetRules,
+frauddetector:GetVariables,
+frauddetector:GetEventTypes,
+frauddetector:GetExternalModels,
+frauddetector:GetModelVersion,
+frauddetector:GetLabels,
+frauddetector:GetOutcomes,
+frauddetector:GetEntityTypes,
 frauddetector:ListTagsForResource
 ```
 

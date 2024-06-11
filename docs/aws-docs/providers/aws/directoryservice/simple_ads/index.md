@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>simple_ads</code> in a region or to create or delete a <code>simple_ads</code> resource, use <code>simple_ad</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>simple_ad</code> resource or lists <code>simple_ads</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>simple_ads</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="directory_id" /></td><td><code>string</code></td><td>The unique identifier for a directory.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="directory_id" /></td><td><code>string</code></td><td>The unique identifier for a directory.</td></tr>
+<tr><td><CopyableCode code="alias" /></td><td><code>string</code></td><td>The alias for a directory.</td></tr>
+<tr><td><CopyableCode code="dns_ip_addresses" /></td><td><code>array</code></td><td>The IP addresses of the DNS servers for the directory, such as &#91; "172.31.3.154", "172.31.63.203" &#93;.</td></tr>
+<tr><td><CopyableCode code="create_alias" /></td><td><code>boolean</code></td><td>The name of the configuration set.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description for the directory.</td></tr>
+<tr><td><CopyableCode code="enable_sso" /></td><td><code>boolean</code></td><td>Whether to enable single sign-on for a Simple Active Directory in AWS.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The fully qualified domain name for the AWS Managed Simple AD directory.</td></tr>
+<tr><td><CopyableCode code="password" /></td><td><code>string</code></td><td>The password for the default administrative user named Admin.</td></tr>
+<tr><td><CopyableCode code="short_name" /></td><td><code>string</code></td><td>The NetBIOS name for your domain.</td></tr>
+<tr><td><CopyableCode code="size" /></td><td><code>string</code></td><td>The size of the directory.</td></tr>
+<tr><td><CopyableCode code="vpc_settings" /></td><td><code>object</code></td><td>VPC settings of the Simple AD directory server in AWS.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>simple_ads</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>simple_ads</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ directory_id
 FROM aws.directoryservice.simple_ads
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>simple_ad</code>.
+```sql
+SELECT
+region,
+directory_id,
+alias,
+dns_ip_addresses,
+create_alias,
+description,
+enable_sso,
+name,
+password,
+short_name,
+size,
+vpc_settings
+FROM aws.directoryservice.simple_ads
+WHERE region = 'us-east-1' AND data__Identifier = '<DirectoryId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>simple_ad</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -166,7 +202,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -192,7 +228,21 @@ ec2:CreateNetworkInterface,
 ec2:DescribeNetworkInterfaces,
 ec2:AuthorizeSecurityGroupIngress,
 ec2:AuthorizeSecurityGroupEgress,
-ec2:CreateTags
+ec2:CreateTags,
+ec2:RevokeSecurityGroupIngress,
+ec2:RevokeSecurityGroupEgress
+```
+
+### Read
+```json
+ds:DescribeDirectories
+```
+
+### Update
+```json
+ds:EnableSso,
+ds:DisableSso,
+ds:DescribeDirectories
 ```
 
 ### Delete

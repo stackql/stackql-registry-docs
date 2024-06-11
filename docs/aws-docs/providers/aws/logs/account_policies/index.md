@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>account_policies</code> in a region or to create or delete a <code>account_policies</code> resource, use <code>account_policy</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>account_policy</code> resource or lists <code>account_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,13 @@ Used to retrieve a list of <code>account_policies</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>User account id</td></tr>
-<tr><td><CopyableCode code="policy_type" /></td><td><code>string</code></td><td>Type of the policy.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>User account id</td></tr>
 <tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td>The name of the account policy</td></tr>
+<tr><td><CopyableCode code="policy_document" /></td><td><code>string</code></td><td>The body of the policy document you want to use for this topic.<br/><br/>You can only add one policy per PolicyType.<br/><br/>The policy must be in JSON string format.<br/><br/>Length Constraints: Maximum length of 30720</td></tr>
+<tr><td><CopyableCode code="policy_type" /></td><td><code>string</code></td><td>Type of the policy.</td></tr>
+<tr><td><CopyableCode code="scope" /></td><td><code>string</code></td><td>Scope for policy application</td></tr>
+<tr><td><CopyableCode code="selection_criteria" /></td><td><code>string</code></td><td>Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +58,24 @@ Used to retrieve a list of <code>account_policies</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>account_policies</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +85,22 @@ policy_name
 FROM aws.logs.account_policies
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>account_policy</code>.
+```sql
+SELECT
+region,
+account_id,
+policy_name,
+policy_document,
+policy_type,
+scope,
+selection_criteria
+FROM aws.logs.account_policies
+WHERE region = 'us-east-1' AND data__Identifier = '<AccountId>|<PolicyType>|<PolicyName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>account_policy</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -155,7 +179,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -178,6 +202,26 @@ s3:REST.PUT.OBJECT,
 firehose:TagDeliveryStream,
 logs:PutSubscriptionFilter,
 logs:DeleteSubscriptionFilter,
+iam:PassRole
+```
+
+### Read
+```json
+logs:DescribeAccountPolicies
+```
+
+### Update
+```json
+logs:PutAccountPolicy,
+logs:PutDataProtectionPolicy,
+logs:DescribeAccountPolicies,
+logs:DeleteAccountPolicy,
+logs:DeleteDataProtectionPolicy,
+logs:CreateLogDelivery,
+logs:PutSubscriptionFilter,
+logs:DeleteSubscriptionFilter,
+s3:REST.PUT.OBJECT,
+firehose:TagDeliveryStream,
 iam:PassRole
 ```
 

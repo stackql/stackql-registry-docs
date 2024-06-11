@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>routing_profiles</code> in a region or to create or delete a <code>routing_profiles</code> resource, use <code>routing_profile</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>routing_profile</code> resource or lists <code>routing_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>routing_profiles</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the routing profile.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the routing profile.</td></tr>
+<tr><td><CopyableCode code="media_concurrencies" /></td><td><code>array</code></td><td>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</td></tr>
+<tr><td><CopyableCode code="default_outbound_queue_arn" /></td><td><code>string</code></td><td>The identifier of the default outbound queue for this routing profile.</td></tr>
 <tr><td><CopyableCode code="routing_profile_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the routing profile.</td></tr>
+<tr><td><CopyableCode code="queue_configs" /></td><td><code>array</code></td><td>The queues to associate with this routing profile.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="agent_availability_timer" /></td><td><code>string</code></td><td>Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>routing_profiles</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>routing_profiles</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ routing_profile_arn
 FROM aws.connect.routing_profiles
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>routing_profile</code>.
+```sql
+SELECT
+region,
+instance_arn,
+name,
+description,
+media_concurrencies,
+default_outbound_queue_arn,
+routing_profile_arn,
+queue_configs,
+tags,
+agent_availability_timer
+FROM aws.connect.routing_profiles
+WHERE region = 'us-east-1' AND data__Identifier = '<RoutingProfileArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>routing_profile</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -178,7 +210,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -197,10 +229,30 @@ connect:CreateRoutingProfile,
 connect:TagResource
 ```
 
+### Read
+```json
+connect:DescribeRoutingProfile,
+connect:ListRoutingProfileQueues
+```
+
 ### Delete
 ```json
 connect:DeleteRoutingProfile,
 connect:UntagResource
+```
+
+### Update
+```json
+connect:AssociateRoutingProfileQueues,
+connect:DisassociateRoutingProfileQueues,
+connect:UpdateRoutingProfileConcurrency,
+connect:UpdateRoutingProfileName,
+connect:UpdateRoutingProfileDefaultOutboundQueue,
+connect:UpdateRoutingProfileQueues,
+connect:TagResource,
+connect:UntagResource,
+connect:ListRoutingProfileQueues,
+connect:UpdateRoutingProfileAgentAvailabilityTimer
 ```
 
 ### List

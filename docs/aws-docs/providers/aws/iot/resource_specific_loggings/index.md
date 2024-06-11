@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>resource_specific_loggings</code> in a region or to create or delete a <code>resource_specific_loggings</code> resource, use <code>resource_specific_logging</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>resource_specific_logging</code> resource or lists <code>resource_specific_loggings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>resource_specific_loggings</code> in a region o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="target_type" /></td><td><code>string</code></td><td>The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.</td></tr>
+<tr><td><CopyableCode code="target_name" /></td><td><code>string</code></td><td>The target name.</td></tr>
+<tr><td><CopyableCode code="log_level" /></td><td><code>string</code></td><td>The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.</td></tr>
 <tr><td><CopyableCode code="target_id" /></td><td><code>string</code></td><td>Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>resource_specific_loggings</code> in a region o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>resource_specific_loggings</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ target_id
 FROM aws.iot.resource_specific_loggings
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>resource_specific_logging</code>.
+```sql
+SELECT
+region,
+target_type,
+target_name,
+log_level,
+target_id
+FROM aws.iot.resource_specific_loggings
+WHERE region = 'us-east-1' AND data__Identifier = '<TargetId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>resource_specific_logging</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -143,7 +165,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -157,6 +179,17 @@ AND region = 'us-east-1';
 To operate on the <code>resource_specific_loggings</code> resource, the following permissions are required:
 
 ### Create
+```json
+iot:ListV2LoggingLevels,
+iot:SetV2LoggingLevel
+```
+
+### Read
+```json
+iot:ListV2LoggingLevels
+```
+
+### Update
 ```json
 iot:ListV2LoggingLevels,
 iot:SetV2LoggingLevel

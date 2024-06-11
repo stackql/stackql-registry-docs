@@ -20,9 +20,9 @@ The glue service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>3</b></span><br />
-<span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>3</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -31,7 +31,6 @@ The glue service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/glue/schema_version/">schema_version</a><br />
 <a href="/providers/aws/glue/schema_version_metadata/">schema_version_metadata</a>
 </div>
 <div class="providerDocColumn">

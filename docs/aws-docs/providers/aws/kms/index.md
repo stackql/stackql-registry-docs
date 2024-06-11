@@ -20,9 +20,9 @@ The kms service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -31,13 +31,10 @@ The kms service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/kms/alias/">alias</a><br />
 <a href="/providers/aws/kms/aliases/">aliases</a><br />
-<a href="/providers/aws/kms/key/">key</a>
+<a href="/providers/aws/kms/keys/">keys</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/kms/keys/">keys</a><br />
-<a href="/providers/aws/kms/replica_key/">replica_key</a><br />
 <a href="/providers/aws/kms/replica_keys/">replica_keys</a>
 </div>
 </div>

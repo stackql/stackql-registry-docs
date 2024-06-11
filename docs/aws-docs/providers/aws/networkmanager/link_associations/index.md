@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>link_associations</code> in a region or to create or delete a <code>link_associations</code> resource, use <code>link_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>link_association</code> resource or lists <code>link_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,10 @@ Used to retrieve a list of <code>link_associations</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="global_network_id" /></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="global_network_id" /></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
 <tr><td><CopyableCode code="device_id" /></td><td><code>string</code></td><td>The ID of the device</td></tr>
 <tr><td><CopyableCode code="link_id" /></td><td><code>string</code></td><td>The ID of the link</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -63,9 +59,15 @@ Used to retrieve a list of <code>link_associations</code> in a region or to crea
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>link_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +77,19 @@ link_id
 FROM aws.networkmanager.link_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>link_association</code>.
+```sql
+SELECT
+region,
+global_network_id,
+device_id,
+link_id
+FROM aws.networkmanager.link_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<GlobalNetworkId>|<DeviceId>|<LinkId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>link_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +160,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -164,6 +177,11 @@ To operate on the <code>link_associations</code> resource, the following permiss
 ```json
 networkmanager:GetLinkAssociations,
 networkmanager:AssociateLink
+```
+
+### Read
+```json
+networkmanager:GetLinkAssociations
 ```
 
 ### List

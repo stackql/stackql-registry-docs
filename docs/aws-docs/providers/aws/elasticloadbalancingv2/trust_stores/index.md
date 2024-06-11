@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>trust_stores</code> in a region or to create or delete a <code>trust_stores</code> resource, use <code>trust_store</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>trust_store</code> resource or lists <code>trust_stores</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>trust_stores</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the trust store.</td></tr>
+<tr><td><CopyableCode code="ca_certificates_bundle_s3_bucket" /></td><td><code>string</code></td><td>The name of the S3 bucket to fetch the CA certificate bundle from.</td></tr>
+<tr><td><CopyableCode code="ca_certificates_bundle_s3_key" /></td><td><code>string</code></td><td>The name of the S3 object to fetch the CA certificate bundle from.</td></tr>
+<tr><td><CopyableCode code="ca_certificates_bundle_s3_object_version" /></td><td><code>string</code></td><td>The version of the S3 bucket that contains the CA certificate bundle.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the trust store, could be either of ACTIVE or CREATING.</td></tr>
+<tr><td><CopyableCode code="number_of_ca_certificates" /></td><td><code>integer</code></td><td>The number of certificates associated with the trust store.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to assign to the trust store.</td></tr>
 <tr><td><CopyableCode code="trust_store_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the trust store.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>trust_stores</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>trust_stores</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ trust_store_arn
 FROM aws.elasticloadbalancingv2.trust_stores
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>trust_store</code>.
+```sql
+SELECT
+region,
+name,
+ca_certificates_bundle_s3_bucket,
+ca_certificates_bundle_s3_key,
+ca_certificates_bundle_s3_object_version,
+status,
+number_of_ca_certificates,
+tags,
+trust_store_arn
+FROM aws.elasticloadbalancingv2.trust_stores
+WHERE region = 'us-east-1' AND data__Identifier = '<TrustStoreArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>trust_store</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -157,7 +187,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -188,6 +218,21 @@ elasticloadbalancing:DeleteTrustStore
 ### List
 ```json
 elasticloadbalancing:DescribeTrustStores,
+s3:GetObject,
+s3:GetObjectVersion
+```
+
+### Read
+```json
+elasticloadbalancing:DescribeTrustStores,
+elasticloadbalancing:DescribeTags
+```
+
+### Update
+```json
+elasticloadbalancing:ModifyTrustStore,
+elasticloadbalancing:AddTags,
+elasticloadbalancing:RemoveTags,
 s3:GetObject,
 s3:GetObjectVersion
 ```

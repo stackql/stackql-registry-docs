@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>knowledge_bases</code> in a region or to create or delete a <code>knowledge_bases</code> resource, use <code>knowledge_base</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>knowledge_base</code> resource or lists <code>knowledge_bases</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>knowledge_bases</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="knowledge_base_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="knowledge_base_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="knowledge_base_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="rendering_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="server_side_encryption_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>knowledge_bases</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>knowledge_bases</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ knowledge_base_id
 FROM aws.wisdom.knowledge_bases
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>knowledge_base</code>.
+```sql
+SELECT
+region,
+description,
+knowledge_base_arn,
+knowledge_base_id,
+knowledge_base_type,
+name,
+rendering_configuration,
+server_side_encryption_configuration,
+source_configuration,
+tags
+FROM aws.wisdom.knowledge_bases
+WHERE region = 'us-east-1' AND data__Identifier = '<KnowledgeBaseId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>knowledge_base</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -165,7 +197,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -194,6 +226,11 @@ wisdom:CreateKnowledgeBase,
 wisdom:TagResource
 ```
 
+### Update
+```json
+wisdom:GetKnowledgeBase
+```
+
 ### Delete
 ```json
 appflow:DeleteFlow,
@@ -205,5 +242,10 @@ wisdom:DeleteKnowledgeBase
 ### List
 ```json
 wisdom:ListKnowledgeBases
+```
+
+### Read
+```json
+wisdom:GetKnowledgeBase
 ```
 

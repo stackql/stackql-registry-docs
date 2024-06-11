@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>launches</code> in a region or to create or delete a <code>launches</code> resource, use <code>launch</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>launch</code> resource or lists <code>launches</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>launches</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="project" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="randomization_salt" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="scheduled_splits_config" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="groups" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="metric_monitors" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="execution_status" /></td><td><code>object</code></td><td>Start or Stop Launch Launch. Default is not started.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +62,39 @@ Used to retrieve a list of <code>launches</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>launch</code>.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+project,
+description,
+randomization_salt,
+scheduled_splits_config,
+groups,
+metric_monitors,
+tags,
+execution_status
 FROM aws.evidently.launches
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>launch</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -192,7 +214,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -211,6 +233,23 @@ evidently:CreateLaunch,
 evidently:TagResource,
 evidently:GetLaunch,
 evidently:StartLaunch
+```
+
+### Read
+```json
+evidently:GetLaunch,
+evidently:ListTagsForResource
+```
+
+### Update
+```json
+evidently:UpdateLaunch,
+evidently:ListTagsForResource,
+evidently:TagResource,
+evidently:UntagResource,
+evidently:GetLaunch,
+evidently:StartLaunch,
+evidently:StopLaunch
 ```
 
 ### Delete

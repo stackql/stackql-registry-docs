@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>multiplexprograms</code> in a region or to create or delete a <code>multiplexprograms</code> resource, use <code>multiplexprogram</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>multiplexprogram</code> resource or lists <code>multiplexprograms</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,14 @@ Used to retrieve a list of <code>multiplexprograms</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="program_name" /></td><td><code>string</code></td><td>The name of the multiplex program.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="channel_id" /></td><td><code>string</code></td><td>The MediaLive channel associated with the program.</td></tr>
 <tr><td><CopyableCode code="multiplex_id" /></td><td><code>string</code></td><td>The ID of the multiplex that the program belongs to.</td></tr>
+<tr><td><CopyableCode code="multiplex_program_settings" /></td><td><code>object</code></td><td>The settings for this multiplex program.</td></tr>
+<tr><td><CopyableCode code="preferred_channel_pipeline" /></td><td><code>string</code></td><td>The settings for this multiplex program.</td></tr>
+<tr><td><CopyableCode code="packet_identifiers_map" /></td><td><code>object</code></td><td>The packet identifier map for this multiplex program.</td></tr>
+<tr><td><CopyableCode code="pipeline_details" /></td><td><code>array</code></td><td>Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.</td></tr>
+<tr><td><CopyableCode code="program_name" /></td><td><code>string</code></td><td>The name of the multiplex program.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +59,24 @@ Used to retrieve a list of <code>multiplexprograms</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>multiplexprograms</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +85,23 @@ multiplex_id
 FROM aws.medialive.multiplexprograms
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>multiplexprogram</code>.
+```sql
+SELECT
+region,
+channel_id,
+multiplex_id,
+multiplex_program_settings,
+preferred_channel_pipeline,
+packet_identifiers_map,
+pipeline_details,
+program_name
+FROM aws.medialive.multiplexprograms
+WHERE region = 'us-east-1' AND data__Identifier = '<ProgramName>|<MultiplexId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>multiplexprogram</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -194,7 +221,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -210,6 +237,17 @@ To operate on the <code>multiplexprograms</code> resource, the following permiss
 ### Create
 ```json
 medialive:CreateMultiplexProgram,
+medialive:DescribeMultiplexProgram
+```
+
+### Read
+```json
+medialive:DescribeMultiplexProgram
+```
+
+### Update
+```json
+medialive:UpdateMultiplexProgram,
 medialive:DescribeMultiplexProgram
 ```
 

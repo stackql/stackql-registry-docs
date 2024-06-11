@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>custom_action_types</code> in a region or to create or delete a <code>custom_action_types</code> resource, use <code>custom_action_type</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>custom_action_type</code> resource or lists <code>custom_action_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,16 @@ Used to retrieve a list of <code>custom_action_types</code> in a region or to cr
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="category" /></td><td><code>string</code></td><td>The category of the custom action, such as a build action or a test action.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="category" /></td><td><code>string</code></td><td>The category of the custom action, such as a build action or a test action.</td></tr>
+<tr><td><CopyableCode code="configuration_properties" /></td><td><code>array</code></td><td>The configuration properties for the custom action.</td></tr>
+<tr><td><CopyableCode code="input_artifact_details" /></td><td><code>object</code></td><td>The details of the input artifact for the action, such as its commit ID.</td></tr>
+<tr><td><CopyableCode code="output_artifact_details" /></td><td><code>object</code></td><td>The details of the output artifact of the action, such as its commit ID.</td></tr>
 <tr><td><CopyableCode code="provider" /></td><td><code>string</code></td><td>The provider of the service used in the custom action, such as AWS CodeDeploy.</td></tr>
+<tr><td><CopyableCode code="settings" /></td><td><code>object</code></td><td>URLs that provide users information about this custom action.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags assigned to the custom action.</td></tr>
 <tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The version identifier of the custom action.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +61,24 @@ Used to retrieve a list of <code>custom_action_types</code> in a region or to cr
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>custom_action_types</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +88,25 @@ version
 FROM aws.codepipeline.custom_action_types
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>custom_action_type</code>.
+```sql
+SELECT
+region,
+category,
+configuration_properties,
+input_artifact_details,
+output_artifact_details,
+provider,
+settings,
+tags,
+version,
+id
+FROM aws.codepipeline.custom_action_types
+WHERE region = 'us-east-1' AND data__Identifier = '<Category>|<Provider>|<Version>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>custom_action_type</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -186,7 +216,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -204,6 +234,19 @@ To operate on the <code>custom_action_types</code> resource, the following permi
 codepipeline:CreateCustomActionType,
 codepipeline:TagResource,
 codepipeline:ListActionTypes
+```
+
+### Read
+```json
+codepipeline:ListActionTypes,
+codepipeline:ListTagsForResource
+```
+
+### Update
+```json
+codepipeline:ListActionTypes,
+codepipeline:TagResource,
+codepipeline:UntagResource
 ```
 
 ### Delete

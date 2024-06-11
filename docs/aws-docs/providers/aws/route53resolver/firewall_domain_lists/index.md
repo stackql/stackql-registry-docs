@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>firewall_domain_lists</code> in a region or to create or delete a <code>firewall_domain_lists</code> resource, use <code>firewall_domain_list</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>firewall_domain_list</code> resource or lists <code>firewall_domain_lists</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>firewall_domain_lists</code> in a region or to 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Arn</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>FirewallDomainListName</td></tr>
+<tr><td><CopyableCode code="domain_count" /></td><td><code>integer</code></td><td>Count</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.</td></tr>
+<tr><td><CopyableCode code="status_message" /></td><td><code>string</code></td><td>FirewallDomainListAssociationStatus</td></tr>
+<tr><td><CopyableCode code="managed_owner_name" /></td><td><code>string</code></td><td>ServicePrincipal</td></tr>
+<tr><td><CopyableCode code="creator_request_id" /></td><td><code>string</code></td><td>The id of the creator request.</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
+<tr><td><CopyableCode code="modification_time" /></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
+<tr><td><CopyableCode code="domains" /></td><td><code>An inline list of domains to use for this domain list.</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_file_url" /></td><td><code>string</code></td><td>S3 URL to import domains from.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>firewall_domain_lists</code> in a region or to 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>firewall_domain_lists</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ id
 FROM aws.route53resolver.firewall_domain_lists
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>firewall_domain_list</code>.
+```sql
+SELECT
+region,
+id,
+arn,
+name,
+domain_count,
+status,
+status_message,
+managed_owner_name,
+creator_request_id,
+creation_time,
+modification_time,
+domains,
+domain_file_url,
+tags
+FROM aws.route53resolver.firewall_domain_lists
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>firewall_domain_list</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -152,7 +192,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -185,7 +225,27 @@ lambda:*,
 s3:*
 ```
 
+### Read
+```json
+route53resolver:*,
+ec2:*,
+logs:*,
+iam:*,
+lambda:*,
+s3:*
+```
+
 ### Delete
+```json
+route53resolver:*,
+ec2:*,
+logs:*,
+iam:*,
+lambda:*,
+s3:*
+```
+
+### Update
 ```json
 route53resolver:*,
 ec2:*,

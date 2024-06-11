@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>resource_versions</code> in a region or to create or delete a <code>resource_versions</code> resource, use <code>resource_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>resource_version</code> resource or lists <code>resource_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>resource_versions</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource</td></tr>
+<tr><td><CopyableCode code="type_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type without the versionID.</td></tr>
+<tr><td><CopyableCode code="execution_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.</td></tr>
+<tr><td><CopyableCode code="is_default_version" /></td><td><code>boolean</code></td><td>Indicates if this type version is the current default version</td></tr>
+<tr><td><CopyableCode code="logging_config" /></td><td><code>object</code></td><td>Specifies logging configuration information for a type.</td></tr>
+<tr><td><CopyableCode code="provisioning_type" /></td><td><code>string</code></td><td>The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.</td></tr>
+<tr><td><CopyableCode code="schema_handler_package" /></td><td><code>string</code></td><td>A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.<br/><br/>For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.</td></tr>
+<tr><td><CopyableCode code="type_name" /></td><td><code>string</code></td><td>The name of the type being registered.<br/><br/>We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
+<tr><td><CopyableCode code="version_id" /></td><td><code>string</code></td><td>The ID of the version of the type represented by this resource instance.</td></tr>
+<tr><td><CopyableCode code="visibility" /></td><td><code>string</code></td><td>The scope at which the type is visible and usable in CloudFormation operations.<br/><br/>Valid values include:<br/><br/>PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.<br/><br/>PUBLIC: The type is publically visible and usable within any Amazon account.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +66,15 @@ Used to retrieve a list of <code>resource_versions</code> in a region or to crea
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>resource_versions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,26 @@ arn
 FROM aws.cloudformation.resource_versions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>resource_version</code>.
+```sql
+SELECT
+region,
+arn,
+type_arn,
+execution_role_arn,
+is_default_version,
+logging_config,
+provisioning_type,
+schema_handler_package,
+type_name,
+version_id,
+visibility
+FROM aws.cloudformation.resource_versions
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>resource_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +176,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -170,6 +199,11 @@ s3:ListBucket,
 kms:Decrypt,
 cloudformation:ListTypeVersions,
 cloudformation:DeregisterType,
+cloudformation:DescribeType
+```
+
+### Read
+```json
 cloudformation:DescribeType
 ```
 

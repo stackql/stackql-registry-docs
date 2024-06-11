@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>software_package_versions</code> in a region or to create or delete a <code>software_package_versions</code> resource, use <code>software_package_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>software_package_version</code> resource or lists <code>software_package_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,15 @@ Used to retrieve a list of <code>software_package_versions</code> in a region or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="attributes" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="error_reason" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="package_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="package_version_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="version_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +60,24 @@ Used to retrieve a list of <code>software_package_versions</code> in a region or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>software_package_versions</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +86,24 @@ version_name
 FROM aws.iot.software_package_versions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>software_package_version</code>.
+```sql
+SELECT
+region,
+attributes,
+description,
+error_reason,
+package_name,
+package_version_arn,
+status,
+tags,
+version_name
+FROM aws.iot.software_package_versions
+WHERE region = 'us-east-1' AND data__Identifier = '<PackageName>|<VersionName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>software_package_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +180,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -169,6 +198,22 @@ To operate on the <code>software_package_versions</code> resource, the following
 iot:CreatePackageVersion,
 iot:GetPackageVersion,
 iot:TagResource,
+iot:GetIndexingConfiguration
+```
+
+### Read
+```json
+iot:GetPackageVersion,
+iot:ListTagsForResource
+```
+
+### Update
+```json
+iot:UpdatePackageVersion,
+iot:GetPackageVersion,
+iot:ListTagsForResource,
+iot:TagResource,
+iot:UntagResource,
 iot:GetIndexingConfiguration
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>collaborations</code> in a region or to create or delete a <code>collaborations</code> resource, use <code>collaboration</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>collaboration</code> resource or lists <code>collaborations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>collaborations</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.</td></tr>
 <tr><td><CopyableCode code="collaboration_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="creator_display_name" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="creator_member_abilities" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_encryption_metadata" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="members" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="query_log_status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="creator_payment_configuration" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>collaborations</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>collaborations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ collaboration_identifier
 FROM aws.cleanrooms.collaborations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>collaboration</code>.
+```sql
+SELECT
+region,
+arn,
+tags,
+collaboration_identifier,
+creator_display_name,
+creator_member_abilities,
+data_encryption_metadata,
+description,
+members,
+name,
+query_log_status,
+creator_payment_configuration
+FROM aws.cleanrooms.collaborations
+WHERE region = 'us-east-1' AND data__Identifier = '<CollaborationIdentifier>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>collaboration</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -186,7 +222,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -208,6 +244,23 @@ cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:GetCollaboration,
 cleanrooms:ListCollaborations
+```
+
+### Read
+```json
+cleanrooms:GetCollaboration,
+cleanrooms:ListMembers,
+cleanrooms:ListTagsForResource
+```
+
+### Update
+```json
+cleanrooms:UpdateCollaboration,
+cleanrooms:GetCollaboration,
+cleanrooms:ListMembers,
+cleanrooms:ListTagsForResource,
+cleanrooms:TagResource,
+cleanrooms:UntagResource
 ```
 
 ### Delete

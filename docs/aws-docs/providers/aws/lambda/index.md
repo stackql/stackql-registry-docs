@@ -20,9 +20,9 @@ The lambda service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>18</b></span><br />
-<span>total selectable resources:&nbsp;<b>18</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>9</b></span><br />
 </div>
 </div>
 
@@ -31,25 +31,16 @@ The lambda service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/lambda/code_signing_config/">code_signing_config</a><br />
 <a href="/providers/aws/lambda/code_signing_configs/">code_signing_configs</a><br />
-<a href="/providers/aws/lambda/event_invoke_config/">event_invoke_config</a><br />
 <a href="/providers/aws/lambda/event_invoke_configs/">event_invoke_configs</a><br />
-<a href="/providers/aws/lambda/event_source_mapping/">event_source_mapping</a><br />
 <a href="/providers/aws/lambda/event_source_mappings/">event_source_mappings</a><br />
-<a href="/providers/aws/lambda/function/">function</a><br />
 <a href="/providers/aws/lambda/functions/">functions</a><br />
-<a href="/providers/aws/lambda/layer_version/">layer_version</a>
+<a href="/providers/aws/lambda/layer_version_permissions/">layer_version_permissions</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/lambda/layer_version_permission/">layer_version_permission</a><br />
-<a href="/providers/aws/lambda/layer_version_permissions/">layer_version_permissions</a><br />
 <a href="/providers/aws/lambda/layer_versions/">layer_versions</a><br />
-<a href="/providers/aws/lambda/permission/">permission</a><br />
 <a href="/providers/aws/lambda/permissions/">permissions</a><br />
-<a href="/providers/aws/lambda/url/">url</a><br />
 <a href="/providers/aws/lambda/urls/">urls</a><br />
-<a href="/providers/aws/lambda/version/">version</a><br />
 <a href="/providers/aws/lambda/versions/">versions</a>
 </div>
 </div>

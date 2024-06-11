@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>db_cluster_parameter_groups</code> in a region or to create or delete a <code>db_cluster_parameter_groups</code> resource, use <code>db_cluster_parameter_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>db_cluster_parameter_group</code> resource or lists <code>db_cluster_parameter_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>db_cluster_parameter_groups</code> in a region 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A friendly description for this DB cluster parameter group.</td></tr>
+<tr><td><CopyableCode code="family" /></td><td><code>string</code></td><td>The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.</td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code>object</code></td><td>An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.</td></tr>
 <tr><td><CopyableCode code="db_cluster_parameter_group_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The list of tags for the cluster parameter group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>db_cluster_parameter_groups</code> in a region 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>db_cluster_parameter_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ db_cluster_parameter_group_name
 FROM aws.rds.db_cluster_parameter_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>db_cluster_parameter_group</code>.
+```sql
+SELECT
+region,
+description,
+family,
+parameters,
+db_cluster_parameter_group_name,
+tags
+FROM aws.rds.db_cluster_parameter_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<DBClusterParameterGroupName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>db_cluster_parameter_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -153,7 +177,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -178,6 +202,27 @@ rds:DescribeEngineDefaultClusterParameters,
 rds:ListTagsForResource,
 rds:ModifyDBClusterParameterGroup,
 rds:RemoveTagsFromResource
+```
+
+### Read
+```json
+rds:DescribeDBClusterParameterGroups,
+rds:DescribeDBClusterParameters,
+rds:DescribeEngineDefaultClusterParameters,
+rds:ListTagsForResource
+```
+
+### Update
+```json
+rds:AddTagsToResource,
+rds:DescribeDBClusterParameterGroups,
+rds:DescribeDBClusterParameters,
+rds:DescribeDBClusters,
+rds:DescribeEngineDefaultClusterParameters,
+rds:ListTagsForResource,
+rds:ModifyDBClusterParameterGroup,
+rds:RemoveTagsFromResource,
+rds:ResetDBClusterParameterGroup
 ```
 
 ### Delete

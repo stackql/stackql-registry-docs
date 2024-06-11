@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>distribution_configurations</code> in a region or to create or delete a <code>distribution_configurations</code> resource, use <code>distribution_configuration</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>distribution_configuration</code> resource or lists <code>distribution_configurations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>distribution_configurations</code> in a region 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the distribution configuration.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the distribution configuration.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the distribution configuration.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the distribution configuration.</td></tr>
+<tr><td><CopyableCode code="distributions" /></td><td><code>array</code></td><td>The distributions of the distribution configuration.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>The tags associated with the component.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>distribution_configurations</code> in a region 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>distribution_configurations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ arn
 FROM aws.imagebuilder.distribution_configurations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>distribution_configuration</code>.
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+distributions,
+tags
+FROM aws.imagebuilder.distribution_configurations
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>distribution_configuration</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -185,7 +209,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -208,6 +232,20 @@ ec2:ModifyLaunchTemplate,
 imagebuilder:TagResource,
 imagebuilder:GetDistributionConfiguration,
 imagebuilder:CreateDistributionConfiguration
+```
+
+### Update
+```json
+ec2:DescribeLaunchTemplates,
+ec2:CreateLaunchTemplateVersion,
+ec2:ModifyLaunchTemplate,
+imagebuilder:GetDistributionConfiguration,
+imagebuilder:UpdateDistributionConfiguration
+```
+
+### Read
+```json
+imagebuilder:GetDistributionConfiguration
 ```
 
 ### Delete

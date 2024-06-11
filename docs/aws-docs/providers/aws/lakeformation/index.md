@@ -20,9 +20,9 @@ The lakeformation service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>7</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>4</b></span><br />
 </div>
 </div>
 
@@ -31,13 +31,10 @@ The lakeformation service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/lakeformation/data_cells_filter/">data_cells_filter</a><br />
 <a href="/providers/aws/lakeformation/data_cells_filters/">data_cells_filters</a><br />
-<a href="/providers/aws/lakeformation/principal_permissions/">principal_permissions</a><br />
-<a href="/providers/aws/lakeformation/tag/">tag</a>
+<a href="/providers/aws/lakeformation/principal_permissions/">principal_permissions</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/lakeformation/tag_association/">tag_association</a><br />
 <a href="/providers/aws/lakeformation/tag_associations/">tag_associations</a><br />
 <a href="/providers/aws/lakeformation/tags/">tags</a>
 </div>

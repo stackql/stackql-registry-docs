@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>canaries</code> in a region or to create or delete a <code>canaries</code> resource, use <code>canary</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>canary</code> resource or lists <code>canaries</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,24 @@ Used to retrieve a list of <code>canaries</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the canary.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the canary.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id of the canary</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>State of the canary</td></tr>
+<tr><td><CopyableCode code="code" /></td><td><code>object</code></td><td>Provide the canary script source</td></tr>
+<tr><td><CopyableCode code="artifact_s3_location" /></td><td><code>string</code></td><td>Provide the s3 bucket output location for test results</td></tr>
+<tr><td><CopyableCode code="artifact_config" /></td><td><code>object</code></td><td>Provide artifact configuration</td></tr>
+<tr><td><CopyableCode code="schedule" /></td><td><code>object</code></td><td>Frequency to run your canaries</td></tr>
+<tr><td><CopyableCode code="execution_role_arn" /></td><td><code>string</code></td><td>Lambda Execution role used to run your canaries</td></tr>
+<tr><td><CopyableCode code="runtime_version" /></td><td><code>string</code></td><td>Runtime version of Synthetics Library</td></tr>
+<tr><td><CopyableCode code="success_retention_period" /></td><td><code>integer</code></td><td>Retention period of successful canary runs represented in number of days</td></tr>
+<tr><td><CopyableCode code="failure_retention_period" /></td><td><code>integer</code></td><td>Retention period of failed canary runs represented in number of days</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_config" /></td><td><code>object</code></td><td>Provide VPC Configuration if enabled.</td></tr>
+<tr><td><CopyableCode code="run_config" /></td><td><code>object</code></td><td>Provide canary run configuration</td></tr>
+<tr><td><CopyableCode code="start_canary_after_creation" /></td><td><code>boolean</code></td><td>Runs canary if set to True. Default is False</td></tr>
+<tr><td><CopyableCode code="visual_reference" /></td><td><code>object</code></td><td>Visual reference configuration for visual testing</td></tr>
+<tr><td><CopyableCode code="delete_lambda_resources_on_canary_deletion" /></td><td><code>boolean</code></td><td>Deletes associated lambda resources created by Synthetics if set to True. Default is False</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +69,24 @@ Used to retrieve a list of <code>canaries</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>canaries</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +94,33 @@ name
 FROM aws.synthetics.canaries
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>canary</code>.
+```sql
+SELECT
+region,
+name,
+id,
+state,
+code,
+artifact_s3_location,
+artifact_config,
+schedule,
+execution_role_arn,
+runtime_version,
+success_retention_period,
+failure_retention_period,
+tags,
+vpc_config,
+run_config,
+start_canary_after_creation,
+visual_reference,
+delete_lambda_resources_on_canary_deletion
+FROM aws.synthetics.canaries
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>canary</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -224,7 +272,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -261,6 +309,39 @@ ec2:DescribeVpcs,
 ec2:DescribeSubnets,
 ec2:DescribeSecurityGroups,
 iam:PassRole
+```
+
+### Update
+```json
+synthetics:UpdateCanary,
+synthetics:StartCanary,
+synthetics:StopCanary,
+synthetics:GetCanary,
+synthetics:TagResource,
+synthetics:UntagResource,
+s3:GetObject,
+s3:GetObjectVersion,
+s3:PutBucketEncryption,
+s3:PutEncryptionConfiguration,
+s3:GetBucketLocation,
+lambda:AddPermission,
+lambda:PublishVersion,
+lambda:UpdateFunctionConfiguration,
+lambda:GetFunctionConfiguration,
+lambda:GetLayerVersionByArn,
+lambda:GetLayerVersion,
+lambda:PublishLayerVersion,
+iam:PassRole
+```
+
+### Read
+```json
+synthetics:GetCanary,
+synthetics:DescribeCanaries,
+synthetics:ListTagsForResource,
+iam:ListRoles,
+s3:ListAllMyBuckets,
+s3:GetBucketLocation
 ```
 
 ### Delete

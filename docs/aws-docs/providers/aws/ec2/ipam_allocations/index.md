@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>ipam_allocations</code> in a region or to create or delete a <code>ipam_allocations</code> resource, use <code>ipam_allocation</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>ipam_allocation</code> resource or lists <code>ipam_allocations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,12 @@ Used to retrieve a list of <code>ipam_allocations</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="ipam_pool_allocation_id" /></td><td><code>string</code></td><td>Id of the allocation.</td></tr>
 <tr><td><CopyableCode code="ipam_pool_id" /></td><td><code>string</code></td><td>Id of the IPAM Pool.</td></tr>
-<tr><td><CopyableCode code="ipam_pool_allocation_id" /></td><td><code>string</code></td><td>Id of the allocation.</td></tr>
-<tr><td><CopyableCode code="cidr" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="cidr" /></td><td><code>Represents a single IPv4 or IPv6 CIDR</code></td><td></td></tr>
+<tr><td><CopyableCode code="netmask_length" /></td><td><code>integer</code></td><td>The desired netmask length of the allocation. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -63,9 +61,15 @@ Used to retrieve a list of <code>ipam_allocations</code> in a region or to creat
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>ipam_allocations</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +79,21 @@ cidr
 FROM aws.ec2.ipam_allocations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>ipam_allocation</code>.
+```sql
+SELECT
+region,
+ipam_pool_allocation_id,
+ipam_pool_id,
+cidr,
+netmask_length,
+description
+FROM aws.ec2.ipam_allocations
+WHERE region = 'us-east-1' AND data__Identifier = '<IpamPoolId>|<IpamPoolAllocationId>|<Cidr>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>ipam_allocation</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +164,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -163,6 +180,11 @@ To operate on the <code>ipam_allocations</code> resource, the following permissi
 ### Create
 ```json
 ec2:AllocateIpamPoolCidr,
+ec2:GetIpamPoolAllocations
+```
+
+### Read
+```json
 ec2:GetIpamPoolAllocations
 ```
 

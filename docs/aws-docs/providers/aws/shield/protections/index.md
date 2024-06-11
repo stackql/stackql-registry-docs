@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>protections</code> in a region or to create or delete a <code>protections</code> resource, use <code>protection</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>protection</code> resource or lists <code>protections</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>protections</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="protection_id" /></td><td><code>string</code></td><td>The unique identifier (ID) of the protection.</td></tr>
 <tr><td><CopyableCode code="protection_arn" /></td><td><code>string</code></td><td>The ARN (Amazon Resource Name) of the protection.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Friendly name for the Protection.</td></tr>
+<tr><td><CopyableCode code="resource_arn" /></td><td><code>string</code></td><td>The ARN (Amazon Resource Name) of the resource to be protected.</td></tr>
+<tr><td><CopyableCode code="health_check_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of the health check to associate with the protection.</td></tr>
+<tr><td><CopyableCode code="application_layer_automatic_response_configuration" /></td><td><code>The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tag key-value pairs for the Protection object.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>protections</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>protections</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ protection_arn
 FROM aws.shield.protections
 ;
 ```
+Gets all properties from a <code>protection</code>.
+```sql
+SELECT
+region,
+protection_id,
+protection_arn,
+name,
+resource_arn,
+health_check_arns,
+application_layer_automatic_response_configuration,
+tags
+FROM aws.shield.protections
+WHERE data__Identifier = '<ProtectionArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>protection</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -154,7 +182,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -189,6 +217,30 @@ wafv2:GetWebACL
 ```json
 shield:DeleteProtection,
 shield:UntagResource
+```
+
+### Read
+```json
+shield:DescribeProtection,
+shield:ListTagsForResource
+```
+
+### Update
+```json
+shield:DescribeProtection,
+shield:AssociateHealthCheck,
+shield:DisassociateHealthCheck,
+shield:EnableApplicationLayerAutomaticResponse,
+shield:UpdateApplicationLayerAutomaticResponse,
+shield:DisableApplicationLayerAutomaticResponse,
+shield:ListTagsForResource,
+shield:TagResource,
+shield:UntagResource,
+route53:GetHealthCheck,
+iam:GetRole,
+iam:CreateServiceLinkedRole,
+wafv2:GetWebACLForResource,
+wafv2:GetWebACL
 ```
 
 ### List

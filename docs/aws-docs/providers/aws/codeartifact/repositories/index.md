@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>repositories</code> in a region or to create or delete a <code>repositories</code> resource, use <code>repository</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>repository</code> resource or lists <code>repositories</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>repositories</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="repository_name" /></td><td><code>string</code></td><td>The name of the repository.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the repository. This is used for GetAtt</td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The name of the domain that contains the repository.</td></tr>
+<tr><td><CopyableCode code="domain_owner" /></td><td><code>string</code></td><td>The 12-digit account ID of the AWS account that owns the domain.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A text description of the repository.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the repository.</td></tr>
+<tr><td><CopyableCode code="external_connections" /></td><td><code>array</code></td><td>A list of external connections associated with the repository.</td></tr>
+<tr><td><CopyableCode code="upstreams" /></td><td><code>array</code></td><td>A list of upstream repositories associated with the repository.</td></tr>
+<tr><td><CopyableCode code="permissions_policy_document" /></td><td><code>object</code></td><td>The access control resource policy on the provided repository.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>repositories</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>repositories</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ arn
 FROM aws.codeartifact.repositories
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>repository</code>.
+```sql
+SELECT
+region,
+repository_name,
+name,
+domain_name,
+domain_owner,
+description,
+arn,
+external_connections,
+upstreams,
+permissions_policy_document,
+tags
+FROM aws.codeartifact.repositories
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>repository</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -161,7 +195,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -182,6 +216,26 @@ codeartifact:PutRepositoryPermissionsPolicy,
 codeartifact:AssociateExternalConnection,
 codeartifact:AssociateWithDownstreamRepository,
 codeartifact:TagResource
+```
+
+### Read
+```json
+codeartifact:DescribeRepository,
+codeartifact:GetRepositoryPermissionsPolicy,
+codeartifact:ListTagsForResource
+```
+
+### Update
+```json
+codeartifact:PutRepositoryPermissionsPolicy,
+codeartifact:DeleteRepositoryPermissionsPolicy,
+codeartifact:AssociateExternalConnection,
+codeartifact:DisassociateExternalConnection,
+codeartifact:UpdateRepository,
+codeartifact:DescribeRepository,
+codeartifact:AssociateWithDownstreamRepository,
+codeartifact:TagResource,
+codeartifact:UntagResource
 ```
 
 ### Delete

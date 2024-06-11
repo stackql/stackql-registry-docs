@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>connectors</code> in a region or to create or delete a <code>connectors</code> resource, use <code>connector</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>connector</code> resource or lists <code>connectors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>connectors</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="certificate_authority_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="connector_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="directory_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_information" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>connectors</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>connectors</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ connector_arn
 FROM aws.pcaconnectorad.connectors
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>connector</code>.
+```sql
+SELECT
+region,
+certificate_authority_arn,
+connector_arn,
+directory_id,
+tags,
+vpc_information
+FROM aws.pcaconnectorad.connectors
+WHERE region = 'us-east-1' AND data__Identifier = '<ConnectorArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>connector</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +173,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -176,6 +200,12 @@ pca-connector-ad:CreateConnector,
 pca-connector-ad:GetConnector
 ```
 
+### Read
+```json
+pca-connector-ad:ListTagsForResource,
+pca-connector-ad:GetConnector
+```
+
 ### Delete
 ```json
 pca-connector-ad:GetConnector,
@@ -187,5 +217,12 @@ ec2:DescribeVpcEndpoints
 ### List
 ```json
 pca-connector-ad:ListConnectors
+```
+
+### Update
+```json
+pca-connector-ad:ListTagsForResource,
+pca-connector-ad:TagResource,
+pca-connector-ad:UntagResource
 ```
 

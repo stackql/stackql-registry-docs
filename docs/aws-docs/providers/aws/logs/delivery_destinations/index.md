@@ -19,23 +19,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>delivery_destinations</code> in a region or to create or delete a <code>delivery_destinations</code> resource, use <code>delivery_destination</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>delivery_destination</code> resource or lists <code>delivery_destinations</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>delivery_destinations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>This structure contains information about one delivery destination in your account.&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.</td></tr>
+<tr><td><b>Description</b></td><td>This structure contains information about one delivery destination in your account.<br/><br/>A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.logs.delivery_destinations" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of this delivery destination.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of this delivery destination.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.</td></tr>
+<tr><td><CopyableCode code="destination_resource_arn" /></td><td><code>string</code></td><td>The ARN of the AWS resource that will receive the logs.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags that have been assigned to this delivery destination.</td></tr>
+<tr><td><CopyableCode code="delivery_destination_type" /></td><td><code>string</code></td><td>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</td></tr>
+<tr><td><CopyableCode code="delivery_destination_policy" /></td><td><code>object</code></td><td>IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.<br/><br/>The policy must be in JSON string format.<br/><br/>Length Constraints: Maximum length of 51200</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>delivery_destinations</code> in a region or to 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>delivery_destinations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ name
 FROM aws.logs.delivery_destinations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>delivery_destination</code>.
+```sql
+SELECT
+region,
+name,
+arn,
+destination_resource_arn,
+tags,
+delivery_destination_type,
+delivery_destination_policy
+FROM aws.logs.delivery_destinations
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>delivery_destination</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -145,7 +171,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -165,6 +191,25 @@ logs:GetDeliveryDestination,
 logs:ListTagsForResource,
 logs:TagResource,
 logs:UntagResource,
+logs:PutDeliveryDestinationPolicy,
+logs:GetDeliveryDestinationPolicy
+```
+
+### Read
+```json
+logs:GetDeliveryDestination,
+logs:ListTagsForResource,
+logs:GetDeliveryDestinationPolicy
+```
+
+### Update
+```json
+logs:PutDeliveryDestination,
+logs:GetDeliveryDestination,
+logs:ListTagsForResource,
+logs:TagResource,
+logs:UntagResource,
+logs:DeleteDeliveryDestinationPolicy,
 logs:PutDeliveryDestinationPolicy,
 logs:GetDeliveryDestinationPolicy
 ```

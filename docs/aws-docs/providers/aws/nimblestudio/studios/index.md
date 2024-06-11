@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>studios</code> in a region or to create or delete a <code>studios</code> resource, use <code>studio</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>studio</code> resource or lists <code>studios</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>studios</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="admin_role_arn" /></td><td><code>string</code></td><td><p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p></td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td><p>A friendly name for the studio.</p></td></tr>
+<tr><td><CopyableCode code="home_region" /></td><td><code>string</code></td><td><p>The Amazon Web Services Region where the studio resource is located.</p></td></tr>
+<tr><td><CopyableCode code="sso_client_id" /></td><td><code>string</code></td><td><p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p></td></tr>
+<tr><td><CopyableCode code="studio_encryption_configuration" /></td><td><code><p>Configuration of the encryption method that is used for the studio.</p></code></td><td></td></tr>
 <tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="studio_name" /></td><td><code>string</code></td><td><p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p></td></tr>
+<tr><td><CopyableCode code="studio_url" /></td><td><code>string</code></td><td><p>The address of the web page for the studio.</p></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_role_arn" /></td><td><code>string</code></td><td><p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>studios</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>studios</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ studio_id
 FROM aws.nimblestudio.studios
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>studio</code>.
+```sql
+SELECT
+region,
+admin_role_arn,
+display_name,
+home_region,
+sso_client_id,
+studio_encryption_configuration,
+studio_id,
+studio_name,
+studio_url,
+tags,
+user_role_arn
+FROM aws.nimblestudio.studios
+WHERE region = 'us-east-1' AND data__Identifier = '<StudioId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>studio</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -159,7 +193,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -179,6 +213,27 @@ nimble:CreateStudio,
 nimble:GetStudio,
 nimble:TagResource,
 sso:CreateManagedApplicationInstance,
+kms:Encrypt,
+kms:Decrypt,
+kms:CreateGrant,
+kms:ListGrants,
+kms:GenerateDataKey
+```
+
+### Read
+```json
+nimble:GetStudio,
+kms:Encrypt,
+kms:Decrypt,
+kms:ListGrants,
+kms:GenerateDataKey
+```
+
+### Update
+```json
+iam:PassRole,
+nimble:UpdateStudio,
+nimble:GetStudio,
 kms:Encrypt,
 kms:Decrypt,
 kms:CreateGrant,

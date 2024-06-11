@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>endpoint_authorizations</code> in a region or to create or delete a <code>endpoint_authorizations</code> resource, use <code>endpoint_authorization</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>endpoint_authorization</code> resource or lists <code>endpoint_authorizations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,19 @@ Used to retrieve a list of <code>endpoint_authorizations</code> in a region or t
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the authorization action.</td></tr>
+<tr><td><CopyableCode code="grantee" /></td><td><code>string</code></td><td>The AWS account ID of the grantee of the cluster.</td></tr>
+<tr><td><CopyableCode code="account" /></td><td><code>string</code></td><td>The target AWS account ID to grant or revoke access for.</td></tr>
+<tr><td><CopyableCode code="grantor" /></td><td><code>string</code></td><td>The AWS account ID of the cluster owner.</td></tr>
+<tr><td><CopyableCode code="endpoint_count" /></td><td><code>integer</code></td><td>The number of Redshift-managed VPC endpoints created for the authorization.</td></tr>
+<tr><td><CopyableCode code="authorize_time" /></td><td><code>string</code></td><td>The time (UTC) when the authorization was created.</td></tr>
+<tr><td><CopyableCode code="allowed_vpcs" /></td><td><code>array</code></td><td>The VPCs allowed access to the cluster.</td></tr>
+<tr><td><CopyableCode code="force" /></td><td><code>boolean</code></td><td> Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.</td></tr>
+<tr><td><CopyableCode code="allowed_all_vpcs" /></td><td><code>boolean</code></td><td>Indicates whether all VPCs in the grantee account are allowed access to the cluster.</td></tr>
+<tr><td><CopyableCode code="vpc_ids" /></td><td><code>array</code></td><td>The virtual private cloud (VPC) identifiers to grant or revoke access to.</td></tr>
 <tr><td><CopyableCode code="cluster_identifier" /></td><td><code>string</code></td><td>The cluster identifier.</td></tr>
-<tr><td><CopyableCode code="account" /></td><td><code>undefined</code></td><td>The target AWS account ID to grant or revoke access for.</td></tr>
+<tr><td><CopyableCode code="cluster_status" /></td><td><code>string</code></td><td>The status of the cluster.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +64,24 @@ Used to retrieve a list of <code>endpoint_authorizations</code> in a region or t
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>endpoint_authorizations</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +90,28 @@ account
 FROM aws.redshift.endpoint_authorizations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>endpoint_authorization</code>.
+```sql
+SELECT
+region,
+status,
+grantee,
+account,
+grantor,
+endpoint_count,
+authorize_time,
+allowed_vpcs,
+force,
+allowed_all_vpcs,
+vpc_ids,
+cluster_identifier,
+cluster_status
+FROM aws.redshift.endpoint_authorizations
+WHERE region = 'us-east-1' AND data__Identifier = '<ClusterIdentifier>|<Account>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>endpoint_authorization</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -91,13 +128,13 @@ Use the following StackQL query and manifest file to create a new <code>endpoint
 ```sql
 /*+ create */
 INSERT INTO aws.redshift.endpoint_authorizations (
- ClusterIdentifier,
  Account,
+ ClusterIdentifier,
  region
 )
 SELECT 
-'{{ ClusterIdentifier }}',
- '{{ Account }}',
+'{{ Account }}',
+ '{{ ClusterIdentifier }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -106,17 +143,17 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.redshift.endpoint_authorizations (
- ClusterIdentifier,
  Account,
- VpcIds,
  Force,
+ VpcIds,
+ ClusterIdentifier,
  region
 )
 SELECT 
- '{{ ClusterIdentifier }}',
  '{{ Account }}',
- '{{ VpcIds }}',
  '{{ Force }}',
+ '{{ VpcIds }}',
+ '{{ ClusterIdentifier }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -134,21 +171,21 @@ globals:
 resources:
   - name: endpoint_authorization
     props:
-      - name: ClusterIdentifier
-        value: '{{ ClusterIdentifier }}'
       - name: Account
         value: '{{ Account }}'
+      - name: Force
+        value: '{{ Force }}'
       - name: VpcIds
         value:
           - '{{ VpcIds[0] }}'
-      - name: Force
-        value: '{{ Force }}'
+      - name: ClusterIdentifier
+        value: '{{ ClusterIdentifier }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -161,9 +198,26 @@ AND region = 'us-east-1';
 
 To operate on the <code>endpoint_authorizations</code> resource, the following permissions are required:
 
+### Read
+```json
+redshift:DescribeEndpointAuthorization
+```
+
 ### Create
 ```json
 redshift:AuthorizeEndpointAccess,
+redshift:DescribeEndpointAuthorization
+```
+
+### Update
+```json
+redshift:AuthorizeEndpointAccess,
+redshift:DescribeEndpointAuthorization,
+redshift:RevokeEndpointAccess
+```
+
+### List
+```json
 redshift:DescribeEndpointAuthorization
 ```
 
@@ -178,10 +232,5 @@ ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
 ec2:DescribeInternetGateways,
 ec2:DescribeSubnets
-```
-
-### List
-```json
-redshift:DescribeEndpointAuthorization
 ```
 

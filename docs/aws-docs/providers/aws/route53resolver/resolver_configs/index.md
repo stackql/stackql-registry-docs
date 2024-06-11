@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>resolver_configs</code> in a region or to create or delete a <code>resolver_configs</code> resource, use <code>resolver_config</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>resolver_config</code> resource or lists <code>resolver_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>resolver_configs</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id</td></tr>
+<tr><td><CopyableCode code="owner_id" /></td><td><code>string</code></td><td>AccountId</td></tr>
 <tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
+<tr><td><CopyableCode code="autodefined_reverse" /></td><td><code>string</code></td><td>ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.</td></tr>
+<tr><td><CopyableCode code="autodefined_reverse_flag" /></td><td><code>string</code></td><td>Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +61,15 @@ Used to retrieve a list of <code>resolver_configs</code> in a region or to creat
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>resolver_configs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +77,21 @@ resource_id
 FROM aws.route53resolver.resolver_configs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>resolver_config</code>.
+```sql
+SELECT
+region,
+id,
+owner_id,
+resource_id,
+autodefined_reverse,
+autodefined_reverse_flag
+FROM aws.route53resolver.resolver_configs
+WHERE region = 'us-east-1' AND data__Identifier = '<ResourceId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>resolver_config</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +156,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -153,6 +172,12 @@ To operate on the <code>resolver_configs</code> resource, the following permissi
 ### Create
 ```json
 route53resolver:UpdateResolverConfig,
+route53resolver:GetResolverConfig,
+ec2:DescribeVpcs
+```
+
+### Read
+```json
 route53resolver:GetResolverConfig,
 ec2:DescribeVpcs
 ```

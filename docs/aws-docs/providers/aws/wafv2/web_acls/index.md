@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>web_acls</code> in a region or to create or delete a <code>web_acls</code> resource, use <code>web_acl</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>web_acl</code> resource or lists <code>web_acls</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,23 @@ Used to retrieve a list of <code>web_acls</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="scope" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="capacity" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_action" /></td><td><code>Default Action WebACL will take against ingress traffic when there is no matching Rule.</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>Description of the entity.</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>Name of the WebACL.</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>Id of the WebACL</code></td><td></td></tr>
+<tr><td><CopyableCode code="scope" /></td><td><code>Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.</code></td><td></td></tr>
+<tr><td><CopyableCode code="rules" /></td><td><code>array</code></td><td>Collection of Rules.</td></tr>
+<tr><td><CopyableCode code="visibility_config" /></td><td><code>Visibility Metric of the WebACL.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="label_namespace" /></td><td><code>Name of the Label.</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_response_bodies" /></td><td><code>Custom response key and body map.</code></td><td></td></tr>
+<tr><td><CopyableCode code="captcha_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="challenge_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="token_domains" /></td><td><code>List of domains to accept in web request tokens, in addition to the domain of the protected resource.</code></td><td></td></tr>
+<tr><td><CopyableCode code="association_config" /></td><td><code>AssociationConfig for body inspection</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +68,24 @@ Used to retrieve a list of <code>web_acls</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>web_acls</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +95,32 @@ scope
 FROM aws.wafv2.web_acls
 ;
 ```
+Gets all properties from a <code>web_acl</code>.
+```sql
+SELECT
+region,
+arn,
+capacity,
+default_action,
+description,
+name,
+id,
+scope,
+rules,
+visibility_config,
+tags,
+label_namespace,
+custom_response_bodies,
+captcha_config,
+challenge_config,
+token_domains,
+association_config
+FROM aws.wafv2.web_acls
+WHERE data__Identifier = '<Name>|<Id>|<Scope>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>web_acl</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -417,7 +461,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -441,6 +485,19 @@ wafv2:ListTagsForResource
 ```json
 wafv2:DeleteWebACL,
 wafv2:GetWebACL
+```
+
+### Read
+```json
+wafv2:GetWebACL,
+wafv2:ListTagsForResource
+```
+
+### Update
+```json
+wafv2:UpdateWebACL,
+wafv2:GetWebACL,
+wafv2:ListTagsForResource
 ```
 
 ### List

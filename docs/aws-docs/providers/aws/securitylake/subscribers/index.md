@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>subscribers</code> in a region or to create or delete a <code>subscribers</code> resource, use <code>subscriber</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>subscriber</code> resource or lists <code>subscribers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>subscribers</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_types" /></td><td><code>The Amazon S3 or AWS Lake Formation access type.</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_lake_arn" /></td><td><code>string</code></td><td>The ARN for the data lake.</td></tr>
+<tr><td><CopyableCode code="subscriber_identity" /></td><td><code>object</code></td><td>The AWS identity used to access your data.</td></tr>
+<tr><td><CopyableCode code="subscriber_name" /></td><td><code>string</code></td><td>The name of your Security Lake subscriber account.</td></tr>
+<tr><td><CopyableCode code="subscriber_description" /></td><td><code>string</code></td><td>The description for your subscriber account in Security Lake.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.</td></tr>
+<tr><td><CopyableCode code="sources" /></td><td><code>array</code></td><td>The supported AWS services from which logs and events are collected.</td></tr>
+<tr><td><CopyableCode code="resource_share_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_share_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="subscriber_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="s3_bucket_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="subscriber_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>subscribers</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>subscribers</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ subscriber_arn
 FROM aws.securitylake.subscribers
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>subscriber</code>.
+```sql
+SELECT
+region,
+access_types,
+data_lake_arn,
+subscriber_identity,
+subscriber_name,
+subscriber_description,
+tags,
+sources,
+resource_share_arn,
+resource_share_name,
+subscriber_role_arn,
+s3_bucket_arn,
+subscriber_arn
+FROM aws.securitylake.subscribers
+WHERE region = 'us-east-1' AND data__Identifier = '<SubscriberArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>subscriber</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -169,7 +207,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -205,6 +243,51 @@ ram:GetResourceShareAssociations,
 ram:CreateResourceShare,
 ram:UpdateResourceShare,
 ram:GetResourceShares
+```
+
+### Read
+```json
+securitylake:GetSubscriber,
+securitylake:ListTagsForResource
+```
+
+### Update
+```json
+securitylake:UpdateSubscriber,
+securitylake:GetSubscriber,
+securitylake:TagResource,
+securitylake:UntagResource,
+securitylake:ListTagsForResource,
+glue:GetDatabase,
+glue:GetTable,
+lakeformation:ListPermissions,
+lakeformation:GrantPermissions,
+lakeformation:RevokePermissions,
+ram:CreateResourceShare,
+ram:GetResourceShares,
+ram:GetResourceShareAssociations,
+ram:UpdateResourceShare,
+ram:DeleteResourceShare,
+iam:CreateRole,
+iam:GetRole,
+iam:DeleteRole,
+iam:PutRolePolicy,
+iam:DeleteRolePolicy,
+iam:ListRolePolicies,
+events:CreateApiDestination,
+events:CreateConnection,
+events:ListApiDestinations,
+events:ListConnections,
+events:PutRule,
+events:UpdateApiDestination,
+events:UpdateConnection,
+events:DeleteApiDestination,
+events:DeleteConnection,
+events:DeleteRule,
+events:RemoveTargets,
+events:ListTargetsByRule,
+events:DescribeRule,
+events:PutTargets
 ```
 
 ### Delete

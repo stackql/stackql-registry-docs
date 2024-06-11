@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>studio_components</code> in a region or to create or delete a <code>studio_components</code> resource, use <code>studio_component</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>studio_component</code> resource or lists <code>studio_components</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,20 @@ Used to retrieve a list of <code>studio_components</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="configuration" /></td><td><code><p>The configuration of the studio component, based on component type.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>The description.</p></td></tr>
+<tr><td><CopyableCode code="ec2_security_group_ids" /></td><td><code>array</code></td><td><p>The EC2 security groups that control access to the studio component.</p></td></tr>
+<tr><td><CopyableCode code="initialization_scripts" /></td><td><code>array</code></td><td><p>Initialization scripts for studio components.</p></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td><p>The name for the studio component.</p></td></tr>
+<tr><td><CopyableCode code="runtime_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="script_parameters" /></td><td><code>array</code></td><td><p>Parameters for the studio component scripts.</p></td></tr>
+<tr><td><CopyableCode code="secure_initialization_role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="studio_component_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td><p>The studio ID. </p></td></tr>
+<tr><td><CopyableCode code="subtype" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +65,24 @@ Used to retrieve a list of <code>studio_components</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>studio_components</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +91,29 @@ studio_id
 FROM aws.nimblestudio.studio_components
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>studio_component</code>.
+```sql
+SELECT
+region,
+configuration,
+description,
+ec2_security_group_ids,
+initialization_scripts,
+name,
+runtime_role_arn,
+script_parameters,
+secure_initialization_role_arn,
+studio_component_id,
+studio_id,
+subtype,
+tags,
+type
+FROM aws.nimblestudio.studio_components
+WHERE region = 'us-east-1' AND data__Identifier = '<StudioComponentId>|<StudioId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>studio_component</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -188,7 +227,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -207,6 +246,22 @@ iam:PassRole,
 nimble:CreateStudioComponent,
 nimble:GetStudioComponent,
 nimble:TagResource,
+ds:AuthorizeApplication,
+ec2:DescribeSecurityGroups,
+fsx:DescribeFilesystems,
+ds:DescribeDirectories
+```
+
+### Read
+```json
+nimble:GetStudioComponent
+```
+
+### Update
+```json
+iam:PassRole,
+nimble:UpdateStudioComponent,
+nimble:GetStudioComponent,
 ds:AuthorizeApplication,
 ec2:DescribeSecurityGroups,
 fsx:DescribeFilesystems,

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>deployments</code> in a region or to create or delete a <code>deployments</code> resource, use <code>deployment</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>deployment</code> resource or lists <code>deployments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,13 @@ Used to retrieve a list of <code>deployments</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="deployment_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="deployment_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description for the Deployment resource to create.</td></tr>
+<tr><td><CopyableCode code="stage_description" /></td><td><code>object</code></td><td>The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.</td></tr>
+<tr><td><CopyableCode code="stage_name" /></td><td><code>string</code></td><td>The name of the Stage resource for the Deployment resource to create.</td></tr>
 <tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
+<tr><td><CopyableCode code="deployment_canary_settings" /></td><td><code>object</code></td><td>The input configuration for a canary deployment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +58,24 @@ Used to retrieve a list of <code>deployments</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>deployments</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +84,22 @@ rest_api_id
 FROM aws.apigateway.deployments
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>deployment</code>.
+```sql
+SELECT
+region,
+deployment_id,
+description,
+stage_description,
+stage_name,
+rest_api_id,
+deployment_canary_settings
+FROM aws.apigateway.deployments
+WHERE region = 'us-east-1' AND data__Identifier = '<DeploymentId>|<RestApiId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>deployment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -104,19 +129,19 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.apigateway.deployments (
- DeploymentCanarySettings,
  Description,
- RestApiId,
  StageDescription,
  StageName,
+ RestApiId,
+ DeploymentCanarySettings,
  region
 )
 SELECT 
- '{{ DeploymentCanarySettings }}',
  '{{ Description }}',
- '{{ RestApiId }}',
  '{{ StageDescription }}',
  '{{ StageName }}',
+ '{{ RestApiId }}',
+ '{{ DeploymentCanarySettings }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -134,35 +159,27 @@ globals:
 resources:
   - name: deployment
     props:
-      - name: DeploymentCanarySettings
-        value:
-          PercentTraffic: null
-          StageVariableOverrides: {}
-          UseStageCache: '{{ UseStageCache }}'
       - name: Description
         value: '{{ Description }}'
-      - name: RestApiId
-        value: '{{ RestApiId }}'
       - name: StageDescription
         value:
-          AccessLogSetting:
-            DestinationArn: '{{ DestinationArn }}'
-            Format: '{{ Format }}'
-          CacheClusterEnabled: '{{ CacheClusterEnabled }}'
-          CacheClusterSize: '{{ CacheClusterSize }}'
-          CacheDataEncrypted: '{{ CacheDataEncrypted }}'
           CacheTtlInSeconds: '{{ CacheTtlInSeconds }}'
-          CachingEnabled: '{{ CachingEnabled }}'
+          Description: '{{ Description }}'
+          LoggingLevel: '{{ LoggingLevel }}'
           CanarySetting:
             DeploymentId: '{{ DeploymentId }}'
             PercentTraffic: null
             StageVariableOverrides: {}
             UseStageCache: '{{ UseStageCache }}'
+          ThrottlingRateLimit: null
           ClientCertificateId: '{{ ClientCertificateId }}'
-          DataTraceEnabled: '{{ DataTraceEnabled }}'
-          Description: '{{ Description }}'
+          Variables: {}
           DocumentationVersion: '{{ DocumentationVersion }}'
-          LoggingLevel: '{{ LoggingLevel }}'
+          CacheDataEncrypted: '{{ CacheDataEncrypted }}'
+          DataTraceEnabled: '{{ DataTraceEnabled }}'
+          ThrottlingBurstLimit: '{{ ThrottlingBurstLimit }}'
+          CachingEnabled: '{{ CachingEnabled }}'
+          TracingEnabled: '{{ TracingEnabled }}'
           MethodSettings:
             - CacheDataEncrypted: '{{ CacheDataEncrypted }}'
               CacheTtlInSeconds: '{{ CacheTtlInSeconds }}'
@@ -174,22 +191,30 @@ resources:
               ResourcePath: '{{ ResourcePath }}'
               ThrottlingBurstLimit: '{{ ThrottlingBurstLimit }}'
               ThrottlingRateLimit: null
+          AccessLogSetting:
+            DestinationArn: '{{ DestinationArn }}'
+            Format: '{{ Format }}'
+          CacheClusterSize: '{{ CacheClusterSize }}'
           MetricsEnabled: '{{ MetricsEnabled }}'
           Tags:
             - Value: '{{ Value }}'
               Key: '{{ Key }}'
-          ThrottlingBurstLimit: '{{ ThrottlingBurstLimit }}'
-          ThrottlingRateLimit: null
-          TracingEnabled: '{{ TracingEnabled }}'
-          Variables: {}
+          CacheClusterEnabled: '{{ CacheClusterEnabled }}'
       - name: StageName
         value: '{{ StageName }}'
+      - name: RestApiId
+        value: '{{ RestApiId }}'
+      - name: DeploymentCanarySettings
+        value:
+          StageVariableOverrides: {}
+          PercentTraffic: null
+          UseStageCache: '{{ UseStageCache }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -202,6 +227,11 @@ AND region = 'us-east-1';
 
 To operate on the <code>deployments</code> resource, the following permissions are required:
 
+### Read
+```json
+apigateway:GET
+```
+
 ### Create
 ```json
 apigateway:POST,
@@ -210,14 +240,22 @@ apigateway:PUT,
 apigateway:GET
 ```
 
-### Delete
+### Update
 ```json
+apigateway:PATCH,
 apigateway:GET,
+apigateway:PUT,
 apigateway:DELETE
 ```
 
 ### List
 ```json
 apigateway:GET
+```
+
+### Delete
+```json
+apigateway:GET,
+apigateway:DELETE
 ```
 

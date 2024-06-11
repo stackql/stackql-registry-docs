@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>configured_tables</code> in a region or to create or delete a <code>configured_tables</code> resource, use <code>configured_table</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>configured_table</code> resource or lists <code>configured_tables</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>configured_tables</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.</td></tr>
+<tr><td><CopyableCode code="allowed_columns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="analysis_method" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="configured_table_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="analysis_rules" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="table_reference" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>configured_tables</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>configured_tables</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ configured_table_identifier
 FROM aws.cleanrooms.configured_tables
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>configured_table</code>.
+```sql
+SELECT
+region,
+arn,
+tags,
+allowed_columns,
+analysis_method,
+configured_table_identifier,
+description,
+name,
+analysis_rules,
+table_reference
+FROM aws.cleanrooms.configured_tables
+WHERE region = 'us-east-1' AND data__Identifier = '<ConfiguredTableIdentifier>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>configured_table</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -170,7 +202,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -202,6 +234,34 @@ glue:GetSchemaVersion,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:ListConfiguredTables
+```
+
+### Read
+```json
+cleanrooms:GetConfiguredTable,
+cleanrooms:GetConfiguredTableAnalysisRule,
+cleanrooms:ListTagsForResource
+```
+
+### Update
+```json
+cleanrooms:UpdateConfiguredTable,
+cleanrooms:GetConfiguredTable,
+cleanrooms:CreateConfiguredTableAnalysisRule,
+cleanrooms:UpdateConfiguredTableAnalysisRule,
+cleanrooms:GetConfiguredTableAnalysisRule,
+cleanrooms:DeleteConfiguredTableAnalysisRule,
+cleanrooms:ListTagsForResource,
+cleanrooms:TagResource,
+cleanrooms:UntagResource,
+glue:GetDatabase,
+glue:GetDatabases,
+glue:GetTable,
+glue:GetTables,
+glue:GetPartition,
+glue:GetPartitions,
+glue:BatchGetPartition,
+glue:GetSchemaVersion
 ```
 
 ### Delete

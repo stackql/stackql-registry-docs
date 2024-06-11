@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>policy_statements</code> in a region or to create or delete a <code>policy_statements</code> resource, use <code>policy_statement</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>policy_statement</code> resource or lists <code>policy_statements</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,13 @@ Used to retrieve a list of <code>policy_statements</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="statement_id" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>Arn of the resource to which the policy statement is being attached.</code></td><td></td></tr>
+<tr><td><CopyableCode code="statement_id" /></td><td><code>The Statement Id of the policy statement that is being attached.</code></td><td></td></tr>
+<tr><td><CopyableCode code="effect" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="action" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="principal" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="condition" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +58,24 @@ Used to retrieve a list of <code>policy_statements</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>policy_statements</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +84,22 @@ statement_id
 FROM aws.entityresolution.policy_statements
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>policy_statement</code>.
+```sql
+SELECT
+region,
+arn,
+statement_id,
+effect,
+action,
+principal,
+condition
+FROM aws.entityresolution.policy_statements
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>|<StatementId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>policy_statement</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -157,7 +182,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -173,6 +198,17 @@ To operate on the <code>policy_statements</code> resource, the following permiss
 ### Create
 ```json
 entityresolution:AddPolicyStatement
+```
+
+### Read
+```json
+entityresolution:GetPolicy
+```
+
+### Update
+```json
+entityresolution:AddPolicyStatement,
+entityresolution:DeletePolicyStatement
 ```
 
 ### Delete

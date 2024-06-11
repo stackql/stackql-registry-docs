@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>streaming_images</code> in a region or to create or delete a <code>streaming_images</code> resource, use <code>streaming_image</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>streaming_image</code> resource or lists <code>streaming_images</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,17 @@ Used to retrieve a list of <code>streaming_images</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td>&lt;p&gt;The studioId. &lt;&#x2F;p&gt;</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>A human-readable description of the streaming image.</p></td></tr>
+<tr><td><CopyableCode code="ec2_image_id" /></td><td><code>string</code></td><td><p>The ID of an EC2 machine image with which to create this streaming image.</p></td></tr>
+<tr><td><CopyableCode code="encryption_configuration" /></td><td><code><p>TODO</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="eula_ids" /></td><td><code>array</code></td><td><p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td><p>A friendly name for a streaming image resource.</p></td></tr>
+<tr><td><CopyableCode code="owner" /></td><td><code>string</code></td><td><p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p></td></tr>
+<tr><td><CopyableCode code="platform" /></td><td><code>string</code></td><td><p>The platform of the streaming image, either WINDOWS or LINUX.</p></td></tr>
 <tr><td><CopyableCode code="streaming_image_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td><p>The studioId. </p></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +62,24 @@ Used to retrieve a list of <code>streaming_images</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>streaming_images</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +88,26 @@ streaming_image_id
 FROM aws.nimblestudio.streaming_images
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>streaming_image</code>.
+```sql
+SELECT
+region,
+description,
+ec2_image_id,
+encryption_configuration,
+eula_ids,
+name,
+owner,
+platform,
+streaming_image_id,
+studio_id,
+tags
+FROM aws.nimblestudio.streaming_images
+WHERE region = 'us-east-1' AND data__Identifier = '<StudioId>|<StreamingImageId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>streaming_image</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -153,7 +186,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -177,6 +210,22 @@ ec2:ModifyInstanceAttribute,
 ec2:ModifySnapshotAttribute,
 ec2:ModifyImageAttribute,
 ec2:RegisterImage,
+kms:Encrypt,
+kms:Decrypt,
+kms:CreateGrant,
+kms:ListGrants,
+kms:GenerateDataKey
+```
+
+### Read
+```json
+nimble:GetStreamingImage
+```
+
+### Update
+```json
+nimble:UpdateStreamingImage,
+nimble:GetStreamingImage,
 kms:Encrypt,
 kms:Decrypt,
 kms:CreateGrant,

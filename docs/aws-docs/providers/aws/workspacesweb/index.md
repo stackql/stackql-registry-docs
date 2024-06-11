@@ -20,9 +20,9 @@ The workspacesweb service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>11</b></span><br />
-<span>total selectable resources:&nbsp;<b>11</b></span><br />
-<span>total methods:&nbsp;<b>11</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>8</b></span><br />
 </div>
 </div>
 
@@ -32,15 +32,12 @@ The workspacesweb service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/aws/workspacesweb/browser_settings/">browser_settings</a><br />
-<a href="/providers/aws/workspacesweb/identity_provider/">identity_provider</a><br />
 <a href="/providers/aws/workspacesweb/identity_providers/">identity_providers</a><br />
 <a href="/providers/aws/workspacesweb/ip_access_settings/">ip_access_settings</a><br />
-<a href="/providers/aws/workspacesweb/network_settings/">network_settings</a><br />
-<a href="/providers/aws/workspacesweb/portal/">portal</a>
+<a href="/providers/aws/workspacesweb/network_settings/">network_settings</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/aws/workspacesweb/portals/">portals</a><br />
-<a href="/providers/aws/workspacesweb/trust_store/">trust_store</a><br />
 <a href="/providers/aws/workspacesweb/trust_stores/">trust_stores</a><br />
 <a href="/providers/aws/workspacesweb/user_access_logging_settings/">user_access_logging_settings</a><br />
 <a href="/providers/aws/workspacesweb/user_settings/">user_settings</a>

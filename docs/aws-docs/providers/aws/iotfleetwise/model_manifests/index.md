@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>model_manifests</code> in a region or to create or delete a <code>model_manifests</code> resource, use <code>model_manifest</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>model_manifest</code> resource or lists <code>model_manifests</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>model_manifests</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_modification_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="nodes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="signal_catalog_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>model_manifests</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>model_manifests</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ name
 FROM aws.iotfleetwise.model_manifests
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>model_manifest</code>.
+```sql
+SELECT
+region,
+arn,
+creation_time,
+description,
+last_modification_time,
+name,
+nodes,
+signal_catalog_arn,
+status,
+tags
+FROM aws.iotfleetwise.model_manifests
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>model_manifest</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -156,7 +188,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -177,6 +209,23 @@ iotfleetwise:UpdateModelManifest,
 iotfleetwise:ListModelManifestNodes,
 iotfleetwise:ListTagsForResource,
 iotfleetwise:TagResource
+```
+
+### Read
+```json
+iotfleetwise:GetModelManifest,
+iotfleetwise:ListModelManifestNodes,
+iotfleetwise:ListTagsForResource
+```
+
+### Update
+```json
+iotfleetwise:UpdateModelManifest,
+iotfleetwise:GetModelManifest,
+iotfleetwise:ListModelManifestNodes,
+iotfleetwise:ListTagsForResource,
+iotfleetwise:TagResource,
+iotfleetwise:UntagResource
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>fargate_profiles</code> in a region or to create or delete a <code>fargate_profiles</code> resource, use <code>fargate_profile</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>fargate_profile</code> resource or lists <code>fargate_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,14 @@ Used to retrieve a list of <code>fargate_profiles</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td>Name of the Cluster</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td>Name of the Cluster</td></tr>
 <tr><td><CopyableCode code="fargate_profile_name" /></td><td><code>string</code></td><td>Name of FargateProfile</td></tr>
+<tr><td><CopyableCode code="pod_execution_role_arn" /></td><td><code>string</code></td><td>The IAM policy arn for pods</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="subnets" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="selectors" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +59,24 @@ Used to retrieve a list of <code>fargate_profiles</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>fargate_profiles</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +85,23 @@ fargate_profile_name
 FROM aws.eks.fargate_profiles
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>fargate_profile</code>.
+```sql
+SELECT
+region,
+cluster_name,
+fargate_profile_name,
+pod_execution_role_arn,
+arn,
+subnets,
+selectors,
+tags
+FROM aws.eks.fargate_profiles
+WHERE region = 'us-east-1' AND data__Identifier = '<ClusterName>|<FargateProfileName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>fargate_profile</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -164,7 +191,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -187,6 +214,11 @@ iam:CreateServiceLinkedRole,
 eks:TagResource
 ```
 
+### Read
+```json
+eks:DescribeFargateProfile
+```
+
 ### Delete
 ```json
 eks:DeleteFargateProfile,
@@ -196,5 +228,13 @@ eks:DescribeFargateProfile
 ### List
 ```json
 eks:ListFargateProfiles
+```
+
+### Update
+```json
+eks:DescribeFargateProfile,
+eks:ListTagsForResource,
+eks:TagResource,
+eks:UntagResource
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>services</code> in a region or to create or delete a <code>services</code> resource, use <code>service</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>service</code> resource or lists <code>services</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>services</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="service_name" /></td><td><code>string</code></td><td>The AppRunner Service Name.</td></tr>
+<tr><td><CopyableCode code="service_id" /></td><td><code>string</code></td><td>The AppRunner Service Id</td></tr>
 <tr><td><CopyableCode code="service_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppRunner Service.</td></tr>
+<tr><td><CopyableCode code="service_url" /></td><td><code>string</code></td><td>The Service Url of the AppRunner Service.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>AppRunner Service status.</td></tr>
+<tr><td><CopyableCode code="source_configuration" /></td><td><code>Source Code configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_configuration" /></td><td><code>Instance Configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_configuration" /></td><td><code>Encryption configuration (KMS key)</code></td><td></td></tr>
+<tr><td><CopyableCode code="health_check_configuration" /></td><td><code>Health check configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="observability_configuration" /></td><td><code>Service observability configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_scaling_configuration_arn" /></td><td><code>string</code></td><td>Autoscaling configuration ARN</td></tr>
+<tr><td><CopyableCode code="network_configuration" /></td><td><code>Network configuration</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>services</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>services</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ service_arn
 FROM aws.apprunner.services
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>service</code>.
+```sql
+SELECT
+region,
+service_name,
+service_id,
+service_arn,
+service_url,
+status,
+source_configuration,
+instance_configuration,
+tags,
+encryption_configuration,
+health_check_configuration,
+observability_configuration,
+auto_scaling_configuration_arn,
+network_configuration
+FROM aws.apprunner.services
+WHERE region = 'us-east-1' AND data__Identifier = '<ServiceArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>service</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -215,7 +255,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -241,6 +281,17 @@ logs:PutLogEvents,
 logs:DescribeLogStreams,
 events:PutRule,
 events:PutTargets
+```
+
+### Read
+```json
+apprunner:DescribeService
+```
+
+### Update
+```json
+apprunner:UpdateService,
+iam:PassRole
 ```
 
 ### Delete

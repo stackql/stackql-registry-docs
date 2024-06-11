@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>source_locations</code> in a region or to create or delete a <code>source_locations</code> resource, use <code>source_location</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>source_location</code> resource or lists <code>source_locations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>source_locations</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_configuration" /></td><td><code><p>Access configuration parameters.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The ARN of the source location.</p></td></tr>
+<tr><td><CopyableCode code="default_segment_delivery_configuration" /></td><td><code><p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="http_configuration" /></td><td><code><p>The HTTP configuration for the source location.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="segment_delivery_configurations" /></td><td><code>array</code></td><td><p>A list of the segment delivery configurations associated with this resource.</p></td></tr>
 <tr><td><CopyableCode code="source_location_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to assign to the source location.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>source_locations</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>source_locations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ source_location_name
 FROM aws.mediatailor.source_locations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>source_location</code>.
+```sql
+SELECT
+region,
+access_configuration,
+arn,
+default_segment_delivery_configuration,
+http_configuration,
+segment_delivery_configurations,
+source_location_name,
+tags
+FROM aws.mediatailor.source_locations
+WHERE region = 'us-east-1' AND data__Identifier = '<SourceLocationName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>source_location</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -164,7 +192,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -182,6 +210,22 @@ To operate on the <code>source_locations</code> resource, the following permissi
 mediatailor:CreateSourceLocation,
 mediatailor:DescribeSourceLocation,
 mediatailor:TagResource,
+secretsmanager:DescribeSecret,
+secretsmanager:GetSecretValue,
+kms:CreateGrant
+```
+
+### Read
+```json
+mediatailor:DescribeSourceLocation
+```
+
+### Update
+```json
+mediatailor:DescribeSourceLocation,
+mediatailor:TagResource,
+mediatailor:UntagResource,
+mediatailor:UpdateSourceLocation,
 secretsmanager:DescribeSecret,
 secretsmanager:GetSecretValue,
 kms:CreateGrant

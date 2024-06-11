@@ -20,9 +20,9 @@ The shield service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>8</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>4</b></span><br />
 </div>
 </div>
 
@@ -31,14 +31,10 @@ The shield service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/shield/drt_access/">drt_access</a><br />
 <a href="/providers/aws/shield/drt_accesses/">drt_accesses</a><br />
-<a href="/providers/aws/shield/proactive_engagement/">proactive_engagement</a><br />
 <a href="/providers/aws/shield/proactive_engagements/">proactive_engagements</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/shield/protection/">protection</a><br />
-<a href="/providers/aws/shield/protection_group/">protection_group</a><br />
 <a href="/providers/aws/shield/protection_groups/">protection_groups</a><br />
 <a href="/providers/aws/shield/protections/">protections</a>
 </div>

@@ -20,9 +20,9 @@ The ssm service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -31,19 +31,13 @@ The ssm service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/ssm/association/">association</a><br />
 <a href="/providers/aws/ssm/associations/">associations</a><br />
-<a href="/providers/aws/ssm/document/">document</a><br />
 <a href="/providers/aws/ssm/documents/">documents</a><br />
-<a href="/providers/aws/ssm/parameter/">parameter</a><br />
 <a href="/providers/aws/ssm/parameters/">parameters</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/ssm/patch_baseline/">patch_baseline</a><br />
 <a href="/providers/aws/ssm/patch_baselines/">patch_baselines</a><br />
-<a href="/providers/aws/ssm/resource_data_sync/">resource_data_sync</a><br />
 <a href="/providers/aws/ssm/resource_data_syncs/">resource_data_syncs</a><br />
-<a href="/providers/aws/ssm/resource_policies/">resource_policies</a><br />
-<a href="/providers/aws/ssm/resource_policy/">resource_policy</a>
+<a href="/providers/aws/ssm/resource_policies/">resource_policies</a>
 </div>
 </div>

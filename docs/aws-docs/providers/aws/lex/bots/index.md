@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>bots</code> in a region or to create or delete a <code>bots</code> resource, use <code>bot</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>bot</code> resource or lists <code>bots</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>bots</code> in a region or to create or delete 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>Unique ID of resource</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>A unique identifier for a resource.</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>A description of the version. Use the description to help identify the version in lists.</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>The Amazon Resource Name (ARN) of an IAM role that has permission to access the bot.</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_privacy" /></td><td><code>object</code></td><td>Data privacy setting of the Bot.</td></tr>
+<tr><td><CopyableCode code="idle_session_ttl_in_seconds" /></td><td><code>integer</code></td><td>IdleSessionTTLInSeconds of the resource</td></tr>
+<tr><td><CopyableCode code="bot_locales" /></td><td><code>array</code></td><td>List of bot locales</td></tr>
+<tr><td><CopyableCode code="bot_file_s3_location" /></td><td><code>S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_tags" /></td><td><code>array</code></td><td>A list of tags to add to the bot, which can only be added at bot creation.</td></tr>
+<tr><td><CopyableCode code="test_bot_alias_tags" /></td><td><code>array</code></td><td>A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.</td></tr>
+<tr><td><CopyableCode code="auto_build_bot_locales" /></td><td><code>boolean</code></td><td>Specifies whether to build the bot locales after bot creation completes.</td></tr>
+<tr><td><CopyableCode code="test_bot_alias_settings" /></td><td><code>Configuring the test bot alias settings for a given bot</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>bots</code> in a region or to create or delete 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>bots</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ id
 FROM aws.lex.bots
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>bot</code>.
+```sql
+SELECT
+region,
+id,
+arn,
+name,
+description,
+role_arn,
+data_privacy,
+idle_session_ttl_in_seconds,
+bot_locales,
+bot_file_s3_location,
+bot_tags,
+test_bot_alias_tags,
+auto_build_bot_locales,
+test_bot_alias_settings
+FROM aws.lex.bots
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>bot</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -408,7 +448,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -430,6 +470,47 @@ lex:StartImport,
 lex:DescribeImport,
 lex:ListTagsForResource,
 lex:TagResource,
+lex:CreateBot,
+lex:CreateBotLocale,
+lex:CreateIntent,
+lex:CreateSlot,
+lex:CreateSlotType,
+lex:UpdateBot,
+lex:UpdateBotLocale,
+lex:UpdateIntent,
+lex:UpdateSlot,
+lex:UpdateSlotType,
+lex:DeleteBotLocale,
+lex:DeleteIntent,
+lex:DeleteSlot,
+lex:DeleteSlotType,
+lex:DescribeBotLocale,
+lex:BuildBotLocale,
+lex:ListBots,
+lex:ListBotLocales,
+lex:CreateCustomVocabulary,
+lex:UpdateCustomVocabulary,
+lex:DeleteCustomVocabulary,
+s3:GetObject,
+lex:UpdateBotAlias
+```
+
+### Read
+```json
+lex:DescribeBot,
+lex:ListTagsForResource
+```
+
+### Update
+```json
+iam:PassRole,
+lex:DescribeBot,
+lex:CreateUploadUrl,
+lex:StartImport,
+lex:DescribeImport,
+lex:ListTagsForResource,
+lex:TagResource,
+lex:UntagResource,
 lex:CreateBot,
 lex:CreateBotLocale,
 lex:CreateIntent,

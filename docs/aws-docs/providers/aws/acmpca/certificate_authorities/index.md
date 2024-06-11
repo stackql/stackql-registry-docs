@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>certificate_authorities</code> in a region or to create or delete a <code>certificate_authorities</code> resource, use <code>certificate_authority</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>certificate_authority</code> resource or lists <code>certificate_authorities</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>certificate_authorities</code> in a region or t
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td>The Amazon Resource Name (ARN) of the certificate authority.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the certificate authority.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the certificate authority.</td></tr>
+<tr><td><CopyableCode code="key_algorithm" /></td><td><code>string</code></td><td>Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.</td></tr>
+<tr><td><CopyableCode code="signing_algorithm" /></td><td><code>string</code></td><td>Algorithm your CA uses to sign certificate requests.</td></tr>
+<tr><td><CopyableCode code="subject" /></td><td><code>object</code></td><td>Structure that contains X.500 distinguished name information for your CA.</td></tr>
+<tr><td><CopyableCode code="revocation_configuration" /></td><td><code>object</code></td><td>Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate_signing_request" /></td><td><code>string</code></td><td>The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.</td></tr>
+<tr><td><CopyableCode code="csr_extensions" /></td><td><code>object</code></td><td>Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.</td></tr>
+<tr><td><CopyableCode code="key_storage_security_standard" /></td><td><code>string</code></td><td>KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.</td></tr>
+<tr><td><CopyableCode code="usage_mode" /></td><td><code>string</code></td><td>Usage mode of the ceritificate authority.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>certificate_authorities</code> in a region or t
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>certificate_authorities</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ arn
 FROM aws.acmpca.certificate_authorities
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>certificate_authority</code>.
+```sql
+SELECT
+region,
+arn,
+type,
+key_algorithm,
+signing_algorithm,
+subject,
+revocation_configuration,
+tags,
+certificate_signing_request,
+csr_extensions,
+key_storage_security_standard,
+usage_mode
+FROM aws.acmpca.certificate_authorities
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>certificate_authority</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -226,7 +262,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -244,6 +280,21 @@ To operate on the <code>certificate_authorities</code> resource, the following p
 acm-pca:CreateCertificateAuthority,
 acm-pca:DescribeCertificateAuthority,
 acm-pca:GetCertificateAuthorityCsr
+```
+
+### Read
+```json
+acm-pca:DescribeCertificateAuthority,
+acm-pca:GetCertificateAuthorityCsr,
+acm-pca:ListTags
+```
+
+### Update
+```json
+acm-pca:ListTags,
+acm-pca:TagCertificateAuthority,
+acm-pca:UntagCertificateAuthority,
+acm-pca:UpdateCertificateAuthority
 ```
 
 ### Delete

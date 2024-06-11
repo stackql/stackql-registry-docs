@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>vpc_cidr_blocks</code> in a region or to create or delete a <code>vpc_cidr_blocks</code> resource, use <code>vpc_cidr_block</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>vpc_cidr_block</code> resource or lists <code>vpc_cidr_blocks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,17 @@ Used to retrieve a list of <code>vpc_cidr_blocks</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cidr_block" /></td><td><code>string</code></td><td>An IPv4 CIDR block to associate with the VPC.</td></tr>
+<tr><td><CopyableCode code="ipv6_pool" /></td><td><code>string</code></td><td>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The Id of the VPC associated CIDR Block.</td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC.</td></tr>
+<tr><td><CopyableCode code="ipv6_cidr_block" /></td><td><code>string</code></td><td>An IPv6 CIDR block from the IPv6 address pool.</td></tr>
+<tr><td><CopyableCode code="ipv4_ipam_pool_id" /></td><td><code>string</code></td><td>The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.</td></tr>
+<tr><td><CopyableCode code="ipv4_netmask_length" /></td><td><code>integer</code></td><td>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.</td></tr>
+<tr><td><CopyableCode code="ipv6_ipam_pool_id" /></td><td><code>string</code></td><td>The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.</td></tr>
+<tr><td><CopyableCode code="ipv6_netmask_length" /></td><td><code>integer</code></td><td>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.</td></tr>
+<tr><td><CopyableCode code="amazon_provided_ipv6_cidr_block" /></td><td><code>boolean</code></td><td>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -62,9 +66,15 @@ Used to retrieve a list of <code>vpc_cidr_blocks</code> in a region or to create
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>vpc_cidr_blocks</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +83,26 @@ vpc_id
 FROM aws.ec2.vpc_cidr_blocks
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>vpc_cidr_block</code>.
+```sql
+SELECT
+region,
+cidr_block,
+ipv6_pool,
+id,
+vpc_id,
+ipv6_cidr_block,
+ipv4_ipam_pool_id,
+ipv4_netmask_length,
+ipv6_ipam_pool_id,
+ipv6_netmask_length,
+amazon_provided_ipv6_cidr_block
+FROM aws.ec2.vpc_cidr_blocks
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>|<VpcId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>vpc_cidr_block</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -165,7 +193,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -183,6 +211,11 @@ To operate on the <code>vpc_cidr_blocks</code> resource, the following permissio
 ec2:AssociateVpcCidrBlock,
 ec2:DescribeVpcs,
 ec2:AllocateIpamPoolCidr
+```
+
+### Read
+```json
+ec2:DescribeVpcs
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>organization_admins</code> in a region or to create or delete a <code>organization_admins</code> resource, use <code>organization_admin</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>organization_admin</code> resource or lists <code>organization_admins</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,9 @@ Used to retrieve a list of <code>organization_admins</code> in a region or to cr
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>The account ID of the account that should be registered as your Organization's delegated administrator for Detective</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>The account ID of the account that should be registered as your Organization's delegated administrator for Detective</td></tr>
+<tr><td><CopyableCode code="graph_arn" /></td><td><code>string</code></td><td>The Detective graph ARN</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +58,15 @@ Used to retrieve a list of <code>organization_admins</code> in a region or to cr
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>organization_admins</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +74,18 @@ account_id
 FROM aws.detective.organization_admins
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>organization_admin</code>.
+```sql
+SELECT
+region,
+account_id,
+graph_arn
+FROM aws.detective.organization_admins
+WHERE region = 'us-east-1' AND data__Identifier = '<AccountId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>organization_admin</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -131,7 +144,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -153,6 +166,12 @@ organizations:RegisterDelegatedAdministrator,
 organizations:DescribeOrganization,
 organizations:EnableAWSServiceAccess,
 organizations:ListAccounts
+```
+
+### Read
+```json
+detective:ListOrganizationAdminAccount,
+organizations:DescribeOrganization
 ```
 
 ### Delete

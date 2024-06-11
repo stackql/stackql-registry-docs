@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>user_pool_users</code> in a region or to create or delete a <code>user_pool_users</code> resource, use <code>user_pool_user</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>user_pool_user</code> resource or lists <code>user_pool_users</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,15 @@ Used to retrieve a list of <code>user_pool_users</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="desired_delivery_mediums" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="force_alias_creation" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_attributes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="message_action" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="username" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="validation_data" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_metadata" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -62,9 +64,15 @@ Used to retrieve a list of <code>user_pool_users</code> in a region or to create
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>user_pool_users</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +81,24 @@ username
 FROM aws.cognito.user_pool_users
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>user_pool_user</code>.
+```sql
+SELECT
+region,
+desired_delivery_mediums,
+force_alias_creation,
+user_attributes,
+message_action,
+username,
+user_pool_id,
+validation_data,
+client_metadata
+FROM aws.cognito.user_pool_users
+WHERE region = 'us-east-1' AND data__Identifier = '<UserPoolId>|<Username>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>user_pool_user</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -165,7 +189,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -183,6 +207,11 @@ To operate on the <code>user_pool_users</code> resource, the following permissio
 cognito-idp:AdminCreateUser,
 cognito-idp:AdminGetUser,
 iam:PassRole
+```
+
+### Read
+```json
+cognito-idp:AdminGetUser
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>bridges</code> in a region or to create or delete a <code>bridges</code> resource, use <code>bridge</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>bridge</code> resource or lists <code>bridges</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>bridges</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the bridge.</td></tr>
 <tr><td><CopyableCode code="bridge_arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) of the bridge.</td></tr>
+<tr><td><CopyableCode code="placement_arn" /></td><td><code>string</code></td><td>The placement Amazon Resource Number (ARN) of the bridge.</td></tr>
+<tr><td><CopyableCode code="bridge_state" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_failover_config" /></td><td><code>The settings for source failover</code></td><td></td></tr>
+<tr><td><CopyableCode code="outputs" /></td><td><code>array</code></td><td>The outputs on this bridge.</td></tr>
+<tr><td><CopyableCode code="sources" /></td><td><code>array</code></td><td>The sources on this bridge.</td></tr>
+<tr><td><CopyableCode code="ingress_gateway_bridge" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="egress_gateway_bridge" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>bridges</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>bridges</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ bridge_arn
 FROM aws.mediaconnect.bridges
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>bridge</code>.
+```sql
+SELECT
+region,
+name,
+bridge_arn,
+placement_arn,
+bridge_state,
+source_failover_config,
+outputs,
+sources,
+ingress_gateway_bridge,
+egress_gateway_bridge
+FROM aws.mediaconnect.bridges
+WHERE region = 'us-east-1' AND data__Identifier = '<BridgeArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>bridge</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -186,7 +218,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -203,6 +235,17 @@ To operate on the <code>bridges</code> resource, the following permissions are r
 ```json
 mediaconnect:CreateBridge,
 mediaconnect:DescribeBridge
+```
+
+### Read
+```json
+mediaconnect:DescribeBridge
+```
+
+### Update
+```json
+mediaconnect:DescribeBridge,
+mediaconnect:UpdateBridge
 ```
 
 ### Delete

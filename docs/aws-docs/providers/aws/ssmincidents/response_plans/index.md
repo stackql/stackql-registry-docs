@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>response_plans</code> in a region or to create or delete a <code>response_plans</code> resource, use <code>response_plan</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>response_plan</code> resource or lists <code>response_plans</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>response_plans</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the response plan.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the response plan.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the response plan.</td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td>The display name of the response plan.</td></tr>
+<tr><td><CopyableCode code="chat_channel" /></td><td><code>The chat channel configuration.</code></td><td></td></tr>
+<tr><td><CopyableCode code="engagements" /></td><td><code>array</code></td><td>The list of engagements to use.</td></tr>
+<tr><td><CopyableCode code="actions" /></td><td><code>array</code></td><td>The list of actions.</td></tr>
+<tr><td><CopyableCode code="integrations" /></td><td><code>array</code></td><td>The list of integrations.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to apply to the response plan.</td></tr>
+<tr><td><CopyableCode code="incident_template" /></td><td><code>The incident template configuration.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>response_plans</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>response_plans</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ arn
 FROM aws.ssmincidents.response_plans
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>response_plan</code>.
+```sql
+SELECT
+region,
+arn,
+name,
+display_name,
+chat_channel,
+engagements,
+actions,
+integrations,
+tags,
+incident_template
+FROM aws.ssmincidents.response_plans
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>response_plan</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -192,7 +224,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -214,7 +246,32 @@ ssm-incidents:ListTagsForResource,
 iam:PassRole,
 secretsmanager:GetSecretValue,
 kms:Decrypt,
-kms:GenerateDataKey*
+kms:GenerateDataKey,
+kms:GenerateDataKeyPair,
+kms:GenerateDataKeyPairWithoutPlaintext,
+kms:GenerateDataKeyWithoutPlaintext
+```
+
+### Read
+```json
+ssm-incidents:GetResponsePlan,
+ssm-incidents:ListTagsForResource
+```
+
+### Update
+```json
+ssm-incidents:UpdateResponsePlan,
+ssm-incidents:GetResponsePlan,
+ssm-incidents:TagResource,
+ssm-incidents:UntagResource,
+ssm-incidents:ListTagsForResource,
+iam:PassRole,
+secretsmanager:GetSecretValue,
+kms:Decrypt,
+kms:GenerateDataKey,
+kms:GenerateDataKeyPair,
+kms:GenerateDataKeyPairWithoutPlaintext,
+kms:GenerateDataKeyWithoutPlaintext
 ```
 
 ### Delete

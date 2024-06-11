@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>schedules</code> in a region or to create or delete a <code>schedules</code> resource, use <code>schedule</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>schedule</code> resource or lists <code>schedules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>schedules</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the schedule.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the schedule.</td></tr>
+<tr><td><CopyableCode code="end_date" /></td><td><code>string</code></td><td>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.</td></tr>
+<tr><td><CopyableCode code="flexible_time_window" /></td><td><code>Flexible time window allows configuration of a window within which a schedule can be invoked</code></td><td></td></tr>
+<tr><td><CopyableCode code="group_name" /></td><td><code>string</code></td><td>The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.</td></tr>
+<tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td>The ARN for a KMS Key that will be used to encrypt customer data.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule_expression" /></td><td><code>string</code></td><td>The scheduling expression.</td></tr>
+<tr><td><CopyableCode code="schedule_expression_timezone" /></td><td><code>string</code></td><td>The timezone in which the scheduling expression is evaluated.</td></tr>
+<tr><td><CopyableCode code="start_date" /></td><td><code>string</code></td><td>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>Specifies whether the schedule is enabled or disabled.</code></td><td></td></tr>
+<tr><td><CopyableCode code="target" /></td><td><code>The schedule target.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>schedules</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>schedules</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ name
 FROM aws.scheduler.schedules
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>schedule</code>.
+```sql
+SELECT
+region,
+arn,
+description,
+end_date,
+flexible_time_window,
+group_name,
+kms_key_arn,
+name,
+schedule_expression,
+schedule_expression_timezone,
+start_date,
+state,
+target
+FROM aws.scheduler.schedules
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>schedule</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -225,7 +263,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -241,6 +279,18 @@ To operate on the <code>schedules</code> resource, the following permissions are
 ### Create
 ```json
 scheduler:CreateSchedule,
+scheduler:GetSchedule,
+iam:PassRole
+```
+
+### Read
+```json
+scheduler:GetSchedule
+```
+
+### Update
+```json
+scheduler:UpdateSchedule,
 scheduler:GetSchedule,
 iam:PassRole
 ```

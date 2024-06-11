@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>fuota_tasks</code> in a region or to create or delete a <code>fuota_tasks</code> resource, use <code>fuota_task</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>fuota_task</code> resource or lists <code>fuota_tasks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>fuota_tasks</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of FUOTA task</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>FUOTA task description</td></tr>
+<tr><td><CopyableCode code="lo_ra_wan" /></td><td><code>object</code></td><td>FUOTA task LoRaWAN</td></tr>
+<tr><td><CopyableCode code="firmware_update_image" /></td><td><code>string</code></td><td>FUOTA task firmware update image binary S3 link</td></tr>
+<tr><td><CopyableCode code="firmware_update_role" /></td><td><code>string</code></td><td>FUOTA task firmware IAM role for reading S3</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>FUOTA task arn. Returned after successful create.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>FUOTA task id. Returned after successful create.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the FUOTA task.</td></tr>
+<tr><td><CopyableCode code="fuota_task_status" /></td><td><code>string</code></td><td>FUOTA task status. Returned after successful read.</td></tr>
+<tr><td><CopyableCode code="associate_wireless_device" /></td><td><code>string</code></td><td>Wireless device to associate. Only for update request.</td></tr>
+<tr><td><CopyableCode code="disassociate_wireless_device" /></td><td><code>string</code></td><td>Wireless device to disassociate. Only for update request.</td></tr>
+<tr><td><CopyableCode code="associate_multicast_group" /></td><td><code>string</code></td><td>Multicast group to associate. Only for update request.</td></tr>
+<tr><td><CopyableCode code="disassociate_multicast_group" /></td><td><code>string</code></td><td>Multicast group to disassociate. Only for update request.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>fuota_tasks</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>fuota_tasks</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ id
 FROM aws.iotwireless.fuota_tasks
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>fuota_task</code>.
+```sql
+SELECT
+region,
+name,
+description,
+lo_ra_wan,
+firmware_update_image,
+firmware_update_role,
+arn,
+id,
+tags,
+fuota_task_status,
+associate_wireless_device,
+disassociate_wireless_device,
+associate_multicast_group,
+disassociate_multicast_group
+FROM aws.iotwireless.fuota_tasks
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>fuota_task</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -177,7 +217,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -197,6 +237,24 @@ iotwireless:TagResource,
 iotwireless:ListTagsForResource,
 iam:GetRole,
 iam:PassRole
+```
+
+### Read
+```json
+iotwireless:GetFuotaTask,
+iotwireless:ListTagsForResource
+```
+
+### Update
+```json
+iam:PassRole,
+iotwireless:UpdateFuotaTask,
+iotwireless:UntagResource,
+iotwireless:ListTagsForResource,
+iotwireless:AssociateMulticastGroupWithFuotaTask,
+iotwireless:DisassociateMulticastGroupFromFuotaTask,
+iotwireless:AssociateWirelessDeviceWithFuotaTask,
+iotwireless:DisassociateWirelessDeviceFromFuotaTask
 ```
 
 ### Delete

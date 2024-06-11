@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>deployments</code> in a region or to create or delete a <code>deployments</code> resource, use <code>deployment</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>deployment</code> resource or lists <code>deployments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>deployments</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="target_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="parent_target_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="deployment_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="deployment_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="components" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="iot_job_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="deployment_policies" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>deployments</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>deployments</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ deployment_id
 FROM aws.greengrassv2.deployments
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>deployment</code>.
+```sql
+SELECT
+region,
+target_arn,
+parent_target_arn,
+deployment_id,
+deployment_name,
+components,
+iot_job_configuration,
+deployment_policies,
+tags
+FROM aws.greengrassv2.deployments
+WHERE region = 'us-east-1' AND data__Identifier = '<DeploymentId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>deployment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -175,7 +205,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -202,6 +232,23 @@ iot:DescribeThingGroup,
 iot:GetThingShadow,
 iot:UpdateJob,
 iot:UpdateThingShadow
+```
+
+### Read
+```json
+greengrass:GetDeployment,
+iot:DescribeJob,
+iot:DescribeThing,
+iot:DescribeThingGroup,
+iot:GetThingShadow
+```
+
+### Update
+```json
+greengrass:GetDeployment,
+greengrass:TagResource,
+greengrass:UntagResource,
+iot:DescribeJob
 ```
 
 ### Delete

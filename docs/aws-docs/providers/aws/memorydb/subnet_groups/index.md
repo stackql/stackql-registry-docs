@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>subnet_groups</code> in a region or to create or delete a <code>subnet_groups</code> resource, use <code>subnet_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>subnet_group</code> resource or lists <code>subnet_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>subnet_groups</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="subnet_group_name" /></td><td><code>string</code></td><td>The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="subnet_group_name" /></td><td><code>string</code></td><td>The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>An optional description of the subnet group.</td></tr>
+<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>A list of VPC subnet IDs for the subnet group.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this subnet group.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the subnet group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>subnet_groups</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>subnet_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ subnet_group_name
 FROM aws.memorydb.subnet_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>subnet_group</code>.
+```sql
+SELECT
+region,
+subnet_group_name,
+description,
+subnet_ids,
+tags,
+arn
+FROM aws.memorydb.subnet_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<SubnetGroupName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>subnet_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -148,7 +172,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -167,6 +191,21 @@ memorydb:CreateSubnetGroup,
 memorydb:DescribeSubnetGroups,
 memorydb:TagResource,
 memorydb:ListTags
+```
+
+### Read
+```json
+memorydb:DescribeSubnetGroups,
+memorydb:ListTags
+```
+
+### Update
+```json
+memorydb:UpdateSubnetGroup,
+memorydb:DescribeSubnetGroups,
+memorydb:ListTags,
+memorydb:TagResource,
+memorydb:UntagResource
 ```
 
 ### Delete

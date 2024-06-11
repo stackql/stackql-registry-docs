@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>projects</code> in a region or to create or delete a <code>projects</code> resource, use <code>project</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>project</code> resource or lists <code>projects</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>projects</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="portal_id" /></td><td><code>string</code></td><td>The ID of the portal in which to create the project.</td></tr>
 <tr><td><CopyableCode code="project_id" /></td><td><code>string</code></td><td>The ID of the project.</td></tr>
+<tr><td><CopyableCode code="project_name" /></td><td><code>string</code></td><td>A friendly name for the project.</td></tr>
+<tr><td><CopyableCode code="project_description" /></td><td><code>string</code></td><td>A description for the project.</td></tr>
+<tr><td><CopyableCode code="project_arn" /></td><td><code>string</code></td><td>The ARN of the project.</td></tr>
+<tr><td><CopyableCode code="asset_ids" /></td><td><code>array</code></td><td>The IDs of the assets to be associated to the project.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the project.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>projects</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>projects</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ project_id
 FROM aws.iotsitewise.projects
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>project</code>.
+```sql
+SELECT
+region,
+portal_id,
+project_id,
+project_name,
+project_description,
+project_arn,
+asset_ids,
+tags
+FROM aws.iotsitewise.projects
+WHERE region = 'us-east-1' AND data__Identifier = '<ProjectId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>project</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -152,7 +180,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -173,6 +201,25 @@ iotsitewise:ListProjectAssets,
 iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
 iotsitewise:BatchAssociateProjectAssets
+```
+
+### Read
+```json
+iotsitewise:DescribeProject,
+iotsitewise:ListTagsForResource,
+iotsitewise:ListProjectAssets
+```
+
+### Update
+```json
+iotsitewise:DescribeProject,
+iotsitewise:UpdateProject,
+iotsitewise:BatchAssociateProjectAssets,
+iotsitewise:BatchDisAssociateProjectAssets,
+iotsitewise:ListProjectAssets,
+iotsitewise:TagResource,
+iotsitewise:UntagResource,
+iotsitewise:ListTagsForResource
 ```
 
 ### Delete

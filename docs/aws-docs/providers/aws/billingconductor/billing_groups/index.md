@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>billing_groups</code> in a region or to create or delete a <code>billing_groups</code> resource, use <code>billing_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>billing_group</code> resource or lists <code>billing_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>billing_groups</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Billing Group ARN</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Billing Group ARN</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="primary_account_id" /></td><td><code>string</code></td><td>This account will act as a virtual payer account of the billing group</td></tr>
+<tr><td><CopyableCode code="computation_preference" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="account_grouping" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="size" /></td><td><code>integer</code></td><td>Number of accounts in the billing group</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status_reason" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
+<tr><td><CopyableCode code="last_modified_time" /></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>billing_groups</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>billing_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ arn
 FROM aws.billingconductor.billing_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>billing_group</code>.
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+primary_account_id,
+computation_preference,
+account_grouping,
+size,
+status,
+status_reason,
+creation_time,
+last_modified_time,
+tags
+FROM aws.billingconductor.billing_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>billing_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -163,7 +201,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -185,12 +223,32 @@ billingconductor:TagResource,
 billingconductor:ListTagsForResource
 ```
 
+### Read
+```json
+billingconductor:ListBillingGroups,
+billingconductor:ListAccountAssociations,
+organizations:ListAccounts,
+billingconductor:ListTagsForResource
+```
+
 ### List
 ```json
 billingconductor:ListBillingGroups,
 billingconductor:ListAccountAssociations,
 organizations:ListAccounts,
 billingconductor:ListTagsForResource
+```
+
+### Update
+```json
+billingconductor:UpdateBillingGroup,
+billingconductor:ListAccountAssociations,
+organizations:ListAccounts,
+billingconductor:AssociateAccounts,
+billingconductor:DisassociateAccounts,
+billingconductor:ListBillingGroups,
+billingconductor:TagResource,
+billingconductor:UntagResource
 ```
 
 ### Delete

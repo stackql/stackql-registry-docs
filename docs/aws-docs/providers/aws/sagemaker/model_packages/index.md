@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>model_packages</code> in a region or to create or delete a <code>model_packages</code> resource, use <code>model_package</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>model_package</code> resource or lists <code>model_packages</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,34 @@ Used to retrieve a list of <code>model_packages</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="model_package_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="additional_inference_specifications" /></td><td><code>An array of additional Inference Specification objects.</code></td><td></td></tr>
+<tr><td><CopyableCode code="certify_for_marketplace" /></td><td><code>Whether to certify the model package for listing on AWS Marketplace.</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_token" /></td><td><code>A unique token that guarantees that the call to this API is idempotent.</code></td><td></td></tr>
+<tr><td><CopyableCode code="customer_metadata_properties" /></td><td><code>The metadata properties associated with the model package versions.</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain" /></td><td><code>The machine learning domain of the model package you specified.</code></td><td></td></tr>
+<tr><td><CopyableCode code="drift_check_baselines" /></td><td><code>Represents the drift check baselines that can be used when the model monitor is set using the model package.</code></td><td></td></tr>
+<tr><td><CopyableCode code="inference_specification" /></td><td><code>Details about inference jobs that can be run with models based on this model package.</code></td><td></td></tr>
+<tr><td><CopyableCode code="metadata_properties" /></td><td><code>Metadata properties of the tracking entity, trial, or trial component.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_approval_status" /></td><td><code>The approval status of the model package.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_metrics" /></td><td><code>A structure that contains model metrics reports.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_package_description" /></td><td><code>The description of the model package.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_package_group_name" /></td><td><code>The name of the model package group.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_package_name" /></td><td><code>The name or arn of the model package.</code></td><td></td></tr>
+<tr><td><CopyableCode code="sample_payload_url" /></td><td><code>The Amazon Simple Storage Service (Amazon S3) path where the sample payload are stored pointing to single gzip compressed tar archive.</code></td><td></td></tr>
+<tr><td><CopyableCode code="skip_model_validation" /></td><td><code>Indicates if you want to skip model validation.</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_algorithm_specification" /></td><td><code>Details about the algorithm that was used to create the model package.</code></td><td></td></tr>
+<tr><td><CopyableCode code="task" /></td><td><code>The machine learning task your model package accomplishes.</code></td><td></td></tr>
+<tr><td><CopyableCode code="validation_specification" /></td><td><code>Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_package_arn" /></td><td><code>The Amazon Resource Name (ARN) of the model package group.</code></td><td></td></tr>
+<tr><td><CopyableCode code="approval_description" /></td><td><code>A description provided for the model approval.</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>The time at which the model package was created.</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_modified_time" /></td><td><code>The time at which the model package was last modified.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_package_status" /></td><td><code>The current status of the model package.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_package_version" /></td><td><code>The version of the model package.</code></td><td></td></tr>
+<tr><td><CopyableCode code="additional_inference_specifications_to_add" /></td><td><code>An array of additional Inference Specification objects.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_package_status_details" /></td><td><code>Details about the current status of the model package.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +79,24 @@ Used to retrieve a list of <code>model_packages</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>model_packages</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +104,43 @@ model_package_arn
 FROM aws.sagemaker.model_packages
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>model_package</code>.
+```sql
+SELECT
+region,
+tags,
+additional_inference_specifications,
+certify_for_marketplace,
+client_token,
+customer_metadata_properties,
+domain,
+drift_check_baselines,
+inference_specification,
+metadata_properties,
+model_approval_status,
+model_metrics,
+model_package_description,
+model_package_group_name,
+model_package_name,
+sample_payload_url,
+skip_model_validation,
+source_algorithm_specification,
+task,
+validation_specification,
+model_package_arn,
+approval_description,
+creation_time,
+last_modified_time,
+model_package_status,
+model_package_version,
+additional_inference_specifications_to_add,
+model_package_status_details
+FROM aws.sagemaker.model_packages
+WHERE region = 'us-east-1' AND data__Identifier = '<ModelPackageArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>model_package</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -369,7 +437,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -398,6 +466,21 @@ sagemaker:DescribeModelPackage,
 sagemaker:ListTags,
 iam:PassRole,
 s3:GetObject
+```
+
+### Read
+```json
+sagemaker:DescribeModelPackage,
+sagemaker:ListTags
+```
+
+### Update
+```json
+sagemaker:UpdateModelPackage,
+sagemaker:DescribeModelPackage,
+sagemaker:ListTags,
+sagemaker:AddTags,
+sagemaker:DeleteTags
 ```
 
 ### Delete

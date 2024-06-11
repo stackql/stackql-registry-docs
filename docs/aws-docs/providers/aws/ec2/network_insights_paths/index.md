@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>network_insights_paths</code> in a region or to create or delete a <code>network_insights_paths</code> resource, use <code>network_insights_path</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>network_insights_path</code> resource or lists <code>network_insights_paths</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,21 @@ Used to retrieve a list of <code>network_insights_paths</code> in a region or to
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="network_insights_path_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="network_insights_path_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_insights_path_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_date" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_ip" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="filter_at_source" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="filter_at_destination" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination_ip" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="source" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="protocol" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination_port" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +66,24 @@ Used to retrieve a list of <code>network_insights_paths</code> in a region or to
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>network_insights_paths</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +91,30 @@ network_insights_path_id
 FROM aws.ec2.network_insights_paths
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>network_insights_path</code>.
+```sql
+SELECT
+region,
+network_insights_path_id,
+network_insights_path_arn,
+created_date,
+source_ip,
+filter_at_source,
+filter_at_destination,
+destination_ip,
+source,
+destination,
+source_arn,
+destination_arn,
+protocol,
+destination_port,
+tags
+FROM aws.ec2.network_insights_paths
+WHERE region = 'us-east-1' AND data__Identifier = '<NetworkInsightsPathId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>network_insights_path</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -173,7 +215,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -198,8 +240,20 @@ ec2:DeleteNetworkInsightsPath,
 ec2:DeleteTags
 ```
 
+### Read
+```json
+ec2:DescribeNetworkInsightsPaths
+```
+
 ### List
 ```json
 ec2:DescribeNetworkInsightsPaths
+```
+
+### Update
+```json
+ec2:DescribeNetworkInsightsPaths,
+ec2:CreateTags,
+ec2:DeleteTags
 ```
 

@@ -20,9 +20,9 @@ The imagebuilder service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>18</b></span><br />
-<span>total selectable resources:&nbsp;<b>18</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
+<span>total selectable resources:&nbsp;<b>9</b></span><br />
+<span>total methods:&nbsp;<b>9</b></span><br />
 </div>
 </div>
 
@@ -31,25 +31,16 @@ The imagebuilder service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/imagebuilder/component/">component</a><br />
 <a href="/providers/aws/imagebuilder/components/">components</a><br />
-<a href="/providers/aws/imagebuilder/container_recipe/">container_recipe</a><br />
 <a href="/providers/aws/imagebuilder/container_recipes/">container_recipes</a><br />
-<a href="/providers/aws/imagebuilder/distribution_configuration/">distribution_configuration</a><br />
 <a href="/providers/aws/imagebuilder/distribution_configurations/">distribution_configurations</a><br />
-<a href="/providers/aws/imagebuilder/image/">image</a><br />
-<a href="/providers/aws/imagebuilder/image_pipeline/">image_pipeline</a><br />
-<a href="/providers/aws/imagebuilder/image_pipelines/">image_pipelines</a>
+<a href="/providers/aws/imagebuilder/image_pipelines/">image_pipelines</a><br />
+<a href="/providers/aws/imagebuilder/image_recipes/">image_recipes</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/imagebuilder/image_recipe/">image_recipe</a><br />
-<a href="/providers/aws/imagebuilder/image_recipes/">image_recipes</a><br />
 <a href="/providers/aws/imagebuilder/images/">images</a><br />
-<a href="/providers/aws/imagebuilder/infrastructure_configuration/">infrastructure_configuration</a><br />
 <a href="/providers/aws/imagebuilder/infrastructure_configurations/">infrastructure_configurations</a><br />
 <a href="/providers/aws/imagebuilder/lifecycle_policies/">lifecycle_policies</a><br />
-<a href="/providers/aws/imagebuilder/lifecycle_policy/">lifecycle_policy</a><br />
-<a href="/providers/aws/imagebuilder/workflow/">workflow</a><br />
 <a href="/providers/aws/imagebuilder/workflows/">workflows</a>
 </div>
 </div>

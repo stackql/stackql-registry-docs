@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>solutions</code> in a region or to create or delete a <code>solutions</code> resource, use <code>solution</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>solution</code> resource or lists <code>solutions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>solutions</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="solution_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name for the solution</td></tr>
+<tr><td><CopyableCode code="solution_arn" /></td><td><code>The ARN of the solution</code></td><td></td></tr>
+<tr><td><CopyableCode code="event_type" /></td><td><code>string</code></td><td>When your have multiple event types (using an EVENT_TYPE schema field), this parameter specifies which event type (for example, 'click' or 'like') is used for training the model. If you do not provide an eventType, Amazon Personalize will use all interactions for training with equal weight regardless of type.</td></tr>
+<tr><td><CopyableCode code="dataset_group_arn" /></td><td><code>string</code></td><td>The ARN of the dataset group that provides the training data.</td></tr>
+<tr><td><CopyableCode code="perform_auto_ml" /></td><td><code>boolean</code></td><td>Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.</td></tr>
+<tr><td><CopyableCode code="perform_hpo" /></td><td><code>boolean</code></td><td>Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.</td></tr>
+<tr><td><CopyableCode code="recipe_arn" /></td><td><code>string</code></td><td>The ARN of the recipe to use for model training. Only specified when performAutoML is false.</td></tr>
+<tr><td><CopyableCode code="solution_config" /></td><td><code>The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +64,15 @@ Used to retrieve a list of <code>solutions</code> in a region or to create or de
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>solutions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,24 @@ solution_arn
 FROM aws.personalize.solutions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>solution</code>.
+```sql
+SELECT
+region,
+name,
+solution_arn,
+event_type,
+dataset_group_arn,
+perform_auto_ml,
+perform_hpo,
+recipe_arn,
+solution_config
+FROM aws.personalize.solutions
+WHERE region = 'us-east-1' AND data__Identifier = '<SolutionArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>solution</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -185,7 +210,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -201,6 +226,11 @@ To operate on the <code>solutions</code> resource, the following permissions are
 ### Create
 ```json
 personalize:CreateSolution,
+personalize:DescribeSolution
+```
+
+### Read
+```json
 personalize:DescribeSolution
 ```
 

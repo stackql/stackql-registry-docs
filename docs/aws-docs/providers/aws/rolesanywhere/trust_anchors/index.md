@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>trust_anchors</code> in a region or to create or delete a <code>trust_anchors</code> resource, use <code>trust_anchor</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>trust_anchor</code> resource or lists <code>trust_anchors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>trust_anchors</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="enabled" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="notification_settings" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="source" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="trust_anchor_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="trust_anchor_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>trust_anchors</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>trust_anchors</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ trust_anchor_id
 FROM aws.rolesanywhere.trust_anchors
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>trust_anchor</code>.
+```sql
+SELECT
+region,
+enabled,
+name,
+notification_settings,
+source,
+tags,
+trust_anchor_id,
+trust_anchor_arn
+FROM aws.rolesanywhere.trust_anchors
+WHERE region = 'us-east-1' AND data__Identifier = '<TrustAnchorId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>trust_anchor</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -157,7 +185,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -176,6 +204,26 @@ iam:CreateServiceLinkedRole,
 rolesanywhere:CreateTrustAnchor,
 rolesanywhere:TagResource,
 rolesanywhere:ListTagsForResource
+```
+
+### Read
+```json
+rolesanywhere:GetTrustAnchor,
+rolesanywhere:ListTagsForResource
+```
+
+### Update
+```json
+acm-pca:GetCertificateAuthorityCertificate,
+rolesanywhere:ListTagsForResource,
+rolesanywhere:TagResource,
+rolesanywhere:UntagResource,
+rolesanywhere:EnableTrustAnchor,
+rolesanywhere:DisableTrustAnchor,
+rolesanywhere:UpdateTrustAnchor,
+rolesanywhere:GetTrustAnchor,
+rolesanywhere:PutNotificationSettings,
+rolesanywhere:ResetNotificationSettings
 ```
 
 ### Delete

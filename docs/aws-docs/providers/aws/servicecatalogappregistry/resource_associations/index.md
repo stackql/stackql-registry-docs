@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>resource_associations</code> in a region or to create or delete a <code>resource_associations</code> resource, use <code>resource_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>resource_association</code> resource or lists <code>resource_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,12 @@ Used to retrieve a list of <code>resource_associations</code> in a region or to 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application" /></td><td><code>string</code></td><td>The name or the Id of the Application.</td></tr>
+<tr><td><CopyableCode code="resource" /></td><td><code>string</code></td><td>The name or the Id of the Resource.</td></tr>
+<tr><td><CopyableCode code="resource_type" /></td><td><code>string</code></td><td>The type of the CFN Resource for now it's enum CFN_STACK.</td></tr>
 <tr><td><CopyableCode code="application_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="resource_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="resource_type" /></td><td><code>string</code></td><td>The type of the CFN Resource for now it's enum CFN_STACK.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -63,9 +61,15 @@ Used to retrieve a list of <code>resource_associations</code> in a region or to 
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>resource_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +79,21 @@ resource_type
 FROM aws.servicecatalogappregistry.resource_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>resource_association</code>.
+```sql
+SELECT
+region,
+application,
+resource,
+resource_type,
+application_arn,
+resource_arn
+FROM aws.servicecatalogappregistry.resource_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationArn>|<ResourceArn>|<ResourceType>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>resource_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +164,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -164,6 +181,11 @@ To operate on the <code>resource_associations</code> resource, the following per
 ```json
 servicecatalog:AssociateResource,
 cloudformation:DescribeStacks
+```
+
+### Read
+```json
+servicecatalog:ListAssociatedResources
 ```
 
 ### Delete

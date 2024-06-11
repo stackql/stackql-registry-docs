@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>transformers</code> in a region or to create or delete a <code>transformers</code> resource, use <code>transformer</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>transformer</code> resource or lists <code>transformers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>transformers</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="edi_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="file_format" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="mapping_template" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="sample_document" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="transformer_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="transformer_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>transformers</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>transformers</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ transformer_id
 FROM aws.b2bi.transformers
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>transformer</code>.
+```sql
+SELECT
+region,
+created_at,
+edi_type,
+file_format,
+mapping_template,
+modified_at,
+name,
+sample_document,
+status,
+tags,
+transformer_arn,
+transformer_id
+FROM aws.b2bi.transformers
+WHERE region = 'us-east-1' AND data__Identifier = '<TransformerId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>transformer</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -165,7 +201,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -192,6 +228,19 @@ logs:DescribeResourcePolicies,
 logs:ListLogDeliveries,
 logs:PutLogEvents,
 logs:PutResourcePolicy
+```
+
+### Read
+```json
+b2bi:GetTransformer,
+b2bi:ListTagsForResource
+```
+
+### Update
+```json
+b2bi:TagResource,
+b2bi:UntagResource,
+b2bi:UpdateTransformer
 ```
 
 ### Delete

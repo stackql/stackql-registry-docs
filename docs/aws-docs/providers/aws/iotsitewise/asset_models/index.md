@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>asset_models</code> in a region or to create or delete a <code>asset_models</code> resource, use <code>asset_model</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>asset_model</code> resource or lists <code>asset_models</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>asset_models</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="asset_model_id" /></td><td><code>string</code></td><td>The ID of the asset model.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="asset_model_id" /></td><td><code>string</code></td><td>The ID of the asset model.</td></tr>
+<tr><td><CopyableCode code="asset_model_type" /></td><td><code>string</code></td><td>The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)</td></tr>
+<tr><td><CopyableCode code="asset_model_external_id" /></td><td><code>string</code></td><td>The external ID of the asset model.</td></tr>
+<tr><td><CopyableCode code="asset_model_arn" /></td><td><code>string</code></td><td>The ARN of the asset model, which has the following format.</td></tr>
+<tr><td><CopyableCode code="asset_model_name" /></td><td><code>string</code></td><td>A unique, friendly name for the asset model.</td></tr>
+<tr><td><CopyableCode code="asset_model_description" /></td><td><code>string</code></td><td>A description for the asset model.</td></tr>
+<tr><td><CopyableCode code="asset_model_properties" /></td><td><code>array</code></td><td>The property definitions of the asset model. You can specify up to 200 properties per asset model.</td></tr>
+<tr><td><CopyableCode code="asset_model_composite_models" /></td><td><code>array</code></td><td>The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.</td></tr>
+<tr><td><CopyableCode code="asset_model_hierarchies" /></td><td><code>array</code></td><td>The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the asset model.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>asset_models</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>asset_models</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ asset_model_id
 FROM aws.iotsitewise.asset_models
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>asset_model</code>.
+```sql
+SELECT
+region,
+asset_model_id,
+asset_model_type,
+asset_model_external_id,
+asset_model_arn,
+asset_model_name,
+asset_model_description,
+asset_model_properties,
+asset_model_composite_models,
+asset_model_hierarchies,
+tags
+FROM aws.iotsitewise.asset_models
+WHERE region = 'us-east-1' AND data__Identifier = '<AssetModelId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>asset_model</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -209,7 +243,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -234,6 +268,30 @@ iotsitewise:ListAssetModelCompositeModels,
 iotsitewise:UpdateAssetModelCompositeModel,
 iotsitewise:DescribeAssetModelCompositeModel,
 iotsitewise:CreateAssetModelCompositeModel
+```
+
+### Read
+```json
+iotsitewise:DescribeAssetModel,
+iotsitewise:ListAssetModelProperties,
+iotsitewise:DescribeAssetModelCompositeModel,
+iotsitewise:ListAssetModelCompositeModels,
+iotsitewise:ListTagsForResource
+```
+
+### Update
+```json
+iotsitewise:DescribeAssetModel,
+iotsitewise:ListTagsForResource,
+iotsitewise:TagResource,
+iotsitewise:UntagResource,
+iotsitewise:ListAssetModelProperties,
+iotsitewise:ListAssetModelCompositeModels,
+iotsitewise:CreateAssetModelCompositeModel,
+iotsitewise:UpdateAssetModelCompositeModel,
+iotsitewise:DeleteAssetModelCompositeModel,
+iotsitewise:DescribeAssetModelCompositeModel,
+iotsitewise:UpdateAssetModel
 ```
 
 ### Delete

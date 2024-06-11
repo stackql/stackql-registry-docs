@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>authorizers</code> in a region or to create or delete a <code>authorizers</code> resource, use <code>authorizer</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>authorizer</code> resource or lists <code>authorizers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>authorizers</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="authorizer_function_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="authorizer_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="signing_disabled" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="token_key_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="token_signing_public_keys" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="enable_caching_for_http" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>authorizers</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>authorizers</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ authorizer_name
 FROM aws.iot.authorizers
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>authorizer</code>.
+```sql
+SELECT
+region,
+authorizer_function_arn,
+arn,
+authorizer_name,
+signing_disabled,
+status,
+token_key_name,
+token_signing_public_keys,
+enable_caching_for_http,
+tags
+FROM aws.iot.authorizers
+WHERE region = 'us-east-1' AND data__Identifier = '<AuthorizerName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>authorizer</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -161,7 +193,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -179,6 +211,21 @@ To operate on the <code>authorizers</code> resource, the following permissions a
 iot:CreateAuthorizer,
 iot:DescribeAuthorizer,
 iot:TagResource,
+iot:ListTagsForResource
+```
+
+### Read
+```json
+iot:DescribeAuthorizer,
+iot:ListTagsForResource
+```
+
+### Update
+```json
+iot:UpdateAuthorizer,
+iot:DescribeAuthorizer,
+iot:TagResource,
+iot:UntagResource,
 iot:ListTagsForResource
 ```
 

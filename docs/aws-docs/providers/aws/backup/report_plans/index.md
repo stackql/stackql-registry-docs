@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>report_plans</code> in a region or to create or delete a <code>report_plans</code> resource, use <code>report_plan</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>report_plan</code> resource or lists <code>report_plans</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>report_plans</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="report_plan_name" /></td><td><code>string</code></td><td>The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</td></tr>
 <tr><td><CopyableCode code="report_plan_arn" /></td><td><code>string</code></td><td>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.</td></tr>
+<tr><td><CopyableCode code="report_plan_description" /></td><td><code>string</code></td><td>An optional description of the report plan with a maximum of 1,024 characters.</td></tr>
+<tr><td><CopyableCode code="report_plan_tags" /></td><td><code>array</code></td><td>Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.</td></tr>
+<tr><td><CopyableCode code="report_delivery_channel" /></td><td><code>object</code></td><td>A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.</td></tr>
+<tr><td><CopyableCode code="report_setting" /></td><td><code>object</code></td><td>Identifies the report template for the report. Reports are built using a report template.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>report_plans</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>report_plans</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ report_plan_arn
 FROM aws.backup.report_plans
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>report_plan</code>.
+```sql
+SELECT
+region,
+report_plan_name,
+report_plan_arn,
+report_plan_description,
+report_plan_tags,
+report_delivery_channel,
+report_setting
+FROM aws.backup.report_plans
+WHERE region = 'us-east-1' AND data__Identifier = '<ReportPlanArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>report_plan</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -164,7 +190,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -184,6 +210,21 @@ backup:DescribeReportPlan,
 backup:ListTags,
 backup:TagResource,
 iam:CreateServiceLinkedRole
+```
+
+### Read
+```json
+backup:DescribeReportPlan,
+backup:ListTags
+```
+
+### Update
+```json
+backup:DescribeReportPlan,
+backup:UpdateReportPlan,
+backup:ListTags,
+backup:UntagResource,
+backup:TagResource
 ```
 
 ### Delete

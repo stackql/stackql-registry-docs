@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>log_delivery_configurations</code> in a region or to create or delete a <code>log_delivery_configurations</code> resource, use <code>log_delivery_configuration</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>log_delivery_configuration</code> resource or lists <code>log_delivery_configurations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>log_delivery_configurations</code> in a region 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="log_configurations" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +55,32 @@ Used to retrieve a list of <code>log_delivery_configurations</code> in a region 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>log_delivery_configuration</code>.
 ```sql
 SELECT
 region,
-id
+id,
+user_pool_id,
+log_configurations
 FROM aws.cognito.log_delivery_configurations
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>log_delivery_configuration</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -139,7 +147,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -153,6 +161,25 @@ AND region = 'us-east-1';
 To operate on the <code>log_delivery_configurations</code> resource, the following permissions are required:
 
 ### Create
+```json
+cognito-idp:GetLogDeliveryConfiguration,
+cognito-idp:SetLogDeliveryConfiguration,
+logs:CreateLogDelivery,
+logs:GetLogDelivery,
+logs:UpdateLogDelivery,
+logs:DeleteLogDelivery,
+logs:ListLogDeliveries,
+logs:PutResourcePolicy,
+logs:DescribeResourcePolicies,
+logs:DescribeLogGroups
+```
+
+### Read
+```json
+cognito-idp:GetLogDeliveryConfiguration
+```
+
+### Update
 ```json
 cognito-idp:GetLogDeliveryConfiguration,
 cognito-idp:SetLogDeliveryConfiguration,

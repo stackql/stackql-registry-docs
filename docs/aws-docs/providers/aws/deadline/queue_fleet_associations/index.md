@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>queue_fleet_associations</code> in a region or to create or delete a <code>queue_fleet_associations</code> resource, use <code>queue_fleet_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>queue_fleet_association</code> resource or lists <code>queue_fleet_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,10 @@ Used to retrieve a list of <code>queue_fleet_associations</code> in a region or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="farm_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="farm_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="fleet_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="queue_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -63,9 +59,15 @@ Used to retrieve a list of <code>queue_fleet_associations</code> in a region or 
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>queue_fleet_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +77,19 @@ queue_id
 FROM aws.deadline.queue_fleet_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>queue_fleet_association</code>.
+```sql
+SELECT
+region,
+farm_id,
+fleet_id,
+queue_id
+FROM aws.deadline.queue_fleet_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<FarmId>|<FleetId>|<QueueId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>queue_fleet_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +160,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -163,6 +176,12 @@ To operate on the <code>queue_fleet_associations</code> resource, the following 
 ### Create
 ```json
 deadline:CreateQueueFleetAssociation,
+deadline:GetQueueFleetAssociation,
+identitystore:ListGroupMembershipsForMember
+```
+
+### Read
+```json
 deadline:GetQueueFleetAssociation,
 identitystore:ListGroupMembershipsForMember
 ```

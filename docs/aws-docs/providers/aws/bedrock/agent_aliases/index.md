@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>agent_aliases</code> in a region or to create or delete a <code>agent_aliases</code> resource, use <code>agent_alias</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>agent_alias</code> resource or lists <code>agent_aliases</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,18 @@ Used to retrieve a list of <code>agent_aliases</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="agent_id" /></td><td><code>string</code></td><td>Identifier for a resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="agent_alias_arn" /></td><td><code>string</code></td><td>Arn representation of the Agent Alias.</td></tr>
+<tr><td><CopyableCode code="agent_alias_history_events" /></td><td><code>array</code></td><td>The list of history events for an alias for an Agent.</td></tr>
 <tr><td><CopyableCode code="agent_alias_id" /></td><td><code>string</code></td><td>Id for an Agent Alias generated at the server side.</td></tr>
+<tr><td><CopyableCode code="agent_alias_name" /></td><td><code>string</code></td><td>Name for a resource.</td></tr>
+<tr><td><CopyableCode code="agent_alias_status" /></td><td><code>The statuses an Agent Alias can be in.</code></td><td></td></tr>
+<tr><td><CopyableCode code="agent_id" /></td><td><code>string</code></td><td>Identifier for a resource.</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>Time Stamp.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the Resource.</td></tr>
+<tr><td><CopyableCode code="routing_configuration" /></td><td><code>array</code></td><td>Routing configuration for an Agent alias.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>A map of tag keys and values</code></td><td></td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>Time Stamp.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +63,24 @@ Used to retrieve a list of <code>agent_aliases</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>agent_aliases</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +89,27 @@ agent_alias_id
 FROM aws.bedrock.agent_aliases
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>agent_alias</code>.
+```sql
+SELECT
+region,
+agent_alias_arn,
+agent_alias_history_events,
+agent_alias_id,
+agent_alias_name,
+agent_alias_status,
+agent_id,
+created_at,
+description,
+routing_configuration,
+tags,
+updated_at
+FROM aws.bedrock.agent_aliases
+WHERE region = 'us-east-1' AND data__Identifier = '<AgentId>|<AgentAliasId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>agent_alias</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -152,7 +187,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -171,6 +206,23 @@ bedrock:PrepareAgent,
 bedrock:GetAgent,
 bedrock:CreateAgentAlias,
 bedrock:TagResource,
+bedrock:GetAgentAlias,
+bedrock:ListTagsForResource
+```
+
+### Read
+```json
+bedrock:GetAgentAlias,
+bedrock:ListTagsForResource
+```
+
+### Update
+```json
+bedrock:PrepareAgent,
+bedrock:GetAgent,
+bedrock:UpdateAgentAlias,
+bedrock:TagResource,
+bedrock:UntagResource,
 bedrock:GetAgentAlias,
 bedrock:ListTagsForResource
 ```

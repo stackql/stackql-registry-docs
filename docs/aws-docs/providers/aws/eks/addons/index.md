@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>addons</code> in a region or to create or delete a <code>addons</code> resource, use <code>addon</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>addon</code> resource or lists <code>addons</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,17 @@ Used to retrieve a list of <code>addons</code> in a region or to create or delet
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td>Name of Cluster</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td>Name of Cluster</td></tr>
 <tr><td><CopyableCode code="addon_name" /></td><td><code>string</code></td><td>Name of Addon</td></tr>
+<tr><td><CopyableCode code="addon_version" /></td><td><code>string</code></td><td>Version of Addon</td></tr>
+<tr><td><CopyableCode code="preserve_on_delete" /></td><td><code>boolean</code></td><td>PreserveOnDelete parameter value</td></tr>
+<tr><td><CopyableCode code="resolve_conflicts" /></td><td><code>string</code></td><td>Resolve parameter value conflicts</td></tr>
+<tr><td><CopyableCode code="service_account_role_arn" /></td><td><code>string</code></td><td>IAM role to bind to the add-on's service account</td></tr>
+<tr><td><CopyableCode code="pod_identity_associations" /></td><td><code>array</code></td><td>An array of pod identities to apply to this add-on.</td></tr>
+<tr><td><CopyableCode code="configuration_values" /></td><td><code>string</code></td><td>The configuration values to use with the add-on</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the add-on</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +62,24 @@ Used to retrieve a list of <code>addons</code> in a region or to create or delet
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>addons</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +88,26 @@ addon_name
 FROM aws.eks.addons
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>addon</code>.
+```sql
+SELECT
+region,
+cluster_name,
+addon_name,
+addon_version,
+preserve_on_delete,
+resolve_conflicts,
+service_account_role_arn,
+pod_identity_associations,
+configuration_values,
+arn,
+tags
+FROM aws.eks.addons
+WHERE region = 'us-east-1' AND data__Identifier = '<ClusterName>|<AddonName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>addon</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -112,6 +145,7 @@ INSERT INTO aws.eks.addons (
  PreserveOnDelete,
  ResolveConflicts,
  ServiceAccountRoleArn,
+ PodIdentityAssociations,
  ConfigurationValues,
  Tags,
  region
@@ -123,6 +157,7 @@ SELECT
  '{{ PreserveOnDelete }}',
  '{{ ResolveConflicts }}',
  '{{ ServiceAccountRoleArn }}',
+ '{{ PodIdentityAssociations }}',
  '{{ ConfigurationValues }}',
  '{{ Tags }}',
  '{{ region }}';
@@ -154,18 +189,26 @@ resources:
         value: '{{ ResolveConflicts }}'
       - name: ServiceAccountRoleArn
         value: '{{ ServiceAccountRoleArn }}'
+      - name: PodIdentityAssociations
+        value:
+          - ClusterName: '{{ ClusterName }}'
+            RoleArn: '{{ RoleArn }}'
+            Namespace: '{{ Namespace }}'
+            ServiceAccount: '{{ ServiceAccount }}'
+            Tags:
+              - Key: '{{ Key }}'
+                Value: '{{ Value }}'
       - name: ConfigurationValues
         value: '{{ ConfigurationValues }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - null
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -183,17 +226,39 @@ To operate on the <code>addons</code> resource, the following permissions are re
 eks:CreateAddon,
 eks:DescribeAddon,
 eks:TagResource,
-iam:PassRole
+iam:PassRole,
+iam:GetRole,
+eks:CreatePodIdentityAssociation
+```
+
+### Read
+```json
+eks:DescribeAddon
 ```
 
 ### Delete
 ```json
 eks:DeleteAddon,
-eks:DescribeAddon
+eks:DescribeAddon,
+eks:DeletePodIdentityAssociation
 ```
 
 ### List
 ```json
 eks:ListAddons
+```
+
+### Update
+```json
+iam:PassRole,
+iam:GetRole,
+eks:UpdateAddon,
+eks:DescribeAddon,
+eks:DescribeUpdate,
+eks:ListTagsForResource,
+eks:TagResource,
+eks:UntagResource,
+eks:CreatePodIdentityAssociation,
+eks:DeletePodIdentityAssociation
 ```
 

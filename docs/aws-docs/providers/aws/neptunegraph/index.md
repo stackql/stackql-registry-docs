@@ -20,9 +20,9 @@ The neptunegraph service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -31,11 +31,9 @@ The neptunegraph service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/neptunegraph/graph/">graph</a><br />
 <a href="/providers/aws/neptunegraph/graphs/">graphs</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/neptunegraph/private_graph_endpoint/">private_graph_endpoint</a><br />
 <a href="/providers/aws/neptunegraph/private_graph_endpoints/">private_graph_endpoints</a>
 </div>
 </div>

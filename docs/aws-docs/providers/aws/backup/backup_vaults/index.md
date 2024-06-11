@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>backup_vaults</code> in a region or to create or delete a <code>backup_vaults</code> resource, use <code>backup_vault</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>backup_vault</code> resource or lists <code>backup_vaults</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>backup_vaults</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_policy" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="backup_vault_name" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="backup_vault_tags" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_key_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="notifications" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="lock_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="backup_vault_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>backup_vaults</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>backup_vaults</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ backup_vault_name
 FROM aws.backup.backup_vaults
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>backup_vault</code>.
+```sql
+SELECT
+region,
+access_policy,
+backup_vault_name,
+backup_vault_tags,
+encryption_key_arn,
+notifications,
+lock_configuration,
+backup_vault_arn
+FROM aws.backup.backup_vaults
+WHERE region = 'us-east-1' AND data__Identifier = '<BackupVaultName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>backup_vault</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -157,7 +185,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -184,6 +212,28 @@ kms:GenerateDataKey,
 kms:Decrypt,
 kms:RetireGrant,
 kms:DescribeKey
+```
+
+### Read
+```json
+backup:DescribeBackupVault,
+backup:GetBackupVaultNotifications,
+backup:GetBackupVaultAccessPolicy,
+backup:ListTags
+```
+
+### Update
+```json
+backup:DescribeBackupVault,
+backup:DeleteBackupVaultAccessPolicy,
+backup:DeleteBackupVaultNotifications,
+backup:DeleteBackupVaultLockConfiguration,
+backup:ListTags,
+backup:TagResource,
+backup:UntagResource,
+backup:PutBackupVaultAccessPolicy,
+backup:PutBackupVaultNotifications,
+backup:PutBackupVaultLockConfiguration
 ```
 
 ### Delete

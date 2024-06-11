@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>certificate_authority_activations</code> in a region or to create or delete a <code>certificate_authority_activations</code> resource, use <code>certificate_authority_activation</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>certificate_authority_activation</code> resource or lists <code>certificate_authority_activations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>certificate_authority_activations</code> in a r
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="certificate_authority_arn" /></td><td><code>string</code></td><td>Arn of the Certificate Authority.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="certificate_authority_arn" /></td><td><code>string</code></td><td>Arn of the Certificate Authority.</td></tr>
+<tr><td><CopyableCode code="certificate" /></td><td><code>string</code></td><td>Certificate Authority certificate that will be installed in the Certificate Authority.</td></tr>
+<tr><td><CopyableCode code="certificate_chain" /></td><td><code>string</code></td><td>Certificate chain for the Certificate Authority certificate.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the Certificate Authority.</td></tr>
+<tr><td><CopyableCode code="complete_certificate_chain" /></td><td><code>string</code></td><td>The complete certificate chain, including the Certificate Authority certificate.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +57,34 @@ Used to retrieve a list of <code>certificate_authority_activations</code> in a r
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>certificate_authority_activation</code>.
 ```sql
 SELECT
 region,
-certificate_authority_arn
+certificate_authority_arn,
+certificate,
+certificate_chain,
+status,
+complete_certificate_chain
 FROM aws.acmpca.certificate_authority_activations
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<CertificateAuthorityArn>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>certificate_authority_activation</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -145,7 +157,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -164,8 +176,20 @@ acm-pca:ImportCertificateAuthorityCertificate,
 acm-pca:UpdateCertificateAuthority
 ```
 
+### Read
+```json
+acm-pca:GetCertificateAuthorityCertificate,
+acm-pca:DescribeCertificateAuthority
+```
+
 ### Delete
 ```json
+acm-pca:UpdateCertificateAuthority
+```
+
+### Update
+```json
+acm-pca:ImportCertificateAuthorityCertificate,
 acm-pca:UpdateCertificateAuthority
 ```
 

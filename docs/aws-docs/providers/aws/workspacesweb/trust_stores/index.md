@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>trust_stores</code> in a region or to create or delete a <code>trust_stores</code> resource, use <code>trust_store</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>trust_store</code> resource or lists <code>trust_stores</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>trust_stores</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="associated_portal_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate_list" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="trust_store_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>trust_stores</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>trust_stores</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ trust_store_arn
 FROM aws.workspacesweb.trust_stores
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>trust_store</code>.
+```sql
+SELECT
+region,
+associated_portal_arns,
+certificate_list,
+tags,
+trust_store_arn
+FROM aws.workspacesweb.trust_stores
+WHERE region = 'us-east-1' AND data__Identifier = '<TrustStoreArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>trust_store</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -138,7 +160,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -159,6 +181,25 @@ workspaces-web:GetTrustStoreCertificate,
 workspaces-web:ListTrustStoreCertificates,
 workspaces-web:ListTagsForResource,
 workspaces-web:TagResource
+```
+
+### Read
+```json
+workspaces-web:GetTrustStore,
+workspaces-web:GetTrustStoreCertificate,
+workspaces-web:ListTagsForResource,
+workspaces-web:ListTrustStoreCertificates
+```
+
+### Update
+```json
+workspaces-web:UpdateTrustStore,
+workspaces-web:TagResource,
+workspaces-web:UntagResource,
+workspaces-web:GetTrustStore,
+workspaces-web:GetTrustStoreCertificate,
+workspaces-web:ListTagsForResource,
+workspaces-web:ListTrustStoreCertificates
 ```
 
 ### Delete

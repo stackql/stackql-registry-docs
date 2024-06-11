@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>studio_session_mappings</code> in a region or to create or delete a <code>studio_session_mappings</code> resource, use <code>studio_session_mapping</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>studio_session_mapping</code> resource or lists <code>studio_session_mappings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,11 @@ Used to retrieve a list of <code>studio_session_mappings</code> in a region or t
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td>The ID of the Amazon EMR Studio to which the user or group will be mapped.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="identity_name" /></td><td><code>string</code></td><td>The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.</td></tr>
 <tr><td><CopyableCode code="identity_type" /></td><td><code>string</code></td><td>Specifies whether the identity to map to the Studio is a user or a group.</td></tr>
-<tr><td><CopyableCode code="identity_name" /></td><td><code>string</code></td><td>The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.</td></tr>
+<tr><td><CopyableCode code="session_policy_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.</td></tr>
+<tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td>The ID of the Amazon EMR Studio to which the user or group will be mapped.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +56,24 @@ Used to retrieve a list of <code>studio_session_mappings</code> in a region or t
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>studio_session_mappings</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +83,20 @@ identity_name
 FROM aws.emr.studio_session_mappings
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>studio_session_mapping</code>.
+```sql
+SELECT
+region,
+identity_name,
+identity_type,
+session_policy_arn,
+studio_id
+FROM aws.emr.studio_session_mappings
+WHERE region = 'us-east-1' AND data__Identifier = '<StudioId>|<IdentityType>|<IdentityName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>studio_session_mapping</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -153,7 +173,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -178,6 +198,29 @@ sso:ListDirectoryAssociations,
 sso:GetProfile,
 sso:ListProfiles,
 sso:AssociateProfile
+```
+
+### Read
+```json
+elasticmapreduce:GetStudioSessionMapping,
+sso-directory:SearchUsers,
+sso-directory:SearchGroups,
+sso-directory:DescribeUser,
+sso-directory:DescribeGroup,
+sso:GetManagedApplicationInstance,
+sso:DescribeInstance
+```
+
+### Update
+```json
+elasticmapreduce:GetStudioSessionMapping,
+elasticmapreduce:UpdateStudioSessionMapping,
+sso-directory:SearchUsers,
+sso-directory:SearchGroups,
+sso-directory:DescribeUser,
+sso-directory:DescribeGroup,
+sso:GetManagedApplicationInstance,
+sso:DescribeInstance
 ```
 
 ### Delete

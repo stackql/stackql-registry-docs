@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>log_anomaly_detectors</code> in a region or to create or delete a <code>log_anomaly_detectors</code> resource, use <code>log_anomaly_detector</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>log_anomaly_detector</code> resource or lists <code>log_anomaly_detectors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>log_anomaly_detectors</code> in a region or to 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>Account ID for owner of detector</td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.</td></tr>
+<tr><td><CopyableCode code="detector_name" /></td><td><code>string</code></td><td>Name of detector</td></tr>
+<tr><td><CopyableCode code="log_group_arn_list" /></td><td><code>array</code></td><td>List of Arns for the given log group</td></tr>
+<tr><td><CopyableCode code="evaluation_frequency" /></td><td><code>string</code></td><td>How often log group is evaluated</td></tr>
+<tr><td><CopyableCode code="filter_pattern" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="anomaly_detector_status" /></td><td><code>string</code></td><td>Current status of detector.</td></tr>
+<tr><td><CopyableCode code="anomaly_visibility_time" /></td><td><code>number</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time_stamp" /></td><td><code>number</code></td><td>When detector was created.</td></tr>
+<tr><td><CopyableCode code="last_modified_time_stamp" /></td><td><code>number</code></td><td>When detector was lsat modified.</td></tr>
 <tr><td><CopyableCode code="anomaly_detector_arn" /></td><td><code>string</code></td><td>ARN of LogAnomalyDetector</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>log_anomaly_detectors</code> in a region or to 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>log_anomaly_detectors</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ anomaly_detector_arn
 FROM aws.logs.log_anomaly_detectors
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>log_anomaly_detector</code>.
+```sql
+SELECT
+region,
+account_id,
+kms_key_id,
+detector_name,
+log_group_arn_list,
+evaluation_frequency,
+filter_pattern,
+anomaly_detector_status,
+anomaly_visibility_time,
+creation_time_stamp,
+last_modified_time_stamp,
+anomaly_detector_arn
+FROM aws.logs.log_anomaly_detectors
+WHERE region = 'us-east-1' AND data__Identifier = '<AnomalyDetectorArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>log_anomaly_detector</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -156,7 +192,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -172,6 +208,16 @@ To operate on the <code>log_anomaly_detectors</code> resource, the following per
 ### Create
 ```json
 logs:CreateLogAnomalyDetector
+```
+
+### Read
+```json
+logs:GetLogAnomalyDetector
+```
+
+### Update
+```json
+logs:UpdateLogAnomalyDetector
 ```
 
 ### Delete

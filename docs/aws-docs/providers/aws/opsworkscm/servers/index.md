@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>servers</code> in a region or to create or delete a <code>servers</code> resource, use <code>server</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>server</code> resource or lists <code>servers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,30 @@ Used to retrieve a list of <code>servers</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="key_pair" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="disable_automated_backup" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="backup_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_model" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="preferred_maintenance_window" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="associate_public_ip_address" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_profile_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_certificate" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="preferred_backup_window" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_domain" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="endpoint" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_private_key" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="server_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_attributes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="backup_retention_count" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +75,24 @@ Used to retrieve a list of <code>servers</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>servers</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +100,39 @@ server_name
 FROM aws.opsworkscm.servers
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>server</code>.
+```sql
+SELECT
+region,
+key_pair,
+engine_version,
+service_role_arn,
+disable_automated_backup,
+backup_id,
+engine_model,
+preferred_maintenance_window,
+associate_public_ip_address,
+instance_profile_arn,
+custom_certificate,
+preferred_backup_window,
+security_group_ids,
+subnet_ids,
+custom_domain,
+endpoint,
+custom_private_key,
+server_name,
+engine_attributes,
+backup_retention_count,
+arn,
+instance_type,
+tags,
+engine
+FROM aws.opsworkscm.servers
+WHERE region = 'us-east-1' AND data__Identifier = '<ServerName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>server</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -217,7 +277,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -243,9 +303,22 @@ opsworks-cm:DeleteServer,
 opsworks-cm:DescribeServers
 ```
 
+### Update
+```json
+opsworks-cm:UpdateServer,
+opsworks-cm:TagResource,
+opsworks-cm:UntagResource,
+opsworks-cm:DescribeServers
+```
+
 ### List
 ```json
 opsworks-cm:DescribeServers,
 opsworks-cm:ListTagsForResource
+```
+
+### Read
+```json
+opsworks-cm:DescribeServers
 ```
 
