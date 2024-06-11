@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>delegated_admins</code> in a region or to create or delete a <code>delegated_admins</code> resource, use <code>delegated_admin</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>delegated_admin</code> resource or lists <code>delegated_admins</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>delegated_admins</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="delegated_admin_identifier" /></td><td><code>string</code></td><td>The identifier of the DelegatedAdmin being created and assigned as the unique identifier</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="delegated_admin_identifier" /></td><td><code>string</code></td><td>The identifier of the DelegatedAdmin being created and assigned as the unique identifier</td></tr>
+<tr><td><CopyableCode code="admin_account_id" /></td><td><code>string</code></td><td>The Amazon Web Services account identifier of the account to designate as the Security Hub administrator account</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +59,15 @@ Used to retrieve a list of <code>delegated_admins</code> in a region or to creat
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>delegated_admins</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +75,19 @@ delegated_admin_identifier
 FROM aws.securityhub.delegated_admins
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>delegated_admin</code>.
+```sql
+SELECT
+region,
+delegated_admin_identifier,
+admin_account_id,
+status
+FROM aws.securityhub.delegated_admins
+WHERE region = 'us-east-1' AND data__Identifier = '<DelegatedAdminIdentifier>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>delegated_admin</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -131,7 +146,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -150,6 +165,12 @@ securityhub:EnableOrganizationAdminAccount,
 organizations:DescribeOrganization,
 organizations:EnableAWSServiceAccess,
 organizations:RegisterDelegatedAdministrator
+```
+
+### Read
+```json
+securityhub:ListOrganizationAdminAccounts,
+organizations:DescribeOrganization
 ```
 
 ### Delete

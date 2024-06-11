@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>access_points</code> in a region or to create or delete a <code>access_points</code> resource, use <code>access_point</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>access_point</code> resource or lists <code>access_points</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>access_points</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified AccessPoint.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified AccessPoint.</td></tr>
+<tr><td><CopyableCode code="bucket" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the AccessPoint.</td></tr>
+<tr><td><CopyableCode code="vpc_configuration" /></td><td><code>object</code></td><td>Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.</td></tr>
+<tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td>The access point policy associated with this access point.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>access_points</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>access_points</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ arn
 FROM aws.s3outposts.access_points
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>access_point</code>.
+```sql
+SELECT
+region,
+arn,
+bucket,
+name,
+vpc_configuration,
+policy
+FROM aws.s3outposts.access_points
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>access_point</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -148,7 +172,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -167,6 +191,20 @@ s3-outposts:CreateAccessPoint,
 s3-outposts:GetAccessPoint,
 s3-outposts:PutAccessPointPolicy,
 s3-outposts:GetAccessPointPolicy
+```
+
+### Read
+```json
+s3-outposts:GetAccessPoint,
+s3-outposts:GetAccessPointPolicy
+```
+
+### Update
+```json
+s3-outposts:GetAccessPoint,
+s3-outposts:PutAccessPointPolicy,
+s3-outposts:GetAccessPointPolicy,
+s3-outposts:DeleteAccessPointPolicy
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>cidr_collections</code> in a region or to create or delete a <code>cidr_collections</code> resource, use <code>cidr_collection</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>cidr_collection</code> resource or lists <code>cidr_collections</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>cidr_collections</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>UUID of the CIDR collection.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>UUID of the CIDR collection.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A unique name for the CIDR collection.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon resource name (ARN) to uniquely identify the AWS resource.</td></tr>
+<tr><td><CopyableCode code="locations" /></td><td><code>array</code></td><td>A complex type that contains information about the list of CIDR locations.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>cidr_collections</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>cidr_collections</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ id
 FROM aws.route53.cidr_collections
 ;
 ```
+Gets all properties from a <code>cidr_collection</code>.
+```sql
+SELECT
+region,
+id,
+name,
+arn,
+locations
+FROM aws.route53.cidr_collections
+WHERE data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>cidr_collection</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -138,7 +160,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -154,6 +176,17 @@ To operate on the <code>cidr_collections</code> resource, the following permissi
 ### Create
 ```json
 route53:CreateCidrCollection,
+route53:ChangeCidrCollection
+```
+
+### Read
+```json
+route53:ListCidrCollections,
+route53:ListCidrBlocks
+```
+
+### Update
+```json
 route53:ChangeCidrCollection
 ```
 

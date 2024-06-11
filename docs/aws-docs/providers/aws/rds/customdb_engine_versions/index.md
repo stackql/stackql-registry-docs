@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>customdb_engine_versions</code> in a region or to create or delete a <code>customdb_engine_versions</code> resource, use <code>customdb_engine_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>customdb_engine_version</code> resource or lists <code>customdb_engine_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,20 @@ Used to retrieve a list of <code>customdb_engine_versions</code> in a region or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="database_installation_files_s3_bucket_name" /></td><td><code>string</code></td><td>The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.</td></tr>
+<tr><td><CopyableCode code="database_installation_files_s3_prefix" /></td><td><code>string</code></td><td>The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>An optional description of your CEV.</td></tr>
 <tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.</td></tr>
 <tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.</td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.</td></tr>
+<tr><td><CopyableCode code="manifest" /></td><td><code>string</code></td><td>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</td></tr>
+<tr><td><CopyableCode code="db_engine_version_arn" /></td><td><code>string</code></td><td>The ARN of the custom engine version.</td></tr>
+<tr><td><CopyableCode code="source_custom_db_engine_version_identifier" /></td><td><code>string</code></td><td>The identifier of the source custom engine version.</td></tr>
+<tr><td><CopyableCode code="use_aws_provided_latest_image" /></td><td><code>boolean</code></td><td>A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.</td></tr>
+<tr><td><CopyableCode code="image_id" /></td><td><code>string</code></td><td>The identifier of Amazon Machine Image (AMI) used for CEV.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The availability status to be assigned to the CEV.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +65,24 @@ Used to retrieve a list of <code>customdb_engine_versions</code> in a region or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>customdb_engine_versions</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +91,29 @@ engine_version
 FROM aws.rds.customdb_engine_versions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>customdb_engine_version</code>.
+```sql
+SELECT
+region,
+database_installation_files_s3_bucket_name,
+database_installation_files_s3_prefix,
+description,
+engine,
+engine_version,
+kms_key_id,
+manifest,
+db_engine_version_arn,
+source_custom_db_engine_version_identifier,
+use_aws_provided_latest_image,
+image_id,
+status,
+tags
+FROM aws.rds.customdb_engine_versions
+WHERE region = 'us-east-1' AND data__Identifier = '<Engine>|<EngineVersion>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>customdb_engine_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -181,7 +220,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -217,6 +256,19 @@ s3:ListBucket,
 s3:PutBucketObjectLockConfiguration,
 s3:PutBucketPolicy,
 s3:PutBucketVersioning
+```
+
+### Read
+```json
+rds:DescribeDBEngineVersions
+```
+
+### Update
+```json
+rds:AddTagsToResource,
+rds:DescribeDBEngineVersions,
+rds:ModifyCustomDBEngineVersion,
+rds:RemoveTagsFromResource
 ```
 
 ### Delete

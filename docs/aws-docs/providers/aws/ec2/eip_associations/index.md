@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>eip_associations</code> in a region or to create or delete a <code>eip_associations</code> resource, use <code>eip_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>eip_association</code> resource or lists <code>eip_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>eip_associations</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Composite ID of non-empty properties, to determine the identification.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Composite ID of non-empty properties, to determine the identification.</td></tr>
+<tr><td><CopyableCode code="allocation_id" /></td><td><code>string</code></td><td>The allocation ID. This is required for EC2-VPC.</td></tr>
+<tr><td><CopyableCode code="network_interface_id" /></td><td><code>string</code></td><td>The ID of the network interface.</td></tr>
+<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>The ID of the instance.</td></tr>
+<tr><td><CopyableCode code="private_ip_address" /></td><td><code>string</code></td><td>The primary or secondary private IP address to associate with the Elastic IP address.</td></tr>
+<tr><td><CopyableCode code="e_ip" /></td><td><code>string</code></td><td>The Elastic IP address to associate with the instance.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +62,15 @@ Used to retrieve a list of <code>eip_associations</code> in a region or to creat
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>eip_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +78,22 @@ id
 FROM aws.ec2.eip_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>eip_association</code>.
+```sql
+SELECT
+region,
+id,
+allocation_id,
+network_interface_id,
+instance_id,
+private_ip_address,
+e_ip
+FROM aws.ec2.eip_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>eip_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -155,7 +176,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -172,6 +193,11 @@ To operate on the <code>eip_associations</code> resource, the following permissi
 ```json
 ec2:DescribeAddresses,
 ec2:AssociateAddress
+```
+
+### Read
+```json
+ec2:DescribeAddresses
 ```
 
 ### Delete

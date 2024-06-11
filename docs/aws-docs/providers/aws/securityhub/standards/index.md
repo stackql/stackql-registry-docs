@@ -19,23 +19,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>standards</code> in a region or to create or delete a <code>standards</code> resource, use <code>standard</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>standard</code> resource or lists <code>standards</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>standards</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The <code>AWS::SecurityHub::Standard</code> resource specifies the enablement of a security standard. The standard is identified by the <code>StandardsArn</code> property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the &#91;DescribeStandards&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;securityhub&#x2F;1.0&#x2F;APIReference&#x2F;API_DescribeStandards.html) API operation.&lt;br&#x2F;&gt; You must create a separate <code>AWS::SecurityHub::Standard</code> resource for each standard that you want to enable.&lt;br&#x2F;&gt; For more information about ASH standards, see &#91;standards reference&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;securityhub&#x2F;latest&#x2F;userguide&#x2F;standards-reference.html) in the *User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::SecurityHub::Standard</code> resource specifies the enablement of a security standard. The standard is identified by the <code>StandardsArn</code> property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the &#91;DescribeStandards&#93;(https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.<br/> You must create a separate <code>AWS::SecurityHub::Standard</code> resource for each standard that you want to enable.<br/> For more information about ASH standards, see &#91;standards reference&#93;(https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.securityhub.standards" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="standards_subscription_arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="standards_subscription_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="standards_arn" /></td><td><code>string</code></td><td>The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the &#91;DescribeStandards&#93;(https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.</td></tr>
+<tr><td><CopyableCode code="disabled_standards_controls" /></td><td><code>array</code></td><td>Specifies which controls are to be disabled in a standard. <br/> *Maximum*: <code>100</code></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +55,24 @@ Used to retrieve a list of <code>standards</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>standards</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,19 @@ standards_subscription_arn
 FROM aws.securityhub.standards
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>standard</code>.
+```sql
+SELECT
+region,
+standards_subscription_arn,
+standards_arn,
+disabled_standards_controls
+FROM aws.securityhub.standards
+WHERE region = 'us-east-1' AND data__Identifier = '<StandardsSubscriptionArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>standard</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +157,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -154,6 +174,18 @@ To operate on the <code>standards</code> resource, the following permissions are
 ```json
 securityhub:GetEnabledStandards,
 securityhub:BatchEnableStandards,
+securityhub:UpdateStandardsControl
+```
+
+### Read
+```json
+securityhub:GetEnabledStandards,
+securityhub:DescribeStandardsControls
+```
+
+### Update
+```json
+securityhub:GetEnabledStandards,
 securityhub:UpdateStandardsControl
 ```
 

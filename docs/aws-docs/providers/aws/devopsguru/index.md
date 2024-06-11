@@ -20,9 +20,9 @@ The devopsguru service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -31,13 +31,10 @@ The devopsguru service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/devopsguru/log_anomaly_detection_integration/">log_anomaly_detection_integration</a><br />
 <a href="/providers/aws/devopsguru/log_anomaly_detection_integrations/">log_anomaly_detection_integrations</a><br />
-<a href="/providers/aws/devopsguru/notification_channel/">notification_channel</a>
+<a href="/providers/aws/devopsguru/notification_channels/">notification_channels</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/devopsguru/notification_channels/">notification_channels</a><br />
-<a href="/providers/aws/devopsguru/resource_collection/">resource_collection</a><br />
 <a href="/providers/aws/devopsguru/resource_collections/">resource_collections</a>
 </div>
 </div>

@@ -20,9 +20,9 @@ The forecast service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -31,11 +31,9 @@ The forecast service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/forecast/dataset/">dataset</a><br />
-<a href="/providers/aws/forecast/dataset_group/">dataset_group</a>
+<a href="/providers/aws/forecast/dataset_groups/">dataset_groups</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/forecast/dataset_groups/">dataset_groups</a><br />
 <a href="/providers/aws/forecast/datasets/">datasets</a>
 </div>
 </div>

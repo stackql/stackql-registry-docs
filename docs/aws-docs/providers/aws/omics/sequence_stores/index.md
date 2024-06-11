@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>sequence_stores</code> in a region or to create or delete a <code>sequence_stores</code> resource, use <code>sequence_store</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>sequence_store</code> resource or lists <code>sequence_stores</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>sequence_stores</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The store's ARN.</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>When the store was created.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the store.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the store.</td></tr>
+<tr><td><CopyableCode code="fallback_location" /></td><td><code>string</code></td><td>An S3 URI representing the bucket and folder to store failed read set uploads.</td></tr>
 <tr><td><CopyableCode code="sequence_store_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="sse_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>A map of resource tags</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +64,15 @@ Used to retrieve a list of <code>sequence_stores</code> in a region or to create
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>sequence_stores</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,24 @@ sequence_store_id
 FROM aws.omics.sequence_stores
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>sequence_store</code>.
+```sql
+SELECT
+region,
+arn,
+creation_time,
+description,
+name,
+fallback_location,
+sequence_store_id,
+sse_config,
+tags
+FROM aws.omics.sequence_stores
+WHERE region = 'us-east-1' AND data__Identifier = '<SequenceStoreId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>sequence_store</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +174,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -166,6 +191,12 @@ To operate on the <code>sequence_stores</code> resource, the following permissio
 ```json
 omics:CreateSequenceStore,
 omics:TagResource
+```
+
+### Read
+```json
+omics:GetSequenceStore,
+omics:ListTagsForResource
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>app_monitors</code> in a region or to create or delete a <code>app_monitors</code> resource, use <code>app_monitor</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>app_monitor</code> resource or lists <code>app_monitors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>app_monitors</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique ID of the new app monitor.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the app monitor</td></tr>
+<tr><td><CopyableCode code="domain" /></td><td><code>string</code></td><td>The top-level internet domain name for which your application has administrative authority.</td></tr>
+<tr><td><CopyableCode code="cw_log_enabled" /></td><td><code>boolean</code></td><td>Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>Assigns one or more tags (key-value pairs) to the app monitor. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values. Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.You can associate as many as 50 tags with an app monitor.</code></td><td></td></tr>
+<tr><td><CopyableCode code="app_monitor_configuration" /></td><td><code>AppMonitor configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_events" /></td><td><code>AppMonitor custom events configuration</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>app_monitors</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>app_monitors</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ name
 FROM aws.rum.app_monitors
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>app_monitor</code>.
+```sql
+SELECT
+region,
+id,
+name,
+domain,
+cw_log_enabled,
+tags,
+app_monitor_configuration,
+custom_events
+FROM aws.rum.app_monitors
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>app_monitor</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -179,7 +207,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -194,6 +222,7 @@ To operate on the <code>app_monitors</code> resource, the following permissions 
 
 ### Create
 ```json
+rum:GetAppMonitor,
 rum:CreateAppMonitor,
 dynamodb:GetItem,
 dynamodb:PutItem,
@@ -210,15 +239,67 @@ logs:DescribeResourcePolicies,
 logs:DescribeLogGroups,
 logs:PutRetentionPolicy,
 rum:TagResource,
+rum:ListTagsForResource,
 cognito-identity:DescribeIdentityPool,
 iam:GetRole,
 iam:CreateServiceLinkedRole,
+iam:PassRole,
 rum:PutRumMetricsDestination,
-rum:BatchCreateRumMetricDefinitions
+rum:BatchCreateRumMetricDefinitions,
+rum:ListRumMetricsDestinations,
+rum:BatchGetRumMetricDefinitions
+```
+
+### Read
+```json
+rum:GetAppMonitor,
+dynamodb:GetItem,
+s3:GetObject,
+s3:DoesObjectExist,
+s3:GetObjectAcl,
+rum:ListTagsForResource,
+rum:ListRumMetricsDestinations,
+rum:BatchGetRumMetricDefinitions
+```
+
+### Update
+```json
+rum:GetAppMonitor,
+rum:UpdateAppMonitor,
+dynamodb:GetItem,
+dynamodb:PutItem,
+dynamodb:UpdateItem,
+dynamodb:Query,
+s3:GetObject,
+s3:PutObject,
+s3:GetObjectAcl,
+s3:DoesObjectExist,
+logs:CreateLogDelivery,
+logs:CreateLogGroup,
+logs:GetLogDelivery,
+logs:UpdateLogDelivery,
+logs:PutResourcePolicy,
+logs:DescribeResourcePolicies,
+logs:DescribeLogGroups,
+logs:PutRetentionPolicy,
+rum:TagResource,
+rum:UntagResource,
+rum:ListTagsForResource,
+iam:GetRole,
+iam:CreateServiceLinkedRole,
+iam:PassRole,
+rum:PutRumMetricsDestination,
+rum:DeleteRumMetricsDestination,
+rum:ListRumMetricsDestinations,
+rum:BatchCreateRumMetricDefinitions,
+rum:BatchDeleteRumMetricDefinitions,
+rum:BatchGetRumMetricDefinitions,
+rum:UpdateRumMetricDefinition
 ```
 
 ### Delete
 ```json
+rum:GetAppMonitor,
 rum:DeleteAppMonitor,
 dynamodb:DeleteItem,
 dynamodb:Query,
@@ -226,8 +307,11 @@ logs:DeleteLogDelivery,
 s3:DeleteObject,
 s3:DoesObjectExist,
 rum:UntagResource,
+rum:ListTagsForResource,
 rum:DeleteRumMetricsDestination,
-rum:BatchDeleteRumMetricDefinitions
+rum:BatchDeleteRumMetricDefinitions,
+rum:ListRumMetricsDestinations,
+rum:BatchGetRumMetricDefinitions
 ```
 
 ### List

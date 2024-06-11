@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>branches</code> in a region or to create or delete a <code>branches</code> resource, use <code>branch</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>branch</code> resource or lists <code>branches</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,22 @@ Used to retrieve a list of <code>branches</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="app_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="basic_auth_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="backend" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="branch_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="build_spec" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="enable_auto_build" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="enable_performance_mode" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="enable_pull_request_preview" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="environment_variables" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="framework" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="pull_request_environment_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stage" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +67,24 @@ Used to retrieve a list of <code>branches</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>branches</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +92,31 @@ arn
 FROM aws.amplify.branches
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>branch</code>.
+```sql
+SELECT
+region,
+app_id,
+arn,
+basic_auth_config,
+backend,
+branch_name,
+build_spec,
+description,
+enable_auto_build,
+enable_performance_mode,
+enable_pull_request_preview,
+environment_variables,
+framework,
+pull_request_environment_name,
+stage,
+tags
+FROM aws.amplify.branches
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>branch</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -193,7 +237,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -238,6 +282,37 @@ iam:PassRole
 amplify:GetBranch,
 amplify:ListBranches,
 amplify:ListTagsForResource,
+iam:PassRole
+```
+
+### Read
+```json
+amplify:GetBranch,
+amplify:ListTagsForResource,
+codecommit:GetRepository,
+codecommit:GetRepositoryTriggers,
+s3:GetObject,
+s3:GetObjectAcl,
+iam:PassRole
+```
+
+### Update
+```json
+amplify:GetBranch,
+amplify:UpdateBranch,
+amplify:ListTagsForResource,
+amplify:TagResource,
+amplify:UntagResource,
+codecommit:GetRepository,
+codecommit:PutRepositoryTriggers,
+codecommit:GetRepositoryTriggers,
+s3:GetObject,
+s3:GetObjectAcl,
+s3:PutObject,
+s3:PutObjectAcl,
+sns:CreateTopic,
+sns:Subscribe,
+sns:Unsubscribe,
 iam:PassRole
 ```
 

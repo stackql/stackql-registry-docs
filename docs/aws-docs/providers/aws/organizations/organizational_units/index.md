@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>organizational_units</code> in a region or to create or delete a <code>organizational_units</code> resource, use <code>organizational_unit</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>organizational_unit</code> resource or lists <code>organizational_units</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>organizational_units</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of this OU.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique identifier (ID) associated with this OU.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The friendly name of this OU.</td></tr>
+<tr><td><CopyableCode code="parent_id" /></td><td><code>string</code></td><td>The unique identifier (ID) of the parent root or OU that you want to create the new OU in.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of tags that you want to attach to the newly created OU.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>organizational_units</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>organizational_units</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ id
 FROM aws.organizations.organizational_units
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>organizational_unit</code>.
+```sql
+SELECT
+region,
+arn,
+id,
+name,
+parent_id,
+tags
+FROM aws.organizations.organizational_units
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>organizational_unit</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -143,7 +167,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -163,6 +187,23 @@ organizations:DescribeOrganizationalUnit,
 organizations:ListParents,
 organizations:ListTagsForResource,
 organizations:TagResource
+```
+
+### Read
+```json
+organizations:DescribeOrganizationalUnit,
+organizations:ListParents,
+organizations:ListTagsForResource
+```
+
+### Update
+```json
+organizations:DescribeOrganizationalUnit,
+organizations:ListParents,
+organizations:ListTagsForResource,
+organizations:TagResource,
+organizations:UntagResource,
+organizations:UpdateOrganizationalUnit
 ```
 
 ### Delete

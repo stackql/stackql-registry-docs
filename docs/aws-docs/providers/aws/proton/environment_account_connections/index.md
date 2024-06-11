@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>environment_account_connections</code> in a region or to create or delete a <code>environment_account_connections</code> resource, use <code>environment_account_connection</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>environment_account_connection</code> resource or lists <code>environment_account_connections</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>environment_account_connections</code> in a reg
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the environment account connection.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the environment account connection.</td></tr>
+<tr><td><CopyableCode code="codebuild_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.</td></tr>
+<tr><td><CopyableCode code="component_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM service role that AWS Proton uses when provisioning directly defined components in the associated environment account. It determines the scope of infrastructure that a component can provision in the account.</td></tr>
+<tr><td><CopyableCode code="environment_account_id" /></td><td><code>string</code></td><td>The environment account that's connected to the environment account connection.</td></tr>
+<tr><td><CopyableCode code="environment_name" /></td><td><code>string</code></td><td>The name of the AWS Proton environment that's created in the associated management account.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the environment account connection.</td></tr>
+<tr><td><CopyableCode code="management_account_id" /></td><td><code>string</code></td><td>The ID of the management account that accepts or rejects the environment account connection. You create an manage the AWS Proton environment in this account. If the management account accepts the environment account connection, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. AWS Proton uses this role to provision infrastructure resources in the associated environment account.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the environment account connection.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td><p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p><br/>         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the<br/>        <i>Proton User Guide</i>.</p></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>environment_account_connections</code> in a reg
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>environment_account_connections</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ arn
 FROM aws.proton.environment_account_connections
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>environment_account_connection</code>.
+```sql
+SELECT
+region,
+arn,
+codebuild_role_arn,
+component_role_arn,
+environment_account_id,
+environment_name,
+id,
+management_account_id,
+role_arn,
+status,
+tags
+FROM aws.proton.environment_account_connections
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>environment_account_connection</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -169,7 +203,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -188,6 +222,25 @@ proton:CreateEnvironmentAccountConnection,
 proton:TagResource,
 iam:PassRole,
 proton:ListTagsForResource,
+proton:GetEnvironmentAccountConnection
+```
+
+### Read
+```json
+proton:GetEnvironmentAccountConnection,
+proton:ListTagsForResource,
+iam:PassRole,
+proton:GetEnvironmentAccountConnection
+```
+
+### Update
+```json
+proton:CreateEnvironmentAccountConnection,
+proton:ListTagsForResource,
+proton:TagResource,
+proton:UntagResource,
+proton:UpdateEnvironmentAccountConnection,
+iam:PassRole,
 proton:GetEnvironmentAccountConnection
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>compute_environments</code> in a region or to create or delete a <code>compute_environments</code> resource, use <code>compute_environment</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>compute_environment</code> resource or lists <code>compute_environments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>compute_environments</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="compute_environment_arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="compute_environment_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="compute_environment_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="compute_resources" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="replace_compute_environment" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_role" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="update_policy" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="unmanagedv_cpus" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="eks_configuration" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>compute_environments</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>compute_environments</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ compute_environment_arn
 FROM aws.batch.compute_environments
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>compute_environment</code>.
+```sql
+SELECT
+region,
+compute_environment_arn,
+compute_environment_name,
+compute_resources,
+replace_compute_environment,
+service_role,
+state,
+tags,
+type,
+update_policy,
+unmanagedv_cpus,
+eks_configuration
+FROM aws.batch.compute_environments
+WHERE region = 'us-east-1' AND data__Identifier = '<ComputeEnvironmentArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>compute_environment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -198,7 +234,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -217,6 +253,21 @@ Batch:CreateComputeEnvironment,
 Batch:TagResource,
 Batch:DescribeComputeEnvironments,
 iam:CreateServiceLinkedRole,
+Iam:PassRole,
+Eks:DescribeCluster
+```
+
+### Read
+```json
+Batch:DescribeComputeEnvironments
+```
+
+### Update
+```json
+Batch:UpdateComputeEnvironment,
+Batch:DescribeComputeEnvironments,
+Batch:TagResource,
+Batch:UnTagResource,
 Iam:PassRole,
 Eks:DescribeCluster
 ```

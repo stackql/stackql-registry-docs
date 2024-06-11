@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>event_streams</code> in a region or to create or delete a <code>event_streams</code> resource, use <code>event_stream</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>event_stream</code> resource or lists <code>event_streams</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,15 @@ Used to retrieve a list of <code>event_streams</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
 <tr><td><CopyableCode code="event_stream_name" /></td><td><code>string</code></td><td>The name of the event stream.</td></tr>
+<tr><td><CopyableCode code="uri" /></td><td><code>The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name</code></td><td></td></tr>
+<tr><td><CopyableCode code="event_stream_arn" /></td><td><code>string</code></td><td>A unique identifier for the event stream.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags used to organize, track, or control access for this resource.</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The timestamp of when the export was created.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The operational state of destination stream for export.</td></tr>
+<tr><td><CopyableCode code="destination_details" /></td><td><code>object</code></td><td>Details regarding the Kinesis stream.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +60,24 @@ Used to retrieve a list of <code>event_streams</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>event_streams</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +86,24 @@ event_stream_name
 FROM aws.customerprofiles.event_streams
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>event_stream</code>.
+```sql
+SELECT
+region,
+domain_name,
+event_stream_name,
+uri,
+event_stream_arn,
+tags,
+created_at,
+state,
+destination_details
+FROM aws.customerprofiles.event_streams
+WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>|<EventStreamName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>event_stream</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +180,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -169,6 +198,20 @@ To operate on the <code>event_streams</code> resource, the following permissions
 profile:CreateEventStream,
 iam:PutRolePolicy,
 kinesis:DescribeStreamSummary,
+profile:TagResource
+```
+
+### Read
+```json
+profile:GetEventStream,
+kinesis:DescribeStreamSummary
+```
+
+### Update
+```json
+kinesis:DescribeStreamSummary,
+profile:GetEventStream,
+profile:UntagResource,
 profile:TagResource
 ```
 

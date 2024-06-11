@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>campaigns</code> in a region or to create or delete a <code>campaigns</code> resource, use <code>campaign</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>campaign</code> resource or lists <code>campaigns</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,28 @@ Used to retrieve a list of <code>campaigns</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="action" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="compression" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="priority" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="signals_to_collect" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_destination_configs" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="start_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="expiry_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_modification_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="spooling_mode" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="signal_catalog_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="post_trigger_collection_duration" /></td><td><code>number</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_extra_dimensions" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="diagnostics_mode" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="target_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="collection_scheme" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +73,24 @@ Used to retrieve a list of <code>campaigns</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>campaigns</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +98,37 @@ name
 FROM aws.iotfleetwise.campaigns
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>campaign</code>.
+```sql
+SELECT
+region,
+status,
+action,
+creation_time,
+compression,
+description,
+priority,
+signals_to_collect,
+data_destination_configs,
+start_time,
+name,
+expiry_time,
+last_modification_time,
+spooling_mode,
+signal_catalog_arn,
+post_trigger_collection_duration,
+data_extra_dimensions,
+diagnostics_mode,
+target_arn,
+arn,
+collection_scheme,
+tags
+FROM aws.iotfleetwise.campaigns
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>campaign</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -210,7 +266,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -223,6 +279,12 @@ AND region = 'us-east-1';
 
 To operate on the <code>campaigns</code> resource, the following permissions are required:
 
+### Read
+```json
+iotfleetwise:GetCampaign,
+iotfleetwise:ListTagsForResource
+```
+
 ### Create
 ```json
 iotfleetwise:CreateCampaign,
@@ -232,6 +294,15 @@ iotfleetwise:TagResource,
 iam:PassRole,
 timestream:DescribeEndpoints,
 timestream:DescribeTable
+```
+
+### Update
+```json
+iotfleetwise:GetCampaign,
+iotfleetwise:ListTagsForResource,
+iotfleetwise:UpdateCampaign,
+iotfleetwise:TagResource,
+iotfleetwise:UntagResource
 ```
 
 ### List

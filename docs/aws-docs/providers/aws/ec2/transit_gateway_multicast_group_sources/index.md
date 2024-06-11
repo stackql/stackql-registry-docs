@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>transit_gateway_multicast_group_sources</code> in a region or to create or delete a <code>transit_gateway_multicast_group_sources</code> resource, use <code>transit_gateway_multicast_group_source</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>transit_gateway_multicast_group_source</code> resource or lists <code>transit_gateway_multicast_group_sources</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,18 @@ Used to retrieve a list of <code>transit_gateway_multicast_group_sources</code> 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="group_ip_address" /></td><td><code>string</code></td><td>The IP address assigned to the transit gateway multicast group.</td></tr>
+<tr><td><CopyableCode code="transit_gateway_attachment_id" /></td><td><code>string</code></td><td>The ID of the transit gateway attachment.</td></tr>
 <tr><td><CopyableCode code="transit_gateway_multicast_domain_id" /></td><td><code>string</code></td><td>The ID of the transit gateway multicast domain.</td></tr>
-<tr><td><CopyableCode code="group_ip_address" /></td><td><code>string</code></td><td>The IP address assigned to the transit gateway multicast group.</td></tr>
+<tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The ID of the subnet.</td></tr>
+<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>The ID of the resource.</td></tr>
+<tr><td><CopyableCode code="resource_type" /></td><td><code>string</code></td><td>The type of resource, for example a VPC attachment.</td></tr>
 <tr><td><CopyableCode code="network_interface_id" /></td><td><code>string</code></td><td>The ID of the transit gateway attachment.</td></tr>
+<tr><td><CopyableCode code="group_member" /></td><td><code>boolean</code></td><td>Indicates that the resource is a transit gateway multicast group member.</td></tr>
+<tr><td><CopyableCode code="group_source" /></td><td><code>boolean</code></td><td>Indicates that the resource is a transit gateway multicast group member.</td></tr>
+<tr><td><CopyableCode code="member_type" /></td><td><code>string</code></td><td>The member type (for example, static).</td></tr>
+<tr><td><CopyableCode code="source_type" /></td><td><code>string</code></td><td>The source type.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -63,9 +67,15 @@ Used to retrieve a list of <code>transit_gateway_multicast_group_sources</code> 
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>transit_gateway_multicast_group_sources</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +85,27 @@ network_interface_id
 FROM aws.ec2.transit_gateway_multicast_group_sources
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>transit_gateway_multicast_group_source</code>.
+```sql
+SELECT
+region,
+group_ip_address,
+transit_gateway_attachment_id,
+transit_gateway_multicast_domain_id,
+subnet_id,
+resource_id,
+resource_type,
+network_interface_id,
+group_member,
+group_source,
+member_type,
+source_type
+FROM aws.ec2.transit_gateway_multicast_group_sources
+WHERE region = 'us-east-1' AND data__Identifier = '<TransitGatewayMulticastDomainId>|<GroupIpAddress>|<NetworkInterfaceId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>transit_gateway_multicast_group_source</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +176,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -163,6 +192,11 @@ To operate on the <code>transit_gateway_multicast_group_sources</code> resource,
 ### Create
 ```json
 ec2:RegisterTransitGatewayMulticastGroupSources,
+ec2:SearchTransitGatewayMulticastGroups
+```
+
+### Read
+```json
 ec2:SearchTransitGatewayMulticastGroups
 ```
 

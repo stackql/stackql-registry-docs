@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>task_templates</code> in a region or to create or delete a <code>task_templates</code> resource, use <code>task_template</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>task_template</code> resource or lists <code>task_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>task_templates</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The identifier (arn) of the task template.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The identifier (arn) of the task template.</td></tr>
+<tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The identifier (arn) of the instance.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the task template.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the task template.</td></tr>
+<tr><td><CopyableCode code="contact_flow_arn" /></td><td><code>string</code></td><td>The identifier of the contact flow.</td></tr>
+<tr><td><CopyableCode code="constraints" /></td><td><code>object</code></td><td>The constraints for the task template</td></tr>
+<tr><td><CopyableCode code="defaults" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="fields" /></td><td><code>array</code></td><td>The list of task template's fields</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>The status of the task template</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_token" /></td><td><code>the client token string in uuid format</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>task_templates</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>task_templates</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ arn
 FROM aws.connect.task_templates
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>task_template</code>.
+```sql
+SELECT
+region,
+arn,
+instance_arn,
+name,
+description,
+contact_flow_arn,
+constraints,
+defaults,
+fields,
+status,
+client_token,
+tags
+FROM aws.connect.task_templates
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>task_template</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -183,7 +219,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -202,9 +238,21 @@ connect:CreateTaskTemplate,
 connect:TagResource
 ```
 
+### Read
+```json
+connect:GetTaskTemplate
+```
+
 ### List
 ```json
 connect:ListTaskTemplates
+```
+
+### Update
+```json
+connect:UpdateTaskTemplate,
+connect:TagResource,
+connect:UntagResource
 ```
 
 ### Delete

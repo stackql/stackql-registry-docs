@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>application_entitlement_associations</code> in a region or to create or delete a <code>application_entitlement_associations</code> resource, use <code>application_entitlement_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>application_entitlement_association</code> resource or lists <code>application_entitlement_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,10 @@ Used to retrieve a list of <code>application_entitlement_associations</code> in 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="stack_name" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="stack_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="entitlement_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="application_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +55,15 @@ Used to retrieve a list of <code>application_entitlement_associations</code> in 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from an <code>application_entitlement_association</code>.
 ```sql
 SELECT
 region,
@@ -73,10 +71,11 @@ stack_name,
 entitlement_name,
 application_identifier
 FROM aws.appstream.application_entitlement_associations
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<StackName>|<EntitlementName>|<ApplicationIdentifier>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>application_entitlement_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +146,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -163,6 +162,11 @@ To operate on the <code>application_entitlement_associations</code> resource, th
 ### Create
 ```json
 appstream:AssociateApplicationToEntitlement,
+appstream:ListEntitledApplications
+```
+
+### Read
+```json
 appstream:ListEntitledApplications
 ```
 

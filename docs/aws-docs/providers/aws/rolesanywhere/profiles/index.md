@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>profiles</code> in a region or to create or delete a <code>profiles</code> resource, use <code>profile</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>profile</code> resource or lists <code>profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>profiles</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="duration_seconds" /></td><td><code>number</code></td><td></td></tr>
+<tr><td><CopyableCode code="enabled" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="managed_policy_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="profile_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="profile_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="require_instance_properties" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="session_policy" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="attribute_mappings" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>profiles</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>profiles</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ profile_id
 FROM aws.rolesanywhere.profiles
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>profile</code>.
+```sql
+SELECT
+region,
+duration_seconds,
+enabled,
+managed_policy_arns,
+name,
+profile_arn,
+profile_id,
+require_instance_properties,
+role_arns,
+session_policy,
+tags,
+attribute_mappings
+FROM aws.rolesanywhere.profiles
+WHERE region = 'us-east-1' AND data__Identifier = '<ProfileId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>profile</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -112,6 +148,7 @@ INSERT INTO aws.rolesanywhere.profiles (
  RoleArns,
  SessionPolicy,
  Tags,
+ AttributeMappings,
  region
 )
 SELECT 
@@ -123,6 +160,7 @@ SELECT
  '{{ RoleArns }}',
  '{{ SessionPolicy }}',
  '{{ Tags }}',
+ '{{ AttributeMappings }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -160,12 +198,17 @@ resources:
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
+      - name: AttributeMappings
+        value:
+          - MappingRules:
+              - Specifier: '{{ Specifier }}'
+            CertificateField: '{{ CertificateField }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -185,7 +228,31 @@ iam:GetPolicy,
 iam:PassRole,
 rolesanywhere:CreateProfile,
 rolesanywhere:TagResource,
+rolesanywhere:ListTagsForResource,
+rolesanywhere:PutAttributeMapping,
+rolesanywhere:DeleteAttributeMapping
+```
+
+### Read
+```json
+rolesanywhere:GetProfile,
 rolesanywhere:ListTagsForResource
+```
+
+### Update
+```json
+iam:GetRole,
+iam:GetPolicy,
+iam:PassRole,
+rolesanywhere:GetProfile,
+rolesanywhere:UpdateProfile,
+rolesanywhere:EnableProfile,
+rolesanywhere:DisableProfile,
+rolesanywhere:TagResource,
+rolesanywhere:UntagResource,
+rolesanywhere:ListTagsForResource,
+rolesanywhere:PutAttributeMapping,
+rolesanywhere:DeleteAttributeMapping
 ```
 
 ### Delete

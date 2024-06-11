@@ -31,13 +31,13 @@ The cloudwatch service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/cloudwatch/alarm/">alarm</a><br />
 <a href="/providers/aws/cloudwatch/alarms/">alarms</a><br />
-<a href="/providers/aws/cloudwatch/composite_alarm/">composite_alarm</a>
+<a href="/providers/aws/cloudwatch/composite_alarms/">composite_alarms</a><br />
+<a href="/providers/aws/cloudwatch/log_events/">log_events</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/cloudwatch/composite_alarms/">composite_alarms</a><br />
-<a href="/providers/aws/cloudwatch/metric_stream/">metric_stream</a><br />
+<a href="/providers/aws/cloudwatch/log_groups/">log_groups</a><br />
+<a href="/providers/aws/cloudwatch/log_streams/">log_streams</a><br />
 <a href="/providers/aws/cloudwatch/metric_streams/">metric_streams</a>
 </div>
 </div>

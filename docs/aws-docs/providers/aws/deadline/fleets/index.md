@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>fleets</code> in a region or to create or delete a <code>fleets</code> resource, use <code>fleet</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>fleets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>fleets</code> in a region or to create or delet
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="capabilities" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="farm_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="fleet_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="max_worker_count" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="min_worker_count" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="worker_count" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>fleets</code> in a region or to create or delet
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>fleets</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ arn
 FROM aws.deadline.fleets
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>fleet</code>.
+```sql
+SELECT
+region,
+capabilities,
+configuration,
+description,
+display_name,
+farm_id,
+fleet_id,
+max_worker_count,
+min_worker_count,
+role_arn,
+status,
+worker_count,
+arn
+FROM aws.deadline.fleets
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>fleet</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -161,7 +199,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -181,6 +219,20 @@ deadline:GetFleet,
 iam:PassRole,
 identitystore:ListGroupMembershipsForMember,
 logs:CreateLogGroup
+```
+
+### Read
+```json
+deadline:GetFleet,
+identitystore:ListGroupMembershipsForMember
+```
+
+### Update
+```json
+deadline:UpdateFleet,
+deadline:GetFleet,
+iam:PassRole,
+identitystore:ListGroupMembershipsForMember
 ```
 
 ### Delete

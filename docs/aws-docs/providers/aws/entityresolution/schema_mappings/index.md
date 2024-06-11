@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>schema_mappings</code> in a region or to create or delete a <code>schema_mappings</code> resource, use <code>schema_mapping</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>schema_mapping</code> resource or lists <code>schema_mappings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>schema_mappings</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="schema_name" /></td><td><code>undefined</code></td><td>The name of the SchemaMapping</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="schema_name" /></td><td><code>string</code></td><td>The name of the SchemaMapping</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the SchemaMapping</td></tr>
+<tr><td><CopyableCode code="mapped_input_fields" /></td><td><code>array</code></td><td>The SchemaMapping attributes input</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="schema_arn" /></td><td><code>The SchemaMapping arn associated with the Schema</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>The time of this SchemaMapping got created</code></td><td></td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>The time of this SchemaMapping got last updated at</code></td><td></td></tr>
+<tr><td><CopyableCode code="has_workflows" /></td><td><code>The boolean value that indicates whether or not a SchemaMapping has MatchingWorkflows that are associated with</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>schema_mappings</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>schema_mappings</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ schema_name
 FROM aws.entityresolution.schema_mappings
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>schema_mapping</code>.
+```sql
+SELECT
+region,
+schema_name,
+description,
+mapped_input_fields,
+tags,
+schema_arn,
+created_at,
+updated_at,
+has_workflows
+FROM aws.entityresolution.schema_mappings
+WHERE region = 'us-east-1' AND data__Identifier = '<SchemaName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>schema_mapping</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -152,7 +182,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -172,10 +202,25 @@ entityresolution:GetSchemaMapping,
 entityresolution:TagResource
 ```
 
+### Read
+```json
+entityresolution:GetSchemaMapping,
+entityresolution:ListTagsForResource
+```
+
 ### Delete
 ```json
 entityresolution:DeleteSchemaMapping,
 entityresolution:GetSchemaMapping
+```
+
+### Update
+```json
+entityresolution:GetSchemaMapping,
+entityresolution:UpdateSchemaMapping,
+entityresolution:ListTagsForResource,
+entityresolution:TagResource,
+entityresolution:UntagResource
 ```
 
 ### List

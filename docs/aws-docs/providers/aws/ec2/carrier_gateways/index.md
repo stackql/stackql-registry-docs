@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>carrier_gateways</code> in a region or to create or delete a <code>carrier_gateways</code> resource, use <code>carrier_gateway</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>carrier_gateway</code> resource or lists <code>carrier_gateways</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>carrier_gateways</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="carrier_gateway_id" /></td><td><code>string</code></td><td>The ID of the carrier gateway.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="carrier_gateway_id" /></td><td><code>string</code></td><td>The ID of the carrier gateway.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the carrier gateway.</td></tr>
+<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC.</td></tr>
+<tr><td><CopyableCode code="owner_id" /></td><td><code>string</code></td><td>The ID of the owner.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags for the carrier gateway.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>carrier_gateways</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>carrier_gateways</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ carrier_gateway_id
 FROM aws.ec2.carrier_gateways
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>carrier_gateway</code>.
+```sql
+SELECT
+region,
+carrier_gateway_id,
+state,
+vpc_id,
+owner_id,
+tags
+FROM aws.ec2.carrier_gateways
+WHERE region = 'us-east-1' AND data__Identifier = '<CarrierGatewayId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>carrier_gateway</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +161,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -155,6 +179,18 @@ To operate on the <code>carrier_gateways</code> resource, the following permissi
 ec2:CreateCarrierGateway,
 ec2:DescribeCarrierGateways,
 ec2:CreateTags
+```
+
+### Read
+```json
+ec2:DescribeCarrierGateways
+```
+
+### Update
+```json
+ec2:DescribeCarrierGateways,
+ec2:CreateTags,
+ec2:DeleteTags
 ```
 
 ### Delete

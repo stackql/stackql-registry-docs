@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>jobs</code> in a region or to create or delete a <code>jobs</code> resource, use <code>job</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>job</code> resource or lists <code>jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,27 @@ Used to retrieve a list of <code>jobs</code> in a region or to create or delete 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="dataset_name" /></td><td><code>string</code></td><td>Dataset name</td></tr>
+<tr><td><CopyableCode code="encryption_key_arn" /></td><td><code>string</code></td><td>Encryption Key Arn</td></tr>
+<tr><td><CopyableCode code="encryption_mode" /></td><td><code>string</code></td><td>Encryption mode</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Job name</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>Job type</td></tr>
+<tr><td><CopyableCode code="log_subscription" /></td><td><code>string</code></td><td>Log subscription</td></tr>
+<tr><td><CopyableCode code="max_capacity" /></td><td><code>integer</code></td><td>Max capacity</td></tr>
+<tr><td><CopyableCode code="max_retries" /></td><td><code>integer</code></td><td>Max retries</td></tr>
+<tr><td><CopyableCode code="outputs" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_catalog_outputs" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="database_outputs" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="output_location" /></td><td><code>object</code></td><td>Output location</td></tr>
+<tr><td><CopyableCode code="project_name" /></td><td><code>string</code></td><td>Project name</td></tr>
+<tr><td><CopyableCode code="recipe" /></td><td><code>Resource schema for AWS::DataBrew::Recipe.</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Role arn</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="timeout" /></td><td><code>integer</code></td><td>Timeout</td></tr>
+<tr><td><CopyableCode code="job_sample" /></td><td><code>object</code></td><td>Job Sample</td></tr>
+<tr><td><CopyableCode code="profile_configuration" /></td><td><code>object</code></td><td>Profile Job configuration</td></tr>
+<tr><td><CopyableCode code="validation_configurations" /></td><td><code>array</code></td><td>Data quality rules configuration</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +72,24 @@ Used to retrieve a list of <code>jobs</code> in a region or to create or delete 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>jobs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +97,36 @@ name
 FROM aws.databrew.jobs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>job</code>.
+```sql
+SELECT
+region,
+dataset_name,
+encryption_key_arn,
+encryption_mode,
+name,
+type,
+log_subscription,
+max_capacity,
+max_retries,
+outputs,
+data_catalog_outputs,
+database_outputs,
+output_location,
+project_name,
+recipe,
+role_arn,
+tags,
+timeout,
+job_sample,
+profile_configuration,
+validation_configurations
+FROM aws.databrew.jobs
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>job</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -275,7 +329,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -294,6 +348,20 @@ databrew:CreateProfileJob,
 databrew:CreateRecipeJob,
 databrew:TagResource,
 databrew:UntagResource,
+iam:PassRole
+```
+
+### Read
+```json
+databrew:DescribeJob,
+databrew:ListTagsForResource,
+iam:ListRoles
+```
+
+### Update
+```json
+databrew:UpdateProfileJob,
+databrew:UpdateRecipeJob,
 iam:PassRole
 ```
 

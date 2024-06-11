@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>registries</code> in a region or to create or delete a <code>registries</code> resource, use <code>registry</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>registry</code> resource or lists <code>registries</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>registries</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="registry_name" /></td><td><code>string</code></td><td>The name of the schema registry.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the registry to be created.</td></tr>
 <tr><td><CopyableCode code="registry_arn" /></td><td><code>string</code></td><td>The ARN of the registry.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags associated with the resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>registries</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>registries</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ registry_arn
 FROM aws.eventschemas.registries
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>registry</code>.
+```sql
+SELECT
+region,
+registry_name,
+description,
+registry_arn,
+tags
+FROM aws.eventschemas.registries
+WHERE region = 'us-east-1' AND data__Identifier = '<RegistryArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>registry</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -145,7 +167,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -163,6 +185,20 @@ To operate on the <code>registries</code> resource, the following permissions ar
 schemas:DescribeRegistry,
 schemas:CreateRegistry,
 schemas:TagResource
+```
+
+### Read
+```json
+schemas:DescribeRegistry
+```
+
+### Update
+```json
+schemas:DescribeRegistry,
+schemas:UpdateRegistry,
+schemas:TagResource,
+schemas:UntagResource,
+schemas:ListTagsForResource
 ```
 
 ### Delete

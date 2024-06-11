@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>portals</code> in a region or to create or delete a <code>portals</code> resource, use <code>portal</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>portal</code> resource or lists <code>portals</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,28 @@ Used to retrieve a list of <code>portals</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="authentication_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="browser_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="browser_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="customer_managed_key" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="ip_access_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="max_concurrent_sessions" /></td><td><code>number</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_settings_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="portal_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="portal_endpoint" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="portal_status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="renderer_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_provider_saml_metadata" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status_reason" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="trust_store_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_access_logging_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_settings_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +73,24 @@ Used to retrieve a list of <code>portals</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>portals</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +98,37 @@ portal_arn
 FROM aws.workspacesweb.portals
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>portal</code>.
+```sql
+SELECT
+region,
+additional_encryption_context,
+authentication_type,
+browser_settings_arn,
+browser_type,
+creation_date,
+customer_managed_key,
+display_name,
+instance_type,
+ip_access_settings_arn,
+max_concurrent_sessions,
+network_settings_arn,
+portal_arn,
+portal_endpoint,
+portal_status,
+renderer_type,
+service_provider_saml_metadata,
+status_reason,
+tags,
+trust_store_arn,
+user_access_logging_settings_arn,
+user_settings_arn
+FROM aws.workspacesweb.portals
+WHERE region = 'us-east-1' AND data__Identifier = '<PortalArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>portal</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -94,7 +150,9 @@ INSERT INTO aws.workspacesweb.portals (
  BrowserSettingsArn,
  CustomerManagedKey,
  DisplayName,
+ InstanceType,
  IpAccessSettingsArn,
+ MaxConcurrentSessions,
  NetworkSettingsArn,
  Tags,
  TrustStoreArn,
@@ -108,7 +166,9 @@ SELECT
  '{{ BrowserSettingsArn }}',
  '{{ CustomerManagedKey }}',
  '{{ DisplayName }}',
+ '{{ InstanceType }}',
  '{{ IpAccessSettingsArn }}',
+ '{{ MaxConcurrentSessions }}',
  '{{ NetworkSettingsArn }}',
  '{{ Tags }}',
  '{{ TrustStoreArn }}',
@@ -127,7 +187,9 @@ INSERT INTO aws.workspacesweb.portals (
  BrowserSettingsArn,
  CustomerManagedKey,
  DisplayName,
+ InstanceType,
  IpAccessSettingsArn,
+ MaxConcurrentSessions,
  NetworkSettingsArn,
  Tags,
  TrustStoreArn,
@@ -141,7 +203,9 @@ SELECT
  '{{ BrowserSettingsArn }}',
  '{{ CustomerManagedKey }}',
  '{{ DisplayName }}',
+ '{{ InstanceType }}',
  '{{ IpAccessSettingsArn }}',
+ '{{ MaxConcurrentSessions }}',
  '{{ NetworkSettingsArn }}',
  '{{ Tags }}',
  '{{ TrustStoreArn }}',
@@ -174,8 +238,12 @@ resources:
         value: '{{ CustomerManagedKey }}'
       - name: DisplayName
         value: '{{ DisplayName }}'
+      - name: InstanceType
+        value: '{{ InstanceType }}'
       - name: IpAccessSettingsArn
         value: '{{ IpAccessSettingsArn }}'
+      - name: MaxConcurrentSessions
+        value: null
       - name: NetworkSettingsArn
         value: '{{ NetworkSettingsArn }}'
       - name: Tags
@@ -193,7 +261,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -232,6 +300,53 @@ kinesis:PutRecords,
 kinesis:DescribeStreamSummary,
 sso:CreateManagedApplicationInstance,
 sso:DescribeRegisteredRegions
+```
+
+### Read
+```json
+workspaces-web:GetPortal,
+workspaces-web:GetPortalServiceProviderMetadata,
+workspaces-web:ListTagsForResource,
+kms:Decrypt
+```
+
+### Update
+```json
+workspaces-web:GetPortal,
+workspaces-web:GetPortalServiceProviderMetadata,
+workspaces-web:UpdatePortal,
+workspaces-web:AssociateBrowserSettings,
+workspaces-web:AssociateIpAccessSettings,
+workspaces-web:AssociateNetworkSettings,
+workspaces-web:AssociateTrustStore,
+workspaces-web:AssociateUserAccessLoggingSettings,
+workspaces-web:AssociateUserSettings,
+workspaces-web:DisassociateBrowserSettings,
+workspaces-web:DisassociateIpAccessSettings,
+workspaces-web:DisassociateNetworkSettings,
+workspaces-web:DisassociateTrustStore,
+workspaces-web:DisassociateUserAccessLoggingSettings,
+workspaces-web:DisassociateUserSettings,
+workspaces-web:ListTagsForResource,
+workspaces-web:TagResource,
+workspaces-web:UntagResource,
+kms:CreateGrant,
+kms:Encrypt,
+kms:GenerateDataKey,
+kms:Decrypt,
+ec2:CreateNetworkInterface,
+ec2:CreateNetworkInterfacePermission,
+ec2:DeleteNetworkInterface,
+ec2:DeleteNetworkInterfacePermission,
+ec2:ModifyNetworkInterfaceAttribute,
+kinesis:PutRecord,
+kinesis:PutRecords,
+kinesis:DescribeStreamSummary,
+sso:CreateManagedApplicationInstance,
+sso:DeleteManagedApplicationInstance,
+sso:DescribeRegisteredRegions,
+sso:GetApplicationInstance,
+sso:ListApplicationInstances
 ```
 
 ### Delete

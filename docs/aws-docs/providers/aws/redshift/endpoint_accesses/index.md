@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>endpoint_accesses</code> in a region or to create or delete a <code>endpoint_accesses</code> resource, use <code>endpoint_access</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>endpoint_access</code> resource or lists <code>endpoint_accesses</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>endpoint_accesses</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="endpoint_status" /></td><td><code>string</code></td><td>The status of the endpoint.</td></tr>
+<tr><td><CopyableCode code="vpc_endpoint" /></td><td><code>object</code></td><td>The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.</td></tr>
+<tr><td><CopyableCode code="address" /></td><td><code>string</code></td><td>The DNS address of the endpoint.</td></tr>
 <tr><td><CopyableCode code="endpoint_name" /></td><td><code>string</code></td><td>The name of the endpoint.</td></tr>
+<tr><td><CopyableCode code="vpc_security_group_ids" /></td><td><code>array</code></td><td>A list of vpc security group ids to apply to the created endpoint access.</td></tr>
+<tr><td><CopyableCode code="resource_owner" /></td><td><code>string</code></td><td>The AWS account ID of the owner of the cluster.</td></tr>
+<tr><td><CopyableCode code="subnet_group_name" /></td><td><code>string</code></td><td>The subnet group name where Amazon Redshift chooses to deploy the endpoint.</td></tr>
+<tr><td><CopyableCode code="port" /></td><td><code>integer</code></td><td>The port number on which the cluster accepts incoming connections.</td></tr>
+<tr><td><CopyableCode code="endpoint_create_time" /></td><td><code>string</code></td><td>The time (UTC) that the endpoint was created.</td></tr>
+<tr><td><CopyableCode code="cluster_identifier" /></td><td><code>string</code></td><td>A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account</td></tr>
+<tr><td><CopyableCode code="vpc_security_groups" /></td><td><code>array</code></td><td>A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>endpoint_accesses</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>endpoint_accesses</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ endpoint_name
 FROM aws.redshift.endpoint_accesses
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>endpoint_access</code>.
+```sql
+SELECT
+region,
+endpoint_status,
+vpc_endpoint,
+address,
+endpoint_name,
+vpc_security_group_ids,
+resource_owner,
+subnet_group_name,
+port,
+endpoint_create_time,
+cluster_identifier,
+vpc_security_groups
+FROM aws.redshift.endpoint_accesses
+WHERE region = 'us-east-1' AND data__Identifier = '<EndpointName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>endpoint_access</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -89,17 +125,17 @@ Use the following StackQL query and manifest file to create a new <code>endpoint
 ```sql
 /*+ create */
 INSERT INTO aws.redshift.endpoint_accesses (
- ClusterIdentifier,
  EndpointName,
- SubnetGroupName,
  VpcSecurityGroupIds,
+ SubnetGroupName,
+ ClusterIdentifier,
  region
 )
 SELECT 
-'{{ ClusterIdentifier }}',
- '{{ EndpointName }}',
- '{{ SubnetGroupName }}',
+'{{ EndpointName }}',
  '{{ VpcSecurityGroupIds }}',
+ '{{ SubnetGroupName }}',
+ '{{ ClusterIdentifier }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -108,19 +144,19 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.redshift.endpoint_accesses (
- ClusterIdentifier,
- ResourceOwner,
  EndpointName,
- SubnetGroupName,
  VpcSecurityGroupIds,
+ ResourceOwner,
+ SubnetGroupName,
+ ClusterIdentifier,
  region
 )
 SELECT 
- '{{ ClusterIdentifier }}',
- '{{ ResourceOwner }}',
  '{{ EndpointName }}',
- '{{ SubnetGroupName }}',
  '{{ VpcSecurityGroupIds }}',
+ '{{ ResourceOwner }}',
+ '{{ SubnetGroupName }}',
+ '{{ ClusterIdentifier }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -138,23 +174,23 @@ globals:
 resources:
   - name: endpoint_access
     props:
-      - name: ClusterIdentifier
-        value: '{{ ClusterIdentifier }}'
-      - name: ResourceOwner
-        value: '{{ ResourceOwner }}'
       - name: EndpointName
         value: '{{ EndpointName }}'
-      - name: SubnetGroupName
-        value: '{{ SubnetGroupName }}'
       - name: VpcSecurityGroupIds
         value:
           - '{{ VpcSecurityGroupIds[0] }}'
+      - name: ResourceOwner
+        value: '{{ ResourceOwner }}'
+      - name: SubnetGroupName
+        value: '{{ SubnetGroupName }}'
+      - name: ClusterIdentifier
+        value: '{{ ClusterIdentifier }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -167,12 +203,49 @@ AND region = 'us-east-1';
 
 To operate on the <code>endpoint_accesses</code> resource, the following permissions are required:
 
+### Read
+```json
+redshift:DescribeEndpointAccess,
+ec2:DescribeClientVpnEndpoints,
+ec2:DescribeVpcEndpoint,
+ec2:DescribeVpcAttribute,
+ec2:DescribeSecurityGroups,
+ec2:DescribeAddresses,
+ec2:DescribeInternetGateways,
+ec2:DescribeSubnets
+```
+
 ### Create
 ```json
 redshift:CreateEndpointAccess,
 redshift:DescribeEndpointAccess,
 ec2:CreateClientVpnEndpoint,
 ec2:CreateVpcEndpoint,
+ec2:DescribeVpcAttribute,
+ec2:DescribeSecurityGroups,
+ec2:DescribeAddresses,
+ec2:DescribeInternetGateways,
+ec2:DescribeSubnets
+```
+
+### Update
+```json
+redshift:DescribeEndpointAccess,
+redshift:ModifyEndpointAccess,
+ec2:ModifyClientVpnEndpoint,
+ec2:ModifyVpcEndpoint,
+ec2:DescribeVpcAttribute,
+ec2:DescribeSecurityGroups,
+ec2:DescribeAddresses,
+ec2:DescribeInternetGateways,
+ec2:DescribeSubnets
+```
+
+### List
+```json
+redshift:DescribeEndpointAccess,
+ec2:DescribeClientVpnEndpoints,
+ec2:DescribeVpcEndpoints,
 ec2:DescribeVpcAttribute,
 ec2:DescribeSecurityGroups,
 ec2:DescribeAddresses,
@@ -192,17 +265,5 @@ ec2:DescribeAddresses,
 ec2:DescribeInternetGateways,
 ec2:DescribeSubnets,
 ec2:DescribeVpcEndpoint
-```
-
-### List
-```json
-redshift:DescribeEndpointAccess,
-ec2:DescribeClientVpnEndpoints,
-ec2:DescribeVpcEndpoints,
-ec2:DescribeVpcAttribute,
-ec2:DescribeSecurityGroups,
-ec2:DescribeAddresses,
-ec2:DescribeInternetGateways,
-ec2:DescribeSubnets
 ```
 

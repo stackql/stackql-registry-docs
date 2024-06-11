@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>distributions</code> in a region or to create or delete a <code>distributions</code> resource, use <code>distribution</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>distribution</code> resource or lists <code>distributions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>distributions</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="distribution_config" /></td><td><code>object</code></td><td>The distribution's configuration.</td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A complex type that contains zero or more <code>Tag</code> elements.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>distributions</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>distributions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ id
 FROM aws.cloudfront.distributions
 ;
 ```
+Gets all properties from a <code>distribution</code>.
+```sql
+SELECT
+region,
+distribution_config,
+domain_name,
+id,
+tags
+FROM aws.cloudfront.distributions
+WHERE data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>distribution</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -281,7 +303,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -313,5 +335,22 @@ cloudfront:GetDistributionConfig
 ### List
 ```json
 cloudfront:ListDistributions
+```
+
+### Read
+```json
+cloudfront:GetDistribution,
+cloudfront:GetDistributionConfig
+```
+
+### Update
+```json
+cloudfront:GetDistribution,
+cloudfront:GetDistributionConfig,
+cloudfront:UpdateDistribution,
+cloudfront:UpdateDistributionWithStagingConfig,
+cloudfront:ListTagsForResource,
+cloudfront:TagResource,
+cloudfront:UntagResource
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>model_quality_job_definitions</code> in a region or to create or delete a <code>model_quality_job_definitions</code> resource, use <code>model_quality_job_definition</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>model_quality_job_definition</code> resource or lists <code>model_quality_job_definitions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>model_quality_job_definitions</code> in a regio
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="job_definition_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of job definition.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="job_definition_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of job definition.</td></tr>
+<tr><td><CopyableCode code="job_definition_name" /></td><td><code>The name of the job definition.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_quality_baseline_config" /></td><td><code>Baseline configuration used to validate that the data conforms to the specified constraints and statistics.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_quality_app_specification" /></td><td><code>Container image configuration object for the monitoring job.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_quality_job_input" /></td><td><code>The inputs for a monitoring job.</code></td><td></td></tr>
+<tr><td><CopyableCode code="model_quality_job_output_config" /></td><td><code>The output configuration for monitoring jobs.</code></td><td></td></tr>
+<tr><td><CopyableCode code="job_resources" /></td><td><code>Identifies the resources to deploy for a monitoring job.</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_config" /></td><td><code>Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.</code></td><td></td></tr>
+<tr><td><CopyableCode code="endpoint_name" /></td><td><code>The name of the endpoint used to run the monitoring job.</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.</td></tr>
+<tr><td><CopyableCode code="stopping_condition" /></td><td><code>Specifies a time limit for how long the monitoring job is allowed to run.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The time at which the job definition was created.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +69,15 @@ Used to retrieve a list of <code>model_quality_job_definitions</code> in a regio
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>model_quality_job_definitions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,29 @@ job_definition_arn
 FROM aws.sagemaker.model_quality_job_definitions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>model_quality_job_definition</code>.
+```sql
+SELECT
+region,
+job_definition_arn,
+job_definition_name,
+model_quality_baseline_config,
+model_quality_app_specification,
+model_quality_job_input,
+model_quality_job_output_config,
+job_resources,
+network_config,
+endpoint_name,
+role_arn,
+stopping_condition,
+tags,
+creation_time
+FROM aws.sagemaker.model_quality_job_definitions
+WHERE region = 'us-east-1' AND data__Identifier = '<JobDefinitionArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>model_quality_job_definition</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -232,7 +267,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -256,6 +291,11 @@ iam:PassRole
 ### Delete
 ```json
 sagemaker:DeleteModelQualityJobDefinition
+```
+
+### Read
+```json
+sagemaker:DescribeModelQualityJobDefinition
 ```
 
 ### List

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>container_recipes</code> in a region or to create or delete a <code>container_recipes</code> resource, use <code>container_recipe</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>container_recipe</code> resource or lists <code>container_recipes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,23 @@ Used to retrieve a list of <code>container_recipes</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the container recipe.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the container recipe.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the container recipe.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the container recipe.</td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The semantic version of the container recipe (<major>.<minor>.<patch>).</td></tr>
+<tr><td><CopyableCode code="components" /></td><td><code>array</code></td><td>Components for build and test that are included in the container recipe.</td></tr>
+<tr><td><CopyableCode code="instance_configuration" /></td><td><code>object</code></td><td>A group of options that can be used to configure an instance for building and testing container images.</td></tr>
+<tr><td><CopyableCode code="dockerfile_template_data" /></td><td><code>string</code></td><td>Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.</td></tr>
+<tr><td><CopyableCode code="dockerfile_template_uri" /></td><td><code>string</code></td><td>The S3 URI for the Dockerfile that will be used to build your container image.</td></tr>
+<tr><td><CopyableCode code="platform_override" /></td><td><code>string</code></td><td>Specifies the operating system platform when you use a custom source image.</td></tr>
+<tr><td><CopyableCode code="container_type" /></td><td><code>string</code></td><td>Specifies the type of container, such as Docker.</td></tr>
+<tr><td><CopyableCode code="image_os_version_override" /></td><td><code>string</code></td><td>Specifies the operating system version for the source image.</td></tr>
+<tr><td><CopyableCode code="target_repository" /></td><td><code>object</code></td><td>The destination repository for the container image.</td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>Identifies which KMS key is used to encrypt the container image.</td></tr>
+<tr><td><CopyableCode code="parent_image" /></td><td><code>string</code></td><td>The source image for the container recipe.</td></tr>
+<tr><td><CopyableCode code="working_directory" /></td><td><code>string</code></td><td>The working directory to be used during build and test workflows.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>Tags that are attached to the container recipe.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +72,15 @@ Used to retrieve a list of <code>container_recipes</code> in a region or to crea
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>container_recipes</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,32 @@ arn
 FROM aws.imagebuilder.container_recipes
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>container_recipe</code>.
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+version,
+components,
+instance_configuration,
+dockerfile_template_data,
+dockerfile_template_uri,
+platform_override,
+container_type,
+image_os_version_override,
+target_repository,
+kms_key_id,
+parent_image,
+working_directory,
+tags
+FROM aws.imagebuilder.container_recipes
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>container_recipe</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -236,7 +277,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -267,6 +308,11 @@ s3:GetObject,
 s3:ListBucket,
 ecr:DescribeRepositories,
 ec2:DescribeImages
+```
+
+### Read
+```json
+imagebuilder:GetContainerRecipe
 ```
 
 ### Delete

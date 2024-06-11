@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>clusters</code> in a region or to create or delete a <code>clusters</code> resource, use <code>cluster</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code>clusters</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,24 @@ Used to retrieve a list of <code>clusters</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="logging" /></td><td><code>Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_config_key_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) or alias of the customer master key (CMK).</td></tr>
+<tr><td><CopyableCode code="access_config" /></td><td><code>An object representing the Access Config to use for the cluster.</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate_authority_data" /></td><td><code>string</code></td><td>The certificate-authority-data for your cluster.</td></tr>
+<tr><td><CopyableCode code="encryption_config" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="kubernetes_network_config" /></td><td><code>The Kubernetes network configuration for the cluster.</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The unique name to give to your cluster.</td></tr>
+<tr><td><CopyableCode code="endpoint" /></td><td><code>string</code></td><td>The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.</td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.</td></tr>
+<tr><td><CopyableCode code="cluster_security_group_id" /></td><td><code>string</code></td><td>The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique ID given to your cluster.</td></tr>
+<tr><td><CopyableCode code="outpost_config" /></td><td><code>An object representing the Outpost configuration to use for AWS EKS outpost cluster.</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.</td></tr>
+<tr><td><CopyableCode code="resources_vpc_config" /></td><td><code>An object representing the VPC configuration to use for an Amazon EKS cluster.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="open_id_connect_issuer_url" /></td><td><code>string</code></td><td>The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +69,24 @@ Used to retrieve a list of <code>clusters</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>clusters</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +94,33 @@ name
 FROM aws.eks.clusters
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>cluster</code>.
+```sql
+SELECT
+region,
+logging,
+encryption_config_key_arn,
+access_config,
+certificate_authority_data,
+encryption_config,
+kubernetes_network_config,
+role_arn,
+name,
+endpoint,
+version,
+cluster_security_group_id,
+id,
+outpost_config,
+arn,
+resources_vpc_config,
+tags,
+open_id_connect_issuer_url
+FROM aws.eks.clusters
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>cluster</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -89,13 +137,13 @@ Use the following StackQL query and manifest file to create a new <code>cluster<
 ```sql
 /*+ create */
 INSERT INTO aws.eks.clusters (
- ResourcesVpcConfig,
  RoleArn,
+ ResourcesVpcConfig,
  region
 )
 SELECT 
-'{{ ResourcesVpcConfig }}',
- '{{ RoleArn }}',
+'{{ RoleArn }}',
+ '{{ ResourcesVpcConfig }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -104,28 +152,28 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.eks.clusters (
+ Logging,
+ AccessConfig,
  EncryptionConfig,
  KubernetesNetworkConfig,
- Logging,
- Name,
- ResourcesVpcConfig,
- OutpostConfig,
- AccessConfig,
  RoleArn,
+ Name,
  Version,
+ OutpostConfig,
+ ResourcesVpcConfig,
  Tags,
  region
 )
 SELECT 
+ '{{ Logging }}',
+ '{{ AccessConfig }}',
  '{{ EncryptionConfig }}',
  '{{ KubernetesNetworkConfig }}',
- '{{ Logging }}',
- '{{ Name }}',
- '{{ ResourcesVpcConfig }}',
- '{{ OutpostConfig }}',
- '{{ AccessConfig }}',
  '{{ RoleArn }}',
+ '{{ Name }}',
  '{{ Version }}',
+ '{{ OutpostConfig }}',
+ '{{ ResourcesVpcConfig }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -144,49 +192,49 @@ globals:
 resources:
   - name: cluster
     props:
-      - name: EncryptionConfig
-        value:
-          - Provider:
-              KeyArn: '{{ KeyArn }}'
-            Resources:
-              - '{{ Resources[0] }}'
-      - name: KubernetesNetworkConfig
-        value:
-          ServiceIpv4Cidr: '{{ ServiceIpv4Cidr }}'
-          ServiceIpv6Cidr: '{{ ServiceIpv6Cidr }}'
-          IpFamily: '{{ IpFamily }}'
       - name: Logging
         value:
           ClusterLogging:
             EnabledTypes:
               - Type: '{{ Type }}'
+      - name: AccessConfig
+        value:
+          AuthenticationMode: '{{ AuthenticationMode }}'
+          BootstrapClusterCreatorAdminPermissions: '{{ BootstrapClusterCreatorAdminPermissions }}'
+      - name: EncryptionConfig
+        value:
+          - Resources:
+              - '{{ Resources[0] }}'
+            Provider:
+              KeyArn: '{{ KeyArn }}'
+      - name: KubernetesNetworkConfig
+        value:
+          ServiceIpv4Cidr: '{{ ServiceIpv4Cidr }}'
+          ServiceIpv6Cidr: '{{ ServiceIpv6Cidr }}'
+          IpFamily: '{{ IpFamily }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
       - name: Name
         value: '{{ Name }}'
-      - name: ResourcesVpcConfig
-        value:
-          EndpointPrivateAccess: '{{ EndpointPrivateAccess }}'
-          EndpointPublicAccess: '{{ EndpointPublicAccess }}'
-          PublicAccessCidrs:
-            - '{{ PublicAccessCidrs[0] }}'
-          SecurityGroupIds:
-            - '{{ SecurityGroupIds[0] }}'
-          SubnetIds:
-            - '{{ SubnetIds[0] }}'
+      - name: Version
+        value: '{{ Version }}'
       - name: OutpostConfig
         value:
           OutpostArns:
             - '{{ OutpostArns[0] }}'
-          ControlPlaneInstanceType: '{{ ControlPlaneInstanceType }}'
           ControlPlanePlacement:
             GroupName: '{{ GroupName }}'
-      - name: AccessConfig
+          ControlPlaneInstanceType: '{{ ControlPlaneInstanceType }}'
+      - name: ResourcesVpcConfig
         value:
-          BootstrapClusterCreatorAdminPermissions: '{{ BootstrapClusterCreatorAdminPermissions }}'
-          AuthenticationMode: '{{ AuthenticationMode }}'
-      - name: RoleArn
-        value: '{{ RoleArn }}'
-      - name: Version
-        value: '{{ Version }}'
+          EndpointPublicAccess: '{{ EndpointPublicAccess }}'
+          PublicAccessCidrs:
+            - '{{ PublicAccessCidrs[0] }}'
+          EndpointPrivateAccess: '{{ EndpointPrivateAccess }}'
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
+          SubnetIds:
+            - '{{ SubnetIds[0] }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -196,7 +244,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -208,6 +256,11 @@ AND region = 'us-east-1';
 ## Permissions
 
 To operate on the <code>clusters</code> resource, the following permissions are required:
+
+### Read
+```json
+eks:DescribeCluster
+```
 
 ### Create
 ```json
@@ -230,14 +283,25 @@ kms:DescribeKey,
 kms:CreateGrant
 ```
 
-### Delete
+### Update
 ```json
-eks:DeleteCluster,
-eks:DescribeCluster
+iam:PassRole,
+eks:UpdateClusterConfig,
+eks:UpdateClusterVersion,
+eks:DescribeCluster,
+eks:DescribeUpdate,
+eks:TagResource,
+eks:UntagResource
 ```
 
 ### List
 ```json
 eks:ListClusters
+```
+
+### Delete
+```json
+eks:DeleteCluster,
+eks:DescribeCluster
 ```
 

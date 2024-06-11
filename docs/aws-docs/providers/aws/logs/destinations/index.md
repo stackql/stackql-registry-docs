@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>destinations</code> in a region or to create or delete a <code>destinations</code> resource, use <code>destination</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>destination</code> resource or lists <code>destinations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>destinations</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="destination_name" /></td><td><code>string</code></td><td>The name of the destination resource</td></tr>
+<tr><td><CopyableCode code="destination_policy" /></td><td><code>string</code></td><td>An IAM policy document that governs which AWS accounts can create subscription filters against this destination.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource</td></tr>
+<tr><td><CopyableCode code="target_arn" /></td><td><code>string</code></td><td>The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>destinations</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>destinations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ destination_name
 FROM aws.logs.destinations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>destination</code>.
+```sql
+SELECT
+region,
+arn,
+destination_name,
+destination_policy,
+role_arn,
+target_arn
+FROM aws.logs.destinations
+WHERE region = 'us-east-1' AND data__Identifier = '<DestinationName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>destination</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +171,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -161,6 +185,19 @@ AND region = 'us-east-1';
 To operate on the <code>destinations</code> resource, the following permissions are required:
 
 ### Create
+```json
+logs:PutDestination,
+logs:PutDestinationPolicy,
+logs:DescribeDestinations,
+iam:PassRole
+```
+
+### Read
+```json
+logs:DescribeDestinations
+```
+
+### Update
 ```json
 logs:PutDestination,
 logs:PutDestinationPolicy,

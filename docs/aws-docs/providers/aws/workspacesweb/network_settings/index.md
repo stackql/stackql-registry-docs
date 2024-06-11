@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Gets or updates an individual <code>network_settings</code> resource, use <code>network_settings</code> to retrieve a list of resources or to create or delete a resource.
+Creates, updates, deletes or gets a <code>network_setting</code> resource or lists <code>network_settings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,16 +30,13 @@ Gets or updates an individual <code>network_settings</code> resource, use <code>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="associated_portal_arns" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="associated_portal_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="network_settings_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -52,9 +48,24 @@ Gets or updates an individual <code>network_settings</code> resource, use <code>
     <th>Required Params</th>
   </tr>
   <tr>
+    <td><CopyableCode code="create_resource" /></td>
+    <td><code>INSERT</code></td>
+    <td><CopyableCode code="SecurityGroupIds, SubnetIds, VpcId, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="list_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="get_resource" /></td>
@@ -63,7 +74,16 @@ Gets or updates an individual <code>network_settings</code> resource, use <code>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>network_settings</code> in a region.
+```sql
+SELECT
+region,
+network_settings_arn
+FROM aws.workspacesweb.network_settings
+WHERE region = 'us-east-1';
+```
+Gets all properties from a <code>network_setting</code>.
 ```sql
 SELECT
 region,
@@ -78,9 +98,105 @@ WHERE region = 'us-east-1' AND data__Identifier = '<NetworkSettingsArn>';
 ```
 
 
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>network_setting</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO aws.workspacesweb.network_settings (
+ SecurityGroupIds,
+ SubnetIds,
+ VpcId,
+ region
+)
+SELECT 
+'{{ SecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ VpcId }}',
+'{{ region }}';
+```
+</TabItem>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO aws.workspacesweb.network_settings (
+ SecurityGroupIds,
+ SubnetIds,
+ Tags,
+ VpcId,
+ region
+)
+SELECT 
+ '{{ SecurityGroupIds }}',
+ '{{ SubnetIds }}',
+ '{{ Tags }}',
+ '{{ VpcId }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: network_setting
+    props:
+      - name: SecurityGroupIds
+        value:
+          - '{{ SecurityGroupIds[0] }}'
+      - name: SubnetIds
+        value:
+          - '{{ SubnetIds[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: VpcId
+        value: '{{ VpcId }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+```sql
+/*+ delete */
+DELETE FROM aws.workspacesweb.network_settings
+WHERE data__Identifier = '<NetworkSettingsArn>'
+AND region = 'us-east-1';
+```
+
 ## Permissions
 
 To operate on the <code>network_settings</code> resource, the following permissions are required:
+
+### Create
+```json
+workspaces-web:CreateNetworkSettings,
+workspaces-web:GetNetworkSettings,
+workspaces-web:ListTagsForResource,
+workspaces-web:TagResource
+```
 
 ### Read
 ```json
@@ -96,5 +212,16 @@ workspaces-web:TagResource,
 workspaces-web:UntagResource,
 workspaces-web:GetNetworkSettings,
 workspaces-web:ListTagsForResource
+```
+
+### Delete
+```json
+workspaces-web:GetNetworkSettings,
+workspaces-web:DeleteNetworkSettings
+```
+
+### List
+```json
+workspaces-web:ListNetworkSettings
 ```
 

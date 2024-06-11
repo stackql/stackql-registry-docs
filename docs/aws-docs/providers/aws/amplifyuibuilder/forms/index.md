@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>forms</code> in a region or to create or delete a <code>forms</code> resource, use <code>form</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>form</code> resource or lists <code>forms</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,20 @@ Used to retrieve a list of <code>forms</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="app_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="app_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="cta" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_type" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="environment_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="fields" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="form_action_type" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="label_decorator" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="schema_version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="sectional_elements" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="style" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +65,24 @@ Used to retrieve a list of <code>forms</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>forms</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +92,29 @@ id
 FROM aws.amplifyuibuilder.forms
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>form</code>.
+```sql
+SELECT
+region,
+app_id,
+cta,
+data_type,
+environment_name,
+fields,
+form_action_type,
+id,
+label_decorator,
+name,
+schema_version,
+sectional_elements,
+style,
+tags
+FROM aws.amplifyuibuilder.forms
+WHERE region = 'us-east-1' AND data__Identifier = '<AppId>|<EnvironmentName>|<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>form</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -213,7 +251,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -233,6 +271,22 @@ amplifyuibuilder:CreateForm,
 amplifyuibuilder:GetForm,
 amplifyuibuilder:TagResource,
 amplifyuibuilder:UntagResource
+```
+
+### Read
+```json
+amplify:GetApp,
+amplifyuibuilder:GetForm,
+amplifyuibuilder:TagResource
+```
+
+### Update
+```json
+amplify:GetApp,
+amplifyuibuilder:GetForm,
+amplifyuibuilder:TagResource,
+amplifyuibuilder:UntagResource,
+amplifyuibuilder:UpdateForm
 ```
 
 ### Delete

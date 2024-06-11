@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>view_versions</code> in a region or to create or delete a <code>view_versions</code> resource, use <code>view_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>view_version</code> resource or lists <code>view_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>view_versions</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="view_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the view for which a version is being created.</td></tr>
 <tr><td><CopyableCode code="view_version_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the created view version.</td></tr>
+<tr><td><CopyableCode code="version_description" /></td><td><code>string</code></td><td>The description for the view version.</td></tr>
+<tr><td><CopyableCode code="view_content_sha256" /></td><td><code>string</code></td><td>The view content hash to be checked.</td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>integer</code></td><td>The version of the view.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +61,15 @@ Used to retrieve a list of <code>view_versions</code> in a region or to create o
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>view_versions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +77,21 @@ view_version_arn
 FROM aws.connect.view_versions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>view_version</code>.
+```sql
+SELECT
+region,
+view_arn,
+view_version_arn,
+version_description,
+view_content_sha256,
+version
+FROM aws.connect.view_versions
+WHERE region = 'us-east-1' AND data__Identifier = '<ViewVersionArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>view_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -139,7 +158,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -155,6 +174,11 @@ To operate on the <code>view_versions</code> resource, the following permissions
 ### Create
 ```json
 connect:CreateViewVersion
+```
+
+### Read
+```json
+connect:DescribeView
 ```
 
 ### List

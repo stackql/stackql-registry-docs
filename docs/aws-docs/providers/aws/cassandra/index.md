@@ -20,9 +20,9 @@ The cassandra service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -31,11 +31,9 @@ The cassandra service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/cassandra/keyspace/">keyspace</a><br />
 <a href="/providers/aws/cassandra/keyspaces/">keyspaces</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/cassandra/table/">table</a><br />
 <a href="/providers/aws/cassandra/tables/">tables</a>
 </div>
 </div>

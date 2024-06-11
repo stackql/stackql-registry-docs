@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>exports</code> in a region or to create or delete a <code>exports</code> resource, use <code>export</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>export</code> resource or lists <code>exports</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>exports</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="export" /></td><td><code>Definition of AWS::BCMDataExports::Export Resource Type</code></td><td></td></tr>
 <tr><td><CopyableCode code="export_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +55,24 @@ Used to retrieve a list of <code>exports</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>exports</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,19 @@ export_arn
 FROM aws.bcmdataexports.exports
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>export</code>.
+```sql
+SELECT
+region,
+export,
+export_arn,
+tags
+FROM aws.bcmdataexports.exports
+WHERE region = 'us-east-1' AND data__Identifier = '<ExportArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>export</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -140,7 +160,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -160,6 +180,21 @@ bcm-data-exports:GetExport,
 bcm-data-exports:ListTagsForResource,
 bcm-data-exports:TagResource,
 cur:PutReportDefinition
+```
+
+### Read
+```json
+bcm-data-exports:GetExport,
+bcm-data-exports:ListTagsForResource
+```
+
+### Update
+```json
+bcm-data-exports:UpdateExport,
+bcm-data-exports:TagResource,
+bcm-data-exports:UntagResource,
+bcm-data-exports:GetExport,
+bcm-data-exports:ListTagsForResource
 ```
 
 ### Delete

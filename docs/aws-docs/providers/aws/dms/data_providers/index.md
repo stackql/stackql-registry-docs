@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>data_providers</code> in a region or to create or delete a <code>data_providers</code> resource, use <code>data_provider</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>data_provider</code> resource or lists <code>data_providers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>data_providers</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="data_provider_name" /></td><td><code>string</code></td><td>The property describes a name to identify the data provider.</td></tr>
+<tr><td><CopyableCode code="data_provider_identifier" /></td><td><code>string</code></td><td>The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn</td></tr>
 <tr><td><CopyableCode code="data_provider_arn" /></td><td><code>string</code></td><td>The data provider ARN.</td></tr>
+<tr><td><CopyableCode code="data_provider_creation_time" /></td><td><code>string</code></td><td>The data provider creation time.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The optional description of the data provider.</td></tr>
+<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>The property describes a data engine for the data provider.</td></tr>
+<tr><td><CopyableCode code="exact_settings" /></td><td><code>boolean</code></td><td>The property describes the exact settings which can be modified</td></tr>
+<tr><td><CopyableCode code="settings" /></td><td><code>object</code></td><td>The property identifies the exact type of settings for the data provider.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>data_providers</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>data_providers</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ data_provider_arn
 FROM aws.dms.data_providers
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>data_provider</code>.
+```sql
+SELECT
+region,
+data_provider_name,
+data_provider_identifier,
+data_provider_arn,
+data_provider_creation_time,
+description,
+engine,
+exact_settings,
+settings,
+tags
+FROM aws.dms.data_providers
+WHERE region = 'us-east-1' AND data__Identifier = '<DataProviderArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>data_provider</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +179,35 @@ resources:
       - name: ExactSettings
         value: '{{ ExactSettings }}'
       - name: Settings
-        value: {}
+        value:
+          PostgreSqlSettings:
+            ServerName: '{{ ServerName }}'
+            Port: '{{ Port }}'
+            DatabaseName: '{{ DatabaseName }}'
+            SslMode: '{{ SslMode }}'
+            CertificateArn: '{{ CertificateArn }}'
+          MySqlSettings:
+            ServerName: '{{ ServerName }}'
+            Port: '{{ Port }}'
+            SslMode: null
+            CertificateArn: '{{ CertificateArn }}'
+          OracleSettings:
+            ServerName: '{{ ServerName }}'
+            Port: '{{ Port }}'
+            DatabaseName: '{{ DatabaseName }}'
+            SslMode: null
+            CertificateArn: '{{ CertificateArn }}'
+            AsmServer: '{{ AsmServer }}'
+            SecretsManagerOracleAsmSecretId: '{{ SecretsManagerOracleAsmSecretId }}'
+            SecretsManagerOracleAsmAccessRoleArn: '{{ SecretsManagerOracleAsmAccessRoleArn }}'
+            SecretsManagerSecurityDbEncryptionSecretId: '{{ SecretsManagerSecurityDbEncryptionSecretId }}'
+            SecretsManagerSecurityDbEncryptionAccessRoleArn: '{{ SecretsManagerSecurityDbEncryptionAccessRoleArn }}'
+          MicrosoftSqlServerSettings:
+            ServerName: '{{ ServerName }}'
+            Port: '{{ Port }}'
+            DatabaseName: '{{ DatabaseName }}'
+            SslMode: null
+            CertificateArn: '{{ CertificateArn }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -157,7 +217,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -176,6 +236,22 @@ dms:CreateDataProvider,
 dms:ListDataProviders,
 dms:DescribeDataProviders,
 dms:AddTagsToResource,
+dms:ListTagsForResource
+```
+
+### Read
+```json
+dms:ListDataProviders,
+dms:DescribeDataProviders,
+dms:ListTagsForResource
+```
+
+### Update
+```json
+dms:UpdateDataProvider,
+dms:ModifyDataProvider,
+dms:AddTagsToResource,
+dms:RemoveTagsToResource,
 dms:ListTagsForResource
 ```
 

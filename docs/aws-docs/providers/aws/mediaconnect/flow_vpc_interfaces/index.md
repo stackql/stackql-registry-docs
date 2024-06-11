@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>flow_vpc_interfaces</code> in a region or to create or delete a <code>flow_vpc_interfaces</code> resource, use <code>flow_vpc_interface</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>flow_vpc_interface</code> resource or lists <code>flow_vpc_interfaces</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,13 @@ Used to retrieve a list of <code>flow_vpc_interfaces</code> in a region or to cr
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="flow_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="flow_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Immutable and has to be a unique against other VpcInterfaces in this Flow.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Role Arn MediaConnect can assume to create ENIs in customer's account.</td></tr>
+<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>Security Group IDs to be used on ENI.</td></tr>
+<tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>Subnet must be in the AZ of the Flow</td></tr>
+<tr><td><CopyableCode code="network_interface_ids" /></td><td><code>array</code></td><td>IDs of the network interfaces created in customer's account by MediaConnect.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +58,24 @@ Used to retrieve a list of <code>flow_vpc_interfaces</code> in a region or to cr
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>flow_vpc_interfaces</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +84,22 @@ name
 FROM aws.mediaconnect.flow_vpc_interfaces
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>flow_vpc_interface</code>.
+```sql
+SELECT
+region,
+flow_arn,
+name,
+role_arn,
+security_group_ids,
+subnet_id,
+network_interface_ids
+FROM aws.mediaconnect.flow_vpc_interfaces
+WHERE region = 'us-east-1' AND data__Identifier = '<FlowArn>|<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>flow_vpc_interface</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -158,7 +183,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -176,6 +201,18 @@ To operate on the <code>flow_vpc_interfaces</code> resource, the following permi
 iam:PassRole,
 mediaconnect:DescribeFlow,
 mediaconnect:AddFlowVpcInterfaces
+```
+
+### Read
+```json
+mediaconnect:DescribeFlow
+```
+
+### Update
+```json
+mediaconnect:DescribeFlow,
+mediaconnect:AddFlowVpcInterfaces,
+mediaconnect:RemoveFlowVpcInterface
 ```
 
 ### Delete

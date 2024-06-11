@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>multicast_groups</code> in a region or to create or delete a <code>multicast_groups</code> resource, use <code>multicast_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>multicast_group</code> resource or lists <code>multicast_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>multicast_groups</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of Multicast group</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Multicast group description</td></tr>
+<tr><td><CopyableCode code="lo_ra_wan" /></td><td><code>object</code></td><td>Multicast group LoRaWAN</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Multicast group arn. Returned after successful create.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Multicast group id. Returned after successful create.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the Multicast group.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Multicast group status. Returned after successful read.</td></tr>
+<tr><td><CopyableCode code="associate_wireless_device" /></td><td><code>string</code></td><td>Wireless device to associate. Only for update request.</td></tr>
+<tr><td><CopyableCode code="disassociate_wireless_device" /></td><td><code>string</code></td><td>Wireless device to disassociate. Only for update request.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>multicast_groups</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>multicast_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ id
 FROM aws.iotwireless.multicast_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>multicast_group</code>.
+```sql
+SELECT
+region,
+name,
+description,
+lo_ra_wan,
+arn,
+id,
+tags,
+status,
+associate_wireless_device,
+disassociate_wireless_device
+FROM aws.iotwireless.multicast_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>multicast_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -157,7 +189,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -175,6 +207,21 @@ To operate on the <code>multicast_groups</code> resource, the following permissi
 iotwireless:CreateMulticastGroup,
 iotwireless:TagResource,
 iotwireless:ListTagsForResource
+```
+
+### Read
+```json
+iotwireless:GetMulticastGroup,
+iotwireless:ListTagsForResource
+```
+
+### Update
+```json
+iotwireless:UpdateMulticastGroup,
+iotwireless:UntagResource,
+iotwireless:ListTagsForResource,
+iotwireless:AssociateWirelessDeviceWithMulticastGroup,
+iotwireless:DisassociateWirelessDeviceFromMulticastGroup
 ```
 
 ### Delete

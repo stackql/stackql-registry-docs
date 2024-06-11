@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>user_groups</code> in a region or to create or delete a <code>user_groups</code> resource, use <code>user_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>user_group</code> resource or lists <code>user_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>user_groups</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Indicates user group status. Can be "creating", "active", "modifying", "deleting".</td></tr>
 <tr><td><CopyableCode code="user_group_id" /></td><td><code>string</code></td><td>The ID of the user group.</td></tr>
+<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>Must be redis.</td></tr>
+<tr><td><CopyableCode code="user_ids" /></td><td><code>array</code></td><td>List of users associated to this user group.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the user account.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this user.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>user_groups</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>user_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ user_group_id
 FROM aws.elasticache.user_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>user_group</code>.
+```sql
+SELECT
+region,
+status,
+user_group_id,
+engine,
+user_ids,
+arn,
+tags
+FROM aws.elasticache.user_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<UserGroupId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>user_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -150,7 +176,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -169,6 +195,21 @@ elasticache:CreateUserGroup,
 elasticache:DescribeUserGroups,
 elasticache:ListTagsForResource,
 elasticache:AddTagsToResource
+```
+
+### Read
+```json
+elasticache:DescribeUserGroups,
+elasticache:ListTagsForResource
+```
+
+### Update
+```json
+elasticache:ModifyUserGroup,
+elasticache:DescribeUserGroups,
+elasticache:ListTagsForResource,
+elasticache:AddTagsToResource,
+elasticache:RemoveTagsFromResource
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>rooms</code> in a region or to create or delete a <code>rooms</code> resource, use <code>room</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>room</code> resource or lists <code>rooms</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>rooms</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Room ARN is automatically generated on creation and assigned as the unique identifier.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Room ARN is automatically generated on creation and assigned as the unique identifier.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The system-generated ID of the room.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the room. The value does not need to be unique.</td></tr>
+<tr><td><CopyableCode code="logging_configuration_identifiers" /></td><td><code>array</code></td><td>Array of logging configuration identifiers attached to the room.</td></tr>
+<tr><td><CopyableCode code="maximum_message_length" /></td><td><code>integer</code></td><td>The maximum number of characters in a single message.</td></tr>
+<tr><td><CopyableCode code="maximum_message_rate_per_second" /></td><td><code>integer</code></td><td>The maximum number of messages per second that can be sent to the room.</td></tr>
+<tr><td><CopyableCode code="message_review_handler" /></td><td><code>Configuration information for optional review of messages.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>rooms</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>rooms</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ arn
 FROM aws.ivschat.rooms
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>room</code>.
+```sql
+SELECT
+region,
+arn,
+id,
+name,
+logging_configuration_identifiers,
+maximum_message_length,
+maximum_message_rate_per_second,
+message_review_handler,
+tags
+FROM aws.ivschat.rooms
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>room</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -156,7 +186,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -173,6 +203,20 @@ To operate on the <code>rooms</code> resource, the following permissions are req
 ```json
 ivschat:CreateRoom,
 ivschat:TagResource
+```
+
+### Read
+```json
+ivschat:GetRoom,
+ivschat:ListTagsForResource
+```
+
+### Update
+```json
+ivschat:UpdateRoom,
+ivschat:TagResource,
+ivschat:UntagResource,
+ivschat:ListTagsForResource
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>static_ips</code> in a region or to create or delete a <code>static_ips</code> resource, use <code>static_ip</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>static_ip</code> resource or lists <code>static_ips</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>static_ips</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="static_ip_name" /></td><td><code>string</code></td><td>The name of the static IP address.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="static_ip_name" /></td><td><code>string</code></td><td>The name of the static IP address.</td></tr>
+<tr><td><CopyableCode code="attached_to" /></td><td><code>string</code></td><td>The instance where the static IP is attached.</td></tr>
+<tr><td><CopyableCode code="is_attached" /></td><td><code>boolean</code></td><td>A Boolean value indicating whether the static IP is attached.</td></tr>
+<tr><td><CopyableCode code="ip_address" /></td><td><code>string</code></td><td>The static IP address.</td></tr>
+<tr><td><CopyableCode code="static_ip_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>static_ips</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>static_ips</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ static_ip_name
 FROM aws.lightsail.static_ips
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>static_ip</code>.
+```sql
+SELECT
+region,
+static_ip_name,
+attached_to,
+is_attached,
+ip_address,
+static_ip_arn
+FROM aws.lightsail.static_ips
+WHERE region = 'us-east-1' AND data__Identifier = '<StaticIpName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>static_ip</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -135,7 +159,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -151,6 +175,21 @@ To operate on the <code>static_ips</code> resource, the following permissions ar
 ### Create
 ```json
 lightsail:AllocateStaticIp,
+lightsail:AttachStaticIp,
+lightsail:DetachStaticIp,
+lightsail:GetInstance,
+lightsail:GetStaticIp,
+lightsail:GetStaticIps
+```
+
+### Read
+```json
+lightsail:GetStaticIp,
+lightsail:GetStaticIps
+```
+
+### Update
+```json
 lightsail:AttachStaticIp,
 lightsail:DetachStaticIp,
 lightsail:GetInstance,

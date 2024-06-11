@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>monitoring_schedules</code> in a region or to create or delete a <code>monitoring_schedules</code> resource, use <code>monitoring_schedule</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>monitoring_schedule</code> resource or lists <code>monitoring_schedules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>monitoring_schedules</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="monitoring_schedule_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the monitoring schedule.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="monitoring_schedule_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the monitoring schedule.</td></tr>
+<tr><td><CopyableCode code="monitoring_schedule_name" /></td><td><code>The name of the monitoring schedule.</code></td><td></td></tr>
+<tr><td><CopyableCode code="monitoring_schedule_config" /></td><td><code>The configuration object that specifies the monitoring schedule and defines the monitoring job.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The time at which the schedule was created.</td></tr>
+<tr><td><CopyableCode code="endpoint_name" /></td><td><code>The name of the endpoint used to run the monitoring job.</code></td><td></td></tr>
+<tr><td><CopyableCode code="failure_reason" /></td><td><code>string</code></td><td>Contains the reason a monitoring job failed, if it failed.</td></tr>
+<tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td>A timestamp that indicates the last time the monitoring job was modified.</td></tr>
+<tr><td><CopyableCode code="last_monitoring_execution_summary" /></td><td><code>object</code></td><td>Describes metadata on the last execution to run, if there was one.</td></tr>
+<tr><td><CopyableCode code="monitoring_schedule_status" /></td><td><code>string</code></td><td>The status of a schedule job.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>monitoring_schedules</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>monitoring_schedules</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ monitoring_schedule_arn
 FROM aws.sagemaker.monitoring_schedules
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>monitoring_schedule</code>.
+```sql
+SELECT
+region,
+monitoring_schedule_arn,
+monitoring_schedule_name,
+monitoring_schedule_config,
+tags,
+creation_time,
+endpoint_name,
+failure_reason,
+last_modified_time,
+last_monitoring_execution_summary,
+monitoring_schedule_status
+FROM aws.sagemaker.monitoring_schedules
+WHERE region = 'us-east-1' AND data__Identifier = '<MonitoringScheduleArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>monitoring_schedule</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -231,7 +265,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -260,5 +294,16 @@ sagemaker:DescribeMonitoringSchedule
 ### List
 ```json
 sagemaker:ListMonitoringSchedule
+```
+
+### Read
+```json
+sagemaker:DescribeMonitoringSchedule
+```
+
+### Update
+```json
+sagemaker:UpdateMonitoringSchedule,
+sagemaker:DescribeMonitoringSchedule
 ```
 

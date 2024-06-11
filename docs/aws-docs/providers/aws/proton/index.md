@@ -20,9 +20,9 @@ The proton service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -31,13 +31,10 @@ The proton service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/proton/environment_account_connection/">environment_account_connection</a><br />
 <a href="/providers/aws/proton/environment_account_connections/">environment_account_connections</a><br />
-<a href="/providers/aws/proton/environment_template/">environment_template</a>
+<a href="/providers/aws/proton/environment_templates/">environment_templates</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/proton/environment_templates/">environment_templates</a><br />
-<a href="/providers/aws/proton/service_template/">service_template</a><br />
 <a href="/providers/aws/proton/service_templates/">service_templates</a>
 </div>
 </div>

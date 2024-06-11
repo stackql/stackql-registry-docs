@@ -19,23 +19,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>route_tables</code> in a region or to create or delete a <code>route_tables</code> resource, use <code>route_table</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>route_table</code> resource or lists <code>route_tables</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>route_tables</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.&lt;br&#x2F;&gt; For more information, see &#91;Route tables&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;vpc&#x2F;latest&#x2F;userguide&#x2F;VPC_Route_Tables.html) in the *Amazon VPC User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.<br/> For more information, see &#91;Route tables&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.route_tables" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="route_table_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="route_table_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags assigned to the route table.</td></tr>
+<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +55,24 @@ Used to retrieve a list of <code>route_tables</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>route_tables</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,19 @@ route_table_id
 FROM aws.ec2.route_tables
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>route_table</code>.
+```sql
+SELECT
+region,
+route_table_id,
+tags,
+vpc_id
+FROM aws.ec2.route_tables
+WHERE region = 'us-east-1' AND data__Identifier = '<RouteTableId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>route_table</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +157,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -154,6 +174,18 @@ To operate on the <code>route_tables</code> resource, the following permissions 
 ```json
 ec2:CreateRouteTable,
 ec2:CreateTags,
+ec2:DescribeRouteTables
+```
+
+### Read
+```json
+ec2:DescribeRouteTables
+```
+
+### Update
+```json
+ec2:CreateTags,
+ec2:DeleteTags,
 ec2:DescribeRouteTables
 ```
 

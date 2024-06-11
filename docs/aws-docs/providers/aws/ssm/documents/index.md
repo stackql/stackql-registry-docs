@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>documents</code> in a region or to create or delete a <code>documents</code> resource, use <code>document</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>document</code> resource or lists <code>documents</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>documents</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="content" /></td><td><code>object</code></td><td>The content for the Systems Manager document in JSON, YAML or String format.</td></tr>
+<tr><td><CopyableCode code="attachments" /></td><td><code>array</code></td><td>A list of key and value pairs that describe attachments to a version of a document.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the Systems Manager document.</td></tr>
+<tr><td><CopyableCode code="version_name" /></td><td><code>string</code></td><td>An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.</td></tr>
+<tr><td><CopyableCode code="document_type" /></td><td><code>string</code></td><td>The type of document to create.</td></tr>
+<tr><td><CopyableCode code="document_format" /></td><td><code>string</code></td><td>Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.</td></tr>
+<tr><td><CopyableCode code="target_type" /></td><td><code>string</code></td><td>Specify a target type to define the kinds of resources the document can run on.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.</td></tr>
+<tr><td><CopyableCode code="requires" /></td><td><code>array</code></td><td>A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.</td></tr>
+<tr><td><CopyableCode code="update_method" /></td><td><code>string</code></td><td>Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>documents</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>documents</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ name
 FROM aws.ssm.documents
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>document</code>.
+```sql
+SELECT
+region,
+content,
+attachments,
+name,
+version_name,
+document_type,
+document_format,
+target_type,
+tags,
+requires,
+update_method
+FROM aws.ssm.documents
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>document</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -175,7 +209,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -196,6 +230,24 @@ ssm:AddTagsToResource,
 ssm:ListTagsForResource,
 s3:GetObject,
 iam:PassRole
+```
+
+### Read
+```json
+ssm:GetDocument,
+ssm:ListTagsForResource
+```
+
+### Update
+```json
+ssm:UpdateDocument,
+s3:GetObject,
+ssm:AddTagsToResource,
+ssm:RemoveTagsFromResource,
+ssm:ListTagsForResource,
+iam:PassRole,
+ssm:UpdateDocumentDefaultVersion,
+ssm:DescribeDocument
 ```
 
 ### Delete

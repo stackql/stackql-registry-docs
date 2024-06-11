@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>channel_policies</code> in a region or to create or delete a <code>channel_policies</code> resource, use <code>channel_policy</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>channel_policy</code> resource or lists <code>channel_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,9 @@ Used to retrieve a list of <code>channel_policies</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="channel_name" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="channel_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td><p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +54,31 @@ Used to retrieve a list of <code>channel_policies</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>channel_policy</code>.
 ```sql
 SELECT
 region,
-channel_name
+channel_name,
+policy
 FROM aws.mediatailor.channel_policies
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<ChannelName>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>channel_policy</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +143,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -151,6 +157,17 @@ AND region = 'us-east-1';
 To operate on the <code>channel_policies</code> resource, the following permissions are required:
 
 ### Create
+```json
+mediatailor:PutChannelPolicy,
+mediatailor:GetChannelPolicy
+```
+
+### Read
+```json
+mediatailor:GetChannelPolicy
+```
+
+### Update
 ```json
 mediatailor:PutChannelPolicy,
 mediatailor:GetChannelPolicy

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>pipes</code> in a region or to create or delete a <code>pipes</code> resource, use <code>pipe</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>pipe</code> resource or lists <code>pipes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,24 @@ Used to retrieve a list of <code>pipes</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="current_state" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="desired_state" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="enrichment" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="enrichment_parameters" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="log_configuration" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="source" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_parameters" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="state_reason" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="target" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="target_parameters" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +69,24 @@ Used to retrieve a list of <code>pipes</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>pipes</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +94,33 @@ name
 FROM aws.pipes.pipes
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>pipe</code>.
+```sql
+SELECT
+region,
+arn,
+creation_time,
+current_state,
+description,
+desired_state,
+enrichment,
+enrichment_parameters,
+last_modified_time,
+log_configuration,
+name,
+role_arn,
+source,
+source_parameters,
+state_reason,
+tags,
+target,
+target_parameters
+FROM aws.pipes.pipes
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>pipe</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -365,12 +413,32 @@ resources:
           CloudWatchLogsParameters:
             LogStreamName: '{{ LogStreamName }}'
             Timestamp: '{{ Timestamp }}'
+          TimestreamParameters:
+            TimeValue: '{{ TimeValue }}'
+            EpochTimeUnit: '{{ EpochTimeUnit }}'
+            TimeFieldType: '{{ TimeFieldType }}'
+            TimestampFormat: '{{ TimestampFormat }}'
+            VersionValue: '{{ VersionValue }}'
+            DimensionMappings:
+              - DimensionValue: '{{ DimensionValue }}'
+                DimensionValueType: '{{ DimensionValueType }}'
+                DimensionName: '{{ DimensionName }}'
+            SingleMeasureMappings:
+              - MeasureValue: '{{ MeasureValue }}'
+                MeasureValueType: '{{ MeasureValueType }}'
+                MeasureName: '{{ MeasureName }}'
+            MultiMeasureMappings:
+              - MultiMeasureName: '{{ MultiMeasureName }}'
+                MultiMeasureAttributeMappings:
+                  - MeasureValue: '{{ MeasureValue }}'
+                    MeasureValueType: null
+                    MultiMeasureAttributeName: '{{ MultiMeasureAttributeName }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -394,6 +462,32 @@ logs:DescribeResourcePolicies,
 logs:DescribeLogGroups,
 iam:CreateServiceLinkedRole,
 logs:CreateLogDelivery,
+logs:GetLogDelivery,
+logs:ListLogDeliveries,
+s3:PutBucketPolicy,
+s3:GetBucketPolicy,
+firehose:TagDeliveryStream
+```
+
+### Read
+```json
+pipes:DescribePipe
+```
+
+### Update
+```json
+pipes:UpdatePipe,
+pipes:TagResource,
+pipes:UntagResource,
+pipes:DescribePipe,
+iam:PassRole,
+logs:PutResourcePolicy,
+logs:DescribeResourcePolicies,
+logs:DescribeLogGroups,
+iam:CreateServiceLinkedRole,
+logs:CreateLogDelivery,
+logs:UpdateLogDelivery,
+logs:DeleteLogDelivery,
 logs:GetLogDelivery,
 logs:ListLogDeliveries,
 s3:PutBucketPolicy,

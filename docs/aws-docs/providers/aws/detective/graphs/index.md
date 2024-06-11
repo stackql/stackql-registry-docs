@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>graphs</code> in a region or to create or delete a <code>graphs</code> resource, use <code>graph</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>graph</code> resource or lists <code>graphs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>graphs</code> in a region or to create or delet
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Detective graph ARN</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Detective graph ARN</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_enable_members" /></td><td><code>boolean</code></td><td>Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +55,24 @@ Used to retrieve a list of <code>graphs</code> in a region or to create or delet
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>graphs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,19 @@ arn
 FROM aws.detective.graphs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>graph</code>.
+```sql
+SELECT
+region,
+arn,
+tags,
+auto_enable_members
+FROM aws.detective.graphs
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>graph</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -139,7 +159,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -156,6 +176,23 @@ To operate on the <code>graphs</code> resource, the following permissions are re
 ```json
 detective:CreateGraph,
 detective:UpdateOrganizationConfiguration,
+organizations:DescribeOrganization
+```
+
+### Update
+```json
+detective:UntagResource,
+detective:TagResource,
+detective:ListTagsForResource,
+detective:UpdateOrganizationConfiguration,
+organizations:DescribeOrganization
+```
+
+### Read
+```json
+detective:ListGraphs,
+detective:ListTagsForResource,
+detective:DescribeOrganizationConfiguration,
 organizations:DescribeOrganization
 ```
 

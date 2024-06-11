@@ -20,9 +20,9 @@ The bedrock service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>8</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -31,15 +31,13 @@ The bedrock service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/bedrock/agent/">agent</a><br />
-<a href="/providers/aws/bedrock/agent_alias/">agent_alias</a><br />
 <a href="/providers/aws/bedrock/agent_aliases/">agent_aliases</a><br />
-<a href="/providers/aws/bedrock/agents/">agents</a>
+<a href="/providers/aws/bedrock/agents/">agents</a><br />
+<a href="/providers/aws/bedrock/data_sources/">data_sources</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/bedrock/data_source/">data_source</a><br />
-<a href="/providers/aws/bedrock/data_sources/">data_sources</a><br />
-<a href="/providers/aws/bedrock/knowledge_base/">knowledge_base</a><br />
+<a href="/providers/aws/bedrock/guardrail_versions/">guardrail_versions</a><br />
+<a href="/providers/aws/bedrock/guardrails/">guardrails</a><br />
 <a href="/providers/aws/bedrock/knowledge_bases/">knowledge_bases</a>
 </div>
 </div>

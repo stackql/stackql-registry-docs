@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>control_panels</code> in a region or to create or delete a <code>control_panels</code> resource, use <code>control_panel</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>control_panel</code> resource or lists <code>control_panels</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>control_panels</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_arn" /></td><td><code>string</code></td><td>Cluster to associate with the Control Panel</td></tr>
 <tr><td><CopyableCode code="control_panel_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the cluster.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the control panel. You can use any non-white space character in the name.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</td></tr>
+<tr><td><CopyableCode code="default_control_panel" /></td><td><code>boolean</code></td><td>A flag that Amazon Route 53 Application Recovery Controller sets to true to designate the default control panel for a cluster. When you create a cluster, Amazon Route 53 Application Recovery Controller creates a control panel, and sets this flag for that control panel. If you create a control panel yourself, this flag is set to false.</td></tr>
+<tr><td><CopyableCode code="routing_control_count" /></td><td><code>integer</code></td><td>Count of associated routing controls</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>control_panels</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>control_panels</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ control_panel_arn
 FROM aws.route53recoverycontrol.control_panels
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>control_panel</code>.
+```sql
+SELECT
+region,
+cluster_arn,
+control_panel_arn,
+name,
+status,
+default_control_panel,
+routing_control_count,
+tags
+FROM aws.route53recoverycontrol.control_panels
+WHERE region = 'us-east-1' AND data__Identifier = '<ControlPanelArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>control_panel</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -141,7 +169,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -161,6 +189,21 @@ route53-recovery-control-config:DescribeCluster,
 route53-recovery-control-config:DescribeControlPanel,
 route53-recovery-control-config:ListTagsForResource,
 route53-recovery-control-config:TagResource
+```
+
+### Read
+```json
+route53-recovery-control-config:DescribeControlPanel,
+route53-recovery-control-config:ListTagsForResource
+```
+
+### Update
+```json
+route53-recovery-control-config:UpdateControlPanel,
+route53-recovery-control-config:DescribeControlPanel,
+route53-recovery-control-config:ListTagsForResource,
+route53-recovery-control-config:TagResource,
+route53-recovery-control-config:UntagResource
 ```
 
 ### Delete

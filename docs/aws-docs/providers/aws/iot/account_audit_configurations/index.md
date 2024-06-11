@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>account_audit_configurations</code> in a region or to create or delete a <code>account_audit_configurations</code> resource, use <code>account_audit_configuration</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>account_audit_configuration</code> resource or lists <code>account_audit_configurations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>account_audit_configurations</code> in a region
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).</td></tr>
+<tr><td><CopyableCode code="audit_check_configurations" /></td><td><code>Specifies which audit checks are enabled and disabled for this account.</code></td><td></td></tr>
+<tr><td><CopyableCode code="audit_notification_target_configurations" /></td><td><code>Information about the targets to which audit notifications are sent.</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>account_audit_configurations</code> in a region
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>account_audit_configurations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ account_id
 FROM aws.iot.account_audit_configurations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>account_audit_configuration</code>.
+```sql
+SELECT
+region,
+account_id,
+audit_check_configurations,
+audit_notification_target_configurations,
+role_arn
+FROM aws.iot.account_audit_configurations
+WHERE region = 'us-east-1' AND data__Identifier = '<AccountId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>account_audit_configuration</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -168,7 +190,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -182,6 +204,18 @@ AND region = 'us-east-1';
 To operate on the <code>account_audit_configurations</code> resource, the following permissions are required:
 
 ### Create
+```json
+iot:UpdateAccountAuditConfiguration,
+iot:DescribeAccountAuditConfiguration,
+iam:PassRole
+```
+
+### Read
+```json
+iot:DescribeAccountAuditConfiguration
+```
+
+### Update
 ```json
 iot:UpdateAccountAuditConfiguration,
 iot:DescribeAccountAuditConfiguration,

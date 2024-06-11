@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>bot_versions</code> in a region or to create or delete a <code>bot_versions</code> resource, use <code>bot_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>bot_version</code> resource or lists <code>bot_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>bot_versions</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="bot_id" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_version" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bot_id" /></td><td><code>Unique ID of resource</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_version" /></td><td><code>A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>A description of the version. Use the description to help identify the version in lists.</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_version_locale_specification" /></td><td><code>Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -62,9 +60,15 @@ Used to retrieve a list of <code>bot_versions</code> in a region or to create or
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>bot_versions</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +77,20 @@ bot_version
 FROM aws.lex.bot_versions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>bot_version</code>.
+```sql
+SELECT
+region,
+bot_id,
+bot_version,
+description,
+bot_version_locale_specification
+FROM aws.lex.bot_versions
+WHERE region = 'us-east-1' AND data__Identifier = '<BotId>|<BotVersion>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>bot_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +165,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -169,6 +185,11 @@ lex:DescribeBotVersion,
 lex:DescribeBot,
 lex:DescribeBotLocale,
 lex:BuildBotLocale
+```
+
+### Read
+```json
+lex:DescribeBotVersion
 ```
 
 ### Delete

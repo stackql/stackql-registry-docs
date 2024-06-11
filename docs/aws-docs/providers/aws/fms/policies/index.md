@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>policies</code> in a region or to create or delete a <code>policies</code> resource, use <code>policy</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>policy</code> resource or lists <code>policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,23 @@ Used to retrieve a list of <code>policies</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="exclude_map" /></td><td><code>An FMS includeMap or excludeMap.</code></td><td></td></tr>
+<tr><td><CopyableCode code="exclude_resource_tags" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="include_map" /></td><td><code>An FMS includeMap or excludeMap.</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="policy_description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="remediation_enabled" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_type" /></td><td><code>An AWS resource type</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_type_list" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_set_ids" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="security_service_policy_data" /></td><td><code>Firewall security service policy data.</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>A resource ARN.</code></td><td></td></tr>
+<tr><td><CopyableCode code="delete_all_policy_resources" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="resources_clean_up" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +68,24 @@ Used to retrieve a list of <code>policies</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>policies</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +93,32 @@ id
 FROM aws.fms.policies
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>policy</code>.
+```sql
+SELECT
+region,
+exclude_map,
+exclude_resource_tags,
+include_map,
+id,
+policy_name,
+policy_description,
+remediation_enabled,
+resource_tags,
+resource_type,
+resource_type_list,
+resource_set_ids,
+security_service_policy_data,
+arn,
+delete_all_policy_resources,
+resources_clean_up,
+tags
+FROM aws.fms.policies
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>policy</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -193,6 +239,23 @@ resources:
               FirewallDeploymentModel: '{{ FirewallDeploymentModel }}'
             ThirdPartyFirewallPolicy:
               FirewallDeploymentModel: null
+            NetworkAclCommonPolicy:
+              NetworkAclEntrySet:
+                FirstEntries:
+                  - CidrBlock: '{{ CidrBlock }}'
+                    Egress: '{{ Egress }}'
+                    IcmpTypeCode:
+                      Code: '{{ Code }}'
+                      Type: '{{ Type }}'
+                    Ipv6CidrBlock: '{{ Ipv6CidrBlock }}'
+                    PortRange:
+                      From: '{{ From }}'
+                      To: '{{ To }}'
+                    Protocol: '{{ Protocol }}'
+                    RuleAction: '{{ RuleAction }}'
+                ForceRemediateForFirstEntries: '{{ ForceRemediateForFirstEntries }}'
+                LastEntries: null
+                ForceRemediateForLastEntries: '{{ ForceRemediateForLastEntries }}'
       - name: DeleteAllPolicyResources
         value: '{{ DeleteAllPolicyResources }}'
       - name: ResourcesCleanUp
@@ -206,7 +269,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -234,6 +297,32 @@ route53resolver:ListFirewallRuleGroups,
 ec2:DescribeAvailabilityZones,
 s3:PutBucketPolicy,
 s3:GetBucketPolicy
+```
+
+### Update
+```json
+fms:PutPolicy,
+fms:GetPolicy,
+fms:TagResource,
+fms:UntagResource,
+fms:ListTagsForResource,
+waf-regional:ListRuleGroups,
+wafv2:CheckCapacity,
+wafv2:ListRuleGroups,
+wafv2:ListAvailableManagedRuleGroups,
+wafv2:ListAvailableManagedRuleGroupVersions,
+network-firewall:DescribeRuleGroup,
+network-firewall:DescribeRuleGroupMetadata,
+route53resolver:ListFirewallRuleGroups,
+ec2:DescribeAvailabilityZones,
+s3:PutBucketPolicy,
+s3:GetBucketPolicy
+```
+
+### Read
+```json
+fms:GetPolicy,
+fms:ListTagsForResource
 ```
 
 ### Delete

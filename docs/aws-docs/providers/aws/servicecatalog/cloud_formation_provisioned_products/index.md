@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>cloud_formation_provisioned_products</code> in a region or to create or delete a <code>cloud_formation_provisioned_products</code> resource, use <code>cloud_formation_provisioned_product</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>cloud_formation_provisioned_product</code> resource or lists <code>cloud_formation_provisioned_products</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,23 @@ Used to retrieve a list of <code>cloud_formation_provisioned_products</code> in 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="accept_language" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="notification_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="path_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="path_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="product_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="product_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="provisioned_product_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="provisioning_artifact_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="provisioning_artifact_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="provisioning_parameters" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="provisioning_preferences" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="provisioned_product_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="record_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="cloudformation_stack_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="outputs" /></td><td><code>object</code></td><td>List of key-value pair outputs.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +68,45 @@ Used to retrieve a list of <code>cloud_formation_provisioned_products</code> in 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>cloud_formation_provisioned_product</code>.
 ```sql
 SELECT
 region,
-provisioned_product_id
+accept_language,
+notification_arns,
+path_id,
+path_name,
+product_id,
+product_name,
+provisioned_product_name,
+provisioning_artifact_id,
+provisioning_artifact_name,
+provisioning_parameters,
+provisioning_preferences,
+tags,
+provisioned_product_id,
+record_id,
+cloudformation_stack_arn,
+outputs
 FROM aws.servicecatalog.cloud_formation_provisioned_products
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<ProvisionedProductId>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>cloud_formation_provisioned_product</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -211,7 +245,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -225,6 +259,16 @@ AND region = 'us-east-1';
 To operate on the <code>cloud_formation_provisioned_products</code> resource, the following permissions are required:
 
 ### Create
+```json
+*
+```
+
+### Read
+```json
+*
+```
+
+### Update
 ```json
 *
 ```

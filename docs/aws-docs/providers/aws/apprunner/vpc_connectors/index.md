@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>vpc_connectors</code> in a region or to create or delete a <code>vpc_connectors</code> resource, use <code>vpc_connector</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>vpc_connector</code> resource or lists <code>vpc_connectors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>vpc_connectors</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="vpc_connector_name" /></td><td><code>string</code></td><td>A name for the VPC connector. If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.</td></tr>
 <tr><td><CopyableCode code="vpc_connector_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of this VPC connector.</td></tr>
+<tr><td><CopyableCode code="vpc_connector_revision" /></td><td><code>integer</code></td><td>The revision of this VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.</td></tr>
+<tr><td><CopyableCode code="subnets" /></td><td><code>array</code></td><td>A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.</td></tr>
+<tr><td><CopyableCode code="security_groups" /></td><td><code>array</code></td><td>A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +62,15 @@ Used to retrieve a list of <code>vpc_connectors</code> in a region or to create 
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>vpc_connectors</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +78,22 @@ vpc_connector_arn
 FROM aws.apprunner.vpc_connectors
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>vpc_connector</code>.
+```sql
+SELECT
+region,
+vpc_connector_name,
+vpc_connector_arn,
+vpc_connector_revision,
+subnets,
+security_groups,
+tags
+FROM aws.apprunner.vpc_connectors
+WHERE region = 'us-east-1' AND data__Identifier = '<VpcConnectorArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>vpc_connector</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +168,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -168,6 +189,11 @@ apprunner:DescribeVpcConnector,
 apprunner:TagResource,
 ec2:DescribeSubnets,
 ec2:DescribeSecurityGroups
+```
+
+### Read
+```json
+apprunner:DescribeVpcConnector
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>views</code> in a region or to create or delete a <code>views</code> resource, use <code>view</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>view</code> resource or lists <code>views</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>views</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the instance.</td></tr>
 <tr><td><CopyableCode code="view_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the view.</td></tr>
+<tr><td><CopyableCode code="view_id" /></td><td><code>string</code></td><td>The view id of the view.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the view.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the view.</td></tr>
+<tr><td><CopyableCode code="template" /></td><td><code>object</code></td><td>The template of the view as JSON.</td></tr>
+<tr><td><CopyableCode code="actions" /></td><td><code>array</code></td><td>The actions of the view in an array.</td></tr>
+<tr><td><CopyableCode code="view_content_sha256" /></td><td><code>string</code></td><td>The view content hash.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>views</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>views</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ view_arn
 FROM aws.connect.views
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>view</code>.
+```sql
+SELECT
+region,
+instance_arn,
+view_arn,
+view_id,
+name,
+description,
+template,
+actions,
+view_content_sha256,
+tags
+FROM aws.connect.views
+WHERE region = 'us-east-1' AND data__Identifier = '<ViewArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>view</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -160,7 +192,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -179,6 +211,11 @@ connect:CreateView,
 connect:TagResource
 ```
 
+### Read
+```json
+connect:DescribeView
+```
+
 ### Delete
 ```json
 connect:DeleteView,
@@ -188,5 +225,13 @@ connect:UntagResource
 ### List
 ```json
 connect:ListViews
+```
+
+### Update
+```json
+connect:UpdateViewMetadata,
+connect:UpdateViewContent,
+connect:TagResource,
+connect:UntagResource
 ```
 

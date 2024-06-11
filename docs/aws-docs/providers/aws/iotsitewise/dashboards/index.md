@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>dashboards</code> in a region or to create or delete a <code>dashboards</code> resource, use <code>dashboard</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>dashboard</code> resource or lists <code>dashboards</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>dashboards</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="project_id" /></td><td><code>string</code></td><td>The ID of the project in which to create the dashboard.</td></tr>
 <tr><td><CopyableCode code="dashboard_id" /></td><td><code>string</code></td><td>The ID of the dashboard.</td></tr>
+<tr><td><CopyableCode code="dashboard_name" /></td><td><code>string</code></td><td>A friendly name for the dashboard.</td></tr>
+<tr><td><CopyableCode code="dashboard_description" /></td><td><code>string</code></td><td>A description for the dashboard.</td></tr>
+<tr><td><CopyableCode code="dashboard_definition" /></td><td><code>string</code></td><td>The dashboard definition specified in a JSON literal.</td></tr>
+<tr><td><CopyableCode code="dashboard_arn" /></td><td><code>string</code></td><td>The ARN of the dashboard.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the dashboard.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>dashboards</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>dashboards</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ dashboard_id
 FROM aws.iotsitewise.dashboards
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>dashboard</code>.
+```sql
+SELECT
+region,
+project_id,
+dashboard_id,
+dashboard_name,
+dashboard_description,
+dashboard_definition,
+dashboard_arn,
+tags
+FROM aws.iotsitewise.dashboards
+WHERE region = 'us-east-1' AND data__Identifier = '<DashboardId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>dashboard</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -153,7 +181,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -172,6 +200,25 @@ iotsitewise:CreateDashboard,
 iotsitewise:DescribeDashboard,
 iotsitewise:ListTagsForResource,
 iotsitewise:TagResource,
+iotsitewise:DescribeAsset,
+iotsitewise:DescribeAssetModel,
+iotsitewise:ListAssetModelProperties,
+iotsitewise:ListAssetModelCompositeModels
+```
+
+### Read
+```json
+iotsitewise:DescribeDashboard,
+iotsitewise:ListTagsForResource
+```
+
+### Update
+```json
+iotsitewise:DescribeDashboard,
+iotsitewise:UpdateDashboard,
+iotsitewise:TagResource,
+iotsitewise:UntagResource,
+iotsitewise:ListTagsForResource,
 iotsitewise:DescribeAsset,
 iotsitewise:DescribeAssetModel,
 iotsitewise:ListAssetModelProperties,

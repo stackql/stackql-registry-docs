@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>pod_identity_associations</code> in a region or to create or delete a <code>pod_identity_associations</code> resource, use <code>pod_identity_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>pod_identity_association</code> resource or lists <code>pod_identity_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>pod_identity_associations</code> in a region or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td>The cluster that the pod identity association is created for.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The IAM role ARN that the pod identity association is created for.</td></tr>
+<tr><td><CopyableCode code="namespace" /></td><td><code>string</code></td><td>The Kubernetes namespace that the pod identity association is created for.</td></tr>
+<tr><td><CopyableCode code="service_account" /></td><td><code>string</code></td><td>The Kubernetes service account that the pod identity association is created for.</td></tr>
 <tr><td><CopyableCode code="association_arn" /></td><td><code>string</code></td><td>The ARN of the pod identity association.</td></tr>
+<tr><td><CopyableCode code="association_id" /></td><td><code>string</code></td><td>The ID of the pod identity association.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>pod_identity_associations</code> in a region or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>pod_identity_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ association_arn
 FROM aws.eks.pod_identity_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>pod_identity_association</code>.
+```sql
+SELECT
+region,
+cluster_name,
+role_arn,
+namespace,
+service_account,
+association_arn,
+association_id,
+tags
+FROM aws.eks.pod_identity_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<AssociationArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>pod_identity_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -155,7 +183,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -173,6 +201,21 @@ To operate on the <code>pod_identity_associations</code> resource, the following
 eks:CreatePodIdentityAssociation,
 eks:DescribePodIdentityAssociation,
 eks:TagResource,
+iam:PassRole,
+iam:GetRole
+```
+
+### Read
+```json
+eks:DescribePodIdentityAssociation
+```
+
+### Update
+```json
+eks:DescribePodIdentityAssociation,
+eks:UpdatePodIdentityAssociation,
+eks:TagResource,
+eks:UntagResource,
 iam:PassRole,
 iam:GetRole
 ```

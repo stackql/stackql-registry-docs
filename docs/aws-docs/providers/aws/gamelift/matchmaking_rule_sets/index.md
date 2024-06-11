@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>matchmaking_rule_sets</code> in a region or to create or delete a <code>matchmaking_rule_sets</code> resource, use <code>matchmaking_rule_set</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>matchmaking_rule_set</code> resource or lists <code>matchmaking_rule_sets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>matchmaking_rule_sets</code> in a region or to 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A unique identifier for the matchmaking rule set.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A unique identifier for the matchmaking rule set.</td></tr>
+<tr><td><CopyableCode code="rule_set_body" /></td><td><code>string</code></td><td>A collection of matchmaking rules, formatted as a JSON string.</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>matchmaking_rule_sets</code> in a region or to 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>matchmaking_rule_sets</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ name
 FROM aws.gamelift.matchmaking_rule_sets
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>matchmaking_rule_set</code>.
+```sql
+SELECT
+region,
+name,
+rule_set_body,
+creation_time,
+arn,
+tags
+FROM aws.gamelift.matchmaking_rule_sets
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>matchmaking_rule_set</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -143,7 +167,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -165,9 +189,24 @@ gamelift:ListTagsForResource,
 gamelift:TagResource
 ```
 
+### Read
+```json
+gamelift:DescribeMatchmakingRuleSets,
+gamelift:ValidateMatchmakingRuleSet,
+gamelift:ListTagsForResource
+```
+
 ### Delete
 ```json
 gamelift:DeleteMatchmakingRuleSet
+```
+
+### Update
+```json
+gamelift:DescribeMatchmakingRuleSets,
+gamelift:ListTagsForResource,
+gamelift:TagResource,
+gamelift:UntagResource
 ```
 
 ### List

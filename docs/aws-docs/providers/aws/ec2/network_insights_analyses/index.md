@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>network_insights_analyses</code> in a region or to create or delete a <code>network_insights_analyses</code> resource, use <code>network_insights_analysis</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>network_insights_analysis</code> resource or lists <code>network_insights_analyses</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,22 @@ Used to retrieve a list of <code>network_insights_analyses</code> in a region or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="return_path_components" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="network_insights_analysis_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_insights_path_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_path_found" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="suggested_accounts" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="filter_in_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_insights_analysis_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status_message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="start_date" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="alternate_path_hints" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="explanations" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="forward_path_components" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="additional_accounts" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +67,24 @@ Used to retrieve a list of <code>network_insights_analyses</code> in a region or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>network_insights_analyses</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +92,31 @@ network_insights_analysis_id
 FROM aws.ec2.network_insights_analyses
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>network_insights_analysis</code>.
+```sql
+SELECT
+region,
+status,
+return_path_components,
+network_insights_analysis_id,
+network_insights_path_id,
+network_path_found,
+suggested_accounts,
+filter_in_arns,
+network_insights_analysis_arn,
+status_message,
+start_date,
+alternate_path_hints,
+explanations,
+forward_path_components,
+additional_accounts,
+tags
+FROM aws.ec2.network_insights_analyses
+WHERE region = 'us-east-1' AND data__Identifier = '<NetworkInsightsAnalysisId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>network_insights_analysis</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +191,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -159,6 +203,11 @@ AND region = 'us-east-1';
 ## Permissions
 
 To operate on the <code>network_insights_analyses</code> resource, the following permissions are required:
+
+### Read
+```json
+ec2:Describe*
+```
 
 ### Create
 ```json
@@ -173,6 +222,13 @@ directconnect:Describe*,
 tiros:CreateQuery,
 tiros:GetQueryAnswer,
 tiros:GetQueryExplanation
+```
+
+### Update
+```json
+ec2:CreateTags,
+ec2:Describe*,
+ec2:DeleteTags
 ```
 
 ### List

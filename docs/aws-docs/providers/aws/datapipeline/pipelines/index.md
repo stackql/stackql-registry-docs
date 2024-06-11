@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>pipelines</code> in a region or to create or delete a <code>pipelines</code> resource, use <code>pipeline</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>pipeline</code> resource or lists <code>pipelines</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>pipelines</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="activate" /></td><td><code>boolean</code></td><td>Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the pipeline.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the pipeline.</td></tr>
+<tr><td><CopyableCode code="parameter_objects" /></td><td><code>array</code></td><td>The parameter objects used with the pipeline.</td></tr>
+<tr><td><CopyableCode code="parameter_values" /></td><td><code>array</code></td><td>The parameter values used with the pipeline.</td></tr>
+<tr><td><CopyableCode code="pipeline_objects" /></td><td><code>array</code></td><td>The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.</td></tr>
+<tr><td><CopyableCode code="pipeline_tags" /></td><td><code>array</code></td><td>A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.</td></tr>
 <tr><td><CopyableCode code="pipeline_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>pipelines</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>pipelines</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ pipeline_id
 FROM aws.datapipeline.pipelines
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>pipeline</code>.
+```sql
+SELECT
+region,
+activate,
+description,
+name,
+parameter_objects,
+parameter_values,
+pipeline_objects,
+pipeline_tags,
+pipeline_id
+FROM aws.datapipeline.pipelines
+WHERE region = 'us-east-1' AND data__Identifier = '<PipelineId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>pipeline</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -169,7 +199,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -191,6 +221,27 @@ datapipeline:DescribePipelines,
 datapipeline:ValidatePipelineDefinition,
 datapipeline:ActivatePipeline,
 datapipeline:AddTags,
+iam:PassRole
+```
+
+### Read
+```json
+datapipeline:GetPipelineDefinition,
+datapipeline:DescribePipelines
+```
+
+### Update
+```json
+datapipeline:PutPipelineDefinition,
+datapipeline:AddTags,
+datapipeline:RemoveTags,
+datapipeline:DeactivatePipeline,
+datapipeline:GetPipelineDefinition,
+datapipeline:ActivatePipeline,
+datapipeline:ValidatePipelineDefinition,
+datapipeline:DescribePipelines,
+datapipeline:AddTags,
+datapipeline:RemoveTags,
 iam:PassRole
 ```
 

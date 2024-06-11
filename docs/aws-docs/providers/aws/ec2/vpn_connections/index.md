@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>vpn_connections</code> in a region or to create or delete a <code>vpn_connections</code> resource, use <code>vpn_connection</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>vpn_connection</code> resource or lists <code>vpn_connections</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>vpn_connections</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="vpn_connection_id" /></td><td><code>string</code></td><td>The provider-assigned unique ID for this managed resource</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="vpn_connection_id" /></td><td><code>string</code></td><td>The provider-assigned unique ID for this managed resource</td></tr>
+<tr><td><CopyableCode code="customer_gateway_id" /></td><td><code>string</code></td><td>The ID of the customer gateway at your end of the VPN connection.</td></tr>
+<tr><td><CopyableCode code="static_routes_only" /></td><td><code>boolean</code></td><td>Indicates whether the VPN connection uses static routes only.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags assigned to the VPN connection.</td></tr>
+<tr><td><CopyableCode code="transit_gateway_id" /></td><td><code>string</code></td><td>The ID of the transit gateway associated with the VPN connection.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of VPN connection.</td></tr>
+<tr><td><CopyableCode code="vpn_gateway_id" /></td><td><code>string</code></td><td>The ID of the virtual private gateway at the AWS side of the VPN connection.</td></tr>
+<tr><td><CopyableCode code="vpn_tunnel_options_specifications" /></td><td><code>array</code></td><td>The tunnel options for the VPN connection.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>vpn_connections</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>vpn_connections</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ vpn_connection_id
 FROM aws.ec2.vpn_connections
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>vpn_connection</code>.
+```sql
+SELECT
+region,
+vpn_connection_id,
+customer_gateway_id,
+static_routes_only,
+tags,
+transit_gateway_id,
+type,
+vpn_gateway_id,
+vpn_tunnel_options_specifications
+FROM aws.ec2.vpn_connections
+WHERE region = 'us-east-1' AND data__Identifier = '<VpnConnectionId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>vpn_connection</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -161,7 +191,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -186,6 +216,18 @@ ec2:CreateTags
 ec2:DescribeVpnConnections,
 ec2:DeleteVpnConnection,
 ec2:DeleteTags
+```
+
+### Update
+```json
+ec2:DescribeVpnConnections,
+ec2:CreateTags,
+ec2:DeleteTags
+```
+
+### Read
+```json
+ec2:DescribeVpnConnections
 ```
 
 ### List

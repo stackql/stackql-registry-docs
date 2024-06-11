@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>custom_line_items</code> in a region or to create or delete a <code>custom_line_items</code> resource, use <code>custom_line_item</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>custom_line_item</code> resource or lists <code>custom_line_items</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>custom_line_items</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_line_item_charge_details" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="billing_group_arn" /></td><td><code>string</code></td><td>Billing Group ARN</td></tr>
+<tr><td><CopyableCode code="billing_period_range" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>ARN</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
+<tr><td><CopyableCode code="last_modified_time" /></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>
+<tr><td><CopyableCode code="association_size" /></td><td><code>integer</code></td><td>Number of source values associated to this custom line item</td></tr>
+<tr><td><CopyableCode code="product_code" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="currency_code" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>The account which this custom line item will be charged to</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>custom_line_items</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>custom_line_items</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ arn
 FROM aws.billingconductor.custom_line_items
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>custom_line_item</code>.
+```sql
+SELECT
+region,
+name,
+description,
+custom_line_item_charge_details,
+billing_group_arn,
+billing_period_range,
+arn,
+creation_time,
+last_modified_time,
+association_size,
+product_code,
+currency_code,
+account_id,
+tags
+FROM aws.billingconductor.custom_line_items
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>custom_line_item</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -173,7 +213,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -195,11 +235,30 @@ billingconductor:TagResource,
 billingconductor:ListTagsForResource
 ```
 
+### Read
+```json
+billingconductor:ListCustomLineItems,
+billingconductor:ListCustomLineItemVersions,
+billingconductor:ListResourcesAssociatedToCustomLineItem,
+billingconductor:ListTagsForResource
+```
+
 ### List
 ```json
 billingconductor:ListCustomLineItems,
 billingconductor:ListResourcesAssociatedToCustomLineItem,
 billingconductor:ListTagsForResource
+```
+
+### Update
+```json
+billingconductor:UpdateCustomLineItem,
+billingconductor:ListCustomLineItems,
+billingconductor:ListResourcesAssociatedToCustomLineItem,
+billingconductor:BatchAssociateResourcesToCustomLineItem,
+billingconductor:BatchDisassociateResourcesFromCustomLineItem,
+billingconductor:TagResource,
+billingconductor:UntagResource
 ```
 
 ### Delete

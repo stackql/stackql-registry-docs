@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>mission_profiles</code> in a region or to create or delete a <code>mission_profiles</code> resource, use <code>mission_profile</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>mission_profile</code> resource or lists <code>mission_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,19 @@ Used to retrieve a list of <code>mission_profiles</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name used to identify a mission profile.</td></tr>
+<tr><td><CopyableCode code="contact_pre_pass_duration_seconds" /></td><td><code>integer</code></td><td>Pre-pass time needed before the contact.</td></tr>
+<tr><td><CopyableCode code="contact_post_pass_duration_seconds" /></td><td><code>integer</code></td><td>Post-pass time needed after the contact.</td></tr>
+<tr><td><CopyableCode code="minimum_viable_contact_duration_seconds" /></td><td><code>integer</code></td><td>Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.</td></tr>
+<tr><td><CopyableCode code="streams_kms_key" /></td><td><code>object</code></td><td>The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.</td></tr>
+<tr><td><CopyableCode code="streams_kms_role" /></td><td><code>string</code></td><td>The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.</td></tr>
+<tr><td><CopyableCode code="dataflow_edges" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tracking_config_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +64,24 @@ Used to retrieve a list of <code>mission_profiles</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>mission_profiles</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +90,28 @@ arn
 FROM aws.groundstation.mission_profiles
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>mission_profile</code>.
+```sql
+SELECT
+region,
+name,
+contact_pre_pass_duration_seconds,
+contact_post_pass_duration_seconds,
+minimum_viable_contact_duration_seconds,
+streams_kms_key,
+streams_kms_role,
+dataflow_edges,
+tracking_config_arn,
+tags,
+id,
+arn,
+region
+FROM aws.groundstation.mission_profiles
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>|<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>mission_profile</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -177,7 +214,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -195,6 +232,26 @@ To operate on the <code>mission_profiles</code> resource, the following permissi
 groundstation:CreateMissionProfile,
 groundstation:GetMissionProfile,
 groundstation:TagResource,
+iam:PassRole,
+kms:DescribeKey,
+kms:CreateGrant
+```
+
+### Read
+```json
+groundstation:GetMissionProfile,
+groundstation:ListTagsForResource,
+kms:DescribeKey,
+kms:CreateGrant
+```
+
+### Update
+```json
+groundstation:UpdateMissionProfile,
+groundstation:GetMissionProfile,
+groundstation:ListTagsForResource,
+groundstation:TagResource,
+groundstation:UntagResource,
 iam:PassRole,
 kms:DescribeKey,
 kms:CreateGrant

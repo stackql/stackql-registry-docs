@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>assessment_templates</code> in a region or to create or delete a <code>assessment_templates</code> resource, use <code>assessment_template</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>assessment_template</code> resource or lists <code>assessment_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>assessment_templates</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="assessment_target_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="duration_in_seconds" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="assessment_template_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="rules_package_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_attributes_for_findings" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +62,15 @@ Used to retrieve a list of <code>assessment_templates</code> in a region or to c
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>assessment_templates</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +78,22 @@ arn
 FROM aws.inspector.assessment_templates
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>assessment_template</code>.
+```sql
+SELECT
+region,
+arn,
+assessment_target_arn,
+duration_in_seconds,
+assessment_template_name,
+rules_package_arns,
+user_attributes_for_findings
+FROM aws.inspector.assessment_templates
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>assessment_template</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -154,7 +175,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -171,6 +192,11 @@ To operate on the <code>assessment_templates</code> resource, the following perm
 ```json
 inspector:CreateAssessmentTemplate,
 inspector:ListAssessmentTemplates,
+inspector:DescribeAssessmentTemplates
+```
+
+### Read
+```json
 inspector:DescribeAssessmentTemplates
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>collections</code> in a region or to create or delete a <code>collections</code> resource, use <code>collection</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>collection</code> resource or lists <code>collections</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>collections</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the collection</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The identifier of the collection</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the collection.<br/><br/>The name must meet the following criteria:<br/>Unique to your account and AWS Region<br/>Starts with a lowercase letter<br/>Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)<br/>Contains between 3 and 32 characters<br/></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>List of tags to be added to the resource</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the collection.</td></tr>
+<tr><td><CopyableCode code="collection_endpoint" /></td><td><code>string</code></td><td>The endpoint for the collection.</td></tr>
+<tr><td><CopyableCode code="dashboard_endpoint" /></td><td><code>string</code></td><td>The OpenSearch Dashboards endpoint for the collection.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>The possible types for the collection</code></td><td></td></tr>
+<tr><td><CopyableCode code="standby_replicas" /></td><td><code>The possible standby replicas for the collection</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>collections</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>collections</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ id
 FROM aws.opensearchserverless.collections
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>collection</code>.
+```sql
+SELECT
+region,
+description,
+id,
+name,
+tags,
+arn,
+collection_endpoint,
+dashboard_endpoint,
+type,
+standby_replicas
+FROM aws.opensearchserverless.collections
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>collection</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +181,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -178,5 +210,16 @@ aoss:BatchGetCollection
 ### List
 ```json
 aoss:ListCollections
+```
+
+### Read
+```json
+aoss:BatchGetCollection
+```
+
+### Update
+```json
+aoss:UpdateCollection,
+aoss:BatchGetCollection
 ```
 

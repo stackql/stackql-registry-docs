@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>lifecycle_hooks</code> in a region or to create or delete a <code>lifecycle_hooks</code> resource, use <code>lifecycle_hook</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>lifecycle_hook</code> resource or lists <code>lifecycle_hooks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,15 @@ Used to retrieve a list of <code>lifecycle_hooks</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="auto_scaling_group_name" /></td><td><code>string</code></td><td>The name of the Auto Scaling group for the lifecycle hook.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="auto_scaling_group_name" /></td><td><code>string</code></td><td>The name of the Auto Scaling group for the lifecycle hook.</td></tr>
+<tr><td><CopyableCode code="default_result" /></td><td><code>string</code></td><td>The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON (default).</td></tr>
+<tr><td><CopyableCode code="heartbeat_timeout" /></td><td><code>integer</code></td><td>The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from 30 to 7200 seconds. The default value is 3600 seconds (1 hour). If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the DefaultResult property.</td></tr>
 <tr><td><CopyableCode code="lifecycle_hook_name" /></td><td><code>string</code></td><td>The name of the lifecycle hook.</td></tr>
+<tr><td><CopyableCode code="lifecycle_transition" /></td><td><code>string</code></td><td>The instance state to which you want to attach the lifecycle hook.</td></tr>
+<tr><td><CopyableCode code="notification_metadata" /></td><td><code>string</code></td><td>Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.</td></tr>
+<tr><td><CopyableCode code="notification_target_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +60,24 @@ Used to retrieve a list of <code>lifecycle_hooks</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>lifecycle_hooks</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +86,24 @@ lifecycle_hook_name
 FROM aws.autoscaling.lifecycle_hooks
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>lifecycle_hook</code>.
+```sql
+SELECT
+region,
+auto_scaling_group_name,
+default_result,
+heartbeat_timeout,
+lifecycle_hook_name,
+lifecycle_transition,
+notification_metadata,
+notification_target_arn,
+role_arn
+FROM aws.autoscaling.lifecycle_hooks
+WHERE region = 'us-east-1' AND data__Identifier = '<AutoScalingGroupName>|<LifecycleHookName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>lifecycle_hook</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -163,7 +192,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -177,6 +206,18 @@ AND region = 'us-east-1';
 To operate on the <code>lifecycle_hooks</code> resource, the following permissions are required:
 
 ### Create
+```json
+autoscaling:PutLifecycleHook,
+autoscaling:DescribeLifecycleHooks,
+iam:PassRole
+```
+
+### Read
+```json
+autoscaling:DescribeLifecycleHooks
+```
+
+### Update
 ```json
 autoscaling:PutLifecycleHook,
 autoscaling:DescribeLifecycleHooks,

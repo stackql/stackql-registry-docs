@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>work_groups</code> in a region or to create or delete a <code>work_groups</code> resource, use <code>work_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>work_group</code> resource or lists <code>work_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>work_groups</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The workGroup name.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The workGroup name.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The workgroup description.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags, separated by commas, that you want to attach to the workgroup as you create it</td></tr>
+<tr><td><CopyableCode code="work_group_configuration" /></td><td><code>object</code></td><td>The workgroup configuration</td></tr>
+<tr><td><CopyableCode code="work_group_configuration_updates" /></td><td><code>object</code></td><td>The workgroup configuration update object</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The date and time the workgroup was created.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the workgroup: ENABLED or DISABLED.</td></tr>
+<tr><td><CopyableCode code="recursive_delete_option" /></td><td><code>boolean</code></td><td>The option to delete the workgroup and its contents even if the workgroup contains any named queries.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>work_groups</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>work_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ name
 FROM aws.athena.work_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>work_group</code>.
+```sql
+SELECT
+region,
+name,
+description,
+tags,
+work_group_configuration,
+work_group_configuration_updates,
+creation_time,
+state,
+recursive_delete_option
+FROM aws.athena.work_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>work_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -195,7 +225,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -224,6 +254,12 @@ kms:Decrypt,
 kms:GenerateDataKey
 ```
 
+### Read
+```json
+athena:GetWorkGroup,
+athena:ListTagsForResource
+```
+
 ### List
 ```json
 athena:ListWorkGroups
@@ -234,5 +270,22 @@ athena:ListWorkGroups
 athena:DeleteWorkGroup,
 athena:GetWorkGroup,
 athena:UntagResource
+```
+
+### Update
+```json
+athena:UpdateWorkGroup,
+athena:TagResource,
+athena:UntagResource,
+iam:PassRole,
+s3:GetBucketLocation,
+s3:GetObject,
+s3:ListBucket,
+s3:ListBucketMultipartUploads,
+s3:AbortMultipartUpload,
+s3:PutObject,
+s3:ListMultipartUploadParts,
+kms:Decrypt,
+kms:GenerateDataKey
 ```
 

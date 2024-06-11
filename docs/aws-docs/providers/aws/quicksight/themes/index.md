@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>themes</code> in a region or to create or delete a <code>themes</code> resource, use <code>theme</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>theme</code> resource or lists <code>themes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,21 @@ Used to retrieve a list of <code>themes</code> in a region or to create or delet
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="theme_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the theme.</p></td></tr>
 <tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="base_theme_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="configuration" /></td><td><code><p>The theme configuration. This configuration contains all of the display properties for
+            a theme.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td><p>The date and time that the theme was created.</p></td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>The date and time that the theme was last updated.</p></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="permissions" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="theme_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code><p>A version of a theme.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="version_description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +66,24 @@ Used to retrieve a list of <code>themes</code> in a region or to create or delet
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>themes</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +92,29 @@ aws_account_id
 FROM aws.quicksight.themes
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>theme</code>.
+```sql
+SELECT
+region,
+arn,
+aws_account_id,
+base_theme_id,
+configuration,
+created_time,
+last_updated_time,
+name,
+permissions,
+tags,
+theme_id,
+type,
+version,
+version_description
+FROM aws.quicksight.themes
+WHERE region = 'us-east-1' AND data__Identifier = '<ThemeId>|<AwsAccountId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>theme</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -198,8 +238,8 @@ resources:
               - '{{ Actions[0] }}'
       - name: Tags
         value:
-          - Value: '{{ Value }}'
-            Key: '{{ Key }}'
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
       - name: ThemeId
         value: '{{ ThemeId }}'
       - name: VersionDescription
@@ -209,7 +249,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -221,6 +261,13 @@ AND region = 'us-east-1';
 ## Permissions
 
 To operate on the <code>themes</code> resource, the following permissions are required:
+
+### Read
+```json
+quicksight:DescribeTheme,
+quicksight:DescribeThemePermissions,
+quicksight:ListTagsForResource
+```
 
 ### Create
 ```json
@@ -235,6 +282,17 @@ quicksight:ListTagsForResource
 ### List
 ```json
 quicksight:ListThemes
+```
+
+### Update
+```json
+quicksight:DescribeTheme,
+quicksight:DescribeThemePermissions,
+quicksight:UpdateTheme,
+quicksight:UpdateThemePermissions,
+quicksight:TagResource,
+quicksight:UntagResource,
+quicksight:ListTagsForResource
 ```
 
 ### Delete

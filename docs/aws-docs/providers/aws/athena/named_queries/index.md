@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>named_queries</code> in a region or to create or delete a <code>named_queries</code> resource, use <code>named_query</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>named_query</code> resource or lists <code>named_queries</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>named_queries</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The query name.</td></tr>
+<tr><td><CopyableCode code="database" /></td><td><code>string</code></td><td>The database to which the query belongs.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The query description.</td></tr>
+<tr><td><CopyableCode code="query_string" /></td><td><code>string</code></td><td>The contents of the query with all query statements.</td></tr>
+<tr><td><CopyableCode code="work_group" /></td><td><code>string</code></td><td>The name of the workgroup that contains the named query.</td></tr>
 <tr><td><CopyableCode code="named_query_id" /></td><td><code>string</code></td><td>The unique ID of the query.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +62,15 @@ Used to retrieve a list of <code>named_queries</code> in a region or to create o
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>named_queries</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +78,22 @@ named_query_id
 FROM aws.athena.named_queries
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>named_query</code>.
+```sql
+SELECT
+region,
+name,
+database,
+description,
+query_string,
+work_group,
+named_query_id
+FROM aws.athena.named_queries
+WHERE region = 'us-east-1' AND data__Identifier = '<NamedQueryId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>named_query</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +170,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -165,6 +186,11 @@ To operate on the <code>named_queries</code> resource, the following permissions
 ### Create
 ```json
 athena:CreateNamedQuery
+```
+
+### Read
+```json
+athena:GetNamedQuery
 ```
 
 ### List

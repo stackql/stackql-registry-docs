@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>slack_channel_configurations</code> in a region or to create or delete a <code>slack_channel_configurations</code> resource, use <code>slack_channel_configuration</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>slack_channel_configuration</code> resource or lists <code>slack_channel_configurations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,15 @@ Used to retrieve a list of <code>slack_channel_configurations</code> in a region
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="team_id" /></td><td><code>string</code></td><td>The team ID in Slack, which uniquely identifies a workspace.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="team_id" /></td><td><code>string</code></td><td>The team ID in Slack, which uniquely identifies a workspace.</td></tr>
 <tr><td><CopyableCode code="channel_id" /></td><td><code>string</code></td><td>The channel ID in Slack, which identifies a channel within a workspace.</td></tr>
+<tr><td><CopyableCode code="channel_name" /></td><td><code>string</code></td><td>The channel name in Slack.</td></tr>
+<tr><td><CopyableCode code="notify_on_create_or_reopen_case" /></td><td><code>boolean</code></td><td>Whether to notify when a case is created or reopened.</td></tr>
+<tr><td><CopyableCode code="notify_on_add_correspondence_to_case" /></td><td><code>boolean</code></td><td>Whether to notify when a correspondence is added to a case.</td></tr>
+<tr><td><CopyableCode code="notify_on_resolve_case" /></td><td><code>boolean</code></td><td>Whether to notify when a case is resolved.</td></tr>
+<tr><td><CopyableCode code="notify_on_case_severity" /></td><td><code>string</code></td><td>The severity level of a support case that a customer wants to get notified for.</td></tr>
+<tr><td><CopyableCode code="channel_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that grants the AWS Support App access to perform operations for AWS services.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +60,24 @@ Used to retrieve a list of <code>slack_channel_configurations</code> in a region
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>slack_channel_configurations</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +86,24 @@ channel_id
 FROM aws.supportapp.slack_channel_configurations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>slack_channel_configuration</code>.
+```sql
+SELECT
+region,
+team_id,
+channel_id,
+channel_name,
+notify_on_create_or_reopen_case,
+notify_on_add_correspondence_to_case,
+notify_on_resolve_case,
+notify_on_case_severity,
+channel_role_arn
+FROM aws.supportapp.slack_channel_configurations
+WHERE region = 'us-east-1' AND data__Identifier = '<TeamId>|<ChannelId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>slack_channel_configuration</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -167,7 +196,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -183,6 +212,17 @@ To operate on the <code>slack_channel_configurations</code> resource, the follow
 ### Create
 ```json
 supportapp:CreateSlackChannelConfiguration,
+supportapp:ListSlackChannelConfigurations
+```
+
+### Read
+```json
+supportapp:ListSlackChannelConfigurations
+```
+
+### Update
+```json
+supportapp:UpdateSlackChannelConfiguration,
 supportapp:ListSlackChannelConfigurations
 ```
 

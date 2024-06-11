@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>scaling_policies</code> in a region or to create or delete a <code>scaling_policies</code> resource, use <code>scaling_policy</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>scaling_policy</code> resource or lists <code>scaling_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,16 @@ Used to retrieve a list of <code>scaling_policies</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>ARN is a read only property for the resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td>The name of the scaling policy.<br/><br/>Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.</td></tr>
+<tr><td><CopyableCode code="policy_type" /></td><td><code>string</code></td><td>The scaling policy type.<br/><br/>The following policy types are supported:<br/><br/>TargetTrackingScaling Not supported for Amazon EMR<br/><br/>StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.</td></tr>
+<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.</td></tr>
 <tr><td><CopyableCode code="scalable_dimension" /></td><td><code>string</code></td><td>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</td></tr>
+<tr><td><CopyableCode code="scaling_target_id" /></td><td><code>string</code></td><td>The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the AWS::ApplicationAutoScaling::ScalableTarget resource.</td></tr>
+<tr><td><CopyableCode code="service_namespace" /></td><td><code>string</code></td><td>The namespace of the AWS service that provides the resource, or a custom-resource.</td></tr>
+<tr><td><CopyableCode code="step_scaling_policy_configuration" /></td><td><code>object</code></td><td>A step scaling policy.</td></tr>
+<tr><td><CopyableCode code="target_tracking_scaling_policy_configuration" /></td><td><code>object</code></td><td>A target tracking scaling policy.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>ARN is a read only property for the resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +61,24 @@ Used to retrieve a list of <code>scaling_policies</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>scaling_policies</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +87,25 @@ scalable_dimension
 FROM aws.applicationautoscaling.scaling_policies
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>scaling_policy</code>.
+```sql
+SELECT
+region,
+policy_name,
+policy_type,
+resource_id,
+scalable_dimension,
+scaling_target_id,
+service_namespace,
+step_scaling_policy_configuration,
+target_tracking_scaling_policy_configuration,
+arn
+FROM aws.applicationautoscaling.scaling_policies
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>|<ScalableDimension>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>scaling_policy</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -200,7 +231,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -214,6 +245,17 @@ AND region = 'us-east-1';
 To operate on the <code>scaling_policies</code> resource, the following permissions are required:
 
 ### Create
+```json
+application-autoscaling:DescribeScalingPolicies,
+application-autoscaling:PutScalingPolicy
+```
+
+### Read
+```json
+application-autoscaling:DescribeScalingPolicies
+```
+
+### Update
 ```json
 application-autoscaling:DescribeScalingPolicies,
 application-autoscaling:PutScalingPolicy

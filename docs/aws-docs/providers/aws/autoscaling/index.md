@@ -20,9 +20,9 @@ The autoscaling service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total selectable resources:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -31,19 +31,13 @@ The autoscaling service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/autoscaling/auto_scaling_group/">auto_scaling_group</a><br />
 <a href="/providers/aws/autoscaling/auto_scaling_groups/">auto_scaling_groups</a><br />
-<a href="/providers/aws/autoscaling/launch_configuration/">launch_configuration</a><br />
 <a href="/providers/aws/autoscaling/launch_configurations/">launch_configurations</a><br />
-<a href="/providers/aws/autoscaling/lifecycle_hook/">lifecycle_hook</a><br />
 <a href="/providers/aws/autoscaling/lifecycle_hooks/">lifecycle_hooks</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/aws/autoscaling/scaling_policies/">scaling_policies</a><br />
-<a href="/providers/aws/autoscaling/scaling_policy/">scaling_policy</a><br />
-<a href="/providers/aws/autoscaling/scheduled_action/">scheduled_action</a><br />
 <a href="/providers/aws/autoscaling/scheduled_actions/">scheduled_actions</a><br />
-<a href="/providers/aws/autoscaling/warm_pool/">warm_pool</a><br />
 <a href="/providers/aws/autoscaling/warm_pools/">warm_pools</a>
 </div>
 </div>

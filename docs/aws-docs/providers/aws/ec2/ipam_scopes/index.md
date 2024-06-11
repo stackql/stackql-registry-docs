@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>ipam_scopes</code> in a region or to create or delete a <code>ipam_scopes</code> resource, use <code>ipam_scope</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>ipam_scope</code> resource or lists <code>ipam_scopes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>ipam_scopes</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="ipam_scope_id" /></td><td><code>string</code></td><td>Id of the IPAM scope.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="ipam_scope_id" /></td><td><code>string</code></td><td>Id of the IPAM scope.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IPAM scope.</td></tr>
+<tr><td><CopyableCode code="ipam_id" /></td><td><code>string</code></td><td>The Id of the IPAM this scope is a part of.</td></tr>
+<tr><td><CopyableCode code="ipam_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IPAM this scope is a part of.</td></tr>
+<tr><td><CopyableCode code="ipam_scope_type" /></td><td><code>string</code></td><td>Determines whether this scope contains publicly routable space or space for a private network</td></tr>
+<tr><td><CopyableCode code="is_default" /></td><td><code>boolean</code></td><td>Is this one of the default scopes created with the IPAM.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="pool_count" /></td><td><code>integer</code></td><td>The number of pools that currently exist in this scope.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>ipam_scopes</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>ipam_scopes</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ ipam_scope_id
 FROM aws.ec2.ipam_scopes
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>ipam_scope</code>.
+```sql
+SELECT
+region,
+ipam_scope_id,
+arn,
+ipam_id,
+ipam_arn,
+ipam_scope_type,
+is_default,
+description,
+pool_count,
+tags
+FROM aws.ec2.ipam_scopes
+WHERE region = 'us-east-1' AND data__Identifier = '<IpamScopeId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>ipam_scope</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -141,7 +173,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -159,6 +191,19 @@ To operate on the <code>ipam_scopes</code> resource, the following permissions a
 ec2:CreateIpamScope,
 ec2:DescribeIpamScopes,
 ec2:CreateTags
+```
+
+### Read
+```json
+ec2:DescribeIpamScopes
+```
+
+### Update
+```json
+ec2:ModifyIpamScope,
+ec2:DescribeIpamScopes,
+ec2:CreateTags,
+ec2:DeleteTags
 ```
 
 ### Delete

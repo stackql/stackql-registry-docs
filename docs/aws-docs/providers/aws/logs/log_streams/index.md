@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>log_streams</code> in a region or to create or delete a <code>log_streams</code> resource, use <code>log_stream</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>log_stream</code> resource or lists <code>log_streams</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,9 @@ Used to retrieve a list of <code>log_streams</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="log_stream_name" /></td><td><code>string</code></td><td>The name of the log stream. The name must be unique wihtin the log group.</td></tr>
 <tr><td><CopyableCode code="log_group_name" /></td><td><code>string</code></td><td>The name of the log group where the log stream is created.</td></tr>
-<tr><td><CopyableCode code="log_stream_name" /></td><td><code>string</code></td><td>The name of the log stream. The name must be unique wihtin the log group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -62,9 +58,15 @@ Used to retrieve a list of <code>log_streams</code> in a region or to create or 
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>log_streams</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +75,18 @@ log_stream_name
 FROM aws.logs.log_streams
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>log_stream</code>.
+```sql
+SELECT
+region,
+log_stream_name,
+log_group_name
+FROM aws.logs.log_streams
+WHERE region = 'us-east-1' AND data__Identifier = '<LogGroupName>|<LogStreamName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>log_stream</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +149,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -149,6 +161,11 @@ AND region = 'us-east-1';
 ## Permissions
 
 To operate on the <code>log_streams</code> resource, the following permissions are required:
+
+### Read
+```json
+logs:DescribeLogStreams
+```
 
 ### Create
 ```json

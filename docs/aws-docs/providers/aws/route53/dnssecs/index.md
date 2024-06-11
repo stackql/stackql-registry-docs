@@ -19,23 +19,19 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>dnssecs</code> in a region or to create or delete a <code>dnssecs</code> resource, use <code>dnssec</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>dnssec</code> resource or lists <code>dnssecs</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>dnssecs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource used to control (enable&#x2F;disable) DNSSEC in a specific hosted zone.</td></tr>
+<tr><td><b>Description</b></td><td>Resource used to control (enable/disable) DNSSEC in a specific hosted zone.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.route53.dnssecs" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="hosted_zone_id" /></td><td><code>string</code></td><td>The unique string (ID) used to identify a hosted zone.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="hosted_zone_id" /></td><td><code>string</code></td><td>The unique string (ID) used to identify a hosted zone.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +57,15 @@ Used to retrieve a list of <code>dnssecs</code> in a region or to create or dele
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>dnssecs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +73,17 @@ hosted_zone_id
 FROM aws.route53.dnssecs
 ;
 ```
+Gets all properties from a <code>dnssec</code>.
+```sql
+SELECT
+region,
+hosted_zone_id
+FROM aws.route53.dnssecs
+WHERE data__Identifier = '<HostedZoneId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>dnssec</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -131,7 +142,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -152,6 +163,11 @@ kms:DescribeKey,
 kms:GetPublicKey,
 kms:Sign,
 kms:CreateGrant
+```
+
+### Read
+```json
+route53:GetDNSSEC
 ```
 
 ### Delete

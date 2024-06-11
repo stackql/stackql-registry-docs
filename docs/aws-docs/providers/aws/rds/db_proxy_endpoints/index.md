@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>db_proxy_endpoints</code> in a region or to create or delete a <code>db_proxy_endpoints</code> resource, use <code>db_proxy_endpoint</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>db_proxy_endpoint</code> resource or lists <code>db_proxy_endpoints</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>db_proxy_endpoints</code> in a region or to cre
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="db_proxy_endpoint_name" /></td><td><code>string</code></td><td>The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="db_proxy_endpoint_name" /></td><td><code>string</code></td><td>The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.</td></tr>
+<tr><td><CopyableCode code="db_proxy_endpoint_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the DB proxy endpoint.</td></tr>
+<tr><td><CopyableCode code="db_proxy_name" /></td><td><code>string</code></td><td>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</td></tr>
+<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>VPC ID to associate with the new DB proxy endpoint.</td></tr>
+<tr><td><CopyableCode code="vpc_security_group_ids" /></td><td><code>array</code></td><td>VPC security group IDs to associate with the new DB proxy endpoint.</td></tr>
+<tr><td><CopyableCode code="vpc_subnet_ids" /></td><td><code>array</code></td><td>VPC subnet IDs to associate with the new DB proxy endpoint.</td></tr>
+<tr><td><CopyableCode code="endpoint" /></td><td><code>string</code></td><td>The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.</td></tr>
+<tr><td><CopyableCode code="target_role" /></td><td><code>string</code></td><td>A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.</td></tr>
+<tr><td><CopyableCode code="is_default" /></td><td><code>boolean</code></td><td>A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>db_proxy_endpoints</code> in a region or to cre
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>db_proxy_endpoints</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ db_proxy_endpoint_name
 FROM aws.rds.db_proxy_endpoints
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>db_proxy_endpoint</code>.
+```sql
+SELECT
+region,
+db_proxy_endpoint_name,
+db_proxy_endpoint_arn,
+db_proxy_name,
+vpc_id,
+vpc_security_group_ids,
+vpc_subnet_ids,
+endpoint,
+target_role,
+is_default,
+tags
+FROM aws.rds.db_proxy_endpoints
+WHERE region = 'us-east-1' AND data__Identifier = '<DBProxyEndpointName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>db_proxy_endpoint</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -159,7 +193,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -176,6 +210,19 @@ To operate on the <code>db_proxy_endpoints</code> resource, the following permis
 ```json
 rds:CreateDBProxyEndpoint,
 rds:DescribeDBProxyEndpoints
+```
+
+### Read
+```json
+rds:DescribeDBProxyEndpoints,
+rds:ListTagsForResource
+```
+
+### Update
+```json
+rds:ModifyDBProxyEndpoint,
+rds:AddTagsToResource,
+rds:RemoveTagsFromResource
 ```
 
 ### Delete

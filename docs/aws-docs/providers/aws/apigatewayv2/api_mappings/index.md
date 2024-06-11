@@ -19,24 +19,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>api_mappings</code> in a region or to create or delete a <code>api_mappings</code> resource, use <code>api_mapping</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>api_mapping</code> resource or lists <code>api_mappings</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>api_mappings</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::ApiMapping</code> resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see &#91;CreateApiMapping&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigatewayv2&#x2F;latest&#x2F;api-reference&#x2F;domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGatewayV2::ApiMapping</code> resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see &#91;CreateApiMapping&#93;(https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigatewayv2.api_mappings" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="api_mapping_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="api_mapping_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The domain name.</td></tr>
+<tr><td><CopyableCode code="stage" /></td><td><code>string</code></td><td>The API stage.</td></tr>
+<tr><td><CopyableCode code="api_mapping_key" /></td><td><code>string</code></td><td>The API mapping key.</td></tr>
+<tr><td><CopyableCode code="api_id" /></td><td><code>string</code></td><td>The identifier of the API.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +57,24 @@ Used to retrieve a list of <code>api_mappings</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>api_mappings</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +83,21 @@ domain_name
 FROM aws.apigatewayv2.api_mappings
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>api_mapping</code>.
+```sql
+SELECT
+region,
+api_mapping_id,
+domain_name,
+stage,
+api_mapping_key,
+api_id
+FROM aws.apigatewayv2.api_mappings
+WHERE region = 'us-east-1' AND data__Identifier = '<ApiMappingId>|<DomainName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>api_mapping</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +172,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -165,6 +188,18 @@ To operate on the <code>api_mappings</code> resource, the following permissions 
 ### Create
 ```json
 apigateway:POST
+```
+
+### Update
+```json
+apigateway:PATCH,
+apigateway:GET,
+apigateway:PUT
+```
+
+### Read
+```json
+apigateway:GET
 ```
 
 ### Delete

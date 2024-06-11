@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>resolverdnssec_configs</code> in a region or to create or delete a <code>resolverdnssec_configs</code> resource, use <code>resolverdnssec_config</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>resolverdnssec_config</code> resource or lists <code>resolverdnssec_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>resolverdnssec_configs</code> in a region or to
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id</td></tr>
+<tr><td><CopyableCode code="owner_id" /></td><td><code>string</code></td><td>AccountId</td></tr>
+<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
+<tr><td><CopyableCode code="validation_status" /></td><td><code>string</code></td><td>ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +60,15 @@ Used to retrieve a list of <code>resolverdnssec_configs</code> in a region or to
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>resolverdnssec_configs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +76,20 @@ id
 FROM aws.route53resolver.resolverdnssec_configs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>resolverdnssec_config</code>.
+```sql
+SELECT
+region,
+id,
+owner_id,
+resource_id,
+validation_status
+FROM aws.route53resolver.resolverdnssec_configs
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>resolverdnssec_config</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -131,7 +148,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -150,6 +167,12 @@ resolverdnssec:CreateConfig,
 route53resolver:UpdateResolverDnssecConfig,
 route53resolver:GetResolverDnssecConfig,
 ec2:DescribeVpcs
+```
+
+### Read
+```json
+resolverdnssec:GetConfig,
+route53resolver:ListResolverDnssecConfigs
 ```
 
 ### Delete

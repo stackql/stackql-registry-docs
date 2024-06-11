@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>workspaces</code> in a region or to create or delete a <code>workspaces</code> resource, use <code>workspace</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>workspace</code> resource or lists <code>workspaces</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>workspaces</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="workspace_id" /></td><td><code>string</code></td><td>Required to identify a specific APS Workspace.</td></tr>
+<tr><td><CopyableCode code="alias" /></td><td><code>string</code></td><td>AMP Workspace alias.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Workspace arn.</td></tr>
+<tr><td><CopyableCode code="alert_manager_definition" /></td><td><code>string</code></td><td>The AMP Workspace alert manager definition data</td></tr>
+<tr><td><CopyableCode code="prometheus_endpoint" /></td><td><code>string</code></td><td>AMP Workspace prometheus endpoint</td></tr>
+<tr><td><CopyableCode code="logging_configuration" /></td><td><code>Logging configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td>KMS Key ARN used to encrypt and decrypt AMP workspace data.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>workspaces</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>workspaces</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ arn
 FROM aws.aps.workspaces
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>workspace</code>.
+```sql
+SELECT
+region,
+workspace_id,
+alias,
+arn,
+alert_manager_definition,
+prometheus_endpoint,
+logging_configuration,
+kms_key_arn,
+tags
+FROM aws.aps.workspaces
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>workspace</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -150,7 +180,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -178,6 +208,36 @@ logs:PutResourcePolicy,
 kms:CreateGrant,
 kms:Decrypt,
 kms:GenerateDataKey
+```
+
+### Read
+```json
+aps:DescribeWorkspace,
+aps:ListTagsForResource,
+aps:DescribeAlertManagerDefinition,
+aps:DescribeLoggingConfiguration
+```
+
+### Update
+```json
+aps:UpdateWorkspaceAlias,
+aps:DescribeWorkspace,
+aps:TagResource,
+aps:UntagResource,
+aps:ListTagsForResource,
+aps:CreateAlertManagerDefinition,
+aps:PutAlertManagerDefinition,
+aps:DeleteAlertManagerDefinition,
+aps:CreateLoggingConfiguration,
+aps:DescribeLoggingConfiguration,
+aps:UpdateLoggingConfiguration,
+aps:DeleteLoggingConfiguration,
+logs:CreateLogDelivery,
+logs:GetLogDelivery,
+logs:UpdateLogDelivery,
+logs:ListLogDeliveries,
+logs:DeleteLogDelivery,
+logs:PutResourcePolicy
 ```
 
 ### Delete

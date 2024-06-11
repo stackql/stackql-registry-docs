@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>recording_configurations</code> in a region or to create or delete a <code>recording_configurations</code> resource, use <code>recording_configuration</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>recording_configuration</code> resource or lists <code>recording_configurations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>recording_configurations</code> in a region or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Recording Configuration Name.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>Recording Configuration State.</td></tr>
+<tr><td><CopyableCode code="recording_reconnect_window_seconds" /></td><td><code>integer</code></td><td>Recording Reconnect Window Seconds. (0 means disabled)</td></tr>
+<tr><td><CopyableCode code="destination_configuration" /></td><td><code>Recording Destination Configuration.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the asset model.</td></tr>
+<tr><td><CopyableCode code="thumbnail_configuration" /></td><td><code>Recording Thumbnail Configuration.</code></td><td></td></tr>
+<tr><td><CopyableCode code="rendition_configuration" /></td><td><code>Rendition Configuration describes which renditions should be recorded for a stream.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>recording_configurations</code> in a region or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>recording_configurations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ arn
 FROM aws.ivs.recording_configurations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>recording_configuration</code>.
+```sql
+SELECT
+region,
+arn,
+name,
+state,
+recording_reconnect_window_seconds,
+destination_configuration,
+tags,
+thumbnail_configuration,
+rendition_configuration
+FROM aws.ivs.recording_configurations
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>recording_configuration</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -163,7 +193,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -187,6 +217,26 @@ iam:AttachRolePolicy,
 s3:ListBucket,
 s3:GetBucketLocation,
 cloudformation:ListExports
+```
+
+### Read
+```json
+ivs:GetRecordingConfiguration,
+s3:GetBucketLocation,
+ivs:ListTagsForResource
+```
+
+### Update
+```json
+ivs:GetRecordingConfiguration,
+sts:AssumeRole,
+iam:CreateServiceLinkedRole,
+iam:PutRolePolicy,
+iam:AttachRolePolicy,
+s3:ListBucket,
+ivs:TagResource,
+ivs:UntagResource,
+ivs:ListTagsForResource
 ```
 
 ### Delete

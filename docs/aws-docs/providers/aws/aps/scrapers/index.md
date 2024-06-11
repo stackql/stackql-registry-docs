@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>scrapers</code> in a region or to create or delete a <code>scrapers</code> resource, use <code>scraper</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>scraper</code> resource or lists <code>scrapers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>scrapers</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="scraper_id" /></td><td><code>string</code></td><td>Required to identify a specific scraper.</td></tr>
+<tr><td><CopyableCode code="alias" /></td><td><code>string</code></td><td>Scraper alias.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Scraper ARN.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>IAM role ARN for the scraper.</td></tr>
+<tr><td><CopyableCode code="scrape_configuration" /></td><td><code>Scraper configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="source" /></td><td><code>Scraper metrics source</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination" /></td><td><code>Scraper metrics destination</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>scrapers</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>scrapers</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ arn
 FROM aws.aps.scrapers
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>scraper</code>.
+```sql
+SELECT
+region,
+scraper_id,
+alias,
+arn,
+role_arn,
+scrape_configuration,
+source,
+destination,
+tags
+FROM aws.aps.scrapers
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>scraper</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -162,7 +192,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -187,6 +217,20 @@ eks:DescribeCluster,
 ec2:DescribeSubnets,
 ec2:DescribeSecurityGroups,
 iam:CreateServiceLinkedRole
+```
+
+### Read
+```json
+aps:DescribeScraper,
+aps:ListTagsForResource
+```
+
+### Update
+```json
+aps:DescribeScraper,
+aps:TagResource,
+aps:UntagResource,
+aps:ListTagsForResource
 ```
 
 ### Delete

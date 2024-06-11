@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>webacl_associations</code> in a region or to create or delete a <code>webacl_associations</code> resource, use <code>webacl_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>webacl_association</code> resource or lists <code>webacl_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,9 @@ Used to retrieve a list of <code>webacl_associations</code> in a region or to cr
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="resource_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="resource_arn" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="web_acl_arn" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,23 +54,31 @@ Used to retrieve a list of <code>webacl_associations</code> in a region or to cr
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>webacl_association</code>.
 ```sql
 SELECT
 region,
 resource_arn,
 web_acl_arn
 FROM aws.wafv2.webacl_associations
-;
+WHERE data__Identifier = '<ResourceArn>|<WebACLArn>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>webacl_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -139,7 +143,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -174,6 +178,48 @@ ec2:GetVerifiedAccessInstanceWebAcl
 ```
 
 ### Delete
+```json
+wafv2:AssociateWebACL,
+wafv2:GetWebACLForResource,
+wafv2:GetWebACL,
+wafv2:DisassociateWebACL,
+elasticloadbalancing:SetWebACL,
+apigateway:SetWebACL,
+appsync:SetWebACL,
+cognito-idp:AssociateWebACL,
+cognito-idp:DisassociateWebACL,
+cognito-idp:GetWebACLForResource,
+apprunner:AssociateWebAcl,
+apprunner:DisassociateWebAcl,
+apprunner:DescribeWebAclForService,
+ec2:AssociateVerifiedAccessInstanceWebAcl,
+ec2:DisassociateVerifiedAccessInstanceWebAcl,
+ec2:DescribeVerifiedAccessInstanceWebAclAssociations,
+ec2:GetVerifiedAccessInstanceWebAcl
+```
+
+### Read
+```json
+wafv2:AssociateWebACL,
+wafv2:GetWebACLForResource,
+wafv2:GetWebACL,
+wafv2:DisassociateWebACL,
+elasticloadbalancing:SetWebACL,
+apigateway:SetWebACL,
+appsync:SetWebACL,
+cognito-idp:AssociateWebACL,
+cognito-idp:DisassociateWebACL,
+cognito-idp:GetWebACLForResource,
+apprunner:AssociateWebAcl,
+apprunner:DisassociateWebAcl,
+apprunner:DescribeWebAclForService,
+ec2:AssociateVerifiedAccessInstanceWebAcl,
+ec2:DisassociateVerifiedAccessInstanceWebAcl,
+ec2:DescribeVerifiedAccessInstanceWebAclAssociations,
+ec2:GetVerifiedAccessInstanceWebAcl
+```
+
+### Update
 ```json
 wafv2:AssociateWebACL,
 wafv2:GetWebACLForResource,

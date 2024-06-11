@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>metered_products</code> in a region or to create or delete a <code>metered_products</code> resource, use <code>metered_product</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>metered_product</code> resource or lists <code>metered_products</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>metered_products</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="license_endpoint_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="product_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="port" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="family" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="vendor" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +62,15 @@ Used to retrieve a list of <code>metered_products</code> in a region or to creat
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>metered_products</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +78,22 @@ arn
 FROM aws.deadline.metered_products
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>metered_product</code>.
+```sql
+SELECT
+region,
+license_endpoint_id,
+product_id,
+port,
+family,
+vendor,
+arn
+FROM aws.deadline.metered_products
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>metered_product</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -155,7 +176,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -171,6 +192,12 @@ To operate on the <code>metered_products</code> resource, the following permissi
 ### Create
 ```json
 deadline:PutMeteredProduct,
+deadline:ListMeteredProducts
+```
+
+### Read
+```json
+deadline:GetMeteredProduct,
 deadline:ListMeteredProducts
 ```
 

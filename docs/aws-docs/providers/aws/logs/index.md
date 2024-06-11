@@ -20,9 +20,9 @@ The logs service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>22</b></span><br />
-<span>total selectable resources:&nbsp;<b>22</b></span><br />
-<span>total methods:&nbsp;<b>22</b></span><br />
+<span>total resources:&nbsp;<b>11</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
 </div>
 </div>
 
@@ -32,28 +32,17 @@ The logs service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/aws/logs/account_policies/">account_policies</a><br />
-<a href="/providers/aws/logs/account_policy/">account_policy</a><br />
 <a href="/providers/aws/logs/deliveries/">deliveries</a><br />
-<a href="/providers/aws/logs/delivery/">delivery</a><br />
-<a href="/providers/aws/logs/delivery_destination/">delivery_destination</a><br />
 <a href="/providers/aws/logs/delivery_destinations/">delivery_destinations</a><br />
-<a href="/providers/aws/logs/delivery_source/">delivery_source</a><br />
 <a href="/providers/aws/logs/delivery_sources/">delivery_sources</a><br />
-<a href="/providers/aws/logs/destination/">destination</a><br />
 <a href="/providers/aws/logs/destinations/">destinations</a><br />
-<a href="/providers/aws/logs/log_anomaly_detector/">log_anomaly_detector</a>
+<a href="/providers/aws/logs/log_anomaly_detectors/">log_anomaly_detectors</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/logs/log_anomaly_detectors/">log_anomaly_detectors</a><br />
-<a href="/providers/aws/logs/log_stream/">log_stream</a><br />
 <a href="/providers/aws/logs/log_streams/">log_streams</a><br />
-<a href="/providers/aws/logs/metric_filter/">metric_filter</a><br />
 <a href="/providers/aws/logs/metric_filters/">metric_filters</a><br />
-<a href="/providers/aws/logs/query_definition/">query_definition</a><br />
 <a href="/providers/aws/logs/query_definitions/">query_definitions</a><br />
 <a href="/providers/aws/logs/resource_policies/">resource_policies</a><br />
-<a href="/providers/aws/logs/resource_policy/">resource_policy</a><br />
-<a href="/providers/aws/logs/subscription_filter/">subscription_filter</a><br />
 <a href="/providers/aws/logs/subscription_filters/">subscription_filters</a>
 </div>
 </div>

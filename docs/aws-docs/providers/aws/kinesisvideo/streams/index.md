@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>streams</code> in a region or to create or delete a <code>streams</code> resource, use <code>stream</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>stream</code> resource or lists <code>streams</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>streams</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Kinesis Video stream.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the Kinesis Video stream.</td></tr>
+<tr><td><CopyableCode code="data_retention_in_hours" /></td><td><code>integer</code></td><td>The number of hours till which Kinesis Video will retain the data in the stream</td></tr>
+<tr><td><CopyableCode code="device_name" /></td><td><code>string</code></td><td>The name of the device that is writing to the stream.</td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data.</td></tr>
+<tr><td><CopyableCode code="media_type" /></td><td><code>string</code></td><td>The media type of the stream. Consumers of the stream can use this information when processing the stream.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs associated with the Kinesis Video Stream.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +59,36 @@ Used to retrieve a list of <code>streams</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>stream</code>.
 ```sql
 SELECT
 region,
-name
+arn,
+name,
+data_retention_in_hours,
+device_name,
+kms_key_id,
+media_type,
+tags
 FROM aws.kinesisvideo.streams
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>stream</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -153,7 +169,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -170,6 +186,18 @@ To operate on the <code>streams</code> resource, the following permissions are r
 ```json
 kinesisvideo:DescribeStream,
 kinesisvideo:CreateStream
+```
+
+### Read
+```json
+kinesisvideo:DescribeStream
+```
+
+### Update
+```json
+kinesisvideo:DescribeStream,
+kinesisvideo:UpdateStream,
+kinesisvideo:UpdateDataRetention
 ```
 
 ### Delete

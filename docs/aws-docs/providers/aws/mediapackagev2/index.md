@@ -20,9 +20,9 @@ The mediapackagev2 service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>10</b></span><br />
-<span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>10</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -31,17 +31,12 @@ The mediapackagev2 service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/mediapackagev2/channel/">channel</a><br />
-<a href="/providers/aws/mediapackagev2/channel_group/">channel_group</a><br />
 <a href="/providers/aws/mediapackagev2/channel_groups/">channel_groups</a><br />
 <a href="/providers/aws/mediapackagev2/channel_policies/">channel_policies</a><br />
-<a href="/providers/aws/mediapackagev2/channel_policy/">channel_policy</a>
+<a href="/providers/aws/mediapackagev2/channels/">channels</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/mediapackagev2/channels/">channels</a><br />
-<a href="/providers/aws/mediapackagev2/origin_endpoint/">origin_endpoint</a><br />
 <a href="/providers/aws/mediapackagev2/origin_endpoint_policies/">origin_endpoint_policies</a><br />
-<a href="/providers/aws/mediapackagev2/origin_endpoint_policy/">origin_endpoint_policy</a><br />
 <a href="/providers/aws/mediapackagev2/origin_endpoints/">origin_endpoints</a>
 </div>
 </div>

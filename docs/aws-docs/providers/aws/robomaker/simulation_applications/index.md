@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>simulation_applications</code> in a region or to create or delete a <code>simulation_applications</code> resource, use <code>simulation_application</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>simulation_application</code> resource or lists <code>simulation_applications</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>simulation_applications</code> in a region or t
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the simulation application.</td></tr>
+<tr><td><CopyableCode code="current_revision_id" /></td><td><code>string</code></td><td>The current revision id.</td></tr>
+<tr><td><CopyableCode code="rendering_engine" /></td><td><code>object</code></td><td>The rendering engine for the simulation application.</td></tr>
+<tr><td><CopyableCode code="robot_software_suite" /></td><td><code>object</code></td><td>The robot software suite used by the simulation application.</td></tr>
+<tr><td><CopyableCode code="simulation_software_suite" /></td><td><code>object</code></td><td>The simulation software suite used by the simulation application.</td></tr>
+<tr><td><CopyableCode code="sources" /></td><td><code>array</code></td><td>The sources of the simulation application.</td></tr>
+<tr><td><CopyableCode code="environment" /></td><td><code>string</code></td><td>The URI of the Docker image for the robot application.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>A key-value pair to associate with a resource.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>simulation_applications</code> in a region or t
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>simulation_applications</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ arn
 FROM aws.robomaker.simulation_applications
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>simulation_application</code>.
+```sql
+SELECT
+region,
+arn,
+name,
+current_revision_id,
+rendering_engine,
+robot_software_suite,
+simulation_software_suite,
+sources,
+environment,
+tags
+FROM aws.robomaker.simulation_applications
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>simulation_application</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -170,7 +202,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -193,6 +225,22 @@ ecr:GetAuthorizationToken,
 ecr:BatchCheckLayerAvailability,
 ecr-public:GetAuthorizationToken,
 sts:GetServiceBearerToken
+```
+
+### Read
+```json
+robomaker:DescribeSimulationApplication
+```
+
+### Update
+```json
+robomaker:TagResource,
+robomaker:UntagResource,
+robomaker:UpdateSimulationApplication,
+ecr:BatchGetImage,
+ecr:GetAuthorizationToken,
+ecr:BatchCheckLayerAvailability,
+ecr-public:GetAuthorizationToken
 ```
 
 ### Delete

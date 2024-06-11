@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>access_log_subscriptions</code> in a region or to create or delete a <code>access_log_subscriptions</code> resource, use <code>access_log_subscription</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>access_log_subscription</code> resource or lists <code>access_log_subscriptions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>access_log_subscriptions</code> in a region or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>access_log_subscriptions</code> in a region or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>access_log_subscriptions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ arn
 FROM aws.vpclattice.access_log_subscriptions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>access_log_subscription</code>.
+```sql
+SELECT
+region,
+arn,
+destination_arn,
+id,
+resource_arn,
+resource_id,
+resource_identifier,
+tags
+FROM aws.vpclattice.access_log_subscriptions
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>access_log_subscription</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -141,7 +169,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -176,6 +204,38 @@ firehose:TagDeliveryStream,
 firehose:CreateDeliveryStream,
 firehose:DescribeDeliveryStream,
 iam:CreateServiceLinkedRole
+```
+
+### Read
+```json
+vpc-lattice:GetAccessLogSubscription,
+vpc-lattice:ListTagsForResource,
+logs:GetLogDelivery
+```
+
+### Update
+```json
+vpc-lattice:GetAccessLogSubscription,
+vpc-lattice:UpdateAccessLogSubscription,
+vpc-lattice:TagResource,
+vpc-lattice:UntagResource,
+logs:UpdateLogDelivery,
+firehose:UpdateDestination,
+logs:CreateLogDelivery,
+logs:CreateLogStream,
+logs:PutDestination,
+logs:PutDestinationPolicy,
+logs:PutResourcePolicy,
+logs:DescribeResourcePolicies,
+logs:DescribeLogGroups,
+logs:GetLogDelivery,
+s3:PutBucketLogging,
+s3:GetBucketLogging,
+s3:GetBucketPolicy,
+s3:PutBucketPolicy,
+firehose:TagDeliveryStream,
+firehose:CreateDeliveryStream,
+firehose:DescribeDeliveryStream
 ```
 
 ### Delete

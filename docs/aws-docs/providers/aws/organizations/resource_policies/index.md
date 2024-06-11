@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>resource_policies</code> in a region or to create or delete a <code>resource_policies</code> resource, use <code>resource_policy</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>resource_policy</code> resource or lists <code>resource_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>resource_policies</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique identifier (ID) associated with this resource policy.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique identifier (ID) associated with this resource policy.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the resource policy.</td></tr>
+<tr><td><CopyableCode code="content" /></td><td><code>object</code></td><td>The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of tags that you want to attach to the resource policy</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>resource_policies</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>resource_policies</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ id
 FROM aws.organizations.resource_policies
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>resource_policy</code>.
+```sql
+SELECT
+region,
+id,
+arn,
+content,
+tags
+FROM aws.organizations.resource_policies
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>resource_policy</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +159,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -156,6 +178,21 @@ organizations:PutResourcePolicy,
 organizations:DescribeResourcePolicy,
 organizations:ListTagsForResource,
 organizations:TagResource
+```
+
+### Read
+```json
+organizations:DescribeResourcePolicy,
+organizations:ListTagsForResource
+```
+
+### Update
+```json
+organizations:DescribeResourcePolicy,
+organizations:PutResourcePolicy,
+organizations:ListTagsForResource,
+organizations:TagResource,
+organizations:UntagResource
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>flow_entitlements</code> in a region or to create or delete a <code>flow_entitlements</code> resource, use <code>flow_entitlement</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>flow_entitlement</code> resource or lists <code>flow_entitlements</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>flow_entitlements</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="flow_arn" /></td><td><code>string</code></td><td>The ARN of the flow.</td></tr>
 <tr><td><CopyableCode code="entitlement_arn" /></td><td><code>string</code></td><td>The ARN of the entitlement.</td></tr>
+<tr><td><CopyableCode code="data_transfer_subscriber_fee_percent" /></td><td><code>integer</code></td><td>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the entitlement.</td></tr>
+<tr><td><CopyableCode code="encryption" /></td><td><code>object</code></td><td>The type of encryption that will be used on the output that is associated with this entitlement.</td></tr>
+<tr><td><CopyableCode code="entitlement_status" /></td><td><code>string</code></td><td> An indication of whether the entitlement is enabled.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the entitlement.</td></tr>
+<tr><td><CopyableCode code="subscribers" /></td><td><code>array</code></td><td>The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>flow_entitlements</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>flow_entitlements</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ entitlement_arn
 FROM aws.mediaconnect.flow_entitlements
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>flow_entitlement</code>.
+```sql
+SELECT
+region,
+flow_arn,
+entitlement_arn,
+data_transfer_subscriber_fee_percent,
+description,
+encryption,
+entitlement_status,
+name,
+subscribers
+FROM aws.mediaconnect.flow_entitlements
+WHERE region = 'us-east-1' AND data__Identifier = '<EntitlementArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>flow_entitlement</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -171,7 +201,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -188,6 +218,17 @@ To operate on the <code>flow_entitlements</code> resource, the following permiss
 ```json
 iam:PassRole,
 mediaconnect:GrantFlowEntitlements
+```
+
+### Read
+```json
+mediaconnect:DescribeFlow
+```
+
+### Update
+```json
+mediaconnect:DescribeFlow,
+mediaconnect:UpdateFlowEntitlement
 ```
 
 ### Delete

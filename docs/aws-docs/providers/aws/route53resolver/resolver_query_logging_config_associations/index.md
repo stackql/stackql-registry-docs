@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>resolver_query_logging_config_associations</code> in a region or to create or delete a <code>resolver_query_logging_config_associations</code> resource, use <code>resolver_query_logging_config_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>resolver_query_logging_config_association</code> resource or lists <code>resolver_query_logging_config_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>resolver_query_logging_config_associations</cod
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id</td></tr>
+<tr><td><CopyableCode code="resolver_query_log_config_id" /></td><td><code>string</code></td><td>ResolverQueryLogConfigId</td></tr>
+<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationStatus</td></tr>
+<tr><td><CopyableCode code="error" /></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationError</td></tr>
+<tr><td><CopyableCode code="error_message" /></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationErrorMessage</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +63,15 @@ Used to retrieve a list of <code>resolver_query_logging_config_associations</cod
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>resolver_query_logging_config_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +79,23 @@ id
 FROM aws.route53resolver.resolver_query_logging_config_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>resolver_query_logging_config_association</code>.
+```sql
+SELECT
+region,
+id,
+resolver_query_log_config_id,
+resource_id,
+status,
+error,
+error_message,
+creation_time
+FROM aws.route53resolver.resolver_query_logging_config_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>resolver_query_logging_config_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +160,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -156,6 +179,12 @@ resolverquerylogging:AssociateConfig,
 resolverquerylogging:GetConfigAssociation,
 route53resolver:AssociateResolverQueryLogConfig,
 ec2:DescribeVpcs,
+route53resolver:GetResolverQueryLogConfigAssociation
+```
+
+### Read
+```json
+resolverquerylogging:GetConfigAssociation,
 route53resolver:GetResolverQueryLogConfigAssociation
 ```
 

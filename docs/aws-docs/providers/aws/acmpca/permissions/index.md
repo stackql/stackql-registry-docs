@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>permissions</code> in a region or to create or delete a <code>permissions</code> resource, use <code>permission</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>permission</code> resource or lists <code>permissions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>permissions</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="actions" /></td><td><code>array</code></td><td>The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided.</td></tr>
 <tr><td><CopyableCode code="certificate_authority_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.</td></tr>
 <tr><td><CopyableCode code="principal" /></td><td><code>string</code></td><td>The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.</td></tr>
+<tr><td><CopyableCode code="source_account" /></td><td><code>string</code></td><td>The ID of the calling account.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,23 +56,28 @@ Used to retrieve a list of <code>permissions</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>permission</code>.
 ```sql
 SELECT
 region,
+actions,
 certificate_authority_arn,
-principal
+principal,
+source_account
 FROM aws.acmpca.permissions
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<CertificateAuthorityArn>|<Principal>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>permission</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -150,7 +153,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -166,6 +169,11 @@ To operate on the <code>permissions</code> resource, the following permissions a
 ### Create
 ```json
 acm-pca:CreatePermission,
+acm-pca:ListPermissions
+```
+
+### Read
+```json
 acm-pca:ListPermissions
 ```
 

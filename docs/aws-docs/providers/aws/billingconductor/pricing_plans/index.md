@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>pricing_plans</code> in a region or to create or delete a <code>pricing_plans</code> resource, use <code>pricing_plan</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>pricing_plan</code> resource or lists <code>pricing_plans</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>pricing_plans</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Pricing Plan ARN</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Pricing Plan ARN</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="pricing_rule_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="size" /></td><td><code>integer</code></td><td>Number of associated pricing rules</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
+<tr><td><CopyableCode code="last_modified_time" /></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>pricing_plans</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>pricing_plans</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ arn
 FROM aws.billingconductor.pricing_plans
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>pricing_plan</code>.
+```sql
+SELECT
+region,
+arn,
+name,
+pricing_rule_arns,
+size,
+description,
+creation_time,
+last_modified_time,
+tags
+FROM aws.billingconductor.pricing_plans
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>pricing_plan</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -146,7 +176,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -168,11 +198,29 @@ billingconductor:TagResource,
 billingconductor:ListTagsForResource
 ```
 
+### Read
+```json
+billingconductor:ListPricingPlans,
+billingconductor:ListPricingRulesAssociatedToPricingPlan,
+billingconductor:ListTagsForResource
+```
+
 ### List
 ```json
 billingconductor:ListPricingPlans,
 billingconductor:ListPricingRulesAssociatedToPricingPlan,
 billingconductor:ListTagsForResource
+```
+
+### Update
+```json
+billingconductor:ListPricingPlans,
+billingconductor:UpdatePricingPlan,
+billingconductor:ListPricingRulesAssociatedToPricingPlan,
+billingconductor:AssociatePricingRules,
+billingconductor:DisassociatePricingRules,
+billingconductor:TagResource,
+billingconductor:UntagResource
 ```
 
 ### Delete

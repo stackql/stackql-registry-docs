@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>custom_metrics</code> in a region or to create or delete a <code>custom_metrics</code> resource, use <code>custom_metric</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>custom_metric</code> resource or lists <code>custom_metrics</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>custom_metrics</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="metric_name" /></td><td><code>string</code></td><td>The name of the custom metric. This will be used in the metric report submitted from the device&#x2F;thing. Shouldn't begin with aws: . Cannot be updated once defined.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="metric_name" /></td><td><code>string</code></td><td>The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.</td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td>Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined.</td></tr>
+<tr><td><CopyableCode code="metric_type" /></td><td><code>string</code></td><td>The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.</td></tr>
+<tr><td><CopyableCode code="metric_arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) of the custom metric.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>custom_metrics</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>custom_metrics</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ metric_name
 FROM aws.iot.custom_metrics
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>custom_metric</code>.
+```sql
+SELECT
+region,
+metric_name,
+display_name,
+metric_type,
+metric_arn,
+tags
+FROM aws.iot.custom_metrics
+WHERE region = 'us-east-1' AND data__Identifier = '<MetricName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>custom_metric</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -145,7 +169,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -161,6 +185,20 @@ To operate on the <code>custom_metrics</code> resource, the following permission
 ### Create
 ```json
 iot:CreateCustomMetric,
+iot:TagResource
+```
+
+### Read
+```json
+iot:DescribeCustomMetric,
+iot:ListTagsForResource
+```
+
+### Update
+```json
+iot:UpdateCustomMetric,
+iot:ListTagsForResource,
+iot:UntagResource,
 iot:TagResource
 ```
 

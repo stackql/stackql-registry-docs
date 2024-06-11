@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>domains</code> in a region or to create or delete a <code>domains</code> resource, use <code>domain</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>domains</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>domains</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="app_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_sub_domain_creation_patterns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_sub_domain_iam_role" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate_record" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate_settings" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="update_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="enable_auto_sub_domain" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="status_reason" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="sub_domain_settings" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>domains</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>domains</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ arn
 FROM aws.amplify.domains
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>domain</code>.
+```sql
+SELECT
+region,
+app_id,
+arn,
+auto_sub_domain_creation_patterns,
+auto_sub_domain_iam_role,
+certificate_record,
+certificate,
+certificate_settings,
+domain_name,
+domain_status,
+update_status,
+enable_auto_sub_domain,
+status_reason,
+sub_domain_settings
+FROM aws.amplify.domains
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>domain</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -164,7 +204,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -198,5 +238,24 @@ amplify:DeleteDomainAssociation
 amplify:ListDomainAssociations,
 iam:PassRole,
 amplify:ListTagsForResource
+```
+
+### Read
+```json
+amplify:GetDomainAssociation,
+route53:ListHostedZones,
+iam:PassRole,
+amplify:ListTagsForResource
+```
+
+### Update
+```json
+amplify:UpdateDomainAssociation,
+route53:ListHostedZones,
+route53:ChangeResourceRecordSets,
+iam:PassRole,
+amplify:ListTagsForResource,
+amplify:TagResource,
+amplify:UntagResource
 ```
 

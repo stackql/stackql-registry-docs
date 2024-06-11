@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>configuration_set_event_destinations</code> in a region or to create or delete a <code>configuration_set_event_destinations</code> resource, use <code>configuration_set_event_destination</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>configuration_set_event_destination</code> resource or lists <code>configuration_set_event_destinations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>configuration_set_event_destinations</code> in 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="configuration_set_name" /></td><td><code>string</code></td><td>The name of the configuration set that contains the event destination.</td></tr>
+<tr><td><CopyableCode code="event_destination" /></td><td><code>object</code></td><td>The event destination object.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +55,32 @@ Used to retrieve a list of <code>configuration_set_event_destinations</code> in 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>configuration_set_event_destination</code>.
 ```sql
 SELECT
 region,
-id
+id,
+configuration_set_name,
+event_destination
 FROM aws.ses.configuration_set_event_destinations
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>configuration_set_event_destination</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +159,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -171,8 +179,20 @@ ses:GetConfigurationSetEventDestinations,
 ses:DescribeConfigurationSet
 ```
 
+### Update
+```json
+ses:UpdateConfigurationSetEventDestination,
+ses:GetConfigurationSetEventDestinations
+```
+
 ### Delete
 ```json
 ses:DeleteConfigurationSetEventDestination
+```
+
+### Read
+```json
+ses:GetConfigurationSetEventDestinations,
+ses:DescribeConfigurationSet
 ```
 

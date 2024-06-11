@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>source_api_associations</code> in a region or to create or delete a <code>source_api_associations</code> resource, use <code>source_api_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>source_api_association</code> resource or lists <code>source_api_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>source_api_associations</code> in a region or t
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="source_api_identifier" /></td><td><code>string</code></td><td>Identifier of the Source GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN</td></tr>
+<tr><td><CopyableCode code="merged_api_identifier" /></td><td><code>string</code></td><td>Identifier of the Merged GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the SourceApiAssociation.</td></tr>
+<tr><td><CopyableCode code="source_api_association_config" /></td><td><code>undefined</code></td><td>Customized configuration for SourceApiAssociation.</td></tr>
+<tr><td><CopyableCode code="association_id" /></td><td><code>string</code></td><td>Id of the SourceApiAssociation.</td></tr>
 <tr><td><CopyableCode code="association_arn" /></td><td><code>string</code></td><td>ARN of the SourceApiAssociation.</td></tr>
+<tr><td><CopyableCode code="source_api_id" /></td><td><code>string</code></td><td>GraphQLApiId of the source API in the association.</td></tr>
+<tr><td><CopyableCode code="source_api_arn" /></td><td><code>string</code></td><td>ARN of the source API in the association.</td></tr>
+<tr><td><CopyableCode code="merged_api_id" /></td><td><code>string</code></td><td>GraphQLApiId of the Merged API in the association.</td></tr>
+<tr><td><CopyableCode code="merged_api_arn" /></td><td><code>string</code></td><td>ARN of the Merged API in the association.</td></tr>
+<tr><td><CopyableCode code="source_api_association_status" /></td><td><code>string</code></td><td>Current status of SourceApiAssociation.</td></tr>
+<tr><td><CopyableCode code="source_api_association_status_detail" /></td><td><code>string</code></td><td>Current SourceApiAssociation status details.</td></tr>
+<tr><td><CopyableCode code="last_successful_merge_date" /></td><td><code>string</code></td><td>Date of last schema successful merge.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>source_api_associations</code> in a region or t
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>source_api_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ association_arn
 FROM aws.appsync.source_api_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>source_api_association</code>.
+```sql
+SELECT
+region,
+source_api_identifier,
+merged_api_identifier,
+description,
+source_api_association_config,
+association_id,
+association_arn,
+source_api_id,
+source_api_arn,
+merged_api_id,
+merged_api_arn,
+source_api_association_status,
+source_api_association_status_detail,
+last_successful_merge_date
+FROM aws.appsync.source_api_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<AssociationArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>source_api_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +189,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -166,6 +206,19 @@ To operate on the <code>source_api_associations</code> resource, the following p
 ```json
 appsync:AssociateSourceGraphqlApi,
 appsync:AssociateMergedGraphqlApi,
+appsync:GetSourceApiAssociation
+```
+
+### Read
+```json
+appsync:GetSourceApiAssociation,
+appsync:ListSourceApiAssociations
+```
+
+### Update
+```json
+appsync:GetSourceApiAssociation,
+appsync:UpdateSourceApiAssociation,
 appsync:GetSourceApiAssociation
 ```
 

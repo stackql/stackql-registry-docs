@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>routes</code> in a region or to create or delete a <code>routes</code> resource, use <code>route</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>route</code> resource or lists <code>routes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,17 @@ Used to retrieve a list of <code>routes</code> in a region or to create or delet
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="environment_identifier" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="path_resource_to_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="application_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="environment_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="route_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="route_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_route" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="uri_path_route" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +62,24 @@ Used to retrieve a list of <code>routes</code> in a region or to create or delet
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>routes</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +89,26 @@ route_identifier
 FROM aws.refactorspaces.routes
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>route</code>.
+```sql
+SELECT
+region,
+path_resource_to_id,
+arn,
+application_identifier,
+environment_identifier,
+route_identifier,
+route_type,
+service_identifier,
+default_route,
+uri_path_route,
+tags
+FROM aws.refactorspaces.routes
+WHERE region = 'us-east-1' AND data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>|<RouteIdentifier>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>route</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -174,7 +206,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -213,6 +245,12 @@ ec2:DescribeSubnets,
 tag:GetResources
 ```
 
+### Read
+```json
+refactor-spaces:GetRoute,
+refactor-spaces:ListTagsForResource
+```
+
 ### Delete
 ```json
 refactor-spaces:DeleteRoute,
@@ -244,5 +282,34 @@ tag:GetResources
 ```json
 refactor-spaces:ListRoutes,
 refactor-spaces:ListTagsForResource
+```
+
+### Update
+```json
+refactor-spaces:UpdateRoute,
+refactor-spaces:GetRoute,
+refactor-spaces:TagResource,
+iam:CreateServiceLinkedRole,
+apigateway:GET,
+apigateway:PATCH,
+apigateway:POST,
+apigateway:PUT,
+apigateway:DELETE,
+apigateway:UpdateRestApiPolicy,
+lambda:GetFunctionConfiguration,
+lambda:AddPermission,
+elasticloadbalancing:DescribeListeners,
+elasticloadbalancing:DescribeTargetGroups,
+elasticloadbalancing:CreateListener,
+elasticloadbalancing:CreateTargetGroup,
+elasticloadbalancing:DeleteListener,
+elasticloadbalancing:DeleteTargetGroup,
+elasticloadbalancing:DescribeTags,
+elasticloadbalancing:AddTags,
+elasticloadbalancing:RegisterTargets,
+elasticloadbalancing:DescribeTargetHealth,
+ec2:DescribeSubnets,
+ec2:DescribeSubnets,
+tag:GetResources
 ```
 

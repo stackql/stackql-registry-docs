@@ -20,9 +20,9 @@ The deadline service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>16</b></span><br />
-<span>total selectable resources:&nbsp;<b>16</b></span><br />
-<span>total methods:&nbsp;<b>16</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
+<span>total methods:&nbsp;<b>8</b></span><br />
 </div>
 </div>
 
@@ -31,23 +31,15 @@ The deadline service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/deadline/farm/">farm</a><br />
 <a href="/providers/aws/deadline/farms/">farms</a><br />
-<a href="/providers/aws/deadline/fleet/">fleet</a><br />
 <a href="/providers/aws/deadline/fleets/">fleets</a><br />
-<a href="/providers/aws/deadline/license_endpoint/">license_endpoint</a><br />
 <a href="/providers/aws/deadline/license_endpoints/">license_endpoints</a><br />
-<a href="/providers/aws/deadline/metered_product/">metered_product</a><br />
 <a href="/providers/aws/deadline/metered_products/">metered_products</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/deadline/queue/">queue</a><br />
-<a href="/providers/aws/deadline/queue_environment/">queue_environment</a><br />
 <a href="/providers/aws/deadline/queue_environments/">queue_environments</a><br />
-<a href="/providers/aws/deadline/queue_fleet_association/">queue_fleet_association</a><br />
 <a href="/providers/aws/deadline/queue_fleet_associations/">queue_fleet_associations</a><br />
 <a href="/providers/aws/deadline/queues/">queues</a><br />
-<a href="/providers/aws/deadline/storage_profile/">storage_profile</a><br />
 <a href="/providers/aws/deadline/storage_profiles/">storage_profiles</a>
 </div>
 </div>

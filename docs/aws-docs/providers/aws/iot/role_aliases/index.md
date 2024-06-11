@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>role_aliases</code> in a region or to create or delete a <code>role_aliases</code> resource, use <code>role_alias</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>role_alias</code> resource or lists <code>role_aliases</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>role_aliases</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="role_alias" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="role_alias" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_alias_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="credential_duration_seconds" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>role_aliases</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>role_aliases</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ role_alias
 FROM aws.iot.role_aliases
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>role_alias</code>.
+```sql
+SELECT
+region,
+role_alias,
+role_alias_arn,
+role_arn,
+credential_duration_seconds,
+tags
+FROM aws.iot.role_aliases
+WHERE region = 'us-east-1' AND data__Identifier = '<RoleAlias>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>role_alias</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -145,7 +169,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -165,6 +189,25 @@ iam:PassRole,
 iot:CreateRoleAlias,
 iot:DescribeRoleAlias,
 iot:TagResource,
+iot:ListTagsForResource
+```
+
+### Read
+```json
+iam:GetRole,
+iam:PassRole,
+iot:DescribeRoleAlias,
+iot:ListTagsForResource
+```
+
+### Update
+```json
+iam:GetRole,
+iam:PassRole,
+iot:UpdateRoleAlias,
+iot:DescribeRoleAlias,
+iot:TagResource,
+iot:UntagResource,
 iot:ListTagsForResource
 ```
 

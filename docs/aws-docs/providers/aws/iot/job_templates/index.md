@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>job_templates</code> in a region or to create or delete a <code>job_templates</code> resource, use <code>job_template</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>job_template</code> resource or lists <code>job_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,21 @@ Used to retrieve a list of <code>job_templates</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="job_arn" /></td><td><code>string</code></td><td>Optional for copying a JobTemplate from a pre-existing Job configuration.</td></tr>
 <tr><td><CopyableCode code="job_template_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the Job Template.</td></tr>
+<tr><td><CopyableCode code="document" /></td><td><code>string</code></td><td>The job document. Required if you don't specify a value for documentSource.</td></tr>
+<tr><td><CopyableCode code="document_source" /></td><td><code>string</code></td><td>An S3 link to the job document to use in the template. Required if you don't specify a value for document.</td></tr>
+<tr><td><CopyableCode code="timeout_config" /></td><td><code>object</code></td><td>Specifies the amount of time each device has to finish its execution of the job.</td></tr>
+<tr><td><CopyableCode code="job_executions_rollout_config" /></td><td><code>object</code></td><td>Allows you to create a staged rollout of a job.</td></tr>
+<tr><td><CopyableCode code="abort_config" /></td><td><code>object</code></td><td>The criteria that determine when and how a job abort takes place.</td></tr>
+<tr><td><CopyableCode code="presigned_url_config" /></td><td><code>object</code></td><td>Configuration for pre-signed S3 URLs.</td></tr>
+<tr><td><CopyableCode code="job_executions_retry_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="maintenance_windows" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="destination_package_versions" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Metadata that can be used to manage the JobTemplate.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +70,15 @@ Used to retrieve a list of <code>job_templates</code> in a region or to create o
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>job_templates</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,30 @@ job_template_id
 FROM aws.iot.job_templates
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>job_template</code>.
+```sql
+SELECT
+region,
+arn,
+job_arn,
+job_template_id,
+description,
+document,
+document_source,
+timeout_config,
+job_executions_rollout_config,
+abort_config,
+presigned_url_config,
+job_executions_retry_config,
+maintenance_windows,
+destination_package_versions,
+tags
+FROM aws.iot.job_templates
+WHERE region = 'us-east-1' AND data__Identifier = '<JobTemplateId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>job_template</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -352,7 +389,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -371,6 +408,11 @@ iot:CreateJobTemplate,
 iam:PassRole,
 s3:GetObject,
 iot:TagResource
+```
+
+### Read
+```json
+iot:DescribeJobTemplate
 ```
 
 ### Delete

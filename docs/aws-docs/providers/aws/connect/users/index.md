@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>users</code> in a region or to create or delete a <code>users</code> resource, use <code>user</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>user</code> resource or lists <code>users</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>users</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance.</td></tr>
+<tr><td><CopyableCode code="directory_user_id" /></td><td><code>string</code></td><td>The identifier of the user account in the directory used for identity management.</td></tr>
+<tr><td><CopyableCode code="hierarchy_group_arn" /></td><td><code>string</code></td><td>The identifier of the hierarchy group for the user.</td></tr>
+<tr><td><CopyableCode code="username" /></td><td><code>string</code></td><td>The user name for the account.</td></tr>
+<tr><td><CopyableCode code="password" /></td><td><code>string</code></td><td>The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.</td></tr>
+<tr><td><CopyableCode code="routing_profile_arn" /></td><td><code>string</code></td><td>The identifier of the routing profile for the user.</td></tr>
+<tr><td><CopyableCode code="identity_info" /></td><td><code>object</code></td><td>The information about the identity of the user.</td></tr>
+<tr><td><CopyableCode code="phone_config" /></td><td><code>object</code></td><td>The phone settings for the user.</td></tr>
+<tr><td><CopyableCode code="security_profile_arns" /></td><td><code>array</code></td><td>One or more security profile arns for the user</td></tr>
 <tr><td><CopyableCode code="user_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the user.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
+<tr><td><CopyableCode code="user_proficiencies" /></td><td><code>array</code></td><td>One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>users</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>users</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ user_arn
 FROM aws.connect.users
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>user</code>.
+```sql
+SELECT
+region,
+instance_arn,
+directory_user_id,
+hierarchy_group_arn,
+username,
+password,
+routing_profile_arn,
+identity_info,
+phone_config,
+security_profile_arns,
+user_arn,
+tags,
+user_proficiencies
+FROM aws.connect.users
+WHERE region = 'us-east-1' AND data__Identifier = '<UserArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>user</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -194,7 +232,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -214,10 +252,30 @@ connect:TagResource,
 connect:AssociateUserProficiencies
 ```
 
+### Read
+```json
+connect:DescribeUser,
+connect:ListUserProficiencies
+```
+
 ### Delete
 ```json
 connect:DeleteUser,
 connect:UntagResource
+```
+
+### Update
+```json
+connect:UpdateUserIdentityInfo,
+connect:UpdateUserPhoneConfig,
+connect:UpdateUserRoutingProfile,
+connect:UpdateUserSecurityProfiles,
+connect:UpdateUserHierarchy,
+connect:TagResource,
+connect:UntagResource,
+connect:AssociateUserProficiencies,
+connect:DisassociateUserProficiencies,
+connect:UpdateUserProficiencies
 ```
 
 ### List

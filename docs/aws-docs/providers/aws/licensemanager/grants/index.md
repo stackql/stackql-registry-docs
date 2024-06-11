@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>grants</code> in a region or to create or delete a <code>grants</code> resource, use <code>grant</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>grant</code> resource or lists <code>grants</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>grants</code> in a region or to create or delet
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="grant_arn" /></td><td><code>undefined</code></td><td>Arn of the grant.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="grant_arn" /></td><td><code>string</code></td><td>Arn of the grant.</td></tr>
+<tr><td><CopyableCode code="grant_name" /></td><td><code>string</code></td><td>Name for the created Grant.</td></tr>
+<tr><td><CopyableCode code="license_arn" /></td><td><code>string</code></td><td>License Arn for the grant.</td></tr>
+<tr><td><CopyableCode code="home_region" /></td><td><code>string</code></td><td>Home region for the created grant.</td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The version of the grant.</td></tr>
+<tr><td><CopyableCode code="allowed_operations" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="principals" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>grants</code> in a region or to create or delet
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>grants</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ grant_arn
 FROM aws.licensemanager.grants
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>grant</code>.
+```sql
+SELECT
+region,
+grant_arn,
+grant_name,
+license_arn,
+home_region,
+version,
+allowed_operations,
+principals,
+status
+FROM aws.licensemanager.grants
+WHERE region = 'us-east-1' AND data__Identifier = '<GrantArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>grant</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -153,7 +183,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -169,6 +199,16 @@ To operate on the <code>grants</code> resource, the following permissions are re
 ### Create
 ```json
 license-manager:CreateGrant
+```
+
+### Read
+```json
+license-manager:GetGrant
+```
+
+### Update
+```json
+license-manager:CreateGrantVersion
 ```
 
 ### Delete

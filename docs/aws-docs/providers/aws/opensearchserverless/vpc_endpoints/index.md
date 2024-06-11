@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>vpc_endpoints</code> in a region or to create or delete a <code>vpc_endpoints</code> resource, use <code>vpc_endpoint</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>vpc_endpoint</code> resource or lists <code>vpc_endpoints</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>vpc_endpoints</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The identifier of the VPC Endpoint</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The identifier of the VPC Endpoint</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the VPC Endpoint</td></tr>
+<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>The ID of one or more security groups to associate with the endpoint network interface</td></tr>
+<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>The ID of one or more subnets in which to create an endpoint network interface</td></tr>
+<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC in which the endpoint will be used.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>vpc_endpoints</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>vpc_endpoints</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ id
 FROM aws.opensearchserverless.vpc_endpoints
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>vpc_endpoint</code>.
+```sql
+SELECT
+region,
+id,
+name,
+security_group_ids,
+subnet_ids,
+vpc_id
+FROM aws.opensearchserverless.vpc_endpoints
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>vpc_endpoint</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +173,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -166,6 +190,34 @@ To operate on the <code>vpc_endpoints</code> resource, the following permissions
 ```json
 aoss:BatchGetVpcEndpoint,
 aoss:CreateVpcEndpoint,
+ec2:CreateVpcEndpoint,
+ec2:DeleteVpcEndPoints,
+ec2:DescribeVpcEndpoints,
+ec2:ModifyVpcEndPoint,
+ec2:DescribeVpcs,
+ec2:DescribeSubnets,
+ec2:DescribeSecurityGroups,
+ec2:CreateTags,
+route53:ChangeResourceRecordSets,
+route53:GetChange,
+route53:GetHostedZone,
+route53:ListResourceRecordSets,
+route53:ListHostedZonesByName,
+route53:CreateHostedZone,
+route53:ListHostedZonesByVPC,
+route53:AssociateVPCWithHostedZone
+```
+
+### Read
+```json
+aoss:BatchGetVpcEndpoint,
+ec2:DescribeVpcEndpoints
+```
+
+### Update
+```json
+aoss:BatchGetVpcEndpoint,
+aoss:UpdateVpcEndpoint,
 ec2:CreateVpcEndpoint,
 ec2:DeleteVpcEndPoints,
 ec2:DescribeVpcEndpoints,

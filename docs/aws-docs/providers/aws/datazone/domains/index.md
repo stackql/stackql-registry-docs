@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>domains</code> in a region or to create or delete a <code>domains</code> resource, use <code>domain</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>domains</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>domains</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the Amazon DataZone domain.</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The timestamp of when the Amazon DataZone domain was last updated.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the Amazon DataZone domain.</td></tr>
+<tr><td><CopyableCode code="domain_execution_role" /></td><td><code>string</code></td><td>The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The id of the Amazon DataZone domain.</td></tr>
+<tr><td><CopyableCode code="kms_key_identifier" /></td><td><code>string</code></td><td>The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.</td></tr>
+<tr><td><CopyableCode code="last_updated_at" /></td><td><code>string</code></td><td>The timestamp of when the Amazon DataZone domain was last updated.</td></tr>
+<tr><td><CopyableCode code="managed_account_id" /></td><td><code>string</code></td><td>The identifier of the AWS account that manages the domain.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the Amazon DataZone domain.</td></tr>
+<tr><td><CopyableCode code="portal_url" /></td><td><code>string</code></td><td>The URL of the data portal for this Amazon DataZone domain.</td></tr>
+<tr><td><CopyableCode code="single_sign_on" /></td><td><code>object</code></td><td>The single-sign on configuration of the Amazon DataZone domain.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the Amazon DataZone domain.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags specified for the Amazon DataZone domain.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>domains</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>domains</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ id
 FROM aws.datazone.domains
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>domain</code>.
+```sql
+SELECT
+region,
+arn,
+created_at,
+description,
+domain_execution_role,
+id,
+kms_key_identifier,
+last_updated_at,
+managed_account_id,
+name,
+portal_url,
+single_sign_on,
+status,
+tags
+FROM aws.datazone.domains
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>domain</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -157,7 +197,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -176,6 +216,22 @@ datazone:CreateDomain,
 datazone:UpdateDomain,
 datazone:GetDomain,
 datazone:TagResource,
+sso:CreateManagedApplicationInstance,
+sso:DeleteManagedApplicationInstance,
+sso:PutApplicationAssignmentConfiguration
+```
+
+### Read
+```json
+datazone:GetDomain
+```
+
+### Update
+```json
+datazone:UpdateDomain,
+datazone:GetDomain,
+datazone:TagResource,
+datazone:UntagResource,
 sso:CreateManagedApplicationInstance,
 sso:DeleteManagedApplicationInstance,
 sso:PutApplicationAssignmentConfiguration

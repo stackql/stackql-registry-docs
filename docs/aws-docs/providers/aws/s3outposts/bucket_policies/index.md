@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>bucket_policies</code> in a region or to create or delete a <code>bucket_policies</code> resource, use <code>bucket_policy</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>bucket_policy</code> resource or lists <code>bucket_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,9 @@ Used to retrieve a list of <code>bucket_policies</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="bucket" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified bucket.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bucket" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified bucket.</td></tr>
+<tr><td><CopyableCode code="policy_document" /></td><td><code>object</code></td><td>A policy document containing permissions to add to the specified bucket.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +54,31 @@ Used to retrieve a list of <code>bucket_policies</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>bucket_policy</code>.
 ```sql
 SELECT
 region,
-bucket
+bucket,
+policy_document
 FROM aws.s3outposts.bucket_policies
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<Bucket>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>bucket_policy</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +143,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -151,6 +157,17 @@ AND region = 'us-east-1';
 To operate on the <code>bucket_policies</code> resource, the following permissions are required:
 
 ### Create
+```json
+s3-outposts:PutBucketPolicy,
+s3-outposts:GetBucketPolicy
+```
+
+### Read
+```json
+s3-outposts:GetBucketPolicy
+```
+
+### Update
 ```json
 s3-outposts:PutBucketPolicy,
 s3-outposts:GetBucketPolicy

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>bridge_sources</code> in a region or to create or delete a <code>bridge_sources</code> resource, use <code>bridge_source</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>bridge_source</code> resource or lists <code>bridge_sources</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>bridge_sources</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the source.</td></tr>
 <tr><td><CopyableCode code="bridge_arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) of the bridge.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the source.</td></tr>
+<tr><td><CopyableCode code="flow_source" /></td><td><code>The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_source" /></td><td><code>The source of the bridge. A network source originates at your premises.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,23 +56,33 @@ Used to retrieve a list of <code>bridge_sources</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>bridge_source</code>.
 ```sql
 SELECT
 region,
+name,
 bridge_arn,
-name
+flow_source,
+network_source
 FROM aws.mediaconnect.bridge_sources
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<BridgeArn>|<Name>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>bridge_source</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -154,7 +162,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -171,6 +179,17 @@ To operate on the <code>bridge_sources</code> resource, the following permission
 ```json
 mediaconnect:AddBridgeSources,
 mediaconnect:DescribeBridge
+```
+
+### Read
+```json
+mediaconnect:DescribeBridge
+```
+
+### Update
+```json
+mediaconnect:DescribeBridge,
+mediaconnect:UpdateBridgeSource
 ```
 
 ### Delete

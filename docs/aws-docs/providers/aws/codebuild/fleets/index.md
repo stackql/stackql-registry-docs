@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>fleets</code> in a region or to create or delete a <code>fleets</code> resource, use <code>fleet</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>fleets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>fleets</code> in a region or to create or delet
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="base_capacity" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="environment_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="compute_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="overflow_behavior" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="fleet_service_role" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="fleet_vpc_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>fleets</code> in a region or to create or delet
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>fleets</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ arn
 FROM aws.codebuild.fleets
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>fleet</code>.
+```sql
+SELECT
+region,
+name,
+base_capacity,
+environment_type,
+compute_type,
+overflow_behavior,
+fleet_service_role,
+fleet_vpc_config,
+tags,
+arn
+FROM aws.codebuild.fleets
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>fleet</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -93,6 +125,9 @@ INSERT INTO aws.codebuild.fleets (
  BaseCapacity,
  EnvironmentType,
  ComputeType,
+ OverflowBehavior,
+ FleetServiceRole,
+ FleetVpcConfig,
  Tags,
  region
 )
@@ -101,6 +136,9 @@ SELECT
  '{{ BaseCapacity }}',
  '{{ EnvironmentType }}',
  '{{ ComputeType }}',
+ '{{ OverflowBehavior }}',
+ '{{ FleetServiceRole }}',
+ '{{ FleetVpcConfig }}',
  '{{ Tags }}',
 '{{ region }}';
 ```
@@ -114,6 +152,9 @@ INSERT INTO aws.codebuild.fleets (
  BaseCapacity,
  EnvironmentType,
  ComputeType,
+ OverflowBehavior,
+ FleetServiceRole,
+ FleetVpcConfig,
  Tags,
  region
 )
@@ -122,6 +163,9 @@ SELECT
  '{{ BaseCapacity }}',
  '{{ EnvironmentType }}',
  '{{ ComputeType }}',
+ '{{ OverflowBehavior }}',
+ '{{ FleetServiceRole }}',
+ '{{ FleetVpcConfig }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -148,6 +192,17 @@ resources:
         value: '{{ EnvironmentType }}'
       - name: ComputeType
         value: '{{ ComputeType }}'
+      - name: OverflowBehavior
+        value: '{{ OverflowBehavior }}'
+      - name: FleetServiceRole
+        value: '{{ FleetServiceRole }}'
+      - name: FleetVpcConfig
+        value:
+          VpcId: '{{ VpcId }}'
+          Subnets:
+            - '{{ Subnets[0] }}'
+          SecurityGroupIds:
+            - '{{ SecurityGroupIds[0] }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -157,7 +212,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -173,7 +228,8 @@ To operate on the <code>fleets</code> resource, the following permissions are re
 ### Create
 ```json
 codebuild:BatchGetFleets,
-codebuild:CreateFleet
+codebuild:CreateFleet,
+iam:PassRole
 ```
 
 ### Delete
@@ -182,8 +238,20 @@ codebuild:BatchGetFleets,
 codebuild:DeleteFleet
 ```
 
+### Read
+```json
+codebuild:BatchGetFleets
+```
+
 ### List
 ```json
 codebuild:ListFleets
+```
+
+### Update
+```json
+codebuild:BatchGetFleets,
+codebuild:UpdateFleet,
+iam:PassRole
 ```
 

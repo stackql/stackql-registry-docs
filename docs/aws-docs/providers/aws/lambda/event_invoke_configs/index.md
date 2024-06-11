@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>event_invoke_configs</code> in a region or to create or delete a <code>event_invoke_configs</code> resource, use <code>event_invoke_config</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>event_invoke_config</code> resource or lists <code>event_invoke_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,12 @@ Used to retrieve a list of <code>event_invoke_configs</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="destination_config" /></td><td><code>A configuration object that specifies the destination of an event after Lambda processes it.</code></td><td></td></tr>
 <tr><td><CopyableCode code="function_name" /></td><td><code>string</code></td><td>The name of the Lambda function.</td></tr>
+<tr><td><CopyableCode code="maximum_event_age_in_seconds" /></td><td><code>integer</code></td><td>The maximum age of a request that Lambda sends to a function for processing.</td></tr>
+<tr><td><CopyableCode code="maximum_retry_attempts" /></td><td><code>integer</code></td><td>The maximum number of times to retry when the function returns an error.</td></tr>
 <tr><td><CopyableCode code="qualifier" /></td><td><code>string</code></td><td>The identifier of a version or alias.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +57,24 @@ Used to retrieve a list of <code>event_invoke_configs</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>event_invoke_configs</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +83,21 @@ qualifier
 FROM aws.lambda.event_invoke_configs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>event_invoke_config</code>.
+```sql
+SELECT
+region,
+destination_config,
+function_name,
+maximum_event_age_in_seconds,
+maximum_retry_attempts,
+qualifier
+FROM aws.lambda.event_invoke_configs
+WHERE region = 'us-east-1' AND data__Identifier = '<FunctionName>|<Qualifier>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>event_invoke_config</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -153,7 +176,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -169,6 +192,16 @@ To operate on the <code>event_invoke_configs</code> resource, the following perm
 ### Create
 ```json
 lambda:PutFunctionEventInvokeConfig
+```
+
+### Read
+```json
+lambda:GetFunctionEventInvokeConfig
+```
+
+### Update
+```json
+lambda:UpdateFunctionEventInvokeConfig
 ```
 
 ### Delete

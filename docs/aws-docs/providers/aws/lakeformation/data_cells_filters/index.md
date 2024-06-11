@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>data_cells_filters</code> in a region or to create or delete a <code>data_cells_filters</code> resource, use <code>data_cells_filter</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>data_cells_filter</code> resource or lists <code>data_cells_filters</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,14 +30,14 @@ Used to retrieve a list of <code>data_cells_filters</code> in a region or to cre
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="table_catalog_id" /></td><td><code>undefined</code></td><td>The Catalog Id of the Table on which to create a Data Cells Filter.</td></tr>
-<tr><td><CopyableCode code="database_name" /></td><td><code>undefined</code></td><td>The name of the Database that the Table resides in.</td></tr>
-<tr><td><CopyableCode code="table_name" /></td><td><code>undefined</code></td><td>The name of the Table to create a Data Cells Filter for.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>undefined</code></td><td>The desired name of the Data Cells Filter.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="table_catalog_id" /></td><td><code>string</code></td><td>The Catalog Id of the Table on which to create a Data Cells Filter.</td></tr>
+<tr><td><CopyableCode code="database_name" /></td><td><code>string</code></td><td>The name of the Database that the Table resides in.</td></tr>
+<tr><td><CopyableCode code="table_name" /></td><td><code>string</code></td><td>The name of the Table to create a Data Cells Filter for.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The desired name of the Data Cells Filter.</td></tr>
+<tr><td><CopyableCode code="row_filter" /></td><td><code>object</code></td><td>An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required</td></tr>
+<tr><td><CopyableCode code="column_names" /></td><td><code>array</code></td><td>A list of columns to be included in this Data Cells Filter.</td></tr>
+<tr><td><CopyableCode code="column_wildcard" /></td><td><code>object</code></td><td>An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -64,9 +63,15 @@ Used to retrieve a list of <code>data_cells_filters</code> in a region or to cre
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>data_cells_filters</code> in a region.
 ```sql
 SELECT
 region,
@@ -77,8 +82,23 @@ name
 FROM aws.lakeformation.data_cells_filters
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>data_cells_filter</code>.
+```sql
+SELECT
+region,
+table_catalog_id,
+database_name,
+table_name,
+name,
+row_filter,
+column_names,
+column_wildcard
+FROM aws.lakeformation.data_cells_filters
+WHERE region = 'us-east-1' AND data__Identifier = '<TableCatalogId>|<DatabaseName>|<TableName>|<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>data_cells_filter</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -171,7 +191,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -193,6 +213,11 @@ glue:GetTable
 ### Delete
 ```json
 lakeformation:DeleteDataCellsFilter
+```
+
+### Read
+```json
+lakeformation:ListDataCellsFilter
 ```
 
 ### List

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>resource_default_versions</code> in a region or to create or delete a <code>resource_default_versions</code> resource, use <code>resource_default_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>resource_default_version</code> resource or lists <code>resource_default_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>resource_default_versions</code> in a region or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="version_id" /></td><td><code>string</code></td><td>The ID of an existing version of the resource to set as the default.</td></tr>
+<tr><td><CopyableCode code="type_name" /></td><td><code>string</code></td><td>The name of the type being registered.<br/><br/>We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion</td></tr>
+<tr><td><CopyableCode code="type_version_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type version.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>resource_default_versions</code> in a region or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>resource_default_versions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ arn
 FROM aws.cloudformation.resource_default_versions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>resource_default_version</code>.
+```sql
+SELECT
+region,
+version_id,
+type_name,
+arn,
+type_version_arn
+FROM aws.cloudformation.resource_default_versions
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>resource_default_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -143,7 +165,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -156,7 +178,17 @@ AND region = 'us-east-1';
 
 To operate on the <code>resource_default_versions</code> resource, the following permissions are required:
 
+### Read
+```json
+cloudformation:DescribeType
+```
+
 ### Create
+```json
+cloudformation:SetTypeDefaultVersion
+```
+
+### Update
 ```json
 cloudformation:SetTypeDefaultVersion
 ```

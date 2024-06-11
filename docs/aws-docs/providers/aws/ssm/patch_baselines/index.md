@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>patch_baselines</code> in a region or to create or delete a <code>patch_baselines</code> resource, use <code>patch_baseline</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>patch_baseline</code> resource or lists <code>patch_baselines</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,22 @@ Used to retrieve a list of <code>patch_baselines</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the patch baseline.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the patch baseline.</td></tr>
+<tr><td><CopyableCode code="default_baseline" /></td><td><code>boolean</code></td><td>Set the baseline as default baseline. Only registering to default patch baseline is allowed.</td></tr>
+<tr><td><CopyableCode code="operating_system" /></td><td><code>string</code></td><td>Defines the operating system the patch baseline applies to. The Default value is WINDOWS.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the patch baseline.</td></tr>
+<tr><td><CopyableCode code="approval_rules" /></td><td><code>A set of rules defining the approval rules for a patch baseline.</code></td><td></td></tr>
+<tr><td><CopyableCode code="sources" /></td><td><code>array</code></td><td>Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the patch baseline.</td></tr>
+<tr><td><CopyableCode code="rejected_patches" /></td><td><code>array</code></td><td>A list of explicitly rejected patches for the baseline.</td></tr>
+<tr><td><CopyableCode code="approved_patches" /></td><td><code>array</code></td><td>A list of explicitly approved patches for the baseline.</td></tr>
+<tr><td><CopyableCode code="rejected_patches_action" /></td><td><code>string</code></td><td>The action for Patch Manager to take on patches included in the RejectedPackages list.</td></tr>
+<tr><td><CopyableCode code="patch_groups" /></td><td><code>array</code></td><td>PatchGroups is used to associate instances with a specific patch baseline</td></tr>
+<tr><td><CopyableCode code="approved_patches_compliance_level" /></td><td><code>string</code></td><td>Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.</td></tr>
+<tr><td><CopyableCode code="approved_patches_enable_non_security" /></td><td><code>boolean</code></td><td>Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.</td></tr>
+<tr><td><CopyableCode code="global_filters" /></td><td><code>object</code></td><td>A set of global filters used to include patches in the baseline.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +67,24 @@ Used to retrieve a list of <code>patch_baselines</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>patch_baselines</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +92,31 @@ id
 FROM aws.ssm.patch_baselines
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>patch_baseline</code>.
+```sql
+SELECT
+region,
+id,
+default_baseline,
+operating_system,
+description,
+approval_rules,
+sources,
+name,
+rejected_patches,
+approved_patches,
+rejected_patches_action,
+patch_groups,
+approved_patches_compliance_level,
+approved_patches_enable_non_security,
+global_filters,
+tags
+FROM aws.ssm.patch_baselines
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>patch_baseline</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -202,7 +246,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -239,5 +283,23 @@ ssm:DescribePatchBaselines,
 ssm:GetDefaultPatchBaseline,
 ssm:GetPatchBaseline,
 ssm:ListTagsForResource
+```
+
+### Read
+```json
+ssm:GetDefaultPatchBaseline,
+ssm:GetPatchBaseline,
+ssm:ListTagsForResource
+```
+
+### Update
+```json
+ssm:UpdatePatchBaseline,
+ssm:DeregisterPatchBaselineForPatchGroup,
+ssm:AddTagsToResource,
+ssm:RemoveTagsFromResource,
+ssm:ListTagsForResource,
+ssm:GetDefaultPatchBaseline,
+ssm:RegisterDefaultPatchBaseline
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>licenses</code> in a region or to create or delete a <code>licenses</code> resource, use <code>license</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>license</code> resource or lists <code>licenses</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>licenses</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="license_arn" /></td><td><code>undefined</code></td><td>Amazon Resource Name is a unique name for each resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="product_sku" /></td><td><code>string</code></td><td>ProductSKU of the license.</td></tr>
+<tr><td><CopyableCode code="issuer" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="license_name" /></td><td><code>string</code></td><td>Name for the created license.</td></tr>
+<tr><td><CopyableCode code="product_name" /></td><td><code>string</code></td><td>Product name for the created license.</td></tr>
+<tr><td><CopyableCode code="home_region" /></td><td><code>string</code></td><td>Home region for the created license.</td></tr>
+<tr><td><CopyableCode code="validity" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="entitlements" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="beneficiary" /></td><td><code>string</code></td><td>Beneficiary of the license.</td></tr>
+<tr><td><CopyableCode code="consumption_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="license_metadata" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="license_arn" /></td><td><code>string</code></td><td>Amazon Resource Name is a unique name for each resource.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The version of the license.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>licenses</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>licenses</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ license_arn
 FROM aws.licensemanager.licenses
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>license</code>.
+```sql
+SELECT
+region,
+product_sku,
+issuer,
+license_name,
+product_name,
+home_region,
+validity,
+entitlements,
+beneficiary,
+consumption_configuration,
+license_metadata,
+license_arn,
+status,
+version
+FROM aws.licensemanager.licenses
+WHERE region = 'us-east-1' AND data__Identifier = '<LicenseArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>license</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -201,7 +241,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -217,6 +257,16 @@ To operate on the <code>licenses</code> resource, the following permissions are 
 ### Create
 ```json
 license-manager:CreateLicense
+```
+
+### Read
+```json
+license-manager:GetLicense
+```
+
+### Update
+```json
+license-manager:CreateLicenseVersion
 ```
 
 ### Delete

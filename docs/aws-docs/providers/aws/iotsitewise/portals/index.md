@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>portals</code> in a region or to create or delete a <code>portals</code> resource, use <code>portal</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>portal</code> resource or lists <code>portals</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>portals</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="portal_auth_mode" /></td><td><code>string</code></td><td>The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.</td></tr>
+<tr><td><CopyableCode code="portal_arn" /></td><td><code>string</code></td><td>The ARN of the portal, which has the following format.</td></tr>
+<tr><td><CopyableCode code="portal_client_id" /></td><td><code>string</code></td><td>The AWS SSO application generated client ID (used with AWS SSO APIs).</td></tr>
+<tr><td><CopyableCode code="portal_contact_email" /></td><td><code>string</code></td><td>The AWS administrator's contact email address.</td></tr>
+<tr><td><CopyableCode code="portal_description" /></td><td><code>string</code></td><td>A description for the portal.</td></tr>
 <tr><td><CopyableCode code="portal_id" /></td><td><code>string</code></td><td>The ID of the portal.</td></tr>
+<tr><td><CopyableCode code="portal_name" /></td><td><code>string</code></td><td>A friendly name for the portal.</td></tr>
+<tr><td><CopyableCode code="portal_start_url" /></td><td><code>string</code></td><td>The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.</td></tr>
+<tr><td><CopyableCode code="notification_sender_email" /></td><td><code>string</code></td><td>The email address that sends alarm notifications.</td></tr>
+<tr><td><CopyableCode code="alarms" /></td><td><code>object</code></td><td>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the portal.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>portals</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>portals</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ portal_id
 FROM aws.iotsitewise.portals
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>portal</code>.
+```sql
+SELECT
+region,
+portal_auth_mode,
+portal_arn,
+portal_client_id,
+portal_contact_email,
+portal_description,
+portal_id,
+portal_name,
+portal_start_url,
+role_arn,
+notification_sender_email,
+alarms,
+tags
+FROM aws.iotsitewise.portals
+WHERE region = 'us-east-1' AND data__Identifier = '<PortalId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>portal</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -167,7 +205,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -189,6 +227,24 @@ iotsitewise:TagResource,
 iam:PassRole,
 sso:CreateManagedApplicationInstance,
 sso:DescribeRegisteredRegions
+```
+
+### Read
+```json
+iotsitewise:DescribePortal,
+iotsitewise:ListTagsForResource
+```
+
+### Update
+```json
+iotsitewise:DescribePortal,
+iotsitewise:ListTagsForResource,
+iotsitewise:TagResource,
+iotsitewise:UpdatePortal,
+iotsitewise:UntagResource,
+iam:PassRole,
+sso:GetManagedApplicationInstance,
+sso:UpdateApplicationInstanceDisplayData
 ```
 
 ### Delete

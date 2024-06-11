@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>influxdb_instances</code> in a region or to create or delete a <code>influxdb_instances</code> resource, use <code>influxdb_instance</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>influxdb_instance</code> resource or lists <code>influxdb_instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,29 @@ Used to retrieve a list of <code>influxdb_instances</code> in a region or to cre
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="username" /></td><td><code>string</code></td><td>The username for the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="password" /></td><td><code>string</code></td><td>The password for the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="organization" /></td><td><code>string</code></td><td>The organization for the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="bucket" /></td><td><code>string</code></td><td>The bucket for the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="db_instance_type" /></td><td><code>string</code></td><td>The compute instance of the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="vpc_subnet_ids" /></td><td><code>array</code></td><td>A list of EC2 subnet IDs for this InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="vpc_security_group_ids" /></td><td><code>array</code></td><td>A list of Amazon EC2 VPC security groups to associate with this InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="publicly_accessible" /></td><td><code>boolean</code></td><td>Attach a public IP to the customer ENI.</td></tr>
+<tr><td><CopyableCode code="db_storage_type" /></td><td><code>string</code></td><td>The storage type of the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="allocated_storage" /></td><td><code>integer</code></td><td>The allocated storage for the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="db_parameter_group_identifier" /></td><td><code>string</code></td><td>The name of an existing InfluxDB parameter group.</td></tr>
+<tr><td><CopyableCode code="log_delivery_configuration" /></td><td><code>object</code></td><td>Configuration for sending logs to customer account from the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Status of the InfluxDB Instance.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) that is associated with the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The unique name that is associated with the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="availability_zone" /></td><td><code>string</code></td><td>The Availability Zone (AZ) where the InfluxDB instance is created.</td></tr>
+<tr><td><CopyableCode code="secondary_availability_zone" /></td><td><code>string</code></td><td>The Secondary Availability Zone (AZ) where the InfluxDB instance is created, if DeploymentType is set as WITH_MULTIAZ_STANDBY.</td></tr>
+<tr><td><CopyableCode code="endpoint" /></td><td><code>string</code></td><td>The connection endpoint for the InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="influx_auth_parameters_secret_arn" /></td><td><code>string</code></td><td>The Auth parameters secret Amazon Resource name (ARN) that is associated with the InfluxDB instance.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The service generated unique identifier for InfluxDB instance.</td></tr>
+<tr><td><CopyableCode code="deployment_type" /></td><td><code>string</code></td><td>Deployment type of the InfluxDB Instance.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this DB instance.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +74,24 @@ Used to retrieve a list of <code>influxdb_instances</code> in a region or to cre
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>influxdb_instances</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +99,38 @@ id
 FROM aws.timestream.influxdb_instances
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>influxdb_instance</code>.
+```sql
+SELECT
+region,
+username,
+password,
+organization,
+bucket,
+db_instance_type,
+vpc_subnet_ids,
+vpc_security_group_ids,
+publicly_accessible,
+db_storage_type,
+allocated_storage,
+db_parameter_group_identifier,
+log_delivery_configuration,
+status,
+arn,
+name,
+availability_zone,
+secondary_availability_zone,
+endpoint,
+influx_auth_parameters_secret_arn,
+id,
+deployment_type,
+tags
+FROM aws.timestream.influxdb_instances
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>influxdb_instance</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -222,7 +280,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -250,6 +308,24 @@ ec2:DescribeNetworkInterfaces,
 ec2:DescribeSecurityGroups,
 ec2:CreateNetworkInterface,
 iam:CreateServiceLinkedRole
+```
+
+### Read
+```json
+timestream-influxdb:GetDbInstance,
+timestream-influxdb:ListTagsForResource
+```
+
+### Update
+```json
+s3:ListBucket,
+s3:GetBucketPolicy,
+timestream-influxdb:GetDbInstance,
+timestream-influxdb:ListDbInstances,
+timestream-influxdb:UpdateDbInstance,
+timestream-influxdb:TagResource,
+timestream-influxdb:UntagResource,
+timestream-influxdb:ListTagsForResource
 ```
 
 ### Delete

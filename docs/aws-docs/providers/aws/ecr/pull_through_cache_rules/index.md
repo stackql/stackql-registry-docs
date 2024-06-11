@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>pull_through_cache_rules</code> in a region or to create or delete a <code>pull_through_cache_rules</code> resource, use <code>pull_through_cache_rule</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>pull_through_cache_rule</code> resource or lists <code>pull_through_cache_rules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>pull_through_cache_rules</code> in a region or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="ecr_repository_prefix" /></td><td><code>string</code></td><td>The ECRRepositoryPrefix is a custom alias for upstream registry url.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="ecr_repository_prefix" /></td><td><code>string</code></td><td>The ECRRepositoryPrefix is a custom alias for upstream registry url.</td></tr>
+<tr><td><CopyableCode code="upstream_registry_url" /></td><td><code>string</code></td><td>The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached</td></tr>
+<tr><td><CopyableCode code="credential_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.</td></tr>
+<tr><td><CopyableCode code="upstream_registry" /></td><td><code>string</code></td><td>The name of the upstream registry.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>pull_through_cache_rules</code> in a region or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>pull_through_cache_rules</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ ecr_repository_prefix
 FROM aws.ecr.pull_through_cache_rules
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>pull_through_cache_rule</code>.
+```sql
+SELECT
+region,
+ecr_repository_prefix,
+upstream_registry_url,
+credential_arn,
+upstream_registry
+FROM aws.ecr.pull_through_cache_rules
+WHERE region = 'us-east-1' AND data__Identifier = '<EcrRepositoryPrefix>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>pull_through_cache_rule</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +171,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -163,6 +185,20 @@ AND region = 'us-east-1';
 To operate on the <code>pull_through_cache_rules</code> resource, the following permissions are required:
 
 ### Create
+```json
+ecr:DescribePullThroughCacheRules,
+ecr:CreatePullThroughCacheRule,
+ecr:DeletePullThroughCacheRule,
+iam:CreateServiceLinkedRole,
+secretsmanager:GetSecretValue
+```
+
+### Read
+```json
+ecr:DescribePullThroughCacheRules
+```
+
+### Update
 ```json
 ecr:DescribePullThroughCacheRules,
 ecr:CreatePullThroughCacheRule,

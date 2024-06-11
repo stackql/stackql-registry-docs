@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>rules</code> in a region or to create or delete a <code>rules</code> resource, use <code>rule</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>rule</code> resource or lists <code>rules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>rules</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule&#x2F;example.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="event_bus_name" /></td><td><code>string</code></td><td>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</td></tr>
+<tr><td><CopyableCode code="event_pattern" /></td><td><code>object</code></td><td>The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.</td></tr>
+<tr><td><CopyableCode code="schedule_expression" /></td><td><code>string</code></td><td>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the rule.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the rule.</td></tr>
+<tr><td><CopyableCode code="targets" /></td><td><code>array</code></td><td>Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.<br/>Targets are the resources that are invoked when a rule is triggered.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the role that is used for target invocation.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the rule.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>rules</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>rules</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ arn
 FROM aws.events.rules
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>rule</code>.
+```sql
+SELECT
+region,
+event_bus_name,
+event_pattern,
+schedule_expression,
+description,
+state,
+targets,
+arn,
+role_arn,
+name
+FROM aws.events.rules
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>rule</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -252,7 +284,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -265,11 +297,27 @@ AND region = 'us-east-1';
 
 To operate on the <code>rules</code> resource, the following permissions are required:
 
+### Read
+```json
+iam:PassRole,
+events:DescribeRule,
+events:ListTargetsByRule
+```
+
 ### Create
 ```json
 iam:PassRole,
 events:DescribeRule,
 events:PutRule,
+events:PutTargets
+```
+
+### Update
+```json
+iam:PassRole,
+events:DescribeRule,
+events:PutRule,
+events:RemoveTargets,
 events:PutTargets
 ```
 

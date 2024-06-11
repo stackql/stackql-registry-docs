@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>certificates</code> in a region or to create or delete a <code>certificates</code> resource, use <code>certificate</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>certificate</code> resource or lists <code>certificates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>certificates</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="certificate_name" /></td><td><code>string</code></td><td>The name for the certificate.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="certificate_name" /></td><td><code>string</code></td><td>The name for the certificate.</td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The domain name (e.g., example.com ) for the certificate.</td></tr>
+<tr><td><CopyableCode code="subject_alternative_names" /></td><td><code>array</code></td><td>An array of strings that specify the alternate domains (e.g., example2.com) and subdomains (e.g., blog.example.com) for the certificate.</td></tr>
+<tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The validation status of the certificate.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>certificates</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>certificates</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ certificate_name
 FROM aws.lightsail.certificates
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>certificate</code>.
+```sql
+SELECT
+region,
+certificate_name,
+domain_name,
+subject_alternative_names,
+certificate_arn,
+status,
+tags
+FROM aws.lightsail.certificates
+WHERE region = 'us-east-1' AND data__Identifier = '<CertificateName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>certificate</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -148,7 +174,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -164,6 +190,18 @@ To operate on the <code>certificates</code> resource, the following permissions 
 ### Create
 ```json
 lightsail:CreateCertificate,
+lightsail:GetCertificates,
+lightsail:TagResource,
+lightsail:UntagResource
+```
+
+### Read
+```json
+lightsail:GetCertificates
+```
+
+### Update
+```json
 lightsail:GetCertificates,
 lightsail:TagResource,
 lightsail:UntagResource

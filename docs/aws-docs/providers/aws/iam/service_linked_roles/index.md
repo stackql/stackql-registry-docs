@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>service_linked_roles</code> in a region or to create or delete a <code>service_linked_roles</code> resource, use <code>service_linked_role</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>service_linked_role</code> resource or lists <code>service_linked_roles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>service_linked_roles</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="role_name" /></td><td><code>string</code></td><td>The name of the role.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="role_name" /></td><td><code>string</code></td><td>The name of the role.</td></tr>
+<tr><td><CopyableCode code="custom_suffix" /></td><td><code>string</code></td><td>A string that you provide, which is combined with the service-provided prefix to form the complete role name.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the role.</td></tr>
+<tr><td><CopyableCode code="aws_service_name" /></td><td><code>string</code></td><td>The service principal for the AWS service to which this role is attached.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +56,33 @@ Used to retrieve a list of <code>service_linked_roles</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>service_linked_role</code>.
 ```sql
 SELECT
 region,
-role_name
+role_name,
+custom_suffix,
+description,
+aws_service_name
 FROM aws.iam.service_linked_roles
-;
+WHERE data__Identifier = '<RoleName>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>service_linked_role</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -139,7 +149,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -155,6 +165,17 @@ To operate on the <code>service_linked_roles</code> resource, the following perm
 ### Create
 ```json
 iam:CreateServiceLinkedRole,
+iam:GetRole
+```
+
+### Read
+```json
+iam:GetRole
+```
+
+### Update
+```json
+iam:UpdateRole,
 iam:GetRole
 ```
 

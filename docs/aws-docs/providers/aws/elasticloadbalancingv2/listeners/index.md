@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>listeners</code> in a region or to create or delete a <code>listeners</code> resource, use <code>listener</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>listener</code> resource or lists <code>listeners</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>listeners</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="listener_arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="listener_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="mutual_authentication" /></td><td><code>object</code></td><td>The mutual authentication configuration information.</td></tr>
+<tr><td><CopyableCode code="alpn_policy" /></td><td><code>array</code></td><td>&#91;TLS listener&#93; The name of the Application-Layer Protocol Negotiation (ALPN) policy.</td></tr>
+<tr><td><CopyableCode code="ssl_policy" /></td><td><code>string</code></td><td>&#91;HTTPS and TLS listeners&#93; The security policy that defines which protocols and ciphers are supported.<br/> Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.<br/> For more information, see &#91;Security policies&#93;(https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and &#91;Security policies&#93;(https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.</td></tr>
+<tr><td><CopyableCode code="load_balancer_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the load balancer.</td></tr>
+<tr><td><CopyableCode code="default_actions" /></td><td><code>array</code></td><td>The actions for the default rule. You cannot define a condition for a default rule.<br/> To create additional rules for an Application Load Balancer, use &#91;AWS::ElasticLoadBalancingV2::ListenerRule&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).</td></tr>
+<tr><td><CopyableCode code="port" /></td><td><code>integer</code></td><td>The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.</td></tr>
+<tr><td><CopyableCode code="certificates" /></td><td><code>array</code></td><td>The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.<br/> To create a certificate list for a secure listener, use &#91;AWS::ElasticLoadBalancingV2::ListenerCertificate&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).</td></tr>
+<tr><td><CopyableCode code="protocol" /></td><td><code>string</code></td><td>The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>listeners</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>listeners</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ listener_arn
 FROM aws.elasticloadbalancingv2.listeners
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>listener</code>.
+```sql
+SELECT
+region,
+listener_arn,
+mutual_authentication,
+alpn_policy,
+ssl_policy,
+load_balancer_arn,
+default_actions,
+port,
+certificates,
+protocol
+FROM aws.elasticloadbalancingv2.listeners
+WHERE region = 'us-east-1' AND data__Identifier = '<ListenerArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>listener</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -104,25 +136,25 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.elasticloadbalancingv2.listeners (
+ MutualAuthentication,
+ AlpnPolicy,
  SslPolicy,
  LoadBalancerArn,
  DefaultActions,
  Port,
  Certificates,
  Protocol,
- AlpnPolicy,
- MutualAuthentication,
  region
 )
 SELECT 
+ '{{ MutualAuthentication }}',
+ '{{ AlpnPolicy }}',
  '{{ SslPolicy }}',
  '{{ LoadBalancerArn }}',
  '{{ DefaultActions }}',
  '{{ Port }}',
  '{{ Certificates }}',
  '{{ Protocol }}',
- '{{ AlpnPolicy }}',
- '{{ MutualAuthentication }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -140,6 +172,14 @@ globals:
 resources:
   - name: listener
     props:
+      - name: MutualAuthentication
+        value:
+          IgnoreClientCertificateExpiry: '{{ IgnoreClientCertificateExpiry }}'
+          Mode: '{{ Mode }}'
+          TrustStoreArn: '{{ TrustStoreArn }}'
+      - name: AlpnPolicy
+        value:
+          - '{{ AlpnPolicy[0] }}'
       - name: SslPolicy
         value: '{{ SslPolicy }}'
       - name: LoadBalancerArn
@@ -196,20 +236,12 @@ resources:
           - CertificateArn: '{{ CertificateArn }}'
       - name: Protocol
         value: '{{ Protocol }}'
-      - name: AlpnPolicy
-        value:
-          - '{{ AlpnPolicy[0] }}'
-      - name: MutualAuthentication
-        value:
-          Mode: '{{ Mode }}'
-          TrustStoreArn: '{{ TrustStoreArn }}'
-          IgnoreClientCertificateExpiry: '{{ IgnoreClientCertificateExpiry }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -222,6 +254,11 @@ AND region = 'us-east-1';
 
 To operate on the <code>listeners</code> resource, the following permissions are required:
 
+### Read
+```json
+elasticloadbalancing:DescribeListeners
+```
+
 ### Create
 ```json
 elasticloadbalancing:CreateListener,
@@ -229,14 +266,21 @@ elasticloadbalancing:DescribeListeners,
 cognito-idp:DescribeUserPoolClient
 ```
 
-### Delete
+### Update
 ```json
-elasticloadbalancing:DeleteListener,
-elasticloadbalancing:DescribeListeners
+elasticloadbalancing:ModifyListener,
+elasticloadbalancing:DescribeListeners,
+cognito-idp:DescribeUserPoolClient
 ```
 
 ### List
 ```json
+elasticloadbalancing:DescribeListeners
+```
+
+### Delete
+```json
+elasticloadbalancing:DeleteListener,
 elasticloadbalancing:DescribeListeners
 ```
 

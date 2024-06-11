@@ -19,7 +19,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Details of a Transfer family server tags
 
 ## Overview
@@ -31,16 +30,13 @@ Details of a Transfer family server tags
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="data___server_id" /></td><td><code>string</code></td><td>The server id</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="data___server_id" /></td><td><code>string</code></td><td>The server id</td></tr>
 <tr><td><CopyableCode code="data___user_name" /></td><td><code>string</code></td><td>The user name</td></tr>
-<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>The AWS region</td></tr>
 <tr><td><CopyableCode code="ssh_public_key_body" /></td><td><code>string</code></td><td>The SSH public key body</td></tr>
 <tr><td><CopyableCode code="ssh_public_key_id" /></td><td><code>string</code></td><td>The SSH public key id</td></tr>
 <tr><td><CopyableCode code="date_imported" /></td><td><code>string</code></td><td>The date imported</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,19 +54,8 @@ Details of a Transfer family server tags
   </tr>
 </tbody></table>
 
-## `SELECT` Example
-```sql
-SELECT
-region,
-data___server_id,
-data___user_name,
-region,
-ssh_public_key_body,
-ssh_public_key_id,
-date_imported
-FROM aws.transfer.user_public_keys
-WHERE region = '<region>' AND data__ServerId = '<s-serverid>' AND data__UserName = '<my_user_name>';
-```
+
+
 
 
 

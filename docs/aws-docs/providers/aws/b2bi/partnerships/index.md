@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>partnerships</code> in a region or to create or delete a <code>partnerships</code> resource, use <code>partnership</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>partnership</code> resource or lists <code>partnerships</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>partnerships</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="capabilities" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="email" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="partnership_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="partnership_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="phone" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="profile_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="trading_partner_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>partnerships</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>partnerships</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ partnership_id
 FROM aws.b2bi.partnerships
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>partnership</code>.
+```sql
+SELECT
+region,
+capabilities,
+created_at,
+email,
+modified_at,
+name,
+partnership_arn,
+partnership_id,
+phone,
+profile_id,
+tags,
+trading_partner_id
+FROM aws.b2bi.partnerships
+WHERE region = 'us-east-1' AND data__Identifier = '<PartnershipId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>partnership</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -158,7 +194,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -176,6 +212,19 @@ To operate on the <code>partnerships</code> resource, the following permissions 
 b2bi:CreatePartnership,
 b2bi:TagResource,
 s3:PutObject
+```
+
+### Read
+```json
+b2bi:GetPartnership,
+b2bi:ListTagsForResource
+```
+
+### Update
+```json
+b2bi:TagResource,
+b2bi:UntagResource,
+b2bi:UpdatePartnership
 ```
 
 ### Delete

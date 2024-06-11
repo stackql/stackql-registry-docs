@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>connector_profiles</code> in a region or to create or delete a <code>connector_profiles</code> resource, use <code>connector_profile</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>connector_profile</code> resource or lists <code>connector_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>connector_profiles</code> in a region or to cre
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="connector_profile_arn" /></td><td><code>string</code></td><td>Unique identifier for connector profile resources</td></tr>
+<tr><td><CopyableCode code="connector_label" /></td><td><code>string</code></td><td>The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.</td></tr>
 <tr><td><CopyableCode code="connector_profile_name" /></td><td><code>string</code></td><td>The maximum number of items to retrieve in a single batch.</td></tr>
+<tr><td><CopyableCode code="kms_arn" /></td><td><code>string</code></td><td>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</td></tr>
+<tr><td><CopyableCode code="connector_type" /></td><td><code>string</code></td><td>List of Saas providers that need connector profile to be created</td></tr>
+<tr><td><CopyableCode code="connection_mode" /></td><td><code>string</code></td><td>Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular</td></tr>
+<tr><td><CopyableCode code="connector_profile_config" /></td><td><code>object</code></td><td>Connector specific configurations needed to create connector profile</td></tr>
+<tr><td><CopyableCode code="credentials_arn" /></td><td><code>string</code></td><td>A unique Arn for Connector-Profile resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>connector_profiles</code> in a region or to cre
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>connector_profiles</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ connector_profile_name
 FROM aws.appflow.connector_profiles
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>connector_profile</code>.
+```sql
+SELECT
+region,
+connector_profile_arn,
+connector_label,
+connector_profile_name,
+kms_arn,
+connector_type,
+connection_mode,
+connector_profile_config,
+credentials_arn
+FROM aws.appflow.connector_profiles
+WHERE region = 'us-east-1' AND data__Identifier = '<ConnectorProfileName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>connector_profile</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -308,7 +338,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -343,5 +373,24 @@ appflow:DeleteConnectorProfile
 ### List
 ```json
 appflow:DescribeConnectorProfiles
+```
+
+### Read
+```json
+appflow:DescribeConnectorProfiles
+```
+
+### Update
+```json
+appflow:UpdateConnectorProfile,
+kms:ListKeys,
+kms:DescribeKey,
+kms:ListAliases,
+kms:CreateGrant,
+kms:ListGrants,
+iam:PassRole,
+secretsmanager:CreateSecret,
+secretsmanager:GetSecretValue,
+secretsmanager:PutResourcePolicy
 ```
 

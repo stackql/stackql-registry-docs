@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>channels</code> in a region or to create or delete a <code>channels</code> resource, use <code>channel</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>channel</code> resource or lists <code>channels</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>channels</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The ARN of the channel.</p></td></tr>
+<tr><td><CopyableCode code="audiences" /></td><td><code>array</code></td><td><p>The list of audiences defined in channel.</p></td></tr>
 <tr><td><CopyableCode code="channel_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="filler_slate" /></td><td><code><p>Slate VOD source configuration.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="log_configuration" /></td><td><code><p>The log configuration for the channel.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="outputs" /></td><td><code>array</code></td><td><p>The channel's output properties.</p></td></tr>
+<tr><td><CopyableCode code="playback_mode" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to assign to the channel.</td></tr>
+<tr><td><CopyableCode code="tier" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="time_shift_configuration" /></td><td><code><p>The configuration for time-shifted viewing.</p></code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>channels</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>channels</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ channel_name
 FROM aws.mediatailor.channels
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>channel</code>.
+```sql
+SELECT
+region,
+arn,
+audiences,
+channel_name,
+filler_slate,
+log_configuration,
+outputs,
+playback_mode,
+tags,
+tier,
+time_shift_configuration
+FROM aws.mediatailor.channels
+WHERE region = 'us-east-1' AND data__Identifier = '<ChannelName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>channel</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -186,7 +220,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -205,6 +239,21 @@ mediatailor:CreateChannel,
 mediatailor:TagResource,
 mediatailor:ConfigureLogsForChannel,
 iam:CreateServiceLinkedRole,
+mediatailor:DescribeChannel
+```
+
+### Read
+```json
+mediatailor:DescribeChannel
+```
+
+### Update
+```json
+mediatailor:UpdateChannel,
+mediatailor:TagResource,
+mediatailor:UntagResource,
+iam:CreateServiceLinkedRole,
+mediatailor:ConfigureLogsForChannel,
 mediatailor:DescribeChannel
 ```
 

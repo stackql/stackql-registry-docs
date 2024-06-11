@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>budgets_actions</code> in a region or to create or delete a <code>budgets_actions</code> resource, use <code>budgets_action</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>budgets_action</code> resource or lists <code>budgets_actions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,17 @@ Used to retrieve a list of <code>budgets_actions</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="action_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="action_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="budget_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="notification_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="action_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="action_threshold" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="execution_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="approval_model" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="subscribers" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +62,24 @@ Used to retrieve a list of <code>budgets_actions</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>budgets_actions</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +88,26 @@ budget_name
 FROM aws.budgets.budgets_actions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>budgets_action</code>.
+```sql
+SELECT
+region,
+action_id,
+budget_name,
+notification_type,
+action_type,
+action_threshold,
+execution_role_arn,
+approval_model,
+subscribers,
+definition,
+resource_tags
+FROM aws.budgets.budgets_actions
+WHERE region = 'us-east-1' AND data__Identifier = '<ActionId>|<BudgetName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>budgets_action</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -124,6 +157,7 @@ INSERT INTO aws.budgets.budgets_actions (
  ApprovalModel,
  Subscribers,
  Definition,
+ ResourceTags,
  region
 )
 SELECT 
@@ -135,6 +169,7 @@ SELECT
  '{{ ApprovalModel }}',
  '{{ Subscribers }}',
  '{{ Definition }}',
+ '{{ ResourceTags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -189,12 +224,16 @@ resources:
             Region: '{{ Region }}'
             InstanceIds:
               - '{{ InstanceIds[0] }}'
+      - name: ResourceTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -210,7 +249,23 @@ To operate on the <code>budgets_actions</code> resource, the following permissio
 ### Create
 ```json
 budgets:CreateBudgetAction,
-iam:PassRole
+iam:PassRole,
+budgets:TagResource
+```
+
+### Read
+```json
+budgets:DescribeBudgetAction,
+budgets:ListTagsForResource
+```
+
+### Update
+```json
+budgets:UpdateBudgetAction,
+iam:PassRole,
+budgets:TagResource,
+budgets:UntagResource,
+budgets:ListTagsForResource
 ```
 
 ### Delete

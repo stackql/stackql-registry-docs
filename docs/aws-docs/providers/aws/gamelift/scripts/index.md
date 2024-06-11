@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>scripts</code> in a region or to create or delete a <code>scripts</code> resource, use <code>script</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>script</code> resource or lists <code>scripts</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>scripts</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A descriptive label that is associated with a script. Script names do not need to be unique.</td></tr>
+<tr><td><CopyableCode code="storage_location" /></td><td><code>object</code></td><td>The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.</td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The version that is associated with a script. Version strings do not need to be unique.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the Id value.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>A unique identifier for the Realtime script</td></tr>
+<tr><td><CopyableCode code="size_on_disk" /></td><td><code>integer</code></td><td>The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>scripts</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>scripts</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ id
 FROM aws.gamelift.scripts
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>script</code>.
+```sql
+SELECT
+region,
+name,
+storage_location,
+version,
+tags,
+creation_time,
+arn,
+id,
+size_on_disk
+FROM aws.gamelift.scripts
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>script</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -149,7 +179,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -171,6 +201,13 @@ gamelift:DescribeScript,
 iam:PassRole
 ```
 
+### Read
+```json
+gamelift:DescribeScript,
+gamelift:ListScripts,
+gamelift:ListTagsForResource
+```
+
 ### Delete
 ```json
 gamelift:DeleteScript
@@ -180,5 +217,15 @@ gamelift:DeleteScript
 ```json
 gamelift:ListScripts,
 gamelift:DescribeScript
+```
+
+### Update
+```json
+gamelift:DescribeScript,
+gamelift:UpdateScript,
+gamelift:ListTagsForResource,
+gamelift:TagResource,
+gamelift:UntagResource,
+iam:PassRole
 ```
 

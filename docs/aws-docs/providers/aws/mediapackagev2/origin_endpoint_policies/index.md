@@ -19,25 +19,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>origin_endpoint_policies</code> in a region or to create or delete a <code>origin_endpoint_policies</code> resource, use <code>origin_endpoint_policy</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>origin_endpoint_policy</code> resource or lists <code>origin_endpoint_policies</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>origin_endpoint_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>&lt;p&gt;Represents a resource policy that allows or denies access to an origin endpoint.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><b>Description</b></td><td><p>Represents a resource policy that allows or denies access to an origin endpoint.</p></td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.mediapackagev2.origin_endpoint_policies" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="channel_group_name" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="channel_group_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="channel_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="origin_endpoint_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,24 +56,33 @@ Used to retrieve a list of <code>origin_endpoint_policies</code> in a region or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from an <code>origin_endpoint_policy</code>.
 ```sql
 SELECT
 region,
 channel_group_name,
 channel_name,
-origin_endpoint_name
+origin_endpoint_name,
+policy
 FROM aws.mediapackagev2.origin_endpoint_policies
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<ChannelGroupName>|<ChannelName>|<OriginEndpointName>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>origin_endpoint_policy</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -153,7 +159,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -167,6 +173,17 @@ AND region = 'us-east-1';
 To operate on the <code>origin_endpoint_policies</code> resource, the following permissions are required:
 
 ### Create
+```json
+mediapackagev2:GetOriginEndpointPolicy,
+mediapackagev2:PutOriginEndpointPolicy
+```
+
+### Read
+```json
+mediapackagev2:GetOriginEndpointPolicy
+```
+
+### Update
 ```json
 mediapackagev2:GetOriginEndpointPolicy,
 mediapackagev2:PutOriginEndpointPolicy

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>image_builders</code> in a region or to create or delete a <code>image_builders</code> resource, use <code>image_builder</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>image_builder</code> resource or lists <code>image_builders</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,21 @@ Used to retrieve a list of <code>image_builders</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="enable_default_internet_access" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_join_info" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="appstream_agent_version" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="iam_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="streaming_url" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="access_endpoints" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +70,15 @@ Used to retrieve a list of <code>image_builders</code> in a region or to create 
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>image_builders</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,30 @@ name
 FROM aws.appstream.image_builders
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>image_builder</code>.
+```sql
+SELECT
+region,
+description,
+vpc_config,
+enable_default_internet_access,
+domain_join_info,
+appstream_agent_version,
+name,
+image_name,
+display_name,
+iam_role_arn,
+instance_type,
+tags,
+streaming_url,
+image_arn,
+access_endpoints
+FROM aws.appstream.image_builders
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>image_builder</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -191,7 +228,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -205,6 +242,20 @@ AND region = 'us-east-1';
 To operate on the <code>image_builders</code> resource, the following permissions are required:
 
 ### Create
+```json
+appstream:CreateImageBuilder,
+appstream:CreateImageBuilderStreamingURL,
+appstream:CreateStreamingURL,
+appstream:DeleteImageBuilder,
+appstream:DescribeImageBuilders,
+appstream:StartImageBuilder,
+appstream:StopImageBuilder,
+iam:CreateServiceLinkedRole,
+iam:DeleteServiceLinkedRole,
+iam:GetServiceLinkedRoleDeletionStatus
+```
+
+### Read
 ```json
 appstream:CreateImageBuilder,
 appstream:CreateImageBuilderStreamingURL,

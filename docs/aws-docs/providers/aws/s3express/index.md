@@ -20,9 +20,9 @@ The s3express service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -31,11 +31,9 @@ The s3express service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/s3express/bucket_policies/">bucket_policies</a><br />
-<a href="/providers/aws/s3express/bucket_policy/">bucket_policy</a>
+<a href="/providers/aws/s3express/bucket_policies/">bucket_policies</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/s3express/directory_bucket/">directory_bucket</a><br />
 <a href="/providers/aws/s3express/directory_buckets/">directory_buckets</a>
 </div>
 </div>

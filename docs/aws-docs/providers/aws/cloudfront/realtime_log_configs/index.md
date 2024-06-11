@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>realtime_log_configs</code> in a region or to create or delete a <code>realtime_log_configs</code> resource, use <code>realtime_log_config</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>realtime_log_config</code> resource or lists <code>realtime_log_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>realtime_log_configs</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="end_points" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="fields" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="sampling_rate" /></td><td><code>number</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>realtime_log_configs</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>realtime_log_configs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ arn
 FROM aws.cloudfront.realtime_log_configs
 ;
 ```
+Gets all properties from a <code>realtime_log_config</code>.
+```sql
+SELECT
+region,
+arn,
+end_points,
+fields,
+name,
+sampling_rate
+FROM aws.cloudfront.realtime_log_configs
+WHERE data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>realtime_log_config</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -154,7 +178,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -182,5 +206,17 @@ cloudfront:GetRealtimeLogConfig
 ### List
 ```json
 cloudfront:ListRealtimeLogConfigs
+```
+
+### Read
+```json
+cloudfront:GetRealtimeLogConfig
+```
+
+### Update
+```json
+cloudfront:UpdateRealtimeLogConfig,
+cloudfront:GetRealtimeLogConfig,
+iam:PassRole
 ```
 

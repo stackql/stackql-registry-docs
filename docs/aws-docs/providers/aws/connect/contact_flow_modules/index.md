@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>contact_flow_modules</code> in a region or to create or delete a <code>contact_flow_modules</code> resource, use <code>contact_flow_module</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>contact_flow_module</code> resource or lists <code>contact_flow_modules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>contact_flow_modules</code> in a region or to c
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance (ARN).</td></tr>
 <tr><td><CopyableCode code="contact_flow_module_arn" /></td><td><code>string</code></td><td>The identifier of the contact flow module (ARN).</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the contact flow module.</td></tr>
+<tr><td><CopyableCode code="content" /></td><td><code>string</code></td><td>The content of the contact flow module in JSON format.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the contact flow module.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the contact flow module.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the contact flow module.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>contact_flow_modules</code> in a region or to c
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>contact_flow_modules</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ contact_flow_module_arn
 FROM aws.connect.contact_flow_modules
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>contact_flow_module</code>.
+```sql
+SELECT
+region,
+instance_arn,
+contact_flow_module_arn,
+name,
+content,
+description,
+state,
+status,
+tags
+FROM aws.connect.contact_flow_modules
+WHERE region = 'us-east-1' AND data__Identifier = '<ContactFlowModuleArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>contact_flow_module</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -157,7 +187,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -176,9 +206,22 @@ connect:CreateContactFlowModule,
 connect:TagResource
 ```
 
+### Read
+```json
+connect:DescribeContactFlowModule
+```
+
 ### Delete
 ```json
 connect:DeleteContactFlowModule,
+connect:UntagResource
+```
+
+### Update
+```json
+connect:UpdateContactFlowModuleMetadata,
+connect:UpdateContactFlowModuleContent,
+connect:TagResource,
 connect:UntagResource
 ```
 

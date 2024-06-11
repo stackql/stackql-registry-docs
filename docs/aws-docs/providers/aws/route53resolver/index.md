@@ -20,9 +20,9 @@ The route53resolver service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>20</b></span><br />
-<span>total selectable resources:&nbsp;<b>20</b></span><br />
-<span>total methods:&nbsp;<b>20</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>10</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
 </div>
 </div>
 
@@ -31,27 +31,17 @@ The route53resolver service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/route53resolver/firewall_domain_list/">firewall_domain_list</a><br />
 <a href="/providers/aws/route53resolver/firewall_domain_lists/">firewall_domain_lists</a><br />
-<a href="/providers/aws/route53resolver/firewall_rule_group/">firewall_rule_group</a><br />
-<a href="/providers/aws/route53resolver/firewall_rule_group_association/">firewall_rule_group_association</a><br />
 <a href="/providers/aws/route53resolver/firewall_rule_group_associations/">firewall_rule_group_associations</a><br />
 <a href="/providers/aws/route53resolver/firewall_rule_groups/">firewall_rule_groups</a><br />
-<a href="/providers/aws/route53resolver/outpost_resolver/">outpost_resolver</a><br />
 <a href="/providers/aws/route53resolver/outpost_resolvers/">outpost_resolvers</a><br />
-<a href="/providers/aws/route53resolver/resolver_config/">resolver_config</a><br />
 <a href="/providers/aws/route53resolver/resolver_configs/">resolver_configs</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/route53resolver/resolver_query_logging_config/">resolver_query_logging_config</a><br />
-<a href="/providers/aws/route53resolver/resolver_query_logging_config_association/">resolver_query_logging_config_association</a><br />
 <a href="/providers/aws/route53resolver/resolver_query_logging_config_associations/">resolver_query_logging_config_associations</a><br />
 <a href="/providers/aws/route53resolver/resolver_query_logging_configs/">resolver_query_logging_configs</a><br />
-<a href="/providers/aws/route53resolver/resolver_rule/">resolver_rule</a><br />
-<a href="/providers/aws/route53resolver/resolver_rule_association/">resolver_rule_association</a><br />
 <a href="/providers/aws/route53resolver/resolver_rule_associations/">resolver_rule_associations</a><br />
 <a href="/providers/aws/route53resolver/resolver_rules/">resolver_rules</a><br />
-<a href="/providers/aws/route53resolver/resolverdnssec_config/">resolverdnssec_config</a><br />
 <a href="/providers/aws/route53resolver/resolverdnssec_configs/">resolverdnssec_configs</a>
 </div>
 </div>

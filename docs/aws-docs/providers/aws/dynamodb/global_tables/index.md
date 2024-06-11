@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>global_tables</code> in a region or to create or delete a <code>global_tables</code> resource, use <code>global_table</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>global_table</code> resource or lists <code>global_tables</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,22 @@ Used to retrieve a list of <code>global_tables</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="stream_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="attribute_definitions" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="billing_mode" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="global_secondary_indexes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="key_schema" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="local_secondary_indexes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="write_provisioned_throughput_settings" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="write_on_demand_throughput_settings" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="replicas" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="sse_specification" /></td><td><code>Represents the settings used to enable server-side encryption.</code></td><td></td></tr>
+<tr><td><CopyableCode code="stream_specification" /></td><td><code>Represents the DynamoDB Streams configuration for a table in DynamoDB.</code></td><td></td></tr>
 <tr><td><CopyableCode code="table_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="table_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="time_to_live_specification" /></td><td><code>Represents the settings used to enable or disable Time to Live (TTL) for the specified table.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +67,24 @@ Used to retrieve a list of <code>global_tables</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>global_tables</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +92,31 @@ table_name
 FROM aws.dynamodb.global_tables
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>global_table</code>.
+```sql
+SELECT
+region,
+arn,
+stream_arn,
+attribute_definitions,
+billing_mode,
+global_secondary_indexes,
+key_schema,
+local_secondary_indexes,
+write_provisioned_throughput_settings,
+write_on_demand_throughput_settings,
+replicas,
+sse_specification,
+stream_specification,
+table_name,
+table_id,
+time_to_live_specification
+FROM aws.dynamodb.global_tables
+WHERE region = 'us-east-1' AND data__Identifier = '<TableName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>global_table</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -89,15 +133,15 @@ Use the following StackQL query and manifest file to create a new <code>global_t
 ```sql
 /*+ create */
 INSERT INTO aws.dynamodb.global_tables (
- Replicas,
  AttributeDefinitions,
  KeySchema,
+ Replicas,
  region
 )
 SELECT 
-'{{ Replicas }}',
- '{{ AttributeDefinitions }}',
+'{{ AttributeDefinitions }}',
  '{{ KeySchema }}',
+ '{{ Replicas }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -106,30 +150,32 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.dynamodb.global_tables (
- SSESpecification,
- StreamSpecification,
- Replicas,
- WriteProvisionedThroughputSettings,
- TableName,
  AttributeDefinitions,
  BillingMode,
  GlobalSecondaryIndexes,
  KeySchema,
  LocalSecondaryIndexes,
+ WriteProvisionedThroughputSettings,
+ WriteOnDemandThroughputSettings,
+ Replicas,
+ SSESpecification,
+ StreamSpecification,
+ TableName,
  TimeToLiveSpecification,
  region
 )
 SELECT 
- '{{ SSESpecification }}',
- '{{ StreamSpecification }}',
- '{{ Replicas }}',
- '{{ WriteProvisionedThroughputSettings }}',
- '{{ TableName }}',
  '{{ AttributeDefinitions }}',
  '{{ BillingMode }}',
  '{{ GlobalSecondaryIndexes }}',
  '{{ KeySchema }}',
  '{{ LocalSecondaryIndexes }}',
+ '{{ WriteProvisionedThroughputSettings }}',
+ '{{ WriteOnDemandThroughputSettings }}',
+ '{{ Replicas }}',
+ '{{ SSESpecification }}',
+ '{{ StreamSpecification }}',
+ '{{ TableName }}',
  '{{ TimeToLiveSpecification }}',
  '{{ region }}';
 ```
@@ -148,56 +194,6 @@ globals:
 resources:
   - name: global_table
     props:
-      - name: SSESpecification
-        value:
-          SSEEnabled: '{{ SSEEnabled }}'
-          SSEType: '{{ SSEType }}'
-          KMSMasterKeyId: '{{ KMSMasterKeyId }}'
-      - name: StreamSpecification
-        value:
-          StreamViewType: '{{ StreamViewType }}'
-          ResourcePolicy:
-            PolicyDocument: {}
-      - name: Replicas
-        value:
-          - SSESpecification:
-              KMSMasterKeyId: '{{ KMSMasterKeyId }}'
-            KinesisStreamSpecification:
-              ApproximateCreationDateTimePrecision: '{{ ApproximateCreationDateTimePrecision }}'
-              StreamArn: '{{ StreamArn }}'
-            ContributorInsightsSpecification:
-              Enabled: '{{ Enabled }}'
-            PointInTimeRecoverySpecification:
-              PointInTimeRecoveryEnabled: '{{ PointInTimeRecoveryEnabled }}'
-            ReplicaStreamSpecification:
-              ResourcePolicy: null
-            GlobalSecondaryIndexes:
-              - IndexName: '{{ IndexName }}'
-                ContributorInsightsSpecification: null
-                ReadProvisionedThroughputSettings:
-                  ReadCapacityUnits: '{{ ReadCapacityUnits }}'
-                  ReadCapacityAutoScalingSettings:
-                    MinCapacity: '{{ MinCapacity }}'
-                    SeedCapacity: '{{ SeedCapacity }}'
-                    TargetTrackingScalingPolicyConfiguration:
-                      ScaleOutCooldown: '{{ ScaleOutCooldown }}'
-                      TargetValue: null
-                      DisableScaleIn: '{{ DisableScaleIn }}'
-                      ScaleInCooldown: '{{ ScaleInCooldown }}'
-                    MaxCapacity: '{{ MaxCapacity }}'
-            Region: '{{ Region }}'
-            ResourcePolicy: null
-            ReadProvisionedThroughputSettings: null
-            TableClass: '{{ TableClass }}'
-            DeletionProtectionEnabled: '{{ DeletionProtectionEnabled }}'
-            Tags:
-              - Value: '{{ Value }}'
-                Key: '{{ Key }}'
-      - name: WriteProvisionedThroughputSettings
-        value:
-          WriteCapacityAutoScalingSettings: null
-      - name: TableName
-        value: '{{ TableName }}'
       - name: AttributeDefinitions
         value:
           - AttributeType: '{{ AttributeType }}'
@@ -207,7 +203,11 @@ resources:
       - name: GlobalSecondaryIndexes
         value:
           - IndexName: '{{ IndexName }}'
-            ContributorInsightsSpecification: null
+            OnDemandThroughput:
+              MaxReadRequestUnits: '{{ MaxReadRequestUnits }}'
+              MaxWriteRequestUnits: '{{ MaxWriteRequestUnits }}'
+            ContributorInsightsSpecification:
+              Enabled: '{{ Enabled }}'
             Projection:
               NonKeyAttributes:
                 - '{{ NonKeyAttributes[0] }}'
@@ -227,6 +227,61 @@ resources:
             Projection: null
             KeySchema:
               - null
+      - name: WriteProvisionedThroughputSettings
+        value:
+          WriteCapacityAutoScalingSettings:
+            MinCapacity: '{{ MinCapacity }}'
+            MaxCapacity: '{{ MaxCapacity }}'
+            SeedCapacity: '{{ SeedCapacity }}'
+            TargetTrackingScalingPolicyConfiguration:
+              DisableScaleIn: '{{ DisableScaleIn }}'
+              ScaleInCooldown: '{{ ScaleInCooldown }}'
+              ScaleOutCooldown: '{{ ScaleOutCooldown }}'
+              TargetValue: null
+      - name: WriteOnDemandThroughputSettings
+        value:
+          MaxWriteRequestUnits: '{{ MaxWriteRequestUnits }}'
+      - name: Replicas
+        value:
+          - Region: '{{ Region }}'
+            GlobalSecondaryIndexes:
+              - IndexName: '{{ IndexName }}'
+                ContributorInsightsSpecification: null
+                ReadProvisionedThroughputSettings:
+                  ReadCapacityUnits: '{{ ReadCapacityUnits }}'
+                  ReadCapacityAutoScalingSettings: null
+                ReadOnDemandThroughputSettings:
+                  MaxReadRequestUnits: '{{ MaxReadRequestUnits }}'
+            ContributorInsightsSpecification: null
+            PointInTimeRecoverySpecification:
+              PointInTimeRecoveryEnabled: '{{ PointInTimeRecoveryEnabled }}'
+            TableClass: '{{ TableClass }}'
+            DeletionProtectionEnabled: '{{ DeletionProtectionEnabled }}'
+            SSESpecification:
+              KMSMasterKeyId: '{{ KMSMasterKeyId }}'
+            Tags:
+              - Value: '{{ Value }}'
+                Key: '{{ Key }}'
+            ReadProvisionedThroughputSettings: null
+            ReadOnDemandThroughputSettings: null
+            KinesisStreamSpecification:
+              ApproximateCreationDateTimePrecision: '{{ ApproximateCreationDateTimePrecision }}'
+              StreamArn: '{{ StreamArn }}'
+            ResourcePolicy:
+              PolicyDocument: {}
+            ReplicaStreamSpecification:
+              ResourcePolicy: null
+      - name: SSESpecification
+        value:
+          SSEEnabled: '{{ SSEEnabled }}'
+          SSEType: '{{ SSEType }}'
+          KMSMasterKeyId: '{{ KMSMasterKeyId }}'
+      - name: StreamSpecification
+        value:
+          StreamViewType: '{{ StreamViewType }}'
+          ResourcePolicy: null
+      - name: TableName
+        value: '{{ TableName }}'
       - name: TimeToLiveSpecification
         value:
           Enabled: '{{ Enabled }}'
@@ -236,7 +291,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -291,9 +346,58 @@ cloudwatch:PutMetricData,
 iam:CreateServiceLinkedRole
 ```
 
-### List
+### Read
 ```json
-dynamodb:ListTables,
+dynamodb:Describe*,
+dynamodb:GetResourcePolicy,
+application-autoscaling:Describe*,
+cloudwatch:PutMetricData,
+dynamodb:ListTagsOfResource,
+kms:DescribeKey
+```
+
+### Update
+```json
+dynamodb:Describe*,
+dynamodb:CreateTableReplica,
+dynamodb:UpdateTable,
+dynamodb:UpdateTimeToLive,
+dynamodb:UpdateContinuousBackups,
+dynamodb:UpdateContributorInsights,
+dynamodb:ListTagsOfResource,
+dynamodb:Query,
+dynamodb:Scan,
+dynamodb:UpdateItem,
+dynamodb:PutItem,
+dynamodb:GetItem,
+dynamodb:DeleteItem,
+dynamodb:BatchWriteItem,
+dynamodb:DeleteTable,
+dynamodb:DeleteTableReplica,
+dynamodb:UpdateItem,
+dynamodb:TagResource,
+dynamodb:UntagResource,
+dynamodb:EnableKinesisStreamingDestination,
+dynamodb:DisableKinesisStreamingDestination,
+dynamodb:UpdateTableReplicaAutoScaling,
+dynamodb:UpdateKinesisStreamingDestination,
+dynamodb:GetResourcePolicy,
+dynamodb:PutResourcePolicy,
+dynamodb:DeleteResourcePolicy,
+application-autoscaling:DeleteScalingPolicy,
+application-autoscaling:DeleteScheduledAction,
+application-autoscaling:DeregisterScalableTarget,
+application-autoscaling:Describe*,
+application-autoscaling:PutScalingPolicy,
+application-autoscaling:PutScheduledAction,
+application-autoscaling:RegisterScalableTarget,
+kinesis:ListStreams,
+kinesis:DescribeStream,
+kinesis:PutRecords,
+kms:CreateGrant,
+kms:DescribeKey,
+kms:ListAliases,
+kms:RevokeGrant,
 cloudwatch:PutMetricData
 ```
 
@@ -308,5 +412,11 @@ application-autoscaling:Describe*,
 application-autoscaling:PutScalingPolicy,
 application-autoscaling:PutScheduledAction,
 application-autoscaling:RegisterScalableTarget
+```
+
+### List
+```json
+dynamodb:ListTables,
+cloudwatch:PutMetricData
 ```
 

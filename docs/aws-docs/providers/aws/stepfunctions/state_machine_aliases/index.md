@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>state_machine_aliases</code> in a region or to create or delete a <code>state_machine_aliases</code> resource, use <code>state_machine_alias</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>state_machine_alias</code> resource or lists <code>state_machine_aliases</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>state_machine_aliases</code> in a region or to 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the alias.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the alias.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The alias name.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>An optional description of the alias.</td></tr>
+<tr><td><CopyableCode code="routing_configuration" /></td><td><code>The routing configuration of the alias. One or two versions can be mapped to an alias to split StartExecution requests of the same state machine.</code></td><td></td></tr>
+<tr><td><CopyableCode code="deployment_preference" /></td><td><code>The settings to enable gradual state machine deployments.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>state_machine_aliases</code> in a region or to 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>state_machine_aliases</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ arn
 FROM aws.stepfunctions.state_machine_aliases
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>state_machine_alias</code>.
+```sql
+SELECT
+region,
+arn,
+name,
+description,
+routing_configuration,
+deployment_preference
+FROM aws.stepfunctions.state_machine_aliases
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>state_machine_alias</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -157,7 +181,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -173,6 +197,18 @@ To operate on the <code>state_machine_aliases</code> resource, the following per
 ### Create
 ```json
 states:CreateStateMachineAlias,
+states:DescribeStateMachineAlias
+```
+
+### Read
+```json
+states:DescribeStateMachineAlias
+```
+
+### Update
+```json
+cloudwatch:DescribeAlarms,
+states:UpdateStateMachineAlias,
 states:DescribeStateMachineAlias
 ```
 

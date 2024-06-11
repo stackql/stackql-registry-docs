@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>cluster_subnet_groups</code> in a region or to create or delete a <code>cluster_subnet_groups</code> resource, use <code>cluster_subnet_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>cluster_subnet_group</code> resource or lists <code>cluster_subnet_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>cluster_subnet_groups</code> in a region or to 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the parameter group.</td></tr>
+<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>The list of VPC subnet IDs</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The list of tags for the cluster parameter group.</td></tr>
 <tr><td><CopyableCode code="cluster_subnet_group_name" /></td><td><code>string</code></td><td>This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". </td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>cluster_subnet_groups</code> in a region or to 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>cluster_subnet_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ cluster_subnet_group_name
 FROM aws.redshift.cluster_subnet_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>cluster_subnet_group</code>.
+```sql
+SELECT
+region,
+description,
+subnet_ids,
+tags,
+cluster_subnet_group_name
+FROM aws.redshift.cluster_subnet_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<ClusterSubnetGroupName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>cluster_subnet_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,14 +159,14 @@ resources:
           - '{{ SubnetIds[0] }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -163,6 +185,41 @@ redshift:CreateClusterSubnetGroup,
 redshift:CreateTags,
 redshift:DescribeClusterSubnetGroups,
 redshift:DescribeTags,
+ec2:AllocateAddress,
+ec2:AssociateAddress,
+ec2:AttachNetworkInterface,
+ec2:DescribeAccountAttributes,
+ec2:DescribeAddresses,
+ec2:DescribeAvailabilityZones,
+ec2:DescribeInternetGateways,
+ec2:DescribeSecurityGroups,
+ec2:DescribeSubnets,
+ec2:DescribeVpcs
+```
+
+### Read
+```json
+redshift:DescribeClusterSubnetGroups,
+redshift:DescribeTags,
+ec2:AllocateAddress,
+ec2:AssociateAddress,
+ec2:AttachNetworkInterface,
+ec2:DescribeAccountAttributes,
+ec2:DescribeAddresses,
+ec2:DescribeAvailabilityZones,
+ec2:DescribeInternetGateways,
+ec2:DescribeSecurityGroups,
+ec2:DescribeSubnets,
+ec2:DescribeVpcs
+```
+
+### Update
+```json
+redshift:ModifyClusterSubnetGroup,
+redshift:DescribeClusterSubnetGroups,
+redshift:DescribeTags,
+redshift:CreateTags,
+redshift:DeleteTags,
 ec2:AllocateAddress,
 ec2:AssociateAddress,
 ec2:AttachNetworkInterface,

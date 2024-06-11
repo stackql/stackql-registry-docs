@@ -31,13 +31,13 @@ The sso service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/sso/assignment/">assignment</a><br />
-<a href="/providers/aws/sso/assignments/">assignments</a><br />
-<a href="/providers/aws/sso/instance_access_control_attribute_configuration/">instance_access_control_attribute_configuration</a>
+<a href="/providers/aws/sso/application_assignments/">application_assignments</a><br />
+<a href="/providers/aws/sso/applications/">applications</a><br />
+<a href="/providers/aws/sso/assignments/">assignments</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/aws/sso/instance_access_control_attribute_configurations/">instance_access_control_attribute_configurations</a><br />
-<a href="/providers/aws/sso/permission_set/">permission_set</a><br />
+<a href="/providers/aws/sso/instances/">instances</a><br />
 <a href="/providers/aws/sso/permission_sets/">permission_sets</a>
 </div>
 </div>

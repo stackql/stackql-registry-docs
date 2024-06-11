@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>trackers</code> in a region or to create or delete a <code>trackers</code> resource, use <code>tracker</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>tracker</code> resource or lists <code>trackers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,20 @@ Used to retrieve a list of <code>trackers</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="create_time" /></td><td><code>The datetime value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ss.sssZ)</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="event_bridge_enabled" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key_enable_geospatial_queries" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="position_filtering" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="pricing_plan" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="pricing_plan_data_source" /></td><td><code>string</code></td><td>This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="tracker_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tracker_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="update_time" /></td><td><code>The datetime value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ss.sssZ)</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +65,24 @@ Used to retrieve a list of <code>trackers</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>trackers</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +90,29 @@ tracker_name
 FROM aws.location.trackers
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>tracker</code>.
+```sql
+SELECT
+region,
+create_time,
+description,
+event_bridge_enabled,
+kms_key_enable_geospatial_queries,
+kms_key_id,
+position_filtering,
+pricing_plan,
+pricing_plan_data_source,
+tags,
+tracker_arn,
+tracker_name,
+update_time,
+arn
+FROM aws.location.trackers
+WHERE region = 'us-east-1' AND data__Identifier = '<TrackerName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>tracker</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -165,7 +205,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -186,6 +226,23 @@ geo:TagResource,
 geo:UntagResource,
 kms:DescribeKey,
 kms:CreateGrant
+```
+
+### Read
+```json
+geo:DescribeTracker,
+kms:DescribeKey
+```
+
+### Update
+```json
+geo:CreateTracker,
+geo:DescribeTracker,
+geo:TagResource,
+geo:UntagResource,
+kms:DescribeKey,
+kms:CreateGrant,
+geo:UpdateTracker
 ```
 
 ### Delete

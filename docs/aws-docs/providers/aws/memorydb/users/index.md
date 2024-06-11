@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>users</code> in a region or to create or delete a <code>users</code> resource, use <code>user</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>user</code> resource or lists <code>users</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>users</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Indicates the user status. Can be "active", "modifying" or "deleting".</td></tr>
 <tr><td><CopyableCode code="user_name" /></td><td><code>string</code></td><td>The name of the user.</td></tr>
+<tr><td><CopyableCode code="access_string" /></td><td><code>string</code></td><td>Access permissions string used for this user account.</td></tr>
+<tr><td><CopyableCode code="authentication_mode" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the user account.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this user.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>users</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>users</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ user_name
 FROM aws.memorydb.users
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>user</code>.
+```sql
+SELECT
+region,
+status,
+user_name,
+access_string,
+authentication_mode,
+arn,
+tags
+FROM aws.memorydb.users
+WHERE region = 'us-east-1' AND data__Identifier = '<UserName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>user</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -148,7 +174,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -167,6 +193,21 @@ memorydb:CreateUser,
 memorydb:DescribeUsers,
 memorydb:TagResource,
 memorydb:ListTags
+```
+
+### Read
+```json
+memorydb:DescribeUsers,
+memorydb:ListTags
+```
+
+### Update
+```json
+memorydb:UpdateUser,
+memorydb:DescribeUsers,
+memorydb:ListTags,
+memorydb:TagResource,
+memorydb:UntagResource
 ```
 
 ### Delete

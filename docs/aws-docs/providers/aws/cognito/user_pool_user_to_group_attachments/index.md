@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>user_pool_user_to_group_attachments</code> in a region or to create or delete a <code>user_pool_user_to_group_attachments</code> resource, use <code>user_pool_user_to_group_attachment</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>user_pool_user_to_group_attachment</code> resource or lists <code>user_pool_user_to_group_attachments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,10 @@ Used to retrieve a list of <code>user_pool_user_to_group_attachments</code> in a
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="group_name" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="username" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="group_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,24 +55,27 @@ Used to retrieve a list of <code>user_pool_user_to_group_attachments</code> in a
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from an <code>user_pool_user_to_group_attachment</code>.
 ```sql
 SELECT
 region,
 user_pool_id,
-group_name,
-username
+username,
+group_name
 FROM aws.cognito.user_pool_user_to_group_attachments
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<UserPoolId>|<GroupName>|<Username>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>user_pool_user_to_group_attachment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -147,7 +146,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -169,6 +168,11 @@ cognito-idp:AdminListGroupsForUser
 ### Delete
 ```json
 cognito-idp:AdminRemoveUserFromGroup,
+cognito-idp:AdminListGroupsForUser
+```
+
+### Read
+```json
 cognito-idp:AdminListGroupsForUser
 ```
 

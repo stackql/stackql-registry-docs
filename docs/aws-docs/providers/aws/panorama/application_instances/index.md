@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>application_instances</code> in a region or to create or delete a <code>application_instances</code> resource, use <code>application_instance</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>application_instance</code> resource or lists <code>application_instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,23 @@ Used to retrieve a list of <code>application_instances</code> in a region or to 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="default_runtime_context_device_name" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_runtime_context_device" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="application_instance_id_to_replace" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="health_status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest_overrides_payload" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="runtime_role_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="application_instance_id" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status_description" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest_payload" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +68,24 @@ Used to retrieve a list of <code>application_instances</code> in a region or to 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>application_instances</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +93,32 @@ application_instance_id
 FROM aws.panorama.application_instances
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>application_instance</code>.
+```sql
+SELECT
+region,
+default_runtime_context_device_name,
+status,
+default_runtime_context_device,
+description,
+application_instance_id_to_replace,
+created_time,
+health_status,
+manifest_overrides_payload,
+last_updated_time,
+runtime_role_arn,
+name,
+application_instance_id,
+status_description,
+manifest_payload,
+arn,
+tags
+FROM aws.panorama.application_instances
+WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationInstanceId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>application_instance</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -165,7 +211,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -178,6 +224,16 @@ AND region = 'us-east-1';
 
 To operate on the <code>application_instances</code> resource, the following permissions are required:
 
+### Read
+```json
+panorama:DescribeApplicationInstance,
+panorama:DescribeApplicationInstanceDetails,
+panorama:ListTagsForResource,
+s3:ListObjects,
+s3:GetObject,
+s3:GetObjectVersion
+```
+
 ### Create
 ```json
 panorama:CreateApplicationInstance,
@@ -188,6 +244,18 @@ panorama:DescribeApplicationInstanceDetails,
 iam:PassRole,
 s3:ListBucket,
 s3:PutObject,
+s3:GetObject,
+s3:GetObjectVersion
+```
+
+### Update
+```json
+panorama:ListTagsForResource,
+panorama:TagResource,
+panorama:UntagResource,
+panorama:DescribeApplicationInstance,
+panorama:DescribeApplicationInstanceDetails,
+s3:ListObjects,
 s3:GetObject,
 s3:GetObjectVersion
 ```

@@ -20,9 +20,9 @@ The memorydb service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>10</b></span><br />
-<span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>10</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -31,17 +31,12 @@ The memorydb service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/memorydb/acl/">acl</a><br />
 <a href="/providers/aws/memorydb/acls/">acls</a><br />
-<a href="/providers/aws/memorydb/cluster/">cluster</a><br />
 <a href="/providers/aws/memorydb/clusters/">clusters</a><br />
-<a href="/providers/aws/memorydb/parameter_group/">parameter_group</a>
+<a href="/providers/aws/memorydb/parameter_groups/">parameter_groups</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/memorydb/parameter_groups/">parameter_groups</a><br />
-<a href="/providers/aws/memorydb/subnet_group/">subnet_group</a><br />
 <a href="/providers/aws/memorydb/subnet_groups/">subnet_groups</a><br />
-<a href="/providers/aws/memorydb/user/">user</a><br />
 <a href="/providers/aws/memorydb/users/">users</a>
 </div>
 </div>

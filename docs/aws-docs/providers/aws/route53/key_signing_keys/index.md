@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>key_signing_keys</code> in a region or to create or delete a <code>key_signing_keys</code> resource, use <code>key_signing_key</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>key_signing_key</code> resource or lists <code>key_signing_keys</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>key_signing_keys</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="hosted_zone_id" /></td><td><code>string</code></td><td>The unique string (ID) used to identify a hosted zone.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="hosted_zone_id" /></td><td><code>string</code></td><td>The unique string (ID) used to identify a hosted zone.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.</td></tr>
+<tr><td><CopyableCode code="key_management_service_arn" /></td><td><code>string</code></td><td>The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +56,24 @@ Used to retrieve a list of <code>key_signing_keys</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>key_signing_keys</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +82,20 @@ name
 FROM aws.route53.key_signing_keys
 ;
 ```
+Gets all properties from a <code>key_signing_key</code>.
+```sql
+SELECT
+region,
+hosted_zone_id,
+status,
+name,
+key_management_service_arn
+FROM aws.route53.key_signing_keys
+WHERE data__Identifier = '<HostedZoneId>|<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>key_signing_key</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +172,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -167,6 +188,22 @@ To operate on the <code>key_signing_keys</code> resource, the following permissi
 ### Create
 ```json
 route53:CreateKeySigningKey,
+kms:DescribeKey,
+kms:GetPublicKey,
+kms:Sign,
+kms:CreateGrant
+```
+
+### Read
+```json
+route53:GetDNSSEC
+```
+
+### Update
+```json
+route53:GetDNSSEC,
+route53:ActivateKeySigningKey,
+route53:DeactivateKeySigningKey,
 kms:DescribeKey,
 kms:GetPublicKey,
 kms:Sign,

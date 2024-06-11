@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>aliases</code> in a region or to create or delete a <code>aliases</code> resource, use <code>alias</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>alias</code> resource or lists <code>aliases</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>aliases</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A human-readable description of the alias.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A descriptive label that is associated with an alias. Alias names do not need to be unique.</td></tr>
+<tr><td><CopyableCode code="routing_strategy" /></td><td><code>object</code></td><td>A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.</td></tr>
 <tr><td><CopyableCode code="alias_id" /></td><td><code>string</code></td><td>Unique alias ID</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +56,24 @@ Used to retrieve a list of <code>aliases</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>aliases</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +81,20 @@ alias_id
 FROM aws.gamelift.aliases
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>alias</code>.
+```sql
+SELECT
+region,
+description,
+name,
+routing_strategy,
+alias_id
+FROM aws.gamelift.aliases
+WHERE region = 'us-east-1' AND data__Identifier = '<AliasId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>alias</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -144,7 +166,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -160,6 +182,16 @@ To operate on the <code>aliases</code> resource, the following permissions are r
 ### Create
 ```json
 gamelift:CreateAlias
+```
+
+### Read
+```json
+gamelift:DescribeAlias
+```
+
+### Update
+```json
+gamelift:UpdateAlias
 ```
 
 ### Delete

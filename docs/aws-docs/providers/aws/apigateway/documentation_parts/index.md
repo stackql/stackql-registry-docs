@@ -19,24 +19,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>documentation_parts</code> in a region or to create or delete a <code>documentation_parts</code> resource, use <code>documentation_part</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>documentation_part</code> resource or lists <code>documentation_parts</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>documentation_parts</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::DocumentationPart</code> resource creates a documentation part for an API. For more information, see &#91;Representation of API Documentation in API Gateway&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;apigateway&#x2F;latest&#x2F;developerguide&#x2F;api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ApiGateway::DocumentationPart</code> resource creates a documentation part for an API. For more information, see &#91;Representation of API Documentation in API Gateway&#93;(https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apigateway.documentation_parts" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="documentation_part_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="documentation_part_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="location" /></td><td><code>object</code></td><td>The location of the targeted API entity of the to-be-created documentation part.</td></tr>
+<tr><td><CopyableCode code="properties" /></td><td><code>string</code></td><td>The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.</td></tr>
 <tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +56,24 @@ Used to retrieve a list of <code>documentation_parts</code> in a region or to cr
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>documentation_parts</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +82,20 @@ rest_api_id
 FROM aws.apigateway.documentation_parts
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>documentation_part</code>.
+```sql
+SELECT
+region,
+documentation_part_id,
+location,
+properties,
+rest_api_id
+FROM aws.apigateway.documentation_parts
+WHERE region = 'us-east-1' AND data__Identifier = '<DocumentationPartId>|<RestApiId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>documentation_part</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -150,7 +171,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -167,6 +188,17 @@ To operate on the <code>documentation_parts</code> resource, the following permi
 ```json
 apigateway:GET,
 apigateway:POST
+```
+
+### Read
+```json
+apigateway:GET
+```
+
+### Update
+```json
+apigateway:GET,
+apigateway:PATCH
 ```
 
 ### Delete

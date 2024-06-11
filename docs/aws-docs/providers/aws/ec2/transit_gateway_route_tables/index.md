@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>transit_gateway_route_tables</code> in a region or to create or delete a <code>transit_gateway_route_tables</code> resource, use <code>transit_gateway_route_table</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>transit_gateway_route_table</code> resource or lists <code>transit_gateway_route_tables</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>transit_gateway_route_tables</code> in a region
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="transit_gateway_route_table_id" /></td><td><code>string</code></td><td>Transit Gateway Route Table primary identifier</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="transit_gateway_route_table_id" /></td><td><code>string</code></td><td>Transit Gateway Route Table primary identifier</td></tr>
+<tr><td><CopyableCode code="transit_gateway_id" /></td><td><code>string</code></td><td>The ID of the transit gateway.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +59,15 @@ Used to retrieve a list of <code>transit_gateway_route_tables</code> in a region
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>transit_gateway_route_tables</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +75,19 @@ transit_gateway_route_table_id
 FROM aws.ec2.transit_gateway_route_tables
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>transit_gateway_route_table</code>.
+```sql
+SELECT
+region,
+transit_gateway_route_table_id,
+transit_gateway_id,
+tags
+FROM aws.ec2.transit_gateway_route_tables
+WHERE region = 'us-east-1' AND data__Identifier = '<TransitGatewayRouteTableId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>transit_gateway_route_table</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +152,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -154,6 +169,11 @@ To operate on the <code>transit_gateway_route_tables</code> resource, the follow
 ```json
 ec2:CreateTransitGatewayRouteTable,
 ec2:CreateTags,
+ec2:DescribeTransitGatewayRouteTables
+```
+
+### Read
+```json
 ec2:DescribeTransitGatewayRouteTables
 ```
 

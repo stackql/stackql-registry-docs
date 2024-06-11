@@ -19,23 +19,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>subnet_route_table_associations</code> in a region or to create or delete a <code>subnet_route_table_associations</code> resource, use <code>subnet_route_table_association</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>subnet_route_table_association</code> resource or lists <code>subnet_route_table_associations</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>subnet_route_table_associations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see &#91;AWS::EC2::RouteTable&#93;(https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AWSCloudFormation&#x2F;latest&#x2F;UserGuide&#x2F;aws-resource-ec2-routetable.html).</td></tr>
+<tr><td><b>Description</b></td><td>Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see &#91;AWS::EC2::RouteTable&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.subnet_route_table_associations" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="route_table_id" /></td><td><code>string</code></td><td>The ID of the route table.<br/> The physical ID changes when the route table ID is changed.</td></tr>
+<tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The ID of the subnet.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +59,15 @@ Used to retrieve a list of <code>subnet_route_table_associations</code> in a reg
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>subnet_route_table_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +75,19 @@ id
 FROM aws.ec2.subnet_route_table_associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>subnet_route_table_association</code>.
+```sql
+SELECT
+region,
+id,
+route_table_id,
+subnet_id
+FROM aws.ec2.subnet_route_table_associations
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>subnet_route_table_association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +152,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -155,6 +170,11 @@ To operate on the <code>subnet_route_table_associations</code> resource, the fol
 ec2:AssociateRouteTable,
 ec2:ReplaceRouteTableAssociation,
 ec2:DescribeSubnets,
+ec2:DescribeRouteTables
+```
+
+### Read
+```json
 ec2:DescribeRouteTables
 ```
 

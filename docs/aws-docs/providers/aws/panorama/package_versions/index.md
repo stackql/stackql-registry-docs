@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>package_versions</code> in a region or to create or delete a <code>package_versions</code> resource, use <code>package_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>package_version</code> resource or lists <code>package_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,19 @@ Used to retrieve a list of <code>package_versions</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="owner_account" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="package_id" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="package_arn" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="package_version" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="patch_version" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="mark_latest" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="is_latest_patch" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="package_name" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status_description" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="registered_time" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="updated_latest_patch_version" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,24 +64,41 @@ Used to retrieve a list of <code>package_versions</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>package_version</code>.
 ```sql
 SELECT
 region,
+owner_account,
 package_id,
+package_arn,
 package_version,
-patch_version
+patch_version,
+mark_latest,
+is_latest_patch,
+package_name,
+status,
+status_description,
+registered_time,
+updated_latest_patch_version
 FROM aws.panorama.package_versions
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<PackageId>|<PackageVersion>|<PatchVersion>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>package_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -159,7 +181,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -176,6 +198,24 @@ To operate on the <code>package_versions</code> resource, the following permissi
 ```json
 panorama:RegisterPackageVersion,
 panorama:DescribePackageVersion,
+s3:ListBucket,
+s3:PutObject,
+s3:GetObject,
+s3:GetObjectVersion
+```
+
+### Read
+```json
+panorama:DescribePackageVersion,
+s3:ListBucket,
+s3:GetObject,
+s3:GetObjectVersion
+```
+
+### Update
+```json
+panorama:DescribePackageVersion,
+panorama:RegisterPackageVersion,
 s3:ListBucket,
 s3:PutObject,
 s3:GetObject,

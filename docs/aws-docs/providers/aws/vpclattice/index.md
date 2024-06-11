@@ -20,9 +20,9 @@ The vpclattice service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>20</b></span><br />
-<span>total selectable resources:&nbsp;<b>20</b></span><br />
-<span>total methods:&nbsp;<b>20</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>10</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
 </div>
 </div>
 
@@ -31,27 +31,17 @@ The vpclattice service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/vpclattice/access_log_subscription/">access_log_subscription</a><br />
 <a href="/providers/aws/vpclattice/access_log_subscriptions/">access_log_subscriptions</a><br />
 <a href="/providers/aws/vpclattice/auth_policies/">auth_policies</a><br />
-<a href="/providers/aws/vpclattice/auth_policy/">auth_policy</a><br />
-<a href="/providers/aws/vpclattice/listener/">listener</a><br />
 <a href="/providers/aws/vpclattice/listeners/">listeners</a><br />
 <a href="/providers/aws/vpclattice/resource_policies/">resource_policies</a><br />
-<a href="/providers/aws/vpclattice/resource_policy/">resource_policy</a><br />
-<a href="/providers/aws/vpclattice/rule/">rule</a><br />
 <a href="/providers/aws/vpclattice/rules/">rules</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/vpclattice/service/">service</a><br />
-<a href="/providers/aws/vpclattice/service_network/">service_network</a><br />
-<a href="/providers/aws/vpclattice/service_network_service_association/">service_network_service_association</a><br />
 <a href="/providers/aws/vpclattice/service_network_service_associations/">service_network_service_associations</a><br />
-<a href="/providers/aws/vpclattice/service_network_vpc_association/">service_network_vpc_association</a><br />
 <a href="/providers/aws/vpclattice/service_network_vpc_associations/">service_network_vpc_associations</a><br />
 <a href="/providers/aws/vpclattice/service_networks/">service_networks</a><br />
 <a href="/providers/aws/vpclattice/services/">services</a><br />
-<a href="/providers/aws/vpclattice/target_group/">target_group</a><br />
 <a href="/providers/aws/vpclattice/target_groups/">target_groups</a>
 </div>
 </div>

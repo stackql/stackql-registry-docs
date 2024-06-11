@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>filters</code> in a region or to create or delete a <code>filters</code> resource, use <code>filter</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>filter</code> resource or lists <code>filters</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,14 @@ Used to retrieve a list of <code>filters</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="action" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="detector_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="finding_criteria" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="rank" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +59,24 @@ Used to retrieve a list of <code>filters</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>filters</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +85,23 @@ name
 FROM aws.guardduty.filters
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>filter</code>.
+```sql
+SELECT
+region,
+action,
+description,
+detector_id,
+finding_criteria,
+rank,
+name,
+tags
+FROM aws.guardduty.filters
+WHERE region = 'us-east-1' AND data__Identifier = '<DetectorId>|<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>filter</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -160,7 +187,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -180,12 +207,24 @@ guardduty:GetFilter,
 guardduty:TagResource
 ```
 
+### Read
+```json
+guardduty:GetFilter
+```
+
 ### Delete
 ```json
 guardduty:ListDetectors,
 guardduty:ListFilters,
 guardduty:GetFilter,
 guardduty:DeleteFilter
+```
+
+### Update
+```json
+guardduty:UpdateFilter,
+guardduty:GetFilter,
+guardduty:ListFilters
 ```
 
 ### List

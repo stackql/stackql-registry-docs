@@ -19,23 +19,32 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>origin_endpoints</code> in a region or to create or delete a <code>origin_endpoints</code> resource, use <code>origin_endpoint</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>origin_endpoint</code> resource or lists <code>origin_endpoints</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>origin_endpoints</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>&lt;p&gt;Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.&lt;&#x2F;p&gt;</td></tr>
+<tr><td><b>Description</b></td><td><p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p></td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.mediapackagev2.origin_endpoints" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>&lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;&#x2F;p&gt;</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) associated with the resource.</p></td></tr>
+<tr><td><CopyableCode code="channel_group_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="channel_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="container_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td><p>The date and time the origin endpoint was created.</p></td></tr>
+<tr><td><CopyableCode code="dash_manifests" /></td><td><code>array</code></td><td><p>A DASH manifest configuration.</p></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>Enter any descriptive text that helps you to identify the origin endpoint.</p></td></tr>
+<tr><td><CopyableCode code="hls_manifests" /></td><td><code>array</code></td><td><p>An HTTP live streaming (HLS) manifest configuration.</p></td></tr>
+<tr><td><CopyableCode code="low_latency_hls_manifests" /></td><td><code>array</code></td><td><p>A low-latency HLS manifest configuration.</p></td></tr>
+<tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td><p>The date and time the origin endpoint was modified.</p></td></tr>
+<tr><td><CopyableCode code="origin_endpoint_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="segment" /></td><td><code><p>The segment configuration, including the segment name, duration, and other configuration values.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="startover_window_seconds" /></td><td><code>integer</code></td><td><p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +66,24 @@ Used to retrieve a list of <code>origin_endpoints</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>origin_endpoints</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +91,30 @@ arn
 FROM aws.mediapackagev2.origin_endpoints
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>origin_endpoint</code>.
+```sql
+SELECT
+region,
+arn,
+channel_group_name,
+channel_name,
+container_type,
+created_at,
+dash_manifests,
+description,
+hls_manifests,
+low_latency_hls_manifests,
+modified_at,
+origin_endpoint_name,
+segment,
+startover_window_seconds,
+tags
+FROM aws.mediapackagev2.origin_endpoints
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>origin_endpoint</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -109,6 +151,7 @@ INSERT INTO aws.mediapackagev2.origin_endpoints (
  ChannelGroupName,
  ChannelName,
  ContainerType,
+ DashManifests,
  Description,
  HlsManifests,
  LowLatencyHlsManifests,
@@ -122,6 +165,7 @@ SELECT
  '{{ ChannelGroupName }}',
  '{{ ChannelName }}',
  '{{ ContainerType }}',
+ '{{ DashManifests }}',
  '{{ Description }}',
  '{{ HlsManifests }}',
  '{{ LowLatencyHlsManifests }}',
@@ -152,6 +196,27 @@ resources:
         value: '{{ ChannelName }}'
       - name: ContainerType
         value: '{{ ContainerType }}'
+      - name: DashManifests
+        value:
+          - ManifestName: '{{ ManifestName }}'
+            ManifestWindowSeconds: '{{ ManifestWindowSeconds }}'
+            FilterConfiguration:
+              ManifestFilter: '{{ ManifestFilter }}'
+              Start: '{{ Start }}'
+              End: '{{ End }}'
+              TimeDelaySeconds: '{{ TimeDelaySeconds }}'
+            MinUpdatePeriodSeconds: '{{ MinUpdatePeriodSeconds }}'
+            MinBufferTimeSeconds: '{{ MinBufferTimeSeconds }}'
+            SuggestedPresentationDelaySeconds: '{{ SuggestedPresentationDelaySeconds }}'
+            SegmentTemplateFormat: '{{ SegmentTemplateFormat }}'
+            PeriodTriggers:
+              - '{{ PeriodTriggers[0] }}'
+            ScteDash:
+              AdMarkerDash: '{{ AdMarkerDash }}'
+            DrmSignaling: '{{ DrmSignaling }}'
+            UtcTiming:
+              TimingMode: '{{ TimingMode }}'
+              TimingSource: '{{ TimingSource }}'
       - name: Description
         value: '{{ Description }}'
       - name: HlsManifests
@@ -163,11 +228,7 @@ resources:
             ProgramDateTimeIntervalSeconds: '{{ ProgramDateTimeIntervalSeconds }}'
             ScteHls:
               AdMarkerHls: '{{ AdMarkerHls }}'
-            FilterConfiguration:
-              ManifestFilter: '{{ ManifestFilter }}'
-              Start: '{{ Start }}'
-              End: '{{ End }}'
-              TimeDelaySeconds: '{{ TimeDelaySeconds }}'
+            FilterConfiguration: null
       - name: LowLatencyHlsManifests
         value:
           - ManifestName: '{{ ManifestName }}'
@@ -215,7 +276,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -232,6 +293,20 @@ To operate on the <code>origin_endpoints</code> resource, the following permissi
 ```json
 mediapackagev2:TagResource,
 mediapackagev2:CreateOriginEndpoint,
+iam:PassRole
+```
+
+### Read
+```json
+mediapackagev2:GetOriginEndpoint
+```
+
+### Update
+```json
+mediapackagev2:TagResource,
+mediapackagev2:UntagResource,
+mediapackagev2:ListTagsForResource,
+mediapackagev2:UpdateOriginEndpoint,
 iam:PassRole
 ```
 

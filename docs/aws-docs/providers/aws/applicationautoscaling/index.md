@@ -20,9 +20,9 @@ The applicationautoscaling service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -31,11 +31,9 @@ The applicationautoscaling service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/applicationautoscaling/scalable_target/">scalable_target</a><br />
 <a href="/providers/aws/applicationautoscaling/scalable_targets/">scalable_targets</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/applicationautoscaling/scaling_policies/">scaling_policies</a><br />
-<a href="/providers/aws/applicationautoscaling/scaling_policy/">scaling_policy</a>
+<a href="/providers/aws/applicationautoscaling/scaling_policies/">scaling_policies</a>
 </div>
 </div>

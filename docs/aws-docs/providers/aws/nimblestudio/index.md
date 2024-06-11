@@ -20,9 +20,9 @@ The nimblestudio service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>8</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>8</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total selectable resources:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>4</b></span><br />
 </div>
 </div>
 
@@ -31,14 +31,10 @@ The nimblestudio service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/nimblestudio/launch_profile/">launch_profile</a><br />
 <a href="/providers/aws/nimblestudio/launch_profiles/">launch_profiles</a><br />
-<a href="/providers/aws/nimblestudio/streaming_image/">streaming_image</a><br />
 <a href="/providers/aws/nimblestudio/streaming_images/">streaming_images</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/nimblestudio/studio/">studio</a><br />
-<a href="/providers/aws/nimblestudio/studio_component/">studio_component</a><br />
 <a href="/providers/aws/nimblestudio/studio_components/">studio_components</a><br />
 <a href="/providers/aws/nimblestudio/studios/">studios</a>
 </div>

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>profiles</code> in a region or to create or delete a <code>profiles</code> resource, use <code>profile</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>profile</code> resource or lists <code>profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>profiles</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="as2_id" /></td><td><code>string</code></td><td>AS2 identifier agreed with a trading partner.</td></tr>
+<tr><td><CopyableCode code="profile_type" /></td><td><code>string</code></td><td>Enum specifying whether the profile is local or associated with a trading partner.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="certificate_ids" /></td><td><code>array</code></td><td>List of the certificate IDs associated with this profile to be used for encryption and signing of AS2 messages.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the profile.</td></tr>
 <tr><td><CopyableCode code="profile_id" /></td><td><code>string</code></td><td>A unique identifier for the profile</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>profiles</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>profiles</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ profile_id
 FROM aws.transfer.profiles
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>profile</code>.
+```sql
+SELECT
+region,
+as2_id,
+profile_type,
+tags,
+certificate_ids,
+arn,
+profile_id
+FROM aws.transfer.profiles
+WHERE region = 'us-east-1' AND data__Identifier = '<ProfileId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>profile</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -148,7 +174,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -164,6 +190,18 @@ To operate on the <code>profiles</code> resource, the following permissions are 
 ### Create
 ```json
 transfer:CreateProfile,
+transfer:TagResource
+```
+
+### Read
+```json
+transfer:DescribeProfile
+```
+
+### Update
+```json
+transfer:UpdateProfile,
+transfer:UnTagResource,
 transfer:TagResource
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>drt_accesses</code> in a region or to create or delete a <code>drt_accesses</code> resource, use <code>drt_access</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>drt_access</code> resource or lists <code>drt_accesses</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>drt_accesses</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="log_bucket_list" /></td><td><code>array</code></td><td>Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the SRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +55,24 @@ Used to retrieve a list of <code>drt_accesses</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>drt_accesses</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,19 @@ account_id
 FROM aws.shield.drt_accesses
 ;
 ```
+Gets all properties from a <code>drt_access</code>.
+```sql
+SELECT
+region,
+account_id,
+log_bucket_list,
+role_arn
+FROM aws.shield.drt_accesses
+WHERE data__Identifier = '<AccountId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>drt_access</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -136,7 +156,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -172,5 +192,30 @@ iam:ListAttachedRolePolicies,
 s3:GetBucketPolicy,
 s3:PutBucketPolicy,
 s3:DeleteBucketPolicy
+```
+
+### Read
+```json
+shield:DescribeDRTAccess
+```
+
+### Update
+```json
+shield:DescribeDRTAccess,
+shield:AssociateDRTLogBucket,
+shield:AssociateDRTRole,
+shield:DisassociateDRTLogBucket,
+shield:DisassociateDRTRole,
+iam:PassRole,
+iam:GetRole,
+iam:ListAttachedRolePolicies,
+s3:GetBucketPolicy,
+s3:PutBucketPolicy,
+s3:DeleteBucketPolicy
+```
+
+### List
+```json
+shield:DescribeDRTAccess
 ```
 

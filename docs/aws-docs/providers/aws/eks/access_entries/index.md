@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>access_entries</code> in a region or to create or delete a <code>access_entries</code> resource, use <code>access_entry</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>access_entry</code> resource or lists <code>access_entries</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,15 @@ Used to retrieve a list of <code>access_entries</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td>The cluster that the access entry is created for.</td></tr>
 <tr><td><CopyableCode code="principal_arn" /></td><td><code>string</code></td><td>The principal ARN that the access entry is created for.</td></tr>
-<tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td>The cluster that the access entry is created for.</td></tr>
+<tr><td><CopyableCode code="username" /></td><td><code>string</code></td><td>The Kubernetes user that the access entry is associated with.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="access_entry_arn" /></td><td><code>string</code></td><td>The ARN of the access entry.</td></tr>
+<tr><td><CopyableCode code="kubernetes_groups" /></td><td><code>array</code></td><td>The Kubernetes groups that the access entry is associated with.</td></tr>
+<tr><td><CopyableCode code="access_policies" /></td><td><code>array</code></td><td>An array of access policies that are associated with the access entry.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The node type to associate with the access entry.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +60,24 @@ Used to retrieve a list of <code>access_entries</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>access_entries</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +86,24 @@ cluster_name
 FROM aws.eks.access_entries
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>access_entry</code>.
+```sql
+SELECT
+region,
+cluster_name,
+principal_arn,
+username,
+tags,
+access_entry_arn,
+kubernetes_groups,
+access_policies,
+type
+FROM aws.eks.access_entries
+WHERE region = 'us-east-1' AND data__Identifier = '<PrincipalArn>|<ClusterName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>access_entry</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -167,7 +196,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -187,6 +216,23 @@ eks:DescribeAccessEntry,
 eks:AssociateAccessPolicy,
 eks:TagResource,
 eks:ListAssociatedAccessPolicies
+```
+
+### Read
+```json
+eks:DescribeAccessEntry,
+eks:ListAssociatedAccessPolicies
+```
+
+### Update
+```json
+eks:DescribeAccessEntry,
+eks:ListAssociatedAccessPolicies,
+eks:UpdateAccessEntry,
+eks:AssociateAccessPolicy,
+eks:DisassociateAccessPolicy,
+eks:TagResource,
+eks:UntagResource
 ```
 
 ### Delete

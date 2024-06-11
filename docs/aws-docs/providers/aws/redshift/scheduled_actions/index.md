@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>scheduled_actions</code> in a region or to create or delete a <code>scheduled_actions</code> resource, use <code>scheduled_action</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>scheduled_action</code> resource or lists <code>scheduled_actions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>scheduled_actions</code> in a region or to crea
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="scheduled_action_description" /></td><td><code>string</code></td><td>The description of the scheduled action.</td></tr>
 <tr><td><CopyableCode code="scheduled_action_name" /></td><td><code>string</code></td><td>The name of the scheduled action. The name must be unique within an account.</td></tr>
+<tr><td><CopyableCode code="end_time" /></td><td><code>string</code></td><td>The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the scheduled action.</td></tr>
+<tr><td><CopyableCode code="schedule" /></td><td><code>string</code></td><td>The schedule in `at( )` or `cron( )` format.</td></tr>
+<tr><td><CopyableCode code="iam_role" /></td><td><code>string</code></td><td>The IAM role to assume to run the target action.</td></tr>
+<tr><td><CopyableCode code="start_time" /></td><td><code>string</code></td><td>The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger.</td></tr>
+<tr><td><CopyableCode code="enable" /></td><td><code>boolean</code></td><td>If true, the schedule is enabled. If false, the scheduled action does not trigger.</td></tr>
+<tr><td><CopyableCode code="target_action" /></td><td><code>object</code></td><td>A JSON format string of the Amazon Redshift API operation with input parameters.</td></tr>
+<tr><td><CopyableCode code="next_invocations" /></td><td><code>array</code></td><td>List of times when the scheduled action will run.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>scheduled_actions</code> in a region or to crea
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>scheduled_actions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ scheduled_action_name
 FROM aws.redshift.scheduled_actions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>scheduled_action</code>.
+```sql
+SELECT
+region,
+scheduled_action_description,
+scheduled_action_name,
+end_time,
+state,
+schedule,
+iam_role,
+start_time,
+enable,
+target_action,
+next_invocations
+FROM aws.redshift.scheduled_actions
+WHERE region = 'us-east-1' AND data__Identifier = '<ScheduledActionName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>scheduled_action</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -102,25 +136,25 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.redshift.scheduled_actions (
+ ScheduledActionDescription,
  ScheduledActionName,
- TargetAction,
+ EndTime,
  Schedule,
  IamRole,
- ScheduledActionDescription,
  StartTime,
- EndTime,
  Enable,
+ TargetAction,
  region
 )
 SELECT 
+ '{{ ScheduledActionDescription }}',
  '{{ ScheduledActionName }}',
- '{{ TargetAction }}',
+ '{{ EndTime }}',
  '{{ Schedule }}',
  '{{ IamRole }}',
- '{{ ScheduledActionDescription }}',
  '{{ StartTime }}',
- '{{ EndTime }}',
  '{{ Enable }}',
+ '{{ TargetAction }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -138,28 +172,28 @@ globals:
 resources:
   - name: scheduled_action
     props:
+      - name: ScheduledActionDescription
+        value: '{{ ScheduledActionDescription }}'
       - name: ScheduledActionName
         value: '{{ ScheduledActionName }}'
-      - name: TargetAction
-        value: {}
+      - name: EndTime
+        value: '{{ EndTime }}'
       - name: Schedule
         value: '{{ Schedule }}'
       - name: IamRole
         value: '{{ IamRole }}'
-      - name: ScheduledActionDescription
-        value: '{{ ScheduledActionDescription }}'
       - name: StartTime
-        value: '{{ StartTime }}'
-      - name: EndTime
         value: null
       - name: Enable
         value: '{{ Enable }}'
+      - name: TargetAction
+        value: {}
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -172,6 +206,12 @@ AND region = 'us-east-1';
 
 To operate on the <code>scheduled_actions</code> resource, the following permissions are required:
 
+### Read
+```json
+redshift:DescribeScheduledActions,
+redshift:DescribeTags
+```
+
 ### Create
 ```json
 redshift:CreateScheduledAction,
@@ -183,16 +223,27 @@ redshift:ResizeCluster,
 iam:PassRole
 ```
 
-### Delete
+### Update
 ```json
-redshift:DescribeTags,
 redshift:DescribeScheduledActions,
-redshift:DeleteScheduledAction
+redshift:ModifyScheduledAction,
+redshift:PauseCluster,
+redshift:ResumeCluster,
+redshift:ResizeCluster,
+redshift:DescribeTags,
+iam:PassRole
 ```
 
 ### List
 ```json
 redshift:DescribeTags,
 redshift:DescribeScheduledActions
+```
+
+### Delete
+```json
+redshift:DescribeTags,
+redshift:DescribeScheduledActions,
+redshift:DeleteScheduledAction
 ```
 

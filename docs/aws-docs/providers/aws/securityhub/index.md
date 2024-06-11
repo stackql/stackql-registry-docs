@@ -20,9 +20,9 @@ The securityhub service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>11</b></span><br />
+<span>total selectable resources:&nbsp;<b>11</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
 </div>
 </div>
 
@@ -31,19 +31,18 @@ The securityhub service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/securityhub/automation_rule/">automation_rule</a><br />
 <a href="/providers/aws/securityhub/automation_rules/">automation_rules</a><br />
-<a href="/providers/aws/securityhub/delegated_admin/">delegated_admin</a><br />
+<a href="/providers/aws/securityhub/configuration_policies/">configuration_policies</a><br />
 <a href="/providers/aws/securityhub/delegated_admins/">delegated_admins</a><br />
-<a href="/providers/aws/securityhub/hub/">hub</a><br />
-<a href="/providers/aws/securityhub/hubs/">hubs</a>
+<a href="/providers/aws/securityhub/finding_aggregators/">finding_aggregators</a><br />
+<a href="/providers/aws/securityhub/hubs/">hubs</a><br />
+<a href="/providers/aws/securityhub/insights/">insights</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/securityhub/insight/">insight</a><br />
-<a href="/providers/aws/securityhub/insights/">insights</a><br />
-<a href="/providers/aws/securityhub/product_subscription/">product_subscription</a><br />
+<a href="/providers/aws/securityhub/organization_configurations/">organization_configurations</a><br />
+<a href="/providers/aws/securityhub/policy_associations/">policy_associations</a><br />
 <a href="/providers/aws/securityhub/product_subscriptions/">product_subscriptions</a><br />
-<a href="/providers/aws/securityhub/standard/">standard</a><br />
+<a href="/providers/aws/securityhub/security_controls/">security_controls</a><br />
 <a href="/providers/aws/securityhub/standards/">standards</a>
 </div>
 </div>

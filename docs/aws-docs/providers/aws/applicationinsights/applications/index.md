@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>applications</code> in a region or to create or delete a <code>applications</code> resource, use <code>application</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>application</code> resource or lists <code>applications</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,19 @@ Used to retrieve a list of <code>applications</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="resource_group_name" /></td><td><code>string</code></td><td>The name of the resource group.</td></tr>
 <tr><td><CopyableCode code="application_arn" /></td><td><code>string</code></td><td>The ARN of the ApplicationInsights application.</td></tr>
+<tr><td><CopyableCode code="cwe_monitor_enabled" /></td><td><code>boolean</code></td><td>Indicates whether Application Insights can listen to CloudWatch events for the application resources.</td></tr>
+<tr><td><CopyableCode code="ops_center_enabled" /></td><td><code>boolean</code></td><td>When set to true, creates opsItems for any problems detected on an application.</td></tr>
+<tr><td><CopyableCode code="ops_item_sns_topic_arn" /></td><td><code>string</code></td><td>The SNS topic provided to Application Insights that is associated to the created opsItem.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags of Application Insights application.</td></tr>
+<tr><td><CopyableCode code="custom_components" /></td><td><code>array</code></td><td>The custom grouped components.</td></tr>
+<tr><td><CopyableCode code="log_pattern_sets" /></td><td><code>array</code></td><td>The log pattern sets.</td></tr>
+<tr><td><CopyableCode code="auto_configuration_enabled" /></td><td><code>boolean</code></td><td>If set to true, application will be configured with recommended monitoring configuration.</td></tr>
+<tr><td><CopyableCode code="component_monitoring_settings" /></td><td><code>array</code></td><td>The monitoring settings of the components.</td></tr>
+<tr><td><CopyableCode code="grouping_type" /></td><td><code>string</code></td><td>The grouping type of the application</td></tr>
+<tr><td><CopyableCode code="attach_missing_permission" /></td><td><code>boolean</code></td><td>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +64,24 @@ Used to retrieve a list of <code>applications</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>applications</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +89,28 @@ application_arn
 FROM aws.applicationinsights.applications
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>application</code>.
+```sql
+SELECT
+region,
+resource_group_name,
+application_arn,
+cwe_monitor_enabled,
+ops_center_enabled,
+ops_item_sns_topic_arn,
+tags,
+custom_components,
+log_pattern_sets,
+auto_configuration_enabled,
+component_monitoring_settings,
+grouping_type,
+attach_missing_permission
+FROM aws.applicationinsights.applications
+WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationARN>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>application</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -240,7 +278,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -254,6 +292,16 @@ AND region = 'us-east-1';
 To operate on the <code>applications</code> resource, the following permissions are required:
 
 ### Create
+```json
+*
+```
+
+### Read
+```json
+*
+```
+
+### Update
 ```json
 *
 ```

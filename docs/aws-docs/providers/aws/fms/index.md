@@ -20,9 +20,9 @@ The fms service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -31,13 +31,10 @@ The fms service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/fms/notification_channel/">notification_channel</a><br />
 <a href="/providers/aws/fms/notification_channels/">notification_channels</a><br />
 <a href="/providers/aws/fms/policies/">policies</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/fms/policy/">policy</a><br />
-<a href="/providers/aws/fms/resource_set/">resource_set</a><br />
 <a href="/providers/aws/fms/resource_sets/">resource_sets</a>
 </div>
 </div>

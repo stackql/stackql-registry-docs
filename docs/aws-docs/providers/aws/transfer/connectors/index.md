@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>connectors</code> in a region or to create or delete a <code>connectors</code> resource, use <code>connector</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>connector</code> resource or lists <code>connectors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>connectors</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_role" /></td><td><code>string</code></td><td>Specifies the access role for the connector.</td></tr>
+<tr><td><CopyableCode code="as2_config" /></td><td><code>object</code></td><td>Configuration for an AS2 connector.</td></tr>
+<tr><td><CopyableCode code="sftp_config" /></td><td><code>object</code></td><td>Configuration for an SFTP connector.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the connector.</td></tr>
 <tr><td><CopyableCode code="connector_id" /></td><td><code>string</code></td><td>A unique identifier for the connector.</td></tr>
+<tr><td><CopyableCode code="logging_role" /></td><td><code>string</code></td><td>Specifies the logging role for the connector.</td></tr>
+<tr><td><CopyableCode code="service_managed_egress_ip_addresses" /></td><td><code>array</code></td><td>The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.</td></tr>
+<tr><td><CopyableCode code="url" /></td><td><code>string</code></td><td>URL for Connector</td></tr>
+<tr><td><CopyableCode code="security_policy_name" /></td><td><code>string</code></td><td>Security policy for SFTP Connector</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>connectors</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>connectors</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ connector_id
 FROM aws.transfer.connectors
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>connector</code>.
+```sql
+SELECT
+region,
+access_role,
+as2_config,
+sftp_config,
+arn,
+connector_id,
+logging_role,
+service_managed_egress_ip_addresses,
+tags,
+url,
+security_policy_name
+FROM aws.transfer.connectors
+WHERE region = 'us-east-1' AND data__Identifier = '<ConnectorId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>connector</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -110,6 +144,7 @@ INSERT INTO aws.transfer.connectors (
  LoggingRole,
  Tags,
  Url,
+ SecurityPolicyName,
  region
 )
 SELECT 
@@ -119,6 +154,7 @@ SELECT
  '{{ LoggingRole }}',
  '{{ Tags }}',
  '{{ Url }}',
+ '{{ SecurityPolicyName }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -162,12 +198,14 @@ resources:
             Value: '{{ Value }}'
       - name: Url
         value: '{{ Url }}'
+      - name: SecurityPolicyName
+        value: '{{ SecurityPolicyName }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -183,6 +221,19 @@ To operate on the <code>connectors</code> resource, the following permissions ar
 ### Create
 ```json
 transfer:CreateConnector,
+transfer:TagResource,
+iam:PassRole
+```
+
+### Read
+```json
+transfer:DescribeConnector
+```
+
+### Update
+```json
+transfer:UpdateConnector,
+transfer:UnTagResource,
 transfer:TagResource,
 iam:PassRole
 ```

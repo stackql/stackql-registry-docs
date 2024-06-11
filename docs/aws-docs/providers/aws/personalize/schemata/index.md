@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>schemata</code> in a region or to create or delete a <code>schemata</code> resource, use <code>schema</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>schema</code> resource or lists <code>schemata</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,11 @@ Used to retrieve a list of <code>schemata</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name for the schema.</td></tr>
 <tr><td><CopyableCode code="schema_arn" /></td><td><code>string</code></td><td>Arn for the schema.</td></tr>
+<tr><td><CopyableCode code="schema" /></td><td><code>string</code></td><td>A schema in Avro JSON format.</td></tr>
+<tr><td><CopyableCode code="domain" /></td><td><code>string</code></td><td>The domain of a Domain dataset group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +60,15 @@ Used to retrieve a list of <code>schemata</code> in a region or to create or del
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>schemata</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +76,20 @@ schema_arn
 FROM aws.personalize.schemata
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>schema</code>.
+```sql
+SELECT
+region,
+name,
+schema_arn,
+schema,
+domain
+FROM aws.personalize.schemata
+WHERE region = 'us-east-1' AND data__Identifier = '<SchemaArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>schema</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -141,7 +158,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -157,6 +174,11 @@ To operate on the <code>schemata</code> resource, the following permissions are 
 ### Create
 ```json
 personalize:CreateSchema,
+personalize:DescribeSchema
+```
+
+### Read
+```json
 personalize:DescribeSchema
 ```
 

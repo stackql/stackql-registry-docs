@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>anomaly_monitors</code> in a region or to create or delete a <code>anomaly_monitors</code> resource, use <code>anomaly_monitor</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>anomaly_monitor</code> resource or lists <code>anomaly_monitors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>anomaly_monitors</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="monitor_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="monitor_arn" /></td><td><code>Subscription ARN</code></td><td></td></tr>
+<tr><td><CopyableCode code="monitor_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="monitor_name" /></td><td><code>string</code></td><td>The name of the monitor.</td></tr>
+<tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td>The date when the monitor was created. </td></tr>
+<tr><td><CopyableCode code="last_evaluated_date" /></td><td><code>string</code></td><td>The date when the monitor last evaluated for anomalies.</td></tr>
+<tr><td><CopyableCode code="last_updated_date" /></td><td><code>string</code></td><td>The date when the monitor was last updated.</td></tr>
+<tr><td><CopyableCode code="monitor_dimension" /></td><td><code>string</code></td><td>The dimensions to evaluate</td></tr>
+<tr><td><CopyableCode code="monitor_specification" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="dimensional_value_count" /></td><td><code>integer</code></td><td>The value for evaluated dimensions.</td></tr>
+<tr><td><CopyableCode code="resource_tags" /></td><td><code>array</code></td><td>Tags to assign to monitor.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>anomaly_monitors</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>anomaly_monitors</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ monitor_arn
 FROM aws.ce.anomaly_monitors
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>anomaly_monitor</code>.
+```sql
+SELECT
+region,
+monitor_arn,
+monitor_type,
+monitor_name,
+creation_date,
+last_evaluated_date,
+last_updated_date,
+monitor_dimension,
+monitor_specification,
+dimensional_value_count,
+resource_tags
+FROM aws.ce.anomaly_monitors
+WHERE region = 'us-east-1' AND data__Identifier = '<MonitorArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>anomaly_monitor</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +185,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -168,6 +202,16 @@ To operate on the <code>anomaly_monitors</code> resource, the following permissi
 ```json
 ce:CreateAnomalyMonitor,
 ce:TagResource
+```
+
+### Read
+```json
+ce:GetAnomalyMonitors
+```
+
+### Update
+```json
+ce:UpdateAnomalyMonitor
 ```
 
 ### Delete

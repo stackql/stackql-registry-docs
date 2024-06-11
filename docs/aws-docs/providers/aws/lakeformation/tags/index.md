@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>tags</code> in a region or to create or delete a <code>tags</code> resource, use <code>tag</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>tag</code> resource or lists <code>tags</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>tags</code> in a region or to create or delete 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="tag_key" /></td><td><code>undefined</code></td><td>The key-name for the LF-tag.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="catalog_id" /></td><td><code>string</code></td><td>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.</td></tr>
+<tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>The key-name for the LF-tag.</td></tr>
+<tr><td><CopyableCode code="tag_values" /></td><td><code>array</code></td><td>A list of possible values an attribute can take.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +55,24 @@ Used to retrieve a list of <code>tags</code> in a region or to create or delete 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>tags</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,19 @@ tag_key
 FROM aws.lakeformation.tags
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>tag</code>.
+```sql
+SELECT
+region,
+catalog_id,
+tag_key,
+tag_values
+FROM aws.lakeformation.tags
+WHERE region = 'us-east-1' AND data__Identifier = '<TagKey>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>tag</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -142,7 +162,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -158,6 +178,16 @@ To operate on the <code>tags</code> resource, the following permissions are requ
 ### Create
 ```json
 lakeformation:CreateLFTag
+```
+
+### Read
+```json
+lakeformation:GetLFTag
+```
+
+### Update
+```json
+lakeformation:UpdateLFTag
 ```
 
 ### Delete

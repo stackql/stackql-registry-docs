@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>fhir_datastores</code> in a region or to create or delete a <code>fhir_datastores</code> resource, use <code>fhir_datastore</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>fhir_datastore</code> resource or lists <code>fhir_datastores</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>fhir_datastores</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="datastore_id" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_at" /></td><td><code>The time that a Data Store was created.</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_arn" /></td><td><code>The Amazon Resource Name used in the creation of the Data Store.</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_endpoint" /></td><td><code>The AWS endpoint for the Data Store. Each Data Store will have it's own endpoint with Data Store ID in the endpoint URL.</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_id" /></td><td><code>The AWS-generated ID number for the Data Store.</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_name" /></td><td><code>The user-generated name for the Data Store.</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_status" /></td><td><code>The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_type_version" /></td><td><code>The FHIR version. Only R4 version data is supported.</code></td><td></td></tr>
+<tr><td><CopyableCode code="preload_data_config" /></td><td><code>The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.</code></td><td></td></tr>
+<tr><td><CopyableCode code="sse_configuration" /></td><td><code>The server-side encryption key configuration for a customer provided encryption key.</code></td><td></td></tr>
+<tr><td><CopyableCode code="identity_provider_configuration" /></td><td><code>The identity provider configuration for the datastore</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>fhir_datastores</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>fhir_datastores</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ datastore_id
 FROM aws.healthlake.fhir_datastores
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>fhir_datastore</code>.
+```sql
+SELECT
+region,
+created_at,
+datastore_arn,
+datastore_endpoint,
+datastore_id,
+datastore_name,
+datastore_status,
+datastore_type_version,
+preload_data_config,
+sse_configuration,
+identity_provider_configuration,
+tags
+FROM aws.healthlake.fhir_datastores
+WHERE region = 'us-east-1' AND data__Identifier = '<DatastoreId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>fhir_datastore</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -161,7 +197,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -193,6 +229,23 @@ lambda:InvokeFunction,
 healthlake:TagResource,
 healthlake:UntagResource,
 healthlake:ListTagsForResource
+```
+
+### Read
+```json
+healthlake:DescribeFHIRDatastore,
+healthlake:ListTagsForResource
+```
+
+### Update
+```json
+healthlake:TagResource,
+healthlake:UntagResource,
+healthlake:ListTagsForResource,
+healthlake:DescribeFHIRDatastore,
+iam:PassRole,
+iam:GetRole,
+iam:CreateServiceLinkedRole
 ```
 
 ### Delete

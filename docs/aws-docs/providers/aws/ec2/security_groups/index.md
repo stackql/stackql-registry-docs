@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>security_groups</code> in a region or to create or delete a <code>security_groups</code> resource, use <code>security_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>security_group</code> resource or lists <code>security_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>security_groups</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="group_description" /></td><td><code>string</code></td><td>A description for the security group.</td></tr>
+<tr><td><CopyableCode code="group_name" /></td><td><code>string</code></td><td>The name of the security group.</td></tr>
+<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC for the security group.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The group name or group ID depending on whether the SG is created in default or specific VPC</td></tr>
+<tr><td><CopyableCode code="security_group_ingress" /></td><td><code>array</code></td><td>The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.</td></tr>
+<tr><td><CopyableCode code="security_group_egress" /></td><td><code>array</code></td><td>&#91;VPC only&#93; The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags assigned to the security group.</td></tr>
+<tr><td><CopyableCode code="group_id" /></td><td><code>string</code></td><td>The group ID of the specified security group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>security_groups</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>security_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ id
 FROM aws.ec2.security_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>security_group</code>.
+```sql
+SELECT
+region,
+group_description,
+group_name,
+vpc_id,
+id,
+security_group_ingress,
+security_group_egress,
+tags,
+group_id
+FROM aws.ec2.security_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>security_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -171,7 +201,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -184,6 +214,11 @@ AND region = 'us-east-1';
 
 To operate on the <code>security_groups</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:DescribeSecurityGroups
+```
+
 ### Create
 ```json
 ec2:CreateSecurityGroup,
@@ -192,6 +227,17 @@ ec2:RevokeSecurityGroupEgress,
 ec2:AuthorizeSecurityGroupEgress,
 ec2:AuthorizeSecurityGroupIngress,
 ec2:CreateTags
+```
+
+### Update
+```json
+ec2:RevokeSecurityGroupEgress,
+ec2:RevokeSecurityGroupIngress,
+ec2:DescribeSecurityGroups,
+ec2:AuthorizeSecurityGroupEgress,
+ec2:AuthorizeSecurityGroupIngress,
+ec2:CreateTags,
+ec2:DeleteTags
 ```
 
 ### List

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>applications</code> in a region or to create or delete a <code>applications</code> resource, use <code>application</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>application</code> resource or lists <code>applications</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,21 @@ Used to retrieve a list of <code>applications</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="launch_path" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="launch_parameters" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="working_directory" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_families" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="icon_s3_location" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="app_block_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="platforms" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="attributes_to_delete" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +66,43 @@ Used to retrieve a list of <code>applications</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from an <code>application</code>.
 ```sql
 SELECT
 region,
-arn
+name,
+display_name,
+description,
+launch_path,
+launch_parameters,
+working_directory,
+instance_families,
+icon_s3_location,
+arn,
+app_block_arn,
+platforms,
+tags,
+attributes_to_delete,
+created_time
 FROM aws.appstream.applications
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>application</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -192,7 +222,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -210,6 +240,17 @@ To operate on the <code>applications</code> resource, the following permissions 
 s3:GetObject,
 appstream:CreateApplication,
 appstream:TagResource
+```
+
+### Read
+```json
+appstream:DescribeApplications
+```
+
+### Update
+```json
+appstream:UpdateApplication,
+s3:GetObject
 ```
 
 ### Delete

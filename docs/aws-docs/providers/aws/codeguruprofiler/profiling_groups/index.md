@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>profiling_groups</code> in a region or to create or delete a <code>profiling_groups</code> resource, use <code>profiling_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>profiling_group</code> resource or lists <code>profiling_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>profiling_groups</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="profiling_group_name" /></td><td><code>string</code></td><td>The name of the profiling group.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="profiling_group_name" /></td><td><code>string</code></td><td>The name of the profiling group.</td></tr>
+<tr><td><CopyableCode code="compute_platform" /></td><td><code>string</code></td><td>The compute platform of the profiling group.</td></tr>
+<tr><td><CopyableCode code="agent_permissions" /></td><td><code>object</code></td><td>The agent permissions attached to this profiling group.</td></tr>
+<tr><td><CopyableCode code="anomaly_detection_notification_configuration" /></td><td><code>array</code></td><td>Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified profiling group.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags associated with a profiling group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>profiling_groups</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>profiling_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ profiling_group_name
 FROM aws.codeguruprofiler.profiling_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>profiling_group</code>.
+```sql
+SELECT
+region,
+profiling_group_name,
+compute_platform,
+agent_permissions,
+anomaly_detection_notification_configuration,
+arn,
+tags
+FROM aws.codeguruprofiler.profiling_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<ProfilingGroupName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>profiling_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -153,7 +179,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -173,6 +199,26 @@ codeguru-profiler:AddNotificationChannels,
 codeguru-profiler:CreateProfilingGroup,
 codeguru-profiler:PutPermission,
 codeguru-profiler:TagResource
+```
+
+### Read
+```json
+codeguru-profiler:DescribeProfilingGroup,
+codeguru-profiler:ListTagsForResource
+```
+
+### Update
+```json
+sns:Publish,
+codeguru-profiler:AddNotificationChannels,
+codeguru-profiler:GetNotificationConfiguration,
+codeguru-profiler:RemoveNotificationChannel,
+codeguru-profiler:PutPermission,
+codeguru-profiler:RemovePermission,
+codeguru-profiler:GetPolicy,
+codeguru-profiler:TagResource,
+codeguru-profiler:UntagResource,
+codeguru-profiler:ListTagsForResource
 ```
 
 ### Delete

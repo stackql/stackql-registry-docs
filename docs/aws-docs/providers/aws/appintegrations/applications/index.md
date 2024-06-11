@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>applications</code> in a region or to create or delete a <code>applications</code> resource, use <code>application</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>application</code> resource or lists <code>applications</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>applications</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the application.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The id of the application.</td></tr>
+<tr><td><CopyableCode code="namespace" /></td><td><code>string</code></td><td>The namespace of the application.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The application description.</td></tr>
 <tr><td><CopyableCode code="application_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the application.</td></tr>
+<tr><td><CopyableCode code="application_source_config" /></td><td><code>object</code></td><td>Application source config</td></tr>
+<tr><td><CopyableCode code="permissions" /></td><td><code>array</code></td><td>The configuration of events or requests that the application has access to.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags (keys and values) associated with the application.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +60,24 @@ Used to retrieve a list of <code>applications</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>applications</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +85,24 @@ application_arn
 FROM aws.appintegrations.applications
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>application</code>.
+```sql
+SELECT
+region,
+name,
+id,
+namespace,
+description,
+application_arn,
+application_source_config,
+permissions,
+tags
+FROM aws.appintegrations.applications
+WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>application</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -162,7 +192,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -181,10 +211,23 @@ app-integrations:CreateApplication,
 app-integrations:TagResource
 ```
 
+### Read
+```json
+app-integrations:GetApplication
+```
+
 ### List
 ```json
 app-integrations:ListApplications,
 app-integrations:ListTagsForResource
+```
+
+### Update
+```json
+app-integrations:GetApplication,
+app-integrations:UpdateApplication,
+app-integrations:TagResource,
+app-integrations:UntagResource
 ```
 
 ### Delete

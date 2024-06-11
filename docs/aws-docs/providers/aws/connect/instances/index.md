@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>instances</code> in a region or to create or delete a <code>instances</code> resource, use <code>instance</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>instance</code> resource or lists <code>instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>instances</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>An instanceId is automatically generated on creation and assigned as the unique identifier.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>An instanceArn is automatically generated on creation based on instanceId.</td></tr>
+<tr><td><CopyableCode code="identity_management_type" /></td><td><code>string</code></td><td>Specifies the type of directory integration for new instance.</td></tr>
+<tr><td><CopyableCode code="instance_alias" /></td><td><code>string</code></td><td>Alias of the new directory created as part of new instance creation.</td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td>Timestamp of instance creation logged as part of instance creation.</td></tr>
+<tr><td><CopyableCode code="service_role" /></td><td><code>string</code></td><td>Service linked role created as part of instance creation.</td></tr>
+<tr><td><CopyableCode code="instance_status" /></td><td><code>string</code></td><td>Specifies the creation status of new instance.</td></tr>
+<tr><td><CopyableCode code="directory_id" /></td><td><code>string</code></td><td>Existing directoryId user wants to map to the new Connect instance.</td></tr>
+<tr><td><CopyableCode code="attributes" /></td><td><code>object</code></td><td>The attributes for the instance.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>instances</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>instances</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ arn
 FROM aws.connect.instances
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>instance</code>.
+```sql
+SELECT
+region,
+id,
+arn,
+identity_management_type,
+instance_alias,
+created_time,
+service_role,
+instance_status,
+directory_id,
+attributes,
+tags
+FROM aws.connect.instances
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>instance</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -158,7 +192,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -187,6 +221,23 @@ ds:DescribeDirectories,
 iam:CreateServiceLinkedRole,
 iam:PutRolePolicy,
 logs:CreateLogGroup
+```
+
+### Read
+```json
+connect:DescribeInstance,
+connect:ListInstanceAttributes,
+ds:DescribeDirectories
+```
+
+### Update
+```json
+connect:ListInstanceAttributes,
+connect:UpdateInstanceAttribute,
+iam:CreateServiceLinkedRole,
+iam:PutRolePolicy,
+connect:TagResource,
+connect:UntagResource
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>rules</code> in a region or to create or delete a <code>rules</code> resource, use <code>rule</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>rule</code> resource or lists <code>rules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,16 @@ Used to retrieve a list of <code>rules</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="action" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="listener_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="match" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="priority" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +61,24 @@ Used to retrieve a list of <code>rules</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>rules</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +86,25 @@ arn
 FROM aws.vpclattice.rules
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>rule</code>.
+```sql
+SELECT
+region,
+action,
+arn,
+id,
+listener_identifier,
+match,
+name,
+priority,
+service_identifier,
+tags
+FROM aws.vpclattice.rules
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>rule</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -181,7 +213,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -200,6 +232,20 @@ vpc-lattice:CreateRule,
 vpc-lattice:GetRule,
 vpc-lattice:ListTagsForResource,
 vpc-lattice:TagResource
+```
+
+### Read
+```json
+vpc-lattice:GetRule,
+vpc-lattice:ListTagsForResource
+```
+
+### Update
+```json
+vpc-lattice:UpdateRule,
+vpc-lattice:GetRule,
+vpc-lattice:TagResource,
+vpc-lattice:UntagResource
 ```
 
 ### Delete

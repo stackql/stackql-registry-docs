@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>monitors</code> in a region or to create or delete a <code>monitors</code> resource, use <code>monitor</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>monitor</code> resource or lists <code>monitors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,24 @@ Used to retrieve a list of <code>monitors</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_at" /></td><td><code>The date value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ssZ)</code></td><td></td></tr>
+<tr><td><CopyableCode code="modified_at" /></td><td><code>The date value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ssZ)</code></td><td></td></tr>
+<tr><td><CopyableCode code="monitor_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="monitor_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="linked_account_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="include_linked_accounts" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="processing_status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="processing_status_info" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="resources" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="resources_to_add" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="resources_to_remove" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="max_city_networks_to_monitor" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="traffic_percentage_to_monitor" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="internet_measurements_log_delivery" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="health_events_config" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +69,24 @@ Used to retrieve a list of <code>monitors</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>monitors</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +94,33 @@ monitor_name
 FROM aws.internetmonitor.monitors
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>monitor</code>.
+```sql
+SELECT
+region,
+created_at,
+modified_at,
+monitor_arn,
+monitor_name,
+linked_account_id,
+include_linked_accounts,
+processing_status,
+processing_status_info,
+resources,
+resources_to_add,
+resources_to_remove,
+status,
+tags,
+max_city_networks_to_monitor,
+traffic_percentage_to_monitor,
+internet_measurements_log_delivery,
+health_events_config
+FROM aws.internetmonitor.monitors
+WHERE region = 'us-east-1' AND data__Identifier = '<MonitorName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>monitor</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -191,7 +239,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -212,6 +260,31 @@ internetmonitor:TagResource,
 internetmonitor:UntagResource,
 logs:CreateLogDelivery,
 logs:GetLogDelivery,
+s3:GetBucketPolicy,
+s3:PutBucketPolicy,
+s3:ListBucket,
+iam:PassRole
+```
+
+### Read
+```json
+internetmonitor:GetMonitor,
+internetmonitor:ListTagsForResource,
+logs:GetLogDelivery
+```
+
+### Update
+```json
+internetmonitor:CreateMonitor,
+internetmonitor:GetMonitor,
+internetmonitor:UpdateMonitor,
+internetmonitor:TagResource,
+internetmonitor:UntagResource,
+logs:CreateLogDelivery,
+logs:GetLogDelivery,
+logs:UpdateLogDelivery,
+logs:DeleteLogDelivery,
+logs:ListLogDeliveries,
 s3:GetBucketPolicy,
 s3:PutBucketPolicy,
 s3:ListBucket,

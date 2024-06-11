@@ -20,9 +20,9 @@ The appsync service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>10</b></span><br />
-<span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>10</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -31,17 +31,12 @@ The appsync service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/appsync/domain_name/">domain_name</a><br />
-<a href="/providers/aws/appsync/domain_name_api_association/">domain_name_api_association</a><br />
 <a href="/providers/aws/appsync/domain_name_api_associations/">domain_name_api_associations</a><br />
 <a href="/providers/aws/appsync/domain_names/">domain_names</a><br />
-<a href="/providers/aws/appsync/function_configuration/">function_configuration</a>
+<a href="/providers/aws/appsync/function_configurations/">function_configurations</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/appsync/function_configurations/">function_configurations</a><br />
-<a href="/providers/aws/appsync/resolver/">resolver</a><br />
 <a href="/providers/aws/appsync/resolvers/">resolvers</a><br />
-<a href="/providers/aws/appsync/source_api_association/">source_api_association</a><br />
 <a href="/providers/aws/appsync/source_api_associations/">source_api_associations</a>
 </div>
 </div>

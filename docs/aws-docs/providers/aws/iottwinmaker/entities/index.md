@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>entities</code> in a region or to create or delete a <code>entities</code> resource, use <code>entity</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>entity</code> resource or lists <code>entities</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,20 @@ Used to retrieve a list of <code>entities</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="entity_id" /></td><td><code>string</code></td><td>The ID of the entity.</td></tr>
+<tr><td><CopyableCode code="entity_name" /></td><td><code>string</code></td><td>The name of the entity.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>object</code></td><td>The current status of the entity.</td></tr>
+<tr><td><CopyableCode code="has_child_entities" /></td><td><code>boolean</code></td><td>A Boolean value that specifies whether the entity has child entities or not.</td></tr>
+<tr><td><CopyableCode code="parent_entity_id" /></td><td><code>string</code></td><td>The ID of the parent entity.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the entity.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the entity.</td></tr>
+<tr><td><CopyableCode code="creation_date_time" /></td><td><code>string</code></td><td>The date and time when the entity was created.</td></tr>
+<tr><td><CopyableCode code="update_date_time" /></td><td><code>string</code></td><td>The last date and time when the entity was updated.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
 <tr><td><CopyableCode code="workspace_id" /></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
-<tr><td><CopyableCode code="entity_id" /></td><td><code>string</code></td><td>The ID of the entity.</td></tr>
+<tr><td><CopyableCode code="components" /></td><td><code>object</code></td><td>A map that sets information about a component type.</td></tr>
+<tr><td><CopyableCode code="composite_components" /></td><td><code>object</code></td><td>A map that sets information about a composite component.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +65,24 @@ Used to retrieve a list of <code>entities</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>entities</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +91,29 @@ entity_id
 FROM aws.iottwinmaker.entities
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>entity</code>.
+```sql
+SELECT
+region,
+entity_id,
+entity_name,
+status,
+has_child_entities,
+parent_entity_id,
+arn,
+description,
+creation_date_time,
+update_date_time,
+tags,
+workspace_id,
+components,
+composite_components
+FROM aws.iottwinmaker.entities
+WHERE region = 'us-east-1' AND data__Identifier = '<WorkspaceId>|<EntityId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>entity</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -163,7 +202,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -185,6 +224,31 @@ iottwinmaker:ListComponents,
 iottwinmaker:ListProperties,
 iottwinmaker:ListTagsForResource,
 iottwinmaker:TagResource
+```
+
+### Read
+```json
+iottwinmaker:GetComponentType,
+iottwinmaker:GetEntity,
+iottwinmaker:ListComponents,
+iottwinmaker:ListProperties,
+iottwinmaker:GetWorkspace,
+iottwinmaker:ListEntities,
+iottwinmaker:ListTagsForResource
+```
+
+### Update
+```json
+iottwinmaker:GetComponentType,
+iottwinmaker:GetEntity,
+iottwinmaker:ListComponents,
+iottwinmaker:ListProperties,
+iottwinmaker:GetWorkspace,
+iottwinmaker:ListTagsForResource,
+iottwinmaker:TagResource,
+iottwinmaker:UntagResource,
+iottwinmaker:UpdateEntity,
+iottwinmaker:UpdateComponentType
 ```
 
 ### Delete

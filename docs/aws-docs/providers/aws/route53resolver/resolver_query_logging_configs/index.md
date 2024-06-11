@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>resolver_query_logging_configs</code> in a region or to create or delete a <code>resolver_query_logging_configs</code> resource, use <code>resolver_query_logging_config</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>resolver_query_logging_config</code> resource or lists <code>resolver_query_logging_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>resolver_query_logging_configs</code> in a regi
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
+<tr><td><CopyableCode code="owner_id" /></td><td><code>string</code></td><td>AccountId</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.</td></tr>
+<tr><td><CopyableCode code="share_status" /></td><td><code>string</code></td><td>ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.</td></tr>
+<tr><td><CopyableCode code="association_count" /></td><td><code>integer</code></td><td>Count</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Arn</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>ResolverQueryLogConfigName</td></tr>
+<tr><td><CopyableCode code="creator_request_id" /></td><td><code>string</code></td><td>The id of the creator request.</td></tr>
+<tr><td><CopyableCode code="destination_arn" /></td><td><code>string</code></td><td>destination arn</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +66,15 @@ Used to retrieve a list of <code>resolver_query_logging_configs</code> in a regi
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>resolver_query_logging_configs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,26 @@ id
 FROM aws.route53resolver.resolver_query_logging_configs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>resolver_query_logging_config</code>.
+```sql
+SELECT
+region,
+id,
+owner_id,
+status,
+share_status,
+association_count,
+arn,
+name,
+creator_request_id,
+destination_arn,
+creation_time
+FROM aws.route53resolver.resolver_query_logging_configs
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>resolver_query_logging_config</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -137,7 +166,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -165,6 +194,12 @@ logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
 logs:DescribeLogGroups,
 iam:CreateServiceLinkedRole
+```
+
+### Read
+```json
+resolverquerylogging:GetConfig,
+route53resolver:GetResolverQueryLogConfig
 ```
 
 ### Delete

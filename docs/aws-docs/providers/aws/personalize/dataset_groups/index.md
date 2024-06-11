@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>dataset_groups</code> in a region or to create or delete a <code>dataset_groups</code> resource, use <code>dataset_group</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>dataset_group</code> resource or lists <code>dataset_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>dataset_groups</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="dataset_group_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="dataset_group_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name for the new dataset group.</td></tr>
+<tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name(ARN) of a AWS Key Management Service (KMS) key used to encrypt the datasets.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.</td></tr>
+<tr><td><CopyableCode code="domain" /></td><td><code>string</code></td><td>The domain of a Domain dataset group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +61,15 @@ Used to retrieve a list of <code>dataset_groups</code> in a region or to create 
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>dataset_groups</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +77,21 @@ dataset_group_arn
 FROM aws.personalize.dataset_groups
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>dataset_group</code>.
+```sql
+SELECT
+region,
+dataset_group_arn,
+name,
+kms_key_arn,
+role_arn,
+domain
+FROM aws.personalize.dataset_groups
+WHERE region = 'us-east-1' AND data__Identifier = '<DatasetGroupArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>dataset_group</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -143,7 +162,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -161,6 +180,11 @@ To operate on the <code>dataset_groups</code> resource, the following permission
 personalize:CreateDatasetGroup,
 personalize:DescribeDatasetGroup,
 iam:PassRole
+```
+
+### Read
+```json
+personalize:DescribeDatasetGroup
 ```
 
 ### Delete

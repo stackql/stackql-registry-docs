@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>dashboards</code> in a region or to create or delete a <code>dashboards</code> resource, use <code>dashboard</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>dashboard</code> resource or lists <code>dashboards</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,26 @@ Used to retrieve a list of <code>dashboards</code> in a region or to create or d
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td><p>The time that this dashboard was created.</p></td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code><p>A list of Amazon QuickSight parameters and the list's override values.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="version_description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_entity" /></td><td><code><p>Dashboard source entity.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="theme_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>The last time that this dashboard was updated.</p></td></tr>
+<tr><td><CopyableCode code="validation_strategy" /></td><td><code><p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p></code></td><td></td></tr>
 <tr><td><CopyableCode code="dashboard_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="link_sharing_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="dashboard_publish_options" /></td><td><code><p>Dashboard publish options.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="last_published_time" /></td><td><code>string</code></td><td><p>The last time that this dashboard was published.</p></td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code><p>Dashboard version.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="permissions" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="link_entities" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the resource.</p></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +71,24 @@ Used to retrieve a list of <code>dashboards</code> in a region or to create or d
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>dashboards</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +97,35 @@ dashboard_id
 FROM aws.quicksight.dashboards
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>dashboard</code>.
+```sql
+SELECT
+region,
+created_time,
+parameters,
+version_description,
+source_entity,
+theme_arn,
+definition,
+last_updated_time,
+validation_strategy,
+dashboard_id,
+link_sharing_configuration,
+name,
+dashboard_publish_options,
+last_published_time,
+version,
+aws_account_id,
+permissions,
+link_entities,
+arn,
+tags
+FROM aws.quicksight.dashboards
+WHERE region = 'us-east-1' AND data__Identifier = '<AwsAccountId>|<DashboardId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>dashboard</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -91,15 +142,15 @@ Use the following StackQL query and manifest file to create a new <code>dashboar
 ```sql
 /*+ create */
 INSERT INTO aws.quicksight.dashboards (
- AwsAccountId,
  DashboardId,
  Name,
+ AwsAccountId,
  region
 )
 SELECT 
-'{{ AwsAccountId }}',
- '{{ DashboardId }}',
+'{{ DashboardId }}',
  '{{ Name }}',
+ '{{ AwsAccountId }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -108,37 +159,37 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.quicksight.dashboards (
- AwsAccountId,
- DashboardId,
- DashboardPublishOptions,
+ Parameters,
+ VersionDescription,
+ SourceEntity,
+ ThemeArn,
  Definition,
- LinkEntities,
+ ValidationStrategy,
+ DashboardId,
  LinkSharingConfiguration,
  Name,
- Parameters,
+ DashboardPublishOptions,
+ AwsAccountId,
  Permissions,
- SourceEntity,
+ LinkEntities,
  Tags,
- ThemeArn,
- ValidationStrategy,
- VersionDescription,
  region
 )
 SELECT 
- '{{ AwsAccountId }}',
- '{{ DashboardId }}',
- '{{ DashboardPublishOptions }}',
+ '{{ Parameters }}',
+ '{{ VersionDescription }}',
+ '{{ SourceEntity }}',
+ '{{ ThemeArn }}',
  '{{ Definition }}',
- '{{ LinkEntities }}',
+ '{{ ValidationStrategy }}',
+ '{{ DashboardId }}',
  '{{ LinkSharingConfiguration }}',
  '{{ Name }}',
- '{{ Parameters }}',
+ '{{ DashboardPublishOptions }}',
+ '{{ AwsAccountId }}',
  '{{ Permissions }}',
- '{{ SourceEntity }}',
+ '{{ LinkEntities }}',
  '{{ Tags }}',
- '{{ ThemeArn }}',
- '{{ ValidationStrategy }}',
- '{{ VersionDescription }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -156,423 +207,583 @@ globals:
 resources:
   - name: dashboard
     props:
-      - name: AwsAccountId
-        value: '{{ AwsAccountId }}'
-      - name: DashboardId
-        value: '{{ DashboardId }}'
-      - name: DashboardPublishOptions
+      - name: Parameters
         value:
-          AdHocFilteringOption:
-            AvailabilityStatus: '{{ AvailabilityStatus }}'
-          ExportToCSVOption:
-            AvailabilityStatus: null
-          SheetControlsOption:
-            VisibilityState: '{{ VisibilityState }}'
-          VisualPublishOptions:
-            ExportHiddenFieldsOption:
-              AvailabilityStatus: null
-          SheetLayoutElementMaximizationOption:
-            AvailabilityStatus: null
-          VisualMenuOption:
-            AvailabilityStatus: null
-          VisualAxisSortOption:
-            AvailabilityStatus: null
-          ExportWithHiddenFieldsOption:
-            AvailabilityStatus: null
-          DataPointDrillUpDownOption:
-            AvailabilityStatus: null
-          DataPointMenuLabelOption:
-            AvailabilityStatus: null
-          DataPointTooltipOption:
-            AvailabilityStatus: null
+          StringParameters:
+            - Values:
+                - '{{ Values[0] }}'
+              Name: '{{ Name }}'
+          DecimalParameters:
+            - Values:
+                - null
+              Name: '{{ Name }}'
+          IntegerParameters:
+            - Values:
+                - null
+              Name: '{{ Name }}'
+          DateTimeParameters:
+            - Values:
+                - '{{ Values[0] }}'
+              Name: '{{ Name }}'
+      - name: VersionDescription
+        value: '{{ VersionDescription }}'
+      - name: SourceEntity
+        value:
+          SourceTemplate:
+            DataSetReferences:
+              - DataSetArn: '{{ DataSetArn }}'
+                DataSetPlaceholder: '{{ DataSetPlaceholder }}'
+            Arn: '{{ Arn }}'
+      - name: ThemeArn
+        value: '{{ ThemeArn }}'
       - name: Definition
         value:
+          Options:
+            Timezone: '{{ Timezone }}'
+            WeekStart: '{{ WeekStart }}'
+          FilterGroups:
+            - Status: '{{ Status }}'
+              Filters:
+                - NumericEqualityFilter:
+                    AggregationFunction:
+                      AttributeAggregationFunction:
+                        SimpleAttributeAggregation: '{{ SimpleAttributeAggregation }}'
+                        ValueForMultipleValues: '{{ ValueForMultipleValues }}'
+                      DateAggregationFunction: '{{ DateAggregationFunction }}'
+                      NumericalAggregationFunction:
+                        PercentileAggregation:
+                          PercentileValue: null
+                        SimpleNumericalAggregation: '{{ SimpleNumericalAggregation }}'
+                      CategoricalAggregationFunction: '{{ CategoricalAggregationFunction }}'
+                    Column:
+                      ColumnName: '{{ ColumnName }}'
+                      DataSetIdentifier: '{{ DataSetIdentifier }}'
+                    Value: null
+                    ParameterName: '{{ ParameterName }}'
+                    NullOption: '{{ NullOption }}'
+                    MatchOperator: '{{ MatchOperator }}'
+                    SelectAllOptions: '{{ SelectAllOptions }}'
+                    DefaultFilterControlConfiguration:
+                      ControlOptions:
+                        DefaultSliderOptions:
+                          Type: '{{ Type }}'
+                          StepSize: null
+                          DisplayOptions:
+                            TitleOptions:
+                              CustomLabel: '{{ CustomLabel }}'
+                              Visibility: '{{ Visibility }}'
+                              FontConfiguration:
+                                FontStyle: '{{ FontStyle }}'
+                                FontSize:
+                                  Relative: '{{ Relative }}'
+                                FontDecoration: '{{ FontDecoration }}'
+                                FontColor: '{{ FontColor }}'
+                                FontWeight:
+                                  Name: '{{ Name }}'
+                            InfoIconLabelOptions:
+                              Visibility: null
+                              InfoIconText: '{{ InfoIconText }}'
+                          MaximumValue: null
+                          MinimumValue: null
+                        DefaultRelativeDateTimeOptions:
+                          DisplayOptions:
+                            TitleOptions: null
+                            InfoIconLabelOptions: null
+                            DateTimeFormat: '{{ DateTimeFormat }}'
+                        DefaultTextFieldOptions:
+                          DisplayOptions:
+                            TitleOptions: null
+                            PlaceholderOptions:
+                              Visibility: null
+                            InfoIconLabelOptions: null
+                        DefaultTextAreaOptions:
+                          Delimiter: '{{ Delimiter }}'
+                          DisplayOptions:
+                            TitleOptions: null
+                            PlaceholderOptions: null
+                            InfoIconLabelOptions: null
+                        DefaultDropdownOptions:
+                          Type: '{{ Type }}'
+                          DisplayOptions:
+                            TitleOptions: null
+                            SelectAllOptions:
+                              Visibility: null
+                            InfoIconLabelOptions: null
+                          SelectableValues:
+                            Values:
+                              - '{{ Values[0] }}'
+                        DefaultDateTimePickerOptions:
+                          Type: '{{ Type }}'
+                          DisplayOptions:
+                            TitleOptions: null
+                            InfoIconLabelOptions: null
+                            DateTimeFormat: '{{ DateTimeFormat }}'
+                        DefaultListOptions:
+                          Type: null
+                          DisplayOptions:
+                            TitleOptions: null
+                            SearchOptions:
+                              Visibility: null
+                            SelectAllOptions: null
+                            InfoIconLabelOptions: null
+                          SelectableValues: null
+                      Title: '{{ Title }}'
+                    FilterId: '{{ FilterId }}'
+                  NumericRangeFilter:
+                    AggregationFunction: null
+                    Column: null
+                    IncludeMaximum: '{{ IncludeMaximum }}'
+                    RangeMinimum:
+                      StaticValue: null
+                      Parameter: '{{ Parameter }}'
+                    NullOption: null
+                    SelectAllOptions: null
+                    DefaultFilterControlConfiguration: null
+                    FilterId: '{{ FilterId }}'
+                    RangeMaximum: null
+                    IncludeMinimum: '{{ IncludeMinimum }}'
+                  TimeRangeFilter:
+                    RangeMinimumValue:
+                      RollingDate:
+                        Expression: '{{ Expression }}'
+                        DataSetIdentifier: '{{ DataSetIdentifier }}'
+                      StaticValue: '{{ StaticValue }}'
+                      Parameter: '{{ Parameter }}'
+                    Column: null
+                    RangeMaximumValue: null
+                    IncludeMaximum: '{{ IncludeMaximum }}'
+                    TimeGranularity: '{{ TimeGranularity }}'
+                    NullOption: null
+                    DefaultFilterControlConfiguration: null
+                    FilterId: '{{ FilterId }}'
+                    IncludeMinimum: '{{ IncludeMinimum }}'
+                    ExcludePeriodConfiguration:
+                      Status: null
+                      Amount: null
+                      Granularity: null
+                  RelativeDatesFilter:
+                    RelativeDateValue: null
+                    Column: null
+                    RelativeDateType: '{{ RelativeDateType }}'
+                    TimeGranularity: null
+                    ParameterName: '{{ ParameterName }}'
+                    NullOption: null
+                    DefaultFilterControlConfiguration: null
+                    FilterId: '{{ FilterId }}'
+                    AnchorDateConfiguration:
+                      AnchorOption: '{{ AnchorOption }}'
+                      ParameterName: '{{ ParameterName }}'
+                    MinimumGranularity: null
+                    ExcludePeriodConfiguration: null
+                  TopBottomFilter:
+                    AggregationSortConfigurations:
+                      - AggregationFunction: null
+                        SortDirection: '{{ SortDirection }}'
+                        Column: null
+                    Column: null
+                    TimeGranularity: null
+                    ParameterName: '{{ ParameterName }}'
+                    Limit: null
+                    DefaultFilterControlConfiguration: null
+                    FilterId: '{{ FilterId }}'
+                  TimeEqualityFilter:
+                    Column: null
+                    RollingDate: null
+                    Value: '{{ Value }}'
+                    TimeGranularity: null
+                    ParameterName: '{{ ParameterName }}'
+                    DefaultFilterControlConfiguration: null
+                    FilterId: '{{ FilterId }}'
+                  CategoryFilter:
+                    Configuration:
+                      CustomFilterListConfiguration:
+                        CategoryValues:
+                          - '{{ CategoryValues[0] }}'
+                        NullOption: null
+                        MatchOperator: '{{ MatchOperator }}'
+                        SelectAllOptions: '{{ SelectAllOptions }}'
+                      CustomFilterConfiguration:
+                        CategoryValue: '{{ CategoryValue }}'
+                        ParameterName: '{{ ParameterName }}'
+                        NullOption: null
+                        MatchOperator: null
+                        SelectAllOptions: null
+                      FilterListConfiguration:
+                        CategoryValues:
+                          - '{{ CategoryValues[0] }}'
+                        NullOption: null
+                        MatchOperator: null
+                        SelectAllOptions: null
+                    Column: null
+                    DefaultFilterControlConfiguration: null
+                    FilterId: '{{ FilterId }}'
+              CrossDataset: '{{ CrossDataset }}'
+              ScopeConfiguration:
+                AllSheets: {}
+                SelectedSheets:
+                  SheetVisualScopingConfigurations:
+                    - Scope: '{{ Scope }}'
+                      SheetId: '{{ SheetId }}'
+                      VisualIds:
+                        - '{{ VisualIds[0] }}'
+              FilterGroupId: '{{ FilterGroupId }}'
+          CalculatedFields:
+            - Expression: '{{ Expression }}'
+              DataSetIdentifier: '{{ DataSetIdentifier }}'
+              Name: '{{ Name }}'
           DataSetIdentifierDeclarations:
             - Identifier: '{{ Identifier }}'
               DataSetArn: '{{ DataSetArn }}'
+          ColumnConfigurations:
+            - Role: '{{ Role }}'
+              FormatConfiguration:
+                NumberFormatConfiguration:
+                  FormatConfiguration:
+                    NumberDisplayFormatConfiguration:
+                      NegativeValueConfiguration:
+                        DisplayMode: '{{ DisplayMode }}'
+                      DecimalPlacesConfiguration:
+                        DecimalPlaces: null
+                      NumberScale: '{{ NumberScale }}'
+                      NullValueFormatConfiguration:
+                        NullString: '{{ NullString }}'
+                      Suffix: '{{ Suffix }}'
+                      SeparatorConfiguration:
+                        DecimalSeparator: '{{ DecimalSeparator }}'
+                        ThousandsSeparator:
+                          Symbol: null
+                          Visibility: null
+                      Prefix: '{{ Prefix }}'
+                    CurrencyDisplayFormatConfiguration:
+                      NegativeValueConfiguration: null
+                      DecimalPlacesConfiguration: null
+                      NumberScale: null
+                      NullValueFormatConfiguration: null
+                      Suffix: '{{ Suffix }}'
+                      SeparatorConfiguration: null
+                      Symbol: '{{ Symbol }}'
+                      Prefix: '{{ Prefix }}'
+                    PercentageDisplayFormatConfiguration:
+                      NegativeValueConfiguration: null
+                      DecimalPlacesConfiguration: null
+                      NullValueFormatConfiguration: null
+                      Suffix: '{{ Suffix }}'
+                      SeparatorConfiguration: null
+                      Prefix: '{{ Prefix }}'
+                DateTimeFormatConfiguration:
+                  NumericFormatConfiguration: null
+                  NullValueFormatConfiguration: null
+                  DateTimeFormat: '{{ DateTimeFormat }}'
+                StringFormatConfiguration:
+                  NumericFormatConfiguration: null
+                  NullValueFormatConfiguration: null
+              Column: null
+              ColorsConfiguration:
+                CustomColors:
+                  - Color: '{{ Color }}'
+                    FieldValue: '{{ FieldValue }}'
+                    SpecialValue: '{{ SpecialValue }}'
+          AnalysisDefaults:
+            DefaultNewSheetConfiguration:
+              SheetContentType: '{{ SheetContentType }}'
+              InteractiveLayoutConfiguration:
+                FreeForm:
+                  CanvasSizeOptions:
+                    ScreenCanvasSizeOptions:
+                      OptimizedViewPortWidth: '{{ OptimizedViewPortWidth }}'
+                Grid:
+                  CanvasSizeOptions:
+                    ScreenCanvasSizeOptions:
+                      OptimizedViewPortWidth: '{{ OptimizedViewPortWidth }}'
+                      ResizeOption: '{{ ResizeOption }}'
+              PaginatedLayoutConfiguration:
+                SectionBased:
+                  CanvasSizeOptions:
+                    PaperCanvasSizeOptions:
+                      PaperMargin:
+                        Left: '{{ Left }}'
+                        Top: '{{ Top }}'
+                        Right: '{{ Right }}'
+                        Bottom: '{{ Bottom }}'
+                      PaperSize: '{{ PaperSize }}'
+                      PaperOrientation: '{{ PaperOrientation }}'
           Sheets:
-            - SheetId: '{{ SheetId }}'
-              Title: '{{ Title }}'
-              Description: '{{ Description }}'
-              Name: '{{ Name }}'
+            - Description: '{{ Description }}'
               ParameterControls:
-                - DateTimePicker:
+                - Slider:
                     ParameterControlId: '{{ ParameterControlId }}'
-                    Title: '{{ Title }}'
+                    StepSize: null
+                    DisplayOptions: null
                     SourceParameterName: '{{ SourceParameterName }}'
-                    DisplayOptions:
-                      TitleOptions:
-                        Visibility: '{{ Visibility }}'
-                        FontConfiguration:
-                          FontSize:
-                            Relative: '{{ Relative }}'
-                          FontDecoration: '{{ FontDecoration }}'
-                          FontColor: '{{ FontColor }}'
-                          FontWeight:
-                            Name: '{{ Name }}'
-                          FontStyle: '{{ FontStyle }}'
-                        CustomLabel: '{{ CustomLabel }}'
-                      DateTimeFormat: '{{ DateTimeFormat }}'
-                      InfoIconLabelOptions:
-                        Visibility: null
-                        InfoIconText: '{{ InfoIconText }}'
-                  List:
+                    Title: '{{ Title }}'
+                    MaximumValue: null
+                    MinimumValue: null
+                  TextArea:
                     ParameterControlId: '{{ ParameterControlId }}'
-                    Title: '{{ Title }}'
+                    Delimiter: '{{ Delimiter }}'
+                    DisplayOptions: null
                     SourceParameterName: '{{ SourceParameterName }}'
-                    DisplayOptions:
-                      SearchOptions:
-                        Visibility: null
-                      SelectAllOptions:
-                        Visibility: null
-                      TitleOptions: null
-                      InfoIconLabelOptions: null
-                    Type: '{{ Type }}'
-                    SelectableValues:
-                      Values:
-                        - '{{ Values[0] }}'
-                      LinkToDataSetColumn:
-                        DataSetIdentifier: '{{ DataSetIdentifier }}'
-                        ColumnName: '{{ ColumnName }}'
+                    Title: '{{ Title }}'
+                  Dropdown:
+                    ParameterControlId: '{{ ParameterControlId }}'
+                    Type: null
+                    DisplayOptions: null
+                    SourceParameterName: '{{ SourceParameterName }}'
                     CascadingControlConfiguration:
                       SourceControls:
                         - SourceSheetControlId: '{{ SourceSheetControlId }}'
                           ColumnToMatch: null
-                  Dropdown:
-                    ParameterControlId: '{{ ParameterControlId }}'
                     Title: '{{ Title }}'
-                    SourceParameterName: '{{ SourceParameterName }}'
-                    DisplayOptions:
-                      SelectAllOptions: null
-                      TitleOptions: null
-                      InfoIconLabelOptions: null
-                    Type: null
-                    SelectableValues: null
-                    CascadingControlConfiguration: null
-                  TextField:
-                    ParameterControlId: '{{ ParameterControlId }}'
-                    Title: '{{ Title }}'
-                    SourceParameterName: '{{ SourceParameterName }}'
-                    DisplayOptions:
-                      TitleOptions: null
-                      PlaceholderOptions:
-                        Visibility: null
-                      InfoIconLabelOptions: null
-                  TextArea:
-                    ParameterControlId: '{{ ParameterControlId }}'
-                    Title: '{{ Title }}'
-                    SourceParameterName: '{{ SourceParameterName }}'
-                    Delimiter: '{{ Delimiter }}'
-                    DisplayOptions:
-                      TitleOptions: null
-                      PlaceholderOptions: null
-                      InfoIconLabelOptions: null
-                  Slider:
-                    ParameterControlId: '{{ ParameterControlId }}'
-                    Title: '{{ Title }}'
-                    SourceParameterName: '{{ SourceParameterName }}'
-                    DisplayOptions:
-                      TitleOptions: null
-                      InfoIconLabelOptions: null
-                    MaximumValue: null
-                    MinimumValue: null
-                    StepSize: null
-              FilterControls:
-                - DateTimePicker:
-                    FilterControlId: '{{ FilterControlId }}'
-                    Title: '{{ Title }}'
-                    SourceFilterId: '{{ SourceFilterId }}'
-                    DisplayOptions: null
-                    Type: '{{ Type }}'
-                  List:
-                    FilterControlId: '{{ FilterControlId }}'
-                    Title: '{{ Title }}'
-                    SourceFilterId: '{{ SourceFilterId }}'
-                    DisplayOptions: null
-                    Type: null
                     SelectableValues:
+                      LinkToDataSetColumn: null
                       Values:
                         - '{{ Values[0] }}'
-                    CascadingControlConfiguration: null
-                  Dropdown:
-                    FilterControlId: '{{ FilterControlId }}'
-                    Title: '{{ Title }}'
-                    SourceFilterId: '{{ SourceFilterId }}'
-                    DisplayOptions: null
-                    Type: null
-                    SelectableValues: null
-                    CascadingControlConfiguration: null
                   TextField:
-                    FilterControlId: '{{ FilterControlId }}'
-                    Title: '{{ Title }}'
-                    SourceFilterId: '{{ SourceFilterId }}'
+                    ParameterControlId: '{{ ParameterControlId }}'
                     DisplayOptions: null
+                    SourceParameterName: '{{ SourceParameterName }}'
+                    Title: '{{ Title }}'
+                  List:
+                    ParameterControlId: '{{ ParameterControlId }}'
+                    Type: null
+                    DisplayOptions: null
+                    SourceParameterName: '{{ SourceParameterName }}'
+                    CascadingControlConfiguration: null
+                    Title: '{{ Title }}'
+                    SelectableValues: null
+                  DateTimePicker:
+                    ParameterControlId: '{{ ParameterControlId }}'
+                    DisplayOptions: null
+                    SourceParameterName: '{{ SourceParameterName }}'
+                    Title: '{{ Title }}'
+              TextBoxes:
+                - SheetTextBoxId: '{{ SheetTextBoxId }}'
+                  Content: '{{ Content }}'
+              Layouts:
+                - Configuration:
+                    GridLayout:
+                      CanvasSizeOptions: null
+                      Elements:
+                        - ElementType: '{{ ElementType }}'
+                          ColumnSpan: null
+                          ColumnIndex: null
+                          RowIndex: null
+                          RowSpan: null
+                          ElementId: '{{ ElementId }}'
+                    FreeFormLayout:
+                      CanvasSizeOptions: null
+                      Elements:
+                        - ElementType: null
+                          BorderStyle:
+                            Color: '{{ Color }}'
+                            Visibility: null
+                          Height: '{{ Height }}'
+                          Visibility: null
+                          RenderingRules:
+                            - Expression: '{{ Expression }}'
+                              ConfigurationOverrides:
+                                Visibility: null
+                          YAxisLocation: '{{ YAxisLocation }}'
+                          LoadingAnimation:
+                            Visibility: null
+                          Width: '{{ Width }}'
+                          BackgroundStyle:
+                            Color: '{{ Color }}'
+                            Visibility: null
+                          ElementId: '{{ ElementId }}'
+                          XAxisLocation: '{{ XAxisLocation }}'
+                          SelectedBorderStyle: null
+                    SectionBasedLayout:
+                      CanvasSizeOptions: null
+                      FooterSections:
+                        - Layout:
+                            FreeFormLayout:
+                              Elements:
+                                - null
+                          Style:
+                            Padding: null
+                            Height: '{{ Height }}'
+                          SectionId: '{{ SectionId }}'
+                      BodySections:
+                        - Content:
+                            Layout: null
+                          Style: null
+                          PageBreakConfiguration:
+                            After:
+                              Status: '{{ Status }}'
+                          SectionId: '{{ SectionId }}'
+                      HeaderSections:
+                        - null
+              ContentType: null
+              SheetId: '{{ SheetId }}'
+              FilterControls:
+                - Slider:
+                    FilterControlId: '{{ FilterControlId }}'
+                    Type: null
+                    StepSize: null
+                    DisplayOptions: null
+                    Title: '{{ Title }}'
+                    MaximumValue: null
+                    SourceFilterId: '{{ SourceFilterId }}'
+                    MinimumValue: null
                   TextArea:
                     FilterControlId: '{{ FilterControlId }}'
-                    Title: '{{ Title }}'
-                    SourceFilterId: '{{ SourceFilterId }}'
                     Delimiter: '{{ Delimiter }}'
                     DisplayOptions: null
-                  Slider:
-                    FilterControlId: '{{ FilterControlId }}'
                     Title: '{{ Title }}'
                     SourceFilterId: '{{ SourceFilterId }}'
+                  Dropdown:
+                    FilterControlId: '{{ FilterControlId }}'
+                    Type: null
                     DisplayOptions: null
-                    Type: '{{ Type }}'
-                    MaximumValue: null
-                    MinimumValue: null
-                    StepSize: null
+                    CascadingControlConfiguration: null
+                    Title: '{{ Title }}'
+                    SourceFilterId: '{{ SourceFilterId }}'
+                    SelectableValues: null
+                  TextField:
+                    FilterControlId: '{{ FilterControlId }}'
+                    DisplayOptions: null
+                    Title: '{{ Title }}'
+                    SourceFilterId: '{{ SourceFilterId }}'
+                  List:
+                    FilterControlId: '{{ FilterControlId }}'
+                    Type: null
+                    DisplayOptions: null
+                    CascadingControlConfiguration: null
+                    Title: '{{ Title }}'
+                    SourceFilterId: '{{ SourceFilterId }}'
+                    SelectableValues: null
+                  DateTimePicker:
+                    FilterControlId: '{{ FilterControlId }}'
+                    Type: null
+                    DisplayOptions: null
+                    Title: '{{ Title }}'
+                    SourceFilterId: '{{ SourceFilterId }}'
                   RelativeDateTime:
                     FilterControlId: '{{ FilterControlId }}'
+                    DisplayOptions: null
                     Title: '{{ Title }}'
                     SourceFilterId: '{{ SourceFilterId }}'
-                    DisplayOptions:
-                      TitleOptions: null
-                      DateTimeFormat: '{{ DateTimeFormat }}'
-                      InfoIconLabelOptions: null
+                  CrossSheet:
+                    FilterControlId: '{{ FilterControlId }}'
+                    CascadingControlConfiguration: null
+                    SourceFilterId: '{{ SourceFilterId }}'
+              SheetControlLayouts:
+                - Configuration:
+                    GridLayout: null
+              Title: '{{ Title }}'
               Visuals:
-                - TableVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title:
-                      Visibility: null
-                      FormatText:
-                        PlainText: '{{ PlainText }}'
-                        RichText: '{{ RichText }}'
+                - FunnelChartVisual:
                     Subtitle:
                       Visibility: null
                       FormatText:
-                        PlainText: '{{ PlainText }}'
                         RichText: '{{ RichText }}'
+                        PlainText: '{{ PlainText }}'
+                    VisualId: '{{ VisualId }}'
                     ChartConfiguration:
-                      FieldWells:
-                        TableAggregatedFieldWells:
-                          GroupBy:
-                            - NumericalDimensionField:
-                                FieldId: '{{ FieldId }}'
-                                Column: null
-                                HierarchyId: '{{ HierarchyId }}'
-                                FormatConfiguration:
-                                  FormatConfiguration:
-                                    NumberDisplayFormatConfiguration:
-                                      Prefix: '{{ Prefix }}'
-                                      Suffix: '{{ Suffix }}'
-                                      SeparatorConfiguration:
-                                        DecimalSeparator: '{{ DecimalSeparator }}'
-                                        ThousandsSeparator:
-                                          Symbol: null
-                                          Visibility: null
-                                      DecimalPlacesConfiguration:
-                                        DecimalPlaces: null
-                                      NumberScale: '{{ NumberScale }}'
-                                      NegativeValueConfiguration:
-                                        DisplayMode: '{{ DisplayMode }}'
-                                      NullValueFormatConfiguration:
-                                        NullString: '{{ NullString }}'
-                                    CurrencyDisplayFormatConfiguration:
-                                      Prefix: '{{ Prefix }}'
-                                      Suffix: '{{ Suffix }}'
-                                      SeparatorConfiguration: null
-                                      Symbol: '{{ Symbol }}'
-                                      DecimalPlacesConfiguration: null
-                                      NumberScale: null
-                                      NegativeValueConfiguration: null
-                                      NullValueFormatConfiguration: null
-                                    PercentageDisplayFormatConfiguration:
-                                      Prefix: '{{ Prefix }}'
-                                      Suffix: '{{ Suffix }}'
-                                      SeparatorConfiguration: null
-                                      DecimalPlacesConfiguration: null
-                                      NegativeValueConfiguration: null
-                                      NullValueFormatConfiguration: null
-                              CategoricalDimensionField:
-                                FieldId: '{{ FieldId }}'
-                                Column: null
-                                HierarchyId: '{{ HierarchyId }}'
-                                FormatConfiguration:
-                                  NullValueFormatConfiguration: null
-                                  NumericFormatConfiguration: null
-                              DateDimensionField:
-                                FieldId: '{{ FieldId }}'
-                                Column: null
-                                DateGranularity: '{{ DateGranularity }}'
-                                HierarchyId: '{{ HierarchyId }}'
-                                FormatConfiguration:
-                                  DateTimeFormat: '{{ DateTimeFormat }}'
-                                  NullValueFormatConfiguration: null
-                                  NumericFormatConfiguration: null
-                          Values:
-                            - NumericalMeasureField:
-                                FieldId: '{{ FieldId }}'
-                                Column: null
-                                AggregationFunction:
-                                  SimpleNumericalAggregation: '{{ SimpleNumericalAggregation }}'
-                                  PercentileAggregation:
-                                    PercentileValue: null
-                                FormatConfiguration: null
-                              CategoricalMeasureField:
-                                FieldId: '{{ FieldId }}'
-                                Column: null
-                                AggregationFunction: '{{ AggregationFunction }}'
-                                FormatConfiguration: null
-                              DateMeasureField:
-                                FieldId: '{{ FieldId }}'
-                                Column: null
-                                AggregationFunction: '{{ AggregationFunction }}'
-                                FormatConfiguration: null
-                              CalculatedMeasureField:
-                                FieldId: '{{ FieldId }}'
-                                Expression: '{{ Expression }}'
-                        TableUnaggregatedFieldWells:
-                          Values:
-                            - FieldId: '{{ FieldId }}'
-                              Column: null
-                              FormatConfiguration:
-                                StringFormatConfiguration: null
-                                NumberFormatConfiguration: null
-                                DateTimeFormatConfiguration: null
                       SortConfiguration:
-                        RowSort:
+                        CategoryItemsLimit:
+                          ItemsLimit: null
+                          OtherCategories: '{{ OtherCategories }}'
+                        CategorySort:
                           - FieldSort:
                               FieldId: '{{ FieldId }}'
-                              Direction: '{{ Direction }}'
+                              Direction: null
                             ColumnSort:
+                              AggregationFunction: null
                               SortBy: null
                               Direction: null
-                              AggregationFunction:
-                                NumericalAggregationFunction: null
-                                CategoricalAggregationFunction: null
-                                DateAggregationFunction: null
-                                AttributeAggregationFunction:
-                                  SimpleAttributeAggregation: '{{ SimpleAttributeAggregation }}'
-                                  ValueForMultipleValues: '{{ ValueForMultipleValues }}'
-                        PaginationConfiguration:
-                          PageSize: null
-                          PageNumber: null
-                      TableOptions:
-                        Orientation: '{{ Orientation }}'
-                        HeaderStyle:
-                          Visibility: null
-                          FontConfiguration: null
-                          TextWrap: '{{ TextWrap }}'
-                          HorizontalTextAlignment: '{{ HorizontalTextAlignment }}'
-                          VerticalTextAlignment: '{{ VerticalTextAlignment }}'
-                          BackgroundColor: '{{ BackgroundColor }}'
-                          Height: null
-                          Border:
-                            UniformBorder:
-                              Color: '{{ Color }}'
-                              Thickness: null
-                              Style: '{{ Style }}'
-                            SideSpecificBorder:
-                              InnerVertical: null
-                              InnerHorizontal: null
-                              Left: null
-                              Right: null
-                              Top: null
-                              Bottom: null
-                        CellStyle: null
-                        RowAlternateColorOptions:
-                          Status: '{{ Status }}'
-                          RowAlternateColors:
-                            - '{{ RowAlternateColors[0] }}'
-                          UsePrimaryBackgroundColor: null
-                      TotalOptions:
-                        TotalsVisibility: null
-                        TotalAggregationOptions:
-                          - FieldId: '{{ FieldId }}'
-                            TotalAggregationFunction:
-                              SimpleTotalAggregationFunction: '{{ SimpleTotalAggregationFunction }}'
-                        Placement: '{{ Placement }}'
-                        ScrollStatus: '{{ ScrollStatus }}'
-                        CustomLabel: '{{ CustomLabel }}'
-                        TotalCellStyle: null
-                      FieldOptions:
-                        SelectedFieldOptions:
-                          - FieldId: '{{ FieldId }}'
-                            Width: '{{ Width }}'
-                            CustomLabel: '{{ CustomLabel }}'
-                            Visibility: null
-                            URLStyling:
-                              LinkConfiguration:
-                                Target: '{{ Target }}'
-                                Content:
-                                  CustomTextContent:
-                                    Value: '{{ Value }}'
-                                    FontConfiguration: null
-                                  CustomIconContent:
-                                    Icon: '{{ Icon }}'
-                              ImageConfiguration:
-                                SizingOptions:
-                                  TableCellImageScalingConfiguration: '{{ TableCellImageScalingConfiguration }}'
-                        Order:
-                          - '{{ Order[0] }}'
-                        PinnedFieldOptions:
-                          PinnedLeftFields:
-                            - '{{ PinnedLeftFields[0] }}'
-                      PaginatedReportOptions:
-                        VerticalOverflowVisibility: null
-                        OverflowColumnHeaderVisibility: null
-                      TableInlineVisualizations:
-                        - DataBars:
-                            FieldId: '{{ FieldId }}'
-                            PositiveColor: '{{ PositiveColor }}'
-                            NegativeColor: '{{ NegativeColor }}'
-                    ConditionalFormatting:
-                      ConditionalFormattingOptions:
-                        - Cell:
-                            FieldId: '{{ FieldId }}'
-                            TextFormat:
-                              BackgroundColor:
-                                Solid:
-                                  Expression: '{{ Expression }}'
-                                  Color: '{{ Color }}'
-                                Gradient:
-                                  Expression: '{{ Expression }}'
-                                  Color:
-                                    Stops:
-                                      - GradientOffset: null
-                                        DataValue: null
-                                        Color: '{{ Color }}'
-                              TextColor: null
-                              Icon:
-                                IconSet:
-                                  Expression: '{{ Expression }}'
-                                  IconSetType: '{{ IconSetType }}'
-                                CustomCondition:
-                                  Expression: '{{ Expression }}'
-                                  IconOptions:
-                                    Icon: '{{ Icon }}'
-                                    UnicodeIcon: '{{ UnicodeIcon }}'
-                                  Color: '{{ Color }}'
-                                  DisplayConfiguration:
-                                    IconDisplayOption: '{{ IconDisplayOption }}'
-                          Row:
-                            BackgroundColor: null
-                            TextColor: null
+                      DataLabelOptions:
+                        MeasureLabelVisibility: null
+                        Position: '{{ Position }}'
+                        Visibility: null
+                        CategoryLabelVisibility: null
+                        LabelColor: '{{ LabelColor }}'
+                        MeasureDataLabelStyle: '{{ MeasureDataLabelStyle }}'
+                        LabelFontConfiguration: null
+                      CategoryLabelOptions:
+                        Visibility: null
+                        SortIconVisibility: null
+                        AxisLabelOptions:
+                          - CustomLabel: '{{ CustomLabel }}'
+                            ApplyTo:
+                              Column: null
+                              FieldId: '{{ FieldId }}'
+                            FontConfiguration: null
+                      FieldWells:
+                        FunnelChartAggregatedFieldWells:
+                          Category:
+                            - DateDimensionField:
+                                HierarchyId: '{{ HierarchyId }}'
+                                FormatConfiguration: null
+                                Column: null
+                                FieldId: '{{ FieldId }}'
+                                DateGranularity: null
+                              NumericalDimensionField:
+                                HierarchyId: '{{ HierarchyId }}'
+                                FormatConfiguration: null
+                                Column: null
+                                FieldId: '{{ FieldId }}'
+                              CategoricalDimensionField:
+                                HierarchyId: '{{ HierarchyId }}'
+                                FormatConfiguration: null
+                                Column: null
+                                FieldId: '{{ FieldId }}'
+                          Values:
+                            - DateMeasureField:
+                                AggregationFunction: null
+                                FormatConfiguration: null
+                                Column: null
+                                FieldId: '{{ FieldId }}'
+                              NumericalMeasureField:
+                                AggregationFunction: null
+                                FormatConfiguration: null
+                                Column: null
+                                FieldId: '{{ FieldId }}'
+                              CategoricalMeasureField:
+                                AggregationFunction: null
+                                FormatConfiguration: null
+                                Column: null
+                                FieldId: '{{ FieldId }}'
+                              CalculatedMeasureField:
+                                Expression: '{{ Expression }}'
+                                FieldId: '{{ FieldId }}'
+                      Tooltip:
+                        SelectedTooltipType: '{{ SelectedTooltipType }}'
+                        TooltipVisibility: null
+                        FieldBasedTooltip:
+                          TooltipFields:
+                            - FieldTooltipItem:
+                                FieldId: '{{ FieldId }}'
+                                Label: '{{ Label }}'
+                                Visibility: null
+                              ColumnTooltipItem:
+                                Aggregation: null
+                                Column: null
+                                Label: '{{ Label }}'
+                                Visibility: null
+                          AggregationVisibility: null
+                          TooltipTitleType: '{{ TooltipTitleType }}'
+                      ValueLabelOptions: null
+                      VisualPalette:
+                        ChartColor: '{{ ChartColor }}'
+                        ColorMap:
+                          - Element:
+                              DataPathType:
+                                PivotTableDataPathType: '{{ PivotTableDataPathType }}'
+                              FieldId: '{{ FieldId }}'
+                              FieldValue: '{{ FieldValue }}'
+                            Color: '{{ Color }}'
+                            TimeGranularity: null
                     Actions:
-                      - CustomActionId: '{{ CustomActionId }}'
-                        Name: '{{ Name }}'
-                        Status: null
+                      - Status: null
                         Trigger: '{{ Trigger }}'
+                        CustomActionId: '{{ CustomActionId }}'
+                        Name: '{{ Name }}'
                         ActionOperations:
-                          - FilterOperation:
-                              SelectedFieldsConfiguration:
-                                SelectedFields:
-                                  - '{{ SelectedFields[0] }}'
-                                SelectedFieldOptions: '{{ SelectedFieldOptions }}'
-                                SelectedColumns:
-                                  - null
-                              TargetVisualsConfiguration:
-                                SameSheetTargetVisualConfiguration:
-                                  TargetVisuals:
-                                    - '{{ TargetVisuals[0] }}'
-                                  TargetVisualOptions: '{{ TargetVisualOptions }}'
-                            NavigationOperation:
+                          - NavigationOperation:
                               LocalNavigationConfiguration:
                                 TargetSheetId: '{{ TargetSheetId }}'
-                            URLOperation:
-                              URLTemplate: '{{ URLTemplate }}'
-                              URLTarget: null
                             SetParametersOperation:
                               ParameterValueConfigurations:
                                 - DestinationParameterName: '{{ DestinationParameterName }}'
@@ -580,330 +791,364 @@ resources:
                                     CustomValuesConfiguration:
                                       IncludeNullValue: '{{ IncludeNullValue }}'
                                       CustomValues:
-                                        StringValues:
-                                          - '{{ StringValues[0] }}'
-                                        IntegerValues:
-                                          - null
                                         DecimalValues:
                                           - null
+                                        IntegerValues:
+                                          - null
+                                        StringValues:
+                                          - '{{ StringValues[0] }}'
                                         DateTimeValues:
                                           - '{{ DateTimeValues[0] }}'
-                                    SelectAllValueOptions: '{{ SelectAllValueOptions }}'
                                     SourceParameterName: '{{ SourceParameterName }}'
+                                    SelectAllValueOptions: '{{ SelectAllValueOptions }}'
                                     SourceField: '{{ SourceField }}'
                                     SourceColumn: null
-                  PivotTableVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      FieldWells:
-                        PivotTableAggregatedFieldWells:
-                          Rows:
+                            FilterOperation:
+                              SelectedFieldsConfiguration:
+                                SelectedColumns:
+                                  - null
+                                SelectedFields:
+                                  - '{{ SelectedFields[0] }}'
+                                SelectedFieldOptions: '{{ SelectedFieldOptions }}'
+                              TargetVisualsConfiguration:
+                                SameSheetTargetVisualConfiguration:
+                                  TargetVisualOptions: '{{ TargetVisualOptions }}'
+                                  TargetVisuals:
+                                    - '{{ TargetVisuals[0] }}'
+                            URLOperation:
+                              URLTemplate: '{{ URLTemplate }}'
+                              URLTarget: '{{ URLTarget }}'
+                    Title:
+                      Visibility: null
+                      FormatText:
+                        RichText: '{{ RichText }}'
+                        PlainText: '{{ PlainText }}'
+                    ColumnHierarchies:
+                      - DateTimeHierarchy:
+                          HierarchyId: '{{ HierarchyId }}'
+                          DrillDownFilters:
+                            - NumericEqualityFilter:
+                                Column: null
+                                Value: null
+                              TimeRangeFilter:
+                                Column: null
+                                RangeMinimum: '{{ RangeMinimum }}'
+                                TimeGranularity: null
+                                RangeMaximum: '{{ RangeMaximum }}'
+                              CategoryFilter:
+                                Column: null
+                                CategoryValues:
+                                  - '{{ CategoryValues[0] }}'
+                        ExplicitHierarchy:
+                          HierarchyId: '{{ HierarchyId }}'
+                          DrillDownFilters:
                             - null
                           Columns:
                             - null
-                          Values:
+                        PredefinedHierarchy:
+                          HierarchyId: '{{ HierarchyId }}'
+                          DrillDownFilters:
                             - null
-                      SortConfiguration:
-                        FieldSortOptions:
-                          - FieldId: '{{ FieldId }}'
-                            SortBy:
-                              Field: null
-                              Column: null
-                              DataPath:
-                                Direction: null
-                                SortPaths:
-                                  - FieldId: '{{ FieldId }}'
-                                    FieldValue: '{{ FieldValue }}'
-                                    DataPathType:
-                                      PivotTableDataPathType: '{{ PivotTableDataPathType }}'
-                      TableOptions:
-                        MetricPlacement: '{{ MetricPlacement }}'
-                        SingleMetricVisibility: null
-                        ColumnNamesVisibility: null
-                        ToggleButtonsVisibility: null
-                        ColumnHeaderStyle: null
-                        RowHeaderStyle: null
-                        CellStyle: null
-                        RowFieldNamesStyle: null
-                        RowAlternateColorOptions: null
-                        CollapsedRowDimensionsVisibility: null
-                        RowsLayout: '{{ RowsLayout }}'
-                        RowsLabelOptions:
-                          Visibility: null
-                          CustomLabel: '{{ CustomLabel }}'
-                        DefaultCellWidth: '{{ DefaultCellWidth }}'
-                      TotalOptions:
-                        RowSubtotalOptions:
-                          TotalsVisibility: null
-                          CustomLabel: '{{ CustomLabel }}'
-                          FieldLevel: '{{ FieldLevel }}'
-                          FieldLevelOptions:
-                            - FieldId: '{{ FieldId }}'
-                          TotalCellStyle: null
-                          ValueCellStyle: null
-                          MetricHeaderCellStyle: null
-                          StyleTargets:
-                            - CellType: '{{ CellType }}'
-                        ColumnSubtotalOptions: null
-                        RowTotalOptions:
-                          TotalsVisibility: null
-                          TotalAggregationOptions:
+                          Columns:
                             - null
-                          Placement: null
-                          ScrollStatus: null
-                          CustomLabel: '{{ CustomLabel }}'
-                          TotalCellStyle: null
-                          ValueCellStyle: null
-                          MetricHeaderCellStyle: null
-                        ColumnTotalOptions: null
-                      FieldOptions:
-                        SelectedFieldOptions:
-                          - FieldId: '{{ FieldId }}'
-                            CustomLabel: '{{ CustomLabel }}'
-                            Visibility: null
-                        DataPathOptions:
-                          - DataPathList:
-                              - null
-                            Width: '{{ Width }}'
-                        CollapseStateOptions:
-                          - Target:
-                              FieldId: '{{ FieldId }}'
-                              FieldDataPathValues:
-                                - null
-                            State: '{{ State }}'
-                      PaginatedReportOptions:
-                        VerticalOverflowVisibility: null
-                        OverflowColumnHeaderVisibility: null
+                  FilledMapVisual:
+                    Subtitle: null
                     ConditionalFormatting:
                       ConditionalFormattingOptions:
-                        - Cell:
+                        - Shape:
+                            Format:
+                              BackgroundColor:
+                                Gradient:
+                                  Expression: '{{ Expression }}'
+                                  Color:
+                                    Stops:
+                                      - GradientOffset: null
+                                        DataValue: null
+                                        Color: '{{ Color }}'
+                                Solid:
+                                  Expression: '{{ Expression }}'
+                                  Color: '{{ Color }}'
                             FieldId: '{{ FieldId }}'
-                            TextFormat: null
-                            Scope:
-                              Role: '{{ Role }}'
-                            Scopes:
-                              - null
-                    Actions:
-                      - null
-                  BarChartVisual:
                     VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
                     ChartConfiguration:
-                      FieldWells:
-                        BarChartAggregatedFieldWells:
-                          Category:
-                            - null
-                          Values:
-                            - null
-                          Colors:
-                            - null
-                          SmallMultiples:
-                            - null
                       SortConfiguration:
                         CategorySort:
                           - null
-                        CategoryItemsLimit:
-                          ItemsLimit: null
-                          OtherCategories: '{{ OtherCategories }}'
-                        ColorSort:
-                          - null
-                        ColorItemsLimit: null
-                        SmallMultiplesSort:
-                          - null
-                        SmallMultiplesLimitConfiguration: null
-                      Orientation: '{{ Orientation }}'
-                      BarsArrangement: '{{ BarsArrangement }}'
-                      VisualPalette:
-                        ChartColor: '{{ ChartColor }}'
-                        ColorMap:
-                          - Element: null
-                            Color: '{{ Color }}'
-                            TimeGranularity: null
-                      SmallMultiplesOptions:
-                        MaxVisibleRows: null
-                        MaxVisibleColumns: null
-                        PanelConfiguration:
-                          Title:
-                            Visibility: null
-                            FontConfiguration: null
-                            HorizontalTextAlignment: null
-                          BorderVisibility: null
-                          BorderThickness: '{{ BorderThickness }}'
-                          BorderStyle: '{{ BorderStyle }}'
-                          BorderColor: '{{ BorderColor }}'
-                          GutterVisibility: null
-                          GutterSpacing: '{{ GutterSpacing }}'
-                          BackgroundVisibility: null
-                          BackgroundColor: '{{ BackgroundColor }}'
-                        XAxis:
-                          Scale: '{{ Scale }}'
-                          Placement: '{{ Placement }}'
-                        YAxis: null
-                      CategoryAxis:
-                        TickLabelOptions:
-                          LabelOptions: null
-                          RotationAngle: null
-                        AxisLineVisibility: null
-                        GridLineVisibility: null
-                        DataOptions:
-                          NumericAxisOptions:
-                            Scale:
-                              Linear:
-                                StepCount: null
-                                StepSize: null
-                              Logarithmic:
-                                Base: null
-                            Range:
-                              MinMax:
-                                Minimum: null
-                                Maximum: null
-                              DataDriven: {}
-                          DateAxisOptions:
-                            MissingDateVisibility: null
-                        ScrollbarOptions:
-                          Visibility: null
-                          VisibleRange:
-                            PercentRange:
-                              From: null
-                              To: null
-                        AxisOffset: '{{ AxisOffset }}'
-                      CategoryLabelOptions:
-                        Visibility: null
-                        SortIconVisibility: null
-                        AxisLabelOptions:
-                          - FontConfiguration: null
-                            CustomLabel: '{{ CustomLabel }}'
-                            ApplyTo:
-                              FieldId: '{{ FieldId }}'
-                              Column: null
-                      ValueAxis: null
-                      ValueLabelOptions: null
-                      ColorLabelOptions: null
                       Legend:
-                        Visibility: null
+                        Position: '{{ Position }}'
                         Title: null
-                        Position: '{{ Position }}'
-                        Width: '{{ Width }}'
-                        Height: '{{ Height }}'
-                      DataLabels:
                         Visibility: null
-                        CategoryLabelVisibility: null
-                        MeasureLabelVisibility: null
-                        DataLabelTypes:
-                          - FieldLabelType:
-                              FieldId: '{{ FieldId }}'
-                              Visibility: null
-                            DataPathLabelType:
-                              FieldId: '{{ FieldId }}'
-                              FieldValue: '{{ FieldValue }}'
-                              Visibility: null
-                            RangeEndsLabelType:
-                              Visibility: null
-                            MinimumLabelType:
-                              Visibility: null
-                            MaximumLabelType:
-                              Visibility: null
-                        Position: '{{ Position }}'
-                        LabelContent: '{{ LabelContent }}'
-                        LabelFontConfiguration: null
-                        LabelColor: '{{ LabelColor }}'
-                        Overlap: '{{ Overlap }}'
-                        TotalsVisibility: null
-                      Tooltip:
-                        TooltipVisibility: null
-                        SelectedTooltipType: '{{ SelectedTooltipType }}'
-                        FieldBasedTooltip:
-                          AggregationVisibility: null
-                          TooltipTitleType: '{{ TooltipTitleType }}'
-                          TooltipFields:
-                            - FieldTooltipItem:
-                                FieldId: '{{ FieldId }}'
-                                Label: '{{ Label }}'
-                                Visibility: null
-                              ColumnTooltipItem:
-                                Column: null
-                                Label: '{{ Label }}'
-                                Visibility: null
-                                Aggregation: null
+                        Height: '{{ Height }}'
+                        Width: '{{ Width }}'
+                      MapStyleOptions:
+                        BaseMapStyle: '{{ BaseMapStyle }}'
+                      FieldWells:
+                        FilledMapAggregatedFieldWells:
+                          Values:
+                            - null
+                          Geospatial:
+                            - null
+                      Tooltip: null
+                      WindowOptions:
+                        Bounds:
+                          West: null
+                          South: null
+                          North: null
+                          East: null
+                        MapZoomMode: '{{ MapZoomMode }}'
+                    Actions:
+                      - null
+                    Title: null
+                    ColumnHierarchies:
+                      - null
+                  BoxPlotVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      SortConfiguration:
+                        CategorySort:
+                          - null
+                        PaginationConfiguration:
+                          PageSize: null
+                          PageNumber: null
+                      Legend: null
                       ReferenceLines:
                         - Status: null
                           DataConfiguration:
-                            StaticConfiguration:
-                              Value: null
                             DynamicConfiguration:
                               Column: null
                               MeasureAggregationFunction: null
                               Calculation: null
                             AxisBinding: '{{ AxisBinding }}'
                             SeriesType: '{{ SeriesType }}'
+                            StaticConfiguration:
+                              Value: null
+                          LabelConfiguration:
+                            HorizontalPosition: '{{ HorizontalPosition }}'
+                            ValueLabelConfiguration:
+                              FormatConfiguration: null
+                              RelativePosition: '{{ RelativePosition }}'
+                            CustomLabelConfiguration:
+                              CustomLabel: '{{ CustomLabel }}'
+                            FontColor: '{{ FontColor }}'
+                            FontConfiguration: null
+                            VerticalPosition: '{{ VerticalPosition }}'
                           StyleConfiguration:
                             Pattern: '{{ Pattern }}'
                             Color: '{{ Color }}'
-                          LabelConfiguration:
-                            ValueLabelConfiguration:
-                              RelativePosition: '{{ RelativePosition }}'
-                              FormatConfiguration: null
-                            CustomLabelConfiguration:
-                              CustomLabel: '{{ CustomLabel }}'
-                            FontConfiguration: null
-                            FontColor: '{{ FontColor }}'
-                            HorizontalPosition: '{{ HorizontalPosition }}'
-                            VerticalPosition: '{{ VerticalPosition }}'
+                      CategoryAxis:
+                        DataOptions:
+                          DateAxisOptions:
+                            MissingDateVisibility: null
+                          NumericAxisOptions:
+                            Scale:
+                              Logarithmic:
+                                Base: null
+                              Linear:
+                                StepSize: null
+                                StepCount: null
+                            Range:
+                              DataDriven: {}
+                              MinMax:
+                                Minimum: null
+                                Maximum: null
+                        TickLabelOptions:
+                          RotationAngle: null
+                          LabelOptions: null
+                        AxisOffset: '{{ AxisOffset }}'
+                        AxisLineVisibility: null
+                        GridLineVisibility: null
+                        ScrollbarOptions:
+                          VisibleRange:
+                            PercentRange:
+                              From: null
+                              To: null
+                          Visibility: null
+                      PrimaryYAxisLabelOptions: null
+                      CategoryLabelOptions: null
+                      FieldWells:
+                        BoxPlotAggregatedFieldWells:
+                          GroupBy:
+                            - null
+                          Values:
+                            - null
+                      Tooltip: null
+                      BoxPlotOptions:
+                        StyleOptions:
+                          FillStyle: '{{ FillStyle }}'
+                        OutlierVisibility: null
+                        AllDataPointsVisibility: null
+                      PrimaryYAxisDisplayOptions: null
+                      VisualPalette: null
+                    Actions:
+                      - null
+                    Title: null
+                    ColumnHierarchies:
+                      - null
+                  WaterfallVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      CategoryAxisLabelOptions: null
+                      SortConfiguration:
+                        BreakdownItemsLimit: null
+                        CategorySort:
+                          - null
+                      Legend: null
+                      DataLabels:
+                        DataLabelTypes:
+                          - MaximumLabelType:
+                              Visibility: null
+                            DataPathLabelType:
+                              FieldId: '{{ FieldId }}'
+                              Visibility: null
+                              FieldValue: '{{ FieldValue }}'
+                            RangeEndsLabelType:
+                              Visibility: null
+                            FieldLabelType:
+                              FieldId: '{{ FieldId }}'
+                              Visibility: null
+                            MinimumLabelType:
+                              Visibility: null
+                        MeasureLabelVisibility: null
+                        Position: null
+                        LabelContent: '{{ LabelContent }}'
+                        Visibility: null
+                        TotalsVisibility: null
+                        Overlap: '{{ Overlap }}'
+                        CategoryLabelVisibility: null
+                        LabelColor: '{{ LabelColor }}'
+                        LabelFontConfiguration: null
+                      PrimaryYAxisLabelOptions: null
+                      FieldWells:
+                        WaterfallChartAggregatedFieldWells:
+                          Categories:
+                            - null
+                          Breakdowns:
+                            - null
+                          Values:
+                            - null
+                      WaterfallChartOptions:
+                        TotalBarLabel: '{{ TotalBarLabel }}'
+                      ColorConfiguration:
+                        GroupColorConfiguration:
+                          NegativeBarColor: '{{ NegativeBarColor }}'
+                          TotalBarColor: '{{ TotalBarColor }}'
+                          PositiveBarColor: '{{ PositiveBarColor }}'
+                      CategoryAxisDisplayOptions: null
+                      PrimaryYAxisDisplayOptions: null
+                      VisualPalette: null
+                    Actions:
+                      - null
+                    Title: null
+                    ColumnHierarchies:
+                      - null
+                  CustomContentVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      ContentUrl: '{{ ContentUrl }}'
+                      ContentType: '{{ ContentType }}'
+                      ImageScaling: '{{ ImageScaling }}'
+                    Actions:
+                      - null
+                    DataSetIdentifier: '{{ DataSetIdentifier }}'
+                    Title: null
+                  PieChartVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      SortConfiguration:
+                        SmallMultiplesSort:
+                          - null
+                        CategoryItemsLimit: null
+                        CategorySort:
+                          - null
+                        SmallMultiplesLimitConfiguration: null
+                      Legend: null
+                      DataLabels: null
                       ContributionAnalysisDefaults:
                         - MeasureFieldId: '{{ MeasureFieldId }}'
                           ContributorDimensions:
                             - null
+                      CategoryLabelOptions: null
+                      FieldWells:
+                        PieChartAggregatedFieldWells:
+                          Category:
+                            - null
+                          Values:
+                            - null
+                          SmallMultiples:
+                            - null
+                      Tooltip: null
+                      DonutOptions:
+                        DonutCenterOptions:
+                          LabelVisibility: null
+                        ArcOptions:
+                          ArcThickness: '{{ ArcThickness }}'
+                      SmallMultiplesOptions:
+                        MaxVisibleRows: null
+                        PanelConfiguration:
+                          BorderThickness: '{{ BorderThickness }}'
+                          BorderStyle: '{{ BorderStyle }}'
+                          GutterSpacing: '{{ GutterSpacing }}'
+                          BackgroundVisibility: null
+                          BorderVisibility: null
+                          BorderColor: '{{ BorderColor }}'
+                          Title:
+                            Visibility: null
+                            FontConfiguration: null
+                            HorizontalTextAlignment: '{{ HorizontalTextAlignment }}'
+                          GutterVisibility: null
+                          BackgroundColor: '{{ BackgroundColor }}'
+                        MaxVisibleColumns: null
+                        XAxis:
+                          Placement: '{{ Placement }}'
+                          Scale: '{{ Scale }}'
+                        YAxis: null
+                      ValueLabelOptions: null
+                      VisualPalette: null
                     Actions:
                       - null
-                    ColumnHierarchies:
-                      - ExplicitHierarchy:
-                          HierarchyId: '{{ HierarchyId }}'
-                          Columns:
-                            - null
-                          DrillDownFilters:
-                            - NumericEqualityFilter:
-                                Column: null
-                                Value: null
-                              CategoryFilter:
-                                Column: null
-                                CategoryValues:
-                                  - '{{ CategoryValues[0] }}'
-                              TimeRangeFilter:
-                                Column: null
-                                RangeMinimum: '{{ RangeMinimum }}'
-                                RangeMaximum: '{{ RangeMaximum }}'
-                                TimeGranularity: null
-                        DateTimeHierarchy:
-                          HierarchyId: '{{ HierarchyId }}'
-                          DrillDownFilters:
-                            - null
-                        PredefinedHierarchy:
-                          HierarchyId: '{{ HierarchyId }}'
-                          Columns:
-                            - null
-                          DrillDownFilters:
-                            - null
-                  KPIVisual:
-                    VisualId: '{{ VisualId }}'
                     Title: null
+                    ColumnHierarchies:
+                      - null
+                  KPIVisual:
                     Subtitle: null
+                    ConditionalFormatting:
+                      ConditionalFormattingOptions:
+                        - PrimaryValue:
+                            TextColor: null
+                            Icon:
+                              CustomCondition:
+                                Expression: '{{ Expression }}'
+                                Color: '{{ Color }}'
+                                DisplayConfiguration:
+                                  IconDisplayOption: '{{ IconDisplayOption }}'
+                                IconOptions:
+                                  UnicodeIcon: '{{ UnicodeIcon }}'
+                                  Icon: '{{ Icon }}'
+                              IconSet:
+                                Expression: '{{ Expression }}'
+                                IconSetType: '{{ IconSetType }}'
+                          ActualValue:
+                            TextColor: null
+                            Icon: null
+                          ComparisonValue:
+                            TextColor: null
+                            Icon: null
+                          ProgressBar:
+                            ForegroundColor: null
+                    VisualId: '{{ VisualId }}'
                     ChartConfiguration:
-                      FieldWells:
-                        Values:
-                          - null
-                        TargetValues:
-                          - null
-                        TrendGroups:
-                          - null
                       SortConfiguration:
                         TrendGroupSort:
                           - null
                       KPIOptions:
-                        ProgressBar:
-                          Visibility: null
+                        SecondaryValueFontConfiguration: null
+                        VisualLayoutOptions:
+                          StandardLayout:
+                            Type: '{{ Type }}'
                         TrendArrows:
                           Visibility: null
                         SecondaryValue:
@@ -914,278 +1159,261 @@ resources:
                             NumberDisplayFormatConfiguration: null
                             PercentageDisplayFormatConfiguration: null
                         PrimaryValueDisplayType: '{{ PrimaryValueDisplayType }}'
-                        PrimaryValueFontConfiguration: null
-                        SecondaryValueFontConfiguration: null
-                        Sparkline:
+                        ProgressBar:
                           Visibility: null
+                        PrimaryValueFontConfiguration: null
+                        Sparkline:
                           Type: '{{ Type }}'
                           Color: '{{ Color }}'
                           TooltipVisibility: null
-                        VisualLayoutOptions:
-                          StandardLayout:
-                            Type: '{{ Type }}'
-                    ConditionalFormatting:
-                      ConditionalFormattingOptions:
-                        - PrimaryValue:
-                            TextColor: null
-                            Icon: null
-                          ProgressBar:
-                            ForegroundColor: null
-                          ActualValue:
-                            TextColor: null
-                            Icon: null
-                          ComparisonValue:
-                            TextColor: null
-                            Icon: null
-                    Actions:
-                      - null
-                    ColumnHierarchies:
-                      - null
-                  PieChartVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
-                    ChartConfiguration:
+                          Visibility: null
                       FieldWells:
-                        PieChartAggregatedFieldWells:
-                          Category:
-                            - null
-                          Values:
-                            - null
-                          SmallMultiples:
-                            - null
-                      SortConfiguration:
-                        CategorySort:
-                          - null
-                        CategoryItemsLimit: null
-                        SmallMultiplesSort:
-                          - null
-                        SmallMultiplesLimitConfiguration: null
-                      DonutOptions:
-                        ArcOptions:
-                          ArcThickness: '{{ ArcThickness }}'
-                        DonutCenterOptions:
-                          LabelVisibility: null
-                      SmallMultiplesOptions: null
-                      CategoryLabelOptions: null
-                      ValueLabelOptions: null
-                      Legend: null
-                      DataLabels: null
-                      Tooltip: null
-                      VisualPalette: null
-                      ContributionAnalysisDefaults:
-                        - null
-                    Actions:
-                      - null
-                    ColumnHierarchies:
-                      - null
-                  GaugeChartVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      FieldWells:
-                        Values:
-                          - null
                         TargetValues:
                           - null
-                      GaugeChartOptions:
-                        PrimaryValueDisplayType: null
-                        Comparison: null
-                        ArcAxis:
-                          Range:
-                            Min: null
-                            Max: null
-                          ReserveRange: null
-                        Arc:
-                          ArcAngle: null
-                          ArcThickness: '{{ ArcThickness }}'
-                        PrimaryValueFontConfiguration: null
-                      DataLabels: null
-                      TooltipOptions: null
-                      VisualPalette: null
-                    ConditionalFormatting:
-                      ConditionalFormattingOptions:
-                        - PrimaryValue:
-                            TextColor: null
-                            Icon: null
-                          Arc:
-                            ForegroundColor: null
+                        TrendGroups:
+                          - null
+                        Values:
+                          - null
                     Actions:
                       - null
-                  LineChartVisual:
-                    VisualId: '{{ VisualId }}'
                     Title: null
+                    ColumnHierarchies:
+                      - null
+                  HistogramVisual:
                     Subtitle: null
+                    VisualId: '{{ VisualId }}'
                     ChartConfiguration:
+                      YAxisDisplayOptions: null
+                      DataLabels: null
+                      BinOptions:
+                        BinWidth:
+                          BinCountLimit: null
+                          Value: null
+                        StartValue: null
+                        SelectedBinType: '{{ SelectedBinType }}'
+                        BinCount:
+                          Value: null
                       FieldWells:
-                        LineChartAggregatedFieldWells:
-                          Category:
+                        HistogramAggregatedFieldWells:
+                          Values:
+                            - null
+                      Tooltip: null
+                      XAxisLabelOptions: null
+                      VisualPalette: null
+                      XAxisDisplayOptions: null
+                    Actions:
+                      - null
+                    Title: null
+                  TableVisual:
+                    Subtitle: null
+                    ConditionalFormatting:
+                      ConditionalFormattingOptions:
+                        - Row:
+                            TextColor: null
+                            BackgroundColor: null
+                          Cell:
+                            FieldId: '{{ FieldId }}'
+                            TextFormat:
+                              TextColor: null
+                              Icon: null
+                              BackgroundColor: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      SortConfiguration:
+                        RowSort:
+                          - null
+                        PaginationConfiguration: null
+                      PaginatedReportOptions:
+                        OverflowColumnHeaderVisibility: null
+                        VerticalOverflowVisibility: null
+                      TableOptions:
+                        HeaderStyle:
+                          VerticalTextAlignment: '{{ VerticalTextAlignment }}'
+                          Visibility: null
+                          Height: null
+                          FontConfiguration: null
+                          Border:
+                            UniformBorder:
+                              Thickness: null
+                              Color: '{{ Color }}'
+                              Style: '{{ Style }}'
+                            SideSpecificBorder:
+                              Left: null
+                              Top: null
+                              InnerHorizontal: null
+                              Right: null
+                              Bottom: null
+                              InnerVertical: null
+                          TextWrap: '{{ TextWrap }}'
+                          HorizontalTextAlignment: null
+                          BackgroundColor: '{{ BackgroundColor }}'
+                        CellStyle: null
+                        Orientation: '{{ Orientation }}'
+                        RowAlternateColorOptions:
+                          Status: null
+                          UsePrimaryBackgroundColor: null
+                          RowAlternateColors:
+                            - '{{ RowAlternateColors[0] }}'
+                      TableInlineVisualizations:
+                        - DataBars:
+                            PositiveColor: '{{ PositiveColor }}'
+                            FieldId: '{{ FieldId }}'
+                            NegativeColor: '{{ NegativeColor }}'
+                      FieldWells:
+                        TableUnaggregatedFieldWells:
+                          Values:
+                            - FormatConfiguration: null
+                              Column: null
+                              FieldId: '{{ FieldId }}'
+                        TableAggregatedFieldWells:
+                          GroupBy:
                             - null
                           Values:
                             - null
-                          Colors:
-                            - null
-                          SmallMultiples:
-                            - null
-                      SortConfiguration:
-                        CategorySort:
-                          - null
-                        CategoryItemsLimitConfiguration: null
-                        ColorItemsLimitConfiguration: null
-                        SmallMultiplesSort:
-                          - null
-                        SmallMultiplesLimitConfiguration: null
-                      ForecastConfigurations:
-                        - ForecastProperties:
-                            PeriodsForward: null
-                            PeriodsBackward: null
-                            UpperBoundary: null
-                            LowerBoundary: null
-                            PredictionInterval: null
-                            Seasonality: null
-                          Scenario:
-                            WhatIfPointScenario:
-                              Date: '{{ Date }}'
-                              Value: null
-                            WhatIfRangeScenario:
-                              StartDate: '{{ StartDate }}'
-                              EndDate: '{{ EndDate }}'
-                              Value: null
-                      Type: '{{ Type }}'
-                      SmallMultiplesOptions: null
-                      XAxisDisplayOptions: null
-                      XAxisLabelOptions: null
-                      PrimaryYAxisDisplayOptions:
-                        AxisOptions: null
-                        MissingDataConfigurations:
-                          - TreatmentOption: '{{ TreatmentOption }}'
-                      PrimaryYAxisLabelOptions: null
-                      SecondaryYAxisDisplayOptions: null
-                      SecondaryYAxisLabelOptions: null
-                      DefaultSeriesSettings:
-                        AxisBinding: null
-                        LineStyleSettings:
-                          LineVisibility: null
-                          LineInterpolation: '{{ LineInterpolation }}'
-                          LineStyle: '{{ LineStyle }}'
-                          LineWidth: '{{ LineWidth }}'
-                        MarkerStyleSettings:
-                          MarkerVisibility: null
-                          MarkerShape: '{{ MarkerShape }}'
-                          MarkerSize: '{{ MarkerSize }}'
-                          MarkerColor: '{{ MarkerColor }}'
-                      Series:
-                        - FieldSeriesItem:
+                      FieldOptions:
+                        Order:
+                          - '{{ Order[0] }}'
+                        PinnedFieldOptions:
+                          PinnedLeftFields:
+                            - '{{ PinnedLeftFields[0] }}'
+                        SelectedFieldOptions:
+                          - CustomLabel: '{{ CustomLabel }}'
+                            URLStyling:
+                              LinkConfiguration:
+                                Target: null
+                                Content:
+                                  CustomIconContent:
+                                    Icon: '{{ Icon }}'
+                                  CustomTextContent:
+                                    Value: '{{ Value }}'
+                                    FontConfiguration: null
+                              ImageConfiguration:
+                                SizingOptions:
+                                  TableCellImageScalingConfiguration: '{{ TableCellImageScalingConfiguration }}'
                             FieldId: '{{ FieldId }}'
-                            AxisBinding: null
-                            Settings:
-                              LineStyleSettings: null
-                              MarkerStyleSettings: null
-                          DataFieldSeriesItem:
+                            Visibility: null
+                            Width: '{{ Width }}'
+                      TotalOptions:
+                        TotalAggregationOptions:
+                          - TotalAggregationFunction:
+                              SimpleTotalAggregationFunction: '{{ SimpleTotalAggregationFunction }}'
                             FieldId: '{{ FieldId }}'
-                            FieldValue: '{{ FieldValue }}'
-                            AxisBinding: null
-                            Settings: null
-                      Legend: null
-                      DataLabels: null
-                      ReferenceLines:
-                        - null
-                      Tooltip: null
-                      ContributionAnalysisDefaults:
-                        - null
-                      VisualPalette: null
+                        CustomLabel: '{{ CustomLabel }}'
+                        ScrollStatus: '{{ ScrollStatus }}'
+                        Placement: '{{ Placement }}'
+                        TotalCellStyle: null
+                        TotalsVisibility: null
                     Actions:
                       - null
-                    ColumnHierarchies:
-                      - null
-                  HeatMapVisual:
-                    VisualId: '{{ VisualId }}'
                     Title: null
+                  PivotTableVisual:
                     Subtitle: null
+                    ConditionalFormatting:
+                      ConditionalFormattingOptions:
+                        - Cell:
+                            Scope:
+                              Role: '{{ Role }}'
+                            Scopes:
+                              - null
+                            FieldId: '{{ FieldId }}'
+                            TextFormat: null
+                    VisualId: '{{ VisualId }}'
                     ChartConfiguration:
+                      SortConfiguration:
+                        FieldSortOptions:
+                          - SortBy:
+                              Field: null
+                              DataPath:
+                                SortPaths:
+                                  - null
+                                Direction: null
+                              Column: null
+                            FieldId: '{{ FieldId }}'
+                      PaginatedReportOptions:
+                        OverflowColumnHeaderVisibility: null
+                        VerticalOverflowVisibility: null
+                      TableOptions:
+                        RowFieldNamesStyle: null
+                        RowHeaderStyle: null
+                        CollapsedRowDimensionsVisibility: null
+                        RowsLayout: '{{ RowsLayout }}'
+                        MetricPlacement: '{{ MetricPlacement }}'
+                        DefaultCellWidth: '{{ DefaultCellWidth }}'
+                        ColumnNamesVisibility: null
+                        RowsLabelOptions:
+                          CustomLabel: '{{ CustomLabel }}'
+                          Visibility: null
+                        SingleMetricVisibility: null
+                        ColumnHeaderStyle: null
+                        ToggleButtonsVisibility: null
+                        CellStyle: null
+                        RowAlternateColorOptions: null
                       FieldWells:
-                        HeatMapAggregatedFieldWells:
-                          Rows:
+                        PivotTableAggregatedFieldWells:
+                          Values:
                             - null
                           Columns:
                             - null
-                          Values:
+                          Rows:
                             - null
-                      SortConfiguration:
-                        HeatMapRowSort:
-                          - null
-                        HeatMapColumnSort:
-                          - null
-                        HeatMapRowItemsLimitConfiguration: null
-                        HeatMapColumnItemsLimitConfiguration: null
-                      RowLabelOptions: null
-                      ColumnLabelOptions: null
-                      ColorScale:
-                        Colors:
-                          - Color: '{{ Color }}'
-                            DataValue: null
-                        ColorFillType: '{{ ColorFillType }}'
-                        NullValueColor: null
-                      Legend: null
-                      DataLabels: null
-                      Tooltip: null
-                    ColumnHierarchies:
-                      - null
+                      FieldOptions:
+                        CollapseStateOptions:
+                          - Target:
+                              FieldId: '{{ FieldId }}'
+                              FieldDataPathValues:
+                                - null
+                            State: '{{ State }}'
+                        DataPathOptions:
+                          - DataPathList:
+                              - null
+                            Width: '{{ Width }}'
+                        SelectedFieldOptions:
+                          - CustomLabel: '{{ CustomLabel }}'
+                            FieldId: '{{ FieldId }}'
+                            Visibility: null
+                      TotalOptions:
+                        ColumnSubtotalOptions:
+                          CustomLabel: '{{ CustomLabel }}'
+                          FieldLevelOptions:
+                            - FieldId: '{{ FieldId }}'
+                          ValueCellStyle: null
+                          TotalCellStyle: null
+                          TotalsVisibility: null
+                          FieldLevel: '{{ FieldLevel }}'
+                          MetricHeaderCellStyle: null
+                          StyleTargets:
+                            - CellType: '{{ CellType }}'
+                        RowSubtotalOptions: null
+                        RowTotalOptions:
+                          TotalAggregationOptions:
+                            - null
+                          CustomLabel: '{{ CustomLabel }}'
+                          ValueCellStyle: null
+                          ScrollStatus: null
+                          Placement: null
+                          TotalCellStyle: null
+                          TotalsVisibility: null
+                          MetricHeaderCellStyle: null
+                        ColumnTotalOptions: null
                     Actions:
                       - null
-                  TreeMapVisual:
-                    VisualId: '{{ VisualId }}'
                     Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      FieldWells:
-                        TreeMapAggregatedFieldWells:
-                          Groups:
-                            - null
-                          Sizes:
-                            - null
-                          Colors:
-                            - null
-                      SortConfiguration:
-                        TreeMapSort:
-                          - null
-                        TreeMapGroupItemsLimitConfiguration: null
-                      GroupLabelOptions: null
-                      SizeLabelOptions: null
-                      ColorLabelOptions: null
-                      ColorScale: null
-                      Legend: null
-                      DataLabels: null
-                      Tooltip: null
-                    Actions:
-                      - null
-                    ColumnHierarchies:
-                      - null
                   GeospatialMapVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
                     Subtitle: null
+                    VisualId: '{{ VisualId }}'
                     ChartConfiguration:
+                      Legend: null
+                      MapStyleOptions: null
                       FieldWells:
                         GeospatialMapAggregatedFieldWells:
-                          Geospatial:
+                          Colors:
                             - null
                           Values:
                             - null
-                          Colors:
+                          Geospatial:
                             - null
-                      Legend: null
                       Tooltip: null
-                      WindowOptions:
-                        Bounds:
-                          North: null
-                          South: null
-                          West: null
-                          East: null
-                        MapZoomMode: '{{ MapZoomMode }}'
-                      MapStyleOptions:
-                        BaseMapStyle: '{{ BaseMapStyle }}'
+                      WindowOptions: null
                       PointStyleOptions:
                         SelectedPointStyle: '{{ SelectedPointStyle }}'
                         ClusterMarkerConfiguration:
@@ -1197,383 +1425,119 @@ resources:
                             Colors:
                               - Color: '{{ Color }}'
                       VisualPalette: null
-                    ColumnHierarchies:
-                      - null
                     Actions:
                       - null
-                  FilledMapVisual:
-                    VisualId: '{{ VisualId }}'
                     Title: null
+                    ColumnHierarchies:
+                      - null
+                  BarChartVisual:
                     Subtitle: null
+                    VisualId: '{{ VisualId }}'
                     ChartConfiguration:
-                      FieldWells:
-                        FilledMapAggregatedFieldWells:
-                          Geospatial:
-                            - null
-                          Values:
-                            - null
                       SortConfiguration:
-                        CategorySort:
+                        SmallMultiplesSort:
                           - null
-                      Legend: null
-                      Tooltip: null
-                      WindowOptions: null
-                      MapStyleOptions: null
-                    ConditionalFormatting:
-                      ConditionalFormattingOptions:
-                        - Shape:
-                            FieldId: '{{ FieldId }}'
-                            Format:
-                              BackgroundColor: null
-                    ColumnHierarchies:
-                      - null
-                    Actions:
-                      - null
-                  FunnelChartVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      FieldWells:
-                        FunnelChartAggregatedFieldWells:
-                          Category:
-                            - null
-                          Values:
-                            - null
-                      SortConfiguration:
-                        CategorySort:
-                          - null
-                        CategoryItemsLimit: null
-                      CategoryLabelOptions: null
-                      ValueLabelOptions: null
-                      Tooltip: null
-                      DataLabelOptions:
-                        Visibility: null
-                        CategoryLabelVisibility: null
-                        MeasureLabelVisibility: null
-                        Position: null
-                        LabelFontConfiguration: null
-                        LabelColor: '{{ LabelColor }}'
-                        MeasureDataLabelStyle: '{{ MeasureDataLabelStyle }}'
-                      VisualPalette: null
-                    Actions:
-                      - null
-                    ColumnHierarchies:
-                      - null
-                  ScatterPlotVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      FieldWells:
-                        ScatterPlotCategoricallyAggregatedFieldWells:
-                          XAxis:
-                            - null
-                          YAxis:
-                            - null
-                          Category:
-                            - null
-                          Size:
-                            - null
-                          Label:
-                            - null
-                        ScatterPlotUnaggregatedFieldWells:
-                          XAxis:
-                            - null
-                          YAxis:
-                            - null
-                          Size:
-                            - null
-                          Category:
-                            - null
-                          Label:
-                            - null
-                      XAxisLabelOptions: null
-                      XAxisDisplayOptions: null
-                      YAxisLabelOptions: null
-                      YAxisDisplayOptions: null
-                      Legend: null
-                      DataLabels: null
-                      Tooltip: null
-                      VisualPalette: null
-                    Actions:
-                      - null
-                    ColumnHierarchies:
-                      - null
-                  ComboChartVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      FieldWells:
-                        ComboChartAggregatedFieldWells:
-                          Category:
-                            - null
-                          BarValues:
-                            - null
-                          Colors:
-                            - null
-                          LineValues:
-                            - null
-                      SortConfiguration:
-                        CategorySort:
-                          - null
-                        CategoryItemsLimit: null
                         ColorSort:
                           - null
                         ColorItemsLimit: null
-                      BarsArrangement: null
-                      CategoryAxis: null
-                      CategoryLabelOptions: null
-                      PrimaryYAxisDisplayOptions: null
-                      PrimaryYAxisLabelOptions: null
-                      SecondaryYAxisDisplayOptions: null
-                      SecondaryYAxisLabelOptions: null
-                      ColorLabelOptions: null
-                      Legend: null
-                      BarDataLabels: null
-                      LineDataLabels: null
-                      Tooltip: null
-                      ReferenceLines:
-                        - null
-                      VisualPalette: null
-                    Actions:
-                      - null
-                    ColumnHierarchies:
-                      - null
-                  BoxPlotVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      FieldWells:
-                        BoxPlotAggregatedFieldWells:
-                          GroupBy:
-                            - null
-                          Values:
-                            - null
-                      SortConfiguration:
-                        CategorySort:
-                          - null
-                        PaginationConfiguration: null
-                      BoxPlotOptions:
-                        StyleOptions:
-                          FillStyle: '{{ FillStyle }}'
-                        OutlierVisibility: null
-                        AllDataPointsVisibility: null
-                      CategoryAxis: null
-                      CategoryLabelOptions: null
-                      PrimaryYAxisDisplayOptions: null
-                      PrimaryYAxisLabelOptions: null
-                      Legend: null
-                      Tooltip: null
-                      ReferenceLines:
-                        - null
-                      VisualPalette: null
-                    Actions:
-                      - null
-                    ColumnHierarchies:
-                      - null
-                  WaterfallVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      FieldWells:
-                        WaterfallChartAggregatedFieldWells:
-                          Categories:
-                            - null
-                          Values:
-                            - null
-                          Breakdowns:
-                            - null
-                      SortConfiguration:
-                        CategorySort:
-                          - null
-                        BreakdownItemsLimit: null
-                      WaterfallChartOptions:
-                        TotalBarLabel: '{{ TotalBarLabel }}'
-                      CategoryAxisLabelOptions: null
-                      CategoryAxisDisplayOptions: null
-                      PrimaryYAxisLabelOptions: null
-                      PrimaryYAxisDisplayOptions: null
-                      Legend: null
-                      DataLabels: null
-                      VisualPalette: null
-                    Actions:
-                      - null
-                    ColumnHierarchies:
-                      - null
-                  HistogramVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      FieldWells:
-                        HistogramAggregatedFieldWells:
-                          Values:
-                            - null
-                      XAxisDisplayOptions: null
-                      XAxisLabelOptions: null
-                      YAxisDisplayOptions: null
-                      BinOptions:
-                        SelectedBinType: '{{ SelectedBinType }}'
-                        BinCount:
-                          Value: null
-                        BinWidth:
-                          Value: null
-                          BinCountLimit: null
-                        StartValue: null
-                      DataLabels: null
-                      Tooltip: null
-                      VisualPalette: null
-                    Actions:
-                      - null
-                  WordCloudVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      FieldWells:
-                        WordCloudAggregatedFieldWells:
-                          GroupBy:
-                            - null
-                          Size:
-                            - null
-                      SortConfiguration:
                         CategoryItemsLimit: null
                         CategorySort:
                           - null
+                        SmallMultiplesLimitConfiguration: null
+                      Legend: null
+                      ReferenceLines:
+                        - null
+                      DataLabels: null
+                      ColorLabelOptions: null
                       CategoryLabelOptions: null
-                      WordCloudOptions:
-                        WordOrientation: '{{ WordOrientation }}'
-                        WordScaling: '{{ WordScaling }}'
-                        CloudLayout: '{{ CloudLayout }}'
-                        WordCasing: '{{ WordCasing }}'
-                        WordPadding: '{{ WordPadding }}'
-                        MaximumStringLength: null
+                      Tooltip: null
+                      SmallMultiplesOptions: null
+                      Orientation: '{{ Orientation }}'
+                      VisualPalette: null
+                      ValueLabelOptions: null
+                      BarsArrangement: '{{ BarsArrangement }}'
+                      CategoryAxis: null
+                      ContributionAnalysisDefaults:
+                        - null
+                      FieldWells:
+                        BarChartAggregatedFieldWells:
+                          Category:
+                            - null
+                          Colors:
+                            - null
+                          Values:
+                            - null
+                          SmallMultiples:
+                            - null
+                      ValueAxis: null
                     Actions:
                       - null
+                    Title: null
                     ColumnHierarchies:
                       - null
-                  InsightVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
+                  ScatterPlotVisual:
                     Subtitle: null
-                    InsightConfiguration:
-                      Computations:
-                        - TopBottomRanked:
-                            ComputationId: '{{ ComputationId }}'
-                            Name: '{{ Name }}'
-                            Category: null
-                            Value: null
-                            ResultSize: null
-                            Type: '{{ Type }}'
-                          TopBottomMovers:
-                            ComputationId: '{{ ComputationId }}'
-                            Name: '{{ Name }}'
-                            Time: null
-                            Category: null
-                            Value: null
-                            MoverSize: null
-                            SortOrder: '{{ SortOrder }}'
-                            Type: null
-                          TotalAggregation:
-                            ComputationId: '{{ ComputationId }}'
-                            Name: '{{ Name }}'
-                            Value: null
-                          MaximumMinimum:
-                            ComputationId: '{{ ComputationId }}'
-                            Name: '{{ Name }}'
-                            Time: null
-                            Value: null
-                            Type: '{{ Type }}'
-                          MetricComparison:
-                            ComputationId: '{{ ComputationId }}'
-                            Name: '{{ Name }}'
-                            Time: null
-                            FromValue: null
-                            TargetValue: null
-                          PeriodOverPeriod:
-                            ComputationId: '{{ ComputationId }}'
-                            Name: '{{ Name }}'
-                            Time: null
-                            Value: null
-                          PeriodToDate:
-                            ComputationId: '{{ ComputationId }}'
-                            Name: '{{ Name }}'
-                            Time: null
-                            Value: null
-                            PeriodTimeGranularity: null
-                          GrowthRate:
-                            ComputationId: '{{ ComputationId }}'
-                            Name: '{{ Name }}'
-                            Time: null
-                            Value: null
-                            PeriodSize: null
-                          UniqueValues:
-                            ComputationId: '{{ ComputationId }}'
-                            Name: '{{ Name }}'
-                            Category: null
-                          Forecast:
-                            ComputationId: '{{ ComputationId }}'
-                            Name: '{{ Name }}'
-                            Time: null
-                            Value: null
-                            PeriodsForward: null
-                            PeriodsBackward: null
-                            UpperBoundary: null
-                            LowerBoundary: null
-                            PredictionInterval: null
-                            Seasonality: '{{ Seasonality }}'
-                            CustomSeasonalityValue: null
-                      CustomNarrative:
-                        Narrative: '{{ Narrative }}'
-                    Actions:
-                      - null
-                    DataSetIdentifier: '{{ DataSetIdentifier }}'
-                  SankeyDiagramVisual:
                     VisualId: '{{ VisualId }}'
-                    Title: null
-                    Subtitle: null
                     ChartConfiguration:
-                      FieldWells:
-                        SankeyDiagramAggregatedFieldWells:
-                          Source:
-                            - null
-                          Destination:
-                            - null
-                          Weight:
-                            - null
-                      SortConfiguration:
-                        WeightSort:
-                          - null
-                        SourceItemsLimit: null
-                        DestinationItemsLimit: null
+                      YAxisLabelOptions: null
+                      Legend: null
+                      YAxisDisplayOptions: null
                       DataLabels: null
+                      FieldWells:
+                        ScatterPlotUnaggregatedFieldWells:
+                          Category:
+                            - null
+                          Size:
+                            - null
+                          Label:
+                            - null
+                          XAxis:
+                            - null
+                          YAxis:
+                            - null
+                        ScatterPlotCategoricallyAggregatedFieldWells:
+                          Category:
+                            - null
+                          Size:
+                            - null
+                          Label:
+                            - null
+                          XAxis:
+                            - null
+                          YAxis:
+                            - null
+                      Tooltip: null
+                      XAxisLabelOptions: null
+                      VisualPalette: null
+                      XAxisDisplayOptions: null
                     Actions:
                       - null
-                  CustomContentVisual:
-                    VisualId: '{{ VisualId }}'
                     Title: null
-                    Subtitle: null
-                    ChartConfiguration:
-                      ContentUrl: '{{ ContentUrl }}'
-                      ContentType: '{{ ContentType }}'
-                      ImageScaling: '{{ ImageScaling }}'
-                    Actions:
-                      - null
-                    DataSetIdentifier: '{{ DataSetIdentifier }}'
-                  EmptyVisual:
-                    VisualId: '{{ VisualId }}'
-                    DataSetIdentifier: '{{ DataSetIdentifier }}'
-                    Actions:
+                    ColumnHierarchies:
                       - null
                   RadarChartVisual:
-                    VisualId: '{{ VisualId }}'
-                    Title: null
                     Subtitle: null
+                    VisualId: '{{ VisualId }}'
                     ChartConfiguration:
+                      SortConfiguration:
+                        ColorSort:
+                          - null
+                        ColorItemsLimit: null
+                        CategoryItemsLimit: null
+                        CategorySort:
+                          - null
+                      Legend: null
+                      Shape: '{{ Shape }}'
+                      BaseSeriesSettings:
+                        AreaStyleSettings:
+                          Visibility: null
+                      ColorLabelOptions: null
+                      CategoryLabelOptions: null
+                      AxesRangeScale: '{{ AxesRangeScale }}'
+                      VisualPalette: null
+                      AlternateBandColorsVisibility: null
+                      StartAngle: null
+                      CategoryAxis: null
                       FieldWells:
                         RadarChartAggregatedFieldWells:
                           Category:
@@ -1582,295 +1546,427 @@ resources:
                             - null
                           Values:
                             - null
+                      ColorAxis: null
+                      AlternateBandOddColor: '{{ AlternateBandOddColor }}'
+                      AlternateBandEvenColor: '{{ AlternateBandEvenColor }}'
+                    Actions:
+                      - null
+                    Title: null
+                    ColumnHierarchies:
+                      - null
+                  HeatMapVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
                       SortConfiguration:
-                        CategorySort:
+                        HeatMapRowSort:
                           - null
-                        CategoryItemsLimit: null
+                        HeatMapRowItemsLimitConfiguration: null
+                        HeatMapColumnItemsLimitConfiguration: null
+                        HeatMapColumnSort:
+                          - null
+                      ColumnLabelOptions: null
+                      Legend: null
+                      DataLabels: null
+                      FieldWells:
+                        HeatMapAggregatedFieldWells:
+                          Values:
+                            - null
+                          Columns:
+                            - null
+                          Rows:
+                            - null
+                      Tooltip: null
+                      ColorScale:
+                        Colors:
+                          - DataValue: null
+                            Color: '{{ Color }}'
+                        ColorFillType: '{{ ColorFillType }}'
+                        NullValueColor: null
+                      RowLabelOptions: null
+                    Actions:
+                      - null
+                    Title: null
+                    ColumnHierarchies:
+                      - null
+                  TreeMapVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      SortConfiguration:
+                        TreeMapSort:
+                          - null
+                        TreeMapGroupItemsLimitConfiguration: null
+                      Legend: null
+                      DataLabels: null
+                      ColorLabelOptions: null
+                      SizeLabelOptions: null
+                      FieldWells:
+                        TreeMapAggregatedFieldWells:
+                          Sizes:
+                            - null
+                          Colors:
+                            - null
+                          Groups:
+                            - null
+                      Tooltip: null
+                      ColorScale: null
+                      GroupLabelOptions: null
+                    Actions:
+                      - null
+                    Title: null
+                    ColumnHierarchies:
+                      - null
+                  ComboChartVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      SortConfiguration:
                         ColorSort:
                           - null
                         ColorItemsLimit: null
-                      Shape: '{{ Shape }}'
-                      BaseSeriesSettings:
-                        AreaStyleSettings:
-                          Visibility: null
-                      StartAngle: null
-                      VisualPalette: null
-                      AlternateBandColorsVisibility: null
-                      AlternateBandEvenColor: '{{ AlternateBandEvenColor }}'
-                      AlternateBandOddColor: '{{ AlternateBandOddColor }}'
-                      CategoryAxis: null
-                      CategoryLabelOptions: null
-                      ColorAxis: null
-                      ColorLabelOptions: null
+                        CategoryItemsLimit: null
+                        CategorySort:
+                          - null
                       Legend: null
-                      AxesRangeScale: '{{ AxesRangeScale }}'
+                      ReferenceLines:
+                        - null
+                      ColorLabelOptions: null
+                      BarDataLabels: null
+                      CategoryLabelOptions: null
+                      Tooltip: null
+                      PrimaryYAxisDisplayOptions: null
+                      VisualPalette: null
+                      BarsArrangement: null
+                      SecondaryYAxisLabelOptions: null
+                      LineDataLabels: null
+                      CategoryAxis: null
+                      PrimaryYAxisLabelOptions: null
+                      FieldWells:
+                        ComboChartAggregatedFieldWells:
+                          BarValues:
+                            - null
+                          Category:
+                            - null
+                          Colors:
+                            - null
+                          LineValues:
+                            - null
+                      SecondaryYAxisDisplayOptions: null
                     Actions:
                       - null
+                    Title: null
                     ColumnHierarchies:
                       - null
-              TextBoxes:
-                - SheetTextBoxId: '{{ SheetTextBoxId }}'
-                  Content: '{{ Content }}'
-              Layouts:
-                - Configuration:
-                    GridLayout:
-                      Elements:
-                        - ElementId: '{{ ElementId }}'
-                          ElementType: '{{ ElementType }}'
-                          ColumnIndex: null
-                          ColumnSpan: null
-                          RowIndex: null
-                          RowSpan: null
-                      CanvasSizeOptions:
-                        ScreenCanvasSizeOptions:
-                          ResizeOption: '{{ ResizeOption }}'
-                          OptimizedViewPortWidth: '{{ OptimizedViewPortWidth }}'
-                    FreeFormLayout:
-                      Elements:
-                        - ElementId: '{{ ElementId }}'
-                          ElementType: null
-                          XAxisLocation: '{{ XAxisLocation }}'
-                          YAxisLocation: '{{ YAxisLocation }}'
-                          Width: '{{ Width }}'
-                          Height: '{{ Height }}'
-                          Visibility: null
-                          RenderingRules:
-                            - Expression: '{{ Expression }}'
-                              ConfigurationOverrides:
-                                Visibility: null
-                          BorderStyle:
-                            Visibility: null
-                            Color: '{{ Color }}'
-                          SelectedBorderStyle: null
-                          BackgroundStyle:
-                            Visibility: null
-                            Color: '{{ Color }}'
-                          LoadingAnimation:
-                            Visibility: null
-                      CanvasSizeOptions:
-                        ScreenCanvasSizeOptions:
-                          OptimizedViewPortWidth: '{{ OptimizedViewPortWidth }}'
-                    SectionBasedLayout:
-                      HeaderSections:
-                        - SectionId: '{{ SectionId }}'
-                          Layout:
-                            FreeFormLayout:
-                              Elements:
-                                - null
-                          Style:
-                            Height: '{{ Height }}'
-                            Padding:
-                              Top: '{{ Top }}'
-                              Bottom: '{{ Bottom }}'
-                              Left: '{{ Left }}'
-                              Right: '{{ Right }}'
-                      BodySections:
-                        - SectionId: '{{ SectionId }}'
-                          Content:
-                            Layout: null
-                          Style: null
-                          PageBreakConfiguration:
-                            After:
-                              Status: '{{ Status }}'
-                      FooterSections:
+                  WordCloudVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      SortConfiguration:
+                        CategoryItemsLimit: null
+                        CategorySort:
+                          - null
+                      CategoryLabelOptions: null
+                      FieldWells:
+                        WordCloudAggregatedFieldWells:
+                          GroupBy:
+                            - null
+                          Size:
+                            - null
+                      WordCloudOptions:
+                        WordOrientation: '{{ WordOrientation }}'
+                        WordScaling: '{{ WordScaling }}'
+                        CloudLayout: '{{ CloudLayout }}'
+                        MaximumStringLength: null
+                        WordCasing: '{{ WordCasing }}'
+                        WordPadding: '{{ WordPadding }}'
+                    Actions:
+                      - null
+                    Title: null
+                    ColumnHierarchies:
+                      - null
+                  InsightVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    Actions:
+                      - null
+                    DataSetIdentifier: '{{ DataSetIdentifier }}'
+                    InsightConfiguration:
+                      Computations:
+                        - PeriodToDate:
+                            PeriodTimeGranularity: null
+                            Value: null
+                            Time: null
+                            ComputationId: '{{ ComputationId }}'
+                            Name: '{{ Name }}'
+                          GrowthRate:
+                            Value: null
+                            Time: null
+                            PeriodSize: null
+                            ComputationId: '{{ ComputationId }}'
+                            Name: '{{ Name }}'
+                          TopBottomRanked:
+                            Type: '{{ Type }}'
+                            Category: null
+                            ResultSize: null
+                            Value: null
+                            ComputationId: '{{ ComputationId }}'
+                            Name: '{{ Name }}'
+                          TotalAggregation:
+                            Value: null
+                            ComputationId: '{{ ComputationId }}'
+                            Name: '{{ Name }}'
+                          Forecast:
+                            PeriodsBackward: null
+                            PeriodsForward: null
+                            PredictionInterval: null
+                            Seasonality: '{{ Seasonality }}'
+                            CustomSeasonalityValue: null
+                            Value: null
+                            Time: null
+                            UpperBoundary: null
+                            ComputationId: '{{ ComputationId }}'
+                            Name: '{{ Name }}'
+                            LowerBoundary: null
+                          MaximumMinimum:
+                            Type: '{{ Type }}'
+                            Value: null
+                            Time: null
+                            ComputationId: '{{ ComputationId }}'
+                            Name: '{{ Name }}'
+                          PeriodOverPeriod:
+                            Value: null
+                            Time: null
+                            ComputationId: '{{ ComputationId }}'
+                            Name: '{{ Name }}'
+                          MetricComparison:
+                            TargetValue: null
+                            Time: null
+                            ComputationId: '{{ ComputationId }}'
+                            FromValue: null
+                            Name: '{{ Name }}'
+                          TopBottomMovers:
+                            Type: null
+                            Category: null
+                            Value: null
+                            SortOrder: '{{ SortOrder }}'
+                            Time: null
+                            MoverSize: null
+                            ComputationId: '{{ ComputationId }}'
+                            Name: '{{ Name }}'
+                          UniqueValues:
+                            Category: null
+                            ComputationId: '{{ ComputationId }}'
+                            Name: '{{ Name }}'
+                      CustomNarrative:
+                        Narrative: '{{ Narrative }}'
+                    Title: null
+                  SankeyDiagramVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      SortConfiguration:
+                        WeightSort:
+                          - null
+                        SourceItemsLimit: null
+                        DestinationItemsLimit: null
+                      DataLabels: null
+                      FieldWells:
+                        SankeyDiagramAggregatedFieldWells:
+                          Destination:
+                            - null
+                          Source:
+                            - null
+                          Weight:
+                            - null
+                    Actions:
+                      - null
+                    Title: null
+                  GaugeChartVisual:
+                    Subtitle: null
+                    ConditionalFormatting:
+                      ConditionalFormattingOptions:
+                        - Arc:
+                            ForegroundColor: null
+                          PrimaryValue:
+                            TextColor: null
+                            Icon: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      DataLabels: null
+                      FieldWells:
+                        TargetValues:
+                          - null
+                        Values:
+                          - null
+                      TooltipOptions: null
+                      GaugeChartOptions:
+                        Arc:
+                          ArcAngle: null
+                          ArcThickness: '{{ ArcThickness }}'
+                        Comparison: null
+                        PrimaryValueDisplayType: null
+                        ArcAxis:
+                          Range:
+                            Min: null
+                            Max: null
+                          ReserveRange: null
+                        PrimaryValueFontConfiguration: null
+                      VisualPalette: null
+                    Actions:
+                      - null
+                    Title: null
+                  LineChartVisual:
+                    Subtitle: null
+                    VisualId: '{{ VisualId }}'
+                    ChartConfiguration:
+                      SortConfiguration:
+                        CategoryItemsLimitConfiguration: null
+                        ColorItemsLimitConfiguration: null
+                        SmallMultiplesSort:
+                          - null
+                        CategorySort:
+                          - null
+                        SmallMultiplesLimitConfiguration: null
+                      Legend: null
+                      ReferenceLines:
                         - null
-                      CanvasSizeOptions:
-                        PaperCanvasSizeOptions:
-                          PaperSize: '{{ PaperSize }}'
-                          PaperOrientation: '{{ PaperOrientation }}'
-                          PaperMargin: null
-              SheetControlLayouts:
-                - Configuration:
-                    GridLayout: null
-              ContentType: '{{ ContentType }}'
-          CalculatedFields:
-            - DataSetIdentifier: '{{ DataSetIdentifier }}'
+                      DataLabels: null
+                      Tooltip: null
+                      SmallMultiplesOptions: null
+                      PrimaryYAxisDisplayOptions:
+                        MissingDataConfigurations:
+                          - TreatmentOption: '{{ TreatmentOption }}'
+                        AxisOptions: null
+                      VisualPalette: null
+                      XAxisDisplayOptions: null
+                      DefaultSeriesSettings:
+                        LineStyleSettings:
+                          LineInterpolation: '{{ LineInterpolation }}'
+                          LineStyle: '{{ LineStyle }}'
+                          LineVisibility: null
+                          LineWidth: '{{ LineWidth }}'
+                        AxisBinding: null
+                        MarkerStyleSettings:
+                          MarkerShape: '{{ MarkerShape }}'
+                          MarkerSize: '{{ MarkerSize }}'
+                          MarkerVisibility: null
+                          MarkerColor: '{{ MarkerColor }}'
+                      SecondaryYAxisLabelOptions: null
+                      ForecastConfigurations:
+                        - ForecastProperties:
+                            PeriodsBackward: null
+                            PeriodsForward: null
+                            PredictionInterval: null
+                            Seasonality: null
+                            UpperBoundary: null
+                            LowerBoundary: null
+                          Scenario:
+                            WhatIfRangeScenario:
+                              StartDate: '{{ StartDate }}'
+                              Value: null
+                              EndDate: '{{ EndDate }}'
+                            WhatIfPointScenario:
+                              Value: null
+                              Date: '{{ Date }}'
+                      Series:
+                        - FieldSeriesItem:
+                            FieldId: '{{ FieldId }}'
+                            AxisBinding: null
+                            Settings:
+                              LineStyleSettings: null
+                              MarkerStyleSettings: null
+                          DataFieldSeriesItem:
+                            FieldId: '{{ FieldId }}'
+                            AxisBinding: null
+                            FieldValue: '{{ FieldValue }}'
+                            Settings: null
+                      Type: '{{ Type }}'
+                      PrimaryYAxisLabelOptions: null
+                      ContributionAnalysisDefaults:
+                        - null
+                      FieldWells:
+                        LineChartAggregatedFieldWells:
+                          Category:
+                            - null
+                          Colors:
+                            - null
+                          Values:
+                            - null
+                          SmallMultiples:
+                            - null
+                      SecondaryYAxisDisplayOptions: null
+                      XAxisLabelOptions: null
+                    Actions:
+                      - null
+                    Title: null
+                    ColumnHierarchies:
+                      - null
+                  EmptyVisual:
+                    VisualId: '{{ VisualId }}'
+                    Actions:
+                      - null
+                    DataSetIdentifier: '{{ DataSetIdentifier }}'
               Name: '{{ Name }}'
-              Expression: '{{ Expression }}'
           ParameterDeclarations:
             - StringParameterDeclaration:
-                ParameterValueType: '{{ ParameterValueType }}'
-                Name: '{{ Name }}'
+                MappedDataSetParameters:
+                  - DataSetParameterName: '{{ DataSetParameterName }}'
+                    DataSetIdentifier: '{{ DataSetIdentifier }}'
                 DefaultValues:
                   DynamicValue:
-                    UserNameColumn: null
                     GroupNameColumn: null
                     DefaultValueColumn: null
+                    UserNameColumn: null
                   StaticValues:
                     - '{{ StaticValues[0] }}'
+                ParameterValueType: '{{ ParameterValueType }}'
                 ValueWhenUnset:
                   ValueWhenUnsetOption: '{{ ValueWhenUnsetOption }}'
                   CustomValue: '{{ CustomValue }}'
-                MappedDataSetParameters:
-                  - DataSetIdentifier: '{{ DataSetIdentifier }}'
-                    DataSetParameterName: '{{ DataSetParameterName }}'
-              DecimalParameterDeclaration:
-                ParameterValueType: null
                 Name: '{{ Name }}'
-                DefaultValues:
-                  DynamicValue: null
-                  StaticValues:
-                    - null
-                ValueWhenUnset:
-                  ValueWhenUnsetOption: null
-                  CustomValue: null
-                MappedDataSetParameters:
-                  - null
-              IntegerParameterDeclaration:
-                ParameterValueType: null
-                Name: '{{ Name }}'
-                DefaultValues:
-                  DynamicValue: null
-                  StaticValues:
-                    - null
-                ValueWhenUnset:
-                  ValueWhenUnsetOption: null
-                  CustomValue: null
-                MappedDataSetParameters:
-                  - null
               DateTimeParameterDeclaration:
-                Name: '{{ Name }}'
+                MappedDataSetParameters:
+                  - null
                 DefaultValues:
+                  RollingDate: null
                   DynamicValue: null
                   StaticValues:
                     - '{{ StaticValues[0] }}'
-                  RollingDate:
-                    DataSetIdentifier: '{{ DataSetIdentifier }}'
-                    Expression: '{{ Expression }}'
                 TimeGranularity: null
                 ValueWhenUnset:
                   ValueWhenUnsetOption: null
                   CustomValue: '{{ CustomValue }}'
+                Name: '{{ Name }}'
+              DecimalParameterDeclaration:
                 MappedDataSetParameters:
                   - null
-          FilterGroups:
-            - FilterGroupId: '{{ FilterGroupId }}'
-              Filters:
-                - CategoryFilter:
-                    FilterId: '{{ FilterId }}'
-                    Column: null
-                    Configuration:
-                      FilterListConfiguration:
-                        MatchOperator: '{{ MatchOperator }}'
-                        CategoryValues:
-                          - '{{ CategoryValues[0] }}'
-                        SelectAllOptions: '{{ SelectAllOptions }}'
-                        NullOption: '{{ NullOption }}'
-                      CustomFilterListConfiguration:
-                        MatchOperator: null
-                        CategoryValues:
-                          - '{{ CategoryValues[0] }}'
-                        SelectAllOptions: null
-                        NullOption: null
-                      CustomFilterConfiguration:
-                        MatchOperator: null
-                        CategoryValue: '{{ CategoryValue }}'
-                        SelectAllOptions: null
-                        ParameterName: '{{ ParameterName }}'
-                        NullOption: null
-                  NumericRangeFilter:
-                    FilterId: '{{ FilterId }}'
-                    Column: null
-                    IncludeMinimum: '{{ IncludeMinimum }}'
-                    IncludeMaximum: '{{ IncludeMaximum }}'
-                    RangeMinimum:
-                      StaticValue: null
-                      Parameter: '{{ Parameter }}'
-                    RangeMaximum: null
-                    SelectAllOptions: '{{ SelectAllOptions }}'
-                    AggregationFunction: null
-                    NullOption: null
-                  NumericEqualityFilter:
-                    FilterId: '{{ FilterId }}'
-                    Column: null
-                    Value: null
-                    SelectAllOptions: null
-                    MatchOperator: '{{ MatchOperator }}'
-                    AggregationFunction: null
-                    ParameterName: '{{ ParameterName }}'
-                    NullOption: null
-                  TimeEqualityFilter:
-                    FilterId: '{{ FilterId }}'
-                    Column: null
-                    Value: '{{ Value }}'
-                    RollingDate: null
-                    ParameterName: '{{ ParameterName }}'
-                    TimeGranularity: null
-                  TimeRangeFilter:
-                    FilterId: '{{ FilterId }}'
-                    Column: null
-                    IncludeMinimum: '{{ IncludeMinimum }}'
-                    IncludeMaximum: '{{ IncludeMaximum }}'
-                    RangeMinimumValue:
-                      StaticValue: '{{ StaticValue }}'
-                      RollingDate: null
-                      Parameter: '{{ Parameter }}'
-                    RangeMaximumValue: null
-                    NullOption: null
-                    ExcludePeriodConfiguration:
-                      Amount: null
-                      Granularity: null
-                      Status: null
-                    TimeGranularity: null
-                  RelativeDatesFilter:
-                    FilterId: '{{ FilterId }}'
-                    Column: null
-                    AnchorDateConfiguration:
-                      AnchorOption: '{{ AnchorOption }}'
-                      ParameterName: '{{ ParameterName }}'
-                    MinimumGranularity: null
-                    TimeGranularity: null
-                    RelativeDateType: '{{ RelativeDateType }}'
-                    RelativeDateValue: null
-                    ParameterName: '{{ ParameterName }}'
-                    NullOption: null
-                    ExcludePeriodConfiguration: null
-                  TopBottomFilter:
-                    FilterId: '{{ FilterId }}'
-                    Column: null
-                    Limit: null
-                    AggregationSortConfigurations:
-                      - Column: null
-                        SortDirection: null
-                        AggregationFunction: null
-                    TimeGranularity: null
-                    ParameterName: '{{ ParameterName }}'
-              ScopeConfiguration:
-                SelectedSheets:
-                  SheetVisualScopingConfigurations:
-                    - SheetId: '{{ SheetId }}'
-                      Scope: '{{ Scope }}'
-                      VisualIds:
-                        - '{{ VisualIds[0] }}'
-                AllSheets: {}
-              Status: null
-              CrossDataset: '{{ CrossDataset }}'
-          ColumnConfigurations:
-            - Column: null
-              FormatConfiguration: null
-              Role: '{{ Role }}'
-              ColorsConfiguration:
-                CustomColors:
-                  - FieldValue: '{{ FieldValue }}'
-                    Color: '{{ Color }}'
-                    SpecialValue: '{{ SpecialValue }}'
-          AnalysisDefaults:
-            DefaultNewSheetConfiguration:
-              InteractiveLayoutConfiguration:
-                Grid:
-                  CanvasSizeOptions: null
-                FreeForm:
-                  CanvasSizeOptions: null
-              PaginatedLayoutConfiguration:
-                SectionBased:
-                  CanvasSizeOptions: null
-              SheetContentType: null
-          Options:
-            Timezone: '{{ Timezone }}'
-            WeekStart: '{{ WeekStart }}'
-      - name: LinkEntities
+                DefaultValues:
+                  DynamicValue: null
+                  StaticValues:
+                    - null
+                ParameterValueType: null
+                ValueWhenUnset:
+                  ValueWhenUnsetOption: null
+                  CustomValue: null
+                Name: '{{ Name }}'
+              IntegerParameterDeclaration:
+                MappedDataSetParameters:
+                  - null
+                DefaultValues:
+                  DynamicValue: null
+                  StaticValues:
+                    - null
+                ParameterValueType: null
+                ValueWhenUnset:
+                  ValueWhenUnsetOption: null
+                  CustomValue: null
+                Name: '{{ Name }}'
+      - name: ValidationStrategy
         value:
-          - '{{ LinkEntities[0] }}'
+          Mode: '{{ Mode }}'
+      - name: DashboardId
+        value: '{{ DashboardId }}'
       - name: LinkSharingConfiguration
         value:
           Permissions:
@@ -1879,51 +1975,49 @@ resources:
                 - '{{ Actions[0] }}'
       - name: Name
         value: '{{ Name }}'
-      - name: Parameters
+      - name: DashboardPublishOptions
         value:
-          StringParameters:
-            - Name: '{{ Name }}'
-              Values:
-                - '{{ Values[0] }}'
-          IntegerParameters:
-            - Name: '{{ Name }}'
-              Values:
-                - null
-          DecimalParameters:
-            - Name: '{{ Name }}'
-              Values:
-                - null
-          DateTimeParameters:
-            - Name: '{{ Name }}'
-              Values:
-                - '{{ Values[0] }}'
+          SheetControlsOption:
+            VisibilityState: '{{ VisibilityState }}'
+          ExportToCSVOption:
+            AvailabilityStatus: '{{ AvailabilityStatus }}'
+          DataPointMenuLabelOption:
+            AvailabilityStatus: null
+          DataPointDrillUpDownOption:
+            AvailabilityStatus: null
+          AdHocFilteringOption:
+            AvailabilityStatus: null
+          VisualPublishOptions:
+            ExportHiddenFieldsOption:
+              AvailabilityStatus: null
+          VisualMenuOption:
+            AvailabilityStatus: null
+          DataPointTooltipOption:
+            AvailabilityStatus: null
+          VisualAxisSortOption:
+            AvailabilityStatus: null
+          ExportWithHiddenFieldsOption:
+            AvailabilityStatus: null
+          SheetLayoutElementMaximizationOption:
+            AvailabilityStatus: null
+      - name: AwsAccountId
+        value: '{{ AwsAccountId }}'
       - name: Permissions
         value:
           - null
-      - name: SourceEntity
+      - name: LinkEntities
         value:
-          SourceTemplate:
-            DataSetReferences:
-              - DataSetPlaceholder: '{{ DataSetPlaceholder }}'
-                DataSetArn: '{{ DataSetArn }}'
-            Arn: '{{ Arn }}'
+          - '{{ LinkEntities[0] }}'
       - name: Tags
         value:
-          - Value: '{{ Value }}'
-            Key: '{{ Key }}'
-      - name: ThemeArn
-        value: '{{ ThemeArn }}'
-      - name: ValidationStrategy
-        value:
-          Mode: '{{ Mode }}'
-      - name: VersionDescription
-        value: '{{ VersionDescription }}'
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -1935,6 +2029,13 @@ AND region = 'us-east-1';
 ## Permissions
 
 To operate on the <code>dashboards</code> resource, the following permissions are required:
+
+### Read
+```json
+quicksight:DescribeDashboard,
+quicksight:DescribeDashboardPermissions,
+quicksight:ListTagsForResource
+```
 
 ### Create
 ```json
@@ -1949,14 +2050,30 @@ quicksight:UntagResource,
 quicksight:ListTagsForResource
 ```
 
-### Delete
+### Update
 ```json
 quicksight:DescribeDashboard,
-quicksight:DeleteDashboard
+quicksight:DescribeDashboardPermissions,
+quicksight:UpdateDashboard,
+quicksight:UpdateDashboardLinks,
+quicksight:UpdateDashboardPermissions,
+quicksight:UpdateDashboardPublishedVersion,
+quicksight:DescribeTemplate,
+quicksight:DescribeTheme,
+quicksight:PassDataSet,
+quicksight:TagResource,
+quicksight:UntagResource,
+quicksight:ListTagsForResource
 ```
 
 ### List
 ```json
 quicksight:ListDashboards
+```
+
+### Delete
+```json
+quicksight:DescribeDashboard,
+quicksight:DeleteDashboard
 ```
 

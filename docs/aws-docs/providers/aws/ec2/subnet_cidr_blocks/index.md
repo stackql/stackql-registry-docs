@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>subnet_cidr_blocks</code> in a region or to create or delete a <code>subnet_cidr_blocks</code> resource, use <code>subnet_cidr_block</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>subnet_cidr_block</code> resource or lists <code>subnet_cidr_blocks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>subnet_cidr_blocks</code> in a region or to cre
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Information about the IPv6 association.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Information about the IPv6 association.</td></tr>
+<tr><td><CopyableCode code="ipv6_cidr_block" /></td><td><code>string</code></td><td>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length</td></tr>
+<tr><td><CopyableCode code="ipv6_ipam_pool_id" /></td><td><code>string</code></td><td>The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR</td></tr>
+<tr><td><CopyableCode code="ipv6_netmask_length" /></td><td><code>integer</code></td><td>The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool</td></tr>
+<tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The ID of the subnet</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -61,9 +61,15 @@ Used to retrieve a list of <code>subnet_cidr_blocks</code> in a region or to cre
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>subnet_cidr_blocks</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +77,21 @@ id
 FROM aws.ec2.subnet_cidr_blocks
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>subnet_cidr_block</code>.
+```sql
+SELECT
+region,
+id,
+ipv6_cidr_block,
+ipv6_ipam_pool_id,
+ipv6_netmask_length,
+subnet_id
+FROM aws.ec2.subnet_cidr_blocks
+WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>subnet_cidr_block</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -143,7 +162,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -169,6 +188,11 @@ ec2:DescribeSubnets
 ```
 
 ### List
+```json
+ec2:DescribeSubnets
+```
+
+### Read
 ```json
 ec2:DescribeSubnets
 ```

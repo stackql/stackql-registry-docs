@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>prompts</code> in a region or to create or delete a <code>prompts</code> resource, use <code>prompt</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>prompt</code> resource or lists <code>prompts</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>prompts</code> in a region or to create or dele
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the prompt.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the prompt.</td></tr>
+<tr><td><CopyableCode code="s3_uri" /></td><td><code>string</code></td><td>S3 URI of the customer's audio file for creating prompts resource..</td></tr>
 <tr><td><CopyableCode code="prompt_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the prompt.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>prompts</code> in a region or to create or dele
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>prompts</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ prompt_arn
 FROM aws.connect.prompts
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>prompt</code>.
+```sql
+SELECT
+region,
+instance_arn,
+name,
+description,
+s3_uri,
+prompt_arn,
+tags
+FROM aws.connect.prompts
+WHERE region = 'us-east-1' AND data__Identifier = '<PromptArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>prompt</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +177,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -171,6 +197,18 @@ connect:TagResource,
 s3:GetObject,
 kms:Decrypt,
 s3:GetObjectAcl
+```
+
+### Read
+```json
+connect:DescribePrompt
+```
+
+### Update
+```json
+connect:UpdatePrompt,
+connect:TagResource,
+connect:UntagResource
 ```
 
 ### Delete

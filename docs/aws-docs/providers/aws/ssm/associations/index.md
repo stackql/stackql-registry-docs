@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>associations</code> in a region or to create or delete a <code>associations</code> resource, use <code>association</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>association</code> resource or lists <code>associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,25 @@ Used to retrieve a list of <code>associations</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="association_name" /></td><td><code>string</code></td><td>The name of the association.</td></tr>
+<tr><td><CopyableCode code="calendar_names" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule_expression" /></td><td><code>string</code></td><td>A Cron or Rate expression that specifies when the association is applied to the target.</td></tr>
+<tr><td><CopyableCode code="max_errors" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code>object</code></td><td>Parameter values that the SSM document uses at runtime.</td></tr>
+<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>The ID of the instance that the SSM document is associated with.</td></tr>
+<tr><td><CopyableCode code="wait_for_success_timeout_seconds" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="max_concurrency" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="compliance_severity" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="targets" /></td><td><code>array</code></td><td>The targets that the SSM document sends commands to.</td></tr>
+<tr><td><CopyableCode code="sync_compliance" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="output_location" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule_offset" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the SSM document.</td></tr>
+<tr><td><CopyableCode code="apply_only_at_cron_interval" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="document_version" /></td><td><code>string</code></td><td>The version of the SSM document to associate with the target.</td></tr>
 <tr><td><CopyableCode code="association_id" /></td><td><code>string</code></td><td>Unique identifier of the association.</td></tr>
+<tr><td><CopyableCode code="automation_target_parameter_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +70,24 @@ Used to retrieve a list of <code>associations</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +95,34 @@ association_id
 FROM aws.ssm.associations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>association</code>.
+```sql
+SELECT
+region,
+association_name,
+calendar_names,
+schedule_expression,
+max_errors,
+parameters,
+instance_id,
+wait_for_success_timeout_seconds,
+max_concurrency,
+compliance_severity,
+targets,
+sync_compliance,
+output_location,
+schedule_offset,
+name,
+apply_only_at_cron_interval,
+document_version,
+association_id,
+automation_target_parameter_name
+FROM aws.ssm.associations
+WHERE region = 'us-east-1' AND data__Identifier = '<AssociationId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>association</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -203,7 +253,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -216,6 +266,14 @@ AND region = 'us-east-1';
 
 To operate on the <code>associations</code> resource, the following permissions are required:
 
+### Read
+```json
+ssm:DescribeAssociation,
+resource-groups:GetGroupQuery,
+resource-groups:ListGroups,
+resource-groups:ListGroupResources
+```
+
 ### Create
 ```json
 ec2:DescribeInstanceStatus,
@@ -223,6 +281,13 @@ iam:PassRole,
 iam:CreateServiceLinkedRole,
 ssm:CreateAssociation,
 ssm:DescribeAssociation,
+ssm:GetCalendarState
+```
+
+### Update
+```json
+iam:PassRole,
+ssm:UpdateAssociation,
 ssm:GetCalendarState
 ```
 

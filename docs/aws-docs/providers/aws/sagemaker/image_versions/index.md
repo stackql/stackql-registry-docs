@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>image_versions</code> in a region or to create or delete a <code>image_versions</code> resource, use <code>image_version</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>image_version</code> resource or lists <code>image_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,22 @@ Used to retrieve a list of <code>image_versions</code> in a region or to create 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="image_version_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="image_name" /></td><td><code>The name of the image this version belongs to.</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_arn" /></td><td><code>The Amazon Resource Name (ARN) of the parent image.</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_version_arn" /></td><td><code>The Amazon Resource Name (ARN) of the image version.</code></td><td></td></tr>
+<tr><td><CopyableCode code="base_image" /></td><td><code>The registry path of the container image on which this image version is based.</code></td><td></td></tr>
+<tr><td><CopyableCode code="container_image" /></td><td><code>The image to use for the container that will be materialized for the inference component</code></td><td></td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>The version number of the image version.</code></td><td></td></tr>
+<tr><td><CopyableCode code="alias" /></td><td><code>The alias of the image version.</code></td><td></td></tr>
+<tr><td><CopyableCode code="aliases" /></td><td><code>List of aliases for the image version.</code></td><td></td></tr>
+<tr><td><CopyableCode code="vendor_guidance" /></td><td><code>The availability of the image version specified by the maintainer.</code></td><td></td></tr>
+<tr><td><CopyableCode code="job_type" /></td><td><code>Indicates SageMaker job type compatibility.</code></td><td></td></tr>
+<tr><td><CopyableCode code="ml_framework" /></td><td><code>The machine learning framework vended in the image version.</code></td><td></td></tr>
+<tr><td><CopyableCode code="programming_lang" /></td><td><code>The supported programming language and its version.</code></td><td></td></tr>
+<tr><td><CopyableCode code="processor" /></td><td><code>Indicates CPU or GPU compatibility.</code></td><td></td></tr>
+<tr><td><CopyableCode code="horovod" /></td><td><code>Indicates Horovod compatibility.</code></td><td></td></tr>
+<tr><td><CopyableCode code="release_notes" /></td><td><code>The maintainer description of the image version.</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +67,24 @@ Used to retrieve a list of <code>image_versions</code> in a region or to create 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>image_versions</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +92,31 @@ image_version_arn
 FROM aws.sagemaker.image_versions
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>image_version</code>.
+```sql
+SELECT
+region,
+image_name,
+image_arn,
+image_version_arn,
+base_image,
+container_image,
+version,
+alias,
+aliases,
+vendor_guidance,
+job_type,
+ml_framework,
+programming_lang,
+processor,
+horovod,
+release_notes
+FROM aws.sagemaker.image_versions
+WHERE region = 'us-east-1' AND data__Identifier = '<ImageVersionArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>image_version</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -174,7 +218,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -191,6 +235,18 @@ To operate on the <code>image_versions</code> resource, the following permission
 ```json
 sagemaker:CreateImageVersion,
 sagemaker:DescribeImageVersion
+```
+
+### Read
+```json
+sagemaker:DescribeImageVersion
+```
+
+### Update
+```json
+sagemaker:UpdateImageVersion,
+sagemaker:DescribeImageVersion,
+sagemaker:ListAliases
 ```
 
 ### Delete

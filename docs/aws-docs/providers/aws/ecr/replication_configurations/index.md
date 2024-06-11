@@ -19,23 +19,20 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>replication_configurations</code> in a region or to create or delete a <code>replication_configurations</code> resource, use <code>replication_configuration</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>replication_configuration</code> resource or lists <code>replication_configurations</code> in a region
 
 ## Overview
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>replication_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonECR&#x2F;latest&#x2F;userguide&#x2F;replication.html</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ecr.replication_configurations" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="replication_configuration" /></td><td><code>The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html</code></td><td></td></tr>
 <tr><td><CopyableCode code="registry_id" /></td><td><code>string</code></td><td>The RegistryId associated with the aws account.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +54,24 @@ Used to retrieve a list of <code>replication_configurations</code> in a region o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>replication_configurations</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +79,18 @@ registry_id
 FROM aws.ecr.replication_configurations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>replication_configuration</code>.
+```sql
+SELECT
+region,
+replication_configuration,
+registry_id
+FROM aws.ecr.replication_configurations
+WHERE region = 'us-east-1' AND data__Identifier = '<RegistryId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>replication_configuration</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -132,7 +150,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -146,6 +164,18 @@ AND region = 'us-east-1';
 To operate on the <code>replication_configurations</code> resource, the following permissions are required:
 
 ### Create
+```json
+ecr:DescribeRegistry,
+ecr:PutReplicationConfiguration,
+iam:CreateServiceLinkedRole
+```
+
+### Read
+```json
+ecr:DescribeRegistry
+```
+
+### Update
 ```json
 ecr:DescribeRegistry,
 ecr:PutReplicationConfiguration,

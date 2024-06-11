@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>entitlements</code> in a region or to create or delete a <code>entitlements</code> resource, use <code>entitlement</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>entitlement</code> resource or lists <code>entitlements</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,14 @@ Used to retrieve a list of <code>entitlements</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="stack_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="app_visibility" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="attributes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,23 +59,36 @@ Used to retrieve a list of <code>entitlements</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from an <code>entitlement</code>.
 ```sql
 SELECT
 region,
+name,
 stack_name,
-name
+description,
+app_visibility,
+attributes,
+created_time,
+last_modified_time
 FROM aws.appstream.entitlements
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<StackName>|<Name>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>entitlement</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -157,7 +171,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -173,6 +187,16 @@ To operate on the <code>entitlements</code> resource, the following permissions 
 ### Create
 ```json
 appstream:CreateEntitlement
+```
+
+### Read
+```json
+appstream:DescribeEntitlements
+```
+
+### Update
+```json
+appstream:UpdateEntitlement
 ```
 
 ### Delete

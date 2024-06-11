@@ -20,9 +20,9 @@ The datazone service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>14</b></span><br />
-<span>total selectable resources:&nbsp;<b>14</b></span><br />
-<span>total methods:&nbsp;<b>14</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>10</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
 </div>
 </div>
 
@@ -31,21 +31,17 @@ The datazone service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/datazone/data_source/">data_source</a><br />
 <a href="/providers/aws/datazone/data_sources/">data_sources</a><br />
-<a href="/providers/aws/datazone/domain/">domain</a><br />
 <a href="/providers/aws/datazone/domains/">domains</a><br />
-<a href="/providers/aws/datazone/environment/">environment</a><br />
-<a href="/providers/aws/datazone/environment_blueprint_configuration/">environment_blueprint_configuration</a><br />
-<a href="/providers/aws/datazone/environment_blueprint_configurations/">environment_blueprint_configurations</a>
+<a href="/providers/aws/datazone/environment_blueprint_configurations/">environment_blueprint_configurations</a><br />
+<a href="/providers/aws/datazone/environment_profiles/">environment_profiles</a><br />
+<a href="/providers/aws/datazone/environments/">environments</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/datazone/environment_profile/">environment_profile</a><br />
-<a href="/providers/aws/datazone/environment_profiles/">environment_profiles</a><br />
-<a href="/providers/aws/datazone/environments/">environments</a><br />
-<a href="/providers/aws/datazone/project/">project</a><br />
+<a href="/providers/aws/datazone/group_profiles/">group_profiles</a><br />
+<a href="/providers/aws/datazone/project_memberships/">project_memberships</a><br />
 <a href="/providers/aws/datazone/projects/">projects</a><br />
-<a href="/providers/aws/datazone/subscription_target/">subscription_target</a><br />
-<a href="/providers/aws/datazone/subscription_targets/">subscription_targets</a>
+<a href="/providers/aws/datazone/subscription_targets/">subscription_targets</a><br />
+<a href="/providers/aws/datazone/user_profiles/">user_profiles</a>
 </div>
 </div>

@@ -20,9 +20,9 @@ The amplifyuibuilder service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total selectable resources:&nbsp;<b>3</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -31,13 +31,10 @@ The amplifyuibuilder service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/amplifyuibuilder/component/">component</a><br />
 <a href="/providers/aws/amplifyuibuilder/components/">components</a><br />
-<a href="/providers/aws/amplifyuibuilder/form/">form</a>
+<a href="/providers/aws/amplifyuibuilder/forms/">forms</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/amplifyuibuilder/forms/">forms</a><br />
-<a href="/providers/aws/amplifyuibuilder/theme/">theme</a><br />
 <a href="/providers/aws/amplifyuibuilder/themes/">themes</a>
 </div>
 </div>

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>access_points</code> in a region or to create or delete a <code>access_points</code> resource, use <code>access_point</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>access_point</code> resource or lists <code>access_points</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,14 @@ Used to retrieve a list of <code>access_points</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name you want to assign to this Object lambda Access Point.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name you want to assign to this Object lambda Access Point.</td></tr>
+<tr><td><CopyableCode code="alias" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td>The date and time when the Object lambda Access Point was created.</td></tr>
+<tr><td><CopyableCode code="public_access_block_configuration" /></td><td><code>object</code></td><td>The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.</td></tr>
+<tr><td><CopyableCode code="policy_status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="object_lambda_configuration" /></td><td><code>object</code></td><td>The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +59,24 @@ Used to retrieve a list of <code>access_points</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>access_points</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +84,23 @@ name
 FROM aws.s3objectlambda.access_points
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>access_point</code>.
+```sql
+SELECT
+region,
+name,
+alias,
+arn,
+creation_date,
+public_access_block_configuration,
+policy_status,
+object_lambda_configuration
+FROM aws.s3objectlambda.access_points
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>access_point</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -143,7 +171,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -159,6 +187,21 @@ To operate on the <code>access_points</code> resource, the following permissions
 ### Create
 ```json
 s3:CreateAccessPointForObjectLambda,
+s3:PutAccessPointConfigurationForObjectLambda,
+s3:GetAccessPointForObjectLambda,
+s3:GetAccessPointPolicyStatusForObjectLambda,
+s3:GetAccessPointConfigurationForObjectLambda
+```
+
+### Read
+```json
+s3:GetAccessPointForObjectLambda,
+s3:GetAccessPointPolicyStatusForObjectLambda,
+s3:GetAccessPointConfigurationForObjectLambda
+```
+
+### Update
+```json
 s3:PutAccessPointConfigurationForObjectLambda,
 s3:GetAccessPointForObjectLambda,
 s3:GetAccessPointPolicyStatusForObjectLambda,

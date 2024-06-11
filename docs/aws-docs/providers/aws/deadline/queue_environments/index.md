@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>queue_environments</code> in a region or to create or delete a <code>queue_environments</code> resource, use <code>queue_environment</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>queue_environment</code> resource or lists <code>queue_environments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,13 +30,14 @@ Used to retrieve a list of <code>queue_environments</code> in a region or to cre
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="farm_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="queue_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="farm_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="priority" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="queue_environment_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="queue_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="template" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="template_type" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -59,13 +59,24 @@ Used to retrieve a list of <code>queue_environments</code> in a region or to cre
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>queue_environments</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,8 +86,23 @@ queue_environment_id
 FROM aws.deadline.queue_environments
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>queue_environment</code>.
+```sql
+SELECT
+region,
+farm_id,
+name,
+priority,
+queue_environment_id,
+queue_id,
+template,
+template_type
+FROM aws.deadline.queue_environments
+WHERE region = 'us-east-1' AND data__Identifier = '<FarmId>|<QueueId>|<QueueEnvironmentId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>queue_environment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -159,7 +185,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -175,6 +201,18 @@ To operate on the <code>queue_environments</code> resource, the following permis
 ### Create
 ```json
 deadline:CreateQueueEnvironment,
+identitystore:ListGroupMembershipsForMember
+```
+
+### Read
+```json
+deadline:GetQueueEnvironment,
+identitystore:ListGroupMembershipsForMember
+```
+
+### Update
+```json
+deadline:UpdateQueueEnvironment,
 identitystore:ListGroupMembershipsForMember
 ```
 

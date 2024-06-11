@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>data_catalogs</code> in a region or to create or delete a <code>data_catalogs</code> resource, use <code>data_catalog</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>data_catalog</code> resource or lists <code>data_catalogs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>data_catalogs</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. </td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. </td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the data catalog to be created. </td></tr>
+<tr><td><CopyableCode code="parameters" /></td><td><code>object</code></td><td>Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. </td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of comma separated tags to add to the data catalog that is created. </td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. </td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>data_catalogs</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>data_catalogs</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ name
 FROM aws.athena.data_catalogs
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>data_catalog</code>.
+```sql
+SELECT
+region,
+name,
+description,
+parameters,
+tags,
+type
+FROM aws.athena.data_catalogs
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>data_catalog</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -151,7 +175,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -168,6 +192,21 @@ To operate on the <code>data_catalogs</code> resource, the following permissions
 ```json
 athena:CreateDataCatalog,
 athena:TagResource
+```
+
+### Read
+```json
+athena:GetDataCatalog,
+athena:ListTagsForResource
+```
+
+### Update
+```json
+athena:UpdateDataCatalog,
+athena:TagResource,
+athena:GetDataCatalog,
+athena:UntagResource,
+athena:ListTagsForResource
 ```
 
 ### Delete

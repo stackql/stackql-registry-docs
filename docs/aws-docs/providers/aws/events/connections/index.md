@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>connections</code> in a region or to create or delete a <code>connections</code> resource, use <code>connection</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>connection</code> resource or lists <code>connections</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>connections</code> in a region or to create or 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the connection.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the connection.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The arn of the connection resource.</td></tr>
+<tr><td><CopyableCode code="secret_arn" /></td><td><code>string</code></td><td>The arn of the secrets manager secret created in the customer account.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the connection.</td></tr>
+<tr><td><CopyableCode code="authorization_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="auth_parameters" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>connections</code> in a region or to create or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>connections</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ name
 FROM aws.events.connections
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>connection</code>.
+```sql
+SELECT
+region,
+name,
+arn,
+secret_arn,
+description,
+authorization_type,
+auth_parameters
+FROM aws.events.connections
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>connection</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -171,7 +197,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -192,6 +218,21 @@ secretsmanager:CreateSecret,
 secretsmanager:GetSecretValue,
 secretsmanager:PutSecretValue,
 iam:CreateServiceLinkedRole
+```
+
+### Read
+```json
+events:DescribeConnection
+```
+
+### Update
+```json
+events:UpdateConnection,
+events:DescribeConnection,
+secretsmanager:CreateSecret,
+secretsmanager:UpdateSecret,
+secretsmanager:GetSecretValue,
+secretsmanager:PutSecretValue
 ```
 
 ### Delete

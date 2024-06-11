@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>object_types</code> in a region or to create or delete a <code>object_types</code> resource, use <code>object_type</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>object_type</code> resource or lists <code>object_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,20 @@ Used to retrieve a list of <code>object_types</code> in a region or to create or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
 <tr><td><CopyableCode code="object_type_name" /></td><td><code>string</code></td><td>The name of the profile object type.</td></tr>
+<tr><td><CopyableCode code="allow_profile_creation" /></td><td><code>boolean</code></td><td>Indicates whether a profile should be created when data is received.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the profile object type.</td></tr>
+<tr><td><CopyableCode code="encryption_key" /></td><td><code>string</code></td><td>The default encryption key</td></tr>
+<tr><td><CopyableCode code="expiration_days" /></td><td><code>integer</code></td><td>The default number of days until the data within the domain expires.</td></tr>
+<tr><td><CopyableCode code="fields" /></td><td><code>array</code></td><td>A list of the name and ObjectType field.</td></tr>
+<tr><td><CopyableCode code="keys" /></td><td><code>array</code></td><td>A list of unique keys that can be used to map data to the profile.</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time of this integration got created.</td></tr>
+<tr><td><CopyableCode code="last_updated_at" /></td><td><code>string</code></td><td>The time of this integration got last updated at.</td></tr>
+<tr><td><CopyableCode code="source_last_updated_timestamp_format" /></td><td><code>string</code></td><td>The format of your sourceLastUpdatedTimestamp that was previously set up.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags (keys and values) associated with the integration.</td></tr>
+<tr><td><CopyableCode code="template_id" /></td><td><code>string</code></td><td>A unique identifier for the object template.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +65,24 @@ Used to retrieve a list of <code>object_types</code> in a region or to create or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>object_types</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +91,29 @@ object_type_name
 FROM aws.customerprofiles.object_types
 WHERE region = 'us-east-1';
 ```
+Gets all properties from an <code>object_type</code>.
+```sql
+SELECT
+region,
+domain_name,
+object_type_name,
+allow_profile_creation,
+description,
+encryption_key,
+expiration_days,
+fields,
+keys,
+created_at,
+last_updated_at,
+source_last_updated_timestamp_format,
+tags,
+template_id
+FROM aws.customerprofiles.object_types
+WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>|<ObjectTypeName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>object_type</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -190,7 +229,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -207,6 +246,19 @@ To operate on the <code>object_types</code> resource, the following permissions 
 ```json
 profile:GetProfileObjectType,
 profile:PutProfileObjectType,
+profile:TagResource
+```
+
+### Read
+```json
+profile:GetProfileObjectType
+```
+
+### Update
+```json
+profile:GetProfileObjectType,
+profile:PutProfileObjectType,
+profile:UntagResource,
 profile:TagResource
 ```
 

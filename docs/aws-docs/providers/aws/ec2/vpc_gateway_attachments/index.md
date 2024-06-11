@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>vpc_gateway_attachments</code> in a region or to create or delete a <code>vpc_gateway_attachments</code> resource, use <code>vpc_gateway_attachment</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>vpc_gateway_attachment</code> resource or lists <code>vpc_gateway_attachments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>vpc_gateway_attachments</code> in a region or t
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="attachment_type" /></td><td><code>string</code></td><td>Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment </td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="attachment_type" /></td><td><code>string</code></td><td>Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment </td></tr>
+<tr><td><CopyableCode code="internet_gateway_id" /></td><td><code>string</code></td><td>The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.</td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC.</td></tr>
+<tr><td><CopyableCode code="vpn_gateway_id" /></td><td><code>string</code></td><td>The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +56,24 @@ Used to retrieve a list of <code>vpc_gateway_attachments</code> in a region or t
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>vpc_gateway_attachments</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +82,20 @@ vpc_id
 FROM aws.ec2.vpc_gateway_attachments
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>vpc_gateway_attachment</code>.
+```sql
+SELECT
+region,
+attachment_type,
+internet_gateway_id,
+vpc_id,
+vpn_gateway_id
+FROM aws.ec2.vpc_gateway_attachments
+WHERE region = 'us-east-1' AND data__Identifier = '<AttachmentType>|<VpcId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>vpc_gateway_attachment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -141,7 +162,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -158,6 +179,22 @@ To operate on the <code>vpc_gateway_attachments</code> resource, the following p
 ```json
 ec2:AttachInternetGateway,
 ec2:AttachVpnGateway,
+ec2:DescribeInternetGateways,
+ec2:DescribeVpnGateways
+```
+
+### Read
+```json
+ec2:DescribeInternetGateways,
+ec2:DescribeVpnGateways
+```
+
+### Update
+```json
+ec2:AttachInternetGateway,
+ec2:AttachVpnGateway,
+ec2:DetachInternetGateway,
+ec2:DetachVpnGateway,
 ec2:DescribeInternetGateways,
 ec2:DescribeVpnGateways
 ```

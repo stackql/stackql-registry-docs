@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>cross_account_attachments</code> in a region or to create or delete a <code>cross_account_attachments</code> resource, use <code>cross_account_attachment</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>cross_account_attachment</code> resource or lists <code>cross_account_attachments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>cross_account_attachments</code> in a region or
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The Friendly identifier of the attachment.</td></tr>
 <tr><td><CopyableCode code="attachment_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the attachment.</td></tr>
+<tr><td><CopyableCode code="principals" /></td><td><code>array</code></td><td>Principals to share the resources with.</td></tr>
+<tr><td><CopyableCode code="resources" /></td><td><code>array</code></td><td>Resources shared using the attachment.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>cross_account_attachments</code> in a region or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>cross_account_attachments</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ attachment_arn
 FROM aws.globalaccelerator.cross_account_attachments
 ;
 ```
+Gets all properties from a <code>cross_account_attachment</code>.
+```sql
+SELECT
+region,
+name,
+attachment_arn,
+principals,
+resources,
+tags
+FROM aws.globalaccelerator.cross_account_attachments
+WHERE data__Identifier = '<AttachmentArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>cross_account_attachment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -148,7 +172,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -166,6 +190,19 @@ To operate on the <code>cross_account_attachments</code> resource, the following
 globalaccelerator:DescribeCrossAccountAttachment,
 globalaccelerator:CreateCrossAccountAttachment,
 globalaccelerator:TagResource
+```
+
+### Read
+```json
+globalaccelerator:DescribeCrossAccountAttachment
+```
+
+### Update
+```json
+globalaccelerator:UpdateCrossAccountAttachment,
+globalaccelerator:DescribeCrossAccountAttachment,
+globalaccelerator:TagResource,
+globalaccelerator:UntagResource
 ```
 
 ### Delete

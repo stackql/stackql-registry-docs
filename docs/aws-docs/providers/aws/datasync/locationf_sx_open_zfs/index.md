@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Gets or updates an individual <code>locationf_sx_open_zfs</code> resource, use <code>locationf_sx_open_zfs</code> to retrieve a list of resources or to create or delete a resource.
+Creates, updates, deletes or gets a <code>locationf_sx_open_zf</code> resource or lists <code>locationf_sx_open_zfs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,17 +30,14 @@ Gets or updates an individual <code>locationf_sx_open_zfs</code> resource, use <
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="fsx_filesystem_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the FSx OpenZFS file system.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="fsx_filesystem_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the FSx OpenZFS file system.</td></tr>
 <tr><td><CopyableCode code="security_group_arns" /></td><td><code>array</code></td><td>The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.</td></tr>
-<tr><td><CopyableCode code="protocol" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="protocol" /></td><td><code>Configuration settings for an NFS or SMB protocol, currently only support NFS</code></td><td></td></tr>
 <tr><td><CopyableCode code="subdirectory" /></td><td><code>string</code></td><td>A subdirectory in the location's path.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="location_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Amazon FSx OpenZFS file system location that is created.</td></tr>
 <tr><td><CopyableCode code="location_uri" /></td><td><code>string</code></td><td>The URL of the FSx OpenZFS that was described.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -53,9 +49,24 @@ Gets or updates an individual <code>locationf_sx_open_zfs</code> resource, use <
     <th>Required Params</th>
   </tr>
   <tr>
+    <td><CopyableCode code="create_resource" /></td>
+    <td><code>INSERT</code></td>
+    <td><CopyableCode code="SecurityGroupArns, Protocol, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="update_resource" /></td>
     <td><code>UPDATE</code></td>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="list_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="get_resource" /></td>
@@ -64,7 +75,16 @@ Gets or updates an individual <code>locationf_sx_open_zfs</code> resource, use <
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>locationf_sx_open_zfs</code> in a region.
+```sql
+SELECT
+region,
+location_arn
+FROM aws.datasync.locationf_sx_open_zfs
+WHERE region = 'us-east-1';
+```
+Gets all properties from a <code>locationf_sx_open_zf</code>.
 ```sql
 SELECT
 region,
@@ -80,9 +100,113 @@ WHERE region = 'us-east-1' AND data__Identifier = '<LocationArn>';
 ```
 
 
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>locationf_sx_open_zf</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
+
+<Tabs
+    defaultValue="required"
+    values={[
+      { label: 'Required Properties', value: 'required', },
+      { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO aws.datasync.locationf_sx_open_zfs (
+ SecurityGroupArns,
+ Protocol,
+ region
+)
+SELECT 
+'{{ SecurityGroupArns }}',
+ '{{ Protocol }}',
+'{{ region }}';
+```
+</TabItem>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO aws.datasync.locationf_sx_open_zfs (
+ FsxFilesystemArn,
+ SecurityGroupArns,
+ Protocol,
+ Subdirectory,
+ Tags,
+ region
+)
+SELECT 
+ '{{ FsxFilesystemArn }}',
+ '{{ SecurityGroupArns }}',
+ '{{ Protocol }}',
+ '{{ Subdirectory }}',
+ '{{ Tags }}',
+ '{{ region }}';
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+version: 1
+name: stack name
+description: stack description
+providers:
+  - aws
+globals:
+  - name: region
+    value: '{{ vars.AWS_REGION }}'
+resources:
+  - name: locationf_sx_open_zf
+    props:
+      - name: FsxFilesystemArn
+        value: '{{ FsxFilesystemArn }}'
+      - name: SecurityGroupArns
+        value:
+          - '{{ SecurityGroupArns[0] }}'
+      - name: Protocol
+        value:
+          NFS:
+            MountOptions:
+              Version: '{{ Version }}'
+      - name: Subdirectory
+        value: '{{ Subdirectory }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+```sql
+/*+ delete */
+DELETE FROM aws.datasync.locationf_sx_open_zfs
+WHERE data__Identifier = '<LocationArn>'
+AND region = 'us-east-1';
+```
+
 ## Permissions
 
 To operate on the <code>locationf_sx_open_zfs</code> resource, the following permissions are required:
+
+### Create
+```json
+datasync:CreateLocationFsxOpenZfs,
+datasync:DescribeLocationFsxOpenZfs,
+datasync:ListTagsForResource,
+datasync:TagResource,
+fsx:DescribeFileSystems,
+ec2:DescribeNetworkInterfaces,
+ec2:DescribeSubnets,
+ec2:DescribeSecurityGroups
+```
 
 ### Read
 ```json
@@ -96,5 +220,15 @@ datasync:DescribeLocationFsxOpenZfs,
 datasync:ListTagsForResource,
 datasync:TagResource,
 datasync:UntagResource
+```
+
+### Delete
+```json
+datasync:DeleteLocation
+```
+
+### List
+```json
+datasync:ListLocations
 ```
 

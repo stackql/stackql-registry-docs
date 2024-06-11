@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>rules</code> in a region or to create or delete a <code>rules</code> resource, use <code>rule</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>rule</code> resource or lists <code>rules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,15 @@ Used to retrieve a list of <code>rules</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the rule.</td></tr>
 <tr><td><CopyableCode code="rule_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the rule.</td></tr>
+<tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the instance.</td></tr>
+<tr><td><CopyableCode code="trigger_event_source" /></td><td><code>object</code></td><td>The event source that triggers the rule.</td></tr>
+<tr><td><CopyableCode code="function" /></td><td><code>string</code></td><td>The conditions of a rule.</td></tr>
+<tr><td><CopyableCode code="actions" /></td><td><code>object</code></td><td>The list of actions that will be executed when a rule is triggered.</td></tr>
+<tr><td><CopyableCode code="publish_status" /></td><td><code>string</code></td><td>The publish status of a rule, either draft or published.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,22 +60,37 @@ Used to retrieve a list of <code>rules</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from a <code>rule</code>.
 ```sql
 SELECT
 region,
-rule_arn
+name,
+rule_arn,
+instance_arn,
+trigger_event_source,
+function,
+actions,
+publish_status,
+tags
 FROM aws.connect.rules
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<RuleArn>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>rule</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -200,7 +218,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -221,9 +239,24 @@ cases:ListFields,
 cases:ListFieldOptions
 ```
 
+### Read
+```json
+connect:DescribeRule
+```
+
 ### Delete
 ```json
 connect:DeleteRule,
+connect:UntagResource
+```
+
+### Update
+```json
+connect:UpdateRule,
+cases:GetTemplate,
+cases:ListFields,
+cases:ListFieldOptions,
+connect:TagResource,
 connect:UntagResource
 ```
 

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>routing_controls</code> in a region or to create or delete a <code>routing_controls</code> resource, use <code>routing_control</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>routing_control</code> resource or lists <code>routing_controls</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>routing_controls</code> in a region or to creat
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="routing_control_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the routing control.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="routing_control_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the routing control.</td></tr>
+<tr><td><CopyableCode code="control_panel_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the control panel.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the routing control. You can use any non-white space character in the name.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</td></tr>
+<tr><td><CopyableCode code="cluster_arn" /></td><td><code>string</code></td><td>Arn associated with Control Panel</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>routing_controls</code> in a region or to creat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>routing_controls</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ routing_control_arn
 FROM aws.route53recoverycontrol.routing_controls
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>routing_control</code>.
+```sql
+SELECT
+region,
+routing_control_arn,
+control_panel_arn,
+name,
+status,
+cluster_arn
+FROM aws.route53recoverycontrol.routing_controls
+WHERE region = 'us-east-1' AND data__Identifier = '<RoutingControlArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>routing_control</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -139,7 +163,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -158,6 +182,18 @@ route53-recovery-control-config:CreateRoutingControl,
 route53-recovery-control-config:DescribeRoutingControl,
 route53-recovery-control-config:DescribeControlPanel,
 route53-recovery-control-config:DescribeCluster
+```
+
+### Read
+```json
+route53-recovery-control-config:DescribeRoutingControl
+```
+
+### Update
+```json
+route53-recovery-control-config:UpdateRoutingControl,
+route53-recovery-control-config:DescribeRoutingControl,
+route53-recovery-control-config:DescribeControlPanel
 ```
 
 ### Delete

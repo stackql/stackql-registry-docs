@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>listeners</code> in a region or to create or delete a <code>listeners</code> resource, use <code>listener</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>listener</code> resource or lists <code>listeners</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,17 @@ Used to retrieve a list of <code>listeners</code> in a region or to create or de
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_action" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="port" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="protocol" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +62,24 @@ Used to retrieve a list of <code>listeners</code> in a region or to create or de
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>listeners</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +87,26 @@ arn
 FROM aws.vpclattice.listeners
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>listener</code>.
+```sql
+SELECT
+region,
+arn,
+default_action,
+id,
+name,
+port,
+protocol,
+service_arn,
+service_id,
+service_identifier,
+tags
+FROM aws.vpclattice.listeners
+WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>listener</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -161,7 +195,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -178,6 +212,21 @@ To operate on the <code>listeners</code> resource, the following permissions are
 ```json
 vpc-lattice:CreateListener,
 vpc-lattice:TagResource,
+vpc-lattice:GetListener,
+vpc-lattice:ListTagsForResource
+```
+
+### Read
+```json
+vpc-lattice:GetListener,
+vpc-lattice:ListTagsForResource
+```
+
+### Update
+```json
+vpc-lattice:UpdateListener,
+vpc-lattice:TagResource,
+vpc-lattice:UntagResource,
 vpc-lattice:GetListener,
 vpc-lattice:ListTagsForResource
 ```

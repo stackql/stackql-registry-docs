@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>user_pool_risk_configuration_attachments</code> in a region or to create or delete a <code>user_pool_risk_configuration_attachments</code> resource, use <code>user_pool_risk_configuration_attachment</code> to read or update an individual resource.
+Creates, updates, deletes or gets an <code>user_pool_risk_configuration_attachment</code> resource or lists <code>user_pool_risk_configuration_attachments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,12 @@ Used to retrieve a list of <code>user_pool_risk_configuration_attachments</code>
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="client_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="risk_exception_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="compromised_credentials_risk_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="account_takeover_risk_configuration" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,23 +57,34 @@ Used to retrieve a list of <code>user_pool_risk_configuration_attachments</code>
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+
+Gets all properties from an <code>user_pool_risk_configuration_attachment</code>.
 ```sql
 SELECT
 region,
 user_pool_id,
-client_id
+client_id,
+risk_exception_configuration,
+compromised_credentials_risk_configuration,
+account_takeover_risk_configuration
 FROM aws.cognito.user_pool_risk_configuration_attachments
-WHERE region = 'us-east-1';
+WHERE region = 'us-east-1' AND data__Identifier = '<UserPoolId>|<ClientId>';
 ```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>user_pool_risk_configuration_attachment</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -175,7 +185,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -189,6 +199,18 @@ AND region = 'us-east-1';
 To operate on the <code>user_pool_risk_configuration_attachments</code> resource, the following permissions are required:
 
 ### Create
+```json
+cognito-idp:SetRiskConfiguration,
+cognito-idp:DescribeRiskConfiguration,
+iam:PassRole
+```
+
+### Read
+```json
+cognito-idp:DescribeRiskConfiguration
+```
+
+### Update
 ```json
 cognito-idp:SetRiskConfiguration,
 cognito-idp:DescribeRiskConfiguration,

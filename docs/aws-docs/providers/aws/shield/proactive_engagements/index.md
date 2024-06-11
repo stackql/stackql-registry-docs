@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>proactive_engagements</code> in a region or to create or delete a <code>proactive_engagements</code> resource, use <code>proactive_engagement</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>proactive_engagement</code> resource or lists <code>proactive_engagements</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,10 @@ Used to retrieve a list of <code>proactive_engagements</code> in a region or to 
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="proactive_engagement_status" /></td><td><code>string</code></td><td>If `ENABLED`, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.<br/>If `DISABLED`, the SRT will not proactively notify contacts about escalations or to initiate proactive customer support.</td></tr>
+<tr><td><CopyableCode code="emergency_contact_list" /></td><td><code>array</code></td><td>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.<br/>To enable proactive engagement, the contact list must include at least one phone number.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +55,24 @@ Used to retrieve a list of <code>proactive_engagements</code> in a region or to 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>proactive_engagements</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +80,19 @@ account_id
 FROM aws.shield.proactive_engagements
 ;
 ```
+Gets all properties from a <code>proactive_engagement</code>.
+```sql
+SELECT
+region,
+account_id,
+proactive_engagement_status,
+emergency_contact_list
+FROM aws.shield.proactive_engagements
+WHERE data__Identifier = '<AccountId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>proactive_engagement</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -140,7 +160,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -167,6 +187,21 @@ shield:EnableProactiveEngagement
 shield:DescribeSubscription,
 shield:DescribeEmergencyContactSettings,
 shield:UpdateEmergencyContactSettings,
+shield:DisableProactiveEngagement
+```
+
+### Read
+```json
+shield:DescribeSubscription,
+shield:DescribeEmergencyContactSettings
+```
+
+### Update
+```json
+shield:DescribeSubscription,
+shield:DescribeEmergencyContactSettings,
+shield:UpdateEmergencyContactSettings,
+shield:EnableProactiveEngagement,
 shield:DisableProactiveEngagement
 ```
 

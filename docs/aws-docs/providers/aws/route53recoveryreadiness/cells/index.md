@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>cells</code> in a region or to create or delete a <code>cells</code> resource, use <code>cell</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>cell</code> resource or lists <code>cells</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,12 @@ Used to retrieve a list of <code>cells</code> in a region or to create or delete
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="cell_name" /></td><td><code>string</code></td><td>The name of the cell to create.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cell_name" /></td><td><code>string</code></td><td>The name of the cell to create.</td></tr>
+<tr><td><CopyableCode code="cell_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the cell.</td></tr>
+<tr><td><CopyableCode code="cells" /></td><td><code>array</code></td><td>A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.</td></tr>
+<tr><td><CopyableCode code="parent_readiness_scopes" /></td><td><code>array</code></td><td>The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +57,24 @@ Used to retrieve a list of <code>cells</code> in a region or to create or delete
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>cells</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +82,21 @@ cell_name
 FROM aws.route53recoveryreadiness.cells
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>cell</code>.
+```sql
+SELECT
+region,
+cell_name,
+cell_arn,
+cells,
+parent_readiness_scopes,
+tags
+FROM aws.route53recoveryreadiness.cells
+WHERE region = 'us-east-1' AND data__Identifier = '<CellName>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>cell</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -146,7 +170,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -165,6 +189,21 @@ route53-recovery-readiness:CreateCell,
 route53-recovery-readiness:GetCell,
 route53-recovery-readiness:ListTagsForResources,
 route53-recovery-readiness:TagResource
+```
+
+### Read
+```json
+route53-recovery-readiness:GetCell,
+route53-recovery-readiness:ListTagsForResources
+```
+
+### Update
+```json
+route53-recovery-readiness:GetCell,
+route53-recovery-readiness:ListTagsForResources,
+route53-recovery-readiness:TagResource,
+route53-recovery-readiness:UntagResource,
+route53-recovery-readiness:UpdateCell
 ```
 
 ### Delete

@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>datasets</code> in a region or to create or delete a <code>datasets</code> resource, use <code>dataset</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>dataset</code> resource or lists <code>datasets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,13 @@ Used to retrieve a list of <code>datasets</code> in a region or to create or del
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Dataset name</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Dataset name</td></tr>
+<tr><td><CopyableCode code="format" /></td><td><code>string</code></td><td>Dataset format</td></tr>
+<tr><td><CopyableCode code="format_options" /></td><td><code>object</code></td><td>Format options for dataset</td></tr>
+<tr><td><CopyableCode code="input" /></td><td><code>object</code></td><td>Input</td></tr>
+<tr><td><CopyableCode code="path_options" /></td><td><code>object</code></td><td>PathOptions</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +58,24 @@ Used to retrieve a list of <code>datasets</code> in a region or to create or del
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>datasets</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +83,22 @@ name
 FROM aws.databrew.datasets
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>dataset</code>.
+```sql
+SELECT
+region,
+name,
+format,
+format_options,
+input,
+path_options,
+tags
+FROM aws.databrew.datasets
+WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>dataset</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -201,7 +227,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -222,6 +248,20 @@ databrew:UntagResource,
 glue:GetConnection,
 glue:GetTable,
 iam:PassRole
+```
+
+### Read
+```json
+databrew:DescribeDataset,
+databrew:ListTagsForResource,
+iam:ListRoles
+```
+
+### Update
+```json
+databrew:UpdateDataset,
+glue:GetConnection,
+glue:GetTable
 ```
 
 ### Delete

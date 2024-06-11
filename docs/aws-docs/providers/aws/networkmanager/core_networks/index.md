@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>core_networks</code> in a region or to create or delete a <code>core_networks</code> resource, use <code>core_network</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>core_network</code> resource or lists <code>core_networks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +30,18 @@ Used to retrieve a list of <code>core_networks</code> in a region or to create o
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="global_network_id" /></td><td><code>string</code></td><td>The ID of the global network that your core network is a part of.</td></tr>
 <tr><td><CopyableCode code="core_network_id" /></td><td><code>string</code></td><td>The Id of core network</td></tr>
+<tr><td><CopyableCode code="core_network_arn" /></td><td><code>string</code></td><td>The ARN (Amazon resource name) of core network</td></tr>
+<tr><td><CopyableCode code="policy_document" /></td><td><code>object</code></td><td>Live policy document for the core network, you must provide PolicyDocument in Json Format</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of core network</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The creation time of core network</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of core network</td></tr>
+<tr><td><CopyableCode code="segments" /></td><td><code>array</code></td><td>The segments within a core network.</td></tr>
+<tr><td><CopyableCode code="edges" /></td><td><code>array</code></td><td>The edges within a core network.</td></tr>
+<tr><td><CopyableCode code="owner_account" /></td><td><code>string</code></td><td>Owner of the core network</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags for the global network.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -57,13 +63,24 @@ Used to retrieve a list of <code>core_networks</code> in a region or to create o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>core_networks</code> in a region.
 ```sql
 SELECT
 region,
@@ -71,8 +88,27 @@ core_network_id
 FROM aws.networkmanager.core_networks
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>core_network</code>.
+```sql
+SELECT
+region,
+global_network_id,
+core_network_id,
+core_network_arn,
+policy_document,
+description,
+created_at,
+state,
+segments,
+edges,
+owner_account,
+tags
+FROM aws.networkmanager.core_networks
+WHERE region = 'us-east-1' AND data__Identifier = '<CoreNetworkId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>core_network</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -145,7 +181,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -164,6 +200,25 @@ networkmanager:CreateCoreNetwork,
 networkmanager:GetCoreNetwork,
 networkmanager:GetCoreNetworkPolicy,
 networkmanager:TagResource,
+ec2:DescribeRegions
+```
+
+### Read
+```json
+networkmanager:GetCoreNetwork,
+networkmanager:GetCoreNetworkPolicy
+```
+
+### Update
+```json
+networkmanager:UpdateCoreNetwork,
+networkmanager:GetCoreNetwork,
+networkmanager:ListTagsForResource,
+networkmanager:PutCoreNetworkPolicy,
+networkmanager:GetCoreNetworkPolicy,
+networkmanager:ExecuteCoreNetworkChangeSet,
+networkmanager:TagResource,
+networkmanager:UntagResource,
 ec2:DescribeRegions
 ```
 

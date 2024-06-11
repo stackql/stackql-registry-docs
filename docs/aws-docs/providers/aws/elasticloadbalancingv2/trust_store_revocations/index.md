@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>trust_store_revocations</code> in a region or to create or delete a <code>trust_store_revocations</code> resource, use <code>trust_store_revocation</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>trust_store_revocation</code> resource or lists <code>trust_store_revocations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,11 @@ Used to retrieve a list of <code>trust_store_revocations</code> in a region or t
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
-<tr><td><CopyableCode code="revocation_id" /></td><td><code>integer</code></td><td>The ID associated with the revocation.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="revocation_contents" /></td><td><code>array</code></td><td>The attributes required to create a trust store revocation.</td></tr>
 <tr><td><CopyableCode code="trust_store_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the trust store.</td></tr>
+<tr><td><CopyableCode code="revocation_id" /></td><td><code>integer</code></td><td>The ID associated with the revocation.</td></tr>
+<tr><td><CopyableCode code="trust_store_revocations" /></td><td><code>array</code></td><td>The data associated with a trust store revocation</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -62,9 +60,15 @@ Used to retrieve a list of <code>trust_store_revocations</code> in a region or t
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>trust_store_revocations</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +77,20 @@ trust_store_arn
 FROM aws.elasticloadbalancingv2.trust_store_revocations
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>trust_store_revocation</code>.
+```sql
+SELECT
+region,
+revocation_contents,
+trust_store_arn,
+revocation_id,
+trust_store_revocations
+FROM aws.elasticloadbalancingv2.trust_store_revocations
+WHERE region = 'us-east-1' AND data__Identifier = '<RevocationId>|<TrustStoreArn>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>trust_store_revocation</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -143,7 +159,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -171,6 +187,11 @@ elasticloadbalancing:RemoveTrustStoreRevocations
 ```
 
 ### List
+```json
+elasticloadbalancing:DescribeTrustStoreRevocations
+```
+
+### Read
 ```json
 elasticloadbalancing:DescribeTrustStoreRevocations
 ```

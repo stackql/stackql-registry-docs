@@ -19,8 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Used to retrieve a list of <code>launch_profiles</code> in a region or to create or delete a <code>launch_profiles</code> resource, use <code>launch_profile</code> to read or update an individual resource.
+Creates, updates, deletes or gets a <code>launch_profile</code> resource or lists <code>launch_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,12 +30,16 @@ Used to retrieve a list of <code>launch_profiles</code> in a region or to create
 </tbody></table>
 
 ## Fields
-<table><tbody>
-<tr><th>Name</th><th>Datatype</th><th>Description</th></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>The description.</p></td></tr>
+<tr><td><CopyableCode code="ec2_subnet_ids" /></td><td><code>array</code></td><td><p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.<br/>            These subnets must support the specified instance types. </p></td></tr>
 <tr><td><CopyableCode code="launch_profile_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td>&lt;p&gt;The studio ID. &lt;&#x2F;p&gt;</td></tr>
+<tr><td><CopyableCode code="launch_profile_protocol_versions" /></td><td><code>array</code></td><td><p>The version number of the protocol that is used by the launch profile. The only valid<br/>            version is "2021-03-31".</p></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td><p>The name for the launch profile.</p></td></tr>
+<tr><td><CopyableCode code="stream_configuration" /></td><td><code><p>A configuration for a streaming session.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="studio_component_ids" /></td><td><code>array</code></td><td><p>Unique identifiers for a collection of studio components that can be used with this<br/>            launch profile.</p></td></tr>
+<tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td><p>The studio ID. </p></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
-
 </tbody></table>
 
 ## Methods
@@ -58,13 +61,24 @@ Used to retrieve a list of <code>launch_profiles</code> in a region or to create
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
+  <tr>
+    <td><CopyableCode code="get_resource" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
 </tbody></table>
 
-## `SELECT` Example
+## `SELECT` examples
+List all <code>launch_profiles</code> in a region.
 ```sql
 SELECT
 region,
@@ -73,8 +87,25 @@ studio_id
 FROM aws.nimblestudio.launch_profiles
 WHERE region = 'us-east-1';
 ```
+Gets all properties from a <code>launch_profile</code>.
+```sql
+SELECT
+region,
+description,
+ec2_subnet_ids,
+launch_profile_id,
+launch_profile_protocol_versions,
+name,
+stream_configuration,
+studio_component_ids,
+studio_id,
+tags
+FROM aws.nimblestudio.launch_profiles
+WHERE region = 'us-east-1' AND data__Identifier = '<LaunchProfileId>|<StudioId>';
+```
 
-## `INSERT` Example
+
+## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>launch_profile</code> resource, using [__`stack-deploy`__](https://pypi.org/project/stack-deploy/).
 
@@ -196,7 +227,7 @@ resources:
 </TabItem>
 </Tabs>
 
-## `DELETE` Example
+## `DELETE` example
 
 ```sql
 /*+ delete */
@@ -218,6 +249,21 @@ ec2:CreateNetworkInterface,
 ec2:CreateNetworkInterfacePermission,
 ec2:RunInstances,
 ec2:DescribeSubnets
+```
+
+### Read
+```json
+nimble:GetLaunchProfile
+```
+
+### Update
+```json
+nimble:UpdateLaunchProfile,
+nimble:GetLaunchProfile,
+ec2:CreateNetworkInterface,
+ec2:CreateNetworkInterfacePermission,
+ec2:DescribeSubnets,
+ec2:RunInstances
 ```
 
 ### Delete
