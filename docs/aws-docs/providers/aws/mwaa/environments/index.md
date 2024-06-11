@@ -34,19 +34,7 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 <tr><td><CopyableCode code="arn" /></td><td><code>ARN for the MWAA environment.</code></td><td></td></tr>
 <tr><td><CopyableCode code="webserver_url" /></td><td><code>Url endpoint for the environment's Airflow UI.</code></td><td></td></tr>
 <tr><td><CopyableCode code="execution_role_arn" /></td><td><code>IAM role to be used by tasks.</code></td><td></td></tr>
-<tr><td><CopyableCode code="kms_key" /></td><td><code>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for MWAA data encryption.
-
-    You can specify the CMK using any of the following:
-
-    Key ID. For example, key/1234abcd-12ab-34cd-56ef-1234567890ab.
-
-    Key alias. For example, alias/ExampleAlias.
-
-    Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef.
-
-    Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
-
-    AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key" /></td><td><code>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for MWAA data encryption. You can specify the CMK using any of the following: Key ID. For example, key/1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. For example, alias/ExampleAlias. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias. AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.</code></td><td></td></tr>
 <tr><td><CopyableCode code="airflow_version" /></td><td><code>Version of airflow to deploy to the environment.</code></td><td></td></tr>
 <tr><td><CopyableCode code="source_bucket_arn" /></td><td><code>ARN for the AWS S3 bucket to use as the source of DAGs and plugins for the environment.</code></td><td></td></tr>
 <tr><td><CopyableCode code="dag_s3_path" /></td><td><code>Represents an S3 prefix relative to the root of an S3 bucket.</code></td><td></td></tr>
@@ -56,7 +44,7 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 <tr><td><CopyableCode code="requirements_s3_object_version" /></td><td><code>Represents an version ID for an S3 object.</code></td><td></td></tr>
 <tr><td><CopyableCode code="startup_script_s3_path" /></td><td><code>Represents an S3 prefix relative to the root of an S3 bucket.</code></td><td></td></tr>
 <tr><td><CopyableCode code="startup_script_s3_object_version" /></td><td><code>Represents an version ID for an S3 object.</code></td><td></td></tr>
-<tr><td><CopyableCode code="airflow_configuration_options" /></td><td><code>object</code></td><td>Key/value pairs representing Airflow configuration variables.<br/>    Keys are prefixed by their section:<br/><br/>    &#91;core&#93;<br/>    dags_folder=&#123;AIRFLOW_HOME&#125;/dags<br/><br/>    Would be represented as<br/><br/>    "core.dags_folder": "&#123;AIRFLOW_HOME&#125;/dags"</td></tr>
+<tr><td><CopyableCode code="airflow_configuration_options" /></td><td><code>object</code></td><td>Key/value pairs representing Airflow configuration variables. Keys are prefixed by their section: &#91;core&#93; dags_folder=&#123;AIRFLOW_HOME&#125;/dags Would be represented as "core.dags_folder": "&#123;AIRFLOW_HOME&#125;/dags"</td></tr>
 <tr><td><CopyableCode code="environment_class" /></td><td><code>Templated configuration for airflow processes and backing infrastructure.</code></td><td></td></tr>
 <tr><td><CopyableCode code="max_workers" /></td><td><code>Maximum worker compute units.</code></td><td></td></tr>
 <tr><td><CopyableCode code="min_workers" /></td><td><code>Minimum worker compute units.</code></td><td></td></tr>

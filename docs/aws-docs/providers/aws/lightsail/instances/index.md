@@ -40,8 +40,8 @@ Creates, updates, deletes or gets an <code>instance</code> resource or lists <co
 <tr><td><CopyableCode code="hardware" /></td><td><code>Hardware of the Instance.</code></td><td></td></tr>
 <tr><td><CopyableCode code="state" /></td><td><code>Current State of the Instance.</code></td><td></td></tr>
 <tr><td><CopyableCode code="networking" /></td><td><code>Networking of the Instance.</code></td><td></td></tr>
-<tr><td><CopyableCode code="user_name" /></td><td><code>string</code></td><td>Username of the  Lightsail instance.</td></tr>
-<tr><td><CopyableCode code="ssh_key_name" /></td><td><code>string</code></td><td>SSH Key Name of the  Lightsail instance.</td></tr>
+<tr><td><CopyableCode code="user_name" /></td><td><code>string</code></td><td>Username of the Lightsail instance.</td></tr>
+<tr><td><CopyableCode code="ssh_key_name" /></td><td><code>string</code></td><td>SSH Key Name of the Lightsail instance.</td></tr>
 <tr><td><CopyableCode code="instance_name" /></td><td><code>string</code></td><td>The names to use for your new Lightsail instance.</td></tr>
 <tr><td><CopyableCode code="availability_zone" /></td><td><code>string</code></td><td>The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.</td></tr>
 <tr><td><CopyableCode code="bundle_id" /></td><td><code>string</code></td><td>The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).</td></tr>

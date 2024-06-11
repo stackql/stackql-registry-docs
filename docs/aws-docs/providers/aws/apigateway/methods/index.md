@@ -41,7 +41,7 @@ Creates, updates, deletes or gets a <code>method</code> resource or lists <code>
 <tr><td><CopyableCode code="authorizer_id" /></td><td><code>string</code></td><td>The identifier of an authorizer to use on this method. The method's authorization type must be <code>CUSTOM</code> or <code>COGNITO_USER_POOLS</code>.</td></tr>
 <tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>The Resource identifier for the MethodResponse resource.</td></tr>
 <tr><td><CopyableCode code="api_key_required" /></td><td><code>boolean</code></td><td>A boolean flag specifying whether a valid ApiKey is required to invoke this method.</td></tr>
-<tr><td><CopyableCode code="authorization_type" /></td><td><code>string</code></td><td>The method's authorization type. This parameter is required. For valid values, see &#91;Method&#93;(https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.<br/>  If you specify the <code>AuthorizerId</code> property, specify <code>CUSTOM</code> or <code>COGNITO_USER_POOLS</code> for this property.</td></tr>
+<tr><td><CopyableCode code="authorization_type" /></td><td><code>string</code></td><td>The method's authorization type. This parameter is required. For valid values, see &#91;Method&#93;(https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*. If you specify the <code>AuthorizerId</code> property, specify <code>CUSTOM</code> or <code>COGNITO_USER_POOLS</code> for this property.</td></tr>
 <tr><td><CopyableCode code="http_method" /></td><td><code>string</code></td><td>The method's HTTP verb.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
