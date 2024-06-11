@@ -25,7 +25,7 @@ Creates, updates, deletes or gets a <code>registry_policy</code> resource or lis
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>registry_policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The <code>AWS::ECR::RegistryPolicy</code> resource creates or updates the permissions policy for a private registry.<br/> A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see &#91;Registry permissions&#93;(https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::ECR::RegistryPolicy</code> resource creates or updates the permissions policy for a private registry. A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see &#91;Registry permissions&#93;(https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ecr.registry_policies" /></td></tr>
 </tbody></table>
 

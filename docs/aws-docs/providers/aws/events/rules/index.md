@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>rule</code> resource or lists <code>ru
 <tr><td><CopyableCode code="schedule_expression" /></td><td><code>string</code></td><td>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the rule.</td></tr>
 <tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the rule.</td></tr>
-<tr><td><CopyableCode code="targets" /></td><td><code>array</code></td><td>Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.<br/>Targets are the resources that are invoked when a rule is triggered.</td></tr>
+<tr><td><CopyableCode code="targets" /></td><td><code>array</code></td><td>Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule. Targets are the resources that are invoked when a rule is triggered.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the role that is used for target invocation.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the rule.</td></tr>

@@ -47,7 +47,7 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
 <tr><td><CopyableCode code="acl_name" /></td><td><code>string</code></td><td>The name of the Access Control List to associate with the cluster.</td></tr>
 <tr><td><CopyableCode code="sns_topic_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.</td></tr>
 <tr><td><CopyableCode code="sns_topic_status" /></td><td><code>string</code></td><td>The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled.</td></tr>
-<tr><td><CopyableCode code="tls_enabled" /></td><td><code>boolean</code></td><td>A flag that enables in-transit encryption when set to true.<br/><br/>You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.</td></tr>
+<tr><td><CopyableCode code="tls_enabled" /></td><td><code>boolean</code></td><td>A flag that enables in-transit encryption when set to true. You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.</td></tr>
 <tr><td><CopyableCode code="data_tiering" /></td><td><code>object</code></td><td>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.</td></tr>
 <tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The ID of the KMS key used to encrypt the cluster.</td></tr>
 <tr><td><CopyableCode code="snapshot_arns" /></td><td><code>array</code></td><td>A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the new cluster. The Amazon S3 object name in the ARN cannot contain any commas.</td></tr>
@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the cluster.</td></tr>
 <tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The Redis engine version used by the cluster.</td></tr>
 <tr><td><CopyableCode code="cluster_endpoint" /></td><td><code>object</code></td><td>The cluster endpoint.</td></tr>
-<tr><td><CopyableCode code="auto_minor_version_upgrade" /></td><td><code>boolean</code></td><td>A flag that enables automatic minor version upgrade when set to true.<br/><br/>You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.</td></tr>
+<tr><td><CopyableCode code="auto_minor_version_upgrade" /></td><td><code>boolean</code></td><td>A flag that enables automatic minor version upgrade when set to true. You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this cluster.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

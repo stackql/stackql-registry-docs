@@ -25,7 +25,7 @@ Creates, updates, deletes or gets a <code>policy</code> resource or lists <code>
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Policies in AWS Organizations enable you to manage different features of the AWS accounts in your organization.  You can use policies when all features are enabled in your organization.</td></tr>
+<tr><td><b>Description</b></td><td>Policies in AWS Organizations enable you to manage different features of the AWS accounts in your organization. You can use policies when all features are enabled in your organization.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.organizations.policies" /></td></tr>
 </tbody></table>
 

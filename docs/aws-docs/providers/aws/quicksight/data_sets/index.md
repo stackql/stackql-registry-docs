@@ -33,8 +33,8 @@ Creates, updates, deletes or gets a <code>data_set</code> resource or lists <cod
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the resource.</p></td></tr>
 <tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="column_groups" /></td><td><code>array</code></td><td><p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p></td></tr>
-<tr><td><CopyableCode code="column_level_permission_rules" /></td><td><code>array</code></td><td><p>A set of one or more definitions of a <code><br/>               <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a><br/>            </code>.</p></td></tr>
-<tr><td><CopyableCode code="consumed_spice_capacity_in_bytes" /></td><td><code>number</code></td><td><p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't<br/>            imported into SPICE.</p></td></tr>
+<tr><td><CopyableCode code="column_level_permission_rules" /></td><td><code>array</code></td><td><p>A set of one or more definitions of a <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a> </code>.</p></td></tr>
+<tr><td><CopyableCode code="consumed_spice_capacity_in_bytes" /></td><td><code>number</code></td><td><p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't imported into SPICE.</p></td></tr>
 <tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td><p>The time that this dataset was created.</p></td></tr>
 <tr><td><CopyableCode code="data_set_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_set_refresh_properties" /></td><td><code><p>The refresh properties of a dataset.</p></code></td><td></td></tr>
@@ -45,7 +45,7 @@ Creates, updates, deletes or gets a <code>data_set</code> resource or lists <cod
 <tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>The last time that this dataset was updated.</p></td></tr>
 <tr><td><CopyableCode code="logical_table_map" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td><p>The display name for the dataset.</p></td></tr>
-<tr><td><CopyableCode code="output_columns" /></td><td><code>array</code></td><td><p>The list of columns after all transforms. These columns are available in templates,<br/>            analyses, and dashboards.</p></td></tr>
+<tr><td><CopyableCode code="output_columns" /></td><td><code>array</code></td><td><p>The list of columns after all transforms. These columns are available in templates, analyses, and dashboards.</p></td></tr>
 <tr><td><CopyableCode code="permissions" /></td><td><code>array</code></td><td><p>A list of resource permissions on the dataset.</p></td></tr>
 <tr><td><CopyableCode code="physical_table_map" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="row_level_permission_data_set" /></td><td><code><p>Information about a dataset that contains permissions for row-level security (RLS).

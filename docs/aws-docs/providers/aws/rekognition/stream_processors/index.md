@@ -25,7 +25,7 @@ Creates, updates, deletes or gets a <code>stream_processor</code> resource or li
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>stream_processors</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.<br/><br/></td></tr>
+<tr><td><b>Description</b></td><td>The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos. </td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.rekognition.stream_processors" /></td></tr>
 </tbody></table>
 

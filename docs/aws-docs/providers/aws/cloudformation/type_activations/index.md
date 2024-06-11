@@ -39,7 +39,7 @@ Creates, updates, deletes or gets a <code>type_activation</code> resource or lis
 <tr><td><CopyableCode code="type_name_alias" /></td><td><code>string</code></td><td>An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.</td></tr>
 <tr><td><CopyableCode code="version_bump" /></td><td><code>string</code></td><td>Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled</td></tr>
 <tr><td><CopyableCode code="major_version" /></td><td><code>string</code></td><td>The Major Version of the type you want to enable</td></tr>
-<tr><td><CopyableCode code="type_name" /></td><td><code>string</code></td><td>The name of the type being registered.<br/><br/>We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
+<tr><td><CopyableCode code="type_name" /></td><td><code>string</code></td><td>The name of the type being registered. We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
 <tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The kind of extension</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

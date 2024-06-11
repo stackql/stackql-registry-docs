@@ -25,7 +25,7 @@ Creates, updates, deletes or gets an <code>observability_configuration</code> re
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>observability_configurations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::AppRunner::ObservabilityConfiguration resource is an AWS App Runner resource type that specifies an App Runner observability configuration</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.apprunner.observability_configurations" /></td></tr>
 </tbody></table>
 

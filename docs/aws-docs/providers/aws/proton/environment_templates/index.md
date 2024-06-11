@@ -36,7 +36,7 @@ Creates, updates, deletes or gets an <code>environment_template</code> resource 
 <tr><td><CopyableCode code="encryption_key" /></td><td><code>string</code></td><td><p>A customer provided encryption key that Proton uses to encrypt data.</p></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="provisioning" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td><p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p><br/>         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the<br/>        <i>Proton User Guide</i>.</p></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td><p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

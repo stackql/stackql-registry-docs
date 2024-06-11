@@ -34,7 +34,7 @@ Creates, updates, deletes or gets a <code>customer_gateway</code> resource or li
 <tr><td><CopyableCode code="customer_gateway_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="ip_address" /></td><td><code>string</code></td><td>IPv4 address for the customer gateway device's outside interface. The address must be static.</td></tr>
 <tr><td><CopyableCode code="bgp_asn_extended" /></td><td><code>number</code></td><td></td></tr>
-<tr><td><CopyableCode code="bgp_asn" /></td><td><code>integer</code></td><td>For devices that support BGP, the customer gateway's BGP ASN.<br/> Default: 65000</td></tr>
+<tr><td><CopyableCode code="bgp_asn" /></td><td><code>integer</code></td><td>For devices that support BGP, the customer gateway's BGP ASN. Default: 65000</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags for the customer gateway.</td></tr>
 <tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="device_name" /></td><td><code>string</code></td><td>The name of customer gateway device.</td></tr>
