@@ -31,7 +31,7 @@ Creates, updates, deletes or gets an <code>access_policy</code> resource or list
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the policy</td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>The possible types for the access policy</code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The possible types for the access policy</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the policy</td></tr>
 <tr><td><CopyableCode code="policy" /></td><td><code>string</code></td><td>The JSON policy document that is the content for the policy</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

@@ -31,8 +31,8 @@ Creates, updates, deletes or gets a <code>firewall_policy</code> resource or lis
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="firewall_policy_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="firewall_policy_arn" /></td><td><code>A resource ARN.</code></td><td></td></tr>
-<tr><td><CopyableCode code="firewall_policy" /></td><td><code>Resource type definition for AWS::NetworkFirewall::FirewallPolicy</code></td><td></td></tr>
+<tr><td><CopyableCode code="firewall_policy_arn" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
+<tr><td><CopyableCode code="firewall_policy" /></td><td><code>object</code></td><td>Resource type definition for AWS::NetworkFirewall::FirewallPolicy</td></tr>
 <tr><td><CopyableCode code="firewall_policy_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>

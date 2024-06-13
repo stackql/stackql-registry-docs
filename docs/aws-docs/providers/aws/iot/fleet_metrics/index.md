@@ -38,7 +38,7 @@ Creates, updates, deletes or gets a <code>fleet_metric</code> resource or lists 
 <tr><td><CopyableCode code="query_version" /></td><td><code>string</code></td><td>The version of a Fleet Indexing query used by a fleet metric</td></tr>
 <tr><td><CopyableCode code="index_name" /></td><td><code>string</code></td><td>The index name of a fleet metric</td></tr>
 <tr><td><CopyableCode code="unit" /></td><td><code>string</code></td><td>The unit of data points emitted by a fleet metric</td></tr>
-<tr><td><CopyableCode code="aggregation_type" /></td><td><code>Aggregation types supported by Fleet Indexing</code></td><td></td></tr>
+<tr><td><CopyableCode code="aggregation_type" /></td><td><code>object</code></td><td>Aggregation types supported by Fleet Indexing</td></tr>
 <tr><td><CopyableCode code="metric_arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) of a fleet metric metric</td></tr>
 <tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td>The creation date of a fleet metric</td></tr>
 <tr><td><CopyableCode code="last_modified_date" /></td><td><code>string</code></td><td>The last modified date of a fleet metric</td></tr>

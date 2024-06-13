@@ -35,7 +35,7 @@ Creates, updates, deletes or gets an <code>agent</code> resource or lists <code>
 <tr><td><CopyableCode code="agent_id" /></td><td><code>string</code></td><td>Identifier for a resource.</td></tr>
 <tr><td><CopyableCode code="agent_name" /></td><td><code>string</code></td><td>Name for a resource.</td></tr>
 <tr><td><CopyableCode code="agent_resource_role_arn" /></td><td><code>string</code></td><td>ARN of a IAM role.</td></tr>
-<tr><td><CopyableCode code="agent_status" /></td><td><code>Schema Type for Action APIs.</code></td><td></td></tr>
+<tr><td><CopyableCode code="agent_status" /></td><td><code>string</code></td><td>Schema Type for Action APIs.</td></tr>
 <tr><td><CopyableCode code="agent_version" /></td><td><code>string</code></td><td>Draft Agent Version.</td></tr>
 <tr><td><CopyableCode code="auto_prepare" /></td><td><code>boolean</code></td><td>Specifies whether to automatically prepare after creating or updating the agent.</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>Time Stamp.</td></tr>
@@ -48,10 +48,10 @@ Creates, updates, deletes or gets an <code>agent</code> resource or lists <code>
 <tr><td><CopyableCode code="instruction" /></td><td><code>string</code></td><td>Instruction for the agent.</td></tr>
 <tr><td><CopyableCode code="knowledge_bases" /></td><td><code>array</code></td><td>List of Agent Knowledge Bases</td></tr>
 <tr><td><CopyableCode code="prepared_at" /></td><td><code>string</code></td><td>Time Stamp.</td></tr>
-<tr><td><CopyableCode code="prompt_override_configuration" /></td><td><code>Configuration for prompt override.</code></td><td></td></tr>
+<tr><td><CopyableCode code="prompt_override_configuration" /></td><td><code>object</code></td><td>Configuration for prompt override.</td></tr>
 <tr><td><CopyableCode code="recommended_actions" /></td><td><code>array</code></td><td>The recommended actions users can take to resolve an error in failureReasons.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>A map of tag keys and values</code></td><td></td></tr>
-<tr><td><CopyableCode code="test_alias_tags" /></td><td><code>A map of tag keys and values</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A map of tag keys and values</td></tr>
+<tr><td><CopyableCode code="test_alias_tags" /></td><td><code>object</code></td><td>A map of tag keys and values</td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>Time Stamp.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

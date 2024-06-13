@@ -34,9 +34,9 @@ Creates, updates, deletes or gets an <code>accessor</code> resource or lists <co
 <tr><td><CopyableCode code="billing_token" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="accessor_type" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="accessor_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

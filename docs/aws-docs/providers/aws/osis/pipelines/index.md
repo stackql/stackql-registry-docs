@@ -30,15 +30,15 @@ Creates, updates, deletes or gets a <code>pipeline</code> resource or lists <cod
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="buffer_options" /></td><td><code>Key-value pairs to configure buffering.</code></td><td></td></tr>
-<tr><td><CopyableCode code="encryption_at_rest_options" /></td><td><code>Key-value pairs to configure encryption at rest.</code></td><td></td></tr>
-<tr><td><CopyableCode code="log_publishing_options" /></td><td><code>Key-value pairs to configure log publishing.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="buffer_options" /></td><td><code>object</code></td><td>Key-value pairs to configure buffering.</td></tr>
+<tr><td><CopyableCode code="encryption_at_rest_options" /></td><td><code>object</code></td><td>Key-value pairs to configure encryption at rest.</td></tr>
+<tr><td><CopyableCode code="log_publishing_options" /></td><td><code>object</code></td><td>Key-value pairs to configure log publishing.</td></tr>
 <tr><td><CopyableCode code="max_units" /></td><td><code>integer</code></td><td>The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).</td></tr>
 <tr><td><CopyableCode code="min_units" /></td><td><code>integer</code></td><td>The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).</td></tr>
 <tr><td><CopyableCode code="pipeline_configuration_body" /></td><td><code>string</code></td><td>The Data Prepper pipeline configuration.</td></tr>
 <tr><td><CopyableCode code="pipeline_name" /></td><td><code>string</code></td><td>Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><CopyableCode code="vpc_options" /></td><td><code>Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_options" /></td><td><code>object</code></td><td>Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.</td></tr>
 <tr><td><CopyableCode code="vpc_endpoints" /></td><td><code>array</code></td><td>The VPC interface endpoints that have access to the pipeline.</td></tr>
 <tr><td><CopyableCode code="pipeline_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the pipeline.</td></tr>
 <tr><td><CopyableCode code="ingest_endpoint_urls" /></td><td><code>array</code></td><td>A list of endpoints that can be used for ingesting data into a pipeline</td></tr>

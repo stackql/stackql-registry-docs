@@ -34,10 +34,10 @@ Creates, updates, deletes or gets an <code>user_profile</code> resource or lists
 <tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td>The identifier of the Amazon DataZone domain in which the user profile is created.</td></tr>
 <tr><td><CopyableCode code="domain_identifier" /></td><td><code>string</code></td><td>The identifier of the Amazon DataZone domain in which the user profile would be created.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone user profile.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>The status of the user profile.</code></td><td></td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>The type of the user profile.</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the user profile.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the user profile.</td></tr>
 <tr><td><CopyableCode code="user_identifier" /></td><td><code>string</code></td><td>The ID of the user.</td></tr>
-<tr><td><CopyableCode code="user_type" /></td><td><code>The type of the user.</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_type" /></td><td><code>string</code></td><td>The type of the user.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

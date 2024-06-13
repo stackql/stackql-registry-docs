@@ -30,7 +30,7 @@ Creates, updates, deletes or gets a <code>subscriber_notification</code> resourc
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="notification_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="notification_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="subscriber_arn" /></td><td><code>string</code></td><td>The ARN for the subscriber</td></tr>
 <tr><td><CopyableCode code="subscriber_endpoint" /></td><td><code>string</code></td><td>The endpoint the subscriber should listen to for notifications</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

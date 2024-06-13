@@ -32,7 +32,7 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_name" /></td><td><code>string</code></td><td>A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.</td></tr>
 <tr><td><CopyableCode code="compute_platform" /></td><td><code>string</code></td><td>The compute platform that CodeDeploy deploys the application to.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. </td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

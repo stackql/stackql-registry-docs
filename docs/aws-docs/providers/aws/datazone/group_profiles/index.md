@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>group_profile</code> resource or lists
 <tr><td><CopyableCode code="group_identifier" /></td><td><code>string</code></td><td>The ID of the group.</td></tr>
 <tr><td><CopyableCode code="group_name" /></td><td><code>string</code></td><td>The group-name of the Group Profile.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone group profile.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>The status of the group profile.</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the group profile.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

@@ -30,9 +30,9 @@ Creates, updates, deletes or gets a <code>security_key</code> resource or lists 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="key" /></td><td><code>A valid security key in PEM format.</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_id" /></td><td><code>Amazon Connect instance identifier</code></td><td></td></tr>
-<tr><td><CopyableCode code="association_id" /></td><td><code>An associationID is automatically generated when a storage config is associated with an instance</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="key" /></td><td><code>string</code></td><td>A valid security key in PEM format.</td></tr>
+<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>Amazon Connect instance identifier</td></tr>
+<tr><td><CopyableCode code="association_id" /></td><td><code>string</code></td><td>An associationID is automatically generated when a storage config is associated with an instance</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

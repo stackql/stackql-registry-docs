@@ -32,10 +32,10 @@ Creates, updates, deletes or gets a <code>landing_zone</code> resource or lists 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="landing_zone_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="latest_available_version" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="drift_status" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="drift_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest" /></td><td><code></code></td><td></td></tr>
 <tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

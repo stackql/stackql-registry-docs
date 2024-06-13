@@ -30,10 +30,10 @@ Creates, updates, deletes or gets a <code>bot_version</code> resource or lists <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bot_id" /></td><td><code>Unique ID of resource</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_version" /></td><td><code>A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>A description of the version. Use the description to help identify the version in lists.</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_version_locale_specification" /></td><td><code>Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bot_id" /></td><td><code>string</code></td><td>Unique ID of resource</td></tr>
+<tr><td><CopyableCode code="bot_version" /></td><td><code>object</code></td><td>A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the version. Use the description to help identify the version in lists.</td></tr>
+<tr><td><CopyableCode code="bot_version_locale_specification" /></td><td><code>array</code></td><td>Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

@@ -36,7 +36,7 @@ Creates, updates, deletes or gets a <code>queue_environment</code> resource or l
 <tr><td><CopyableCode code="queue_environment_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="queue_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="template" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="template_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="template_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

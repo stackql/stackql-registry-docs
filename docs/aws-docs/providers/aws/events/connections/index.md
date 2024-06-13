@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>connection</code> resource or lists <c
 <tr><td><CopyableCode code="secret_arn" /></td><td><code>string</code></td><td>The arn of the secrets manager secret created in the customer account.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the connection.</td></tr>
 <tr><td><CopyableCode code="authorization_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="auth_parameters" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="auth_parameters" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

@@ -32,10 +32,10 @@ Creates, updates, deletes or gets a <code>simulation</code> resource or lists <c
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the simulation.</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Role ARN.</td></tr>
-<tr><td><CopyableCode code="schema_s3_location" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="schema_s3_location" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="describe_payload" /></td><td><code>string</code></td><td>Json object with all simulation details</td></tr>
 <tr><td><CopyableCode code="maximum_duration" /></td><td><code>string</code></td><td>The maximum running time of the simulation.</td></tr>
-<tr><td><CopyableCode code="snapshot_s3_location" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="snapshot_s3_location" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

@@ -32,7 +32,7 @@ Represents a log event.
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="timestamp" /></td><td><code>integer</code></td><td>The time the event occurred, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</td></tr>
 <tr><td><CopyableCode code="message" /></td><td><code>string</code></td><td>The data contained in the log event.</td></tr>
-<tr><td><CopyableCode code="ingestionTime" /></td><td><code>integer</code></td><td>The time the event was ingested, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</td></tr>
+<tr><td><CopyableCode code="ingestion_time" /></td><td><code>integer</code></td><td>The time the event was ingested, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

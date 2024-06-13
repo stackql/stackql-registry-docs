@@ -31,15 +31,15 @@ Creates, updates, deletes or gets an <code>app_block</code> resource or lists <c
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="source_s3_location" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="setup_script_details" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_s3_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="setup_script_details" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="packaging_type" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="post_setup_script_details" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="packaging_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="post_setup_script_details" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

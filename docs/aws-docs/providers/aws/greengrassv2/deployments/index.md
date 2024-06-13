@@ -35,8 +35,8 @@ Creates, updates, deletes or gets a <code>deployment</code> resource or lists <c
 <tr><td><CopyableCode code="deployment_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="deployment_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="components" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="iot_job_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="deployment_policies" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="iot_job_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="deployment_policies" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

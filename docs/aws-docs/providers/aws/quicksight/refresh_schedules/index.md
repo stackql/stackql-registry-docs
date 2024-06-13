@@ -33,7 +33,7 @@ Creates, updates, deletes or gets a <code>refresh_schedule</code> resource or li
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the data source.</p></td></tr>
 <tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_set_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="schedule" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

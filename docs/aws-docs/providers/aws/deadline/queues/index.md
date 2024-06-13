@@ -31,12 +31,12 @@ Creates, updates, deletes or gets a <code>queue</code> resource or lists <code>q
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="allowed_storage_profile_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_budget_action" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_budget_action" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="farm_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="job_attachment_settings" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="job_run_as_user" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="job_attachment_settings" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="job_run_as_user" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="queue_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="required_file_system_location_names" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>

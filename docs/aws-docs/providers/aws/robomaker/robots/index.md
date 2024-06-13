@@ -30,11 +30,11 @@ Creates, updates, deletes or gets a <code>robot</code> resource or lists <code>r
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="fleet" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the fleet.</td></tr>
 <tr><td><CopyableCode code="architecture" /></td><td><code>string</code></td><td>The target architecture of the robot.</td></tr>
 <tr><td><CopyableCode code="greengrass_group_id" /></td><td><code>string</code></td><td>The Greengrass group id.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>A key-value pair to associate with a resource.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name for the robot.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

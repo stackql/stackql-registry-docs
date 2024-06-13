@@ -30,7 +30,7 @@ Creates, updates, deletes or gets an <code>anomaly_detector</code> resource or l
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="anomaly_detector_name" /></td><td><code>string</code></td><td>Name for the Amazon Lookout for Metrics Anomaly Detector</td></tr>
 <tr><td><CopyableCode code="anomaly_detector_description" /></td><td><code>string</code></td><td>A description for the AnomalyDetector.</td></tr>
 <tr><td><CopyableCode code="anomaly_detector_config" /></td><td><code>object</code></td><td>Configuration options for the AnomalyDetector</td></tr>

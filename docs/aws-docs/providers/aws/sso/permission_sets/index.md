@@ -40,7 +40,7 @@ Creates, updates, deletes or gets a <code>permission_set</code> resource or list
 <tr><td><CopyableCode code="inline_policy" /></td><td><code>object</code></td><td>The inline policy to put in permission set.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="customer_managed_policy_references" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="permissions_boundary" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="permissions_boundary" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

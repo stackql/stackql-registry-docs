@@ -31,11 +31,11 @@ Creates, updates, deletes or gets a <code>task_set</code> resource or lists <cod
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.</td></tr>
-<tr><td><CopyableCode code="external_id" /></td><td><code>string</code></td><td>An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. </td></tr>
+<tr><td><CopyableCode code="external_id" /></td><td><code>string</code></td><td>An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the task set.</td></tr>
-<tr><td><CopyableCode code="launch_type" /></td><td><code>string</code></td><td>The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. </td></tr>
+<tr><td><CopyableCode code="launch_type" /></td><td><code>string</code></td><td>The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.</td></tr>
 <tr><td><CopyableCode code="load_balancers" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_configuration" /></td><td><code>An object representing the network configuration for a task or service.</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_configuration" /></td><td><code>object</code></td><td>An object representing the network configuration for a task or service.</td></tr>
 <tr><td><CopyableCode code="platform_version" /></td><td><code>string</code></td><td>The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.</td></tr>
 <tr><td><CopyableCode code="scale" /></td><td><code>object</code></td><td>A floating-point percentage of the desired number of tasks to place and keep running in the task set.</td></tr>
 <tr><td><CopyableCode code="service" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the service to create the task set in.</td></tr>

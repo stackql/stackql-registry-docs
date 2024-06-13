@@ -30,7 +30,7 @@ Creates, updates, deletes or gets an <code>ip_access_setting</code> resource or 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="associated_portal_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="customer_managed_key" /></td><td><code>string</code></td><td></td></tr>

@@ -31,7 +31,7 @@ Creates, updates, deletes or gets an <code>application_fleet_association</code> 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="fleet_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="application_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="application_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

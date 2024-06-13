@@ -31,9 +31,9 @@ Creates, updates, deletes or gets a <code>rule_group</code> resource or lists <c
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="rule_group_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rule_group_arn" /></td><td><code>A resource ARN.</code></td><td></td></tr>
+<tr><td><CopyableCode code="rule_group_arn" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
 <tr><td><CopyableCode code="rule_group_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rule_group" /></td><td><code>Resource type definition for AWS::NetworkFirewall::RuleGroup</code></td><td></td></tr>
+<tr><td><CopyableCode code="rule_group" /></td><td><code>object</code></td><td>Resource type definition for AWS::NetworkFirewall::RuleGroup</td></tr>
 <tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="capacity" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>

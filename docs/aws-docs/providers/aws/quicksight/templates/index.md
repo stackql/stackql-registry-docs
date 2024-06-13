@@ -32,12 +32,12 @@ Creates, updates, deletes or gets a <code>template</code> resource or lists <cod
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td><p>Time when this was created.</p></td></tr>
 <tr><td><CopyableCode code="version_description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="source_entity" /></td><td><code><p>The source entity of the template.</p></code></td><td></td></tr>
-<tr><td><CopyableCode code="definition" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_entity" /></td><td><code>object</code></td><td><p>The source entity of the template.</p></td></tr>
+<tr><td><CopyableCode code="definition" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>Time when this was last updated.</p></td></tr>
-<tr><td><CopyableCode code="validation_strategy" /></td><td><code><p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="validation_strategy" /></td><td><code>object</code></td><td><p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="version" /></td><td><code><p>A version of a template.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>object</code></td><td><p>A version of a template.</p></td></tr>
 <tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="permissions" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the template.</p></td></tr>

@@ -36,7 +36,7 @@ Creates, updates, deletes or gets a <code>training_dataset</code> resource or li
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.</td></tr>
 <tr><td><CopyableCode code="training_data" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="training_dataset_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

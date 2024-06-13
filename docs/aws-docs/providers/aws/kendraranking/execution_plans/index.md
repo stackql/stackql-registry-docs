@@ -30,11 +30,11 @@ Creates, updates, deletes or gets an <code>execution_plan</code> resource or lis
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>Unique ID of rescore execution plan</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Unique ID of rescore execution plan</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the execution plan</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags for labeling the execution plan</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>Name of kendra ranking rescore execution plan</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of kendra ranking rescore execution plan</td></tr>
 <tr><td><CopyableCode code="capacity_units" /></td><td><code>object</code></td><td>Capacity units</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

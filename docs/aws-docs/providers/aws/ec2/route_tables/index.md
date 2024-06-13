@@ -25,7 +25,7 @@ Creates, updates, deletes or gets a <code>route_table</code> resource or lists <
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>route_tables</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet. For more information, see &#91;Route tables&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.<br />For more information, see &#91;Route tables&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.route_tables" /></td></tr>
 </tbody></table>
 

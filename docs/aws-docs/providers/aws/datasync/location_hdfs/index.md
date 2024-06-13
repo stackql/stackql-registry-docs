@@ -34,7 +34,7 @@ Creates, updates, deletes or gets a <code>location_hdf</code> resource or lists 
 <tr><td><CopyableCode code="block_size" /></td><td><code>integer</code></td><td>Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.</td></tr>
 <tr><td><CopyableCode code="replication_factor" /></td><td><code>integer</code></td><td>Number of copies of each block that exists inside the HDFS cluster.</td></tr>
 <tr><td><CopyableCode code="kms_key_provider_uri" /></td><td><code>string</code></td><td>The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.</td></tr>
-<tr><td><CopyableCode code="qop_configuration" /></td><td><code>Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.</code></td><td></td></tr>
+<tr><td><CopyableCode code="qop_configuration" /></td><td><code>object</code></td><td>Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.</td></tr>
 <tr><td><CopyableCode code="authentication_type" /></td><td><code>string</code></td><td>The authentication mode used to determine identity of user.</td></tr>
 <tr><td><CopyableCode code="simple_user" /></td><td><code>string</code></td><td>The user name that has read and write permissions on the specified HDFS cluster.</td></tr>
 <tr><td><CopyableCode code="kerberos_principal" /></td><td><code>string</code></td><td>The unique identity, or principal, to which Kerberos can assign tickets.</td></tr>

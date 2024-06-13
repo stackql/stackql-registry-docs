@@ -32,9 +32,9 @@ Creates, updates, deletes or gets a <code>custom_line_item</code> resource or li
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="custom_line_item_charge_details" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_line_item_charge_details" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="billing_group_arn" /></td><td><code>string</code></td><td>Billing Group ARN</td></tr>
-<tr><td><CopyableCode code="billing_period_range" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="billing_period_range" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>ARN</td></tr>
 <tr><td><CopyableCode code="creation_time" /></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
 <tr><td><CopyableCode code="last_modified_time" /></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>

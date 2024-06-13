@@ -31,12 +31,12 @@ Creates, updates, deletes or gets a <code>job_queue</code> resource or lists <co
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="job_queue_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="job_queue_arn" /></td><td><code>ARN of the Scheduling Policy.</code></td><td></td></tr>
+<tr><td><CopyableCode code="job_queue_arn" /></td><td><code>string</code></td><td>ARN of the Scheduling Policy.</td></tr>
 <tr><td><CopyableCode code="compute_environment_order" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="job_state_time_limit_actions" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="priority" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="scheduling_policy_arn" /></td><td><code>ARN of the Scheduling Policy.</code></td><td></td></tr>
+<tr><td><CopyableCode code="scheduling_policy_arn" /></td><td><code>string</code></td><td>ARN of the Scheduling Policy.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

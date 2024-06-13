@@ -31,8 +31,8 @@ Creates, updates, deletes or gets a <code>tls_inspection_configuration</code> re
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="tls_inspection_configuration_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tls_inspection_configuration_arn" /></td><td><code>A resource ARN.</code></td><td></td></tr>
-<tr><td><CopyableCode code="tls_inspection_configuration" /></td><td><code>Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration</code></td><td></td></tr>
+<tr><td><CopyableCode code="tls_inspection_configuration_arn" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
+<tr><td><CopyableCode code="tls_inspection_configuration" /></td><td><code>object</code></td><td>Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration</td></tr>
 <tr><td><CopyableCode code="tls_inspection_configuration_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>

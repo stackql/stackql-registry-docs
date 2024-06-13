@@ -32,9 +32,9 @@ Creates, updates, deletes or gets a <code>restore_testing_selection</code> resou
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="iam_role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="protected_resource_arns" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="protected_resource_conditions" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="protected_resource_conditions" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="protected_resource_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="restore_metadata_overrides" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="restore_metadata_overrides" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="restore_testing_plan_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="restore_testing_selection_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="validation_window_hours" /></td><td><code>integer</code></td><td></td></tr>

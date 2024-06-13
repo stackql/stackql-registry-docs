@@ -36,7 +36,7 @@ Creates, updates, deletes or gets a <code>feature_group</code> resource or lists
 <tr><td><CopyableCode code="feature_definitions" /></td><td><code>array</code></td><td>An Array of Feature Definition</td></tr>
 <tr><td><CopyableCode code="online_store_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="offline_store_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="throughput_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="throughput_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Role Arn</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description about the FeatureGroup.</td></tr>
 <tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>A timestamp of FeatureGroup creation time.</td></tr>

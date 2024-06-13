@@ -33,13 +33,13 @@ Creates, updates, deletes or gets a <code>channel</code> resource or lists <code
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The ARN of the channel.</p></td></tr>
 <tr><td><CopyableCode code="audiences" /></td><td><code>array</code></td><td><p>The list of audiences defined in channel.</p></td></tr>
 <tr><td><CopyableCode code="channel_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="filler_slate" /></td><td><code><p>Slate VOD source configuration.</p></code></td><td></td></tr>
-<tr><td><CopyableCode code="log_configuration" /></td><td><code><p>The log configuration for the channel.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="filler_slate" /></td><td><code>object</code></td><td><p>Slate VOD source configuration.</p></td></tr>
+<tr><td><CopyableCode code="log_configuration" /></td><td><code>object</code></td><td><p>The log configuration for the channel.</p></td></tr>
 <tr><td><CopyableCode code="outputs" /></td><td><code>array</code></td><td><p>The channel's output properties.</p></td></tr>
-<tr><td><CopyableCode code="playback_mode" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="playback_mode" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to assign to the channel.</td></tr>
-<tr><td><CopyableCode code="tier" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="time_shift_configuration" /></td><td><code><p>The configuration for time-shifted viewing.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="tier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="time_shift_configuration" /></td><td><code>object</code></td><td><p>The configuration for time-shifted viewing.</p></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

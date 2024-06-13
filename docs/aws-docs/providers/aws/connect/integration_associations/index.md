@@ -30,10 +30,10 @@ Creates, updates, deletes or gets an <code>integration_association</code> resour
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="integration_association_id" /></td><td><code>Identifier of the association with Connect Instance</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_id" /></td><td><code>Amazon Connect instance identifier</code></td><td></td></tr>
-<tr><td><CopyableCode code="integration_arn" /></td><td><code>ARN of Integration being associated with the instance</code></td><td></td></tr>
-<tr><td><CopyableCode code="integration_type" /></td><td><code>Specifies the integration type to be associated with the instance</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="integration_association_id" /></td><td><code>string</code></td><td>Identifier of the association with Connect Instance</td></tr>
+<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>Amazon Connect instance identifier</td></tr>
+<tr><td><CopyableCode code="integration_arn" /></td><td><code>string</code></td><td>ARN of Integration being associated with the instance</td></tr>
+<tr><td><CopyableCode code="integration_type" /></td><td><code>string</code></td><td>Specifies the integration type to be associated with the instance</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

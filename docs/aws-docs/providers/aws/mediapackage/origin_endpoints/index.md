@@ -40,11 +40,11 @@ Creates, updates, deletes or gets an <code>origin_endpoint</code> resource or li
 <tr><td><CopyableCode code="time_delay_seconds" /></td><td><code>integer</code></td><td>Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.</td></tr>
 <tr><td><CopyableCode code="manifest_name" /></td><td><code>string</code></td><td>A short string appended to the end of the OriginEndpoint URL.</td></tr>
 <tr><td><CopyableCode code="origination" /></td><td><code>string</code></td><td>Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination</td></tr>
-<tr><td><CopyableCode code="authorization" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="hls_package" /></td><td><code>An HTTP Live Streaming (HLS) packaging configuration.</code></td><td></td></tr>
-<tr><td><CopyableCode code="dash_package" /></td><td><code>A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.</code></td><td></td></tr>
-<tr><td><CopyableCode code="mss_package" /></td><td><code>A Microsoft Smooth Streaming (MSS) PackagingConfiguration.</code></td><td></td></tr>
-<tr><td><CopyableCode code="cmaf_package" /></td><td><code>A CMAF packaging configuration.</code></td><td></td></tr>
+<tr><td><CopyableCode code="authorization" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="hls_package" /></td><td><code>object</code></td><td>An HTTP Live Streaming (HLS) packaging configuration.</td></tr>
+<tr><td><CopyableCode code="dash_package" /></td><td><code>object</code></td><td>A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.</td></tr>
+<tr><td><CopyableCode code="mss_package" /></td><td><code>object</code></td><td>A Microsoft Smooth Streaming (MSS) PackagingConfiguration.</td></tr>
+<tr><td><CopyableCode code="cmaf_package" /></td><td><code>object</code></td><td>A CMAF packaging configuration.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

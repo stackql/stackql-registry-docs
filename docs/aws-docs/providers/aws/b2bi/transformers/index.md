@@ -32,12 +32,12 @@ Creates, updates, deletes or gets a <code>transformer</code> resource or lists <
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="edi_type" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="file_format" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="file_format" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="mapping_template" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="sample_document" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="transformer_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="transformer_id" /></td><td><code>string</code></td><td></td></tr>

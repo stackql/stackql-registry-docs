@@ -30,23 +30,23 @@ Creates, updates, deletes or gets a <code>monitor</code> resource or lists <code
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_at" /></td><td><code>The date value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ssZ)</code></td><td></td></tr>
-<tr><td><CopyableCode code="modified_at" /></td><td><code>The date value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ssZ)</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The date value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ssZ)</td></tr>
+<tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td>The date value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ssZ)</td></tr>
 <tr><td><CopyableCode code="monitor_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="monitor_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="linked_account_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="include_linked_accounts" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="processing_status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="processing_status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="processing_status_info" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="resources" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="resources_to_add" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="resources_to_remove" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="max_city_networks_to_monitor" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="traffic_percentage_to_monitor" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="internet_measurements_log_delivery" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="health_events_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="internet_measurements_log_delivery" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="health_events_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

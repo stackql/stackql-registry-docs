@@ -34,8 +34,8 @@ Creates, updates, deletes or gets a <code>custom_plugin</code> resource or lists
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A summary description of the custom plugin.</td></tr>
 <tr><td><CopyableCode code="custom_plugin_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the custom plugin to use.</td></tr>
 <tr><td><CopyableCode code="content_type" /></td><td><code>string</code></td><td>The type of the plugin file.</td></tr>
-<tr><td><CopyableCode code="file_description" /></td><td><code>Details about the custom plugin file.</code></td><td></td></tr>
-<tr><td><CopyableCode code="location" /></td><td><code>Information about the location of a custom plugin.</code></td><td></td></tr>
+<tr><td><CopyableCode code="file_description" /></td><td><code>object</code></td><td>Details about the custom plugin file.</td></tr>
+<tr><td><CopyableCode code="location" /></td><td><code>object</code></td><td>Information about the location of a custom plugin.</td></tr>
 <tr><td><CopyableCode code="revision" /></td><td><code>integer</code></td><td>The revision of the custom plugin.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

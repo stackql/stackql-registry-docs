@@ -31,13 +31,13 @@ Creates, updates, deletes or gets a <code>solution</code> resource or lists <cod
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name for the solution</td></tr>
-<tr><td><CopyableCode code="solution_arn" /></td><td><code>The ARN of the solution</code></td><td></td></tr>
+<tr><td><CopyableCode code="solution_arn" /></td><td><code>string</code></td><td>The ARN of the solution</td></tr>
 <tr><td><CopyableCode code="event_type" /></td><td><code>string</code></td><td>When your have multiple event types (using an EVENT_TYPE schema field), this parameter specifies which event type (for example, 'click' or 'like') is used for training the model. If you do not provide an eventType, Amazon Personalize will use all interactions for training with equal weight regardless of type.</td></tr>
 <tr><td><CopyableCode code="dataset_group_arn" /></td><td><code>string</code></td><td>The ARN of the dataset group that provides the training data.</td></tr>
 <tr><td><CopyableCode code="perform_auto_ml" /></td><td><code>boolean</code></td><td>Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.</td></tr>
 <tr><td><CopyableCode code="perform_hpo" /></td><td><code>boolean</code></td><td>Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.</td></tr>
 <tr><td><CopyableCode code="recipe_arn" /></td><td><code>string</code></td><td>The ARN of the recipe to use for model training. Only specified when performAutoML is false.</td></tr>
-<tr><td><CopyableCode code="solution_config" /></td><td><code>The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.</code></td><td></td></tr>
+<tr><td><CopyableCode code="solution_config" /></td><td><code>object</code></td><td>The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

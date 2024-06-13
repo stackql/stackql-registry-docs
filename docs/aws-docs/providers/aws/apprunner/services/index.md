@@ -35,14 +35,14 @@ Creates, updates, deletes or gets a <code>service</code> resource or lists <code
 <tr><td><CopyableCode code="service_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppRunner Service.</td></tr>
 <tr><td><CopyableCode code="service_url" /></td><td><code>string</code></td><td>The Service Url of the AppRunner Service.</td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>AppRunner Service status.</td></tr>
-<tr><td><CopyableCode code="source_configuration" /></td><td><code>Source Code configuration</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_configuration" /></td><td><code>Instance Configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_configuration" /></td><td><code>object</code></td><td>Source Code configuration</td></tr>
+<tr><td><CopyableCode code="instance_configuration" /></td><td><code>object</code></td><td>Instance Configuration</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="encryption_configuration" /></td><td><code>Encryption configuration (KMS key)</code></td><td></td></tr>
-<tr><td><CopyableCode code="health_check_configuration" /></td><td><code>Health check configuration</code></td><td></td></tr>
-<tr><td><CopyableCode code="observability_configuration" /></td><td><code>Service observability configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_configuration" /></td><td><code>object</code></td><td>Encryption configuration (KMS key)</td></tr>
+<tr><td><CopyableCode code="health_check_configuration" /></td><td><code>object</code></td><td>Health check configuration</td></tr>
+<tr><td><CopyableCode code="observability_configuration" /></td><td><code>object</code></td><td>Service observability configuration</td></tr>
 <tr><td><CopyableCode code="auto_scaling_configuration_arn" /></td><td><code>string</code></td><td>Autoscaling configuration ARN</td></tr>
-<tr><td><CopyableCode code="network_configuration" /></td><td><code>Network configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="network_configuration" /></td><td><code>object</code></td><td>Network configuration</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

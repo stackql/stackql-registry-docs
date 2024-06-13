@@ -31,12 +31,12 @@ Creates, updates, deletes or gets a <code>configuration_set</code> resource or l
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the configuration set.</td></tr>
-<tr><td><CopyableCode code="tracking_options" /></td><td><code>An object that defines the open and click tracking options for emails that you send using the configuration set.</code></td><td></td></tr>
-<tr><td><CopyableCode code="delivery_options" /></td><td><code>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</code></td><td></td></tr>
-<tr><td><CopyableCode code="reputation_options" /></td><td><code>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</code></td><td></td></tr>
-<tr><td><CopyableCode code="sending_options" /></td><td><code>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</code></td><td></td></tr>
-<tr><td><CopyableCode code="suppression_options" /></td><td><code>An object that contains information about the suppression list preferences for your account.</code></td><td></td></tr>
-<tr><td><CopyableCode code="vdm_options" /></td><td><code>An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tracking_options" /></td><td><code>object</code></td><td>An object that defines the open and click tracking options for emails that you send using the configuration set.</td></tr>
+<tr><td><CopyableCode code="delivery_options" /></td><td><code>object</code></td><td>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</td></tr>
+<tr><td><CopyableCode code="reputation_options" /></td><td><code>object</code></td><td>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</td></tr>
+<tr><td><CopyableCode code="sending_options" /></td><td><code>object</code></td><td>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</td></tr>
+<tr><td><CopyableCode code="suppression_options" /></td><td><code>object</code></td><td>An object that contains information about the suppression list preferences for your account.</td></tr>
+<tr><td><CopyableCode code="vdm_options" /></td><td><code>object</code></td><td>An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

@@ -34,11 +34,11 @@ Creates, updates, deletes or gets a <code>studio</code> resource or lists <code>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td><p>A friendly name for the studio.</p></td></tr>
 <tr><td><CopyableCode code="home_region" /></td><td><code>string</code></td><td><p>The Amazon Web Services Region where the studio resource is located.</p></td></tr>
 <tr><td><CopyableCode code="sso_client_id" /></td><td><code>string</code></td><td><p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p></td></tr>
-<tr><td><CopyableCode code="studio_encryption_configuration" /></td><td><code><p>Configuration of the encryption method that is used for the studio.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="studio_encryption_configuration" /></td><td><code>object</code></td><td><p>Configuration of the encryption method that is used for the studio.</p></td></tr>
 <tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="studio_name" /></td><td><code>string</code></td><td><p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p></td></tr>
 <tr><td><CopyableCode code="studio_url" /></td><td><code>string</code></td><td><p>The address of the web page for the studio.</p></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="user_role_arn" /></td><td><code>string</code></td><td><p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

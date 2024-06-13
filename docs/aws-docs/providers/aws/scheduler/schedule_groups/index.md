@@ -34,7 +34,7 @@ Creates, updates, deletes or gets a <code>schedule_group</code> resource or list
 <tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td>The time at which the schedule group was created.</td></tr>
 <tr><td><CopyableCode code="last_modification_date" /></td><td><code>string</code></td><td>The time at which the schedule group was last modified.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>Specifies the state of the schedule group.</code></td><td></td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>Specifies the state of the schedule group.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The list of tags to associate with the schedule group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

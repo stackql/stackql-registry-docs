@@ -31,8 +31,8 @@ Creates, updates, deletes or gets an <code>account_audit_configuration</code> re
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).</td></tr>
-<tr><td><CopyableCode code="audit_check_configurations" /></td><td><code>Specifies which audit checks are enabled and disabled for this account.</code></td><td></td></tr>
-<tr><td><CopyableCode code="audit_notification_target_configurations" /></td><td><code>Information about the targets to which audit notifications are sent.</code></td><td></td></tr>
+<tr><td><CopyableCode code="audit_check_configurations" /></td><td><code>object</code></td><td>Specifies which audit checks are enabled and disabled for this account.</td></tr>
+<tr><td><CopyableCode code="audit_notification_target_configurations" /></td><td><code>object</code></td><td>Information about the targets to which audit notifications are sent.</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

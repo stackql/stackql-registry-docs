@@ -33,12 +33,12 @@ Creates, updates, deletes or gets a <code>configuration_policy</code> resource o
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the configuration policy.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the configuration policy.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the configuration policy.</td></tr>
-<tr><td><CopyableCode code="configuration_policy" /></td><td><code>An object that defines how Security Hub is configured.</code></td><td></td></tr>
+<tr><td><CopyableCode code="configuration_policy" /></td><td><code>object</code></td><td>An object that defines how Security Hub is configured.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The universally unique identifier (UUID) of the configuration policy.</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The date and time, in UTC and ISO 8601 format.</td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The date and time, in UTC and ISO 8601 format.</td></tr>
 <tr><td><CopyableCode code="service_enabled" /></td><td><code>boolean</code></td><td>Indicates whether the service that the configuration policy applies to is enabled in the policy.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>A key-value pair to associate with a resource.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

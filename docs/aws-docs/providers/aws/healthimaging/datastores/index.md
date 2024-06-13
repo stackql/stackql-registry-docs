@@ -30,14 +30,14 @@ Creates, updates, deletes or gets a <code>datastore</code> resource or lists <co
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="datastore_arn" /></td><td><code>The Datastore's ARN.</code></td><td></td></tr>
-<tr><td><CopyableCode code="datastore_name" /></td><td><code>User friendly name for Datastore.</code></td><td></td></tr>
-<tr><td><CopyableCode code="datastore_id" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="datastore_status" /></td><td><code>A string to denote the Datastore's state.</code></td><td></td></tr>
-<tr><td><CopyableCode code="kms_key_arn" /></td><td><code>ARN referencing a KMS key or KMS key alias.</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>The timestamp when the data store was created.</code></td><td></td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>The timestamp when the data store was created.</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>A Map of key value pairs for Tags.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="datastore_arn" /></td><td><code>string</code></td><td>The Datastore's ARN.</td></tr>
+<tr><td><CopyableCode code="datastore_name" /></td><td><code>string</code></td><td>User friendly name for Datastore.</td></tr>
+<tr><td><CopyableCode code="datastore_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="datastore_status" /></td><td><code>string</code></td><td>A string to denote the Datastore's state.</td></tr>
+<tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td>ARN referencing a KMS key or KMS key alias.</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The timestamp when the data store was created.</td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The timestamp when the data store was created.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A Map of key value pairs for Tags.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

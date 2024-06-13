@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>dataset</code> resource or lists <code
 <tr><td><CopyableCode code="dataset_type" /></td><td><code>string</code></td><td>The type of dataset</td></tr>
 <tr><td><CopyableCode code="dataset_group_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group to add the dataset to</td></tr>
 <tr><td><CopyableCode code="schema_arn" /></td><td><code>string</code></td><td>The ARN of the schema to associate with the dataset. The schema defines the dataset fields.</td></tr>
-<tr><td><CopyableCode code="dataset_import_job" /></td><td><code>Initial DatasetImportJob for the created dataset</code></td><td></td></tr>
+<tr><td><CopyableCode code="dataset_import_job" /></td><td><code>object</code></td><td>Initial DatasetImportJob for the created dataset</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

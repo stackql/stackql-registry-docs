@@ -31,17 +31,17 @@ Creates, updates, deletes or gets a <code>license</code> resource or lists <code
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="product_sku" /></td><td><code>string</code></td><td>ProductSKU of the license.</td></tr>
-<tr><td><CopyableCode code="issuer" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="issuer" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="license_name" /></td><td><code>string</code></td><td>Name for the created license.</td></tr>
 <tr><td><CopyableCode code="product_name" /></td><td><code>string</code></td><td>Product name for the created license.</td></tr>
 <tr><td><CopyableCode code="home_region" /></td><td><code>string</code></td><td>Home region for the created license.</td></tr>
-<tr><td><CopyableCode code="validity" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="validity" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="entitlements" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="beneficiary" /></td><td><code>string</code></td><td>Beneficiary of the license.</td></tr>
-<tr><td><CopyableCode code="consumption_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="consumption_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="license_metadata" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="license_arn" /></td><td><code>string</code></td><td>Amazon Resource Name is a unique name for each resource.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The version of the license.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

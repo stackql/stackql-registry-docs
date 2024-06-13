@@ -36,9 +36,9 @@ Creates, updates, deletes or gets a <code>membership</code> resource or lists <c
 <tr><td><CopyableCode code="collaboration_creator_account_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="collaboration_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="membership_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="query_log_status" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_result_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="payment_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="query_log_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_result_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="payment_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

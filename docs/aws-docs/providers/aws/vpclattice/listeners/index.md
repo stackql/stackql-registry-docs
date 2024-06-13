@@ -31,7 +31,7 @@ Creates, updates, deletes or gets a <code>listener</code> resource or lists <cod
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_action" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_action" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="port" /></td><td><code>integer</code></td><td></td></tr>

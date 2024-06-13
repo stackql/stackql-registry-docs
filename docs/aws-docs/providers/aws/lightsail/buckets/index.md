@@ -34,7 +34,7 @@ Creates, updates, deletes or gets a <code>bucket</code> resource or lists <code>
 <tr><td><CopyableCode code="bundle_id" /></td><td><code>string</code></td><td>The ID of the bundle to use for the bucket.</td></tr>
 <tr><td><CopyableCode code="bucket_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="object_versioning" /></td><td><code>boolean</code></td><td>Specifies whether to enable or disable versioning of objects in the bucket.</td></tr>
-<tr><td><CopyableCode code="access_rules" /></td><td><code>An object that sets the public accessibility of objects in the specified bucket.</code></td><td></td></tr>
+<tr><td><CopyableCode code="access_rules" /></td><td><code>object</code></td><td>An object that sets the public accessibility of objects in the specified bucket.</td></tr>
 <tr><td><CopyableCode code="resources_receiving_access" /></td><td><code>array</code></td><td>The names of the Lightsail resources for which to set bucket access.</td></tr>
 <tr><td><CopyableCode code="read_only_access_accounts" /></td><td><code>array</code></td><td>An array of strings to specify the AWS account IDs that can access the bucket.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>

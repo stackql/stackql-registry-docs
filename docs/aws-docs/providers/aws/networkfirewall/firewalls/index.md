@@ -31,9 +31,9 @@ Creates, updates, deletes or gets a <code>firewall</code> resource or lists <cod
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="firewall_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="firewall_arn" /></td><td><code>A resource ARN.</code></td><td></td></tr>
+<tr><td><CopyableCode code="firewall_arn" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
 <tr><td><CopyableCode code="firewall_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="firewall_policy_arn" /></td><td><code>A resource ARN.</code></td><td></td></tr>
+<tr><td><CopyableCode code="firewall_policy_arn" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="subnet_mappings" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="delete_protection" /></td><td><code>boolean</code></td><td></td></tr>

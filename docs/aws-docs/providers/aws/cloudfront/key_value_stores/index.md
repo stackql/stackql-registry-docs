@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>key_value_store</code> resource or lis
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="comment" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="import_source" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="import_source" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

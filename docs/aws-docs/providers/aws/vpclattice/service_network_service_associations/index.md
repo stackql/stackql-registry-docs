@@ -32,7 +32,7 @@ Creates, updates, deletes or gets a <code>service_network_service_association</c
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="dns_entry" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="dns_entry" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="service_network_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="service_network_id" /></td><td><code>string</code></td><td></td></tr>

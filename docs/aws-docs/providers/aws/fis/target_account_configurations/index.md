@@ -30,10 +30,10 @@ Creates, updates, deletes or gets a <code>target_account_configuration</code> re
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="experiment_template_id" /></td><td><code>The ID of the experiment template.</code></td><td></td></tr>
-<tr><td><CopyableCode code="account_id" /></td><td><code>The AWS account ID of the target account.</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>The Amazon Resource Name (ARN) of an IAM role for the target account.</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>The description of the target account.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="experiment_template_id" /></td><td><code>string</code></td><td>The ID of the experiment template.</td></tr>
+<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>The AWS account ID of the target account.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role for the target account.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the target account.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

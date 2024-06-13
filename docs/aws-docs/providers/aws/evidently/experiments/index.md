@@ -39,7 +39,7 @@ Creates, updates, deletes or gets an <code>experiment</code> resource or lists <
 <tr><td><CopyableCode code="treatments" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="metric_goals" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="sampling_rate" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="online_ab_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="online_ab_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="segment" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="remove_segment" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>

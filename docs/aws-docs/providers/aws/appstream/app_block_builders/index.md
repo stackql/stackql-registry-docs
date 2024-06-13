@@ -31,13 +31,13 @@ Creates, updates, deletes or gets an <code>app_block_builder</code> resource or 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="platform" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="platform" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="access_endpoints" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="enable_default_internet_access" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="iam_role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td></td></tr>

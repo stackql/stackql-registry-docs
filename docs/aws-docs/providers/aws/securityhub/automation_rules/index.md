@@ -35,13 +35,13 @@ Creates, updates, deletes or gets an <code>automation_rule</code> resource or li
 <tr><td><CopyableCode code="rule_order" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="rule_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>The date and time, in UTC and ISO 8601 format.</code></td><td></td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>The date and time, in UTC and ISO 8601 format.</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The date and time, in UTC and ISO 8601 format.</td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The date and time, in UTC and ISO 8601 format.</td></tr>
 <tr><td><CopyableCode code="created_by" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="is_terminal" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="actions" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="criteria" /></td><td><code>object</code></td><td>A set of &#91;Security Finding Format (ASFF)&#93;(https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>A key-value pair to associate with a resource.</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

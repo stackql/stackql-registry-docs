@@ -32,11 +32,11 @@ Creates, updates, deletes or gets a <code>key</code> resource or lists <code>key
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="enabled" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="exportable" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="key_attributes" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="key_check_value_algorithm" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="key_attributes" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="key_check_value_algorithm" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="key_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="key_origin" /></td><td><code>Defines the source of a key</code></td><td></td></tr>
-<tr><td><CopyableCode code="key_state" /></td><td><code>Defines the state of a key</code></td><td></td></tr>
+<tr><td><CopyableCode code="key_origin" /></td><td><code>string</code></td><td>Defines the source of a key</td></tr>
+<tr><td><CopyableCode code="key_state" /></td><td><code>string</code></td><td>Defines the state of a key</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

@@ -34,7 +34,7 @@ Creates, updates, deletes or gets a <code>component_version</code> resource or l
 <tr><td><CopyableCode code="component_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="component_version" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="inline_recipe" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="lambda_function" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="lambda_function" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

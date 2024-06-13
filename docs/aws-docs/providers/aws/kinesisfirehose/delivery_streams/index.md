@@ -31,20 +31,20 @@ Creates, updates, deletes or gets a <code>delivery_stream</code> resource or lis
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="delivery_stream_encryption_configuration_input" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="delivery_stream_encryption_configuration_input" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="delivery_stream_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="delivery_stream_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="elasticsearch_destination_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="amazonopensearchservice_destination_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="amazon_open_search_serverless_destination_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="extended_s3_destination_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="kinesis_stream_source_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="msk_source_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="redshift_destination_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="s3_destination_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="splunk_destination_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="http_endpoint_destination_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="snowflake_destination_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="elasticsearch_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="amazonopensearchservice_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="amazon_open_search_serverless_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="extended_s3_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="kinesis_stream_source_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="msk_source_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="redshift_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="s3_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="splunk_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="http_endpoint_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="snowflake_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

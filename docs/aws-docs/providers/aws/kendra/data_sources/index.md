@@ -30,18 +30,18 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>Unique ID of index</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>Name of index</code></td><td></td></tr>
-<tr><td><CopyableCode code="index_id" /></td><td><code>Unique ID of Index</code></td><td></td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>Data source type</code></td><td></td></tr>
-<tr><td><CopyableCode code="data_source_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="schedule" /></td><td><code>Schedule</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>Role Arn</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Unique ID of index</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of index</td></tr>
+<tr><td><CopyableCode code="index_id" /></td><td><code>string</code></td><td>Unique ID of Index</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>Data source type</td></tr>
+<tr><td><CopyableCode code="data_source_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule" /></td><td><code>string</code></td><td>Schedule</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Role Arn</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags for labeling the data source</td></tr>
-<tr><td><CopyableCode code="custom_document_enrichment_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="language_code" /></td><td><code>The code for a language.</code></td><td></td></tr>
+<tr><td><CopyableCode code="custom_document_enrichment_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="language_code" /></td><td><code>string</code></td><td>The code for a language.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

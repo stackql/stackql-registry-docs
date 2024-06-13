@@ -30,12 +30,12 @@ Creates, updates, deletes or gets an <code>ec2fleet</code> resource or lists <co
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="target_capacity_specification" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="on_demand_options" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="target_capacity_specification" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="on_demand_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="excess_capacity_termination_policy" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_specifications" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="spot_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="spot_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="valid_from" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="replace_unhealthy_instances" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="launch_template_configs" /></td><td><code>array</code></td><td></td></tr>

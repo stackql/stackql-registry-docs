@@ -34,7 +34,7 @@ Creates, updates, deletes or gets a <code>patch_baseline</code> resource or list
 <tr><td><CopyableCode code="default_baseline" /></td><td><code>boolean</code></td><td>Set the baseline as default baseline. Only registering to default patch baseline is allowed.</td></tr>
 <tr><td><CopyableCode code="operating_system" /></td><td><code>string</code></td><td>Defines the operating system the patch baseline applies to. The Default value is WINDOWS.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the patch baseline.</td></tr>
-<tr><td><CopyableCode code="approval_rules" /></td><td><code>A set of rules defining the approval rules for a patch baseline.</code></td><td></td></tr>
+<tr><td><CopyableCode code="approval_rules" /></td><td><code>object</code></td><td>A set of rules defining the approval rules for a patch baseline.</td></tr>
 <tr><td><CopyableCode code="sources" /></td><td><code>array</code></td><td>Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the patch baseline.</td></tr>
 <tr><td><CopyableCode code="rejected_patches" /></td><td><code>array</code></td><td>A list of explicitly rejected patches for the baseline.</td></tr>

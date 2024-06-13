@@ -30,7 +30,7 @@ Creates, updates, deletes or gets a <code>target_group</code> resource or lists 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="ip_address_type" /></td><td><code>string</code></td><td>The type of IP address used for this target group. The possible values are ipv4 and ipv6. </td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="ip_address_type" /></td><td><code>string</code></td><td>The type of IP address used for this target group. The possible values are ipv4 and ipv6.</td></tr>
 <tr><td><CopyableCode code="health_check_interval_seconds" /></td><td><code>integer</code></td><td>The approximate amount of time, in seconds, between health checks of an individual target.</td></tr>
 <tr><td><CopyableCode code="load_balancer_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group.</td></tr>
 <tr><td><CopyableCode code="matcher" /></td><td><code>object</code></td><td>&#91;HTTP/HTTPS health checks&#93; The HTTP or gRPC codes to use when checking for a successful response from a target.</td></tr>
@@ -44,11 +44,11 @@ Creates, updates, deletes or gets a <code>target_group</code> resource or lists 
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the target group.</td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.</td></tr>
 <tr><td><CopyableCode code="target_group_full_name" /></td><td><code>string</code></td><td>The full name of the target group.</td></tr>
-<tr><td><CopyableCode code="healthy_threshold_count" /></td><td><code>integer</code></td><td>The number of consecutive health checks successes required before considering an unhealthy target healthy. </td></tr>
-<tr><td><CopyableCode code="health_check_protocol" /></td><td><code>string</code></td><td>The protocol the load balancer uses when performing health checks on targets. </td></tr>
+<tr><td><CopyableCode code="healthy_threshold_count" /></td><td><code>integer</code></td><td>The number of consecutive health checks successes required before considering an unhealthy target healthy.</td></tr>
+<tr><td><CopyableCode code="health_check_protocol" /></td><td><code>string</code></td><td>The protocol the load balancer uses when performing health checks on targets.</td></tr>
 <tr><td><CopyableCode code="target_group_attributes" /></td><td><code>array</code></td><td>The attributes.</td></tr>
 <tr><td><CopyableCode code="target_type" /></td><td><code>string</code></td><td>The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.</td></tr>
-<tr><td><CopyableCode code="health_check_port" /></td><td><code>string</code></td><td>The port the load balancer uses when performing health checks on targets. </td></tr>
+<tr><td><CopyableCode code="health_check_port" /></td><td><code>string</code></td><td>The port the load balancer uses when performing health checks on targets.</td></tr>
 <tr><td><CopyableCode code="target_group_arn" /></td><td><code>string</code></td><td>The ARN of the Target Group</td></tr>
 <tr><td><CopyableCode code="protocol" /></td><td><code>string</code></td><td>The protocol to use for routing traffic to the targets.</td></tr>
 <tr><td><CopyableCode code="target_group_name" /></td><td><code>string</code></td><td>The name of the target group.</td></tr>

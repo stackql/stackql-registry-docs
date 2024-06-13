@@ -35,8 +35,8 @@ Creates, updates, deletes or gets a <code>space</code> resource or lists <code>s
 <tr><td><CopyableCode code="space_name" /></td><td><code>string</code></td><td>A name for the Space.</td></tr>
 <tr><td><CopyableCode code="space_settings" /></td><td><code>object</code></td><td>A collection of settings.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of tags to apply to the space.</td></tr>
-<tr><td><CopyableCode code="ownership_settings" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="space_sharing_settings" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="ownership_settings" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="space_sharing_settings" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="space_display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="url" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

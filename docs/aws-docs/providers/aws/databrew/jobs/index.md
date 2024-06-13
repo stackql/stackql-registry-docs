@@ -43,7 +43,7 @@ Creates, updates, deletes or gets a <code>job</code> resource or lists <code>job
 <tr><td><CopyableCode code="database_outputs" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="output_location" /></td><td><code>object</code></td><td>Output location</td></tr>
 <tr><td><CopyableCode code="project_name" /></td><td><code>string</code></td><td>Project name</td></tr>
-<tr><td><CopyableCode code="recipe" /></td><td><code>Resource schema for AWS::DataBrew::Recipe.</code></td><td></td></tr>
+<tr><td><CopyableCode code="recipe" /></td><td><code>object</code></td><td>Resource schema for AWS::DataBrew::Recipe.</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Role arn</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="timeout" /></td><td><code>integer</code></td><td>Timeout</td></tr>

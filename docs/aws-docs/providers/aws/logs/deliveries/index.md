@@ -25,7 +25,7 @@ Creates, updates, deletes or gets a <code>delivery</code> resource or lists <cod
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>deliveries</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>This structure contains information about one delivery in your account. A delivery is a connection between a logical delivery source and a logical delivery destination. For more information, see &#91;CreateDelivery&#93;(https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).</td></tr>
+<tr><td><b>Description</b></td><td>This structure contains information about one delivery in your account.<br />A delivery is a connection between a logical delivery source and a logical delivery destination.<br />For more information, see &#91;CreateDelivery&#93;(https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.logs.deliveries" /></td></tr>
 </tbody></table>
 

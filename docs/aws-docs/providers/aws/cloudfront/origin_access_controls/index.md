@@ -31,7 +31,7 @@ Creates, updates, deletes or gets an <code>origin_access_control</code> resource
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="origin_access_control_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="origin_access_control_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

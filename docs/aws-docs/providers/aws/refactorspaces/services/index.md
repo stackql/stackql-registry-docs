@@ -33,12 +33,12 @@ Creates, updates, deletes or gets a <code>service</code> resource or lists <code
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="application_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="endpoint_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="endpoint_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="environment_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="lambda_endpoint" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="lambda_endpoint" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="service_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="url_endpoint" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="url_endpoint" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

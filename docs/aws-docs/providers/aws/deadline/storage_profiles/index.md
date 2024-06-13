@@ -33,7 +33,7 @@ Creates, updates, deletes or gets a <code>storage_profile</code> resource or lis
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="farm_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="file_system_locations" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="os_family" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="os_family" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="storage_profile_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

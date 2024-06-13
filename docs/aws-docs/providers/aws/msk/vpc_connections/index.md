@@ -31,12 +31,12 @@ Creates, updates, deletes or gets a <code>vpc_connection</code> resource or list
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="authentication" /></td><td><code>The type of private link authentication</code></td><td></td></tr>
-<tr><td><CopyableCode code="client_subnets" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="authentication" /></td><td><code>string</code></td><td>The type of private link authentication</td></tr>
+<tr><td><CopyableCode code="client_subnets" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="target_cluster_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the target cluster</td></tr>
-<tr><td><CopyableCode code="security_groups" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>A key-value pair to associate with a resource.</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_id" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="security_groups" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

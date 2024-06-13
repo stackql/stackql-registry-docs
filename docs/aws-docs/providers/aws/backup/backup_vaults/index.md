@@ -31,11 +31,11 @@ Creates, updates, deletes or gets a <code>backup_vault</code> resource or lists 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_policy" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="backup_vault_name" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="backup_vault_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="backup_vault_tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="encryption_key_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="notifications" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="lock_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="notifications" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="lock_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="backup_vault_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

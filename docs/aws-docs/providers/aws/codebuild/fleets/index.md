@@ -36,7 +36,7 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
 <tr><td><CopyableCode code="compute_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="overflow_behavior" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="fleet_service_role" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="fleet_vpc_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="fleet_vpc_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

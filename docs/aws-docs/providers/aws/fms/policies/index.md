@@ -30,19 +30,19 @@ Creates, updates, deletes or gets a <code>policy</code> resource or lists <code>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="exclude_map" /></td><td><code>An FMS includeMap or excludeMap.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="exclude_map" /></td><td><code>object</code></td><td>An FMS includeMap or excludeMap.</td></tr>
 <tr><td><CopyableCode code="exclude_resource_tags" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="include_map" /></td><td><code>An FMS includeMap or excludeMap.</code></td><td></td></tr>
+<tr><td><CopyableCode code="include_map" /></td><td><code>object</code></td><td>An FMS includeMap or excludeMap.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="policy_description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="remediation_enabled" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="resource_tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="resource_type" /></td><td><code>An AWS resource type</code></td><td></td></tr>
+<tr><td><CopyableCode code="resource_type" /></td><td><code>string</code></td><td>An AWS resource type</td></tr>
 <tr><td><CopyableCode code="resource_type_list" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="resource_set_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="security_service_policy_data" /></td><td><code>Firewall security service policy data.</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>A resource ARN.</code></td><td></td></tr>
+<tr><td><CopyableCode code="security_service_policy_data" /></td><td><code>object</code></td><td>Firewall security service policy data.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
 <tr><td><CopyableCode code="delete_all_policy_resources" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="resources_clean_up" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
