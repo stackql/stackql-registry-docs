@@ -32,7 +32,7 @@ Creates, updates, deletes or gets a <code>detector</code> resource or lists <cod
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="finding_publishing_frequency" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="enable" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="data_sources" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_sources" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="features" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>

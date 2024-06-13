@@ -34,12 +34,12 @@ Creates, updates, deletes or gets an <code>agent_alias</code> resource or lists 
 <tr><td><CopyableCode code="agent_alias_history_events" /></td><td><code>array</code></td><td>The list of history events for an alias for an Agent.</td></tr>
 <tr><td><CopyableCode code="agent_alias_id" /></td><td><code>string</code></td><td>Id for an Agent Alias generated at the server side.</td></tr>
 <tr><td><CopyableCode code="agent_alias_name" /></td><td><code>string</code></td><td>Name for a resource.</td></tr>
-<tr><td><CopyableCode code="agent_alias_status" /></td><td><code>The statuses an Agent Alias can be in.</code></td><td></td></tr>
+<tr><td><CopyableCode code="agent_alias_status" /></td><td><code>string</code></td><td>The statuses an Agent Alias can be in.</td></tr>
 <tr><td><CopyableCode code="agent_id" /></td><td><code>string</code></td><td>Identifier for a resource.</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>Time Stamp.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the Resource.</td></tr>
 <tr><td><CopyableCode code="routing_configuration" /></td><td><code>array</code></td><td>Routing configuration for an Agent alias.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>A map of tag keys and values</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A map of tag keys and values</td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>Time Stamp.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

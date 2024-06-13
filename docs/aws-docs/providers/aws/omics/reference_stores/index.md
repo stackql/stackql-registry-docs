@@ -35,8 +35,8 @@ Creates, updates, deletes or gets a <code>reference_store</code> resource or lis
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the store.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the store.</td></tr>
 <tr><td><CopyableCode code="reference_store_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="sse_config" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>A map of resource tags</code></td><td></td></tr>
+<tr><td><CopyableCode code="sse_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A map of resource tags</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

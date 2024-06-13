@@ -36,15 +36,15 @@ Creates, updates, deletes or gets a <code>task</code> resource or lists <code>ta
 <tr><td><CopyableCode code="cloud_watch_log_group_arn" /></td><td><code>string</code></td><td>The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.</td></tr>
 <tr><td><CopyableCode code="destination_location_arn" /></td><td><code>string</code></td><td>The ARN of an AWS storage resource's location.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of a task. This value is a text reference that is used to identify the task in the console.</td></tr>
-<tr><td><CopyableCode code="options" /></td><td><code>Represents the options that are available to control the behavior of a StartTaskExecution operation.</code></td><td></td></tr>
-<tr><td><CopyableCode code="task_report_config" /></td><td><code>Specifies how you want to configure a task report, which provides detailed information about for your Datasync transfer.</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest_config" /></td><td><code>Configures a manifest, which is a list of files or objects that you want DataSync to transfer.</code></td><td></td></tr>
-<tr><td><CopyableCode code="schedule" /></td><td><code>Specifies the schedule you want your task to use for repeated executions.</code></td><td></td></tr>
+<tr><td><CopyableCode code="options" /></td><td><code>object</code></td><td>Represents the options that are available to control the behavior of a StartTaskExecution operation.</td></tr>
+<tr><td><CopyableCode code="task_report_config" /></td><td><code>object</code></td><td>Specifies how you want to configure a task report, which provides detailed information about for your Datasync transfer.</td></tr>
+<tr><td><CopyableCode code="manifest_config" /></td><td><code>object</code></td><td>Configures a manifest, which is a list of files or objects that you want DataSync to transfer.</td></tr>
+<tr><td><CopyableCode code="schedule" /></td><td><code>object</code></td><td>Specifies the schedule you want your task to use for repeated executions.</td></tr>
 <tr><td><CopyableCode code="source_location_arn" /></td><td><code>string</code></td><td>The ARN of the source location for the task.</td></tr>
 <tr><td><CopyableCode code="task_arn" /></td><td><code>string</code></td><td>The ARN of the task.</td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the task that was described.</td></tr>
-<tr><td><CopyableCode code="source_network_interface_arns" /></td><td><code>The Amazon Resource Names (ARNs) of the source ENIs (Elastic Network Interfaces) that were created for your subnet.</code></td><td></td></tr>
-<tr><td><CopyableCode code="destination_network_interface_arns" /></td><td><code>The Amazon Resource Names (ARNs) of the destination ENIs (Elastic Network Interfaces) that were created for your subnet.</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_network_interface_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of the source ENIs (Elastic Network Interfaces) that were created for your subnet.</td></tr>
+<tr><td><CopyableCode code="destination_network_interface_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of the destination ENIs (Elastic Network Interfaces) that were created for your subnet.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

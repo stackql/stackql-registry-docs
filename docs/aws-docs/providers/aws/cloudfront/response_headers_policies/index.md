@@ -32,7 +32,7 @@ Creates, updates, deletes or gets a <code>response_headers_policy</code> resourc
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="response_headers_policy_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="response_headers_policy_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

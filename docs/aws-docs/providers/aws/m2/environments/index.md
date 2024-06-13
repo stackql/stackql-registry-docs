@@ -31,11 +31,11 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the environment.</td></tr>
-<tr><td><CopyableCode code="engine_type" /></td><td><code>The target platform for the environment.</code></td><td></td></tr>
+<tr><td><CopyableCode code="engine_type" /></td><td><code>string</code></td><td>The target platform for the environment.</td></tr>
 <tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The version of the runtime engine for the environment.</td></tr>
 <tr><td><CopyableCode code="environment_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the runtime environment.</td></tr>
 <tr><td><CopyableCode code="environment_id" /></td><td><code>string</code></td><td>The unique identifier of the environment.</td></tr>
-<tr><td><CopyableCode code="high_availability_config" /></td><td><code>Defines the details of a high availability configuration.</code></td><td></td></tr>
+<tr><td><CopyableCode code="high_availability_config" /></td><td><code>object</code></td><td>Defines the details of a high availability configuration.</td></tr>
 <tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td>The type of instance underlying the environment.</td></tr>
 <tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the environment.</td></tr>

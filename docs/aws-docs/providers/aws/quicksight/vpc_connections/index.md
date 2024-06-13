@@ -31,7 +31,7 @@ Creates, updates, deletes or gets a <code>vpc_connection</code> resource or list
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the VPC connection.</p></td></tr>
-<tr><td><CopyableCode code="availability_status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="availability_status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td><p>The time that the VPC connection was created.</p></td></tr>
 <tr><td><CopyableCode code="dns_resolvers" /></td><td><code>array</code></td><td></td></tr>
@@ -40,7 +40,7 @@ Creates, updates, deletes or gets a <code>vpc_connection</code> resource or list
 <tr><td><CopyableCode code="network_interfaces" /></td><td><code>array</code></td><td><p>A list of network interfaces.</p></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpc_connection_id" /></td><td><code>string</code></td><td></td></tr>

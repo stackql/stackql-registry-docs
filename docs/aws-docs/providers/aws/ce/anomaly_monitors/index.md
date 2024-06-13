@@ -30,10 +30,10 @@ Creates, updates, deletes or gets an <code>anomaly_monitor</code> resource or li
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="monitor_arn" /></td><td><code>Subscription ARN</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="monitor_arn" /></td><td><code>string</code></td><td>Subscription ARN</td></tr>
 <tr><td><CopyableCode code="monitor_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="monitor_name" /></td><td><code>string</code></td><td>The name of the monitor.</td></tr>
-<tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td>The date when the monitor was created. </td></tr>
+<tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td>The date when the monitor was created.</td></tr>
 <tr><td><CopyableCode code="last_evaluated_date" /></td><td><code>string</code></td><td>The date when the monitor last evaluated for anomalies.</td></tr>
 <tr><td><CopyableCode code="last_updated_date" /></td><td><code>string</code></td><td>The date when the monitor was last updated.</td></tr>
 <tr><td><CopyableCode code="monitor_dimension" /></td><td><code>string</code></td><td>The dimensions to evaluate</td></tr>

@@ -31,10 +31,10 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="connect_instance_arn" /></td><td><code>string</code></td><td>Amazon Connect Instance Arn</td></tr>
-<tr><td><CopyableCode code="dialer_config" /></td><td><code>The possible types of dialer config parameters</code></td><td></td></tr>
+<tr><td><CopyableCode code="dialer_config" /></td><td><code>object</code></td><td>The possible types of dialer config parameters</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Amazon Connect Campaign Arn</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Amazon Connect Campaign Name</td></tr>
-<tr><td><CopyableCode code="outbound_call_config" /></td><td><code>The configuration used for outbound calls.</code></td><td></td></tr>
+<tr><td><CopyableCode code="outbound_call_config" /></td><td><code>object</code></td><td>The configuration used for outbound calls.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

@@ -30,10 +30,10 @@ Creates, updates, deletes or gets a <code>source_location</code> resource or lis
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_configuration" /></td><td><code><p>Access configuration parameters.</p></code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_configuration" /></td><td><code>object</code></td><td><p>Access configuration parameters.</p></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The ARN of the source location.</p></td></tr>
-<tr><td><CopyableCode code="default_segment_delivery_configuration" /></td><td><code><p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p></code></td><td></td></tr>
-<tr><td><CopyableCode code="http_configuration" /></td><td><code><p>The HTTP configuration for the source location.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="default_segment_delivery_configuration" /></td><td><code>object</code></td><td><p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p></td></tr>
+<tr><td><CopyableCode code="http_configuration" /></td><td><code>object</code></td><td><p>The HTTP configuration for the source location.</p></td></tr>
 <tr><td><CopyableCode code="segment_delivery_configurations" /></td><td><code>array</code></td><td><p>A list of the segment delivery configurations associated with this resource.</p></td></tr>
 <tr><td><CopyableCode code="source_location_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to assign to the source location.</td></tr>

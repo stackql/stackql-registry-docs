@@ -25,12 +25,12 @@ Contains the response to a successful <a>GetPolicy</a> request.
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>policies</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Contains the response to a successful <a>GetPolicy</a> request. </td></tr>
+<tr><td><b>Description</b></td><td>Contains the response to a successful &lt;a&gt;GetPolicy&lt;/a&gt; request.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.iam.policies" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="Policy" /></td><td><code>object</code></td><td>A structure containing details about the policy.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td>A structure containing details about the policy.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

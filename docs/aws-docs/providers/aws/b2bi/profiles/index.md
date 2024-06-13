@@ -34,7 +34,7 @@ Creates, updates, deletes or gets a <code>profile</code> resource or lists <code
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="email" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="log_group_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="logging" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="logging" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="phone" /></td><td><code>string</code></td><td></td></tr>

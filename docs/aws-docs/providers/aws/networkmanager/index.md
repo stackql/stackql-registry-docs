@@ -21,8 +21,6 @@ The networkmanager service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>14</b></span><br />
-<span>total selectable resources:&nbsp;<b>14</b></span><br />
-<span>total methods:&nbsp;<b>14</b></span><br />
 </div>
 </div>
 

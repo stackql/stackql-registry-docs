@@ -32,8 +32,8 @@ Creates, updates, deletes or gets a <code>bridge_source</code> resource or lists
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the source.</td></tr>
 <tr><td><CopyableCode code="bridge_arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) of the bridge.</td></tr>
-<tr><td><CopyableCode code="flow_source" /></td><td><code>The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_source" /></td><td><code>The source of the bridge. A network source originates at your premises.</code></td><td></td></tr>
+<tr><td><CopyableCode code="flow_source" /></td><td><code>object</code></td><td>The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.</td></tr>
+<tr><td><CopyableCode code="network_source" /></td><td><code>object</code></td><td>The source of the bridge. A network source originates at your premises.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

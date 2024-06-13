@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>public_type_version</code> resource or
 <tr><td><CopyableCode code="public_version_number" /></td><td><code>string</code></td><td>The version number of a public third-party extension</td></tr>
 <tr><td><CopyableCode code="publisher_id" /></td><td><code>string</code></td><td>The publisher id assigned by CloudFormation for publishing in this region.</td></tr>
 <tr><td><CopyableCode code="public_type_arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) assigned to the public extension upon publication</td></tr>
-<tr><td><CopyableCode code="type_name" /></td><td><code>string</code></td><td>The name of the type being registered. We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
+<tr><td><CopyableCode code="type_name" /></td><td><code>string</code></td><td>The name of the type being registered.<br />We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
 <tr><td><CopyableCode code="log_delivery_bucket" /></td><td><code>string</code></td><td>A url to the S3 bucket where logs for the testType run will be available</td></tr>
 <tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The kind of extension</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

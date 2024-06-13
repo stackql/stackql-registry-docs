@@ -30,15 +30,15 @@ Creates, updates, deletes or gets a <code>bot_alias</code> resource or lists <co
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bot_alias_id" /></td><td><code>Unique ID of resource</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_id" /></td><td><code>Unique ID of resource</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_alias_status" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_alias_locale_settings" /></td><td><code>A list of bot alias locale settings to add to the bot alias.</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_alias_name" /></td><td><code>A unique identifier for a resource.</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_version" /></td><td><code>A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.</code></td><td></td></tr>
-<tr><td><CopyableCode code="conversation_log_settings" /></td><td><code>Contains information about code hooks that Amazon Lex calls during a conversation.</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>A description of the version. Use the description to help identify the version in lists.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bot_alias_id" /></td><td><code>string</code></td><td>Unique ID of resource</td></tr>
+<tr><td><CopyableCode code="bot_id" /></td><td><code>string</code></td><td>Unique ID of resource</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_alias_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_alias_locale_settings" /></td><td><code>array</code></td><td>A list of bot alias locale settings to add to the bot alias.</td></tr>
+<tr><td><CopyableCode code="bot_alias_name" /></td><td><code>string</code></td><td>A unique identifier for a resource.</td></tr>
+<tr><td><CopyableCode code="bot_version" /></td><td><code>object</code></td><td>A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.</td></tr>
+<tr><td><CopyableCode code="conversation_log_settings" /></td><td><code>object</code></td><td>Contains information about code hooks that Amazon Lex calls during a conversation.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the version. Use the description to help identify the version in lists.</td></tr>
 <tr><td><CopyableCode code="sentiment_analysis_settings" /></td><td><code>object</code></td><td>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.</td></tr>
 <tr><td><CopyableCode code="bot_alias_tags" /></td><td><code>array</code></td><td>A list of tags to add to the bot alias.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

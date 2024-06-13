@@ -30,21 +30,21 @@ Creates, updates, deletes or gets an <code>image_version</code> resource or list
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="image_name" /></td><td><code>The name of the image this version belongs to.</code></td><td></td></tr>
-<tr><td><CopyableCode code="image_arn" /></td><td><code>The Amazon Resource Name (ARN) of the parent image.</code></td><td></td></tr>
-<tr><td><CopyableCode code="image_version_arn" /></td><td><code>The Amazon Resource Name (ARN) of the image version.</code></td><td></td></tr>
-<tr><td><CopyableCode code="base_image" /></td><td><code>The registry path of the container image on which this image version is based.</code></td><td></td></tr>
-<tr><td><CopyableCode code="container_image" /></td><td><code>The image to use for the container that will be materialized for the inference component</code></td><td></td></tr>
-<tr><td><CopyableCode code="version" /></td><td><code>The version number of the image version.</code></td><td></td></tr>
-<tr><td><CopyableCode code="alias" /></td><td><code>The alias of the image version.</code></td><td></td></tr>
-<tr><td><CopyableCode code="aliases" /></td><td><code>List of aliases for the image version.</code></td><td></td></tr>
-<tr><td><CopyableCode code="vendor_guidance" /></td><td><code>The availability of the image version specified by the maintainer.</code></td><td></td></tr>
-<tr><td><CopyableCode code="job_type" /></td><td><code>Indicates SageMaker job type compatibility.</code></td><td></td></tr>
-<tr><td><CopyableCode code="ml_framework" /></td><td><code>The machine learning framework vended in the image version.</code></td><td></td></tr>
-<tr><td><CopyableCode code="programming_lang" /></td><td><code>The supported programming language and its version.</code></td><td></td></tr>
-<tr><td><CopyableCode code="processor" /></td><td><code>Indicates CPU or GPU compatibility.</code></td><td></td></tr>
-<tr><td><CopyableCode code="horovod" /></td><td><code>Indicates Horovod compatibility.</code></td><td></td></tr>
-<tr><td><CopyableCode code="release_notes" /></td><td><code>The maintainer description of the image version.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="image_name" /></td><td><code>string</code></td><td>The name of the image this version belongs to.</td></tr>
+<tr><td><CopyableCode code="image_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the parent image.</td></tr>
+<tr><td><CopyableCode code="image_version_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the image version.</td></tr>
+<tr><td><CopyableCode code="base_image" /></td><td><code>string</code></td><td>The registry path of the container image on which this image version is based.</td></tr>
+<tr><td><CopyableCode code="container_image" /></td><td><code>string</code></td><td>The image to use for the container that will be materialized for the inference component</td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>integer</code></td><td>The version number of the image version.</td></tr>
+<tr><td><CopyableCode code="alias" /></td><td><code>string</code></td><td>The alias of the image version.</td></tr>
+<tr><td><CopyableCode code="aliases" /></td><td><code>array</code></td><td>List of aliases for the image version.</td></tr>
+<tr><td><CopyableCode code="vendor_guidance" /></td><td><code>string</code></td><td>The availability of the image version specified by the maintainer.</td></tr>
+<tr><td><CopyableCode code="job_type" /></td><td><code>string</code></td><td>Indicates SageMaker job type compatibility.</td></tr>
+<tr><td><CopyableCode code="ml_framework" /></td><td><code>string</code></td><td>The machine learning framework vended in the image version.</td></tr>
+<tr><td><CopyableCode code="programming_lang" /></td><td><code>string</code></td><td>The supported programming language and its version.</td></tr>
+<tr><td><CopyableCode code="processor" /></td><td><code>string</code></td><td>Indicates CPU or GPU compatibility.</td></tr>
+<tr><td><CopyableCode code="horovod" /></td><td><code>boolean</code></td><td>Indicates Horovod compatibility.</td></tr>
+<tr><td><CopyableCode code="release_notes" /></td><td><code>string</code></td><td>The maintainer description of the image version.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

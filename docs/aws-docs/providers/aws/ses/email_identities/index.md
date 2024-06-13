@@ -31,11 +31,11 @@ Creates, updates, deletes or gets an <code>email_identity</code> resource or lis
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="email_identity" /></td><td><code>string</code></td><td>The email address or domain to verify.</td></tr>
-<tr><td><CopyableCode code="configuration_set_attributes" /></td><td><code>Used to associate a configuration set with an email identity.</code></td><td></td></tr>
-<tr><td><CopyableCode code="dkim_signing_attributes" /></td><td><code>If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.</code></td><td></td></tr>
-<tr><td><CopyableCode code="dkim_attributes" /></td><td><code>Used to enable or disable DKIM authentication for an email identity.</code></td><td></td></tr>
-<tr><td><CopyableCode code="mail_from_attributes" /></td><td><code>Used to enable or disable the custom Mail-From domain configuration for an email identity.</code></td><td></td></tr>
-<tr><td><CopyableCode code="feedback_attributes" /></td><td><code>Used to enable or disable feedback forwarding for an identity.</code></td><td></td></tr>
+<tr><td><CopyableCode code="configuration_set_attributes" /></td><td><code>object</code></td><td>Used to associate a configuration set with an email identity.</td></tr>
+<tr><td><CopyableCode code="dkim_signing_attributes" /></td><td><code>object</code></td><td>If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.</td></tr>
+<tr><td><CopyableCode code="dkim_attributes" /></td><td><code>object</code></td><td>Used to enable or disable DKIM authentication for an email identity.</td></tr>
+<tr><td><CopyableCode code="mail_from_attributes" /></td><td><code>object</code></td><td>Used to enable or disable the custom Mail-From domain configuration for an email identity.</td></tr>
+<tr><td><CopyableCode code="feedback_attributes" /></td><td><code>object</code></td><td>Used to enable or disable feedback forwarding for an identity.</td></tr>
 <tr><td><CopyableCode code="dkim_dns_token_name1" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="dkim_dns_token_name2" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="dkim_dns_token_name3" /></td><td><code>string</code></td><td></td></tr>

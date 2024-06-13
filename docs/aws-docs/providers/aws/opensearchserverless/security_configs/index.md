@@ -33,8 +33,8 @@ Creates, updates, deletes or gets a <code>security_config</code> resource or lis
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Security config description</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The identifier of the security config</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The friendly name of the security config</td></tr>
-<tr><td><CopyableCode code="saml_options" /></td><td><code>Describes saml options in form of key value map</code></td><td></td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>Config type for security config</code></td><td></td></tr>
+<tr><td><CopyableCode code="saml_options" /></td><td><code>object</code></td><td>Describes saml options in form of key value map</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>Config type for security config</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

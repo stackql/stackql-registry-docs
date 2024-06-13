@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>component</code> resource or lists <co
 <tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The version of the component.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the component.</td></tr>
 <tr><td><CopyableCode code="change_description" /></td><td><code>string</code></td><td>The change description of the component.</td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the component denotes whether the component is used to build the image or only to test it. </td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the component denotes whether the component is used to build the image or only to test it.</td></tr>
 <tr><td><CopyableCode code="platform" /></td><td><code>string</code></td><td>The platform of the component.</td></tr>
 <tr><td><CopyableCode code="data" /></td><td><code>string</code></td><td>The data of the component.</td></tr>
 <tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The KMS key identifier used to encrypt the component.</td></tr>

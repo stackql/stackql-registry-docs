@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>workspace</code> resource or lists <co
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Workspace arn.</td></tr>
 <tr><td><CopyableCode code="alert_manager_definition" /></td><td><code>string</code></td><td>The AMP Workspace alert manager definition data</td></tr>
 <tr><td><CopyableCode code="prometheus_endpoint" /></td><td><code>string</code></td><td>AMP Workspace prometheus endpoint</td></tr>
-<tr><td><CopyableCode code="logging_configuration" /></td><td><code>Logging configuration</code></td><td></td></tr>
+<tr><td><CopyableCode code="logging_configuration" /></td><td><code>object</code></td><td>Logging configuration</td></tr>
 <tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td>KMS Key ARN used to encrypt and decrypt AMP workspace data.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

@@ -31,8 +31,8 @@ Creates, updates, deletes or gets a <code>scheduling_policy</code> resource or l
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of Scheduling Policy.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>ARN of the Scheduling Policy.</code></td><td></td></tr>
-<tr><td><CopyableCode code="fairshare_policy" /></td><td><code>Fair Share Policy for the Job Queue.</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>ARN of the Scheduling Policy.</td></tr>
+<tr><td><CopyableCode code="fairshare_policy" /></td><td><code>object</code></td><td>Fair Share Policy for the Job Queue.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

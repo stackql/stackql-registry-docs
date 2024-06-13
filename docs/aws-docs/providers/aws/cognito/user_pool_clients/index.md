@@ -38,7 +38,7 @@ Creates, updates, deletes or gets an <code>user_pool_client</code> resource or l
 <tr><td><CopyableCode code="refresh_token_validity" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="access_token_validity" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="id_token_validity" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="token_validity_units" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="token_validity_units" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="write_attributes" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="allowed_oauth_flows" /></td><td><code>array</code></td><td></td></tr>
@@ -48,7 +48,7 @@ Creates, updates, deletes or gets an <code>user_pool_client</code> resource or l
 <tr><td><CopyableCode code="default_redirect_uri" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="logout_urls" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="supported_identity_providers" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="analytics_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="analytics_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="prevent_user_existence_errors" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="enable_token_revocation" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="enable_propagate_additional_user_context_data" /></td><td><code>boolean</code></td><td></td></tr>

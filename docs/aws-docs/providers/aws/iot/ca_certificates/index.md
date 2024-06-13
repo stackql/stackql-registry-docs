@@ -36,7 +36,7 @@ Creates, updates, deletes or gets a <code>ca_certificate</code> resource or list
 <tr><td><CopyableCode code="certificate_mode" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="auto_registration_status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="remove_auto_registration" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="registration_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="registration_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>

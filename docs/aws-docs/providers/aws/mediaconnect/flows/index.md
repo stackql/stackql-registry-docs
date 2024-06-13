@@ -39,7 +39,7 @@ Creates, updates, deletes or gets a <code>flow</code> resource or lists <code>fl
 <tr><td><CopyableCode code="source_failover_config" /></td><td><code>object</code></td><td>The source failover config of the flow.</td></tr>
 <tr><td><CopyableCode code="vpc_interfaces" /></td><td><code>array</code></td><td>The VPC interfaces that you added to this flow.</td></tr>
 <tr><td><CopyableCode code="media_streams" /></td><td><code>array</code></td><td>The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.</td></tr>
-<tr><td><CopyableCode code="maintenance" /></td><td><code>object</code></td><td>The maintenance settings you want to use for the flow. </td></tr>
+<tr><td><CopyableCode code="maintenance" /></td><td><code>object</code></td><td>The maintenance settings you want to use for the flow.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

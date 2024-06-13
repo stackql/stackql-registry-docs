@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>link</code> resource or lists <code>li
 <tr><td><CopyableCode code="label_template" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="resource_types" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="sink_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="link_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="link_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>Tags to apply to the link</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

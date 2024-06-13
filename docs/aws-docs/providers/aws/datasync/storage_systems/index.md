@@ -30,8 +30,8 @@ Creates, updates, deletes or gets a <code>storage_system</code> resource or list
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="server_configuration" /></td><td><code>The server name and network port required to connect with the management interface of the on-premises storage system.</code></td><td></td></tr>
-<tr><td><CopyableCode code="server_credentials" /></td><td><code>The username and password for accessing your on-premises storage system's management interface.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="server_configuration" /></td><td><code>object</code></td><td>The server name and network port required to connect with the management interface of the on-premises storage system.</td></tr>
+<tr><td><CopyableCode code="server_credentials" /></td><td><code>object</code></td><td>The username and password for accessing your on-premises storage system's management interface.</td></tr>
 <tr><td><CopyableCode code="secrets_manager_arn" /></td><td><code>string</code></td><td>The ARN of a secret stored by AWS Secrets Manager.</td></tr>
 <tr><td><CopyableCode code="system_type" /></td><td><code>string</code></td><td>The type of on-premises storage system that DataSync Discovery will analyze.</td></tr>
 <tr><td><CopyableCode code="agent_arns" /></td><td><code>array</code></td><td>The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.</td></tr>

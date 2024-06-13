@@ -30,12 +30,12 @@ Creates, updates, deletes or gets a <code>package</code> resource or lists <code
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="package_name" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="package_id" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="storage_location" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_time" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="package_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="package_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="storage_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

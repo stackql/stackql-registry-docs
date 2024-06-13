@@ -39,7 +39,7 @@ Creates, updates, deletes or gets an <code>instance</code> resource or lists <co
 <tr><td><CopyableCode code="iam_instance_profile" /></td><td><code>string</code></td><td>The IAM instance profile.</td></tr>
 <tr><td><CopyableCode code="ipv6_addresses" /></td><td><code>array</code></td><td>&#91;EC2-VPC&#93; The IPv6 addresses from the range of the subnet to associate with the primary network interface.</td></tr>
 <tr><td><CopyableCode code="kernel_id" /></td><td><code>string</code></td><td>The ID of the kernel.</td></tr>
-<tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>&#91;EC2-VPC&#93; The ID of the subnet to launch the instance into. </td></tr>
+<tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>&#91;EC2-VPC&#93; The ID of the subnet to launch the instance into.<br /></td></tr>
 <tr><td><CopyableCode code="ebs_optimized" /></td><td><code>boolean</code></td><td>Indicates whether the instance is optimized for Amazon EBS I/O.</td></tr>
 <tr><td><CopyableCode code="propagate_tags_to_volume_on_creation" /></td><td><code>boolean</code></td><td>Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch. If you specify true and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify false, those tags are not assigned to the attached volumes.</td></tr>
 <tr><td><CopyableCode code="elastic_gpu_specifications" /></td><td><code>array</code></td><td>An elastic GPU to associate with the instance.</td></tr>

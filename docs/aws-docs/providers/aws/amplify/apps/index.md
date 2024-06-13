@@ -34,8 +34,8 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
 <tr><td><CopyableCode code="app_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="app_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="auto_branch_creation_config" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="basic_auth_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_branch_creation_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="basic_auth_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="build_spec" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="custom_headers" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="custom_rules" /></td><td><code>array</code></td><td></td></tr>

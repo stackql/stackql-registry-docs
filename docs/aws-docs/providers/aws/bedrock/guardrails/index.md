@@ -32,7 +32,7 @@ Creates, updates, deletes or gets a <code>guardrail</code> resource or lists <co
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="blocked_input_messaging" /></td><td><code>string</code></td><td>Messaging for when violations are detected in text</td></tr>
 <tr><td><CopyableCode code="blocked_outputs_messaging" /></td><td><code>string</code></td><td>Messaging for when violations are detected in text</td></tr>
-<tr><td><CopyableCode code="content_policy_config" /></td><td><code>Content policy config for a guardrail.</code></td><td></td></tr>
+<tr><td><CopyableCode code="content_policy_config" /></td><td><code>object</code></td><td>Content policy config for a guardrail.</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>Time Stamp</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the guardrail or its version</td></tr>
 <tr><td><CopyableCode code="failure_recommendations" /></td><td><code>array</code></td><td>List of failure recommendations</td></tr>
@@ -40,14 +40,14 @@ Creates, updates, deletes or gets a <code>guardrail</code> resource or lists <co
 <tr><td><CopyableCode code="guardrail_id" /></td><td><code>string</code></td><td>Unique id for the guardrail</td></tr>
 <tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td>The KMS key with which the guardrail was encrypted at rest</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the guardrail</td></tr>
-<tr><td><CopyableCode code="sensitive_information_policy_config" /></td><td><code>Sensitive information policy config for a guardrail.</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>Status of the guardrail</code></td><td></td></tr>
+<tr><td><CopyableCode code="sensitive_information_policy_config" /></td><td><code>object</code></td><td>Sensitive information policy config for a guardrail.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Status of the guardrail</td></tr>
 <tr><td><CopyableCode code="status_reasons" /></td><td><code>array</code></td><td>List of status reasons</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>List of Tags</td></tr>
-<tr><td><CopyableCode code="topic_policy_config" /></td><td><code>Topic policy config for a guardrail.</code></td><td></td></tr>
+<tr><td><CopyableCode code="topic_policy_config" /></td><td><code>object</code></td><td>Topic policy config for a guardrail.</td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>Time Stamp</td></tr>
 <tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>Guardrail version</td></tr>
-<tr><td><CopyableCode code="word_policy_config" /></td><td><code>Word policy config for a guardrail.</code></td><td></td></tr>
+<tr><td><CopyableCode code="word_policy_config" /></td><td><code>object</code></td><td>Word policy config for a guardrail.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

@@ -37,9 +37,9 @@ Creates, updates, deletes or gets a <code>retriever</code> resource or lists <co
 <tr><td><CopyableCode code="retriever_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="retriever_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

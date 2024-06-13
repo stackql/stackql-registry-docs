@@ -30,12 +30,12 @@ Creates, updates, deletes or gets a <code>capacity_reservation</code> resource o
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>The Amazon Resource Name (ARN) of the specified capacity reservation</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified capacity reservation</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The reservation name.</td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the reservation.</td></tr>
 <tr><td><CopyableCode code="target_dpus" /></td><td><code>integer</code></td><td>The number of DPUs to request to be allocated to the reservation.</td></tr>
 <tr><td><CopyableCode code="allocated_dpus" /></td><td><code>integer</code></td><td>The number of DPUs Athena has provisioned and allocated for the reservation</td></tr>
-<tr><td><CopyableCode code="capacity_assignment_configuration" /></td><td><code>Assignment configuration to assign workgroups to a reservation</code></td><td></td></tr>
+<tr><td><CopyableCode code="capacity_assignment_configuration" /></td><td><code>object</code></td><td>Assignment configuration to assign workgroups to a reservation</td></tr>
 <tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The date and time the reservation was created.</td></tr>
 <tr><td><CopyableCode code="last_successful_allocation_time" /></td><td><code>string</code></td><td>The timestamp when the last successful allocated was made</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>

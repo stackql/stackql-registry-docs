@@ -30,7 +30,7 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="architecture" /></td><td><code>The cpu architecture of an application.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="architecture" /></td><td><code>string</code></td><td>The cpu architecture of an application.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>User friendly Application name.</td></tr>
 <tr><td><CopyableCode code="release_label" /></td><td><code>string</code></td><td>EMR release label.</td></tr>
 <tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the application</td></tr>
@@ -39,9 +39,9 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tag map with key and value</td></tr>
 <tr><td><CopyableCode code="auto_start_configuration" /></td><td><code>object</code></td><td>Configuration for Auto Start of Application.</td></tr>
 <tr><td><CopyableCode code="auto_stop_configuration" /></td><td><code>object</code></td><td>Configuration for Auto Stop of Application.</td></tr>
-<tr><td><CopyableCode code="image_configuration" /></td><td><code>The image configuration.</code></td><td></td></tr>
-<tr><td><CopyableCode code="monitoring_configuration" /></td><td><code>Monitoring configuration for batch and interactive JobRun.</code></td><td></td></tr>
-<tr><td><CopyableCode code="runtime_configuration" /></td><td><code>Runtime configuration for batch and interactive JobRun.</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_configuration" /></td><td><code>object</code></td><td>The image configuration.</td></tr>
+<tr><td><CopyableCode code="monitoring_configuration" /></td><td><code>object</code></td><td>Monitoring configuration for batch and interactive JobRun.</td></tr>
+<tr><td><CopyableCode code="runtime_configuration" /></td><td><code>array</code></td><td>Runtime configuration for batch and interactive JobRun.</td></tr>
 <tr><td><CopyableCode code="network_configuration" /></td><td><code>object</code></td><td>Network Configuration for customer VPC connectivity.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the EMR Serverless Application.</td></tr>
 <tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td>The ID of the EMR Serverless Application.</td></tr>

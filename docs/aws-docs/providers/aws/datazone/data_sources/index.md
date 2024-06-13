@@ -25,7 +25,7 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>data_sources</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone. </td></tr>
+<tr><td><b>Description</b></td><td>A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.datazone.data_sources" /></td></tr>
 </tbody></table>
 

@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>protection</code> resource or lists <c
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Friendly name for the Protection.</td></tr>
 <tr><td><CopyableCode code="resource_arn" /></td><td><code>string</code></td><td>The ARN (Amazon Resource Name) of the resource to be protected.</td></tr>
 <tr><td><CopyableCode code="health_check_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of the health check to associate with the protection.</td></tr>
-<tr><td><CopyableCode code="application_layer_automatic_response_configuration" /></td><td><code>The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.</code></td><td></td></tr>
+<tr><td><CopyableCode code="application_layer_automatic_response_configuration" /></td><td><code>object</code></td><td>The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tag key-value pairs for the Protection object.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>flow_entitlement</code> resource or li
 <tr><td><CopyableCode code="data_transfer_subscriber_fee_percent" /></td><td><code>integer</code></td><td>Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the entitlement.</td></tr>
 <tr><td><CopyableCode code="encryption" /></td><td><code>object</code></td><td>The type of encryption that will be used on the output that is associated with this entitlement.</td></tr>
-<tr><td><CopyableCode code="entitlement_status" /></td><td><code>string</code></td><td> An indication of whether the entitlement is enabled.</td></tr>
+<tr><td><CopyableCode code="entitlement_status" /></td><td><code>string</code></td><td>An indication of whether the entitlement is enabled.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the entitlement.</td></tr>
 <tr><td><CopyableCode code="subscribers" /></td><td><code>array</code></td><td>The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

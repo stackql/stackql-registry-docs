@@ -38,8 +38,8 @@ Creates, updates, deletes or gets a <code>task_template</code> resource or lists
 <tr><td><CopyableCode code="constraints" /></td><td><code>object</code></td><td>The constraints for the task template</td></tr>
 <tr><td><CopyableCode code="defaults" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="fields" /></td><td><code>array</code></td><td>The list of task template's fields</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>The status of the task template</code></td><td></td></tr>
-<tr><td><CopyableCode code="client_token" /></td><td><code>the client token string in uuid format</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the task template</td></tr>
+<tr><td><CopyableCode code="client_token" /></td><td><code>string</code></td><td>the client token string in uuid format</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

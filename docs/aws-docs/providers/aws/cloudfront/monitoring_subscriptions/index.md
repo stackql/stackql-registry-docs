@@ -31,7 +31,7 @@ Creates, updates, deletes or gets a <code>monitoring_subscription</code> resourc
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="distribution_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="monitoring_subscription" /></td><td><code>Resource Type definition for AWS::CloudFront::MonitoringSubscription</code></td><td></td></tr>
+<tr><td><CopyableCode code="monitoring_subscription" /></td><td><code>object</code></td><td>Resource Type definition for AWS::CloudFront::MonitoringSubscription</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

@@ -31,21 +31,21 @@ Creates, updates, deletes or gets a <code>component</code> resource or lists <co
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="app_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="binding_properties" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="binding_properties" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="children" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="collection_properties" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="collection_properties" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="component_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="environment_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="events" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="events" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="overrides" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="properties" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="overrides" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="properties" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="schema_version" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="source_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="variants" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

@@ -32,7 +32,7 @@ Creates, updates, deletes or gets a <code>location_azure_blob</code> resource or
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="agent_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.</td></tr>
 <tr><td><CopyableCode code="azure_blob_authentication_type" /></td><td><code>string</code></td><td>The specific authentication type that you want DataSync to use to access your Azure Blob Container.</td></tr>
-<tr><td><CopyableCode code="azure_blob_sas_configuration" /></td><td><code>Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.</code></td><td></td></tr>
+<tr><td><CopyableCode code="azure_blob_sas_configuration" /></td><td><code>object</code></td><td>Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.</td></tr>
 <tr><td><CopyableCode code="azure_blob_container_url" /></td><td><code>string</code></td><td>The URL of the Azure Blob container that was described.</td></tr>
 <tr><td><CopyableCode code="azure_blob_type" /></td><td><code>string</code></td><td>Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.</td></tr>
 <tr><td><CopyableCode code="azure_access_tier" /></td><td><code>string</code></td><td>Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.</td></tr>

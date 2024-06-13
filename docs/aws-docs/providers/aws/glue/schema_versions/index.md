@@ -30,7 +30,7 @@ Creates, updates, deletes or gets a <code>schema_version</code> resource or list
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="schema" /></td><td><code>Identifier for the schema where the schema version will be created.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="schema" /></td><td><code>object</code></td><td>Identifier for the schema where the schema version will be created.</td></tr>
 <tr><td><CopyableCode code="schema_definition" /></td><td><code>string</code></td><td>Complete definition of the schema in plain-text.</td></tr>
 <tr><td><CopyableCode code="version_id" /></td><td><code>string</code></td><td>Represents the version ID associated with the schema version.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

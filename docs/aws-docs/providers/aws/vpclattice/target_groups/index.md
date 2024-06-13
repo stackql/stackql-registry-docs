@@ -31,7 +31,7 @@ Creates, updates, deletes or gets a <code>target_group</code> resource or lists 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="last_updated_at" /></td><td><code>string</code></td><td></td></tr>

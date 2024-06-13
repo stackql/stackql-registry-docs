@@ -31,16 +31,16 @@ Creates, updates, deletes or gets a <code>data_quality_job_definition</code> res
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="job_definition_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of job definition.</td></tr>
-<tr><td><CopyableCode code="job_definition_name" /></td><td><code>The name of the job definition.</code></td><td></td></tr>
-<tr><td><CopyableCode code="data_quality_baseline_config" /></td><td><code>Baseline configuration used to validate that the data conforms to the specified constraints and statistics.</code></td><td></td></tr>
-<tr><td><CopyableCode code="data_quality_app_specification" /></td><td><code>Container image configuration object for the monitoring job.</code></td><td></td></tr>
-<tr><td><CopyableCode code="data_quality_job_input" /></td><td><code>The inputs for a monitoring job.</code></td><td></td></tr>
-<tr><td><CopyableCode code="data_quality_job_output_config" /></td><td><code>The output configuration for monitoring jobs.</code></td><td></td></tr>
-<tr><td><CopyableCode code="job_resources" /></td><td><code>Identifies the resources to deploy for a monitoring job.</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_config" /></td><td><code>Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.</code></td><td></td></tr>
-<tr><td><CopyableCode code="endpoint_name" /></td><td><code>The name of the endpoint used to run the monitoring job.</code></td><td></td></tr>
+<tr><td><CopyableCode code="job_definition_name" /></td><td><code>string</code></td><td>The name of the job definition.</td></tr>
+<tr><td><CopyableCode code="data_quality_baseline_config" /></td><td><code>object</code></td><td>Baseline configuration used to validate that the data conforms to the specified constraints and statistics.</td></tr>
+<tr><td><CopyableCode code="data_quality_app_specification" /></td><td><code>object</code></td><td>Container image configuration object for the monitoring job.</td></tr>
+<tr><td><CopyableCode code="data_quality_job_input" /></td><td><code>object</code></td><td>The inputs for a monitoring job.</td></tr>
+<tr><td><CopyableCode code="data_quality_job_output_config" /></td><td><code>object</code></td><td>The output configuration for monitoring jobs.</td></tr>
+<tr><td><CopyableCode code="job_resources" /></td><td><code>object</code></td><td>Identifies the resources to deploy for a monitoring job.</td></tr>
+<tr><td><CopyableCode code="network_config" /></td><td><code>object</code></td><td>Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.</td></tr>
+<tr><td><CopyableCode code="endpoint_name" /></td><td><code>string</code></td><td>The name of the endpoint used to run the monitoring job.</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.</td></tr>
-<tr><td><CopyableCode code="stopping_condition" /></td><td><code>Specifies a time limit for how long the monitoring job is allowed to run.</code></td><td></td></tr>
+<tr><td><CopyableCode code="stopping_condition" /></td><td><code>object</code></td><td>Specifies a time limit for how long the monitoring job is allowed to run.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The time at which the job definition was created.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

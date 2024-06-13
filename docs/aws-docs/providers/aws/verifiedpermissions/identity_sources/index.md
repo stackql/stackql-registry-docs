@@ -31,7 +31,7 @@ Creates, updates, deletes or gets an <code>identity_source</code> resource or li
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="details" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="details" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="identity_source_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="policy_store_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="principal_entity_type" /></td><td><code>string</code></td><td></td></tr>

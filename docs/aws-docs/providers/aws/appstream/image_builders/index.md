@@ -31,9 +31,9 @@ Creates, updates, deletes or gets an <code>image_builder</code> resource or list
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_config" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="enable_default_internet_access" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="domain_join_info" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_join_info" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="appstream_agent_version" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="image_name" /></td><td><code>string</code></td><td></td></tr>

@@ -34,9 +34,9 @@ Creates, updates, deletes or gets an <code>endpoint</code> resource or lists <co
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="routing_config" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="replication_config" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="event_buses" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="routing_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="replication_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="event_buses" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="endpoint_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="endpoint_url" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td></td></tr>

@@ -38,7 +38,7 @@ Creates, updates, deletes or gets a <code>run_group</code> resource or lists <co
 <tr><td><CopyableCode code="max_duration" /></td><td><code>number</code></td><td></td></tr>
 <tr><td><CopyableCode code="max_runs" /></td><td><code>number</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>A map of resource tags</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A map of resource tags</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

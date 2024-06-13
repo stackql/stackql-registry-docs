@@ -30,22 +30,22 @@ Creates, updates, deletes or gets an <code>application_instance</code> resource 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="default_runtime_context_device_name" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_runtime_context_device" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="application_instance_id_to_replace" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_time" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="health_status" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest_overrides_payload" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="last_updated_time" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="runtime_role_arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="application_instance_id" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="status_description" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest_payload" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="default_runtime_context_device_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_runtime_context_device" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="application_instance_id_to_replace" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="created_time" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="health_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest_overrides_payload" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="last_updated_time" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="runtime_role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="application_instance_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status_description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest_payload" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

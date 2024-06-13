@@ -34,7 +34,7 @@ Creates, updates, deletes or gets a <code>template</code> resource or lists <cod
 <tr><td><CopyableCode code="definition" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="reenroll_all_certificate_holders" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="template_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

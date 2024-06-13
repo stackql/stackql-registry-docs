@@ -34,10 +34,10 @@ Creates, updates, deletes or gets a <code>schema_mapping</code> resource or list
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the SchemaMapping</td></tr>
 <tr><td><CopyableCode code="mapped_input_fields" /></td><td><code>array</code></td><td>The SchemaMapping attributes input</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="schema_arn" /></td><td><code>The SchemaMapping arn associated with the Schema</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>The time of this SchemaMapping got created</code></td><td></td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>The time of this SchemaMapping got last updated at</code></td><td></td></tr>
-<tr><td><CopyableCode code="has_workflows" /></td><td><code>The boolean value that indicates whether or not a SchemaMapping has MatchingWorkflows that are associated with</code></td><td></td></tr>
+<tr><td><CopyableCode code="schema_arn" /></td><td><code>string</code></td><td>The SchemaMapping arn associated with the Schema</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got created</td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got last updated at</td></tr>
+<tr><td><CopyableCode code="has_workflows" /></td><td><code>boolean</code></td><td>The boolean value that indicates whether or not a SchemaMapping has MatchingWorkflows that are associated with</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

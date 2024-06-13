@@ -34,13 +34,13 @@ Creates, updates, deletes or gets a <code>variant_store</code> resource or lists
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="reference" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="sse_config" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="reference" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="sse_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status_message" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="store_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="store_size_bytes" /></td><td><code>number</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>A map of resource tags</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A map of resource tags</td></tr>
 <tr><td><CopyableCode code="update_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

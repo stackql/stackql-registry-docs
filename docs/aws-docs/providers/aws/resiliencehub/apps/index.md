@@ -34,11 +34,11 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>App description.</td></tr>
 <tr><td><CopyableCode code="app_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the App.</td></tr>
 <tr><td><CopyableCode code="resiliency_policy_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="app_template_body" /></td><td><code>string</code></td><td>A string containing full ResilienceHub app template body.</td></tr>
 <tr><td><CopyableCode code="resource_mappings" /></td><td><code>array</code></td><td>An array of ResourceMapping objects.</td></tr>
 <tr><td><CopyableCode code="app_assessment_schedule" /></td><td><code>string</code></td><td>Assessment execution schedule.</td></tr>
-<tr><td><CopyableCode code="permission_model" /></td><td><code>Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.</code></td><td></td></tr>
+<tr><td><CopyableCode code="permission_model" /></td><td><code>object</code></td><td>Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.</td></tr>
 <tr><td><CopyableCode code="event_subscriptions" /></td><td><code>array</code></td><td>The list of events you would like to subscribe and get notification for.</td></tr>
 <tr><td><CopyableCode code="drift_status" /></td><td><code>string</code></td><td>Indicates if compliance drifts (deviations) were detected while running an assessment for your application.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

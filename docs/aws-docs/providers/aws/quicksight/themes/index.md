@@ -33,16 +33,15 @@ Creates, updates, deletes or gets a <code>theme</code> resource or lists <code>t
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the theme.</p></td></tr>
 <tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="base_theme_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="configuration" /></td><td><code><p>The theme configuration. This configuration contains all of the display properties for
-            a theme.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="configuration" /></td><td><code>object</code></td><td><p>The theme configuration. This configuration contains all of the display properties for<br />a theme.</p></td></tr>
 <tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td><p>The date and time that the theme was created.</p></td></tr>
 <tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>The date and time that the theme was last updated.</p></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="permissions" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="theme_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="version" /></td><td><code><p>A version of a theme.</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>object</code></td><td><p>A version of a theme.</p></td></tr>
 <tr><td><CopyableCode code="version_description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

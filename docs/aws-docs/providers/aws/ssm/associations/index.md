@@ -41,7 +41,7 @@ Creates, updates, deletes or gets an <code>association</code> resource or lists 
 <tr><td><CopyableCode code="compliance_severity" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="targets" /></td><td><code>array</code></td><td>The targets that the SSM document sends commands to.</td></tr>
 <tr><td><CopyableCode code="sync_compliance" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="output_location" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="output_location" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="schedule_offset" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the SSM document.</td></tr>
 <tr><td><CopyableCode code="apply_only_at_cron_interval" /></td><td><code>boolean</code></td><td></td></tr>

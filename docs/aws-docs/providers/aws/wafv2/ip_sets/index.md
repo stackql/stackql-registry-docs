@@ -30,12 +30,12 @@ Creates, updates, deletes or gets an <code>ip_set</code> resource or lists <code
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>Description of the entity.</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>Name of the WebACL.</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>Id of the WebACL</code></td><td></td></tr>
-<tr><td><CopyableCode code="scope" /></td><td><code>Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.</code></td><td></td></tr>
-<tr><td><CopyableCode code="ip_address_version" /></td><td><code>Type of addresses in the IPSet, use IPV4 for IPV4 IP addresses, IPV6 for IPV6 address.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the entity.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the WebACL.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id of the WebACL</td></tr>
+<tr><td><CopyableCode code="scope" /></td><td><code>string</code></td><td>Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.</td></tr>
+<tr><td><CopyableCode code="ip_address_version" /></td><td><code>string</code></td><td>Type of addresses in the IPSet, use IPV4 for IPV4 IP addresses, IPV6 for IPV6 address.</td></tr>
 <tr><td><CopyableCode code="addresses" /></td><td><code>array</code></td><td>List of IPAddresses.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

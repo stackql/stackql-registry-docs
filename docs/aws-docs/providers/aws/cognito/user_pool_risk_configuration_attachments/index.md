@@ -32,9 +32,9 @@ Creates, updates, deletes or gets an <code>user_pool_risk_configuration_attachme
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="client_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="risk_exception_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="compromised_credentials_risk_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="account_takeover_risk_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="risk_exception_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="compromised_credentials_risk_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="account_takeover_risk_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

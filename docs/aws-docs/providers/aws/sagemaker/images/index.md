@@ -30,11 +30,11 @@ Creates, updates, deletes or gets an <code>image</code> resource or lists <code>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="image_name" /></td><td><code>The name of the image this version belongs to.</code></td><td></td></tr>
-<tr><td><CopyableCode code="image_arn" /></td><td><code>The Amazon Resource Name (ARN) of the parent image.</code></td><td></td></tr>
-<tr><td><CopyableCode code="image_role_arn" /></td><td><code>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on behalf of the customer.</code></td><td></td></tr>
-<tr><td><CopyableCode code="image_display_name" /></td><td><code>The display name of the image.</code></td><td></td></tr>
-<tr><td><CopyableCode code="image_description" /></td><td><code>A description of the image.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="image_name" /></td><td><code>string</code></td><td>The name of the image this version belongs to.</td></tr>
+<tr><td><CopyableCode code="image_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the parent image.</td></tr>
+<tr><td><CopyableCode code="image_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on behalf of the customer.</td></tr>
+<tr><td><CopyableCode code="image_display_name" /></td><td><code>string</code></td><td>The display name of the image.</td></tr>
+<tr><td><CopyableCode code="image_description" /></td><td><code>string</code></td><td>A description of the image.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

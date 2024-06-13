@@ -32,14 +32,14 @@ Creates, updates, deletes or gets a <code>streaming_image</code> resource or lis
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>A human-readable description of the streaming image.</p></td></tr>
 <tr><td><CopyableCode code="ec2_image_id" /></td><td><code>string</code></td><td><p>The ID of an EC2 machine image with which to create this streaming image.</p></td></tr>
-<tr><td><CopyableCode code="encryption_configuration" /></td><td><code><p>TODO</p></code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_configuration" /></td><td><code>object</code></td><td><p>TODO</p></td></tr>
 <tr><td><CopyableCode code="eula_ids" /></td><td><code>array</code></td><td><p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td><p>A friendly name for a streaming image resource.</p></td></tr>
 <tr><td><CopyableCode code="owner" /></td><td><code>string</code></td><td><p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p></td></tr>
 <tr><td><CopyableCode code="platform" /></td><td><code>string</code></td><td><p>The platform of the streaming image, either WINDOWS or LINUX.</p></td></tr>
 <tr><td><CopyableCode code="streaming_image_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td><p>The studioId. </p></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

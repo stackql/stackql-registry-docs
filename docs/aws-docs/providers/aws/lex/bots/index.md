@@ -30,19 +30,19 @@ Creates, updates, deletes or gets a <code>bot</code> resource or lists <code>bot
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>Unique ID of resource</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>A unique identifier for a resource.</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>A description of the version. Use the description to help identify the version in lists.</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>The Amazon Resource Name (ARN) of an IAM role that has permission to access the bot.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Unique ID of resource</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A unique identifier for a resource.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the version. Use the description to help identify the version in lists.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that has permission to access the bot.</td></tr>
 <tr><td><CopyableCode code="data_privacy" /></td><td><code>object</code></td><td>Data privacy setting of the Bot.</td></tr>
 <tr><td><CopyableCode code="idle_session_ttl_in_seconds" /></td><td><code>integer</code></td><td>IdleSessionTTLInSeconds of the resource</td></tr>
 <tr><td><CopyableCode code="bot_locales" /></td><td><code>array</code></td><td>List of bot locales</td></tr>
-<tr><td><CopyableCode code="bot_file_s3_location" /></td><td><code>S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.</code></td><td></td></tr>
+<tr><td><CopyableCode code="bot_file_s3_location" /></td><td><code>object</code></td><td>S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.</td></tr>
 <tr><td><CopyableCode code="bot_tags" /></td><td><code>array</code></td><td>A list of tags to add to the bot, which can only be added at bot creation.</td></tr>
 <tr><td><CopyableCode code="test_bot_alias_tags" /></td><td><code>array</code></td><td>A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.</td></tr>
 <tr><td><CopyableCode code="auto_build_bot_locales" /></td><td><code>boolean</code></td><td>Specifies whether to build the bot locales after bot creation completes.</td></tr>
-<tr><td><CopyableCode code="test_bot_alias_settings" /></td><td><code>Configuring the test bot alias settings for a given bot</code></td><td></td></tr>
+<tr><td><CopyableCode code="test_bot_alias_settings" /></td><td><code>object</code></td><td>Configuring the test bot alias settings for a given bot</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

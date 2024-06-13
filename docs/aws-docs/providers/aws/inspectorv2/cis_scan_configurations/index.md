@@ -31,11 +31,11 @@ Creates, updates, deletes or gets a <code>cis_scan_configuration</code> resource
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="scan_name" /></td><td><code>string</code></td><td>Name of the scan</td></tr>
-<tr><td><CopyableCode code="security_level" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="schedule" /></td><td><code>Choose a Schedule cadence</code></td><td></td></tr>
+<tr><td><CopyableCode code="security_level" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule" /></td><td><code>undefined</code></td><td>Choose a Schedule cadence</td></tr>
 <tr><td><CopyableCode code="targets" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>CIS Scan configuration unique identifier</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

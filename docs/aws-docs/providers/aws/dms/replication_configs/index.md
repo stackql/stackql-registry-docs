@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>replication_config</code> resource or 
 <tr><td><CopyableCode code="source_endpoint_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration</td></tr>
 <tr><td><CopyableCode code="target_endpoint_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration</td></tr>
 <tr><td><CopyableCode code="replication_type" /></td><td><code>string</code></td><td>The type of AWS DMS Serverless replication to provision using this replication configuration</td></tr>
-<tr><td><CopyableCode code="compute_config" /></td><td><code>Configuration parameters for provisioning a AWS DMS Serverless replication</code></td><td></td></tr>
+<tr><td><CopyableCode code="compute_config" /></td><td><code>object</code></td><td>Configuration parameters for provisioning a AWS DMS Serverless replication</td></tr>
 <tr><td><CopyableCode code="replication_settings" /></td><td><code>object</code></td><td>JSON settings for Servereless replications that are provisioned using this replication configuration</td></tr>
 <tr><td><CopyableCode code="supplemental_settings" /></td><td><code>object</code></td><td>JSON settings for specifying supplemental data</td></tr>
 <tr><td><CopyableCode code="resource_identifier" /></td><td><code>string</code></td><td>A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource</td></tr>

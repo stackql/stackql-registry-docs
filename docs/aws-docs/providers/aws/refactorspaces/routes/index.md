@@ -35,10 +35,10 @@ Creates, updates, deletes or gets a <code>route</code> resource or lists <code>r
 <tr><td><CopyableCode code="application_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="environment_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="route_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="route_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="route_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="service_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_route" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="uri_path_route" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_route" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="uri_path_route" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

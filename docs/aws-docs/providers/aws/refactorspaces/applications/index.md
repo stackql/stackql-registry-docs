@@ -30,7 +30,7 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="api_gateway_proxy" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="api_gateway_proxy" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="api_gateway_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpc_link_id" /></td><td><code>string</code></td><td></td></tr>
@@ -39,7 +39,7 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <tr><td><CopyableCode code="application_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="environment_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="proxy_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="proxy_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="stage_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="proxy_url" /></td><td><code>string</code></td><td></td></tr>

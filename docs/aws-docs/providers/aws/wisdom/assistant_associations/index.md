@@ -34,8 +34,8 @@ Creates, updates, deletes or gets an <code>assistant_association</code> resource
 <tr><td><CopyableCode code="assistant_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="assistant_association_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="assistant_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="association" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="association_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="association" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="association_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

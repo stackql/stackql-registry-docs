@@ -30,15 +30,15 @@ Represents a log group.
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="logGroupName" /></td><td><code>string</code></td><td>The name of the log group.</td></tr>
-<tr><td><CopyableCode code="creationTime" /></td><td><code>integer</code></td><td>The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</td></tr>
-<tr><td><CopyableCode code="retentionInDays" /></td><td><code><p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.</p> <p>To set a log group so that its log events do not expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p></code></td><td></td></tr>
-<tr><td><CopyableCode code="metricFilterCount" /></td><td><code>integer</code></td><td>The number of metric filters.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="log_group_name" /></td><td><code>string</code></td><td>The name of the log group.</td></tr>
+<tr><td><CopyableCode code="creation_time" /></td><td><code>integer</code></td><td>The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</td></tr>
+<tr><td><CopyableCode code="retention_in_days" /></td><td><code>integer</code></td><td><p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.</p> <p>To set a log group so that its log events do not expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p></td></tr>
+<tr><td><CopyableCode code="metric_filter_count" /></td><td><code>integer</code></td><td>The number of metric filters.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the log group.</td></tr>
-<tr><td><CopyableCode code="storedBytes" /></td><td><code>integer</code></td><td>The number of bytes stored.</td></tr>
-<tr><td><CopyableCode code="kmsKeyId" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.</td></tr>
-<tr><td><CopyableCode code="dataProtectionStatus" /></td><td><code>string</code></td><td>Displays whether this log group has a protection policy, or whether it had one in the past. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</td></tr>
-<tr><td><CopyableCode code="inheritedProperties" /></td><td><code>array</code></td><td>Displays all the properties that this log group has inherited from account-level settings.</td></tr>
+<tr><td><CopyableCode code="stored_bytes" /></td><td><code>integer</code></td><td>The number of bytes stored.</td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.</td></tr>
+<tr><td><CopyableCode code="data_protection_status" /></td><td><code>string</code></td><td>Displays whether this log group has a protection policy, or whether it had one in the past. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</td></tr>
+<tr><td><CopyableCode code="inherited_properties" /></td><td><code>array</code></td><td>Displays all the properties that this log group has inherited from account-level settings.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

@@ -32,7 +32,7 @@ Creates, updates, deletes or gets a <code>locationf_sx_open_zf</code> resource o
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="fsx_filesystem_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the FSx OpenZFS file system.</td></tr>
 <tr><td><CopyableCode code="security_group_arns" /></td><td><code>array</code></td><td>The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.</td></tr>
-<tr><td><CopyableCode code="protocol" /></td><td><code>Configuration settings for an NFS or SMB protocol, currently only support NFS</code></td><td></td></tr>
+<tr><td><CopyableCode code="protocol" /></td><td><code>object</code></td><td>Configuration settings for an NFS or SMB protocol, currently only support NFS</td></tr>
 <tr><td><CopyableCode code="subdirectory" /></td><td><code>string</code></td><td>A subdirectory in the location's path.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="location_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Amazon FSx OpenZFS file system location that is created.</td></tr>

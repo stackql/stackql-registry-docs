@@ -32,7 +32,7 @@ Creates, updates, deletes or gets an <code>account_policy</code> resource or lis
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>User account id</td></tr>
 <tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td>The name of the account policy</td></tr>
-<tr><td><CopyableCode code="policy_document" /></td><td><code>string</code></td><td>The body of the policy document you want to use for this topic. You can only add one policy per PolicyType. The policy must be in JSON string format. Length Constraints: Maximum length of 30720</td></tr>
+<tr><td><CopyableCode code="policy_document" /></td><td><code>string</code></td><td>The body of the policy document you want to use for this topic.<br />You can only add one policy per PolicyType.<br />The policy must be in JSON string format.<br />Length Constraints: Maximum length of 30720</td></tr>
 <tr><td><CopyableCode code="policy_type" /></td><td><code>string</code></td><td>Type of the policy.</td></tr>
 <tr><td><CopyableCode code="scope" /></td><td><code>string</code></td><td>Scope for policy application</td></tr>
 <tr><td><CopyableCode code="selection_criteria" /></td><td><code>string</code></td><td>Log group selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes</td></tr>

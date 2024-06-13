@@ -34,12 +34,12 @@ Creates, updates, deletes or gets a <code>matching_workflow</code> resource or l
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the MatchingWorkflow</td></tr>
 <tr><td><CopyableCode code="input_source_config" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="output_source_config" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="resolution_techniques" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="resolution_techniques" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="workflow_arn" /></td><td><code>The default MatchingWorkflow arn</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>The time of this SchemaMapping got created</code></td><td></td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>The time of this SchemaMapping got last updated at</code></td><td></td></tr>
+<tr><td><CopyableCode code="workflow_arn" /></td><td><code>string</code></td><td>The default MatchingWorkflow arn</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got created</td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got last updated at</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

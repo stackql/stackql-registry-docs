@@ -33,7 +33,7 @@ Creates, updates, deletes or gets a <code>db_proxy_target_group</code> resource 
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="db_proxy_name" /></td><td><code>string</code></td><td>The identifier for the proxy.</td></tr>
 <tr><td><CopyableCode code="target_group_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) representing the target group.</td></tr>
 <tr><td><CopyableCode code="target_group_name" /></td><td><code>string</code></td><td>The identifier for the DBProxyTargetGroup</td></tr>
-<tr><td><CopyableCode code="connection_pool_configuration_info" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="connection_pool_configuration_info" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="db_instance_identifiers" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="db_cluster_identifiers" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

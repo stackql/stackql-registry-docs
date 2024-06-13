@@ -35,9 +35,9 @@ Creates, updates, deletes or gets a <code>dataset</code> resource or lists <code
 <tr><td><CopyableCode code="dataset_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="content_delivery_rules" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="triggers" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="versioning_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="versioning_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="retention_period" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="retention_period" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

@@ -33,8 +33,8 @@ Creates, updates, deletes or gets a <code>function</code> resource or lists <cod
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="auto_publish" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="function_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="function_code" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="function_config" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="function_metadata" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="function_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="function_metadata" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="stage" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

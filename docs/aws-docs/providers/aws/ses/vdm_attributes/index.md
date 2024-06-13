@@ -31,8 +31,8 @@ Creates, updates, deletes or gets a <code>vdm_attribute</code> resource or lists
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="vdm_attributes_resource_id" /></td><td><code>string</code></td><td>Unique identifier for this resource</td></tr>
-<tr><td><CopyableCode code="dashboard_attributes" /></td><td><code>Preferences regarding the Dashboard feature.</code></td><td></td></tr>
-<tr><td><CopyableCode code="guardian_attributes" /></td><td><code>Preferences regarding the Guardian feature.</code></td><td></td></tr>
+<tr><td><CopyableCode code="dashboard_attributes" /></td><td><code>object</code></td><td>Preferences regarding the Dashboard feature.</td></tr>
+<tr><td><CopyableCode code="guardian_attributes" /></td><td><code>object</code></td><td>Preferences regarding the Guardian feature.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

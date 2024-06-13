@@ -30,21 +30,21 @@ Creates, updates, deletes or gets a <code>portal</code> resource or lists <code>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="authentication_type" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="authentication_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="browser_settings_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="browser_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="browser_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="customer_managed_key" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="ip_access_settings_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="max_concurrent_sessions" /></td><td><code>number</code></td><td></td></tr>
 <tr><td><CopyableCode code="network_settings_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="portal_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="portal_endpoint" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="portal_status" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="renderer_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="portal_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="renderer_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="service_provider_saml_metadata" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status_reason" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>

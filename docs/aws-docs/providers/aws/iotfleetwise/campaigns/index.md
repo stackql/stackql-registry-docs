@@ -30,10 +30,10 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="action" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="action" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="compression" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="compression" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="priority" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="signals_to_collect" /></td><td><code>array</code></td><td></td></tr>
@@ -42,11 +42,11 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="expiry_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="last_modification_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="spooling_mode" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="spooling_mode" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="signal_catalog_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="post_trigger_collection_duration" /></td><td><code>number</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_extra_dimensions" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="diagnostics_mode" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="diagnostics_mode" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="target_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="collection_scheme" /></td><td><code>undefined</code></td><td></td></tr>

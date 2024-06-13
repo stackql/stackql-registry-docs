@@ -33,7 +33,7 @@ Creates, updates, deletes or gets a <code>license_endpoint</code> resource or li
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="dns_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="license_endpoint_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status_message" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>

@@ -33,8 +33,8 @@ Creates, updates, deletes or gets a <code>verified_access_trust_provider</code> 
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="trust_provider_type" /></td><td><code>string</code></td><td>Type of trust provider. Possible values: user|device</td></tr>
 <tr><td><CopyableCode code="device_trust_provider_type" /></td><td><code>string</code></td><td>The type of device-based trust provider. Possible values: jamf|crowdstrike</td></tr>
 <tr><td><CopyableCode code="user_trust_provider_type" /></td><td><code>string</code></td><td>The type of device-based trust provider. Possible values: oidc|iam-identity-center</td></tr>
-<tr><td><CopyableCode code="oidc_options" /></td><td><code>The OpenID Connect details for an oidc -type, user-identity based trust provider.</code></td><td></td></tr>
-<tr><td><CopyableCode code="device_options" /></td><td><code>The options for device identity based trust providers.</code></td><td></td></tr>
+<tr><td><CopyableCode code="oidc_options" /></td><td><code>object</code></td><td>The OpenID Connect details for an oidc -type, user-identity based trust provider.</td></tr>
+<tr><td><CopyableCode code="device_options" /></td><td><code>object</code></td><td>The options for device identity based trust providers.</td></tr>
 <tr><td><CopyableCode code="policy_reference_name" /></td><td><code>string</code></td><td>The identifier to be used when working with policy rules.</td></tr>
 <tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The creation time.</td></tr>
 <tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The last updated time.</td></tr>

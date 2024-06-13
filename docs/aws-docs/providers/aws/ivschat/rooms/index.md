@@ -36,7 +36,7 @@ Creates, updates, deletes or gets a <code>room</code> resource or lists <code>ro
 <tr><td><CopyableCode code="logging_configuration_identifiers" /></td><td><code>array</code></td><td>Array of logging configuration identifiers attached to the room.</td></tr>
 <tr><td><CopyableCode code="maximum_message_length" /></td><td><code>integer</code></td><td>The maximum number of characters in a single message.</td></tr>
 <tr><td><CopyableCode code="maximum_message_rate_per_second" /></td><td><code>integer</code></td><td>The maximum number of messages per second that can be sent to the room.</td></tr>
-<tr><td><CopyableCode code="message_review_handler" /></td><td><code>Configuration information for optional review of messages.</code></td><td></td></tr>
+<tr><td><CopyableCode code="message_review_handler" /></td><td><code>object</code></td><td>Configuration information for optional review of messages.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

@@ -30,7 +30,7 @@ Creates, updates, deletes or gets a <code>template_group_access_control_entry</c
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_rights" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_rights" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="group_display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="group_security_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="template_arn" /></td><td><code>string</code></td><td></td></tr>

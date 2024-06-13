@@ -31,7 +31,7 @@ Creates, updates, deletes or gets a <code>hook_type_config</code> resource or li
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="type_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type without version number.</td></tr>
-<tr><td><CopyableCode code="type_name" /></td><td><code>string</code></td><td>The name of the type being registered. We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
+<tr><td><CopyableCode code="type_name" /></td><td><code>string</code></td><td>The name of the type being registered.<br />We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
 <tr><td><CopyableCode code="configuration_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the configuration data, in this account and region.</td></tr>
 <tr><td><CopyableCode code="configuration" /></td><td><code>string</code></td><td>The configuration data for the extension, in this account and region.</td></tr>
 <tr><td><CopyableCode code="configuration_alias" /></td><td><code>string</code></td><td>An alias by which to refer to this extension configuration data.</td></tr>

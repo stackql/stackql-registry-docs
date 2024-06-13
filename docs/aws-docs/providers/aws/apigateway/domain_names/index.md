@@ -33,9 +33,8 @@ Creates, updates, deletes or gets a <code>domain_name</code> resource or lists <
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="distribution_domain_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="distribution_hosted_zone_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="endpoint_configuration" /></td><td><code>The ``EndpointConfiguration`` property type specifies the endpoint types of a REST API.
- ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.</code></td><td></td></tr>
-<tr><td><CopyableCode code="mutual_tls_authentication" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="endpoint_configuration" /></td><td><code>object</code></td><td>The <code>EndpointConfiguration</code> property type specifies the endpoint types of a REST API.<br /><code>EndpointConfiguration</code> is a property of the &#91;AWS::ApiGateway::RestApi&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.</td></tr>
+<tr><td><CopyableCode code="mutual_tls_authentication" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="regional_domain_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="regional_hosted_zone_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td></td></tr>

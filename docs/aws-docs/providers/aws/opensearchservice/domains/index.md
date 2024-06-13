@@ -30,31 +30,31 @@ Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_config" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="access_policies" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="ip_address_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="advanced_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="log_publishing_options" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="snapshot_options" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_options" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="node_to_node_encryption_options" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="domain_endpoint_options" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="cognito_options" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="advanced_security_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="snapshot_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="vpc_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="node_to_node_encryption_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_endpoint_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="cognito_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="advanced_security_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_endpoint" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_endpoint_v2" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_endpoints" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="ebs_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="ebs_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="encryption_at_rest_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_at_rest_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this Domain.</td></tr>
-<tr><td><CopyableCode code="service_software_options" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="off_peak_window_options" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="software_update_options" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_software_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="off_peak_window_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="software_update_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

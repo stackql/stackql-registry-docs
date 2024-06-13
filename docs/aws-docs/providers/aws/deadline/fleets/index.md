@@ -30,7 +30,7 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="capabilities" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="capabilities" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="configuration" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
@@ -39,7 +39,7 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
 <tr><td><CopyableCode code="max_worker_count" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="min_worker_count" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="worker_count" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

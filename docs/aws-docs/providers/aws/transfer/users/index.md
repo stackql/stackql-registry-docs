@@ -30,16 +30,16 @@ Describes the properties of a user that was specified.
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="Arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="HomeDirectory" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="HomeDirectoryMappings" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="HomeDirectoryType" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="Policy" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="PosixProfile" /></td><td><code>The full POSIX identity, including user ID (<code>Uid</code>), group ID (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls your users' access to your Amazon EFS file systems. The POSIX permissions that are set on files and directories in your file system determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.</code></td><td></td></tr>
-<tr><td><CopyableCode code="Role" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="SshPublicKeys" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="Tags" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="UserName" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="home_directory" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="home_directory_mappings" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="home_directory_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="policy" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="posix_profile" /></td><td><code>object</code></td><td>The full POSIX identity, including user ID (<code>Uid</code>), group ID (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls your users' access to your Amazon EFS file systems. The POSIX permissions that are set on files and directories in your file system determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.</td></tr>
+<tr><td><CopyableCode code="role" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="ssh_public_keys" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

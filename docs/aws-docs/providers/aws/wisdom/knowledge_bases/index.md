@@ -33,11 +33,11 @@ Creates, updates, deletes or gets a <code>knowledge_base</code> resource or list
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="knowledge_base_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="knowledge_base_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="knowledge_base_type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="knowledge_base_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rendering_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="server_side_encryption_configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="source_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="rendering_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="server_side_encryption_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

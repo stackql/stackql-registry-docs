@@ -34,10 +34,10 @@ Creates, updates, deletes or gets a <code>billing_group</code> resource or lists
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="primary_account_id" /></td><td><code>string</code></td><td>This account will act as a virtual payer account of the billing group</td></tr>
-<tr><td><CopyableCode code="computation_preference" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="account_grouping" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="computation_preference" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="account_grouping" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="size" /></td><td><code>integer</code></td><td>Number of accounts in the billing group</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status_reason" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creation_time" /></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
 <tr><td><CopyableCode code="last_modified_time" /></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>

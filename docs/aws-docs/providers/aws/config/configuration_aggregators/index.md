@@ -33,7 +33,7 @@ Creates, updates, deletes or gets a <code>configuration_aggregator</code> resour
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_aggregation_sources" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="configuration_aggregator_name" /></td><td><code>string</code></td><td>The name of the aggregator.</td></tr>
 <tr><td><CopyableCode code="configuration_aggregator_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the aggregator.</td></tr>
-<tr><td><CopyableCode code="organization_aggregation_source" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="organization_aggregation_source" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags for the configuration aggregator.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

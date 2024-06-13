@@ -30,7 +30,7 @@ Creates, updates, deletes or gets a <code>backup_plan</code> resource or lists <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="backup_plan" /></td><td><code>undefined</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="backup_plan" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="backup_plan_tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="backup_plan_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="backup_plan_id" /></td><td><code>string</code></td><td></td></tr>

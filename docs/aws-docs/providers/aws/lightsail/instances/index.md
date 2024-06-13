@@ -36,10 +36,10 @@ Creates, updates, deletes or gets an <code>instance</code> resource or lists <co
 <tr><td><CopyableCode code="private_ip_address" /></td><td><code>string</code></td><td>Private IP Address of the Instance</td></tr>
 <tr><td><CopyableCode code="public_ip_address" /></td><td><code>string</code></td><td>Public IP Address of the Instance</td></tr>
 <tr><td><CopyableCode code="ipv6_addresses" /></td><td><code>array</code></td><td>IPv6 addresses of the instance</td></tr>
-<tr><td><CopyableCode code="location" /></td><td><code>Location of a resource.</code></td><td></td></tr>
-<tr><td><CopyableCode code="hardware" /></td><td><code>Hardware of the Instance.</code></td><td></td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>Current State of the Instance.</code></td><td></td></tr>
-<tr><td><CopyableCode code="networking" /></td><td><code>Networking of the Instance.</code></td><td></td></tr>
+<tr><td><CopyableCode code="location" /></td><td><code>object</code></td><td>Location of a resource.</td></tr>
+<tr><td><CopyableCode code="hardware" /></td><td><code>object</code></td><td>Hardware of the Instance.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>object</code></td><td>Current State of the Instance.</td></tr>
+<tr><td><CopyableCode code="networking" /></td><td><code>object</code></td><td>Networking of the Instance.</td></tr>
 <tr><td><CopyableCode code="user_name" /></td><td><code>string</code></td><td>Username of the Lightsail instance.</td></tr>
 <tr><td><CopyableCode code="ssh_key_name" /></td><td><code>string</code></td><td>SSH Key Name of the Lightsail instance.</td></tr>
 <tr><td><CopyableCode code="instance_name" /></td><td><code>string</code></td><td>The names to use for your new Lightsail instance.</td></tr>

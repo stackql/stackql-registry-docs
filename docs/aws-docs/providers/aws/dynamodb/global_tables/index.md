@@ -37,14 +37,14 @@ Creates, updates, deletes or gets a <code>global_table</code> resource or lists 
 <tr><td><CopyableCode code="global_secondary_indexes" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="key_schema" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="local_secondary_indexes" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="write_provisioned_throughput_settings" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="write_on_demand_throughput_settings" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="write_provisioned_throughput_settings" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="write_on_demand_throughput_settings" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="replicas" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="sse_specification" /></td><td><code>Represents the settings used to enable server-side encryption.</code></td><td></td></tr>
-<tr><td><CopyableCode code="stream_specification" /></td><td><code>Represents the DynamoDB Streams configuration for a table in DynamoDB.</code></td><td></td></tr>
+<tr><td><CopyableCode code="sse_specification" /></td><td><code>object</code></td><td>Represents the settings used to enable server-side encryption.</td></tr>
+<tr><td><CopyableCode code="stream_specification" /></td><td><code>object</code></td><td>Represents the DynamoDB Streams configuration for a table in DynamoDB.</td></tr>
 <tr><td><CopyableCode code="table_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="table_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="time_to_live_specification" /></td><td><code>Represents the settings used to enable or disable Time to Live (TTL) for the specified table.</code></td><td></td></tr>
+<tr><td><CopyableCode code="time_to_live_specification" /></td><td><code>object</code></td><td>Represents the settings used to enable or disable Time to Live (TTL) for the specified table.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

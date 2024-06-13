@@ -40,7 +40,7 @@ Creates, updates, deletes or gets a <code>cloud_formation_provisioned_product</c
 <tr><td><CopyableCode code="provisioning_artifact_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="provisioning_artifact_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="provisioning_parameters" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="provisioning_preferences" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="provisioning_preferences" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="provisioned_product_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="record_id" /></td><td><code>string</code></td><td></td></tr>

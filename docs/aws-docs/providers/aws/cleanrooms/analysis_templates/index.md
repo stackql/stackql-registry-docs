@@ -40,8 +40,8 @@ Creates, updates, deletes or gets an <code>analysis_template</code> resource or 
 <tr><td><CopyableCode code="membership_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="membership_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="schema" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="source" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="schema" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="source" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="format" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>

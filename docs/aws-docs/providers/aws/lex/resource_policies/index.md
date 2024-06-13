@@ -30,10 +30,10 @@ Creates, updates, deletes or gets a <code>resource_policy</code> resource or lis
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="resource_arn" /></td><td><code>The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.</code></td><td></td></tr>
-<tr><td><CopyableCode code="revision_id" /></td><td><code>The current revision of the resource policy. Use the revision ID to make sure that you are updating the most current version of a resource policy when you add a policy statement to a resource, delete a resource, or update a resource.</code></td><td></td></tr>
-<tr><td><CopyableCode code="policy" /></td><td><code>A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>The Physical ID of the resource policy.</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="resource_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.</td></tr>
+<tr><td><CopyableCode code="revision_id" /></td><td><code>string</code></td><td>The current revision of the resource policy. Use the revision ID to make sure that you are updating the most current version of a resource policy when you add a policy statement to a resource, delete a resource, or update a resource.</td></tr>
+<tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td>A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The Physical ID of the resource policy.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

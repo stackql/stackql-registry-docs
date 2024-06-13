@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>network_interface_attachment</code> re
 <tr><td><CopyableCode code="device_index" /></td><td><code>string</code></td><td>The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.</td></tr>
 <tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>The ID of the instance to which you will attach the ENI.</td></tr>
 <tr><td><CopyableCode code="network_interface_id" /></td><td><code>string</code></td><td>The ID of the ENI that you want to attach.</td></tr>
-<tr><td><CopyableCode code="ena_srd_specification" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="ena_srd_specification" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

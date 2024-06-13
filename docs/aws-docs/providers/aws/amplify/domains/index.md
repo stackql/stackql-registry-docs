@@ -35,8 +35,8 @@ Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>
 <tr><td><CopyableCode code="auto_sub_domain_creation_patterns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="auto_sub_domain_iam_role" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="certificate_record" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="certificate" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="certificate_settings" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate_settings" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="update_status" /></td><td><code>string</code></td><td></td></tr>

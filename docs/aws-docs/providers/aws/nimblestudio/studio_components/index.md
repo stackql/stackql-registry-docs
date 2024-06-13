@@ -30,7 +30,7 @@ Creates, updates, deletes or gets a <code>studio_component</code> resource or li
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="configuration" /></td><td><code><p>The configuration of the studio component, based on component type.</p></code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="configuration" /></td><td><code>undefined</code></td><td><p>The configuration of the studio component, based on component type.</p></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>The description.</p></td></tr>
 <tr><td><CopyableCode code="ec2_security_group_ids" /></td><td><code>array</code></td><td><p>The EC2 security groups that control access to the studio component.</p></td></tr>
 <tr><td><CopyableCode code="initialization_scripts" /></td><td><code>array</code></td><td><p>Initialization scripts for studio components.</p></td></tr>
@@ -40,9 +40,9 @@ Creates, updates, deletes or gets a <code>studio_component</code> resource or li
 <tr><td><CopyableCode code="secure_initialization_role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="studio_component_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="studio_id" /></td><td><code>string</code></td><td><p>The studio ID. </p></td></tr>
-<tr><td><CopyableCode code="subtype" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="subtype" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

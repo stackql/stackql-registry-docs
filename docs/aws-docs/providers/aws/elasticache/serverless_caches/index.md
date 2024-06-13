@@ -35,7 +35,7 @@ Creates, updates, deletes or gets a <code>serverless_cach</code> resource or lis
 <tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>The engine name of the Serverless Cache.</td></tr>
 <tr><td><CopyableCode code="major_engine_version" /></td><td><code>string</code></td><td>The major engine version of the Serverless Cache.</td></tr>
 <tr><td><CopyableCode code="full_engine_version" /></td><td><code>string</code></td><td>The full engine version of the Serverless Cache.</td></tr>
-<tr><td><CopyableCode code="cache_usage_limits" /></td><td><code>The cache capacity limit of the Serverless Cache.</code></td><td></td></tr>
+<tr><td><CopyableCode code="cache_usage_limits" /></td><td><code>object</code></td><td>The cache capacity limit of the Serverless Cache.</td></tr>
 <tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The ID of the KMS key used to encrypt the cluster.</td></tr>
 <tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>One or more Amazon VPC security groups associated with this Serverless Cache.</td></tr>
 <tr><td><CopyableCode code="snapshot_arns_to_restore" /></td><td><code>array</code></td><td>The ARN's of snapshot to restore Serverless Cache.</td></tr>
@@ -46,8 +46,8 @@ Creates, updates, deletes or gets a <code>serverless_cach</code> resource or lis
 <tr><td><CopyableCode code="daily_snapshot_time" /></td><td><code>string</code></td><td>The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.</td></tr>
 <tr><td><CopyableCode code="create_time" /></td><td><code>string</code></td><td>The creation time of the Serverless Cache.</td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the Serverless Cache.</td></tr>
-<tr><td><CopyableCode code="endpoint" /></td><td><code>The address and the port.</code></td><td></td></tr>
-<tr><td><CopyableCode code="reader_endpoint" /></td><td><code>The address and the port.</code></td><td></td></tr>
+<tr><td><CopyableCode code="endpoint" /></td><td><code>object</code></td><td>The address and the port.</td></tr>
+<tr><td><CopyableCode code="reader_endpoint" /></td><td><code>object</code></td><td>The address and the port.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the Serverless Cache.</td></tr>
 <tr><td><CopyableCode code="final_snapshot_name" /></td><td><code>string</code></td><td>The final snapshot name which is taken before Serverless Cache is deleted.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>

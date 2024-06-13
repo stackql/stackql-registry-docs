@@ -37,9 +37,9 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <tr><td><CopyableCode code="launch_parameters" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="working_directory" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="instance_families" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="icon_s3_location" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="app_block_arn" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="icon_s3_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="app_block_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="platforms" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="attributes_to_delete" /></td><td><code>array</code></td><td></td></tr>

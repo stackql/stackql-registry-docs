@@ -34,7 +34,7 @@ Creates, updates, deletes or gets a <code>warm_pool</code> resource or lists <co
 <tr><td><CopyableCode code="max_group_prepared_capacity" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="min_size" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="pool_state" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_reuse_policy" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="instance_reuse_policy" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 

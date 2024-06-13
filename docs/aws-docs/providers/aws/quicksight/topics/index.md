@@ -36,7 +36,7 @@ Creates, updates, deletes or gets a <code>topic</code> resource or lists <code>t
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="topic_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="user_experience_version" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_experience_version" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
