@@ -39,6 +39,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="globalRulestackName" /> | List PostRulesResource resources by Tenant |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="globalRulestackName, priority, data__properties" /> | Create a PostRulesResource |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="globalRulestackName, priority" /> | Delete a PostRulesResource |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="globalRulestackName" /> | List PostRulesResource resources by Tenant |
 | <CopyableCode code="refresh_counters" /> | `EXEC` | <CopyableCode code="globalRulestackName, priority" /> | Refresh counters |
 | <CopyableCode code="reset_counters" /> | `EXEC` | <CopyableCode code="globalRulestackName, priority" /> | Reset counters |

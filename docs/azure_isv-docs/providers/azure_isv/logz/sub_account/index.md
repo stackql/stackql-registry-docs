@@ -45,6 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="monitorName, resourceGroupName, subAccountName, subscriptionId, data__location" /> |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="monitorName, resourceGroupName, subAccountName, subscriptionId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subAccountName, subscriptionId" /> |
 | <CopyableCode code="vm_host_payload" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subAccountName, subscriptionId" /> |

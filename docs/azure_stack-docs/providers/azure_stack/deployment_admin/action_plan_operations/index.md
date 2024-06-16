@@ -41,4 +41,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="operationId, planId, subscriptionId" /> | Gets the specified action plan operation |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="planId, subscriptionId" /> | Lists the action plan operations |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="planId, subscriptionId" /> | Lists the action plan operations |

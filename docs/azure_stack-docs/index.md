@@ -19,16 +19,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Build and run hybrid apps across datacenters, edge locations, remote offices, and the cloud.  
     
-:::info Provider Summary (v24.01.00199)
+:::info Provider Summary (v24.06.00242)
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>18</b></span><br />
-<span>total methods:&nbsp;<b>470</b></span><br />
+<span>total methods:&nbsp;<b>400</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>142</b></span><br />
-<span>total selectable resources:&nbsp;<b>135</b></span><br />
+<span>total resources:&nbsp;<b>158</b></span><br />
+<span>total selectable resources:&nbsp;<b>151</b></span><br />
 </div>
 </div>
 

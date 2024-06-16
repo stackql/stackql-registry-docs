@@ -41,4 +41,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, pcName, regionId, resourcePoolName, subscriptionId" /> | Returns resource pool templates by its name |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, pcName, regionId, subscriptionId" /> | Returns list of resource pools in region for private cloud |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, pcName, regionId, subscriptionId" /> | Returns list of resource pools in region for private cloud |

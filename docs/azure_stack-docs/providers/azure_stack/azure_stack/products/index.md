@@ -30,13 +30,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | URI to the next page. |
-| <CopyableCode code="value" /> | `array` | List of products. |
+| <CopyableCode code="id" /> | `string` | ID of the resource. |
+| <CopyableCode code="name" /> | `string` | Name of the resource. |
+| <CopyableCode code="etag" /> | `string` | The entity tag used for optimistic concurrency when modifying the resource. |
+| <CopyableCode code="properties" /> | `object` | Properties portion of the product resource. |
+| <CopyableCode code="type" /> | `string` | Type of Resource. |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="registrationName, resourceGroup, subscriptionId" /> | Returns a list of products. |
 | <CopyableCode code="list_by_product_name" /> | `SELECT` | <CopyableCode code="productName, registrationName, resourceGroup, subscriptionId" /> | Returns a list of products. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="registrationName, resourceGroup, subscriptionId" /> | Returns a list of products. |
 | <CopyableCode code="exec_get" /> | `EXEC` | <CopyableCode code="productName, registrationName, resourceGroup, subscriptionId" /> | Returns a list of products. |
 | <CopyableCode code="upload_log" /> | `EXEC` | <CopyableCode code="productName, registrationName, resourceGroup, subscriptionId" /> | Returns the specified product. |

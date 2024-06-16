@@ -43,7 +43,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List FirewallResource resources by subscription ID |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="firewallName, resourceGroupName, subscriptionId, data__properties" /> | Create a FirewallResource |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="firewallName, resourceGroupName, subscriptionId" /> | Delete a FirewallResource |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List FirewallResource resources by resource group |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List FirewallResource resources by subscription ID |
 | <CopyableCode code="save_log_profile" /> | `EXEC` | <CopyableCode code="firewallName, resourceGroupName, subscriptionId" /> | Log Profile for Firewall |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="firewallName, resourceGroupName, subscriptionId" /> | Update a FirewallResource |

@@ -41,7 +41,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, scaleUnitNode, subscriptionId" /> | Return the requested scale unit node. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all scale unit nodes in a location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all scale unit nodes in a location. |
 | <CopyableCode code="power_off" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, scaleUnitNode, subscriptionId" /> | Power off a scale unit node. |
 | <CopyableCode code="power_on" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, scaleUnitNode, subscriptionId" /> | Power on a scale unit node. |
 | <CopyableCode code="repair" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, scaleUnitNode, subscriptionId" /> | Repairs a node of the cluster. |

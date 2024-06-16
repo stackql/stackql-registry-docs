@@ -33,10 +33,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | <CopyableCode code="name" /> | `string` | The name of the resource |
 | <CopyableCode code="properties" /> | `object` | Properties of a private link resource. |
-| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 | <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | <CopyableCode code="list_by_redis_cache" /> | `SELECT` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="_list_by_redis_cache" /> | `EXEC` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> |

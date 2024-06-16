@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The AzureStack AzureBridge Administrator Module Which Allows You To Manage Your AzureStack Marketplace Items.  
+The AzureStack AzureBridge administrator module which allows you to manage your AzureStack marketplace items.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ The AzureStack AzureBridge Administrator Module Which Allows You To Manage Your 
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
 <span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>16</b></span><br />
+<span>total methods:&nbsp;<b>12</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ The AzureStack AzureBridge Administrator Module Which Allows You To Manage Your 
 <tr><td><b>Name</b></td><td><code>azure_stack.azure_bridge_admin</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Azure Bridge Admin Client</td></tr>
-<tr><td><b>Description</b></td><td>The AzureStack AzureBridge Administrator Module Which Allows You To Manage Your AzureStack Marketplace Items.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_bridge_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>The AzureStack AzureBridge administrator module which allows you to manage your AzureStack marketplace items.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:azure_bridge_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

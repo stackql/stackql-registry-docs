@@ -43,4 +43,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId, targetSubscriptionId" /> | Get a collection of all acquired plans that subscription has access to. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="planAcquisitionId, subscriptionId, targetSubscriptionId" /> | Creates an acquired plan. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="planAcquisitionId, subscriptionId, targetSubscriptionId" /> | Deletes an acquired plan. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId, targetSubscriptionId" /> | Get a collection of all acquired plans that subscription has access to. |

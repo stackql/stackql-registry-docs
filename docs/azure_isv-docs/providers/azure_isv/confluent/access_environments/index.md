@@ -30,7 +30,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="data" /> | `array` | Data of the invitations list |
+| <CopyableCode code="data" /> | `array` | List of environment records |
 | <CopyableCode code="kind" /> | `string` | Type of response |
 | <CopyableCode code="metadata" /> | `object` | Metadata of the list |
 ## Methods

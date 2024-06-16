@@ -30,8 +30,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | Link to the next set of results, if any. |
-| <CopyableCode code="value" /> | `array` | Results of a list operation. |
+| <CopyableCode code="id" /> | `string` | The ARM id of the resource. |
+| <CopyableCode code="reasonForLogsStatus" /> | `string` | Reason for why the resource is sending logs (or why it is not sending). |
+| <CopyableCode code="reasonForMetricsStatus" /> | `string` | Reason for why the resource is sending metrics (or why it is not sending). |
+| <CopyableCode code="sendingLogs" /> | `boolean` | Flag indicating if resource is sending logs to Datadog. |
+| <CopyableCode code="sendingMetrics" /> | `boolean` | Flag indicating if resource is sending metrics to Datadog. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

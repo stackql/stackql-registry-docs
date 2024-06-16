@@ -43,4 +43,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` |  | Get the list of subscriptions. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="subscriptionId" /> | Create or updates a subscription. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="subscriptionId" /> | Delete the specified subscription. |
-| <CopyableCode code="_list" /> | `EXEC` |  | Get the list of subscriptions. |

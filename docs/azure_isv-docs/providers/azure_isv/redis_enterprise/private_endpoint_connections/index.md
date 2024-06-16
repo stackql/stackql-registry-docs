@@ -30,7 +30,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
 | <CopyableCode code="name" /> | `string` | The name of the resource |
 | <CopyableCode code="properties" /> | `object` | Properties of the PrivateEndpointConnectProperties. |
 | <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
@@ -41,5 +41,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Gets the specified private endpoint connection associated with the RedisEnterprise cluster. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Lists all the private endpoint connections associated with the RedisEnterprise cluster. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Deletes the specified private endpoint connection associated with the RedisEnterprise cluster. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Lists all the private endpoint connections associated with the RedisEnterprise cluster. |
 | <CopyableCode code="put" /> | `EXEC` | <CopyableCode code="clusterName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Updates the state of the specified private endpoint connection associated with the RedisEnterprise cluster. |

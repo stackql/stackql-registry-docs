@@ -14,15 +14,15 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Build Modern Search Experiences And Maximize Visibility Into The Health, Performance, And Security Of Your Infrastructure, Applications, And Data.  
+Build modern search experiences and maximize visibility into the health, performance, and security of your infrastructure, applications, and data.  
     
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>18</b></span><br />
-<span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>37</b></span><br />
+<span>total resources:&nbsp;<b>21</b></span><br />
+<span>total selectable resources:&nbsp;<b>16</b></span><br />
+<span>total methods:&nbsp;<b>42</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Build Modern Search Experiences And Maximize Visibility Into The Health, Perform
 <tr><td><b>Name</b></td><td><code>azure_isv.elastic</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Elastic (Azure Native ISV Service)</td></tr>
-<tr><td><b>Description</b></td><td>Build Modern Search Experiences And Maximize Visibility Into The Health, Performance, And Security Of Your Infrastructure, Applications, And Data.</td></tr>
-<tr><td><b>Id</b></td><td><code>elastic:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>Build modern search experiences and maximize visibility into the health, performance, and security of your infrastructure, applications, and data.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:elastic</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -46,11 +46,14 @@ Build Modern Search Experiences And Maximize Visibility Into The Health, Perform
 <a href="/providers/azure_isv/elastic/deployment_info/">deployment_info</a><br />
 <a href="/providers/azure_isv/elastic/external_user/">external_user</a><br />
 <a href="/providers/azure_isv/elastic/monitored_resources/">monitored_resources</a><br />
+<a href="/providers/azure_isv/elastic/monitored_subscriptions/">monitored_subscriptions</a><br />
 <a href="/providers/azure_isv/elastic/monitors/">monitors</a><br />
+<a href="/providers/azure_isv/elastic/open_ai/">open_ai</a><br />
+<a href="/providers/azure_isv/elastic/open_ai_status/">open_ai_status</a><br />
 <a href="/providers/azure_isv/elastic/operations/">operations</a><br />
-<a href="/providers/azure_isv/elastic/organizations_api_key/">organizations_api_key</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/azure_isv/elastic/organizations_api_key/">organizations_api_key</a><br />
 <a href="/providers/azure_isv/elastic/organizations_elastic_to_azure_subscription_mapping/">organizations_elastic_to_azure_subscription_mapping</a><br />
 <a href="/providers/azure_isv/elastic/tag_rules/">tag_rules</a><br />
 <a href="/providers/azure_isv/elastic/traffic_filters/">traffic_filters</a><br />

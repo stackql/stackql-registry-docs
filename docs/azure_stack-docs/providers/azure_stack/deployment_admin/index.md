@@ -22,7 +22,7 @@ The AzureStack Deployment Admin Client.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>11</b></span><br />
 <span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>36</b></span><br />
+<span>total methods:&nbsp;<b>28</b></span><br />
 </div>
 </div>
 
@@ -34,7 +34,7 @@ The AzureStack Deployment Admin Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Deployment Admin Client</td></tr>
 <tr><td><b>Description</b></td><td>The AzureStack Deployment Admin Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>deployment_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:deployment_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

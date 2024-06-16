@@ -35,4 +35,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_clusters" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | List SecuritySetting resources by Clusters |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="clusterName, resourceGroupName, securitySettingsName, subscriptionId" /> | Create a security setting |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, resourceGroupName, securitySettingsName, subscriptionId" /> | Delete a SecuritySetting |
-| <CopyableCode code="_list_by_clusters" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | List SecuritySetting resources by Clusters |

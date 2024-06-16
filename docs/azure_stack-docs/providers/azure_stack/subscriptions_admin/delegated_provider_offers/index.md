@@ -41,4 +41,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="delegatedProviderSubscriptionId, offer, subscriptionId" /> | Get the specified delegated provider offer. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="delegatedProviderSubscriptionId, subscriptionId" /> | Get the list of delegated provider offers. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="delegatedProviderSubscriptionId, subscriptionId" /> | Get the list of delegated provider offers. |

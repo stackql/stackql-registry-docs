@@ -42,4 +42,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Returns an array of product packages. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="packageId, subscriptionId" /> | Creates a new product package. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="packageId, subscriptionId" /> | Deletes a product package. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Returns an array of product packages. |

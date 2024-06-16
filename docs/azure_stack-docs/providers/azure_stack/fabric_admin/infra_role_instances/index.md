@@ -41,7 +41,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="infraRoleInstance, location, resourceGroupName, subscriptionId" /> | Return the requested infrastructure role instance. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all infrastructure role instances at a location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all infrastructure role instances at a location. |
 | <CopyableCode code="power_off" /> | `EXEC` | <CopyableCode code="infraRoleInstance, location, resourceGroupName, subscriptionId" /> | Power off an infrastructure role instance. |
 | <CopyableCode code="power_on" /> | `EXEC` | <CopyableCode code="infraRoleInstance, location, resourceGroupName, subscriptionId" /> | Power on an infrastructure role instance. |
 | <CopyableCode code="reboot" /> | `EXEC` | <CopyableCode code="infraRoleInstance, location, resourceGroupName, subscriptionId" /> | Reboot an infrastructure role instance. |

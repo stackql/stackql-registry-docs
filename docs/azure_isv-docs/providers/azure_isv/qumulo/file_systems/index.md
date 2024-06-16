@@ -43,6 +43,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List FileSystemResource resources by subscription ID |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="fileSystemName, resourceGroupName, subscriptionId, data__properties" /> | Create a FileSystemResource |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="fileSystemName, resourceGroupName, subscriptionId" /> | Delete a FileSystemResource |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List FileSystemResource resources by resource group |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List FileSystemResource resources by subscription ID |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="fileSystemName, resourceGroupName, subscriptionId" /> | Update a FileSystemResource |

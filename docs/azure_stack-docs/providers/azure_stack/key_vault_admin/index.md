@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The AzureStack KeyVault Administrator Module Which Allows Administrator To View KeyVault Quotas.  
+The AzureStack KeyVault administrator module which allows administrator to view KeyVault quotas.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ The AzureStack KeyVault Administrator Module Which Allows Administrator To View 
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>2</b></span><br />
 <span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>4</b></span><br />
+<span>total methods:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ The AzureStack KeyVault Administrator Module Which Allows Administrator To View 
 <tr><td><b>Name</b></td><td><code>azure_stack.key_vault_admin</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Key Vault Management Client</td></tr>
-<tr><td><b>Description</b></td><td>The AzureStack KeyVault Administrator Module Which Allows Administrator To View KeyVault Quotas.</td></tr>
-<tr><td><b>Id</b></td><td><code>key_vault_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>The AzureStack KeyVault administrator module which allows administrator to view KeyVault quotas.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:key_vault_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

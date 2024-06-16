@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Azure Cache For Redis Is Based On The Popular Open-Source Redis Cache. It Gives You Access To A Secure, Dedicated Redis Server, Managed By Microsoft And Accessible From Any Application Within Azure.  
+Azure Cache for Redis is based on the popular open-source Redis cache. It gives you access to a secure, dedicated Redis server, managed by Microsoft and accessible from any application within Azure.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Azure Cache For Redis Is Based On The Popular Open-Source Redis Cache. It Gives 
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>7</b></span><br />
 <span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>30</b></span><br />
+<span>total methods:&nbsp;<b>26</b></span><br />
 </div>
 </div>
 
@@ -32,9 +32,9 @@ Azure Cache For Redis Is Based On The Popular Open-Source Redis Cache. It Gives 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_isv.redis_enterprise</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Cache For Redis Enterprise</td></tr>
-<tr><td><b>Description</b></td><td>Azure Cache For Redis Is Based On The Popular Open-Source Redis Cache. It Gives You Access To A Secure, Dedicated Redis Server, Managed By Microsoft And Accessible From Any Application Within Azure.</td></tr>
-<tr><td><b>Id</b></td><td><code>redis_enterprise:v24.01.00199</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Cache for Redis Enterprise</td></tr>
+<tr><td><b>Description</b></td><td>Azure Cache for Redis is based on the popular open-source Redis cache. It gives you access to a secure, dedicated Redis server, managed by Microsoft and accessible from any application within Azure.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:redis_enterprise</code></td></tr>
 </tbody></table>
 
 ## Resources

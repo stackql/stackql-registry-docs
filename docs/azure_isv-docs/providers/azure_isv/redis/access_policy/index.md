@@ -34,5 +34,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accessPolicyName, cacheName, resourceGroupName, subscriptionId" /> | Gets the detailed information about an access policy of a redis cache |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> | Gets the list of access policies associated with this redis cache |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accessPolicyName, cacheName, resourceGroupName, subscriptionId" /> | Deletes the access policy from a redis cache |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> | Gets the list of access policies associated with this redis cache |
 | <CopyableCode code="create_update" /> | `EXEC` | <CopyableCode code="accessPolicyName, cacheName, resourceGroupName, subscriptionId" /> | Adds an access policy to the redis cache |

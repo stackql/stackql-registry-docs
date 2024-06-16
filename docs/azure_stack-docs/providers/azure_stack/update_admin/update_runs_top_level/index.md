@@ -30,15 +30,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | URI of the resource. |
-| <CopyableCode code="name" /> | `string` | Name of the resource. |
-| <CopyableCode code="location" /> | `string` | Region location of resource. |
+| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
+| <CopyableCode code="name" /> | `string` | The name of the resource |
 | <CopyableCode code="properties" /> | `object` | Properties of an update run. |
-| <CopyableCode code="tags" /> | `object` | List of key-value pairs. |
-| <CopyableCode code="type" /> | `string` | Type of resource. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, runName, subscriptionId, updateLocation" /> | Get an instance of update run using the ID. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, updateLocation" /> | Get the list of update runs. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, updateLocation" /> | Get the list of update runs. |

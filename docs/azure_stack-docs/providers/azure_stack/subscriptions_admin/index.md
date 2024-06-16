@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The AzureStack Subscription Administrator Module. This Module Provides Functionality For Administrators To Manage Plans, Offers And Subscriptions  
+The AzureStack Subscription administrator module. This module provides functionality for administrators to manage plans, offers and subscriptions  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ The AzureStack Subscription Administrator Module. This Module Provides Functiona
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>20</b></span><br />
 <span>total selectable resources:&nbsp;<b>19</b></span><br />
-<span>total methods:&nbsp;<b>69</b></span><br />
+<span>total methods:&nbsp;<b>51</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ The AzureStack Subscription Administrator Module. This Module Provides Functiona
 <tr><td><b>Name</b></td><td><code>azure_stack.subscriptions_admin</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Subscriptions Management Client</td></tr>
-<tr><td><b>Description</b></td><td>The AzureStack Subscription Administrator Module. This Module Provides Functionality For Administrators To Manage Plans, Offers And Subscriptions</td></tr>
-<tr><td><b>Id</b></td><td><code>subscriptions_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>The AzureStack Subscription administrator module. This module provides functionality for administrators to manage plans, offers and subscriptions</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:subscriptions_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

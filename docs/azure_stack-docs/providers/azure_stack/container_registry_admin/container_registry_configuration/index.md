@@ -40,5 +40,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="configurationName, location, subscriptionId" /> | Returns the specified configuration details. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Returns a list of configuration at the given location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="configurationName, location, subscriptionId" /> | Delete an existing container registry configuration |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Returns a list of configuration at the given location. |
 | <CopyableCode code="put" /> | `EXEC` | <CopyableCode code="configurationName, location, subscriptionId, data__properties" /> | Configure container registry overall configuration properties. |

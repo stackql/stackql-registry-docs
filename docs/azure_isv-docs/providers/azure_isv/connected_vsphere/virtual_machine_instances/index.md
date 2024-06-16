@@ -38,7 +38,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceUri" /> | Lists all of the virtual machine instances within the specified parent resource. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="api-version, resourceUri, data__properties" /> | The operation to create or update a virtual machine instance. Please note some properties can be set only during virtual machine instance creation. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, resourceUri" /> | The operation to delete a virtual machine instance. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, resourceUri" /> | Lists all of the virtual machine instances within the specified parent resource. |
 | <CopyableCode code="restart" /> | `EXEC` | <CopyableCode code="api-version, resourceUri" /> | The operation to restart a virtual machine instance. |
 | <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="api-version, resourceUri" /> | The operation to start a virtual machine instance. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="api-version, resourceUri" /> | The operation to power off (stop) a virtual machine instance. |

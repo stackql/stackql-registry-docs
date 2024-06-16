@@ -39,6 +39,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | List all snapshots associated with the volume |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, poolName, resourceGroupName, snapshotName, subscriptionId, volumeName, data__location" /> | Create the specified snapshot within the given volume |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, poolName, resourceGroupName, snapshotName, subscriptionId, volumeName" /> | Delete snapshot |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | List all snapshots associated with the volume |
 | <CopyableCode code="restore_files" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, snapshotName, subscriptionId, volumeName, data__filePaths" /> | Restore the specified files from the specified snapshot to the active filesystem |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, snapshotName, subscriptionId, volumeName" /> | Patch a snapshot |

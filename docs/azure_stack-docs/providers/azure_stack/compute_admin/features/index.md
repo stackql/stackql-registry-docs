@@ -40,5 +40,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="featureName, location, subscriptionId" /> | Get an existing feature. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Get a list of existing features. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Get a list of existing features. |
 | <CopyableCode code="features" /> | `EXEC` | <CopyableCode code="featureName, location, subscriptionId" /> | Disable the tenant subscription feature. |

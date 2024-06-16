@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The AzureStack Commerce Administrator Module Which Provides A Way To View Aggregate Data Usage Across Your AzureStack Stamp.  
+The AzureStack Commerce administrator module which provides a way to view aggregate data usage across your AzureStack stamp.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ The AzureStack Commerce Administrator Module Which Provides A Way To View Aggreg
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
 <span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>5</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ The AzureStack Commerce Administrator Module Which Provides A Way To View Aggreg
 <tr><td><b>Name</b></td><td><code>azure_stack.commerce_admin</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Commerce Management Client</td></tr>
-<tr><td><b>Description</b></td><td>The AzureStack Commerce Administrator Module Which Provides A Way To View Aggregate Data Usage Across Your AzureStack Stamp.</td></tr>
-<tr><td><b>Id</b></td><td><code>commerce_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>The AzureStack Commerce administrator module which provides a way to view aggregate data usage across your AzureStack stamp.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:commerce_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

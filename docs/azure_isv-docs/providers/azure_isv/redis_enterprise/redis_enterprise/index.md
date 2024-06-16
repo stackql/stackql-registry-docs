@@ -33,7 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="identity" /> | `object` | Managed service identity (system assigned and/or user assigned identities) |
 | <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
 | <CopyableCode code="properties" /> | `object` | Properties of RedisEnterprise clusters, as opposed to general resource properties like location, tags |
-| <CopyableCode code="sku" /> | `object` | SKU parameters supplied to the create RedisEnterprise operation. |
+| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |
 | <CopyableCode code="zones" /> | `array` | The Availability Zones where this cluster will be deployed. |
 ## Methods
@@ -44,6 +44,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all RedisEnterprise clusters in a resource group. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, data__sku" /> | Creates or updates an existing (overwrite/recreate, with potential downtime) cache cluster |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Deletes a RedisEnterprise cache cluster. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets all RedisEnterprise clusters in the specified subscription. |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all RedisEnterprise clusters in a resource group. |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Updates an existing RedisEnterprise cluster |

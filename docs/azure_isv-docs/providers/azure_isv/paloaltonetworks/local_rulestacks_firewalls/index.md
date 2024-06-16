@@ -28,10 +28,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | next link |
-| <CopyableCode code="value" /> | `array` | firewalls list |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

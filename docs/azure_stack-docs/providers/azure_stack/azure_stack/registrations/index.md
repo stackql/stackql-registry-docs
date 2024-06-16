@@ -45,7 +45,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Returns a list of all registrations under current subscription. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="registrationName, resourceGroup, subscriptionId, data__location, data__properties" /> | Create or update an Azure Stack registration. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="registrationName, resourceGroup, subscriptionId" /> | Delete the requested Azure Stack registration. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroup, subscriptionId" /> | Returns a list of all registrations. |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Returns a list of all registrations under current subscription. |
 | <CopyableCode code="enable_remote_management" /> | `EXEC` | <CopyableCode code="registrationName, resourceGroup, subscriptionId" /> | Enables remote management for device under the Azure Stack registration. |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="registrationName, resourceGroup, subscriptionId, data__location, data__properties" /> | Patch an Azure Stack registration. |

@@ -43,4 +43,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="offer, resourceGroupName, subscriptionId" /> | Get the list of offer delegations. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="offer, offerDelegationName, resourceGroupName, subscriptionId" /> | Create or update the offer delegation. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="offer, offerDelegationName, resourceGroupName, subscriptionId" /> | Delete the specified offer delegation. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="offer, resourceGroupName, subscriptionId" /> | Get the list of offer delegations. |

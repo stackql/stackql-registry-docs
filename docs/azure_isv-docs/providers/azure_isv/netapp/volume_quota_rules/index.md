@@ -40,5 +40,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_volume" /> | `SELECT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | List all quota rules associated with the volume |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName" /> | Create the specified quota rule within the given volume |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName" /> | Delete quota rule |
-| <CopyableCode code="_list_by_volume" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | List all quota rules associated with the volume |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName, volumeQuotaRuleName" /> | Patch a quota rule |

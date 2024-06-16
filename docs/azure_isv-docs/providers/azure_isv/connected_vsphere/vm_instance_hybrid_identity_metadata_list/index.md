@@ -32,4 +32,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceUri" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, resourceUri" /> |

@@ -43,4 +43,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get the list of plans under a resource group. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="plan, resourceGroupName, subscriptionId" /> | Create or update the plan. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="plan, resourceGroupName, subscriptionId" /> | Delete the specified plan. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get the list of plans under a resource group. |

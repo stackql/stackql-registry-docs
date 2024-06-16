@@ -30,8 +30,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | Link to the next set of results, if any. |
-| <CopyableCode code="value" /> | `array` | Results of a list operation. |
+| <CopyableCode code="name" /> | `string` | The name of the host. |
+| <CopyableCode code="aliases" /> | `array` | The aliases for the host installed via the Datadog agent. |
+| <CopyableCode code="apps" /> | `array` | The Datadog integrations reporting metrics for the host. |
+| <CopyableCode code="meta" /> | `object` |  |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

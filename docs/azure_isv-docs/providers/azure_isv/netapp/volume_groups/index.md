@@ -42,4 +42,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_netapp_account" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List all volume groups for given account |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, volumeGroupName" /> | Create a volume group along with specified volumes |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, volumeGroupName" /> | Delete the specified volume group only if there are no volumes under volume group. |
-| <CopyableCode code="_list_by_netapp_account" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List all volume groups for given account |

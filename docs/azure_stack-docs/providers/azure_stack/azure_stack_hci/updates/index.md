@@ -38,6 +38,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | Get specified Update |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | List all Updates |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | Delete specified Update |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | List all Updates |
 | <CopyableCode code="post" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | Apply Update |
 | <CopyableCode code="put" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | Put specified Update |

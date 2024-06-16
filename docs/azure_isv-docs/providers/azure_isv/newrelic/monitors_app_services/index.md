@@ -30,8 +30,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | The link to the next page of items |
-| <CopyableCode code="value" /> | `array` | The AppServiceInfo items on this page |
+| <CopyableCode code="agentStatus" /> | `string` | Status of the NewRelic agent installed on the App service. |
+| <CopyableCode code="agentVersion" /> | `string` | Version of the NewRelic agent installed on the App service. |
+| <CopyableCode code="azureResourceId" /> | `string` | Azure App service resource ID |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

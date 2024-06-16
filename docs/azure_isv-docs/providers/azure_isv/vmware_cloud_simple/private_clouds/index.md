@@ -40,4 +40,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, pcName, regionId, subscriptionId" /> | Returns private cloud by its name |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, regionId, subscriptionId" /> | Returns list of private clouds in particular region |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, regionId, subscriptionId" /> | Returns list of private clouds in particular region |

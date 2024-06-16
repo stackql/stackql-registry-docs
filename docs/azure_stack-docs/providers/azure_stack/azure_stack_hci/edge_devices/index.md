@@ -35,5 +35,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceUri" /> | List EdgeDevice resources by parent |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="edgeDeviceName, resourceUri" /> | Create a EdgeDevice |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="edgeDeviceName, resourceUri" /> | Delete a EdgeDevice |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceUri" /> | List EdgeDevice resources by parent |
 | <CopyableCode code="validate" /> | `EXEC` | <CopyableCode code="edgeDeviceName, resourceUri, data__edgeDeviceIds" /> | A long-running resource action. |

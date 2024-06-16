@@ -30,8 +30,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | The link to the next page of items |
-| <CopyableCode code="value" /> | `array` | The MonitoredResource items on this page |
+| <CopyableCode code="id" /> | `string` | The ARM id of the resource. |
+| <CopyableCode code="reasonForLogsStatus" /> | `string` | Reason for why the resource is sending logs (or why it is not sending). |
+| <CopyableCode code="reasonForMetricsStatus" /> | `string` | Reason for why the resource is sending metrics (or why it is not sending). |
+| <CopyableCode code="sendingLogs" /> | `string` | Indicates whether logs are being sent. |
+| <CopyableCode code="sendingMetrics" /> | `string` | Indicates whether metrics are being sent. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

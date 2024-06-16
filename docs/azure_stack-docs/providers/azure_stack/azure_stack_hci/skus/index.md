@@ -30,7 +30,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The name of the SKU. Ex - P3. It is typically a letter+number code |
+| <CopyableCode code="name" /> | `string` | The name of the SKU. E.g. P3. It is typically a letter+number code |
 | <CopyableCode code="capacity" /> | `integer` | If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. |
 | <CopyableCode code="family" /> | `string` | If the service has different generations of hardware, for the same SKU, then that can be captured here. |
 | <CopyableCode code="size" /> | `string` | The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.  |
@@ -40,4 +40,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, offerName, publisherName, resourceGroupName, skuName, subscriptionId" /> | Get SKU resource details within a offer of HCI Cluster. |
 | <CopyableCode code="list_by_offer" /> | `SELECT` | <CopyableCode code="clusterName, offerName, publisherName, resourceGroupName, subscriptionId" /> | List Skus available for a offer within the HCI Cluster. |
-| <CopyableCode code="_list_by_offer" /> | `EXEC` | <CopyableCode code="clusterName, offerName, publisherName, resourceGroupName, subscriptionId" /> | List Skus available for a offer within the HCI Cluster. |

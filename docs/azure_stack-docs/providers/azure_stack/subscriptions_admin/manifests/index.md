@@ -54,4 +54,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="manifestName, subscriptionId" /> | Get the specified manifest. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Get a list of all manifests. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Get a list of all manifests. |

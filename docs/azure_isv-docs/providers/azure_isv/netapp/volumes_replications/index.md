@@ -28,6 +28,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="endpointType" /> | `string` | Indicates whether the local volume is the source or destination for the Volume Replication |
+| <CopyableCode code="remoteVolumeRegion" /> | `string` | The remote region for the other end of the Volume Replication. |
+| <CopyableCode code="remoteVolumeResourceId" /> | `string` | The resource ID of the remote volume. |
+| <CopyableCode code="replicationId" /> | `string` | UUID v4 used to identify the replication. |
+| <CopyableCode code="replicationSchedule" /> | `string` | Schedule |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|

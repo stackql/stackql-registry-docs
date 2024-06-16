@@ -43,4 +43,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns the list of activations. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="activationName, resourceGroupName, subscriptionId" /> | Create a new activation. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="activationName, resourceGroupName, subscriptionId" /> | Delete an activation. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns the list of activations. |

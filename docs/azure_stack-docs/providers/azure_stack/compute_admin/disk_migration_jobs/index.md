@@ -40,5 +40,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, migrationId, subscriptionId" /> | Returns the requested disk migration job. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Returns a list of disk migration jobs. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="location, migrationId, subscriptionId" /> | Create a disk migration job. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Returns a list of disk migration jobs. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="location, migrationId, subscriptionId" /> | Cancel a disk migration job. |

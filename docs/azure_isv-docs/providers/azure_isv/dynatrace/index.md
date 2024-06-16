@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Get Deep Cloud Observability, Advanced AIOps, And Continuous Runtime Application Security.  
+Get deep cloud observability, advanced AIOps, and continuous runtime application security.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Get Deep Cloud Observability, Advanced AIOps, And Continuous Runtime Application
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>12</b></span><br />
 <span>total selectable resources:&nbsp;<b>12</b></span><br />
-<span>total methods:&nbsp;<b>27</b></span><br />
+<span>total methods:&nbsp;<b>22</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Get Deep Cloud Observability, Advanced AIOps, And Continuous Runtime Application
 <tr><td><b>Name</b></td><td><code>azure_isv.dynatrace</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Dynatrace (Azure Native ISV Service)</td></tr>
-<tr><td><b>Description</b></td><td>Get Deep Cloud Observability, Advanced AIOps, And Continuous Runtime Application Security.</td></tr>
-<tr><td><b>Id</b></td><td><code>dynatrace:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>Get deep cloud observability, advanced AIOps, and continuous runtime application security.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:dynatrace</code></td></tr>
 </tbody></table>
 
 ## Resources

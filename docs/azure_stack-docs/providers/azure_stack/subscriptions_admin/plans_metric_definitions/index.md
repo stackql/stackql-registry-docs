@@ -38,4 +38,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="plan, resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="plan, resourceGroupName, subscriptionId" /> |

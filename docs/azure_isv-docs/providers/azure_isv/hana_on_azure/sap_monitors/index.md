@@ -34,11 +34,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="properties" /> | `object` | Describes the properties of a SAP monitor. |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> | Gets properties of a SAP monitor for the specified subscription, resource group, and resource name. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets a list of SAP monitors in the specified subscription. The operations returns various properties of each SAP monitor. |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> | Creates a SAP monitor for the specified subscription, resource group, and resource name. |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> | Deletes a SAP monitor with the specified subscription, resource group, and monitor name. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets a list of SAP monitors in the specified subscription. The operations returns various properties of each SAP monitor. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> | Patches the Tags field of a SAP monitor for the specified subscription, resource group, and monitor name. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> |

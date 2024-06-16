@@ -30,8 +30,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | next link |
-| <CopyableCode code="value" /> | `array` | List of countries |
+| <CopyableCode code="description" /> | `string` | code description |
+| <CopyableCode code="code" /> | `string` | country code |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

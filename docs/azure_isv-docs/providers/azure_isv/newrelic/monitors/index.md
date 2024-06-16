@@ -42,8 +42,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List NewRelicMonitorResource resources by subscription ID |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId, data__properties" /> | Create a NewRelicMonitorResource |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId, userEmail" /> | Delete a NewRelicMonitorResource |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List NewRelicMonitorResource resources by resource group |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List NewRelicMonitorResource resources by subscription ID |
 | <CopyableCode code="switch_billing" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId, data__userEmail" /> | Switches the billing for NewRelic monitor resource. |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | Update a NewRelicMonitorResource |
 | <CopyableCode code="vm_host_payload" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | Returns the payload that needs to be passed in the request body for installing NewRelic agent on a VM. |

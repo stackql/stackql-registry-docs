@@ -35,4 +35,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_clusters" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | List DeploymentSetting resources by Clusters |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="clusterName, deploymentSettingsName, resourceGroupName, subscriptionId" /> | Create a DeploymentSetting |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, deploymentSettingsName, resourceGroupName, subscriptionId" /> | Delete a DeploymentSetting |
-| <CopyableCode code="_list_by_clusters" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | List DeploymentSetting resources by Clusters |

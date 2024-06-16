@@ -30,21 +30,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="identity" /> | `object` | Identity for the virtual machine. |
-| <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
+| <CopyableCode code="location" /> | `string` | Resource location |
 | <CopyableCode code="properties" /> | `object` | The properties of a private cloud resource |
 | <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
-| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="tags" /> | `object` | Resource tags |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId, data__location, data__sku" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId, data__location, data__properties, data__sku" /> |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="_list_in_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |
 | <CopyableCode code="list_in_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |
-| <CopyableCode code="rotate_nsxt_password" /> | `EXEC` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="rotate_vcenter_password" /> | `EXEC` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |

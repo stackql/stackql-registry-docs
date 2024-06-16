@@ -41,6 +41,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a specific backup location based on name. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns the list of backup locations. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns the list of backup locations. |
 | <CopyableCode code="prune_external_store" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Prune the external backup store. |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Update a backup location. |

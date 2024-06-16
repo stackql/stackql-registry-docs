@@ -41,4 +41,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Get the specified location. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Get a list of all AzureStack location. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="location, subscriptionId" /> | Updates the specified location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Get a list of all AzureStack location. |

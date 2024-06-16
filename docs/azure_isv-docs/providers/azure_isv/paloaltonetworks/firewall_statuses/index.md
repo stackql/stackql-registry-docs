@@ -36,4 +36,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | <CopyableCode code="list_by_firewalls" /> | `SELECT` | <CopyableCode code="firewallName, resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="_list_by_firewalls" /> | `EXEC` | <CopyableCode code="firewallName, resourceGroupName, subscriptionId" /> |

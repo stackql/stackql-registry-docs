@@ -39,4 +39,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="globalRulestackName" /> | List CertificateObjectGlobalRulestackResource resources by Tenant |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="globalRulestackName, name, data__properties" /> | Create a CertificateObjectGlobalRulestackResource |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="globalRulestackName, name" /> | Delete a CertificateObjectGlobalRulestackResource |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="globalRulestackName" /> | List CertificateObjectGlobalRulestackResource resources by Tenant |

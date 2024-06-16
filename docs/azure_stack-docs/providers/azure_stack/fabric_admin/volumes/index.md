@@ -41,4 +41,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, scaleUnit, storageSubSystem, subscriptionId, volume" /> | Return the requested a storage volume. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, scaleUnit, storageSubSystem, subscriptionId" /> | Returns a list of all storage volumes at a location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, scaleUnit, storageSubSystem, subscriptionId" /> | Returns a list of all storage volumes at a location. |

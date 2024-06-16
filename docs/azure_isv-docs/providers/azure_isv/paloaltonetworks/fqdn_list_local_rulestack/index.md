@@ -39,4 +39,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_local_rulestacks" /> | `SELECT` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | List FqdnListLocalRulestackResource resources by LocalRulestacks |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="localRulestackName, name, resourceGroupName, subscriptionId, data__properties" /> | Create a FqdnListLocalRulestackResource |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="localRulestackName, name, resourceGroupName, subscriptionId" /> | Delete a FqdnListLocalRulestackResource |
-| <CopyableCode code="_list_by_local_rulestacks" /> | `EXEC` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | List FqdnListLocalRulestackResource resources by LocalRulestacks |

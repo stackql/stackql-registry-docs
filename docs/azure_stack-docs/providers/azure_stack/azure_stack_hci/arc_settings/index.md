@@ -35,7 +35,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_cluster" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Get ArcSetting resources of HCI Cluster. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Create ArcSetting for HCI cluster. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Delete ArcSetting resource details of HCI Cluster. |
-| <CopyableCode code="_list_by_cluster" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Get ArcSetting resources of HCI Cluster. |
 | <CopyableCode code="consent_and_install_default_extensions" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Add consent time for default extensions and initiate extensions installation |
 | <CopyableCode code="generate_password" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Generate password for arc settings. |
 | <CopyableCode code="initialize_disable_process" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | Initializes ARC Disable process on the cluster |

@@ -38,11 +38,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Gets an azure databricks accessConnector. |
-| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all the azure databricks accessConnectors within a resource group. |
-| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets all the azure databricks accessConnectors within a subscription. |
-| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Creates or updates azure databricks accessConnector. |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Deletes the azure databricks accessConnector. |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all the azure databricks accessConnectors within a resource group. |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets all the azure databricks accessConnectors within a subscription. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Updates an azure databricks accessConnector. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Gets an Azure Databricks Access Connector. |
+| <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all the Azure Databricks Access Connectors within a resource group. |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets all the Azure Databricks Access Connectors within a subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Creates or updates Azure Databricks Access Connector. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Deletes the Azure Databricks Access Connector. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="connectorName, resourceGroupName, subscriptionId" /> | Updates an Azure Databricks Access Connector. |

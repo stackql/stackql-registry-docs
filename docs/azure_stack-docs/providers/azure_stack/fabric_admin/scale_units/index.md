@@ -42,6 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, scaleUnit, subscriptionId" /> | Returns the requested scale unit. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all scale units at a location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="location, resourceGroupName, scaleUnit, subscriptionId" /> | Add a new scale unit. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all scale units at a location. |
 | <CopyableCode code="scale_out" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, scaleUnit, subscriptionId" /> | Scales out a scale unit. |
 | <CopyableCode code="set_gpu_partition_size" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, scaleUnit, subscriptionId" /> | Set GPU partition size. |

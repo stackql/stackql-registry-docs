@@ -22,7 +22,7 @@ The AzureStack Admin Network Management Client
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>10</b></span><br />
 <span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>22</b></span><br />
+<span>total methods:&nbsp;<b>13</b></span><br />
 </div>
 </div>
 
@@ -34,7 +34,7 @@ The AzureStack Admin Network Management Client
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Network Admin Management Client</td></tr>
 <tr><td><b>Description</b></td><td>The AzureStack Admin Network Management Client</td></tr>
-<tr><td><b>Id</b></td><td><code>network_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:network_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

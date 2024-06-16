@@ -22,7 +22,7 @@ The AzureStack Admin Container Service Management Client.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>6</b></span><br />
+<span>total methods:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -34,7 +34,7 @@ The AzureStack Admin Container Service Management Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Container Service Admin Client</td></tr>
 <tr><td><b>Description</b></td><td>The AzureStack Admin Container Service Management Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>container_service_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:container_service_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -44,8 +44,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="api-version, subscriptionId" /> | Returns list virtual machine within subscription |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="Referer, api-version, resourceGroupName, subscriptionId, virtualMachineName, data__location" /> | Create Or Update Virtual Machine |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="Referer, api-version, resourceGroupName, subscriptionId, virtualMachineName" /> | Delete virtual machine |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | Returns list of virtual machine within resource group |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="api-version, subscriptionId" /> | Returns list virtual machine within subscription |
 | <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="Referer, api-version, resourceGroupName, subscriptionId, virtualMachineName" /> | Power on virtual machine |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="Referer, api-version, resourceGroupName, subscriptionId, virtualMachineName" /> | Power off virtual machine, options: shutdown, poweroff, and suspend |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, virtualMachineName" /> | Patch virtual machine properties |

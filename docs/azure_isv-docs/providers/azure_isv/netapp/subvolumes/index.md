@@ -35,5 +35,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_volume" /> | `SELECT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | Returns a list of the subvolumes in the volume |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName" /> | Creates a subvolume in the path or clones the subvolume mentioned in the parentPath |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName" /> | Delete subvolume |
-| <CopyableCode code="_list_by_volume" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | Returns a list of the subvolumes in the volume |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, subvolumeName, volumeName" /> | Patch a subvolume |

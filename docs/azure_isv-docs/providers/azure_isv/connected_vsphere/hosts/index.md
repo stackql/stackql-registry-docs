@@ -47,6 +47,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | List of hosts in a resource group. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="api-version, hostName, resourceGroupName, subscriptionId, data__location, data__properties" /> | Create Or Update host. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, hostName, resourceGroupName, subscriptionId" /> | Implements host DELETE method. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, subscriptionId" /> | List of hosts in a subscription. |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | List of hosts in a resource group. |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="api-version, hostName, resourceGroupName, subscriptionId" /> | API to update certain properties of the host resource. |

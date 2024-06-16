@@ -38,6 +38,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="alertName, location, resourceGroupName, subscriptionId" /> | Returns the requested an alert. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns the list of all alerts in a given region. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns the list of all alerts in a given region. |
 | <CopyableCode code="close" /> | `EXEC` | <CopyableCode code="alertName, location, resourceGroupName, subscriptionId, user" /> | Closes the given alert. |
 | <CopyableCode code="repair" /> | `EXEC` | <CopyableCode code="alertName, location, resourceGroupName, subscriptionId" /> | Repairs an alert. |

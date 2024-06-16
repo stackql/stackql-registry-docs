@@ -43,8 +43,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets all Redis caches in the specified subscription. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="name, resourceGroupName, subscriptionId, data__location, data__properties" /> | Create or replace (overwrite/recreate, with potential downtime) an existing Redis cache. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Deletes a Redis cache. |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all Redis caches in a resource group. |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets all Redis caches in the specified subscription. |
 | <CopyableCode code="check_name_availability" /> | `EXEC` | <CopyableCode code="subscriptionId, data__name, data__type" /> | Checks that the redis cache name is valid and is not already in use. |
 | <CopyableCode code="export_data" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId, data__container, data__prefix" /> | Export data from the redis cache to blobs in a container. |
 | <CopyableCode code="flush_cache" /> | `EXEC` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> | Deletes all of the keys in a cache. |

@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Cloud-Scale Observability And Security For Your Azure, Hybrid, Or Multi-Cloud Environment To Troubleshoot Quickly, Increase Uptime, And Control Costs.  
+Cloud-scale observability and security for your Azure, hybrid, or multi-cloud environment to troubleshoot quickly, increase uptime, and control costs.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Cloud-Scale Observability And Security For Your Azure, Hybrid, Or Multi-Cloud En
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>13</b></span><br />
 <span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>37</b></span><br />
+<span>total methods:&nbsp;<b>29</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Cloud-Scale Observability And Security For Your Azure, Hybrid, Or Multi-Cloud En
 <tr><td><b>Name</b></td><td><code>azure_isv.datadog</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Datadog Azure Integration (Azure Native ISV Service)</td></tr>
-<tr><td><b>Description</b></td><td>Cloud-Scale Observability And Security For Your Azure, Hybrid, Or Multi-Cloud Environment To Troubleshoot Quickly, Increase Uptime, And Control Costs.</td></tr>
-<tr><td><b>Id</b></td><td><code>datadog:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>Cloud-scale observability and security for your Azure, hybrid, or multi-cloud environment to troubleshoot quickly, increase uptime, and control costs.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:datadog</code></td></tr>
 </tbody></table>
 
 ## Resources

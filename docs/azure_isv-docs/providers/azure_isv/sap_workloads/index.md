@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Azure Center For SAP Solutions (ACSS) Is An Azure Offering That Makes SAP A Top-Level Workload On Azure. You Can Use ACSS To Deploy Or Manage SAP Systems On Azure Seamlessly. The Deployment Experience Sets Up And Connects The Individual SAP Components On Your Behalf. ACSS Simplifies The Management Of SAP Systems And Provides Quality Checks To Increase The Reliability Of These Systems On Azure.  
+Azure Center for SAP solutions (ACSS) is an Azure offering that makes SAP a top-level workload on Azure. You can use ACSS to deploy or manage SAP systems on Azure seamlessly. The deployment experience sets up and connects the individual SAP components on your behalf. ACSS simplifies the management of SAP systems and provides quality checks to increase the reliability of these systems on Azure.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Azure Center For SAP Solutions (ACSS) Is An Azure Offering That Makes SAP A Top-
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>13</b></span><br />
 <span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>59</b></span><br />
+<span>total methods:&nbsp;<b>49</b></span><br />
 </div>
 </div>
 
@@ -32,9 +32,9 @@ Azure Center For SAP Solutions (ACSS) Is An Azure Offering That Makes SAP A Top-
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_isv.sap_workloads</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Center For SAP Solutions</td></tr>
-<tr><td><b>Description</b></td><td>Azure Center For SAP Solutions (ACSS) Is An Azure Offering That Makes SAP A Top-Level Workload On Azure. You Can Use ACSS To Deploy Or Manage SAP Systems On Azure Seamlessly. The Deployment Experience Sets Up And Connects The Individual SAP Components On Your Behalf. ACSS Simplifies The Management Of SAP Systems And Provides Quality Checks To Increase The Reliability Of These Systems On Azure.</td></tr>
-<tr><td><b>Id</b></td><td><code>sap_workloads:v24.01.00199</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure Center for SAP Solutions</td></tr>
+<tr><td><b>Description</b></td><td>Azure Center for SAP solutions (ACSS) is an Azure offering that makes SAP a top-level workload on Azure. You can use ACSS to deploy or manage SAP systems on Azure seamlessly. The deployment experience sets up and connects the individual SAP components on your behalf. ACSS simplifies the management of SAP systems and provides quality checks to increase the reliability of these systems on Azure.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:sap_workloads</code></td></tr>
 </tbody></table>
 
 ## Resources

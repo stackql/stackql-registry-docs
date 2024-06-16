@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Azure Databricks Is An Interactive Workspace That Integrates Effortlessly With A Wide Variety Of Data Stores And Services.  
+Azure Databricks is an interactive workspace that integrates effortlessly with a wide variety of data stores and services.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Azure Databricks Is An Interactive Workspace That Integrates Effortlessly With A
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>7</b></span><br />
 <span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>32</b></span><br />
+<span>total methods:&nbsp;<b>24</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Azure Databricks Is An Interactive Workspace That Integrates Effortlessly With A
 <tr><td><b>Name</b></td><td><code>azure_isv.databricks</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Databricks</td></tr>
-<tr><td><b>Description</b></td><td>Azure Databricks Is An Interactive Workspace That Integrates Effortlessly With A Wide Variety Of Data Stores And Services.</td></tr>
-<tr><td><b>Id</b></td><td><code>databricks:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>Azure Databricks is an interactive workspace that integrates effortlessly with a wide variety of data stores and services.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:databricks</code></td></tr>
 </tbody></table>
 
 ## Resources

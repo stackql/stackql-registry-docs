@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The AzureStack Compute Administrator Module Which Provides Functionality To Manage Compute Quotas, Platform Images, And Virtual Machine Extensions, As Well As Managed Disks Migration Jobs To Rebalance Storage.  
+the AzureStack Compute administrator module which provides functionality to manage compute quotas, platform images, and virtual machine extensions, as well as managed disks migration jobs to rebalance storage.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ The AzureStack Compute Administrator Module Which Provides Functionality To Mana
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>8</b></span><br />
 <span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>28</b></span><br />
+<span>total methods:&nbsp;<b>23</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ The AzureStack Compute Administrator Module Which Provides Functionality To Mana
 <tr><td><b>Name</b></td><td><code>azure_stack.compute_admin</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Compute Admin Client</td></tr>
-<tr><td><b>Description</b></td><td>The AzureStack Compute Administrator Module Which Provides Functionality To Manage Compute Quotas, Platform Images, And Virtual Machine Extensions, As Well As Managed Disks Migration Jobs To Rebalance Storage.</td></tr>
-<tr><td><b>Id</b></td><td><code>compute_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>the AzureStack Compute administrator module which provides functionality to manage compute quotas, platform images, and virtual machine extensions, as well as managed disks migration jobs to rebalance storage.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:compute_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

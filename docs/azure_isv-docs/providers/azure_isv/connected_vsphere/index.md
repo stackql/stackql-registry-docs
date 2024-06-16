@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Self Service Experience For VMware.  
+Self service experience for VMware.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Self Service Experience For VMware.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>15</b></span><br />
 <span>total selectable resources:&nbsp;<b>15</b></span><br />
-<span>total methods:&nbsp;<b>80</b></span><br />
+<span>total methods:&nbsp;<b>61</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Self Service Experience For VMware.
 <tr><td><b>Name</b></td><td><code>azure_isv.connected_vsphere</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Azure Arc VMware Management Service API</td></tr>
-<tr><td><b>Description</b></td><td>Self Service Experience For VMware.</td></tr>
-<tr><td><b>Id</b></td><td><code>connected_vsphere:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>Self service experience for VMware.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:connected_vsphere</code></td></tr>
 </tbody></table>
 
 ## Resources

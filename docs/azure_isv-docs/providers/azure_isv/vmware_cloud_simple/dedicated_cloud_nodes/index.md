@@ -45,6 +45,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="api-version, subscriptionId" /> | Returns list of dedicate cloud nodes within subscription |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="Referer, api-version, dedicatedCloudNodeName, resourceGroupName, subscriptionId, data__location" /> | Returns dedicated cloud node by its name |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, dedicatedCloudNodeName, resourceGroupName, subscriptionId" /> | Delete dedicated cloud node |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | Returns list of dedicate cloud nodes within resource group |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="api-version, subscriptionId" /> | Returns list of dedicate cloud nodes within subscription |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="api-version, dedicatedCloudNodeName, resourceGroupName, subscriptionId" /> | Patches dedicated node properties |

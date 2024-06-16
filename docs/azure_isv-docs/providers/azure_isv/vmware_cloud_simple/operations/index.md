@@ -41,4 +41,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="Referer, api-version, operationId, regionId, subscriptionId" /> | Return an async operation |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version" /> | Return list of operations |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version" /> | Return list of operations |

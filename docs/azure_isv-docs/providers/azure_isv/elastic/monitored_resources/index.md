@@ -30,8 +30,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | Link to the next set of results, if any. |
-| <CopyableCode code="value" /> | `array` | Results of a list operation. |
+| <CopyableCode code="id" /> | `string` | The ARM id of the resource. |
+| <CopyableCode code="reasonForLogsStatus" /> | `string` | Reason for why the resource is sending logs (or why it is not sending). |
+| <CopyableCode code="sendingLogs" /> | `string` | Flag indicating the status of the resource for sending logs operation to Elastic. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
