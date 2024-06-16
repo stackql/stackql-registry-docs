@@ -1,0 +1,46 @@
+---
+title: shares_synchronizations
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - shares_synchronizations
+  - data_share
+  - azure    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>shares_synchronizations</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_share.shares_synchronizations" /></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="consumerEmail" /> | `string` | Email of the user who created the synchronization |
+| <CopyableCode code="consumerName" /> | `string` | Name of the user who created the synchronization |
+| <CopyableCode code="consumerTenantName" /> | `string` | Tenant name of the consumer who created the synchronization |
+| <CopyableCode code="durationMs" /> | `integer` | synchronization duration |
+| <CopyableCode code="endTime" /> | `string` | End time of synchronization |
+| <CopyableCode code="message" /> | `string` | message of synchronization |
+| <CopyableCode code="startTime" /> | `string` | start time of synchronization |
+| <CopyableCode code="status" /> | `string` | Raw Status |
+| <CopyableCode code="synchronizationId" /> | `string` | Synchronization id |
+| <CopyableCode code="synchronizationMode" /> | `string` | Synchronization mode |
+## Methods
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, api-version, resourceGroupName, shareName, subscriptionId" /> |
