@@ -34,5 +34,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, offerName, publisherName, resourceGroupName, subscriptionId" /> | Get Offer resource details within a publisher of HCI Cluster. |
 | <CopyableCode code="list_by_cluster" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | List Offers available across publishers for the HCI Cluster. |
 | <CopyableCode code="list_by_publisher" /> | `SELECT` | <CopyableCode code="clusterName, publisherName, resourceGroupName, subscriptionId" /> | List Offers available for a publisher within the HCI Cluster. |
-| <CopyableCode code="_list_by_cluster" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | List Offers available across publishers for the HCI Cluster. |
-| <CopyableCode code="_list_by_publisher" /> | `EXEC` | <CopyableCode code="clusterName, publisherName, resourceGroupName, subscriptionId" /> | List Offers available for a publisher within the HCI Cluster. |

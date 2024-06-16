@@ -40,5 +40,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets the list of locations |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets the list of locations |
 | <CopyableCode code="exec_get" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets the location |

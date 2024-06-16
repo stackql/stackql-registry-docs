@@ -43,4 +43,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="deploymentName, resourceGroupName, subscriptionId" /> |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="configurationName, deploymentName, resourceGroupName, subscriptionId" /> |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="configurationName, deploymentName, resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="deploymentName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="analysis" /> | `EXEC` | <CopyableCode code="configurationName, deploymentName, resourceGroupName, subscriptionId, data__config" /> |

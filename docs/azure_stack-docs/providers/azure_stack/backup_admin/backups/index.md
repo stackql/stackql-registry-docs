@@ -42,5 +42,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="backup, location, resourceGroupName, subscriptionId" /> | Returns a backup from a location based on name. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of backups from a location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Back up a specific location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of backups from a location. |
 | <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="backup, location, resourceGroupName, subscriptionId" /> | Restore a backup. |

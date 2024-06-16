@@ -41,5 +41,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List snapshot policy |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, resourceGroupName, snapshotPolicyName, subscriptionId, data__location, data__properties" /> | Create a snapshot policy |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, resourceGroupName, snapshotPolicyName, subscriptionId" /> | Delete snapshot policy |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List snapshot policy |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, snapshotPolicyName, subscriptionId" /> | Patch a snapshot policy |

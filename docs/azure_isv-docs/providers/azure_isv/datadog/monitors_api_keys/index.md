@@ -30,8 +30,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | Link to the next set of results, if any. |
-| <CopyableCode code="value" /> | `array` | Results of a list operation. |
+| <CopyableCode code="name" /> | `string` | The name of the API key. |
+| <CopyableCode code="created" /> | `string` | The time of creation of the API key. |
+| <CopyableCode code="createdBy" /> | `string` | The user that created the API key. |
+| <CopyableCode code="key" /> | `string` | The value of the API key. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

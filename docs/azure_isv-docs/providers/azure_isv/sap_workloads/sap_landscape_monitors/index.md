@@ -33,4 +33,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | Creates a SAP Landscape Monitor Dashboard for the specified subscription, resource group, and resource name. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name. |

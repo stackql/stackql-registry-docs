@@ -28,10 +28,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | Link to the next set of results, if any. |
-| <CopyableCode code="value" /> | `array` | List of user roles for Logz.io account. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

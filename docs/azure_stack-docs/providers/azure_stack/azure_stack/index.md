@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Build And Run Hybrid Apps Across Datacenters, Edge Locations, Remote Offices, And The Cloud.  
+Build and run hybrid apps across datacenters, edge locations, remote offices, and the cloud.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Build And Run Hybrid Apps Across Datacenters, Edge Locations, Remote Offices, An
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>9</b></span><br />
 <span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>28</b></span><br />
+<span>total methods:&nbsp;<b>23</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Build And Run Hybrid Apps Across Datacenters, Edge Locations, Remote Offices, An
 <tr><td><b>Name</b></td><td><code>azure_stack.azure_stack</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Client</td></tr>
-<tr><td><b>Description</b></td><td>Build And Run Hybrid Apps Across Datacenters, Edge Locations, Remote Offices, And The Cloud.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>Build and run hybrid apps across datacenters, edge locations, remote offices, and the cloud.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:azure_stack</code></td></tr>
 </tbody></table>
 
 ## Resources

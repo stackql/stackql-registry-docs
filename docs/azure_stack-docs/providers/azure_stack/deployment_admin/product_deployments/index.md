@@ -41,4 +41,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="productId, subscriptionId" /> |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |

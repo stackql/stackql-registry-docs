@@ -41,4 +41,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | List private endpoint connections of the workspace |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="privateEndpointConnectionName, resourceGroupName, subscriptionId, workspaceName, data__properties" /> | Update the status of a private endpoint connection with the specified name |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="privateEndpointConnectionName, resourceGroupName, subscriptionId, workspaceName" /> | Remove private endpoint connection with the specified name |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | List private endpoint connections of the workspace |

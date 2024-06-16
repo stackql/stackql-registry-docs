@@ -39,6 +39,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_local_rulestacks" /> | `SELECT` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | List LocalRulesResource resources by LocalRulestacks |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="localRulestackName, priority, resourceGroupName, subscriptionId, data__properties" /> | Create a LocalRulesResource |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="localRulestackName, priority, resourceGroupName, subscriptionId" /> | Delete a LocalRulesResource |
-| <CopyableCode code="_list_by_local_rulestacks" /> | `EXEC` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | List LocalRulesResource resources by LocalRulestacks |
 | <CopyableCode code="refresh_counters" /> | `EXEC` | <CopyableCode code="localRulestackName, priority, resourceGroupName, subscriptionId" /> | Refresh counters |
 | <CopyableCode code="reset_counters" /> | `EXEC` | <CopyableCode code="localRulestackName, priority, resourceGroupName, subscriptionId" /> | Reset counters |

@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The Azure Stack Update Administrator Module. In This Module Administrators Can : List And Install Available Updates, Resume Interrupted Updates, View Installed Updates  
+The Azure Stack Update administrator module. In this module administrators can : List and install available updates, Resume interrupted updates, View installed updates  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ The Azure Stack Update Administrator Module. In This Module Administrators Can :
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>18</b></span><br />
+<span>total methods:&nbsp;<b>13</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ The Azure Stack Update Administrator Module. In This Module Administrators Can :
 <tr><td><b>Name</b></td><td><code>azure_stack.update_admin</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Update Admin Client</td></tr>
-<tr><td><b>Description</b></td><td>The Azure Stack Update Administrator Module. In This Module Administrators Can : List And Install Available Updates, Resume Interrupted Updates, View Installed Updates</td></tr>
-<tr><td><b>Id</b></td><td><code>update_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>The Azure Stack Update administrator module. In this module administrators can : List and install available updates, Resume interrupted updates, View installed updates</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:update_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

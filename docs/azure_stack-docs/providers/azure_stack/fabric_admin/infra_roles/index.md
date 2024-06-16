@@ -41,5 +41,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="infraRole, location, resourceGroupName, subscriptionId" /> | Returns the requested infrastructure role description. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all infrastructure roles at a location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all infrastructure roles at a location. |
 | <CopyableCode code="restart" /> | `EXEC` | <CopyableCode code="infraRole, location, resourceGroupName, subscriptionId" /> | Restarts the requested infrastructure role. |

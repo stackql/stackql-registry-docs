@@ -42,8 +42,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List all HCI clusters in a subscription. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Create an HCI cluster. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Delete an HCI cluster. |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List all HCI clusters in a resource group. |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List all HCI clusters in a subscription. |
 | <CopyableCode code="extend_software_assurance_benefit" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Extends Software Assurance Benefit to a cluster |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Update an HCI cluster. |
 | <CopyableCode code="upload_certificate" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Upload certificate. |

@@ -38,5 +38,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName, updateRunName" /> | Get the Update run for a specified update |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | List all Update runs for a specified update |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName, updateRunName" /> | Delete specified Update Run |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName" /> | List all Update runs for a specified update |
 | <CopyableCode code="put" /> | `EXEC` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId, updateName, updateRunName" /> | Put Update runs for a specified update |

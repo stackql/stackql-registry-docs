@@ -33,4 +33,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="check_quota_availability" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Return quota for subscription by region |
-| <CopyableCode code="check_trial_availability" /> | `EXEC` | <CopyableCode code="location, subscriptionId, data__name" /> | Return trial status for subscription by region |
+| <CopyableCode code="check_trial_availability" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Return trial status for subscription by region |

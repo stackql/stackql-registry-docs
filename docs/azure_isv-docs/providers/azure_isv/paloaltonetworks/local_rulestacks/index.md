@@ -43,8 +43,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List LocalRulestackResource resources by subscription ID |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId, data__properties" /> | Create a LocalRulestackResource |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | Delete a LocalRulestackResource |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List LocalRulestackResource resources by resource group |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List LocalRulestackResource resources by subscription ID |
 | <CopyableCode code="commit" /> | `EXEC` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | Commit rulestack configuration |
 | <CopyableCode code="revert" /> | `EXEC` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | Revert rulestack configuration |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="localRulestackName, resourceGroupName, subscriptionId" /> | Update a LocalRulestackResource |

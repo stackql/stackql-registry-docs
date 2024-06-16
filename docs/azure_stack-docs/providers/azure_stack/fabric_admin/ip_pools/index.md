@@ -42,4 +42,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="ipPool, location, resourceGroupName, subscriptionId" /> | Return the requested IP pool. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all IP pools at a certain location. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="ipPool, location, resourceGroupName, subscriptionId" /> | Create an IP pool.  Once created an IP pool cannot be deleted. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Returns a list of all IP pools at a certain location. |

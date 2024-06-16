@@ -42,6 +42,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountId, location, subscriptionId" /> | Returns the requested storage account. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Returns a list of storage accounts. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Returns a list of storage accounts. |
 | <CopyableCode code="reclaim_storage_capacity" /> | `EXEC` | <CopyableCode code="location, subscriptionId" /> | Start reclaim storage capacity on deleted storage objects. |
 | <CopyableCode code="undelete" /> | `EXEC` | <CopyableCode code="accountId, location, subscriptionId" /> | Undelete a deleted storage account with new account name if the a new name is provided. |

@@ -47,6 +47,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | List of virtualNetworks in a resource group. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, virtualNetworkName, data__location, data__properties" /> | Create Or Update virtual network. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, virtualNetworkName" /> | Implements virtual network DELETE method. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, subscriptionId" /> | List of virtualNetworks in a subscription. |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId" /> | List of virtualNetworks in a resource group. |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, virtualNetworkName" /> | API to update certain properties of the virtual network resource. |

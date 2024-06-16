@@ -39,7 +39,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="configurationName, monitorName, resourceGroupName, subscriptionId" /> |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="configurationName, monitorName, resourceGroupName, subscriptionId" /> |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="configurationName, monitorName, resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="createor_update" /> | `EXEC` | <CopyableCode code="configurationName, monitorName, resourceGroupName, subscriptionId" /> |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="configurationName, monitorName, resourceGroupName, subscriptionId" /> |

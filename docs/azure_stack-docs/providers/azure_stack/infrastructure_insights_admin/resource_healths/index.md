@@ -38,4 +38,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, resourceRegistrationId, serviceRegistrationId, subscriptionId" /> | Returns the requested health information about a resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, serviceRegistrationId, subscriptionId" /> | Returns a list of each resource's health under a service. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, resourceGroupName, serviceRegistrationId, subscriptionId" /> | Returns a list of each resource's health under a service. |

@@ -35,4 +35,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Gets the list of linked servers associated with this redis cache (requires Premium SKU). |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="linkedServerName, name, resourceGroupName, subscriptionId, data__properties" /> | Adds a linked server to the Redis cache (requires Premium SKU). |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="linkedServerName, name, resourceGroupName, subscriptionId" /> | Deletes the linked server from a redis cache (requires Premium SKU). |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Gets the list of linked servers associated with this redis cache (requires Premium SKU). |

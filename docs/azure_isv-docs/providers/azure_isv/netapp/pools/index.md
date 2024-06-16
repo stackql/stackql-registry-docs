@@ -41,5 +41,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List all capacity pools in the NetApp Account |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, data__location, data__properties" /> | Create or Update a capacity pool |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId" /> | Delete the specified capacity pool |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List all capacity pools in the NetApp Account |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId" /> | Patch the specified capacity pool |

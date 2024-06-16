@@ -32,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
 | <CopyableCode code="properties" /> | `object` | The workspace properties. |
-| <CopyableCode code="sku" /> | `object` | The resource model definition representing SKU |
+| <CopyableCode code="sku" /> | `object` | SKU for the resource. |
 | <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |
 ## Methods
@@ -43,6 +43,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets all the workspaces within a subscription. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName, data__properties" /> | Creates a new workspace. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Deletes the workspace. |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all the workspaces within a resource group. |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Gets all the workspaces within a subscription. |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId, workspaceName" /> | Updates a workspace. |

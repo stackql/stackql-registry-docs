@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Use A Multi-Petabyte Scale, Single Namespace, Multi-Protocol File Data Platform With The Performance, Security, And Simplicity To Meet The Most Demanding Enterprise Workloads.  
+Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Use A Multi-Petabyte Scale, Single Namespace, Multi-Protocol File Data Platform 
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>2</b></span><br />
 <span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>10</b></span><br />
+<span>total methods:&nbsp;<b>7</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Use A Multi-Petabyte Scale, Single Namespace, Multi-Protocol File Data Platform 
 <tr><td><b>Name</b></td><td><code>azure_isv.qumulo</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Qumulo (Azure Native ISV Service)</td></tr>
-<tr><td><b>Description</b></td><td>Use A Multi-Petabyte Scale, Single Namespace, Multi-Protocol File Data Platform With The Performance, Security, And Simplicity To Meet The Most Demanding Enterprise Workloads.</td></tr>
-<tr><td><b>Id</b></td><td><code>qumulo:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:qumulo</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -41,4 +41,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, logicalNetwork, logicalSubnet, resourceGroupName, subscriptionId" /> | Returns the requested logical subnet. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, logicalNetwork, resourceGroupName, subscriptionId" /> | Returns a list of all logical subnets. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="location, logicalNetwork, resourceGroupName, subscriptionId" /> | Returns a list of all logical subnets. |

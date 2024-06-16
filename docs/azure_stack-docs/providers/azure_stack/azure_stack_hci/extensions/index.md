@@ -35,6 +35,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_arc_setting" /> | `SELECT` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | List all Extensions under ArcSetting resource. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId" /> | Create Extension for HCI cluster. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId" /> | Delete particular Arc Extension of HCI Cluster. |
-| <CopyableCode code="_list_by_arc_setting" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, resourceGroupName, subscriptionId" /> | List all Extensions under ArcSetting resource. |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId" /> | Update Extension for HCI cluster. |
 | <CopyableCode code="upgrade" /> | `EXEC` | <CopyableCode code="arcSettingName, clusterName, extensionName, resourceGroupName, subscriptionId" /> | Upgrade a particular Arc Extension of HCI Cluster. |

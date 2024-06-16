@@ -43,6 +43,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get the list of offers under a resource group. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="offer, resourceGroupName, subscriptionId" /> | Create or update the offer. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="offer, resourceGroupName, subscriptionId" /> | Delete the specified offer. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get the list of offers under a resource group. |
 | <CopyableCode code="link" /> | `EXEC` | <CopyableCode code="offer, resourceGroupName, subscriptionId" /> | Links a plan to an offer. |
 | <CopyableCode code="unlink" /> | `EXEC` | <CopyableCode code="offer, resourceGroupName, subscriptionId" /> | Unlink a plan from an offer. |

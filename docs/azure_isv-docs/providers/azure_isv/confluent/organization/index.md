@@ -45,8 +45,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="organizationName, resourceGroupName, subscriptionId, data__properties" /> |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="organizationName, resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="organizationName, resourceGroupName, subscriptionId" /> |
 | <CopyableCode code="validate_organization" /> | `EXEC` | <CopyableCode code="organizationName, resourceGroupName, subscriptionId, data__properties" /> |
 | <CopyableCode code="validate_organization_v2" /> | `EXEC` | <CopyableCode code="organizationName, resourceGroupName, subscriptionId, data__properties" /> |

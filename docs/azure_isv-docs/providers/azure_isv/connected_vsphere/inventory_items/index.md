@@ -39,4 +39,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_v_center" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, vcenterName" /> | Returns the list of inventoryItems of the given vCenter. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="api-version, inventoryItemName, resourceGroupName, subscriptionId, vcenterName, data__properties" /> | Create Or Update InventoryItem. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, inventoryItemName, resourceGroupName, subscriptionId, vcenterName" /> | Implements inventoryItem DELETE method. |
-| <CopyableCode code="_list_by_v_center" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, vcenterName" /> | Returns the list of inventoryItems of the given vCenter. |

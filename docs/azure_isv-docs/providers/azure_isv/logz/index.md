@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Centralize Log, Metric, And Tracing Analytics In One Observability Platform.  
+Centralize log, metric, and tracing analytics in one observability platform.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Centralize Log, Metric, And Tracing Analytics In One Observability Platform.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>13</b></span><br />
 <span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>39</b></span><br />
+<span>total methods:&nbsp;<b>32</b></span><br />
 </div>
 </div>
 
@@ -32,9 +32,9 @@ Centralize Log, Metric, And Tracing Analytics In One Observability Platform.
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_isv.logz</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Logz.Io (Azure Native ISV Service)</td></tr>
-<tr><td><b>Description</b></td><td>Centralize Log, Metric, And Tracing Analytics In One Observability Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>logz:v24.01.00199</code></td></tr>
+<tr><td><b>Title</b></td><td>Logz.io (Azure Native ISV Service)</td></tr>
+<tr><td><b>Description</b></td><td>Centralize log, metric, and tracing analytics in one observability platform.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:logz</code></td></tr>
 </tbody></table>
 
 ## Resources

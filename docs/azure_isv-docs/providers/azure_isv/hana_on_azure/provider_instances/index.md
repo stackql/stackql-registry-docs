@@ -29,10 +29,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 ## Fields
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="providerInstanceName, resourceGroupName, sapMonitorName, subscriptionId" /> | Gets properties of a provider instance for the specified subscription, resource group, SapMonitor name, and resource name. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> | Gets a list of provider instances in the specified SAP monitor. The operations returns various properties of each provider instances. |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="providerInstanceName, resourceGroupName, sapMonitorName, subscriptionId" /> | Creates a provider instance for the specified subscription, resource group, SapMonitor name, and resource name. |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="providerInstanceName, resourceGroupName, sapMonitorName, subscriptionId" /> | Deletes a provider instance for the specified subscription, resource group, SapMonitor name, and resource name. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> | Gets a list of provider instances in the specified SAP monitor. The operations returns various properties of each provider instances. |
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="providerInstanceName, resourceGroupName, sapMonitorName, subscriptionId" /> |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, sapMonitorName, subscriptionId" /> |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="providerInstanceName, resourceGroupName, sapMonitorName, subscriptionId" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="providerInstanceName, resourceGroupName, sapMonitorName, subscriptionId" /> |

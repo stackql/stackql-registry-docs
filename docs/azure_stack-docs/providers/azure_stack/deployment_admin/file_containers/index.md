@@ -42,4 +42,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Returns an array of file containers. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="fileContainerId, subscriptionId" /> | Creates a new file container. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="fileContainerId, subscriptionId" /> | Delete an existing file container. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Returns an array of file containers. |

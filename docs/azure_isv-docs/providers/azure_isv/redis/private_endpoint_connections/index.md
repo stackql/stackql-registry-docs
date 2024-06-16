@@ -33,7 +33,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
 | <CopyableCode code="name" /> | `string` | The name of the resource |
 | <CopyableCode code="properties" /> | `object` | Properties of the PrivateEndpointConnectProperties. |
-| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 | <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -41,5 +40,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="cacheName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Gets the specified private endpoint connection associated with the redis cache. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> | List all the private endpoint connections associated with the redis cache. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="cacheName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Deletes the specified private endpoint connection associated with the redis cache. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> | List all the private endpoint connections associated with the redis cache. |
 | <CopyableCode code="put" /> | `EXEC` | <CopyableCode code="cacheName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Update the state of specified private endpoint connection associated with the redis cache. |

@@ -43,4 +43,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="activationName, resourceGroupName, subscriptionId" /> | Get a list of downloaded products. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="activationName, productName, resourceGroupName, subscriptionId" /> | Creates a downloaded product. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="activationName, productName, resourceGroupName, subscriptionId" /> | Delete a downloaded product. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="activationName, resourceGroupName, subscriptionId" /> | Get a list of downloaded products. |

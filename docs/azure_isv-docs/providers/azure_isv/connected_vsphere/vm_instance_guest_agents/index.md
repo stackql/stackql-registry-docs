@@ -34,4 +34,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceUri" /> | Returns the list of GuestAgent of the given vm. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="api-version, resourceUri, data__properties" /> | Create Or Update GuestAgent. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, resourceUri" /> | Implements GuestAgent DELETE method. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="api-version, resourceUri" /> | Returns the list of GuestAgent of the given vm. |

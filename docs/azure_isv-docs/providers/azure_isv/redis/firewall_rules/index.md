@@ -35,4 +35,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> | Gets all firewall rules in the specified redis cache. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="cacheName, resourceGroupName, ruleName, subscriptionId, data__properties" /> | Create or update a redis cache firewall rule |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="cacheName, resourceGroupName, ruleName, subscriptionId" /> | Deletes a single firewall rule in a specified redis cache. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> | Gets all firewall rules in the specified redis cache. |

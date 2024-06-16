@@ -22,7 +22,7 @@ The AzureStack Admin Infrastructure Insights Management Client.
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
 <span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>16</b></span><br />
+<span>total methods:&nbsp;<b>11</b></span><br />
 </div>
 </div>
 
@@ -34,7 +34,7 @@ The AzureStack Admin Infrastructure Insights Management Client.
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Infrastructure Insights Management Client</td></tr>
 <tr><td><b>Description</b></td><td>The AzureStack Admin Infrastructure Insights Management Client.</td></tr>
-<tr><td><b>Id</b></td><td><code>infrastructure_insights_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:infrastructure_insights_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

@@ -19,16 +19,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Provision, manage, and integrate independent software vendor services on Azure.  
     
-:::info Provider Summary (v24.01.00199)
+:::info Provider Summary (v24.06.00242)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>20</b></span><br />
-<span>total methods:&nbsp;<b>906</b></span><br />
+<span>total services:&nbsp;<b>24</b></span><br />
+<span>total methods:&nbsp;<b>815</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>253</b></span><br />
-<span>total selectable resources:&nbsp;<b>246</b></span><br />
+<span>total resources:&nbsp;<b>289</b></span><br />
+<span>total selectable resources:&nbsp;<b>273</b></span><br />
 </div>
 </div>
 
@@ -63,18 +63,22 @@ StackQL uses Azure application credentials obtained using the <CopyableCode code
 <a href="/providers/azure_isv/dynatrace/">dynatrace</a><br />
 <a href="/providers/azure_isv/elastic/">elastic</a><br />
 <a href="/providers/azure_isv/hana_on_azure/">hana_on_azure</a><br />
+<a href="/providers/azure_isv/informatica/">informatica</a><br />
 <a href="/providers/azure_isv/logz/">logz</a><br />
+<a href="/providers/azure_isv/mongocluster/">mongocluster</a><br />
 <a href="/providers/azure_isv/netapp/">netapp</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure_isv/newrelic/">newrelic</a><br />
 <a href="/providers/azure_isv/nginx/">nginx</a><br />
+<a href="/providers/azure_isv/openshift_clusters/">openshift_clusters</a><br />
+<a href="/providers/azure_isv/oracle/">oracle</a><br />
 <a href="/providers/azure_isv/paloaltonetworks/">paloaltonetworks</a><br />
 <a href="/providers/azure_isv/qumulo/">qumulo</a><br />
-<a href="/providers/azure_isv/redhat_openshift/">redhat_openshift</a><br />
 <a href="/providers/azure_isv/redis/">redis</a><br />
 <a href="/providers/azure_isv/redis_enterprise/">redis_enterprise</a><br />
 <a href="/providers/azure_isv/sap_workloads/">sap_workloads</a><br />
+<a href="/providers/azure_isv/splitio/">splitio</a><br />
 <a href="/providers/azure_isv/vmware/">vmware</a><br />
 <a href="/providers/azure_isv/vmware_cloud_simple/">vmware_cloud_simple</a><br />
 </div>

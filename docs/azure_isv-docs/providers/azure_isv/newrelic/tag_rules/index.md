@@ -35,5 +35,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_new_relic_monitor_resource" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | List TagRule resources by NewRelicMonitorResource |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="monitorName, resourceGroupName, ruleSetName, subscriptionId, data__properties" /> | Create a TagRule |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="monitorName, resourceGroupName, ruleSetName, subscriptionId" /> | Delete a TagRule |
-| <CopyableCode code="_list_by_new_relic_monitor_resource" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | List TagRule resources by NewRelicMonitorResource |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, ruleSetName, subscriptionId" /> | Update a TagRule |

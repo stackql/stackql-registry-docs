@@ -30,8 +30,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | The link to the next page of items |
-| <CopyableCode code="value" /> | `array` | The items on this page |
+| <CopyableCode code="autoUpdateSetting" /> | `string` | Update settings of OneAgent. |
+| <CopyableCode code="availabilityState" /> | `string` | The availability state of OneAgent. |
+| <CopyableCode code="hostGroup" /> | `string` | The name of the host group |
+| <CopyableCode code="hostName" /> | `string` | The name of the host |
+| <CopyableCode code="logModule" /> | `string` | Tells whether log modules are enabled or not |
+| <CopyableCode code="monitoringType" /> | `string` | The monitoring mode of OneAgent |
+| <CopyableCode code="resourceId" /> | `string` | App service resource ID |
+| <CopyableCode code="updateStatus" /> | `string` | The current update status of OneAgent. |
+| <CopyableCode code="version" /> | `string` | Version of the Dynatrace agent installed on the App Service. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

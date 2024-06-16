@@ -41,7 +41,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` |  | List GlobalRulestackResource resources by Tenant |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="globalRulestackName, data__location, data__properties" /> | Create a GlobalRulestackResource |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="globalRulestackName" /> | Delete a GlobalRulestackResource |
-| <CopyableCode code="_list" /> | `EXEC` |  | List GlobalRulestackResource resources by Tenant |
 | <CopyableCode code="commit" /> | `EXEC` | <CopyableCode code="globalRulestackName" /> | Commit rulestack configuration |
 | <CopyableCode code="revert" /> | `EXEC` | <CopyableCode code="globalRulestackName" /> | Revert rulestack configuration |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="globalRulestackName" /> | Update a GlobalRulestackResource |

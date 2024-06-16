@@ -30,8 +30,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | Link to the next set of results, if any. |
-| <CopyableCode code="value" /> | `array` | List of environments for which user is an admin |
+| <CopyableCode code="environmentId" /> | `string` | environment id for which user is an admin |
+| <CopyableCode code="environmentName" /> | `string` | Name of the environment |
+| <CopyableCode code="planData" /> | `object` | Billing plan information. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

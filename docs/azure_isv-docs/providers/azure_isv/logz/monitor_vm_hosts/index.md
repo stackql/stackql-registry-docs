@@ -30,8 +30,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="nextLink" /> | `string` | Link to the next set of results, if any. |
-| <CopyableCode code="value" /> | `array` | Response of a list vm host update operation. |
+| <CopyableCode code="id" /> | `string` | Request of a list vm host update operation. |
+| <CopyableCode code="agentVersion" /> | `string` | Version of the Logz agent installed on the VM. |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|

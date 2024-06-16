@@ -42,4 +42,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="registrationName, resourceGroup, subscriptionId" /> | Returns a list of products. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="customerSubscriptionName, registrationName, resourceGroup, subscriptionId" /> | Creates a new customer subscription under a registration. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="customerSubscriptionName, registrationName, resourceGroup, subscriptionId" /> | Deletes a customer subscription under a registration. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="registrationName, resourceGroup, subscriptionId" /> | Returns a list of products. |

@@ -41,5 +41,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="activationName, productName, resourceGroupName, subscriptionId" /> | Return product name. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="activationName, resourceGroupName, subscriptionId" /> | Return product name. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="activationName, resourceGroupName, subscriptionId" /> | Return product name. |
 | <CopyableCode code="download" /> | `EXEC` | <CopyableCode code="activationName, productName, resourceGroupName, subscriptionId" /> | Downloads a product from azure marketplace. |

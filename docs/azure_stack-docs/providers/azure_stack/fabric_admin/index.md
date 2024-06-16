@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The AzureStack Fabric Administrator Module Which Allows Administrators To View And Manage Infrastructure Components.  
+The AzureStack Fabric administrator module which allows administrators to view and manage infrastructure components.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ The AzureStack Fabric Administrator Module Which Allows Administrators To View A
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>22</b></span><br />
 <span>total selectable resources:&nbsp;<b>22</b></span><br />
-<span>total methods:&nbsp;<b>80</b></span><br />
+<span>total methods:&nbsp;<b>58</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ The AzureStack Fabric Administrator Module Which Allows Administrators To View A
 <tr><td><b>Name</b></td><td><code>azure_stack.fabric_admin</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>AzureStack Fabric Admin Client</td></tr>
-<tr><td><b>Description</b></td><td>The AzureStack Fabric Administrator Module Which Allows Administrators To View And Manage Infrastructure Components.</td></tr>
-<tr><td><b>Id</b></td><td><code>fabric_admin:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>The AzureStack Fabric administrator module which allows administrators to view and manage infrastructure components.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_stack:fabric_admin</code></td></tr>
 </tbody></table>
 
 ## Resources

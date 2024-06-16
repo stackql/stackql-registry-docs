@@ -42,6 +42,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List OrganizationResource resources by subscription ID |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="organizationName, resourceGroupName, subscriptionId" /> | Create a OrganizationResource |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="organizationName, resourceGroupName, subscriptionId" /> | Delete a OrganizationResource |
-| <CopyableCode code="_list_by_resource_group" /> | `EXEC` | <CopyableCode code="resourceGroupName, subscriptionId" /> | List OrganizationResource resources by resource group |
-| <CopyableCode code="_list_by_subscription" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | List OrganizationResource resources by subscription ID |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="organizationName, resourceGroupName, subscriptionId" /> | Update a OrganizationResource |

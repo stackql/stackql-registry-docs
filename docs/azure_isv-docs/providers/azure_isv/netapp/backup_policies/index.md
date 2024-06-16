@@ -41,5 +41,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List backup policies for Netapp Account |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, backupPolicyName, resourceGroupName, subscriptionId, data__location, data__properties" /> | Create a backup policy for Netapp Account |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, backupPolicyName, resourceGroupName, subscriptionId" /> | Delete backup policy |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List backup policies for Netapp Account |
 | <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accountName, backupPolicyName, resourceGroupName, subscriptionId" /> | Patch a backup policy for Netapp Account |

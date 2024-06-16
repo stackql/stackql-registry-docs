@@ -40,6 +40,5 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="packageId, secretName, subscriptionId" /> | Returns the specific product secret. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="packageId, subscriptionId" /> | Returns an array of product secrets. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="packageId, subscriptionId" /> | Returns an array of product secrets. |
 | <CopyableCode code="set" /> | `EXEC` | <CopyableCode code="packageId, secretName, subscriptionId" /> | Imports a product secret. |
 | <CopyableCode code="validate" /> | `EXEC` | <CopyableCode code="packageId, secretName, subscriptionId" /> | Validates a product secret. |

@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Azure VMware Solution By CloudSimple Transforms And Extends VMware Workloads To Private, Dedicated Clouds On Azure In Minutes. CloudSimple Takes Care Of Provisioning, Managing The Infrastructure, And Orchestrating Workloads Between On-Premises And Azure.  
+Azure VMware Solution by CloudSimple transforms and extends VMware workloads to private, dedicated clouds on Azure in minutes. CloudSimple takes care of provisioning, managing the infrastructure, and orchestrating workloads between on-premises and Azure.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Azure VMware Solution By CloudSimple Transforms And Extends VMware Workloads To 
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>11</b></span><br />
 <span>total selectable resources:&nbsp;<b>11</b></span><br />
-<span>total methods:&nbsp;<b>48</b></span><br />
+<span>total methods:&nbsp;<b>34</b></span><br />
 </div>
 </div>
 
@@ -32,9 +32,9 @@ Azure VMware Solution By CloudSimple Transforms And Extends VMware Workloads To 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_isv.vmware_cloud_simple</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure VMware Solution By CloudSimple</td></tr>
-<tr><td><b>Description</b></td><td>Azure VMware Solution By CloudSimple Transforms And Extends VMware Workloads To Private, Dedicated Clouds On Azure In Minutes. CloudSimple Takes Care Of Provisioning, Managing The Infrastructure, And Orchestrating Workloads Between On-Premises And Azure.</td></tr>
-<tr><td><b>Id</b></td><td><code>vmware_cloud_simple:v24.01.00199</code></td></tr>
+<tr><td><b>Title</b></td><td>Azure VMware Solution by CloudSimple</td></tr>
+<tr><td><b>Description</b></td><td>Azure VMware Solution by CloudSimple transforms and extends VMware workloads to private, dedicated clouds on Azure in minutes. CloudSimple takes care of provisioning, managing the infrastructure, and orchestrating workloads between on-premises and Azure.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:vmware_cloud_simple</code></td></tr>
 </tbody></table>
 
 ## Resources

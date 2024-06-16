@@ -30,13 +30,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The name of the operation, as per Resource-Based Access Control (RBAC). Examples: "Microsoft.Compute/virtualMachines/write", "Microsoft.Compute/virtualMachines/capture/action" |
-| <CopyableCode code="actionType" /> | `string` | Enum. Indicates the action type. "Internal" refers to actions that are for internal only APIs. |
-| <CopyableCode code="display" /> | `object` | Localized display information for this particular operation. |
-| <CopyableCode code="isDataAction" /> | `boolean` | Whether the operation applies to data-plane. This is "true" for data-plane operations and "false" for ARM/control-plane operations. |
-| <CopyableCode code="origin" /> | `string` | The intended executor of the operation; as in Resource Based Access Control (RBAC) and audit logs UX. Default value is "user,system" |
+| <CopyableCode code="name" /> | `string` | Operation name, i.e., &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125;. |
+| <CopyableCode code="display" /> | `object` | The object that represents the operation. |
+| <CopyableCode code="isDataAction" /> | `boolean` | Indicates whether the operation is a data action |
+| <CopyableCode code="origin" /> | `string` | Origin of the operation |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | <CopyableCode code="list" /> | `SELECT` |  |
-| <CopyableCode code="_list" /> | `EXEC` |  |

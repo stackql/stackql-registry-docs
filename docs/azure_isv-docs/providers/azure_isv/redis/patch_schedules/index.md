@@ -39,4 +39,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_redis_resource" /> | `SELECT` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> | Gets all patch schedules in the specified redis cache (there is only one). |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="default, name, resourceGroupName, subscriptionId, data__properties" /> | Create or replace the patching schedule for Redis cache. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="default, name, resourceGroupName, subscriptionId" /> | Deletes the patching schedule of a redis cache. |
-| <CopyableCode code="_list_by_redis_resource" /> | `EXEC` | <CopyableCode code="cacheName, resourceGroupName, subscriptionId" /> | Gets all patch schedules in the specified redis cache (there is only one). |

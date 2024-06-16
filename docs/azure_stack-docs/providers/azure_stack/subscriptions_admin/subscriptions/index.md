@@ -47,7 +47,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Get the list of subscriptions. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="subscriptionId, targetSubscriptionId" /> | Creates or updates the specified subscription. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="subscriptionId, targetSubscriptionId" /> | Delete the specified subscription. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Get the list of subscriptions. |
 | <CopyableCode code="check_identity_health" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Checks the identity health |
 | <CopyableCode code="check_name_availability" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Get the list of subscriptions. |
 | <CopyableCode code="move_subscriptions" /> | `EXEC` | <CopyableCode code="subscriptionId, data__resources" /> | Move subscriptions between delegated provider offers. |

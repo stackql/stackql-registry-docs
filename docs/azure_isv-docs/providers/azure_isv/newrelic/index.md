@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Get End-To-End Cloud Observability To Analyze And Troubleshoot Performance Of Applications, Infrastructure, Logs, Real-User Monitoring And More.  
+Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ Get End-To-End Cloud Observability To Analyze And Troubleshoot Performance Of Ap
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>15</b></span><br />
 <span>total selectable resources:&nbsp;<b>15</b></span><br />
-<span>total methods:&nbsp;<b>38</b></span><br />
+<span>total methods:&nbsp;<b>30</b></span><br />
 </div>
 </div>
 
@@ -33,8 +33,8 @@ Get End-To-End Cloud Observability To Analyze And Troubleshoot Performance Of Ap
 <tr><td><b>Name</b></td><td><code>azure_isv.newrelic</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>NewRelic Observability (Azure Native ISV Service)</td></tr>
-<tr><td><b>Description</b></td><td>Get End-To-End Cloud Observability To Analyze And Troubleshoot Performance Of Applications, Infrastructure, Logs, Real-User Monitoring And More.</td></tr>
-<tr><td><b>Id</b></td><td><code>newrelic:v24.01.00199</code></td></tr>
+<tr><td><b>Description</b></td><td>Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:newrelic</code></td></tr>
 </tbody></table>
 
 ## Resources

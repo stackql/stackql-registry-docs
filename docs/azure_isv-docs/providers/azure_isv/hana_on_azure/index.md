@@ -14,7 +14,7 @@ custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-SAP On Azure Solutions Help You Optimize Your Enterprise Resource Planning (ERP) In The Cloud Using The Security Features, Reliability, And Scalable SAP-Certified Infrastructure Of Azure.  
+SAP on Azure solutions help you optimize your enterprise resource planning (ERP) in the cloud using the security features, reliability, and scalable SAP-certified infrastructure of Azure.  
     
 :::info Service Summary
 
@@ -22,7 +22,7 @@ SAP On Azure Solutions Help You Optimize Your Enterprise Resource Planning (ERP)
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
 <span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>13</b></span><br />
+<span>total methods:&nbsp;<b>10</b></span><br />
 </div>
 </div>
 
@@ -32,9 +32,9 @@ SAP On Azure Solutions Help You Optimize Your Enterprise Resource Planning (ERP)
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>azure_isv.hana_on_azure</code></td></tr>
 <tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>SAP Hana On Azure</td></tr>
-<tr><td><b>Description</b></td><td>SAP On Azure Solutions Help You Optimize Your Enterprise Resource Planning (ERP) In The Cloud Using The Security Features, Reliability, And Scalable SAP-Certified Infrastructure Of Azure.</td></tr>
-<tr><td><b>Id</b></td><td><code>hana_on_azure:v24.01.00199</code></td></tr>
+<tr><td><b>Title</b></td><td>SAP Hana on Azure</td></tr>
+<tr><td><b>Description</b></td><td>SAP on Azure solutions help you optimize your enterprise resource planning (ERP) in the cloud using the security features, reliability, and scalable SAP-certified infrastructure of Azure.</td></tr>
+<tr><td><b>Id</b></td><td><code>azure_isv:hana_on_azure</code></td></tr>
 </tbody></table>
 
 ## Resources

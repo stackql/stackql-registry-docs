@@ -32,5 +32,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="region, subscriptionId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="region, subscriptionId" /> |
 | <CopyableCode code="details" /> | `EXEC` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |
