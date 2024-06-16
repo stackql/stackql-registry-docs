@@ -1,0 +1,47 @@
+---
+title: resource_guards
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - resource_guards
+  - data_protection
+  - azure    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>resource_guards</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_protection.resource_guards" /></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | Resource Id represents the complete path to the resource. |
+| <CopyableCode code="name" /> | `string` | Resource name associated with the resource. |
+| <CopyableCode code="eTag" /> | `string` | Optional ETag. |
+| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="properties" /> | `object` |  |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
+## Methods
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceGuardsName, subscriptionId" /> |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceGuardsName, subscriptionId" /> |
+| <CopyableCode code="patch" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceGuardsName, subscriptionId" /> |
+| <CopyableCode code="put" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceGuardsName, subscriptionId" /> |

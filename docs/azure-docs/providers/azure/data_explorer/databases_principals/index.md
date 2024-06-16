@@ -1,0 +1,43 @@
+---
+title: databases_principals
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - databases_principals
+  - data_explorer
+  - azure    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Azure resources using SQL
+custom_edit_url: null
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>databases_principals</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.data_explorer.databases_principals" /></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | Database principal name. |
+| <CopyableCode code="appId" /> | `string` | Application id - relevant only for application principal type. |
+| <CopyableCode code="email" /> | `string` | Database principal email if exists. |
+| <CopyableCode code="fqn" /> | `string` | Database principal fully qualified name. |
+| <CopyableCode code="role" /> | `string` | Database principal role. |
+| <CopyableCode code="tenantName" /> | `string` | The tenant name of the principal |
+| <CopyableCode code="type" /> | `string` | Database principal type. |
+## Methods
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clusterName, databaseName, resourceGroupName, subscriptionId" /> |
