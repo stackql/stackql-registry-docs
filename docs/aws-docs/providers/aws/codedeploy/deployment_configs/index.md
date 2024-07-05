@@ -57,7 +57,7 @@ Creates, updates, deletes or gets a <code>deployment_config</code> resource or l
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,15 +69,19 @@ Creates, updates, deletes or gets a <code>deployment_config</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>deployment_configs</code> in a region.
+Gets all <code>deployment_configs</code> in a region.
 ```sql
 SELECT
 region,
-deployment_config_name
+compute_platform,
+deployment_config_name,
+minimum_healthy_hosts,
+zonal_config,
+traffic_routing_config
 FROM aws.codedeploy.deployment_configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>deployment_config</code>.
+Gets all properties from an individual <code>deployment_config</code>.
 ```sql
 SELECT
 region,
@@ -89,7 +93,6 @@ traffic_routing_config
 FROM aws.codedeploy.deployment_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<DeploymentConfigName>';
 ```
-
 
 ## `INSERT` example
 

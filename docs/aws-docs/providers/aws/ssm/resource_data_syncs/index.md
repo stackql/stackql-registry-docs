@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>resource_data_sync</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>resource_data_sync</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>resource_data_syncs</code> in a region.
+Gets all <code>resource_data_syncs</code> in a region.
 ```sql
 SELECT
 region,
-sync_name
+s3_destination,
+kms_key_arn,
+sync_source,
+bucket_name,
+bucket_region,
+sync_format,
+sync_name,
+sync_type,
+bucket_prefix
 FROM aws.ssm.resource_data_syncs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>resource_data_sync</code>.
+Gets all properties from an individual <code>resource_data_sync</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ bucket_prefix
 FROM aws.ssm.resource_data_syncs
 WHERE region = 'us-east-1' AND data__Identifier = '<SyncName>';
 ```
-
 
 ## `INSERT` example
 

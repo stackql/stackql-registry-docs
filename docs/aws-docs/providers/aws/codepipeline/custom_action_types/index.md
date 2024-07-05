@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>custom_action_type</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,17 +78,23 @@ Creates, updates, deletes or gets a <code>custom_action_type</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>custom_action_types</code> in a region.
+Gets all <code>custom_action_types</code> in a region.
 ```sql
 SELECT
 region,
 category,
+configuration_properties,
+input_artifact_details,
+output_artifact_details,
 provider,
-version
+settings,
+tags,
+version,
+id
 FROM aws.codepipeline.custom_action_types
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>custom_action_type</code>.
+Gets all properties from an individual <code>custom_action_type</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +110,6 @@ id
 FROM aws.codepipeline.custom_action_types
 WHERE region = 'us-east-1' AND data__Identifier = '<Category>|<Provider>|<Version>';
 ```
-
 
 ## `INSERT` example
 

@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>db_cluster_parameter_group</code> reso
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>db_cluster_parameter_group</code> reso
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>db_cluster_parameter_groups</code> in a region.
+Gets all <code>db_cluster_parameter_groups</code> in a region.
 ```sql
 SELECT
 region,
-db_cluster_parameter_group_name
+description,
+family,
+parameters,
+db_cluster_parameter_group_name,
+tags
 FROM aws.rds.db_cluster_parameter_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>db_cluster_parameter_group</code>.
+Gets all properties from an individual <code>db_cluster_parameter_group</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.rds.db_cluster_parameter_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<DBClusterParameterGroupName>';
 ```
-
 
 ## `INSERT` example
 

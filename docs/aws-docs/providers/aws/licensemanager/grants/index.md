@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>grant</code> resource or lists <code>g
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>grant</code> resource or lists <code>g
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>grants</code> in a region.
+Gets all <code>grants</code> in a region.
 ```sql
 SELECT
 region,
-grant_arn
+grant_arn,
+grant_name,
+license_arn,
+home_region,
+version,
+allowed_operations,
+principals,
+status
 FROM aws.licensemanager.grants
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>grant</code>.
+Gets all properties from an individual <code>grant</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ status
 FROM aws.licensemanager.grants
 WHERE region = 'us-east-1' AND data__Identifier = '<GrantArn>';
 ```
-
 
 ## `INSERT` example
 

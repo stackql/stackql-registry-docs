@@ -66,7 +66,7 @@ Creates, updates, deletes or gets an <code>authorizer</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets an <code>authorizer</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>authorizers</code> in a region.
+Gets all <code>authorizers</code> in a region.
 ```sql
 SELECT
 region,
-authorizer_name
+authorizer_function_arn,
+arn,
+authorizer_name,
+signing_disabled,
+status,
+token_key_name,
+token_signing_public_keys,
+enable_caching_for_http,
+tags
 FROM aws.iot.authorizers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>authorizer</code>.
+Gets all properties from an individual <code>authorizer</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.iot.authorizers
 WHERE region = 'us-east-1' AND data__Identifier = '<AuthorizerName>';
 ```
-
 
 ## `INSERT` example
 

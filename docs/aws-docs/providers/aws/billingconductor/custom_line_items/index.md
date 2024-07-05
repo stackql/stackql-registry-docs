@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>custom_line_item</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>custom_line_item</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>custom_line_items</code> in a region.
+Gets all <code>custom_line_items</code> in a region.
 ```sql
 SELECT
 region,
-arn
+name,
+description,
+custom_line_item_charge_details,
+billing_group_arn,
+billing_period_range,
+arn,
+creation_time,
+last_modified_time,
+association_size,
+product_code,
+currency_code,
+account_id,
+tags
 FROM aws.billingconductor.custom_line_items
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>custom_line_item</code>.
+Gets all properties from an individual <code>custom_line_item</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ tags
 FROM aws.billingconductor.custom_line_items
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

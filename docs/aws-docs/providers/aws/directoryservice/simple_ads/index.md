@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>simple_ad</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>simple_ad</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>simple_ads</code> in a region.
+Gets all <code>simple_ads</code> in a region.
 ```sql
 SELECT
 region,
-directory_id
+directory_id,
+alias,
+dns_ip_addresses,
+create_alias,
+description,
+enable_sso,
+name,
+password,
+short_name,
+size,
+vpc_settings
 FROM aws.directoryservice.simple_ads
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>simple_ad</code>.
+Gets all properties from an individual <code>simple_ad</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ vpc_settings
 FROM aws.directoryservice.simple_ads
 WHERE region = 'us-east-1' AND data__Identifier = '<DirectoryId>';
 ```
-
 
 ## `INSERT` example
 

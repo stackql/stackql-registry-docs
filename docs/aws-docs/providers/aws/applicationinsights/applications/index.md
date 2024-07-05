@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>applications</code> in a region.
+Gets all <code>applications</code> in a region.
 ```sql
 SELECT
 region,
-application_arn
+resource_group_name,
+application_arn,
+cwe_monitor_enabled,
+ops_center_enabled,
+ops_item_sns_topic_arn,
+tags,
+custom_components,
+log_pattern_sets,
+auto_configuration_enabled,
+component_monitoring_settings,
+grouping_type,
+attach_missing_permission
 FROM aws.applicationinsights.applications
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>application</code>.
+Gets all properties from an individual <code>application</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ attach_missing_permission
 FROM aws.applicationinsights.applications
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationARN>';
 ```
-
 
 ## `INSERT` example
 

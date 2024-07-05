@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>custom_metric</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>custom_metric</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>custom_metrics</code> in a region.
+Gets all <code>custom_metrics</code> in a region.
 ```sql
 SELECT
 region,
-metric_name
+metric_name,
+display_name,
+metric_type,
+metric_arn,
+tags
 FROM aws.iot.custom_metrics
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>custom_metric</code>.
+Gets all properties from an individual <code>custom_metric</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.iot.custom_metrics
 WHERE region = 'us-east-1' AND data__Identifier = '<MetricName>';
 ```
-
 
 ## `INSERT` example
 

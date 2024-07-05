@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>stage</code> resource or lists <code>s
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,16 +83,28 @@ Creates, updates, deletes or gets a <code>stage</code> resource or lists <code>s
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>stages</code> in a region.
+Gets all <code>stages</code> in a region.
 ```sql
 SELECT
 region,
+access_log_setting,
+cache_cluster_enabled,
+cache_cluster_size,
+canary_setting,
+client_certificate_id,
+deployment_id,
+description,
+documentation_version,
+method_settings,
 rest_api_id,
-stage_name
+stage_name,
+tags,
+tracing_enabled,
+variables
 FROM aws.apigateway.stages
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>stage</code>.
+Gets all properties from an individual <code>stage</code>.
 ```sql
 SELECT
 region,
@@ -113,7 +125,6 @@ variables
 FROM aws.apigateway.stages
 WHERE region = 'us-east-1' AND data__Identifier = '<RestApiId>|<StageName>';
 ```
-
 
 ## `INSERT` example
 

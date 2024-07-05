@@ -70,7 +70,7 @@ Creates, updates, deletes or gets an <code>user_setting</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets an <code>user_setting</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>user_settings</code> in a region.
+Gets all <code>user_settings</code> in a region.
 ```sql
 SELECT
 region,
+additional_encryption_context,
+associated_portal_arns,
+cookie_synchronization_configuration,
+copy_allowed,
+customer_managed_key,
+disconnect_timeout_in_minutes,
+download_allowed,
+idle_disconnect_timeout_in_minutes,
+paste_allowed,
+print_allowed,
+tags,
+upload_allowed,
 user_settings_arn
 FROM aws.workspacesweb.user_settings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>user_setting</code>.
+Gets all properties from an individual <code>user_setting</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ user_settings_arn
 FROM aws.workspacesweb.user_settings
 WHERE region = 'us-east-1' AND data__Identifier = '<UserSettingsArn>';
 ```
-
 
 ## `INSERT` example
 

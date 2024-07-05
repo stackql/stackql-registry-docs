@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>scaling_policy</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,16 +78,23 @@ Creates, updates, deletes or gets a <code>scaling_policy</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>scaling_policies</code> in a region.
+Gets all <code>scaling_policies</code> in a region.
 ```sql
 SELECT
 region,
-arn,
-scalable_dimension
+policy_name,
+policy_type,
+resource_id,
+scalable_dimension,
+scaling_target_id,
+service_namespace,
+step_scaling_policy_configuration,
+target_tracking_scaling_policy_configuration,
+arn
 FROM aws.applicationautoscaling.scaling_policies
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>scaling_policy</code>.
+Gets all properties from an individual <code>scaling_policy</code>.
 ```sql
 SELECT
 region,
@@ -103,7 +110,6 @@ arn
 FROM aws.applicationautoscaling.scaling_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>|<ScalableDimension>';
 ```
-
 
 ## `INSERT` example
 

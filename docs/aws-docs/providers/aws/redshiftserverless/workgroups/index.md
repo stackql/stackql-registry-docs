@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>workgroup</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>workgroup</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>workgroups</code> in a region.
+Gets all <code>workgroups</code> in a region.
 ```sql
 SELECT
 region,
-workgroup_name
+workgroup_name,
+namespace_name,
+base_capacity,
+max_capacity,
+enhanced_vpc_routing,
+config_parameters,
+security_group_ids,
+subnet_ids,
+publicly_accessible,
+port,
+tags,
+workgroup
 FROM aws.redshiftserverless.workgroups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>workgroup</code>.
+Gets all properties from an individual <code>workgroup</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ workgroup
 FROM aws.redshiftserverless.workgroups
 WHERE region = 'us-east-1' AND data__Identifier = '<WorkgroupName>';
 ```
-
 
 ## `INSERT` example
 

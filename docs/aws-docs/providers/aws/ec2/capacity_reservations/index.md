@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>capacity_reservation</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets a <code>capacity_reservation</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>capacity_reservations</code> in a region.
+Gets all <code>capacity_reservations</code> in a region.
 ```sql
 SELECT
 region,
-id
+tenancy,
+end_date_type,
+tag_specifications,
+availability_zone,
+total_instance_count,
+end_date,
+ebs_optimized,
+out_post_arn,
+instance_count,
+placement_group_arn,
+available_instance_count,
+instance_platform,
+id,
+instance_type,
+ephemeral_storage,
+instance_match_criteria
 FROM aws.ec2.capacity_reservations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>capacity_reservation</code>.
+Gets all properties from an individual <code>capacity_reservation</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ instance_match_criteria
 FROM aws.ec2.capacity_reservations
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

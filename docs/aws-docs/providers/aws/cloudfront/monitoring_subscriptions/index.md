@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>monitoring_subscription</code> resourc
 
 ## `SELECT` examples
 
-Gets all properties from a <code>monitoring_subscription</code>.
+Gets all properties from an individual <code>monitoring_subscription</code>.
 ```sql
 SELECT
 region,
@@ -71,7 +71,6 @@ monitoring_subscription
 FROM aws.cloudfront.monitoring_subscriptions
 WHERE data__Identifier = '<DistributionId>';
 ```
-
 
 ## `INSERT` example
 

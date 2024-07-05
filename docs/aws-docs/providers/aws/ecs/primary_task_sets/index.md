@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>primary_task_set</code> resource or li
 
 ## `SELECT` examples
 
-Gets all properties from a <code>primary_task_set</code>.
+Gets all properties from an individual <code>primary_task_set</code>.
 ```sql
 SELECT
 region,
@@ -73,7 +73,6 @@ service
 FROM aws.ecs.primary_task_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<Cluster>|<Service>';
 ```
-
 
 ## `INSERT` example
 

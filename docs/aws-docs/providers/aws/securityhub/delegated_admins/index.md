@@ -55,7 +55,7 @@ Creates, updates, deletes or gets a <code>delegated_admin</code> resource or lis
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -67,15 +67,17 @@ Creates, updates, deletes or gets a <code>delegated_admin</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>delegated_admins</code> in a region.
+Gets all <code>delegated_admins</code> in a region.
 ```sql
 SELECT
 region,
-delegated_admin_identifier
+delegated_admin_identifier,
+admin_account_id,
+status
 FROM aws.securityhub.delegated_admins
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>delegated_admin</code>.
+Gets all properties from an individual <code>delegated_admin</code>.
 ```sql
 SELECT
 region,
@@ -85,7 +87,6 @@ status
 FROM aws.securityhub.delegated_admins
 WHERE region = 'us-east-1' AND data__Identifier = '<DelegatedAdminIdentifier>';
 ```
-
 
 ## `INSERT` example
 

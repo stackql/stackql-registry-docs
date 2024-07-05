@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>delivery_source</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>delivery_source</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>delivery_sources</code> in a region.
+Gets all <code>delivery_sources</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+arn,
+resource_arns,
+resource_arn,
+service,
+log_type,
+tags
 FROM aws.logs.delivery_sources
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>delivery_source</code>.
+Gets all properties from an individual <code>delivery_source</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.logs.delivery_sources
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

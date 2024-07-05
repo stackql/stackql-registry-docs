@@ -77,7 +77,7 @@ Creates, updates, deletes or gets a <code>package_version</code> resource or lis
 
 ## `SELECT` examples
 
-Gets all properties from a <code>package_version</code>.
+Gets all properties from an individual <code>package_version</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +96,6 @@ updated_latest_patch_version
 FROM aws.panorama.package_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<PackageId>|<PackageVersion>|<PatchVersion>';
 ```
-
 
 ## `INSERT` example
 

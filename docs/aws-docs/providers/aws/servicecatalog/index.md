@@ -20,7 +20,7 @@ The servicecatalog service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -30,9 +30,11 @@ The servicecatalog service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/aws/servicecatalog/cloud_formation_provisioned_products/">cloud_formation_provisioned_products</a><br />
-<a href="/providers/aws/servicecatalog/service_action_associations/">service_action_associations</a>
+<a href="/providers/aws/servicecatalog/service_action_associations/">service_action_associations</a><br />
+<a href="/providers/aws/servicecatalog/service_action_associations_list_only/">service_action_associations_list_only</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/servicecatalog/service_actions/">service_actions</a>
+<a href="/providers/aws/servicecatalog/service_actions/">service_actions</a><br />
+<a href="/providers/aws/servicecatalog/service_actions_list_only/">service_actions_list_only</a>
 </div>
 </div>

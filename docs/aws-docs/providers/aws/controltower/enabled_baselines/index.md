@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>enabled_baseline</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets an <code>enabled_baseline</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>enabled_baselines</code> in a region.
+Gets all <code>enabled_baselines</code> in a region.
 ```sql
 SELECT
 region,
-enabled_baseline_identifier
+baseline_identifier,
+baseline_version,
+enabled_baseline_identifier,
+target_identifier,
+parameters,
+tags
 FROM aws.controltower.enabled_baselines
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>enabled_baseline</code>.
+Gets all properties from an individual <code>enabled_baseline</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.controltower.enabled_baselines
 WHERE region = 'us-east-1' AND data__Identifier = '<EnabledBaselineIdentifier>';
 ```
-
 
 ## `INSERT` example
 

@@ -34,6 +34,8 @@ Details of a Transfer family server tags
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>The AWS region</td></tr>
 <tr><td><CopyableCode code="key" /></td><td><code>string</code></td><td>The key of the tag</td></tr>
 <tr><td><CopyableCode code="value" /></td><td><code>string</code></td><td>The value of the tag</td></tr>
+<tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
+<tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -51,7 +53,6 @@ Details of a Transfer family server tags
     <td><CopyableCode code="region" /></td>
   </tr>
 </tbody></table>
-
 
 
 

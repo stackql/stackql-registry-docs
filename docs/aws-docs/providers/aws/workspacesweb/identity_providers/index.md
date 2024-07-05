@@ -62,7 +62,7 @@ Creates, updates, deletes or gets an <code>identity_provider</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets an <code>identity_provider</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>identity_providers</code> in a region.
+Gets all <code>identity_providers</code> in a region.
 ```sql
 SELECT
 region,
-identity_provider_arn
+identity_provider_arn,
+identity_provider_details,
+identity_provider_name,
+identity_provider_type,
+portal_arn
 FROM aws.workspacesweb.identity_providers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>identity_provider</code>.
+Gets all properties from an individual <code>identity_provider</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ portal_arn
 FROM aws.workspacesweb.identity_providers
 WHERE region = 'us-east-1' AND data__Identifier = '<IdentityProviderArn>';
 ```
-
 
 ## `INSERT` example
 

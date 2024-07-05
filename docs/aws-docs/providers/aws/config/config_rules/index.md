@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>config_rule</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>config_rule</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>config_rules</code> in a region.
+Gets all <code>config_rules</code> in a region.
 ```sql
 SELECT
 region,
-config_rule_name
+config_rule_id,
+description,
+scope,
+config_rule_name,
+arn,
+compliance,
+maximum_execution_frequency,
+source,
+input_parameters,
+evaluation_modes
 FROM aws.config.config_rules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>config_rule</code>.
+Gets all properties from an individual <code>config_rule</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ evaluation_modes
 FROM aws.config.config_rules
 WHERE region = 'us-east-1' AND data__Identifier = '<ConfigRuleName>';
 ```
-
 
 ## `INSERT` example
 

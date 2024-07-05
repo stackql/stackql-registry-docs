@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>launch_profile</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,16 +78,23 @@ Creates, updates, deletes or gets a <code>launch_profile</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>launch_profiles</code> in a region.
+Gets all <code>launch_profiles</code> in a region.
 ```sql
 SELECT
 region,
+description,
+ec2_subnet_ids,
 launch_profile_id,
-studio_id
+launch_profile_protocol_versions,
+name,
+stream_configuration,
+studio_component_ids,
+studio_id,
+tags
 FROM aws.nimblestudio.launch_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>launch_profile</code>.
+Gets all properties from an individual <code>launch_profile</code>.
 ```sql
 SELECT
 region,
@@ -103,7 +110,6 @@ tags
 FROM aws.nimblestudio.launch_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<LaunchProfileId>|<StudioId>';
 ```
-
 
 ## `INSERT` example
 

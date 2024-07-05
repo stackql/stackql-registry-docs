@@ -67,7 +67,7 @@ Creates, updates, deletes or gets an <code>id_mapping_workflow</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets an <code>id_mapping_workflow</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>id_mapping_workflows</code> in a region.
+Gets all <code>id_mapping_workflows</code> in a region.
 ```sql
 SELECT
 region,
-workflow_name
+workflow_name,
+description,
+input_source_config,
+output_source_config,
+id_mapping_techniques,
+role_arn,
+tags,
+workflow_arn,
+created_at,
+updated_at
 FROM aws.entityresolution.id_mapping_workflows
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>id_mapping_workflow</code>.
+Gets all properties from an individual <code>id_mapping_workflow</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ updated_at
 FROM aws.entityresolution.id_mapping_workflows
 WHERE region = 'us-east-1' AND data__Identifier = '<WorkflowName>';
 ```
-
 
 ## `INSERT` example
 

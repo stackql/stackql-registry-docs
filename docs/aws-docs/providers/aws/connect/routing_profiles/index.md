@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>routing_profile</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>routing_profile</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>routing_profiles</code> in a region.
+Gets all <code>routing_profiles</code> in a region.
 ```sql
 SELECT
 region,
-routing_profile_arn
+instance_arn,
+name,
+description,
+media_concurrencies,
+default_outbound_queue_arn,
+routing_profile_arn,
+queue_configs,
+tags,
+agent_availability_timer
 FROM aws.connect.routing_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>routing_profile</code>.
+Gets all properties from an individual <code>routing_profile</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ agent_availability_timer
 FROM aws.connect.routing_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<RoutingProfileArn>';
 ```
-
 
 ## `INSERT` example
 

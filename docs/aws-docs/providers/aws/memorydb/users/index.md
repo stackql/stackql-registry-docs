@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>user</code> resource or lists <code>us
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>user</code> resource or lists <code>us
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>users</code> in a region.
+Gets all <code>users</code> in a region.
 ```sql
 SELECT
 region,
-user_name
+status,
+user_name,
+access_string,
+authentication_mode,
+arn,
+tags
 FROM aws.memorydb.users
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>user</code>.
+Gets all properties from an individual <code>user</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.memorydb.users
 WHERE region = 'us-east-1' AND data__Identifier = '<UserName>';
 ```
-
 
 ## `INSERT` example
 

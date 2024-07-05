@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>streaming_image</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,16 +79,24 @@ Creates, updates, deletes or gets a <code>streaming_image</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>streaming_images</code> in a region.
+Gets all <code>streaming_images</code> in a region.
 ```sql
 SELECT
 region,
+description,
+ec2_image_id,
+encryption_configuration,
+eula_ids,
+name,
+owner,
+platform,
+streaming_image_id,
 studio_id,
-streaming_image_id
+tags
 FROM aws.nimblestudio.streaming_images
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>streaming_image</code>.
+Gets all properties from an individual <code>streaming_image</code>.
 ```sql
 SELECT
 region,
@@ -105,7 +113,6 @@ tags
 FROM aws.nimblestudio.streaming_images
 WHERE region = 'us-east-1' AND data__Identifier = '<StudioId>|<StreamingImageId>';
 ```
-
 
 ## `INSERT` example
 

@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>decoder_manifest</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>decoder_manifest</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>decoder_manifests</code> in a region.
+Gets all <code>decoder_manifests</code> in a region.
 ```sql
 SELECT
 region,
-name
+arn,
+creation_time,
+description,
+last_modification_time,
+model_manifest_arn,
+name,
+network_interfaces,
+signal_decoders,
+status,
+tags
 FROM aws.iotfleetwise.decoder_manifests
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>decoder_manifest</code>.
+Gets all properties from an individual <code>decoder_manifest</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ tags
 FROM aws.iotfleetwise.decoder_manifests
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

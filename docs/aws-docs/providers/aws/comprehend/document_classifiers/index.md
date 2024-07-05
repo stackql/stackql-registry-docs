@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>document_classifier</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>document_classifier</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>document_classifiers</code> in a region.
+Gets all <code>document_classifiers</code> in a region.
 ```sql
 SELECT
 region,
+data_access_role_arn,
+input_data_config,
+output_data_config,
+language_code,
+model_kms_key_id,
+model_policy,
+document_classifier_name,
+mode,
+tags,
+version_name,
+volume_kms_key_id,
+vpc_config,
 arn
 FROM aws.comprehend.document_classifiers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>document_classifier</code>.
+Gets all properties from an individual <code>document_classifier</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ arn
 FROM aws.comprehend.document_classifiers
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

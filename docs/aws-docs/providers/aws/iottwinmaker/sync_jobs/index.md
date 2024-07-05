@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>sync_job</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,16 +72,22 @@ Creates, updates, deletes or gets a <code>sync_job</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>sync_jobs</code> in a region.
+Gets all <code>sync_jobs</code> in a region.
 ```sql
 SELECT
 region,
 workspace_id,
-sync_source
+sync_source,
+sync_role,
+creation_date_time,
+update_date_time,
+arn,
+state,
+tags
 FROM aws.iottwinmaker.sync_jobs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>sync_job</code>.
+Gets all properties from an individual <code>sync_job</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +102,6 @@ tags
 FROM aws.iottwinmaker.sync_jobs
 WHERE region = 'us-east-1' AND data__Identifier = '<WorkspaceId>|<SyncSource>';
 ```
-
 
 ## `INSERT` example
 

@@ -77,7 +77,7 @@ Creates, updates, deletes or gets a <code>subnet</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -89,15 +89,34 @@ Creates, updates, deletes or gets a <code>subnet</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>subnets</code> in a region.
+Gets all <code>subnets</code> in a region.
 ```sql
 SELECT
 region,
-subnet_id
+assign_ipv6_address_on_creation,
+vpc_id,
+map_public_ip_on_launch,
+enable_lni_at_device_index,
+network_acl_association_id,
+availability_zone,
+availability_zone_id,
+cidr_block,
+subnet_id,
+ipv6_cidr_blocks,
+ipv6_cidr_block,
+outpost_arn,
+ipv6_native,
+enable_dns64,
+private_dns_name_options_on_launch,
+tags,
+ipv4_ipam_pool_id,
+ipv4_netmask_length,
+ipv6_ipam_pool_id,
+ipv6_netmask_length
 FROM aws.ec2.subnets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>subnet</code>.
+Gets all properties from an individual <code>subnet</code>.
 ```sql
 SELECT
 region,
@@ -124,7 +143,6 @@ ipv6_netmask_length
 FROM aws.ec2.subnets
 WHERE region = 'us-east-1' AND data__Identifier = '<SubnetId>';
 ```
-
 
 ## `INSERT` example
 

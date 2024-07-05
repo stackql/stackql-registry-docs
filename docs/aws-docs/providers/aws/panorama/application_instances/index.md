@@ -73,7 +73,7 @@ Creates, updates, deletes or gets an <code>application_instance</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets an <code>application_instance</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>application_instances</code> in a region.
+Gets all <code>application_instances</code> in a region.
 ```sql
 SELECT
 region,
-application_instance_id
+default_runtime_context_device_name,
+status,
+default_runtime_context_device,
+description,
+application_instance_id_to_replace,
+created_time,
+health_status,
+manifest_overrides_payload,
+last_updated_time,
+runtime_role_arn,
+name,
+application_instance_id,
+status_description,
+manifest_payload,
+arn,
+tags
 FROM aws.panorama.application_instances
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>application_instance</code>.
+Gets all properties from an individual <code>application_instance</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ tags
 FROM aws.panorama.application_instances
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationInstanceId>';
 ```
-
 
 ## `INSERT` example
 

@@ -20,7 +20,7 @@ The osis service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,10 @@ The osis service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/osis/pipeline_tags/">pipeline_tags</a><br />
 <a href="/providers/aws/osis/pipelines/">pipelines</a>
 </div>
 <div class="providerDocColumn">
-
+<a href="/providers/aws/osis/pipelines_list_only/">pipelines_list_only</a>
 </div>
 </div>

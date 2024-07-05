@@ -70,7 +70,7 @@ Creates, updates, deletes or gets an <code>object_type</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,16 +82,27 @@ Creates, updates, deletes or gets an <code>object_type</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>object_types</code> in a region.
+Gets all <code>object_types</code> in a region.
 ```sql
 SELECT
 region,
 domain_name,
-object_type_name
+object_type_name,
+allow_profile_creation,
+description,
+encryption_key,
+expiration_days,
+fields,
+keys,
+created_at,
+last_updated_at,
+source_last_updated_timestamp_format,
+tags,
+template_id
 FROM aws.customerprofiles.object_types
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>object_type</code>.
+Gets all properties from an individual <code>object_type</code>.
 ```sql
 SELECT
 region,
@@ -111,7 +122,6 @@ template_id
 FROM aws.customerprofiles.object_types
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>|<ObjectTypeName>';
 ```
-
 
 ## `INSERT` example
 

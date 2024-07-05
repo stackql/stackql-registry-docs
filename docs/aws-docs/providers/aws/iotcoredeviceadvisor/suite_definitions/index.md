@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>suite_definition</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>suite_definition</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>suite_definitions</code> in a region.
+Gets all <code>suite_definitions</code> in a region.
 ```sql
 SELECT
 region,
-suite_definition_id
+suite_definition_configuration,
+suite_definition_id,
+suite_definition_arn,
+suite_definition_version,
+tags
 FROM aws.iotcoredeviceadvisor.suite_definitions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>suite_definition</code>.
+Gets all properties from an individual <code>suite_definition</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.iotcoredeviceadvisor.suite_definitions
 WHERE region = 'us-east-1' AND data__Identifier = '<SuiteDefinitionId>';
 ```
-
 
 ## `INSERT` example
 

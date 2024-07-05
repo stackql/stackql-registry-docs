@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>list</code> resource or lists <code>li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>list</code> resource or lists <code>li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>lists</code> in a region.
+Gets all <code>lists</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+description,
+variable_type,
+created_time,
+last_updated_time,
+tags,
+elements
 FROM aws.frauddetector.lists
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>list</code>.
+Gets all properties from an individual <code>list</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ elements
 FROM aws.frauddetector.lists
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

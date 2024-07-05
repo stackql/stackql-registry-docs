@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>verified_access_trust_provider</code> 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>verified_access_trust_provider</code> 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>verified_access_trust_providers</code> in a region.
+Gets all <code>verified_access_trust_providers</code> in a region.
 ```sql
 SELECT
 region,
-verified_access_trust_provider_id
+trust_provider_type,
+device_trust_provider_type,
+user_trust_provider_type,
+oidc_options,
+device_options,
+policy_reference_name,
+creation_time,
+last_updated_time,
+verified_access_trust_provider_id,
+description,
+tags,
+sse_specification
 FROM aws.ec2.verified_access_trust_providers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>verified_access_trust_provider</code>.
+Gets all properties from an individual <code>verified_access_trust_provider</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ sse_specification
 FROM aws.ec2.verified_access_trust_providers
 WHERE region = 'us-east-1' AND data__Identifier = '<VerifiedAccessTrustProviderId>';
 ```
-
 
 ## `INSERT` example
 

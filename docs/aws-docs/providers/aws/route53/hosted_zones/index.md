@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>hosted_zone</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>hosted_zone</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>hosted_zones</code> in a region.
+Gets all <code>hosted_zones</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+hosted_zone_config,
+hosted_zone_tags,
+name,
+query_logging_config,
+vpcs,
+name_servers
 FROM aws.route53.hosted_zones
 ;
 ```
-Gets all properties from a <code>hosted_zone</code>.
+Gets all properties from an individual <code>hosted_zone</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ name_servers
 FROM aws.route53.hosted_zones
 WHERE data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

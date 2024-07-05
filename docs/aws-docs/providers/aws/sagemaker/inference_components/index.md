@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>inference_component</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets an <code>inference_component</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>inference_components</code> in a region.
+Gets all <code>inference_components</code> in a region.
 ```sql
 SELECT
 region,
-inference_component_arn
+inference_component_arn,
+inference_component_name,
+endpoint_arn,
+endpoint_name,
+variant_name,
+failure_reason,
+specification,
+runtime_config,
+inference_component_status,
+creation_time,
+last_modified_time,
+tags
 FROM aws.sagemaker.inference_components
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>inference_component</code>.
+Gets all properties from an individual <code>inference_component</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.sagemaker.inference_components
 WHERE region = 'us-east-1' AND data__Identifier = '<InferenceComponentArn>';
 ```
-
 
 ## `INSERT` example
 

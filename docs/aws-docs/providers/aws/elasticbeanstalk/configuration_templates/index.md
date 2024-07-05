@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>configuration_template</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,16 +77,22 @@ Creates, updates, deletes or gets a <code>configuration_template</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>configuration_templates</code> in a region.
+Gets all <code>configuration_templates</code> in a region.
 ```sql
 SELECT
 region,
 application_name,
+description,
+environment_id,
+option_settings,
+platform_arn,
+solution_stack_name,
+source_configuration,
 template_name
 FROM aws.elasticbeanstalk.configuration_templates
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>configuration_template</code>.
+Gets all properties from an individual <code>configuration_template</code>.
 ```sql
 SELECT
 region,
@@ -101,7 +107,6 @@ template_name
 FROM aws.elasticbeanstalk.configuration_templates
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationName>|<TemplateName>';
 ```
-
 
 ## `INSERT` example
 

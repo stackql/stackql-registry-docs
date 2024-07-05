@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>log_delivery_configuration</code> reso
 
 ## `SELECT` examples
 
-Gets all properties from a <code>log_delivery_configuration</code>.
+Gets all properties from an individual <code>log_delivery_configuration</code>.
 ```sql
 SELECT
 region,
@@ -78,7 +78,6 @@ log_configurations
 FROM aws.cognito.log_delivery_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

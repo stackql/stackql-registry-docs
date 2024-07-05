@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,16 +85,30 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>data_sources</code> in a region.
+Gets all <code>data_sources</code> in a region.
 ```sql
 SELECT
 region,
+alternate_data_source_parameters,
+arn,
 aws_account_id,
-data_source_id
+created_time,
+credentials,
+data_source_id,
+data_source_parameters,
+error_info,
+last_updated_time,
+name,
+permissions,
+ssl_properties,
+status,
+tags,
+type,
+vpc_connection_properties
 FROM aws.quicksight.data_sources
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>data_source</code>.
+Gets all properties from an individual <code>data_source</code>.
 ```sql
 SELECT
 region,
@@ -117,7 +131,6 @@ vpc_connection_properties
 FROM aws.quicksight.data_sources
 WHERE region = 'us-east-1' AND data__Identifier = '<AwsAccountId>|<DataSourceId>';
 ```
-
 
 ## `INSERT` example
 

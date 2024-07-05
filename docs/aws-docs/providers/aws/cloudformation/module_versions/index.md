@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>module_version</code> resource or list
 
 ## `SELECT` examples
 
-Gets all properties from a <code>module_version</code>.
+Gets all properties from an individual <code>module_version</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +87,6 @@ visibility
 FROM aws.cloudformation.module_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

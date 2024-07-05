@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>public_key</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>public_key</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>public_keys</code> in a region.
+Gets all <code>public_keys</code> in a region.
 ```sql
 SELECT
 region,
-id
+created_time,
+id,
+public_key_config
 FROM aws.cloudfront.public_keys
 ;
 ```
-Gets all properties from a <code>public_key</code>.
+Gets all properties from an individual <code>public_key</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ public_key_config
 FROM aws.cloudfront.public_keys
 WHERE data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

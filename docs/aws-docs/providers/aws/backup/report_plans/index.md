@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>report_plan</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>report_plan</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>report_plans</code> in a region.
+Gets all <code>report_plans</code> in a region.
 ```sql
 SELECT
 region,
-report_plan_arn
+report_plan_name,
+report_plan_arn,
+report_plan_description,
+report_plan_tags,
+report_delivery_channel,
+report_setting
 FROM aws.backup.report_plans
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>report_plan</code>.
+Gets all properties from an individual <code>report_plan</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ report_setting
 FROM aws.backup.report_plans
 WHERE region = 'us-east-1' AND data__Identifier = '<ReportPlanArn>';
 ```
-
 
 ## `INSERT` example
 

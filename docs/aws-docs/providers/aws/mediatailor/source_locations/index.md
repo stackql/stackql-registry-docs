@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>source_location</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>source_location</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>source_locations</code> in a region.
+Gets all <code>source_locations</code> in a region.
 ```sql
 SELECT
 region,
-source_location_name
+access_configuration,
+arn,
+default_segment_delivery_configuration,
+http_configuration,
+segment_delivery_configurations,
+source_location_name,
+tags
 FROM aws.mediatailor.source_locations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>source_location</code>.
+Gets all properties from an individual <code>source_location</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.mediatailor.source_locations
 WHERE region = 'us-east-1' AND data__Identifier = '<SourceLocationName>';
 ```
-
 
 ## `INSERT` example
 

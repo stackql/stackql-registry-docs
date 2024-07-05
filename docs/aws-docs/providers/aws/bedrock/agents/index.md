@@ -80,7 +80,7 @@ Creates, updates, deletes or gets an <code>agent</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -92,15 +92,37 @@ Creates, updates, deletes or gets an <code>agent</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>agents</code> in a region.
+Gets all <code>agents</code> in a region.
 ```sql
 SELECT
 region,
-agent_id
+action_groups,
+agent_arn,
+agent_id,
+agent_name,
+agent_resource_role_arn,
+agent_status,
+agent_version,
+auto_prepare,
+created_at,
+customer_encryption_key_arn,
+skip_resource_in_use_check_on_delete,
+description,
+failure_reasons,
+foundation_model,
+idle_session_ttl_in_seconds,
+instruction,
+knowledge_bases,
+prepared_at,
+prompt_override_configuration,
+recommended_actions,
+tags,
+test_alias_tags,
+updated_at
 FROM aws.bedrock.agents
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>agent</code>.
+Gets all properties from an individual <code>agent</code>.
 ```sql
 SELECT
 region,
@@ -130,7 +152,6 @@ updated_at
 FROM aws.bedrock.agents
 WHERE region = 'us-east-1' AND data__Identifier = '<AgentId>';
 ```
-
 
 ## `INSERT` example
 

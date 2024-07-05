@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>network_insights_access_scope</code> r
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>network_insights_access_scope</code> r
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>network_insights_access_scopes</code> in a region.
+Gets all <code>network_insights_access_scopes</code> in a region.
 ```sql
 SELECT
 region,
-network_insights_access_scope_id
+network_insights_access_scope_id,
+network_insights_access_scope_arn,
+created_date,
+updated_date,
+tags,
+match_paths,
+exclude_paths
 FROM aws.ec2.network_insights_access_scopes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>network_insights_access_scope</code>.
+Gets all properties from an individual <code>network_insights_access_scope</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ exclude_paths
 FROM aws.ec2.network_insights_access_scopes
 WHERE region = 'us-east-1' AND data__Identifier = '<NetworkInsightsAccessScopeId>';
 ```
-
 
 ## `INSERT` example
 

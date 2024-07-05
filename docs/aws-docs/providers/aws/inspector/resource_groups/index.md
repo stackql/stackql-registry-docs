@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>resource_group</code> resource or list
 
 ## `SELECT` examples
 
-Gets all properties from a <code>resource_group</code>.
+Gets all properties from an individual <code>resource_group</code>.
 ```sql
 SELECT
 region,
@@ -71,7 +71,6 @@ resource_group_tags
 FROM aws.inspector.resource_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

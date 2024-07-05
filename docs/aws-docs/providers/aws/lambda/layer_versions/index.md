@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>layer_version</code> resource or lists
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,21 @@ Creates, updates, deletes or gets a <code>layer_version</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>layer_versions</code> in a region.
+Gets all <code>layer_versions</code> in a region.
 ```sql
 SELECT
 region,
-layer_version_arn
+compatible_runtimes,
+license_info,
+description,
+layer_name,
+content,
+layer_version_arn,
+compatible_architectures
 FROM aws.lambda.layer_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>layer_version</code>.
+Gets all properties from an individual <code>layer_version</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +99,6 @@ compatible_architectures
 FROM aws.lambda.layer_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<LayerVersionArn>';
 ```
-
 
 ## `INSERT` example
 

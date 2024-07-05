@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>route</code> resource or lists <code>r
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,17 +79,24 @@ Creates, updates, deletes or gets a <code>route</code> resource or lists <code>r
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>routes</code> in a region.
+Gets all <code>routes</code> in a region.
 ```sql
 SELECT
 region,
-environment_identifier,
+path_resource_to_id,
+arn,
 application_identifier,
-route_identifier
+environment_identifier,
+route_identifier,
+route_type,
+service_identifier,
+default_route,
+uri_path_route,
+tags
 FROM aws.refactorspaces.routes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>route</code>.
+Gets all properties from an individual <code>route</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +113,6 @@ tags
 FROM aws.refactorspaces.routes
 WHERE region = 'us-east-1' AND data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>|<RouteIdentifier>';
 ```
-
 
 ## `INSERT` example
 

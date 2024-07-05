@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>load_balancer</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets a <code>load_balancer</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>load_balancers</code> in a region.
+Gets all <code>load_balancers</code> in a region.
 ```sql
 SELECT
 region,
-load_balancer_arn
+ip_address_type,
+security_groups,
+load_balancer_attributes,
+scheme,
+dns_name,
+name,
+load_balancer_name,
+load_balancer_full_name,
+subnets,
+type,
+canonical_hosted_zone_id,
+tags,
+load_balancer_arn,
+subnet_mappings,
+enforce_security_group_inbound_rules_on_private_link_traffic
 FROM aws.elasticloadbalancingv2.load_balancers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>load_balancer</code>.
+Gets all properties from an individual <code>load_balancer</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ enforce_security_group_inbound_rules_on_private_link_traffic
 FROM aws.elasticloadbalancingv2.load_balancers
 WHERE region = 'us-east-1' AND data__Identifier = '<LoadBalancerArn>';
 ```
-
 
 ## `INSERT` example
 

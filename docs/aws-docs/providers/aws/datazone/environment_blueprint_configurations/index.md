@@ -67,7 +67,7 @@ Creates, updates, deletes or gets an <code>environment_blueprint_configuration</
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,16 +79,24 @@ Creates, updates, deletes or gets an <code>environment_blueprint_configuration</
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>environment_blueprint_configurations</code> in a region.
+Gets all <code>environment_blueprint_configurations</code> in a region.
 ```sql
 SELECT
 region,
+regional_parameters,
+provisioning_role_arn,
 domain_id,
-environment_blueprint_id
+created_at,
+enabled_regions,
+environment_blueprint_identifier,
+environment_blueprint_id,
+updated_at,
+domain_identifier,
+manage_access_role_arn
 FROM aws.datazone.environment_blueprint_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>environment_blueprint_configuration</code>.
+Gets all properties from an individual <code>environment_blueprint_configuration</code>.
 ```sql
 SELECT
 region,
@@ -105,7 +113,6 @@ manage_access_role_arn
 FROM aws.datazone.environment_blueprint_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainId>|<EnvironmentBlueprintId>';
 ```
-
 
 ## `INSERT` example
 

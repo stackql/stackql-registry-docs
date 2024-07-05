@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>role_policy</code> resource or lists <
 
 ## `SELECT` examples
 
-Gets all properties from a <code>role_policy</code>.
+Gets all properties from an individual <code>role_policy</code>.
 ```sql
 SELECT
 region,
@@ -83,7 +83,6 @@ role_name
 FROM aws.iam.role_policies
 WHERE data__Identifier = '<PolicyName>|<RoleName>';
 ```
-
 
 ## `INSERT` example
 

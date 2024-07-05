@@ -57,7 +57,7 @@ Creates, updates, deletes or gets a <code>resolver_config</code> resource or lis
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,15 +69,19 @@ Creates, updates, deletes or gets a <code>resolver_config</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>resolver_configs</code> in a region.
+Gets all <code>resolver_configs</code> in a region.
 ```sql
 SELECT
 region,
-resource_id
+id,
+owner_id,
+resource_id,
+autodefined_reverse,
+autodefined_reverse_flag
 FROM aws.route53resolver.resolver_configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>resolver_config</code>.
+Gets all properties from an individual <code>resolver_config</code>.
 ```sql
 SELECT
 region,
@@ -89,7 +93,6 @@ autodefined_reverse_flag
 FROM aws.route53resolver.resolver_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<ResourceId>';
 ```
-
 
 ## `INSERT` example
 

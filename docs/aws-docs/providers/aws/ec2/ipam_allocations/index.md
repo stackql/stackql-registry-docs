@@ -57,7 +57,7 @@ Creates, updates, deletes or gets an <code>ipam_allocation</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,17 +69,19 @@ Creates, updates, deletes or gets an <code>ipam_allocation</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>ipam_allocations</code> in a region.
+Gets all <code>ipam_allocations</code> in a region.
 ```sql
 SELECT
 region,
-ipam_pool_id,
 ipam_pool_allocation_id,
-cidr
+ipam_pool_id,
+cidr,
+netmask_length,
+description
 FROM aws.ec2.ipam_allocations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>ipam_allocation</code>.
+Gets all properties from an individual <code>ipam_allocation</code>.
 ```sql
 SELECT
 region,
@@ -91,7 +93,6 @@ description
 FROM aws.ec2.ipam_allocations
 WHERE region = 'us-east-1' AND data__Identifier = '<IpamPoolId>|<IpamPoolAllocationId>|<Cidr>';
 ```
-
 
 ## `INSERT` example
 

@@ -22,12 +22,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Cloud services from AWS.
 
-:::info Provider Summary (v24.06.00240)
+:::info Provider Summary (v24.07.00244)
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>218</b></span><br />
-<span>total resources:&nbsp;<b>1013</b></span><br />
+<span>total resources:&nbsp;<b>2548</b></span><br />
 </div>
 </div>
 

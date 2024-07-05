@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>resiliency_policy</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>resiliency_policy</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>resiliency_policies</code> in a region.
+Gets all <code>resiliency_policies</code> in a region.
 ```sql
 SELECT
 region,
-policy_arn
+policy_name,
+policy_description,
+data_location_constraint,
+tier,
+policy,
+policy_arn,
+tags
 FROM aws.resiliencehub.resiliency_policies
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>resiliency_policy</code>.
+Gets all properties from an individual <code>resiliency_policy</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.resiliencehub.resiliency_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<PolicyArn>';
 ```
-
 
 ## `INSERT` example
 

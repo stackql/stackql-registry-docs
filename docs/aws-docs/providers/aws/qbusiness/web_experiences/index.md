@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>web_experience</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,16 +82,27 @@ Creates, updates, deletes or gets a <code>web_experience</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>web_experiences</code> in a region.
+Gets all <code>web_experiences</code> in a region.
 ```sql
 SELECT
 region,
 application_id,
-web_experience_id
+created_at,
+default_endpoint,
+role_arn,
+sample_prompts_control_mode,
+status,
+subtitle,
+tags,
+title,
+updated_at,
+web_experience_arn,
+web_experience_id,
+welcome_message
 FROM aws.qbusiness.web_experiences
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>web_experience</code>.
+Gets all properties from an individual <code>web_experience</code>.
 ```sql
 SELECT
 region,
@@ -111,7 +122,6 @@ welcome_message
 FROM aws.qbusiness.web_experiences
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationId>|<WebExperienceId>';
 ```
-
 
 ## `INSERT` example
 

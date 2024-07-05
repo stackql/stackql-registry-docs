@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>local_gateway_route_table_virtual_inte
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>local_gateway_route_table_virtual_inte
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>local_gateway_route_table_virtual_interface_group_associations</code> in a region.
+Gets all <code>local_gateway_route_table_virtual_interface_group_associations</code> in a region.
 ```sql
 SELECT
 region,
-local_gateway_route_table_virtual_interface_group_association_id
+local_gateway_route_table_virtual_interface_group_association_id,
+local_gateway_id,
+local_gateway_route_table_id,
+local_gateway_route_table_arn,
+local_gateway_virtual_interface_group_id,
+owner_id,
+state,
+tags
 FROM aws.ec2.local_gateway_route_table_virtual_interface_group_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>local_gateway_route_table_virtual_interface_group_association</code>.
+Gets all properties from an individual <code>local_gateway_route_table_virtual_interface_group_association</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.ec2.local_gateway_route_table_virtual_interface_group_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<LocalGatewayRouteTableVirtualInterfaceGroupAssociationId>';
 ```
-
 
 ## `INSERT` example
 

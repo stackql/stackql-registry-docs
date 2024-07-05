@@ -70,7 +70,7 @@ Creates, updates, deletes or gets an <code>app_block</code> resource or lists <c
 
 ## `SELECT` examples
 
-Gets all properties from an <code>app_block</code>.
+Gets all properties from an individual <code>app_block</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +87,6 @@ post_setup_script_details
 FROM aws.appstream.app_blocks
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

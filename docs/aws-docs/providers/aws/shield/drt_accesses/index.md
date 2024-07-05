@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>drt_access</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>drt_access</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>drt_accesses</code> in a region.
+Gets all <code>drt_accesses</code> in a region.
 ```sql
 SELECT
 region,
-account_id
+account_id,
+log_bucket_list,
+role_arn
 FROM aws.shield.drt_accesses
 ;
 ```
-Gets all properties from a <code>drt_access</code>.
+Gets all properties from an individual <code>drt_access</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ role_arn
 FROM aws.shield.drt_accesses
 WHERE data__Identifier = '<AccountId>';
 ```
-
 
 ## `INSERT` example
 

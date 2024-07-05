@@ -82,7 +82,7 @@ Creates, updates, deletes or gets an <code>user_pool_client</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -94,16 +94,39 @@ Creates, updates, deletes or gets an <code>user_pool_client</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>user_pool_clients</code> in a region.
+Gets all <code>user_pool_clients</code> in a region.
 ```sql
 SELECT
 region,
+client_name,
+explicit_auth_flows,
+generate_secret,
+read_attributes,
+auth_session_validity,
+refresh_token_validity,
+access_token_validity,
+id_token_validity,
+token_validity_units,
 user_pool_id,
+write_attributes,
+allowed_oauth_flows,
+allowed_oauth_flows_user_pool_client,
+allowed_oauth_scopes,
+callback_urls,
+default_redirect_uri,
+logout_urls,
+supported_identity_providers,
+analytics_configuration,
+prevent_user_existence_errors,
+enable_token_revocation,
+enable_propagate_additional_user_context_data,
+name,
+client_secret,
 client_id
 FROM aws.cognito.user_pool_clients
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>user_pool_client</code>.
+Gets all properties from an individual <code>user_pool_client</code>.
 ```sql
 SELECT
 region,
@@ -135,7 +158,6 @@ client_id
 FROM aws.cognito.user_pool_clients
 WHERE region = 'us-east-1' AND data__Identifier = '<UserPoolId>|<ClientId>';
 ```
-
 
 ## `INSERT` example
 

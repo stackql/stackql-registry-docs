@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>webacl_association</code> resource or 
 
 ## `SELECT` examples
 
-Gets all properties from a <code>webacl_association</code>.
+Gets all properties from an individual <code>webacl_association</code>.
 ```sql
 SELECT
 region,
@@ -76,7 +76,6 @@ web_acl_arn
 FROM aws.wafv2.webacl_associations
 WHERE data__Identifier = '<ResourceArn>|<WebACLArn>';
 ```
-
 
 ## `INSERT` example
 

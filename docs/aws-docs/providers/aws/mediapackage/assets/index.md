@@ -61,7 +61,7 @@ Creates, updates, deletes or gets an <code>asset</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,23 @@ Creates, updates, deletes or gets an <code>asset</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>assets</code> in a region.
+Gets all <code>assets</code> in a region.
 ```sql
 SELECT
 region,
-id
+arn,
+created_at,
+egress_endpoints,
+id,
+packaging_group_id,
+resource_id,
+source_arn,
+source_role_arn,
+tags
 FROM aws.mediapackage.assets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>asset</code>.
+Gets all properties from an individual <code>asset</code>.
 ```sql
 SELECT
 region,
@@ -97,7 +105,6 @@ tags
 FROM aws.mediapackage.assets
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

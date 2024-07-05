@@ -66,7 +66,7 @@ Creates, updates, deletes or gets an <code>anomaly_subscription</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets an <code>anomaly_subscription</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>anomaly_subscriptions</code> in a region.
+Gets all <code>anomaly_subscriptions</code> in a region.
 ```sql
 SELECT
 region,
-subscription_arn
+subscription_arn,
+subscription_name,
+account_id,
+monitor_arn_list,
+subscribers,
+threshold,
+threshold_expression,
+frequency,
+resource_tags
 FROM aws.ce.anomaly_subscriptions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>anomaly_subscription</code>.
+Gets all properties from an individual <code>anomaly_subscription</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ resource_tags
 FROM aws.ce.anomaly_subscriptions
 WHERE region = 'us-east-1' AND data__Identifier = '<SubscriptionArn>';
 ```
-
 
 ## `INSERT` example
 

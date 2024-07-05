@@ -79,7 +79,7 @@ Creates, updates, deletes or gets a <code>network_interface</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -91,15 +91,36 @@ Creates, updates, deletes or gets a <code>network_interface</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>network_interfaces</code> in a region.
+Gets all <code>network_interfaces</code> in a region.
 ```sql
 SELECT
 region,
-id
+description,
+private_ip_address,
+private_ip_addresses,
+secondary_private_ip_address_count,
+primary_private_ip_address,
+ipv4_prefixes,
+ipv4_prefix_count,
+group_set,
+ipv6_addresses,
+ipv6_prefixes,
+ipv6_prefix_count,
+subnet_id,
+source_dest_check,
+interface_type,
+secondary_private_ip_addresses,
+ipv6_address_count,
+enable_primary_ipv6,
+primary_ipv6_address,
+connection_tracking_specification,
+id,
+tags,
+vpc_id
 FROM aws.ec2.network_interfaces
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>network_interface</code>.
+Gets all properties from an individual <code>network_interface</code>.
 ```sql
 SELECT
 region,
@@ -128,7 +149,6 @@ vpc_id
 FROM aws.ec2.network_interfaces
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>link</code> resource or lists <code>li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,16 +80,25 @@ Creates, updates, deletes or gets a <code>link</code> resource or lists <code>li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>links</code> in a region.
+Gets all <code>links</code> in a region.
 ```sql
 SELECT
 region,
+link_arn,
+link_id,
 global_network_id,
-link_id
+site_id,
+bandwidth,
+provider,
+description,
+tags,
+type,
+created_at,
+state
 FROM aws.networkmanager.links
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>link</code>.
+Gets all properties from an individual <code>link</code>.
 ```sql
 SELECT
 region,
@@ -107,7 +116,6 @@ state
 FROM aws.networkmanager.links
 WHERE region = 'us-east-1' AND data__Identifier = '<GlobalNetworkId>|<LinkId>';
 ```
-
 
 ## `INSERT` example
 

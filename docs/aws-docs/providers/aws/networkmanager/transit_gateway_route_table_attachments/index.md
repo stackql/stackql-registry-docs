@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>transit_gateway_route_table_attachment
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets a <code>transit_gateway_route_table_attachment
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>transit_gateway_route_table_attachments</code> in a region.
+Gets all <code>transit_gateway_route_table_attachments</code> in a region.
 ```sql
 SELECT
 region,
-attachment_id
+peering_id,
+transit_gateway_route_table_arn,
+core_network_id,
+core_network_arn,
+attachment_id,
+owner_account_id,
+attachment_type,
+state,
+edge_location,
+resource_arn,
+attachment_policy_rule_number,
+segment_name,
+proposed_segment_change,
+created_at,
+updated_at,
+tags
 FROM aws.networkmanager.transit_gateway_route_table_attachments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>transit_gateway_route_table_attachment</code>.
+Gets all properties from an individual <code>transit_gateway_route_table_attachment</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ tags
 FROM aws.networkmanager.transit_gateway_route_table_attachments
 WHERE region = 'us-east-1' AND data__Identifier = '<AttachmentId>';
 ```
-
 
 ## `INSERT` example
 

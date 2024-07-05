@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>plan</code> resource or lists <code>pl
 
 ## `SELECT` examples
 
-Gets all properties from a <code>plan</code>.
+Gets all properties from an individual <code>plan</code>.
 ```sql
 SELECT
 region,
@@ -80,7 +80,6 @@ arn
 FROM aws.ssmcontacts.plans
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

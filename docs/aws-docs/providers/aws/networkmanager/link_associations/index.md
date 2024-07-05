@@ -55,7 +55,7 @@ Creates, updates, deletes or gets a <code>link_association</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>link_association</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>link_associations</code> in a region.
+Gets all <code>link_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -77,7 +77,7 @@ link_id
 FROM aws.networkmanager.link_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>link_association</code>.
+Gets all properties from an individual <code>link_association</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +87,6 @@ link_id
 FROM aws.networkmanager.link_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<GlobalNetworkId>|<DeviceId>|<LinkId>';
 ```
-
 
 ## `INSERT` example
 

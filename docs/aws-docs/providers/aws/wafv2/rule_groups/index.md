@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>rule_group</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,17 +82,27 @@ Creates, updates, deletes or gets a <code>rule_group</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>rule_groups</code> in a region.
+Gets all <code>rule_groups</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+capacity,
+description,
 name,
 id,
-scope
+scope,
+rules,
+visibility_config,
+tags,
+label_namespace,
+custom_response_bodies,
+available_labels,
+consumed_labels
 FROM aws.wafv2.rule_groups
 ;
 ```
-Gets all properties from a <code>rule_group</code>.
+Gets all properties from an individual <code>rule_group</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +122,6 @@ consumed_labels
 FROM aws.wafv2.rule_groups
 WHERE data__Identifier = '<Name>|<Id>|<Scope>';
 ```
-
 
 ## `INSERT` example
 

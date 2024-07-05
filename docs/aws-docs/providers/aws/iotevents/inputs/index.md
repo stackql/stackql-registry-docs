@@ -61,7 +61,7 @@ Creates, updates, deletes or gets an <code>input</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets an <code>input</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>inputs</code> in a region.
+Gets all <code>inputs</code> in a region.
 ```sql
 SELECT
 region,
-input_name
+input_definition,
+input_description,
+input_name,
+tags
 FROM aws.iotevents.inputs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>input</code>.
+Gets all properties from an individual <code>input</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ tags
 FROM aws.iotevents.inputs
 WHERE region = 'us-east-1' AND data__Identifier = '<InputName>';
 ```
-
 
 ## `INSERT` example
 

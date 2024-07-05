@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>certificate_provider</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>certificate_provider</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>certificate_providers</code> in a region.
+Gets all <code>certificate_providers</code> in a region.
 ```sql
 SELECT
 region,
-certificate_provider_name
+certificate_provider_name,
+lambda_function_arn,
+account_default_for_operations,
+tags,
+arn
 FROM aws.iot.certificate_providers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>certificate_provider</code>.
+Gets all properties from an individual <code>certificate_provider</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ arn
 FROM aws.iot.certificate_providers
 WHERE region = 'us-east-1' AND data__Identifier = '<CertificateProviderName>';
 ```
-
 
 ## `INSERT` example
 

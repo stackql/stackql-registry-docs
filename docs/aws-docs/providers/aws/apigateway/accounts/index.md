@@ -67,7 +67,7 @@ Creates, updates, deletes or gets an <code>account</code> resource or lists <cod
 
 ## `SELECT` examples
 
-Gets all properties from an <code>account</code>.
+Gets all properties from an individual <code>account</code>.
 ```sql
 SELECT
 region,
@@ -76,7 +76,6 @@ cloud_watch_role_arn
 FROM aws.apigateway.accounts
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

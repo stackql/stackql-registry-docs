@@ -82,7 +82,7 @@ Creates, updates, deletes or gets a <code>service</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -94,16 +94,39 @@ Creates, updates, deletes or gets a <code>service</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>services</code> in a region.
+Gets all <code>services</code> in a region.
 ```sql
 SELECT
 region,
 service_arn,
-cluster
+capacity_provider_strategy,
+cluster,
+deployment_configuration,
+deployment_controller,
+desired_count,
+enable_ecs_managed_tags,
+enable_execute_command,
+health_check_grace_period_seconds,
+launch_type,
+load_balancers,
+name,
+network_configuration,
+placement_constraints,
+placement_strategies,
+platform_version,
+propagate_tags,
+role,
+scheduling_strategy,
+service_connect_configuration,
+service_name,
+service_registries,
+tags,
+task_definition,
+volume_configurations
 FROM aws.ecs.services
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>service</code>.
+Gets all properties from an individual <code>service</code>.
 ```sql
 SELECT
 region,
@@ -135,7 +158,6 @@ volume_configurations
 FROM aws.ecs.services
 WHERE region = 'us-east-1' AND data__Identifier = '<ServiceArn>|<Cluster>';
 ```
-
 
 ## `INSERT` example
 

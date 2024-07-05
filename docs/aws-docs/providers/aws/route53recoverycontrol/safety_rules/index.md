@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>safety_rule</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>safety_rule</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>safety_rules</code> in a region.
+Gets all <code>safety_rules</code> in a region.
 ```sql
 SELECT
 region,
-safety_rule_arn
+assertion_rule,
+gating_rule,
+name,
+safety_rule_arn,
+control_panel_arn,
+status,
+rule_config,
+tags
 FROM aws.route53recoverycontrol.safety_rules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>safety_rule</code>.
+Gets all properties from an individual <code>safety_rule</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.route53recoverycontrol.safety_rules
 WHERE region = 'us-east-1' AND data__Identifier = '<SafetyRuleArn>';
 ```
-
 
 ## `INSERT` example
 

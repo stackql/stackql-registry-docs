@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>image</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets an <code>image</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>images</code> in a region.
+Gets all <code>images</code> in a region.
 ```sql
 SELECT
 region,
-image_arn
+image_name,
+image_arn,
+image_role_arn,
+image_display_name,
+image_description,
+tags
 FROM aws.sagemaker.images
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>image</code>.
+Gets all properties from an individual <code>image</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.sagemaker.images
 WHERE region = 'us-east-1' AND data__Identifier = '<ImageArn>';
 ```
-
 
 ## `INSERT` example
 

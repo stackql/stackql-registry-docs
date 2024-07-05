@@ -20,7 +20,7 @@ The backup service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
+<span>total resources:&nbsp;<b>15</b></span><br />
 </div>
 </div>
 
@@ -30,13 +30,21 @@ The backup service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/aws/backup/backup_plans/">backup_plans</a><br />
+<a href="/providers/aws/backup/backup_plans_list_only/">backup_plans_list_only</a><br />
 <a href="/providers/aws/backup/backup_selections/">backup_selections</a><br />
+<a href="/providers/aws/backup/backup_selections_list_only/">backup_selections_list_only</a><br />
 <a href="/providers/aws/backup/backup_vaults/">backup_vaults</a><br />
-<a href="/providers/aws/backup/frameworks/">frameworks</a>
+<a href="/providers/aws/backup/backup_vaults_list_only/">backup_vaults_list_only</a><br />
+<a href="/providers/aws/backup/frameworks/">frameworks</a><br />
+<a href="/providers/aws/backup/frameworks_list_only/">frameworks_list_only</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/aws/backup/report_plans/">report_plans</a><br />
+<a href="/providers/aws/backup/report_plans_list_only/">report_plans_list_only</a><br />
+<a href="/providers/aws/backup/restore_testing_plan_tags/">restore_testing_plan_tags</a><br />
 <a href="/providers/aws/backup/restore_testing_plans/">restore_testing_plans</a><br />
-<a href="/providers/aws/backup/restore_testing_selections/">restore_testing_selections</a>
+<a href="/providers/aws/backup/restore_testing_plans_list_only/">restore_testing_plans_list_only</a><br />
+<a href="/providers/aws/backup/restore_testing_selections/">restore_testing_selections</a><br />
+<a href="/providers/aws/backup/restore_testing_selections_list_only/">restore_testing_selections_list_only</a>
 </div>
 </div>

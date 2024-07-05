@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>server_certificate</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>server_certificate</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>server_certificates</code> in a region.
+Gets all <code>server_certificates</code> in a region.
 ```sql
 SELECT
 region,
-server_certificate_name
+certificate_body,
+certificate_chain,
+server_certificate_name,
+path,
+private_key,
+arn,
+tags
 FROM aws.iam.server_certificates
 ;
 ```
-Gets all properties from a <code>server_certificate</code>.
+Gets all properties from an individual <code>server_certificate</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.iam.server_certificates
 WHERE data__Identifier = '<ServerCertificateName>';
 ```
-
 
 ## `INSERT` example
 

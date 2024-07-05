@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>zonal_autoshift_configuration</code> r
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>zonal_autoshift_configuration</code> r
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>zonal_autoshift_configurations</code> in a region.
+Gets all <code>zonal_autoshift_configurations</code> in a region.
 ```sql
 SELECT
 region,
+zonal_autoshift_status,
+practice_run_configuration,
 resource_identifier
 FROM aws.arczonalshift.zonal_autoshift_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>zonal_autoshift_configuration</code>.
+Gets all properties from an individual <code>zonal_autoshift_configuration</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ resource_identifier
 FROM aws.arczonalshift.zonal_autoshift_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<ResourceIdentifier>';
 ```
-
 
 ## `INSERT` example
 

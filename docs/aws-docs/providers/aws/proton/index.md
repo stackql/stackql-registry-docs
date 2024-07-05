@@ -20,7 +20,7 @@ The proton service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
 </div>
 </div>
 
@@ -29,10 +29,16 @@ The proton service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/proton/environment_account_connection_tags/">environment_account_connection_tags</a><br />
 <a href="/providers/aws/proton/environment_account_connections/">environment_account_connections</a><br />
+<a href="/providers/aws/proton/environment_account_connections_list_only/">environment_account_connections_list_only</a><br />
+<a href="/providers/aws/proton/environment_template_tags/">environment_template_tags</a><br />
 <a href="/providers/aws/proton/environment_templates/">environment_templates</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/proton/service_templates/">service_templates</a>
+<a href="/providers/aws/proton/environment_templates_list_only/">environment_templates_list_only</a><br />
+<a href="/providers/aws/proton/service_template_tags/">service_template_tags</a><br />
+<a href="/providers/aws/proton/service_templates/">service_templates</a><br />
+<a href="/providers/aws/proton/service_templates_list_only/">service_templates_list_only</a>
 </div>
 </div>

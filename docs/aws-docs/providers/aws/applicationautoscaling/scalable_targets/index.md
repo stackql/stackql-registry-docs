@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>scalable_target</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,17 +78,23 @@ Creates, updates, deletes or gets a <code>scalable_target</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>scalable_targets</code> in a region.
+Gets all <code>scalable_targets</code> in a region.
 ```sql
 SELECT
 region,
+scheduled_actions,
 resource_id,
+service_namespace,
 scalable_dimension,
-service_namespace
+suspended_state,
+id,
+min_capacity,
+role_arn,
+max_capacity
 FROM aws.applicationautoscaling.scalable_targets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>scalable_target</code>.
+Gets all properties from an individual <code>scalable_target</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +110,6 @@ max_capacity
 FROM aws.applicationautoscaling.scalable_targets
 WHERE region = 'us-east-1' AND data__Identifier = '<ResourceId>|<ScalableDimension>|<ServiceNamespace>';
 ```
-
 
 ## `INSERT` example
 

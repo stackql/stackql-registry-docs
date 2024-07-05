@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>certificate_authority_activation</code
 
 ## `SELECT` examples
 
-Gets all properties from a <code>certificate_authority_activation</code>.
+Gets all properties from an individual <code>certificate_authority_activation</code>.
 ```sql
 SELECT
 region,
@@ -82,7 +82,6 @@ complete_certificate_chain
 FROM aws.acmpca.certificate_authority_activations
 WHERE region = 'us-east-1' AND data__Identifier = '<CertificateAuthorityArn>';
 ```
-
 
 ## `INSERT` example
 

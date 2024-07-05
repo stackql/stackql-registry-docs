@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>documentation_part</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +73,18 @@ Creates, updates, deletes or gets a <code>documentation_part</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>documentation_parts</code> in a region.
+Gets all <code>documentation_parts</code> in a region.
 ```sql
 SELECT
 region,
 documentation_part_id,
+location,
+properties,
 rest_api_id
 FROM aws.apigateway.documentation_parts
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>documentation_part</code>.
+Gets all properties from an individual <code>documentation_part</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +95,6 @@ rest_api_id
 FROM aws.apigateway.documentation_parts
 WHERE region = 'us-east-1' AND data__Identifier = '<DocumentationPartId>|<RestApiId>';
 ```
-
 
 ## `INSERT` example
 

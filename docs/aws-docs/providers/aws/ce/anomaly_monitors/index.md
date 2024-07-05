@@ -67,7 +67,7 @@ Creates, updates, deletes or gets an <code>anomaly_monitor</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets an <code>anomaly_monitor</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>anomaly_monitors</code> in a region.
+Gets all <code>anomaly_monitors</code> in a region.
 ```sql
 SELECT
 region,
-monitor_arn
+monitor_arn,
+monitor_type,
+monitor_name,
+creation_date,
+last_evaluated_date,
+last_updated_date,
+monitor_dimension,
+monitor_specification,
+dimensional_value_count,
+resource_tags
 FROM aws.ce.anomaly_monitors
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>anomaly_monitor</code>.
+Gets all properties from an individual <code>anomaly_monitor</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ resource_tags
 FROM aws.ce.anomaly_monitors
 WHERE region = 'us-east-1' AND data__Identifier = '<MonitorArn>';
 ```
-
 
 ## `INSERT` example
 

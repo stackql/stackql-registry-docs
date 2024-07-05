@@ -70,7 +70,7 @@ Creates, updates, deletes or gets an <code>alarm</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets an <code>alarm</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>alarms</code> in a region.
+Gets all <code>alarms</code> in a region.
 ```sql
 SELECT
 region,
-alarm_name
+alarm_name,
+monitored_resource_name,
+metric_name,
+comparison_operator,
+contact_protocols,
+alarm_arn,
+datapoints_to_alarm,
+evaluation_periods,
+notification_enabled,
+notification_triggers,
+threshold,
+treat_missing_data,
+state
 FROM aws.lightsail.alarms
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>alarm</code>.
+Gets all properties from an individual <code>alarm</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ state
 FROM aws.lightsail.alarms
 WHERE region = 'us-east-1' AND data__Identifier = '<AlarmName>';
 ```
-
 
 ## `INSERT` example
 

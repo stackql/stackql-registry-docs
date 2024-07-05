@@ -74,7 +74,7 @@ Creates, updates, deletes or gets a <code>feature</code> resource or lists <code
 
 ## `SELECT` examples
 
-Gets all properties from a <code>feature</code>.
+Gets all properties from an individual <code>feature</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +90,6 @@ tags
 FROM aws.evidently.features
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>verified_access_instance</code> resour
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>verified_access_instance</code> resour
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>verified_access_instances</code> in a region.
+Gets all <code>verified_access_instances</code> in a region.
 ```sql
 SELECT
 region,
-verified_access_instance_id
+verified_access_instance_id,
+verified_access_trust_providers,
+verified_access_trust_provider_ids,
+creation_time,
+last_updated_time,
+description,
+logging_configurations,
+tags,
+fips_enabled
 FROM aws.ec2.verified_access_instances
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>verified_access_instance</code>.
+Gets all properties from an individual <code>verified_access_instance</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ fips_enabled
 FROM aws.ec2.verified_access_instances
 WHERE region = 'us-east-1' AND data__Identifier = '<VerifiedAccessInstanceId>';
 ```
-
 
 ## `INSERT` example
 

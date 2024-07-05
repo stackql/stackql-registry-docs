@@ -71,7 +71,7 @@ Creates, updates, deletes or gets an <code>infrastructure_configuration</code> r
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,15 +83,28 @@ Creates, updates, deletes or gets an <code>infrastructure_configuration</code> r
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>infrastructure_configurations</code> in a region.
+Gets all <code>infrastructure_configurations</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+description,
+instance_types,
+security_group_ids,
+logging,
+subnet_id,
+key_pair,
+terminate_instance_on_failure,
+instance_profile_name,
+instance_metadata_options,
+sns_topic_arn,
+resource_tags,
+tags
 FROM aws.imagebuilder.infrastructure_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>infrastructure_configuration</code>.
+Gets all properties from an individual <code>infrastructure_configuration</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +125,6 @@ tags
 FROM aws.imagebuilder.infrastructure_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -64,7 +64,7 @@ Creates, updates, deletes or gets an <code>user_profile</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,16 +76,21 @@ Creates, updates, deletes or gets an <code>user_profile</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>user_profiles</code> in a region.
+Gets all <code>user_profiles</code> in a region.
 ```sql
 SELECT
 region,
+user_profile_arn,
+domain_id,
+single_sign_on_user_identifier,
+single_sign_on_user_value,
 user_profile_name,
-domain_id
+user_settings,
+tags
 FROM aws.sagemaker.user_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>user_profile</code>.
+Gets all properties from an individual <code>user_profile</code>.
 ```sql
 SELECT
 region,
@@ -99,7 +104,6 @@ tags
 FROM aws.sagemaker.user_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<UserProfileName>|<DomainId>';
 ```
-
 
 ## `INSERT` example
 

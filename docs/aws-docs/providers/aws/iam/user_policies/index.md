@@ -73,7 +73,7 @@ Creates, updates, deletes or gets an <code>user_policy</code> resource or lists 
 
 ## `SELECT` examples
 
-Gets all properties from an <code>user_policy</code>.
+Gets all properties from an individual <code>user_policy</code>.
 ```sql
 SELECT
 region,
@@ -83,7 +83,6 @@ user_name
 FROM aws.iam.user_policies
 WHERE data__Identifier = '<PolicyName>|<UserName>';
 ```
-
 
 ## `INSERT` example
 

@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>instance_profile</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets an <code>instance_profile</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>instance_profiles</code> in a region.
+Gets all <code>instance_profiles</code> in a region.
 ```sql
 SELECT
 region,
-instance_profile_arn
+instance_profile_arn,
+instance_profile_identifier,
+availability_zone,
+description,
+kms_key_arn,
+publicly_accessible,
+network_type,
+instance_profile_name,
+instance_profile_creation_time,
+subnet_group_identifier,
+vpc_security_groups,
+tags
 FROM aws.dms.instance_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>instance_profile</code>.
+Gets all properties from an individual <code>instance_profile</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.dms.instance_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<InstanceProfileArn>';
 ```
-
 
 ## `INSERT` example
 

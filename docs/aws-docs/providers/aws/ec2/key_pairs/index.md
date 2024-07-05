@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>key_pair</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,21 @@ Creates, updates, deletes or gets a <code>key_pair</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>key_pairs</code> in a region.
+Gets all <code>key_pairs</code> in a region.
 ```sql
 SELECT
 region,
-key_name
+key_name,
+key_type,
+key_format,
+public_key_material,
+key_fingerprint,
+key_pair_id,
+tags
 FROM aws.ec2.key_pairs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>key_pair</code>.
+Gets all properties from an individual <code>key_pair</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +99,6 @@ tags
 FROM aws.ec2.key_pairs
 WHERE region = 'us-east-1' AND data__Identifier = '<KeyName>';
 ```
-
 
 ## `INSERT` example
 

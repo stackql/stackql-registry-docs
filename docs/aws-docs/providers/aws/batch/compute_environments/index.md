@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>compute_environment</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>compute_environment</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>compute_environments</code> in a region.
+Gets all <code>compute_environments</code> in a region.
 ```sql
 SELECT
 region,
-compute_environment_arn
+compute_environment_arn,
+compute_environment_name,
+compute_resources,
+replace_compute_environment,
+service_role,
+state,
+tags,
+type,
+update_policy,
+unmanagedv_cpus,
+eks_configuration
 FROM aws.batch.compute_environments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>compute_environment</code>.
+Gets all properties from an individual <code>compute_environment</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ eks_configuration
 FROM aws.batch.compute_environments
 WHERE region = 'us-east-1' AND data__Identifier = '<ComputeEnvironmentArn>';
 ```
-
 
 ## `INSERT` example
 

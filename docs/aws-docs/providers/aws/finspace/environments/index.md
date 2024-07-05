@@ -72,7 +72,7 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>environments</code> in a region.
+Gets all <code>environments</code> in a region.
 ```sql
 SELECT
 region,
-environment_id
+environment_id,
+name,
+aws_account_id,
+description,
+status,
+environment_url,
+environment_arn,
+sage_maker_studio_domain_url,
+kms_key_id,
+dedicated_service_account_id,
+federation_mode,
+federation_parameters,
+superuser_parameters,
+data_bundles,
+tags
 FROM aws.finspace.environments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>environment</code>.
+Gets all properties from an individual <code>environment</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ tags
 FROM aws.finspace.environments
 WHERE region = 'us-east-1' AND data__Identifier = '<EnvironmentId>';
 ```
-
 
 ## `INSERT` example
 

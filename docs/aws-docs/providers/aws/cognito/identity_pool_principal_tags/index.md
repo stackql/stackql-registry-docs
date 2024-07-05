@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>identity_pool_principal_tag</code> resource or lists <code>identity_pool_principal_tags</code> in a region
+Expands all tag keys and values for <code>identity_pool_principals</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,6 +34,8 @@ Creates, updates, deletes or gets an <code>identity_pool_principal_tag</code> re
 <tr><td><CopyableCode code="identity_provider_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="use_defaults" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="principal_tags" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
+<tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -61,7 +63,7 @@ Creates, updates, deletes or gets an <code>identity_pool_principal_tag</code> re
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +75,20 @@ Creates, updates, deletes or gets an <code>identity_pool_principal_tag</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>identity_pool_principal_tags</code> in a region.
+Expands tags for all <code>identity_pool_principals</code> in a region.
 ```sql
 SELECT
 region,
 identity_pool_id,
-identity_provider_name
+identity_provider_name,
+use_defaults,
+principal_tags,
+tag_key,
+tag_value
 FROM aws.cognito.identity_pool_principal_tags
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>identity_pool_principal_tag</code>.
+Gets all properties from an individual <code>identity_pool_principal_tag</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +99,6 @@ principal_tags
 FROM aws.cognito.identity_pool_principal_tags
 WHERE region = 'us-east-1' AND data__Identifier = '<IdentityPoolId>|<IdentityProviderName>';
 ```
-
 
 ## `INSERT` example
 

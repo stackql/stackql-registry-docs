@@ -68,7 +68,7 @@ Creates, updates, deletes or gets an <code>endpoint_group</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets an <code>endpoint_group</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>endpoint_groups</code> in a region.
+Gets all <code>endpoint_groups</code> in a region.
 ```sql
 SELECT
 region,
-endpoint_group_arn
+listener_arn,
+endpoint_group_region,
+endpoint_configurations,
+traffic_dial_percentage,
+health_check_port,
+health_check_protocol,
+health_check_path,
+health_check_interval_seconds,
+threshold_count,
+endpoint_group_arn,
+port_overrides
 FROM aws.globalaccelerator.endpoint_groups
 ;
 ```
-Gets all properties from an <code>endpoint_group</code>.
+Gets all properties from an individual <code>endpoint_group</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ port_overrides
 FROM aws.globalaccelerator.endpoint_groups
 WHERE data__Identifier = '<EndpointGroupArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>warm_pool</code> resource or lists <co
 
 ## `SELECT` examples
 
-Gets all properties from a <code>warm_pool</code>.
+Gets all properties from an individual <code>warm_pool</code>.
 ```sql
 SELECT
 region,
@@ -82,7 +82,6 @@ instance_reuse_policy
 FROM aws.autoscaling.warm_pools
 WHERE region = 'us-east-1' AND data__Identifier = '<AutoScalingGroupName>';
 ```
-
 
 ## `INSERT` example
 

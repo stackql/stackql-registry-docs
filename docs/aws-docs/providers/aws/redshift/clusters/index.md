@@ -112,7 +112,7 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -124,15 +124,69 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>clusters</code> in a region.
+Gets all <code>clusters</code> in a region.
 ```sql
 SELECT
 region,
-cluster_identifier
+revision_target,
+automated_snapshot_retention_period,
+encrypted,
+port,
+number_of_nodes,
+destination_region,
+allow_version_upgrade,
+endpoint,
+namespace_resource_policy,
+maintenance_track_name,
+owner_account,
+multi_az,
+tags,
+snapshot_cluster_identifier,
+iam_roles,
+kms_key_id,
+snapshot_copy_manual,
+manage_master_password,
+availability_zone,
+cluster_security_groups,
+cluster_identifier,
+master_user_password,
+cluster_subnet_group_name,
+logging_properties,
+defer_maintenance,
+node_type,
+master_username,
+publicly_accessible,
+defer_maintenance_identifier,
+manual_snapshot_retention_period,
+resource_action,
+hsm_client_certificate_identifier,
+elastic_ip,
+availability_zone_relocation_status,
+aqua_configuration_status,
+snapshot_identifier,
+availability_zone_relocation,
+snapshot_copy_grant_name,
+enhanced_vpc_routing,
+cluster_parameter_group_name,
+defer_maintenance_end_time,
+rotate_encryption_key,
+vpc_security_group_ids,
+cluster_namespace_arn,
+master_password_secret_arn,
+cluster_version,
+hsm_configuration_identifier,
+preferred_maintenance_window,
+defer_maintenance_start_time,
+cluster_type,
+classic,
+master_password_secret_kms_key_id,
+defer_maintenance_duration,
+db_name,
+snapshot_copy_retention_period
 FROM aws.redshift.clusters
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>cluster</code>.
+Gets all properties from an individual <code>cluster</code>.
 ```sql
 SELECT
 region,
@@ -194,7 +248,6 @@ snapshot_copy_retention_period
 FROM aws.redshift.clusters
 WHERE region = 'us-east-1' AND data__Identifier = '<ClusterIdentifier>';
 ```
-
 
 ## `INSERT` example
 

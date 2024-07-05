@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>route</code> resource or lists <code>r
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,16 +85,30 @@ Creates, updates, deletes or gets a <code>route</code> resource or lists <code>r
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>routes</code> in a region.
+Gets all <code>routes</code> in a region.
 ```sql
 SELECT
 region,
+carrier_gateway_id,
+cidr_block,
+core_network_arn,
+destination_cidr_block,
+destination_ipv6_cidr_block,
+destination_prefix_list_id,
+egress_only_internet_gateway_id,
+gateway_id,
+instance_id,
+local_gateway_id,
+nat_gateway_id,
+network_interface_id,
 route_table_id,
-cidr_block
+transit_gateway_id,
+vpc_endpoint_id,
+vpc_peering_connection_id
 FROM aws.ec2.routes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>route</code>.
+Gets all properties from an individual <code>route</code>.
 ```sql
 SELECT
 region,
@@ -117,7 +131,6 @@ vpc_peering_connection_id
 FROM aws.ec2.routes
 WHERE region = 'us-east-1' AND data__Identifier = '<RouteTableId>|<CidrBlock>';
 ```
-
 
 ## `INSERT` example
 

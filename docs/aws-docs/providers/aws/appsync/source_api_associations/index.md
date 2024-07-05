@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>source_api_association</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>source_api_association</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>source_api_associations</code> in a region.
+Gets all <code>source_api_associations</code> in a region.
 ```sql
 SELECT
 region,
-association_arn
+source_api_identifier,
+merged_api_identifier,
+description,
+source_api_association_config,
+association_id,
+association_arn,
+source_api_id,
+source_api_arn,
+merged_api_id,
+merged_api_arn,
+source_api_association_status,
+source_api_association_status_detail,
+last_successful_merge_date
 FROM aws.appsync.source_api_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>source_api_association</code>.
+Gets all properties from an individual <code>source_api_association</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ last_successful_merge_date
 FROM aws.appsync.source_api_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<AssociationArn>';
 ```
-
 
 ## `INSERT` example
 

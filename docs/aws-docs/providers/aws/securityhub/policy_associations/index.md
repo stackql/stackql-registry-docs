@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>policy_association</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>policy_association</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>policy_associations</code> in a region.
+Gets all <code>policy_associations</code> in a region.
 ```sql
 SELECT
 region,
+configuration_policy_id,
+association_status,
+association_type,
+association_status_message,
+target_id,
+target_type,
+updated_at,
 association_identifier
 FROM aws.securityhub.policy_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>policy_association</code>.
+Gets all properties from an individual <code>policy_association</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ association_identifier
 FROM aws.securityhub.policy_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<AssociationIdentifier>';
 ```
-
 
 ## `INSERT` example
 

@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>security_group</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>security_group</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>security_groups</code> in a region.
+Gets all <code>security_groups</code> in a region.
 ```sql
 SELECT
 region,
-id
+group_description,
+group_name,
+vpc_id,
+id,
+security_group_ingress,
+security_group_egress,
+tags,
+group_id
 FROM aws.ec2.security_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>security_group</code>.
+Gets all properties from an individual <code>security_group</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ group_id
 FROM aws.ec2.security_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

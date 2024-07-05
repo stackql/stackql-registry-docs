@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,16 +81,26 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>data_sources</code> in a region.
+Gets all <code>data_sources</code> in a region.
 ```sql
 SELECT
 region,
 id,
-index_id
+arn,
+name,
+index_id,
+type,
+data_source_configuration,
+description,
+schedule,
+role_arn,
+tags,
+custom_document_enrichment_configuration,
+language_code
 FROM aws.kendra.data_sources
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>data_source</code>.
+Gets all properties from an individual <code>data_source</code>.
 ```sql
 SELECT
 region,
@@ -109,7 +119,6 @@ language_code
 FROM aws.kendra.data_sources
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>|<IndexId>';
 ```
-
 
 ## `INSERT` example
 

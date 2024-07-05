@@ -56,7 +56,7 @@ Creates, updates, deletes or gets an <code>attribute_group_association</code> re
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,16 +68,18 @@ Creates, updates, deletes or gets an <code>attribute_group_association</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>attribute_group_associations</code> in a region.
+Gets all <code>attribute_group_associations</code> in a region.
 ```sql
 SELECT
 region,
+application,
+attribute_group,
 application_arn,
 attribute_group_arn
 FROM aws.servicecatalogappregistry.attribute_group_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>attribute_group_association</code>.
+Gets all properties from an individual <code>attribute_group_association</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +90,6 @@ attribute_group_arn
 FROM aws.servicecatalogappregistry.attribute_group_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationArn>|<AttributeGroupArn>';
 ```
-
 
 ## `INSERT` example
 

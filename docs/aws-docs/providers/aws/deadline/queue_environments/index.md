@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>queue_environment</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,17 +76,21 @@ Creates, updates, deletes or gets a <code>queue_environment</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>queue_environments</code> in a region.
+Gets all <code>queue_environments</code> in a region.
 ```sql
 SELECT
 region,
 farm_id,
+name,
+priority,
+queue_environment_id,
 queue_id,
-queue_environment_id
+template,
+template_type
 FROM aws.deadline.queue_environments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>queue_environment</code>.
+Gets all properties from an individual <code>queue_environment</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +104,6 @@ template_type
 FROM aws.deadline.queue_environments
 WHERE region = 'us-east-1' AND data__Identifier = '<FarmId>|<QueueId>|<QueueEnvironmentId>';
 ```
-
 
 ## `INSERT` example
 

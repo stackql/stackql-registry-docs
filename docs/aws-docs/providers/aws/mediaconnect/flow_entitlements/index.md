@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>flow_entitlement</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>flow_entitlement</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>flow_entitlements</code> in a region.
+Gets all <code>flow_entitlements</code> in a region.
 ```sql
 SELECT
 region,
-entitlement_arn
+flow_arn,
+entitlement_arn,
+data_transfer_subscriber_fee_percent,
+description,
+encryption,
+entitlement_status,
+name,
+subscribers
 FROM aws.mediaconnect.flow_entitlements
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>flow_entitlement</code>.
+Gets all properties from an individual <code>flow_entitlement</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ subscribers
 FROM aws.mediaconnect.flow_entitlements
 WHERE region = 'us-east-1' AND data__Identifier = '<EntitlementArn>';
 ```
-
 
 ## `INSERT` example
 

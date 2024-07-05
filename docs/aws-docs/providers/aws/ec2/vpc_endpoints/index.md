@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>vpc_endpoint</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>vpc_endpoint</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vpc_endpoints</code> in a region.
+Gets all <code>vpc_endpoints</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+creation_timestamp,
+dns_entries,
+network_interface_ids,
+policy_document,
+private_dns_enabled,
+route_table_ids,
+security_group_ids,
+service_name,
+subnet_ids,
+vpc_endpoint_type,
+vpc_id
 FROM aws.ec2.vpc_endpoints
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vpc_endpoint</code>.
+Gets all properties from an individual <code>vpc_endpoint</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ vpc_id
 FROM aws.ec2.vpc_endpoints
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

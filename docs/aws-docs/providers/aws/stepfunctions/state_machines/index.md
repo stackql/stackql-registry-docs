@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>state_machine</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>state_machine</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>state_machines</code> in a region.
+Gets all <code>state_machines</code> in a region.
 ```sql
 SELECT
 region,
-arn
+definition_substitutions,
+definition,
+role_arn,
+name,
+state_machine_type,
+tracing_configuration,
+definition_string,
+logging_configuration,
+state_machine_revision_id,
+definition_s3_location,
+arn,
+state_machine_name,
+tags
 FROM aws.stepfunctions.state_machines
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>state_machine</code>.
+Gets all properties from an individual <code>state_machine</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ tags
 FROM aws.stepfunctions.state_machines
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

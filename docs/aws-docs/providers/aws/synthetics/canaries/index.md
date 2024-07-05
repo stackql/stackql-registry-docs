@@ -74,7 +74,7 @@ Creates, updates, deletes or gets a <code>canary</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -86,15 +86,31 @@ Creates, updates, deletes or gets a <code>canary</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>canaries</code> in a region.
+Gets all <code>canaries</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+id,
+state,
+code,
+artifact_s3_location,
+artifact_config,
+schedule,
+execution_role_arn,
+runtime_version,
+success_retention_period,
+failure_retention_period,
+tags,
+vpc_config,
+run_config,
+start_canary_after_creation,
+visual_reference,
+delete_lambda_resources_on_canary_deletion
 FROM aws.synthetics.canaries
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>canary</code>.
+Gets all properties from an individual <code>canary</code>.
 ```sql
 SELECT
 region,
@@ -118,7 +134,6 @@ delete_lambda_resources_on_canary_deletion
 FROM aws.synthetics.canaries
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

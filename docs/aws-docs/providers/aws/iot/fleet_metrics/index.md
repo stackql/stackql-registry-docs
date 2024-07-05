@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>fleet_metric</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,15 +83,28 @@ Creates, updates, deletes or gets a <code>fleet_metric</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>fleet_metrics</code> in a region.
+Gets all <code>fleet_metrics</code> in a region.
 ```sql
 SELECT
 region,
-metric_name
+metric_name,
+description,
+query_string,
+period,
+aggregation_field,
+query_version,
+index_name,
+unit,
+aggregation_type,
+metric_arn,
+creation_date,
+last_modified_date,
+version,
+tags
 FROM aws.iot.fleet_metrics
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>fleet_metric</code>.
+Gets all properties from an individual <code>fleet_metric</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +125,6 @@ tags
 FROM aws.iot.fleet_metrics
 WHERE region = 'us-east-1' AND data__Identifier = '<MetricName>';
 ```
-
 
 ## `INSERT` example
 

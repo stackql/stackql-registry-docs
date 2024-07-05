@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>data_quality_job_definition</code> res
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,27 @@ Creates, updates, deletes or gets a <code>data_quality_job_definition</code> res
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>data_quality_job_definitions</code> in a region.
+Gets all <code>data_quality_job_definitions</code> in a region.
 ```sql
 SELECT
 region,
-job_definition_arn
+job_definition_arn,
+job_definition_name,
+data_quality_baseline_config,
+data_quality_app_specification,
+data_quality_job_input,
+data_quality_job_output_config,
+job_resources,
+network_config,
+endpoint_name,
+role_arn,
+stopping_condition,
+tags,
+creation_time
 FROM aws.sagemaker.data_quality_job_definitions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>data_quality_job_definition</code>.
+Gets all properties from an individual <code>data_quality_job_definition</code>.
 ```sql
 SELECT
 region,
@@ -105,7 +117,6 @@ creation_time
 FROM aws.sagemaker.data_quality_job_definitions
 WHERE region = 'us-east-1' AND data__Identifier = '<JobDefinitionArn>';
 ```
-
 
 ## `INSERT` example
 

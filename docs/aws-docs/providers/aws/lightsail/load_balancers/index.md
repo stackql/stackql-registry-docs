@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>load_balancer</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>load_balancer</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>load_balancers</code> in a region.
+Gets all <code>load_balancers</code> in a region.
 ```sql
 SELECT
 region,
-load_balancer_name
+load_balancer_name,
+load_balancer_arn,
+instance_port,
+ip_address_type,
+attached_instances,
+health_check_path,
+session_stickiness_enabled,
+session_stickiness_lb_cookie_duration_seconds,
+tls_policy_name,
+tags
 FROM aws.lightsail.load_balancers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>load_balancer</code>.
+Gets all properties from an individual <code>load_balancer</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ tags
 FROM aws.lightsail.load_balancers
 WHERE region = 'us-east-1' AND data__Identifier = '<LoadBalancerName>';
 ```
-
 
 ## `INSERT` example
 

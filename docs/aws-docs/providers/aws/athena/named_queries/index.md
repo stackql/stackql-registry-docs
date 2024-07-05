@@ -58,7 +58,7 @@ Creates, updates, deletes or gets a <code>named_query</code> resource or lists <
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -70,15 +70,20 @@ Creates, updates, deletes or gets a <code>named_query</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>named_queries</code> in a region.
+Gets all <code>named_queries</code> in a region.
 ```sql
 SELECT
 region,
+name,
+database,
+description,
+query_string,
+work_group,
 named_query_id
 FROM aws.athena.named_queries
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>named_query</code>.
+Gets all properties from an individual <code>named_query</code>.
 ```sql
 SELECT
 region,
@@ -91,7 +96,6 @@ named_query_id
 FROM aws.athena.named_queries
 WHERE region = 'us-east-1' AND data__Identifier = '<NamedQueryId>';
 ```
-
 
 ## `INSERT` example
 

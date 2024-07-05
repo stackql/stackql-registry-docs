@@ -20,7 +20,7 @@ The opsworkscm service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,10 @@ The opsworkscm service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/opsworkscm/server_tags/">server_tags</a><br />
 <a href="/providers/aws/opsworkscm/servers/">servers</a>
 </div>
 <div class="providerDocColumn">
-
+<a href="/providers/aws/opsworkscm/servers_list_only/">servers_list_only</a>
 </div>
 </div>

@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>tls_inspection_configuration</code> re
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>tls_inspection_configuration</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>tls_inspection_configurations</code> in a region.
+Gets all <code>tls_inspection_configurations</code> in a region.
 ```sql
 SELECT
 region,
-tls_inspection_configuration_arn
+tls_inspection_configuration_name,
+tls_inspection_configuration_arn,
+tls_inspection_configuration,
+tls_inspection_configuration_id,
+description,
+tags
 FROM aws.networkfirewall.tls_inspection_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>tls_inspection_configuration</code>.
+Gets all properties from an individual <code>tls_inspection_configuration</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.networkfirewall.tls_inspection_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<TLSInspectionConfigurationArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>device</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,16 +83,28 @@ Creates, updates, deletes or gets a <code>device</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>devices</code> in a region.
+Gets all <code>devices</code> in a region.
 ```sql
 SELECT
 region,
+device_arn,
+device_id,
+description,
+tags,
 global_network_id,
-device_id
+aws_location,
+location,
+model,
+serial_number,
+site_id,
+type,
+vendor,
+created_at,
+state
 FROM aws.networkmanager.devices
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>device</code>.
+Gets all properties from an individual <code>device</code>.
 ```sql
 SELECT
 region,
@@ -113,7 +125,6 @@ state
 FROM aws.networkmanager.devices
 WHERE region = 'us-east-1' AND data__Identifier = '<GlobalNetworkId>|<DeviceId>';
 ```
-
 
 ## `INSERT` example
 

@@ -70,7 +70,7 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>environments</code> in a region.
+Gets all <code>environments</code> in a region.
 ```sql
 SELECT
 region,
-environment_name
+platform_arn,
+application_name,
+description,
+environment_name,
+operations_role,
+tier,
+version_label,
+endpoint_url,
+option_settings,
+template_name,
+solution_stack_name,
+cname_prefix,
+tags
 FROM aws.elasticbeanstalk.environments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>environment</code>.
+Gets all properties from an individual <code>environment</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ tags
 FROM aws.elasticbeanstalk.environments
 WHERE region = 'us-east-1' AND data__Identifier = '<EnvironmentName>';
 ```
-
 
 ## `INSERT` example
 

@@ -75,7 +75,7 @@ Creates, updates, deletes or gets a <code>trail</code> resource or lists <code>t
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -87,15 +87,32 @@ Creates, updates, deletes or gets a <code>trail</code> resource or lists <code>t
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>trails</code> in a region.
+Gets all <code>trails</code> in a region.
 ```sql
 SELECT
 region,
-trail_name
+cloud_watch_logs_log_group_arn,
+cloud_watch_logs_role_arn,
+enable_log_file_validation,
+advanced_event_selectors,
+event_selectors,
+include_global_service_events,
+is_logging,
+is_multi_region_trail,
+is_organization_trail,
+kms_key_id,
+s3_bucket_name,
+s3_key_prefix,
+sns_topic_name,
+tags,
+trail_name,
+arn,
+sns_topic_arn,
+insight_selectors
 FROM aws.cloudtrail.trails
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>trail</code>.
+Gets all properties from an individual <code>trail</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +137,6 @@ insight_selectors
 FROM aws.cloudtrail.trails
 WHERE region = 'us-east-1' AND data__Identifier = '<TrailName>';
 ```
-
 
 ## `INSERT` example
 

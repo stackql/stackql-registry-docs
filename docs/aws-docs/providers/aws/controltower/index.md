@@ -20,7 +20,7 @@ The controltower service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
 </div>
 </div>
 
@@ -29,10 +29,16 @@ The controltower service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/controltower/enabled_baseline_tags/">enabled_baseline_tags</a><br />
 <a href="/providers/aws/controltower/enabled_baselines/">enabled_baselines</a><br />
+<a href="/providers/aws/controltower/enabled_baselines_list_only/">enabled_baselines_list_only</a><br />
+<a href="/providers/aws/controltower/enabled_control_tags/">enabled_control_tags</a><br />
 <a href="/providers/aws/controltower/enabled_controls/">enabled_controls</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/controltower/landing_zones/">landing_zones</a>
+<a href="/providers/aws/controltower/enabled_controls_list_only/">enabled_controls_list_only</a><br />
+<a href="/providers/aws/controltower/landing_zone_tags/">landing_zone_tags</a><br />
+<a href="/providers/aws/controltower/landing_zones/">landing_zones</a><br />
+<a href="/providers/aws/controltower/landing_zones_list_only/">landing_zones_list_only</a>
 </div>
 </div>

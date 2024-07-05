@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>pull_through_cache_rule</code> resourc
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>pull_through_cache_rule</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>pull_through_cache_rules</code> in a region.
+Gets all <code>pull_through_cache_rules</code> in a region.
 ```sql
 SELECT
 region,
-ecr_repository_prefix
+ecr_repository_prefix,
+upstream_registry_url,
+credential_arn,
+upstream_registry
 FROM aws.ecr.pull_through_cache_rules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>pull_through_cache_rule</code>.
+Gets all properties from an individual <code>pull_through_cache_rule</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ upstream_registry
 FROM aws.ecr.pull_through_cache_rules
 WHERE region = 'us-east-1' AND data__Identifier = '<EcrRepositoryPrefix>';
 ```
-
 
 ## `INSERT` example
 

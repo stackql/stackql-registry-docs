@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>logging</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>logging</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>loggings</code> in a region.
+Gets all <code>loggings</code> in a region.
 ```sql
 SELECT
 region,
-account_id
+account_id,
+role_arn,
+default_log_level
 FROM aws.iot.loggings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>logging</code>.
+Gets all properties from an individual <code>logging</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ default_log_level
 FROM aws.iot.loggings
 WHERE region = 'us-east-1' AND data__Identifier = '<AccountId>';
 ```
-
 
 ## `INSERT` example
 

@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>data_lake</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>data_lake</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>data_lakes</code> in a region.
+Gets all <code>data_lakes</code> in a region.
 ```sql
 SELECT
 region,
-arn
+encryption_configuration,
+lifecycle_configuration,
+replication_configuration,
+meta_store_manager_role_arn,
+tags,
+arn,
+s3_bucket_arn
 FROM aws.securitylake.data_lakes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>data_lake</code>.
+Gets all properties from an individual <code>data_lake</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ s3_bucket_arn
 FROM aws.securitylake.data_lakes
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

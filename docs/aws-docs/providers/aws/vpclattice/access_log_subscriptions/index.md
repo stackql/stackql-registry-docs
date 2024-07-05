@@ -64,7 +64,7 @@ Creates, updates, deletes or gets an <code>access_log_subscription</code> resour
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets an <code>access_log_subscription</code> resour
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>access_log_subscriptions</code> in a region.
+Gets all <code>access_log_subscriptions</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+destination_arn,
+id,
+resource_arn,
+resource_id,
+resource_identifier,
+tags
 FROM aws.vpclattice.access_log_subscriptions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>access_log_subscription</code>.
+Gets all properties from an individual <code>access_log_subscription</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.vpclattice.access_log_subscriptions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

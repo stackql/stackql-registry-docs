@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>authorizer</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,16 +81,26 @@ Creates, updates, deletes or gets an <code>authorizer</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>authorizers</code> in a region.
+Gets all <code>authorizers</code> in a region.
 ```sql
 SELECT
 region,
+identity_validation_expression,
+authorizer_uri,
+authorizer_credentials_arn,
+authorizer_type,
+jwt_configuration,
+authorizer_result_ttl_in_seconds,
+identity_source,
+authorizer_payload_format_version,
+api_id,
+enable_simple_responses,
 authorizer_id,
-api_id
+name
 FROM aws.apigatewayv2.authorizers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>authorizer</code>.
+Gets all properties from an individual <code>authorizer</code>.
 ```sql
 SELECT
 region,
@@ -109,7 +119,6 @@ name
 FROM aws.apigatewayv2.authorizers
 WHERE region = 'us-east-1' AND data__Identifier = '<AuthorizerId>|<ApiId>';
 ```
-
 
 ## `INSERT` example
 

@@ -55,7 +55,7 @@ Creates, updates, deletes or gets a <code>security_key</code> resource or lists 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -67,16 +67,17 @@ Creates, updates, deletes or gets a <code>security_key</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>security_keys</code> in a region.
+Gets all <code>security_keys</code> in a region.
 ```sql
 SELECT
 region,
+key,
 instance_id,
 association_id
 FROM aws.connect.security_keys
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>security_key</code>.
+Gets all properties from an individual <code>security_key</code>.
 ```sql
 SELECT
 region,
@@ -86,7 +87,6 @@ association_id
 FROM aws.connect.security_keys
 WHERE region = 'us-east-1' AND data__Identifier = '<InstanceId>|<AssociationId>';
 ```
-
 
 ## `INSERT` example
 

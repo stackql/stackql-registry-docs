@@ -78,7 +78,7 @@ Creates, updates, deletes or gets a <code>portal</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -90,15 +90,35 @@ Creates, updates, deletes or gets a <code>portal</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>portals</code> in a region.
+Gets all <code>portals</code> in a region.
 ```sql
 SELECT
 region,
-portal_arn
+additional_encryption_context,
+authentication_type,
+browser_settings_arn,
+browser_type,
+creation_date,
+customer_managed_key,
+display_name,
+instance_type,
+ip_access_settings_arn,
+max_concurrent_sessions,
+network_settings_arn,
+portal_arn,
+portal_endpoint,
+portal_status,
+renderer_type,
+service_provider_saml_metadata,
+status_reason,
+tags,
+trust_store_arn,
+user_access_logging_settings_arn,
+user_settings_arn
 FROM aws.workspacesweb.portals
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>portal</code>.
+Gets all properties from an individual <code>portal</code>.
 ```sql
 SELECT
 region,
@@ -126,7 +146,6 @@ user_settings_arn
 FROM aws.workspacesweb.portals
 WHERE region = 'us-east-1' AND data__Identifier = '<PortalArn>';
 ```
-
 
 ## `INSERT` example
 

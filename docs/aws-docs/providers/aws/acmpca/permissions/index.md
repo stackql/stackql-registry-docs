@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>permission</code> resource or lists <c
 
 ## `SELECT` examples
 
-Gets all properties from a <code>permission</code>.
+Gets all properties from an individual <code>permission</code>.
 ```sql
 SELECT
 region,
@@ -75,7 +75,6 @@ source_account
 FROM aws.acmpca.permissions
 WHERE region = 'us-east-1' AND data__Identifier = '<CertificateAuthorityArn>|<Principal>';
 ```
-
 
 ## `INSERT` example
 

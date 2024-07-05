@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>domains</code> in a region.
+Gets all <code>domains</code> in a region.
 ```sql
 SELECT
 region,
-arn
+app_id,
+arn,
+auto_sub_domain_creation_patterns,
+auto_sub_domain_iam_role,
+certificate_record,
+certificate,
+certificate_settings,
+domain_name,
+domain_status,
+update_status,
+enable_auto_sub_domain,
+status_reason,
+sub_domain_settings
 FROM aws.amplify.domains
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>domain</code>.
+Gets all properties from an individual <code>domain</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ sub_domain_settings
 FROM aws.amplify.domains
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

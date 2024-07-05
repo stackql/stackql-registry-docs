@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>gateway_route_table_association</code>
 
 ## `SELECT` examples
 
-Gets all properties from a <code>gateway_route_table_association</code>.
+Gets all properties from an individual <code>gateway_route_table_association</code>.
 ```sql
 SELECT
 region,
@@ -78,7 +78,6 @@ association_id
 FROM aws.ec2.gateway_route_table_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<GatewayId>';
 ```
-
 
 ## `INSERT` example
 

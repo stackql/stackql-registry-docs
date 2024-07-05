@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>scheduling_policy</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>scheduling_policy</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>scheduling_policies</code> in a region.
+Gets all <code>scheduling_policies</code> in a region.
 ```sql
 SELECT
 region,
-arn
+name,
+arn,
+fairshare_policy,
+tags
 FROM aws.batch.scheduling_policies
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>scheduling_policy</code>.
+Gets all properties from an individual <code>scheduling_policy</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ tags
 FROM aws.batch.scheduling_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

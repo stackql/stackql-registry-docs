@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>connection</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>connection</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>connections</code> in a region.
+Gets all <code>connections</code> in a region.
 ```sql
 SELECT
 region,
-connection_arn
+connection_arn,
+connection_name,
+connection_status,
+owner_account_id,
+provider_type,
+host_arn,
+tags
 FROM aws.codestarconnections.connections
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>connection</code>.
+Gets all properties from an individual <code>connection</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.codestarconnections.connections
 WHERE region = 'us-east-1' AND data__Identifier = '<ConnectionArn>';
 ```
-
 
 ## `INSERT` example
 

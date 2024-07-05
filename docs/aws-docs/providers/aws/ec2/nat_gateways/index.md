@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>nat_gateway</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>nat_gateway</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>nat_gateways</code> in a region.
+Gets all <code>nat_gateways</code> in a region.
 ```sql
 SELECT
 region,
-nat_gateway_id
+secondary_allocation_ids,
+private_ip_address,
+connectivity_type,
+secondary_private_ip_addresses,
+secondary_private_ip_address_count,
+allocation_id,
+subnet_id,
+nat_gateway_id,
+tags,
+max_drain_duration_seconds
 FROM aws.ec2.nat_gateways
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>nat_gateway</code>.
+Gets all properties from an individual <code>nat_gateway</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ max_drain_duration_seconds
 FROM aws.ec2.nat_gateways
 WHERE region = 'us-east-1' AND data__Identifier = '<NatGatewayId>';
 ```
-
 
 ## `INSERT` example
 

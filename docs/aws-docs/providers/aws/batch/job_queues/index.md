@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>job_queue</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>job_queue</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>job_queues</code> in a region.
+Gets all <code>job_queues</code> in a region.
 ```sql
 SELECT
 region,
-job_queue_arn
+job_queue_name,
+job_queue_arn,
+compute_environment_order,
+job_state_time_limit_actions,
+priority,
+state,
+scheduling_policy_arn,
+tags
 FROM aws.batch.job_queues
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>job_queue</code>.
+Gets all properties from an individual <code>job_queue</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.batch.job_queues
 WHERE region = 'us-east-1' AND data__Identifier = '<JobQueueArn>';
 ```
-
 
 ## `INSERT` example
 

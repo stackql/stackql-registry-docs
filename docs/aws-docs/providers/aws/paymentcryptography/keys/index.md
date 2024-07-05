@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>key</code> resource or lists <code>key
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>key</code> resource or lists <code>key
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>keys</code> in a region.
+Gets all <code>keys</code> in a region.
 ```sql
 SELECT
 region,
-key_identifier
+enabled,
+exportable,
+key_attributes,
+key_check_value_algorithm,
+key_identifier,
+key_origin,
+key_state,
+tags
 FROM aws.paymentcryptography.keys
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>key</code>.
+Gets all properties from an individual <code>key</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.paymentcryptography.keys
 WHERE region = 'us-east-1' AND data__Identifier = '<KeyIdentifier>';
 ```
-
 
 ## `INSERT` example
 

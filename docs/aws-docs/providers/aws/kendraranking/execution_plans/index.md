@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>execution_plan</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets an <code>execution_plan</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>execution_plans</code> in a region.
+Gets all <code>execution_plans</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+arn,
+description,
+tags,
+name,
+capacity_units
 FROM aws.kendraranking.execution_plans
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>execution_plan</code>.
+Gets all properties from an individual <code>execution_plan</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ capacity_units
 FROM aws.kendraranking.execution_plans
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

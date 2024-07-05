@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>logging_configuration</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>logging_configuration</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>logging_configurations</code> in a region.
+Gets all <code>logging_configurations</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+id,
+destination_configuration,
+name,
+state,
+tags
 FROM aws.ivschat.logging_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>logging_configuration</code>.
+Gets all properties from an individual <code>logging_configuration</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.ivschat.logging_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

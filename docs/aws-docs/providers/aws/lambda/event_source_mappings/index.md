@@ -81,7 +81,7 @@ Creates, updates, deletes or gets an <code>event_source_mapping</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -93,15 +93,38 @@ Creates, updates, deletes or gets an <code>event_source_mapping</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>event_source_mappings</code> in a region.
+Gets all <code>event_source_mappings</code> in a region.
 ```sql
 SELECT
 region,
-id
+starting_position,
+self_managed_event_source,
+parallelization_factor,
+filter_criteria,
+function_name,
+destination_config,
+amazon_managed_kafka_event_source_config,
+source_access_configurations,
+maximum_batching_window_in_seconds,
+batch_size,
+maximum_retry_attempts,
+topics,
+scaling_config,
+enabled,
+event_source_arn,
+self_managed_kafka_event_source_config,
+document_db_event_source_config,
+tumbling_window_in_seconds,
+bisect_batch_on_function_error,
+maximum_record_age_in_seconds,
+starting_position_timestamp,
+queues,
+id,
+function_response_types
 FROM aws.lambda.event_source_mappings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>event_source_mapping</code>.
+Gets all properties from an individual <code>event_source_mapping</code>.
 ```sql
 SELECT
 region,
@@ -132,7 +155,6 @@ function_response_types
 FROM aws.lambda.event_source_mappings
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

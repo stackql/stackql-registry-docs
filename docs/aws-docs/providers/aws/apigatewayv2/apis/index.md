@@ -76,7 +76,7 @@ Creates, updates, deletes or gets an <code>api</code> resource or lists <code>ap
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -88,15 +88,33 @@ Creates, updates, deletes or gets an <code>api</code> resource or lists <code>ap
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>apis</code> in a region.
+Gets all <code>apis</code> in a region.
 ```sql
 SELECT
 region,
-api_id
+route_selection_expression,
+body_s3_location,
+description,
+api_endpoint,
+base_path,
+fail_on_warnings,
+disable_execute_api_endpoint,
+disable_schema_validation,
+name,
+target,
+credentials_arn,
+cors_configuration,
+version,
+protocol_type,
+route_key,
+api_id,
+body,
+tags,
+api_key_selection_expression
 FROM aws.apigatewayv2.apis
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>api</code>.
+Gets all properties from an individual <code>api</code>.
 ```sql
 SELECT
 region,
@@ -122,7 +140,6 @@ api_key_selection_expression
 FROM aws.apigatewayv2.apis
 WHERE region = 'us-east-1' AND data__Identifier = '<ApiId>';
 ```
-
 
 ## `INSERT` example
 

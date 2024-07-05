@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>table</code> resource or lists <code>t
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,16 +77,22 @@ Creates, updates, deletes or gets a <code>table</code> resource or lists <code>t
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>tables</code> in a region.
+Gets all <code>tables</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+name,
 database_name,
-table_name
+table_name,
+retention_properties,
+schema,
+magnetic_store_write_properties,
+tags
 FROM aws.timestream.tables
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>table</code>.
+Gets all properties from an individual <code>table</code>.
 ```sql
 SELECT
 region,
@@ -101,7 +107,6 @@ tags
 FROM aws.timestream.tables
 WHERE region = 'us-east-1' AND data__Identifier = '<DatabaseName>|<TableName>';
 ```
-
 
 ## `INSERT` example
 

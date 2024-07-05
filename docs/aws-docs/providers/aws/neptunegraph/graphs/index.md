@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>graph</code> resource or lists <code>g
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>graph</code> resource or lists <code>g
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>graphs</code> in a region.
+Gets all <code>graphs</code> in a region.
 ```sql
 SELECT
 region,
+deletion_protection,
+graph_name,
+provisioned_memory,
+public_connectivity,
+replica_count,
+tags,
+vector_search_configuration,
+endpoint,
+graph_arn,
 graph_id
 FROM aws.neptunegraph.graphs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>graph</code>.
+Gets all properties from an individual <code>graph</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ graph_id
 FROM aws.neptunegraph.graphs
 WHERE region = 'us-east-1' AND data__Identifier = '<GraphId>';
 ```
-
 
 ## `INSERT` example
 

@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>profiling_group</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>profiling_group</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>profiling_groups</code> in a region.
+Gets all <code>profiling_groups</code> in a region.
 ```sql
 SELECT
 region,
-profiling_group_name
+profiling_group_name,
+compute_platform,
+agent_permissions,
+anomaly_detection_notification_configuration,
+arn,
+tags
 FROM aws.codeguruprofiler.profiling_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>profiling_group</code>.
+Gets all properties from an individual <code>profiling_group</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.codeguruprofiler.profiling_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<ProfilingGroupName>';
 ```
-
 
 ## `INSERT` example
 

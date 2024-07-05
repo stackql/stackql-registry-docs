@@ -62,7 +62,7 @@ Creates, updates, deletes or gets an <code>api_mapping</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,16 +74,19 @@ Creates, updates, deletes or gets an <code>api_mapping</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>api_mappings</code> in a region.
+Gets all <code>api_mappings</code> in a region.
 ```sql
 SELECT
 region,
 api_mapping_id,
-domain_name
+domain_name,
+stage,
+api_mapping_key,
+api_id
 FROM aws.apigatewayv2.api_mappings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>api_mapping</code>.
+Gets all properties from an individual <code>api_mapping</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +98,6 @@ api_id
 FROM aws.apigatewayv2.api_mappings
 WHERE region = 'us-east-1' AND data__Identifier = '<ApiMappingId>|<DomainName>';
 ```
-
 
 ## `INSERT` example
 

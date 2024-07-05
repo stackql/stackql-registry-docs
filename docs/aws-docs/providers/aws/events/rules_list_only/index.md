@@ -1,0 +1,75 @@
+---
+title: rules_list_only
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - rules_list_only
+  - events
+  - aws
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage AWS resources using SQL
+custom_edit_url: null
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Lists <code>rules</code> in a region or regions, for all properties use <a href="/providers/aws/serviceName/rules/"><code>rules</code></a>
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>rules_list_only</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::Events::Rule</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.events.rules_list_only" /></td></tr>
+</tbody></table>
+
+## Fields
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="event_bus_name" /></td><td><code>string</code></td><td>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</td></tr>
+<tr><td><CopyableCode code="event_pattern" /></td><td><code>object</code></td><td>The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.</td></tr>
+<tr><td><CopyableCode code="schedule_expression" /></td><td><code>string</code></td><td>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the rule.</td></tr>
+<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the rule.</td></tr>
+<tr><td><CopyableCode code="targets" /></td><td><code>array</code></td><td>Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.<br />Targets are the resources that are invoked when a rule is triggered.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the role that is used for target invocation.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the rule.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
+</tbody></table>
+
+## Methods
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><CopyableCode code="list_resources" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="region" /></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` examples
+Lists all <code>rules</code> in a region.
+```sql
+SELECT
+region,
+arn
+FROM aws.events.rules_list_only
+WHERE region = 'us-east-1';
+```
+
+
+## Permissions
+
+For permissions required to operate on the <code>rules_list_only</code> resource, see <a href="/providers/aws/events/rules/#permissions"><code>rules</code></a>
+
+

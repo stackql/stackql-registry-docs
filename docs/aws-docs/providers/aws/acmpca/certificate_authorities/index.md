@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>certificate_authority</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>certificate_authority</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>certificate_authorities</code> in a region.
+Gets all <code>certificate_authorities</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+type,
+key_algorithm,
+signing_algorithm,
+subject,
+revocation_configuration,
+tags,
+certificate_signing_request,
+csr_extensions,
+key_storage_security_standard,
+usage_mode
 FROM aws.acmpca.certificate_authorities
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>certificate_authority</code>.
+Gets all properties from an individual <code>certificate_authority</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ usage_mode
 FROM aws.acmpca.certificate_authorities
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

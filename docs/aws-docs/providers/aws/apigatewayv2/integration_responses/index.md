@@ -65,7 +65,7 @@ Creates, updates, deletes or gets an <code>integration_response</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,17 +77,22 @@ Creates, updates, deletes or gets an <code>integration_response</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>integration_responses</code> in a region.
+Gets all <code>integration_responses</code> in a region.
 ```sql
 SELECT
 region,
-api_id,
+integration_response_id,
+response_templates,
+template_selection_expression,
+response_parameters,
+content_handling_strategy,
 integration_id,
-integration_response_id
+integration_response_key,
+api_id
 FROM aws.apigatewayv2.integration_responses
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>integration_response</code>.
+Gets all properties from an individual <code>integration_response</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +107,6 @@ api_id
 FROM aws.apigatewayv2.integration_responses
 WHERE region = 'us-east-1' AND data__Identifier = '<ApiId>|<IntegrationId>|<IntegrationResponseId>';
 ```
-
 
 ## `INSERT` example
 

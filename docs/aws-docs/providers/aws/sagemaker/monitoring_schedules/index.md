@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>monitoring_schedule</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>monitoring_schedule</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>monitoring_schedules</code> in a region.
+Gets all <code>monitoring_schedules</code> in a region.
 ```sql
 SELECT
 region,
-monitoring_schedule_arn
+monitoring_schedule_arn,
+monitoring_schedule_name,
+monitoring_schedule_config,
+tags,
+creation_time,
+endpoint_name,
+failure_reason,
+last_modified_time,
+last_monitoring_execution_summary,
+monitoring_schedule_status
 FROM aws.sagemaker.monitoring_schedules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>monitoring_schedule</code>.
+Gets all properties from an individual <code>monitoring_schedule</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ monitoring_schedule_status
 FROM aws.sagemaker.monitoring_schedules
 WHERE region = 'us-east-1' AND data__Identifier = '<MonitoringScheduleArn>';
 ```
-
 
 ## `INSERT` example
 

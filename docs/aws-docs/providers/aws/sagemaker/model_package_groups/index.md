@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>model_package_group</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>model_package_group</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>model_package_groups</code> in a region.
+Gets all <code>model_package_groups</code> in a region.
 ```sql
 SELECT
 region,
-model_package_group_arn
+tags,
+model_package_group_arn,
+model_package_group_name,
+model_package_group_description,
+model_package_group_policy,
+creation_time,
+model_package_group_status
 FROM aws.sagemaker.model_package_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>model_package_group</code>.
+Gets all properties from an individual <code>model_package_group</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ model_package_group_status
 FROM aws.sagemaker.model_package_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<ModelPackageGroupArn>';
 ```
-
 
 ## `INSERT` example
 

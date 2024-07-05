@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>hook_default_version</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,15 +68,18 @@ Creates, updates, deletes or gets a <code>hook_default_version</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>hook_default_versions</code> in a region.
+Gets all <code>hook_default_versions</code> in a region.
 ```sql
 SELECT
 region,
-arn
+type_version_arn,
+type_name,
+arn,
+version_id
 FROM aws.cloudformation.hook_default_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>hook_default_version</code>.
+Gets all properties from an individual <code>hook_default_version</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +90,6 @@ version_id
 FROM aws.cloudformation.hook_default_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

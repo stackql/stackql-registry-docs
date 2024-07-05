@@ -20,7 +20,7 @@ The cassandra service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,13 @@ The cassandra service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/cassandra/keyspaces/">keyspaces</a>
+<a href="/providers/aws/cassandra/keyspace_tags/">keyspace_tags</a><br />
+<a href="/providers/aws/cassandra/keyspaces/">keyspaces</a><br />
+<a href="/providers/aws/cassandra/keyspaces_list_only/">keyspaces_list_only</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/cassandra/tables/">tables</a>
+<a href="/providers/aws/cassandra/table_tags/">table_tags</a><br />
+<a href="/providers/aws/cassandra/tables/">tables</a><br />
+<a href="/providers/aws/cassandra/tables_list_only/">tables_list_only</a>
 </div>
 </div>

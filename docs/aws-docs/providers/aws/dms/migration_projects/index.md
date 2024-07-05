@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>migration_project</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>migration_project</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>migration_projects</code> in a region.
+Gets all <code>migration_projects</code> in a region.
 ```sql
 SELECT
 region,
-migration_project_arn
+migration_project_name,
+migration_project_identifier,
+migration_project_arn,
+migration_project_creation_time,
+instance_profile_identifier,
+instance_profile_name,
+instance_profile_arn,
+transformation_rules,
+description,
+schema_conversion_application_attributes,
+source_data_provider_descriptors,
+target_data_provider_descriptors,
+tags
 FROM aws.dms.migration_projects
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>migration_project</code>.
+Gets all properties from an individual <code>migration_project</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ tags
 FROM aws.dms.migration_projects
 WHERE region = 'us-east-1' AND data__Identifier = '<MigrationProjectArn>';
 ```
-
 
 ## `INSERT` example
 

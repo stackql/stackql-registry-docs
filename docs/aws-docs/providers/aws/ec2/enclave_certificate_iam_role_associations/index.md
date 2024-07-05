@@ -57,7 +57,7 @@ Creates, updates, deletes or gets an <code>enclave_certificate_iam_role_associat
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,16 +69,19 @@ Creates, updates, deletes or gets an <code>enclave_certificate_iam_role_associat
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>enclave_certificate_iam_role_associations</code> in a region.
+Gets all <code>enclave_certificate_iam_role_associations</code> in a region.
 ```sql
 SELECT
 region,
 certificate_arn,
-role_arn
+role_arn,
+certificate_s3_bucket_name,
+certificate_s3_object_key,
+encryption_kms_key_id
 FROM aws.ec2.enclave_certificate_iam_role_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>enclave_certificate_iam_role_association</code>.
+Gets all properties from an individual <code>enclave_certificate_iam_role_association</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +93,6 @@ encryption_kms_key_id
 FROM aws.ec2.enclave_certificate_iam_role_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<CertificateArn>|<RoleArn>';
 ```
-
 
 ## `INSERT` example
 

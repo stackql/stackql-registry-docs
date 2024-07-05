@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>service</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>service</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>services</code> in a region.
+Gets all <code>services</code> in a region.
 ```sql
 SELECT
 region,
-service_arn
+service_name,
+service_id,
+service_arn,
+service_url,
+status,
+source_configuration,
+instance_configuration,
+tags,
+encryption_configuration,
+health_check_configuration,
+observability_configuration,
+auto_scaling_configuration_arn,
+network_configuration
 FROM aws.apprunner.services
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>service</code>.
+Gets all properties from an individual <code>service</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ network_configuration
 FROM aws.apprunner.services
 WHERE region = 'us-east-1' AND data__Identifier = '<ServiceArn>';
 ```
-
 
 ## `INSERT` example
 

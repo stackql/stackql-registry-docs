@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>scheduled_audit</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>scheduled_audit</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>scheduled_audits</code> in a region.
+Gets all <code>scheduled_audits</code> in a region.
 ```sql
 SELECT
 region,
-scheduled_audit_name
+scheduled_audit_name,
+frequency,
+day_of_month,
+day_of_week,
+target_check_names,
+scheduled_audit_arn,
+tags
 FROM aws.iot.scheduled_audits
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>scheduled_audit</code>.
+Gets all properties from an individual <code>scheduled_audit</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.iot.scheduled_audits
 WHERE region = 'us-east-1' AND data__Identifier = '<ScheduledAuditName>';
 ```
-
 
 ## `INSERT` example
 

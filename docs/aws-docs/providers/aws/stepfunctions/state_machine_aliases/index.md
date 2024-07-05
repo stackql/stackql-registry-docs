@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>state_machine_alias</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>state_machine_alias</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>state_machine_aliases</code> in a region.
+Gets all <code>state_machine_aliases</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+description,
+routing_configuration,
+deployment_preference
 FROM aws.stepfunctions.state_machine_aliases
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>state_machine_alias</code>.
+Gets all properties from an individual <code>state_machine_alias</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ deployment_preference
 FROM aws.stepfunctions.state_machine_aliases
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

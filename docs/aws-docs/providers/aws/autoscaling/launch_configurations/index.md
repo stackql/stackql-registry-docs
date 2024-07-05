@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>launch_configuration</code> resource o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,15 +83,33 @@ Creates, updates, deletes or gets a <code>launch_configuration</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>launch_configurations</code> in a region.
+Gets all <code>launch_configurations</code> in a region.
 ```sql
 SELECT
 region,
-launch_configuration_name
+placement_tenancy,
+security_groups,
+launch_configuration_name,
+metadata_options,
+instance_id,
+user_data,
+classic_link_vpc_security_groups,
+block_device_mappings,
+iam_instance_profile,
+kernel_id,
+associate_public_ip_address,
+classic_link_vpc_id,
+ebs_optimized,
+key_name,
+spot_price,
+image_id,
+instance_type,
+ram_disk_id,
+instance_monitoring
 FROM aws.autoscaling.launch_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>launch_configuration</code>.
+Gets all properties from an individual <code>launch_configuration</code>.
 ```sql
 SELECT
 region,
@@ -117,7 +135,6 @@ instance_monitoring
 FROM aws.autoscaling.launch_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<LaunchConfigurationName>';
 ```
-
 
 ## `INSERT` example
 

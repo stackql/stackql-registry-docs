@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>retriever</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,16 +80,25 @@ Creates, updates, deletes or gets a <code>retriever</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>retrievers</code> in a region.
+Gets all <code>retrievers</code> in a region.
 ```sql
 SELECT
 region,
 application_id,
-retriever_id
+configuration,
+created_at,
+display_name,
+retriever_arn,
+retriever_id,
+role_arn,
+status,
+tags,
+type,
+updated_at
 FROM aws.qbusiness.retrievers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>retriever</code>.
+Gets all properties from an individual <code>retriever</code>.
 ```sql
 SELECT
 region,
@@ -107,7 +116,6 @@ updated_at
 FROM aws.qbusiness.retrievers
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationId>|<RetrieverId>';
 ```
-
 
 ## `INSERT` example
 

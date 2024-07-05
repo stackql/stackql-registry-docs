@@ -20,7 +20,7 @@ The mediapackagev2 service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total resources:&nbsp;<b>11</b></span><br />
 </div>
 </div>
 
@@ -29,12 +29,18 @@ The mediapackagev2 service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/mediapackagev2/channel_group_tags/">channel_group_tags</a><br />
 <a href="/providers/aws/mediapackagev2/channel_groups/">channel_groups</a><br />
+<a href="/providers/aws/mediapackagev2/channel_groups_list_only/">channel_groups_list_only</a><br />
 <a href="/providers/aws/mediapackagev2/channel_policies/">channel_policies</a><br />
+<a href="/providers/aws/mediapackagev2/channel_tags/">channel_tags</a><br />
 <a href="/providers/aws/mediapackagev2/channels/">channels</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/mediapackagev2/channels_list_only/">channels_list_only</a><br />
 <a href="/providers/aws/mediapackagev2/origin_endpoint_policies/">origin_endpoint_policies</a><br />
-<a href="/providers/aws/mediapackagev2/origin_endpoints/">origin_endpoints</a>
+<a href="/providers/aws/mediapackagev2/origin_endpoint_tags/">origin_endpoint_tags</a><br />
+<a href="/providers/aws/mediapackagev2/origin_endpoints/">origin_endpoints</a><br />
+<a href="/providers/aws/mediapackagev2/origin_endpoints_list_only/">origin_endpoints_list_only</a>
 </div>
 </div>

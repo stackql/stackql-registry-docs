@@ -65,7 +65,7 @@ Creates, updates, deletes or gets an <code>agent</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets an <code>agent</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>agents</code> in a region.
+Gets all <code>agents</code> in a region.
 ```sql
 SELECT
 region,
+agent_name,
+activation_key,
+security_group_arns,
+subnet_arns,
+vpc_endpoint_id,
+endpoint_type,
+tags,
 agent_arn
 FROM aws.datasync.agents
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>agent</code>.
+Gets all properties from an individual <code>agent</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ agent_arn
 FROM aws.datasync.agents
 WHERE region = 'us-east-1' AND data__Identifier = '<AgentArn>';
 ```
-
 
 ## `INSERT` example
 

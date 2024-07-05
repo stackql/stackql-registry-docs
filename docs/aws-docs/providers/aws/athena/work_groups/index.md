@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>work_group</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>work_group</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>work_groups</code> in a region.
+Gets all <code>work_groups</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+description,
+tags,
+work_group_configuration,
+work_group_configuration_updates,
+creation_time,
+state,
+recursive_delete_option
 FROM aws.athena.work_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>work_group</code>.
+Gets all properties from an individual <code>work_group</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ recursive_delete_option
 FROM aws.athena.work_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

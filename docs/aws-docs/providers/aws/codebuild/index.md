@@ -20,7 +20,7 @@ The codebuild service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,10 @@ The codebuild service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/codebuild/fleet_tags/">fleet_tags</a><br />
 <a href="/providers/aws/codebuild/fleets/">fleets</a>
 </div>
 <div class="providerDocColumn">
-
+<a href="/providers/aws/codebuild/fleets_list_only/">fleets_list_only</a>
 </div>
 </div>

@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>flow</code> resource or lists <code>fl
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>flow</code> resource or lists <code>fl
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>flows</code> in a region.
+Gets all <code>flows</code> in a region.
 ```sql
 SELECT
 region,
-flow_name
+flow_arn,
+flow_name,
+description,
+kms_arn,
+trigger_config,
+flow_status,
+source_flow_config,
+destination_flow_config_list,
+tasks,
+tags,
+metadata_catalog_config
 FROM aws.appflow.flows
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>flow</code>.
+Gets all properties from an individual <code>flow</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ metadata_catalog_config
 FROM aws.appflow.flows
 WHERE region = 'us-east-1' AND data__Identifier = '<FlowName>';
 ```
-
 
 ## `INSERT` example
 

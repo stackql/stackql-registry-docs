@@ -64,7 +64,7 @@ Creates, updates, deletes or gets an <code>allow_list</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets an <code>allow_list</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>allow_lists</code> in a region.
+Gets all <code>allow_lists</code> in a region.
 ```sql
 SELECT
 region,
-id
+name,
+description,
+criteria,
+id,
+arn,
+status,
+tags
 FROM aws.macie.allow_lists
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>allow_list</code>.
+Gets all properties from an individual <code>allow_list</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.macie.allow_lists
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

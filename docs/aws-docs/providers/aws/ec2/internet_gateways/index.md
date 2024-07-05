@@ -59,7 +59,7 @@ Creates, updates, deletes or gets an <code>internet_gateway</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,16 @@ Creates, updates, deletes or gets an <code>internet_gateway</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>internet_gateways</code> in a region.
+Gets all <code>internet_gateways</code> in a region.
 ```sql
 SELECT
 region,
-internet_gateway_id
+internet_gateway_id,
+tags
 FROM aws.ec2.internet_gateways
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>internet_gateway</code>.
+Gets all properties from an individual <code>internet_gateway</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +89,6 @@ tags
 FROM aws.ec2.internet_gateways
 WHERE region = 'us-east-1' AND data__Identifier = '<InternetGatewayId>';
 ```
-
 
 ## `INSERT` example
 

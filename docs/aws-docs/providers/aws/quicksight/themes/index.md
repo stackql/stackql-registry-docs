@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>theme</code> resource or lists <code>t
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,16 +82,27 @@ Creates, updates, deletes or gets a <code>theme</code> resource or lists <code>t
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>themes</code> in a region.
+Gets all <code>themes</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+aws_account_id,
+base_theme_id,
+configuration,
+created_time,
+last_updated_time,
+name,
+permissions,
+tags,
 theme_id,
-aws_account_id
+type,
+version,
+version_description
 FROM aws.quicksight.themes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>theme</code>.
+Gets all properties from an individual <code>theme</code>.
 ```sql
 SELECT
 region,
@@ -111,7 +122,6 @@ version_description
 FROM aws.quicksight.themes
 WHERE region = 'us-east-1' AND data__Identifier = '<ThemeId>|<AwsAccountId>';
 ```
-
 
 ## `INSERT` example
 

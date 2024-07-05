@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>faq</code> resource or lists <code>faq
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,16 +79,24 @@ Creates, updates, deletes or gets a <code>faq</code> resource or lists <code>faq
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>faqs</code> in a region.
+Gets all <code>faqs</code> in a region.
 ```sql
 SELECT
 region,
 id,
-index_id
+index_id,
+name,
+description,
+file_format,
+s3_path,
+role_arn,
+tags,
+arn,
+language_code
 FROM aws.kendra.faqs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>faq</code>.
+Gets all properties from an individual <code>faq</code>.
 ```sql
 SELECT
 region,
@@ -105,7 +113,6 @@ language_code
 FROM aws.kendra.faqs
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>|<IndexId>';
 ```
-
 
 ## `INSERT` example
 

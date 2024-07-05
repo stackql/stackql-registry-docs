@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>script</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>script</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>scripts</code> in a region.
+Gets all <code>scripts</code> in a region.
 ```sql
 SELECT
 region,
-id
+name,
+storage_location,
+version,
+tags,
+creation_time,
+arn,
+id,
+size_on_disk
 FROM aws.gamelift.scripts
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>script</code>.
+Gets all properties from an individual <code>script</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ size_on_disk
 FROM aws.gamelift.scripts
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

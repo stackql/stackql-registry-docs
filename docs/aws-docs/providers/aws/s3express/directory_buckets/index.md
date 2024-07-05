@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>directory_bucket</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,15 +68,18 @@ Creates, updates, deletes or gets a <code>directory_bucket</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>directory_buckets</code> in a region.
+Gets all <code>directory_buckets</code> in a region.
 ```sql
 SELECT
 region,
-bucket_name
+bucket_name,
+location_name,
+data_redundancy,
+arn
 FROM aws.s3express.directory_buckets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>directory_bucket</code>.
+Gets all properties from an individual <code>directory_bucket</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +90,6 @@ arn
 FROM aws.s3express.directory_buckets
 WHERE region = 'us-east-1' AND data__Identifier = '<BucketName>';
 ```
-
 
 ## `INSERT` example
 

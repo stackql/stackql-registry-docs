@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>vpc_endpoint_service</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>vpc_endpoint_service</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vpc_endpoint_services</code> in a region.
+Gets all <code>vpc_endpoint_services</code> in a region.
 ```sql
 SELECT
 region,
-service_id
+network_load_balancer_arns,
+contributor_insights_enabled,
+payer_responsibility,
+service_id,
+acceptance_required,
+gateway_load_balancer_arns
 FROM aws.ec2.vpc_endpoint_services
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vpc_endpoint_service</code>.
+Gets all properties from an individual <code>vpc_endpoint_service</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ gateway_load_balancer_arns
 FROM aws.ec2.vpc_endpoint_services
 WHERE region = 'us-east-1' AND data__Identifier = '<ServiceId>';
 ```
-
 
 ## `INSERT` example
 

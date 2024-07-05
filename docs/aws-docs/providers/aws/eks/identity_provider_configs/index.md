@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>identity_provider_config</code> resou
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,17 +75,20 @@ Creates, updates, deletes or gets an <code>identity_provider_config</code> resou
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>identity_provider_configs</code> in a region.
+Gets all <code>identity_provider_configs</code> in a region.
 ```sql
 SELECT
 region,
-identity_provider_config_name,
 cluster_name,
-type
+type,
+identity_provider_config_name,
+oidc,
+tags,
+identity_provider_config_arn
 FROM aws.eks.identity_provider_configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>identity_provider_config</code>.
+Gets all properties from an individual <code>identity_provider_config</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +101,6 @@ identity_provider_config_arn
 FROM aws.eks.identity_provider_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<IdentityProviderConfigName>|<ClusterName>|<Type>';
 ```
-
 
 ## `INSERT` example
 

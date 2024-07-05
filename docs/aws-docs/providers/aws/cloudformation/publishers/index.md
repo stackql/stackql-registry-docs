@@ -53,7 +53,7 @@ Creates, updates, deletes or gets a <code>publisher</code> resource or lists <co
     <td><CopyableCode code="AcceptTermsAndConditions, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -65,15 +65,20 @@ Creates, updates, deletes or gets a <code>publisher</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>publishers</code> in a region.
+Gets all <code>publishers</code> in a region.
 ```sql
 SELECT
 region,
-publisher_id
+accept_terms_and_conditions,
+publisher_id,
+connection_arn,
+publisher_status,
+publisher_profile,
+identity_provider
 FROM aws.cloudformation.publishers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>publisher</code>.
+Gets all properties from an individual <code>publisher</code>.
 ```sql
 SELECT
 region,
@@ -86,7 +91,6 @@ identity_provider
 FROM aws.cloudformation.publishers
 WHERE region = 'us-east-1' AND data__Identifier = '<PublisherId>';
 ```
-
 
 ## `INSERT` example
 

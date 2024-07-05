@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>mission_profile</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,16 +81,26 @@ Creates, updates, deletes or gets a <code>mission_profile</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>mission_profiles</code> in a region.
+Gets all <code>mission_profiles</code> in a region.
 ```sql
 SELECT
 region,
+name,
+contact_pre_pass_duration_seconds,
+contact_post_pass_duration_seconds,
+minimum_viable_contact_duration_seconds,
+streams_kms_key,
+streams_kms_role,
+dataflow_edges,
+tracking_config_arn,
+tags,
 id,
-arn
+arn,
+region
 FROM aws.groundstation.mission_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>mission_profile</code>.
+Gets all properties from an individual <code>mission_profile</code>.
 ```sql
 SELECT
 region,
@@ -109,7 +119,6 @@ region
 FROM aws.groundstation.mission_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>|<Arn>';
 ```
-
 
 ## `INSERT` example
 

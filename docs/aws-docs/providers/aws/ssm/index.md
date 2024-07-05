@@ -20,7 +20,7 @@ The ssm service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>15</b></span><br />
 </div>
 </div>
 
@@ -30,12 +30,21 @@ The ssm service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/aws/ssm/associations/">associations</a><br />
+<a href="/providers/aws/ssm/associations_list_only/">associations_list_only</a><br />
+<a href="/providers/aws/ssm/document_tags/">document_tags</a><br />
 <a href="/providers/aws/ssm/documents/">documents</a><br />
-<a href="/providers/aws/ssm/parameters/">parameters</a>
+<a href="/providers/aws/ssm/documents_list_only/">documents_list_only</a><br />
+<a href="/providers/aws/ssm/parameter_tags/">parameter_tags</a><br />
+<a href="/providers/aws/ssm/parameters/">parameters</a><br />
+<a href="/providers/aws/ssm/parameters_list_only/">parameters_list_only</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/ssm/patch_baseline_tags/">patch_baseline_tags</a><br />
 <a href="/providers/aws/ssm/patch_baselines/">patch_baselines</a><br />
+<a href="/providers/aws/ssm/patch_baselines_list_only/">patch_baselines_list_only</a><br />
 <a href="/providers/aws/ssm/resource_data_syncs/">resource_data_syncs</a><br />
-<a href="/providers/aws/ssm/resource_policies/">resource_policies</a>
+<a href="/providers/aws/ssm/resource_data_syncs_list_only/">resource_data_syncs_list_only</a><br />
+<a href="/providers/aws/ssm/resource_policies/">resource_policies</a><br />
+<a href="/providers/aws/ssm/resource_policies_list_only/">resource_policies_list_only</a>
 </div>
 </div>

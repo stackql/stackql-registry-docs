@@ -78,7 +78,7 @@ Creates, updates, deletes or gets an <code>experiment</code> resource or lists <
 
 ## `SELECT` examples
 
-Gets all properties from an <code>experiment</code>.
+Gets all properties from an individual <code>experiment</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +98,6 @@ tags
 FROM aws.evidently.experiments
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

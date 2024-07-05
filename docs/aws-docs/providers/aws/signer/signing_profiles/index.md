@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>signing_profile</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>signing_profile</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>signing_profiles</code> in a region.
+Gets all <code>signing_profiles</code> in a region.
 ```sql
 SELECT
 region,
-arn
+profile_name,
+profile_version,
+arn,
+profile_version_arn,
+signature_validity_period,
+platform_id,
+tags
 FROM aws.signer.signing_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>signing_profile</code>.
+Gets all properties from an individual <code>signing_profile</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.signer.signing_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

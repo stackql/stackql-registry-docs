@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>fargate_profile</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,16 +76,21 @@ Creates, updates, deletes or gets a <code>fargate_profile</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>fargate_profiles</code> in a region.
+Gets all <code>fargate_profiles</code> in a region.
 ```sql
 SELECT
 region,
 cluster_name,
-fargate_profile_name
+fargate_profile_name,
+pod_execution_role_arn,
+arn,
+subnets,
+selectors,
+tags
 FROM aws.eks.fargate_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>fargate_profile</code>.
+Gets all properties from an individual <code>fargate_profile</code>.
 ```sql
 SELECT
 region,
@@ -99,7 +104,6 @@ tags
 FROM aws.eks.fargate_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<ClusterName>|<FargateProfileName>';
 ```
-
 
 ## `INSERT` example
 

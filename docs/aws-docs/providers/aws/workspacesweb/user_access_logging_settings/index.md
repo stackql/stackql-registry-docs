@@ -61,7 +61,7 @@ Creates, updates, deletes or gets an <code>user_access_logging_setting</code> re
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets an <code>user_access_logging_setting</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>user_access_logging_settings</code> in a region.
+Gets all <code>user_access_logging_settings</code> in a region.
 ```sql
 SELECT
 region,
+associated_portal_arns,
+kinesis_stream_arn,
+tags,
 user_access_logging_settings_arn
 FROM aws.workspacesweb.user_access_logging_settings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>user_access_logging_setting</code>.
+Gets all properties from an individual <code>user_access_logging_setting</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ user_access_logging_settings_arn
 FROM aws.workspacesweb.user_access_logging_settings
 WHERE region = 'us-east-1' AND data__Identifier = '<UserAccessLoggingSettingsArn>';
 ```
-
 
 ## `INSERT` example
 

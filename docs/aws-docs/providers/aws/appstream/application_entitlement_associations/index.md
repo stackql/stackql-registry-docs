@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>application_entitlement_association</
 
 ## `SELECT` examples
 
-Gets all properties from an <code>application_entitlement_association</code>.
+Gets all properties from an individual <code>application_entitlement_association</code>.
 ```sql
 SELECT
 region,
@@ -73,7 +73,6 @@ application_identifier
 FROM aws.appstream.application_entitlement_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<StackName>|<EntitlementName>|<ApplicationIdentifier>';
 ```
-
 
 ## `INSERT` example
 

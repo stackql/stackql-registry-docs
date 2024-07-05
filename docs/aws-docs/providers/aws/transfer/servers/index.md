@@ -105,4 +105,3 @@ Describes the properties of a file transfer protocol-enabled server that was spe
 
 
 
-

@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>connect_peer</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>connect_peer</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>connect_peers</code> in a region.
+Gets all <code>connect_peers</code> in a region.
 ```sql
 SELECT
 region,
-connect_peer_id
+peer_address,
+core_network_address,
+bgp_options,
+inside_cidr_blocks,
+core_network_id,
+connect_attachment_id,
+connect_peer_id,
+edge_location,
+state,
+created_at,
+configuration,
+subnet_arn,
+tags
 FROM aws.networkmanager.connect_peers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>connect_peer</code>.
+Gets all properties from an individual <code>connect_peer</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ tags
 FROM aws.networkmanager.connect_peers
 WHERE region = 'us-east-1' AND data__Identifier = '<ConnectPeerId>';
 ```
-
 
 ## `INSERT` example
 

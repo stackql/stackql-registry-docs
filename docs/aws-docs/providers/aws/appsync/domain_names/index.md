@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>domain_name</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>domain_name</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>domain_names</code> in a region.
+Gets all <code>domain_names</code> in a region.
 ```sql
 SELECT
 region,
-domain_name
+domain_name,
+description,
+certificate_arn,
+app_sync_domain_name,
+hosted_zone_id
 FROM aws.appsync.domain_names
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>domain_name</code>.
+Gets all properties from an individual <code>domain_name</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ hosted_zone_id
 FROM aws.appsync.domain_names
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>';
 ```
-
 
 ## `INSERT` example
 

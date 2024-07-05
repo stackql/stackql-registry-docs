@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>group_profile</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,16 +75,20 @@ Creates, updates, deletes or gets a <code>group_profile</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>group_profiles</code> in a region.
+Gets all <code>group_profiles</code> in a region.
 ```sql
 SELECT
 region,
 domain_id,
-id
+domain_identifier,
+group_identifier,
+group_name,
+id,
+status
 FROM aws.datazone.group_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>group_profile</code>.
+Gets all properties from an individual <code>group_profile</code>.
 ```sql
 SELECT
 region,
@@ -97,7 +101,6 @@ status
 FROM aws.datazone.group_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainId>|<Id>';
 ```
-
 
 ## `INSERT` example
 

@@ -54,7 +54,7 @@ Creates, updates, deletes or gets a <code>service_principal_name</code> resource
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>service_principal_name</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>service_principal_names</code> in a region.
+Gets all <code>service_principal_names</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,7 +75,7 @@ directory_registration_arn
 FROM aws.pcaconnectorad.service_principal_names
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>service_principal_name</code>.
+Gets all properties from an individual <code>service_principal_name</code>.
 ```sql
 SELECT
 region,
@@ -84,7 +84,6 @@ directory_registration_arn
 FROM aws.pcaconnectorad.service_principal_names
 WHERE region = 'us-east-1' AND data__Identifier = '<ConnectorArn>|<DirectoryRegistrationArn>';
 ```
-
 
 ## `INSERT` example
 

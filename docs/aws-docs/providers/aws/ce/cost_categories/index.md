@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>cost_category</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>cost_category</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>cost_categories</code> in a region.
+Gets all <code>cost_categories</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+effective_start,
+name,
+rule_version,
+rules,
+split_charge_rules,
+default_value
 FROM aws.ce.cost_categories
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>cost_category</code>.
+Gets all properties from an individual <code>cost_category</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ default_value
 FROM aws.ce.cost_categories
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

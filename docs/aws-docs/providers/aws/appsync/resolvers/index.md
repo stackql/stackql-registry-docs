@@ -75,7 +75,7 @@ Creates, updates, deletes or gets a <code>resolver</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -87,15 +87,32 @@ Creates, updates, deletes or gets a <code>resolver</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>resolvers</code> in a region.
+Gets all <code>resolvers</code> in a region.
 ```sql
 SELECT
 region,
-resolver_arn
+api_id,
+caching_config,
+code,
+code_s3_location,
+data_source_name,
+field_name,
+kind,
+max_batch_size,
+pipeline_config,
+request_mapping_template,
+request_mapping_template_s3_location,
+resolver_arn,
+response_mapping_template,
+response_mapping_template_s3_location,
+runtime,
+sync_config,
+type_name,
+metrics_config
 FROM aws.appsync.resolvers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>resolver</code>.
+Gets all properties from an individual <code>resolver</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +137,6 @@ metrics_config
 FROM aws.appsync.resolvers
 WHERE region = 'us-east-1' AND data__Identifier = '<ResolverArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -60,7 +60,7 @@ Creates, updates, deletes or gets an <code>assessment_target</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets an <code>assessment_target</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>assessment_targets</code> in a region.
+Gets all <code>assessment_targets</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+assessment_target_name,
+resource_group_arn
 FROM aws.inspector.assessment_targets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>assessment_target</code>.
+Gets all properties from an individual <code>assessment_target</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ resource_group_arn
 FROM aws.inspector.assessment_targets
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

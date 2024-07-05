@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>listener</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>listener</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>listeners</code> in a region.
+Gets all <code>listeners</code> in a region.
 ```sql
 SELECT
 region,
-listener_arn
+listener_arn,
+accelerator_arn,
+port_ranges,
+protocol,
+client_affinity
 FROM aws.globalaccelerator.listeners
 ;
 ```
-Gets all properties from a <code>listener</code>.
+Gets all properties from an individual <code>listener</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ client_affinity
 FROM aws.globalaccelerator.listeners
 WHERE data__Identifier = '<ListenerArn>';
 ```
-
 
 ## `INSERT` example
 

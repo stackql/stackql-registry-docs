@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>local_gateway_route</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,16 +75,20 @@ Creates, updates, deletes or gets a <code>local_gateway_route</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>local_gateway_routes</code> in a region.
+Gets all <code>local_gateway_routes</code> in a region.
 ```sql
 SELECT
 region,
 destination_cidr_block,
-local_gateway_route_table_id
+local_gateway_route_table_id,
+local_gateway_virtual_interface_group_id,
+network_interface_id,
+state,
+type
 FROM aws.ec2.local_gateway_routes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>local_gateway_route</code>.
+Gets all properties from an individual <code>local_gateway_route</code>.
 ```sql
 SELECT
 region,
@@ -97,7 +101,6 @@ type
 FROM aws.ec2.local_gateway_routes
 WHERE region = 'us-east-1' AND data__Identifier = '<DestinationCidrBlock>|<LocalGatewayRouteTableId>';
 ```
-
 
 ## `INSERT` example
 

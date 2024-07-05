@@ -76,7 +76,7 @@ Creates, updates, deletes or gets a <code>scheduled_query</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -88,15 +88,33 @@ Creates, updates, deletes or gets a <code>scheduled_query</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>scheduled_queries</code> in a region.
+Gets all <code>scheduled_queries</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+scheduled_query_name,
+query_string,
+schedule_configuration,
+notification_configuration,
+client_token,
+scheduled_query_execution_role_arn,
+target_configuration,
+error_report_configuration,
+kms_key_id,
+sq_name,
+sq_query_string,
+sq_schedule_configuration,
+sq_notification_configuration,
+sq_scheduled_query_execution_role_arn,
+sq_target_configuration,
+sq_error_report_configuration,
+sq_kms_key_id,
+tags
 FROM aws.timestream.scheduled_queries
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>scheduled_query</code>.
+Gets all properties from an individual <code>scheduled_query</code>.
 ```sql
 SELECT
 region,
@@ -122,7 +140,6 @@ tags
 FROM aws.timestream.scheduled_queries
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

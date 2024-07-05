@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>virtualmfa_device</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>virtualmfa_device</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>virtualmfa_devices</code> in a region.
+Gets all <code>virtualmfa_devices</code> in a region.
 ```sql
 SELECT
 region,
-serial_number
+virtual_mfa_device_name,
+path,
+serial_number,
+users,
+tags
 FROM aws.iam.virtualmfa_devices
 ;
 ```
-Gets all properties from a <code>virtualmfa_device</code>.
+Gets all properties from an individual <code>virtualmfa_device</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.iam.virtualmfa_devices
 WHERE data__Identifier = '<SerialNumber>';
 ```
-
 
 ## `INSERT` example
 

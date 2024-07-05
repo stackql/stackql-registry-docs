@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>location_object_storage</code> resourc
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>location_object_storage</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>location_object_storages</code> in a region.
+Gets all <code>location_object_storages</code> in a region.
 ```sql
 SELECT
 region,
-location_arn
+access_key,
+agent_arns,
+bucket_name,
+secret_key,
+server_certificate,
+server_hostname,
+server_port,
+server_protocol,
+subdirectory,
+tags,
+location_arn,
+location_uri
 FROM aws.datasync.location_object_storages
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>location_object_storage</code>.
+Gets all properties from an individual <code>location_object_storage</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ location_uri
 FROM aws.datasync.location_object_storages
 WHERE region = 'us-east-1' AND data__Identifier = '<LocationArn>';
 ```
-
 
 ## `INSERT` example
 

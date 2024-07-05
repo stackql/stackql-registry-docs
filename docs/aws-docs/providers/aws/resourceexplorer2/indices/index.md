@@ -61,7 +61,7 @@ Creates, updates, deletes or gets an <code>index</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets an <code>index</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>indices</code> in a region.
+Gets all <code>indices</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+tags,
+type,
+index_state
 FROM aws.resourceexplorer2.indices
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>index</code>.
+Gets all properties from an individual <code>index</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ index_state
 FROM aws.resourceexplorer2.indices
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

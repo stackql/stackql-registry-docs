@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>vpc_peering_connection</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>vpc_peering_connection</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vpc_peering_connections</code> in a region.
+Gets all <code>vpc_peering_connections</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+peer_owner_id,
+peer_region,
+peer_role_arn,
+peer_vpc_id,
+vpc_id,
+tags
 FROM aws.ec2.vpc_peering_connections
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vpc_peering_connection</code>.
+Gets all properties from an individual <code>vpc_peering_connection</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.ec2.vpc_peering_connections
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

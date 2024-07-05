@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>route_table</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>route_table</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>route_tables</code> in a region.
+Gets all <code>route_tables</code> in a region.
 ```sql
 SELECT
 region,
-route_table_id
+route_table_id,
+tags,
+vpc_id
 FROM aws.ec2.route_tables
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>route_table</code>.
+Gets all properties from an individual <code>route_table</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ vpc_id
 FROM aws.ec2.route_tables
 WHERE region = 'us-east-1' AND data__Identifier = '<RouteTableId>';
 ```
-
 
 ## `INSERT` example
 

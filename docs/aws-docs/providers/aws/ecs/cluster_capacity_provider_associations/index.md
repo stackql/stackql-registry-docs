@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>cluster_capacity_provider_association<
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>cluster_capacity_provider_association<
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>cluster_capacity_provider_associations</code> in a region.
+Gets all <code>cluster_capacity_provider_associations</code> in a region.
 ```sql
 SELECT
 region,
-cluster
+capacity_providers,
+cluster,
+default_capacity_provider_strategy
 FROM aws.ecs.cluster_capacity_provider_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>cluster_capacity_provider_association</code>.
+Gets all properties from an individual <code>cluster_capacity_provider_association</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ default_capacity_provider_strategy
 FROM aws.ecs.cluster_capacity_provider_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<Cluster>';
 ```
-
 
 ## `INSERT` example
 

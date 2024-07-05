@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>model_card</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>model_card</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>model_cards</code> in a region.
+Gets all <code>model_cards</code> in a region.
 ```sql
 SELECT
 region,
-model_card_name
+model_card_arn,
+model_card_version,
+model_card_name,
+security_config,
+model_card_status,
+content,
+creation_time,
+created_by,
+last_modified_time,
+last_modified_by,
+model_card_processing_status,
+tags
 FROM aws.sagemaker.model_cards
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>model_card</code>.
+Gets all properties from an individual <code>model_card</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.sagemaker.model_cards
 WHERE region = 'us-east-1' AND data__Identifier = '<ModelCardName>';
 ```
-
 
 ## `INSERT` example
 

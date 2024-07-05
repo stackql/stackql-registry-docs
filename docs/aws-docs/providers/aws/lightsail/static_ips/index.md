@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>static_ip</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>static_ip</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>static_ips</code> in a region.
+Gets all <code>static_ips</code> in a region.
 ```sql
 SELECT
 region,
-static_ip_name
+static_ip_name,
+attached_to,
+is_attached,
+ip_address,
+static_ip_arn
 FROM aws.lightsail.static_ips
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>static_ip</code>.
+Gets all properties from an individual <code>static_ip</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ static_ip_arn
 FROM aws.lightsail.static_ips
 WHERE region = 'us-east-1' AND data__Identifier = '<StaticIpName>';
 ```
-
 
 ## `INSERT` example
 

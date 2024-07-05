@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>lifecycle_hook</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,16 +77,22 @@ Creates, updates, deletes or gets a <code>lifecycle_hook</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>lifecycle_hooks</code> in a region.
+Gets all <code>lifecycle_hooks</code> in a region.
 ```sql
 SELECT
 region,
 auto_scaling_group_name,
-lifecycle_hook_name
+default_result,
+heartbeat_timeout,
+lifecycle_hook_name,
+lifecycle_transition,
+notification_metadata,
+notification_target_arn,
+role_arn
 FROM aws.autoscaling.lifecycle_hooks
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>lifecycle_hook</code>.
+Gets all properties from an individual <code>lifecycle_hook</code>.
 ```sql
 SELECT
 region,
@@ -101,7 +107,6 @@ role_arn
 FROM aws.autoscaling.lifecycle_hooks
 WHERE region = 'us-east-1' AND data__Identifier = '<AutoScalingGroupName>|<LifecycleHookName>';
 ```
-
 
 ## `INSERT` example
 

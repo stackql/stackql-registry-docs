@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>vpc_connection</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>vpc_connection</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vpc_connections</code> in a region.
+Gets all <code>vpc_connections</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+authentication,
+client_subnets,
+target_cluster_arn,
+security_groups,
+tags,
+vpc_id
 FROM aws.msk.vpc_connections
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vpc_connection</code>.
+Gets all properties from an individual <code>vpc_connection</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ vpc_id
 FROM aws.msk.vpc_connections
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

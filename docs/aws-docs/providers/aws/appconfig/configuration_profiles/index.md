@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>configuration_profile</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,16 +80,25 @@ Creates, updates, deletes or gets a <code>configuration_profile</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>configuration_profiles</code> in a region.
+Gets all <code>configuration_profiles</code> in a region.
 ```sql
 SELECT
 region,
+configuration_profile_id,
+location_uri,
+type,
+kms_key_identifier,
+description,
+kms_key_arn,
+validators,
+retrieval_role_arn,
 application_id,
-configuration_profile_id
+tags,
+name
 FROM aws.appconfig.configuration_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>configuration_profile</code>.
+Gets all properties from an individual <code>configuration_profile</code>.
 ```sql
 SELECT
 region,
@@ -107,7 +116,6 @@ name
 FROM aws.appconfig.configuration_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationId>|<ConfigurationProfileId>';
 ```
-
 
 ## `INSERT` example
 

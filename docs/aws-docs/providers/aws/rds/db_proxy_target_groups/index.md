@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>db_proxy_target_group</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>db_proxy_target_group</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>db_proxy_target_groups</code> in a region.
+Gets all <code>db_proxy_target_groups</code> in a region.
 ```sql
 SELECT
 region,
-target_group_arn
+db_proxy_name,
+target_group_arn,
+target_group_name,
+connection_pool_configuration_info,
+db_instance_identifiers,
+db_cluster_identifiers
 FROM aws.rds.db_proxy_target_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>db_proxy_target_group</code>.
+Gets all properties from an individual <code>db_proxy_target_group</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ db_cluster_identifiers
 FROM aws.rds.db_proxy_target_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<TargetGroupArn>';
 ```
-
 
 ## `INSERT` example
 

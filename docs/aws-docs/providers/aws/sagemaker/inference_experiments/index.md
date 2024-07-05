@@ -75,7 +75,7 @@ Creates, updates, deletes or gets an <code>inference_experiment</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -87,15 +87,32 @@ Creates, updates, deletes or gets an <code>inference_experiment</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>inference_experiments</code> in a region.
+Gets all <code>inference_experiments</code> in a region.
 ```sql
 SELECT
 region,
-name
+arn,
+name,
+type,
+description,
+role_arn,
+endpoint_name,
+endpoint_metadata,
+schedule,
+kms_key,
+data_storage_config,
+model_variants,
+shadow_mode_config,
+tags,
+creation_time,
+last_modified_time,
+status,
+status_reason,
+desired_state
 FROM aws.sagemaker.inference_experiments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>inference_experiment</code>.
+Gets all properties from an individual <code>inference_experiment</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +137,6 @@ desired_state
 FROM aws.sagemaker.inference_experiments
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

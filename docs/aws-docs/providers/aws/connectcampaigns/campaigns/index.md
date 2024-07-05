@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>campaigns</code> in a region.
+Gets all <code>campaigns</code> in a region.
 ```sql
 SELECT
 region,
-arn
+connect_instance_arn,
+dialer_config,
+arn,
+name,
+outbound_call_config,
+tags
 FROM aws.connectcampaigns.campaigns
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>campaign</code>.
+Gets all properties from an individual <code>campaign</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.connectcampaigns.campaigns
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

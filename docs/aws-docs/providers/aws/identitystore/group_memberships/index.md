@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>group_membership</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,16 +68,18 @@ Creates, updates, deletes or gets a <code>group_membership</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>group_memberships</code> in a region.
+Gets all <code>group_memberships</code> in a region.
 ```sql
 SELECT
 region,
-membership_id,
-identity_store_id
+group_id,
+identity_store_id,
+member_id,
+membership_id
 FROM aws.identitystore.group_memberships
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>group_membership</code>.
+Gets all properties from an individual <code>group_membership</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +90,6 @@ membership_id
 FROM aws.identitystore.group_memberships
 WHERE region = 'us-east-1' AND data__Identifier = '<MembershipId>|<IdentityStoreId>';
 ```
-
 
 ## `INSERT` example
 

@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>cache_policy</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>cache_policy</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>cache_policies</code> in a region.
+Gets all <code>cache_policies</code> in a region.
 ```sql
 SELECT
 region,
-id
+cache_policy_config,
+id,
+last_modified_time
 FROM aws.cloudfront.cache_policies
 ;
 ```
-Gets all properties from a <code>cache_policy</code>.
+Gets all properties from an individual <code>cache_policy</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ last_modified_time
 FROM aws.cloudfront.cache_policies
 WHERE data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

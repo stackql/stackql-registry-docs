@@ -84,7 +84,7 @@ Creates, updates, deletes or gets a <code>function</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -96,15 +96,41 @@ Creates, updates, deletes or gets a <code>function</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>functions</code> in a region.
+Gets all <code>functions</code> in a region.
 ```sql
 SELECT
 region,
-function_name
+description,
+tracing_config,
+vpc_config,
+runtime_management_config,
+reserved_concurrent_executions,
+snap_start,
+file_system_configs,
+function_name,
+runtime,
+kms_key_arn,
+package_type,
+code_signing_config_arn,
+layers,
+tags,
+image_config,
+memory_size,
+dead_letter_config,
+timeout,
+handler,
+snap_start_response,
+code,
+role,
+logging_config,
+environment,
+arn,
+ephemeral_storage,
+architectures
 FROM aws.lambda.functions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>function</code>.
+Gets all properties from an individual <code>function</code>.
 ```sql
 SELECT
 region,
@@ -138,7 +164,6 @@ architectures
 FROM aws.lambda.functions
 WHERE region = 'us-east-1' AND data__Identifier = '<FunctionName>';
 ```
-
 
 ## `INSERT` example
 

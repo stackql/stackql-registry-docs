@@ -74,7 +74,7 @@ Creates, updates, deletes or gets an <code>analysis</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -86,16 +86,31 @@ Creates, updates, deletes or gets an <code>analysis</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>analyses</code> in a region.
+Gets all <code>analyses</code> in a region.
 ```sql
 SELECT
 region,
+status,
+created_time,
+parameters,
+data_set_arns,
+source_entity,
+theme_arn,
+definition,
+last_updated_time,
+validation_strategy,
+name,
+errors,
 analysis_id,
-aws_account_id
+aws_account_id,
+permissions,
+arn,
+tags,
+sheets
 FROM aws.quicksight.analyses
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>analysis</code>.
+Gets all properties from an individual <code>analysis</code>.
 ```sql
 SELECT
 region,
@@ -119,7 +134,6 @@ sheets
 FROM aws.quicksight.analyses
 WHERE region = 'us-east-1' AND data__Identifier = '<AnalysisId>|<AwsAccountId>';
 ```
-
 
 ## `INSERT` example
 

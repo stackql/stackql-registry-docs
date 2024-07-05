@@ -64,7 +64,7 @@ Creates, updates, deletes or gets an <code>app_monitor</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets an <code>app_monitor</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>app_monitors</code> in a region.
+Gets all <code>app_monitors</code> in a region.
 ```sql
 SELECT
 region,
-name
+id,
+name,
+domain,
+cw_log_enabled,
+tags,
+app_monitor_configuration,
+custom_events
 FROM aws.rum.app_monitors
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>app_monitor</code>.
+Gets all properties from an individual <code>app_monitor</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ custom_events
 FROM aws.rum.app_monitors
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

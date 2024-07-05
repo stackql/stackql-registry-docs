@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>vpn_gateway</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>vpn_gateway</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vpn_gateways</code> in a region.
+Gets all <code>vpn_gateways</code> in a region.
 ```sql
 SELECT
 region,
-v_pn_gateway_id
+v_pn_gateway_id,
+amazon_side_asn,
+tags,
+type
 FROM aws.ec2.vpn_gateways
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vpn_gateway</code>.
+Gets all properties from an individual <code>vpn_gateway</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ type
 FROM aws.ec2.vpn_gateways
 WHERE region = 'us-east-1' AND data__Identifier = '<VPNGatewayId>';
 ```
-
 
 ## `INSERT` example
 

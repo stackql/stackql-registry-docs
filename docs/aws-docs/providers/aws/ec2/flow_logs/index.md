@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>flow_log</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>flow_log</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>flow_logs</code> in a region.
+Gets all <code>flow_logs</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+deliver_cross_account_role,
+deliver_logs_permission_arn,
+log_destination,
+log_destination_type,
+log_format,
+log_group_name,
+max_aggregation_interval,
+resource_id,
+resource_type,
+tags,
+traffic_type,
+destination_options
 FROM aws.ec2.flow_logs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>flow_log</code>.
+Gets all properties from an individual <code>flow_log</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ destination_options
 FROM aws.ec2.flow_logs
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

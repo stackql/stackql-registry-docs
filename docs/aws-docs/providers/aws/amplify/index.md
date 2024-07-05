@@ -20,7 +20,7 @@ The amplify service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
 </div>
 </div>
 
@@ -29,10 +29,15 @@ The amplify service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/amplify/app_tags/">app_tags</a><br />
 <a href="/providers/aws/amplify/apps/">apps</a><br />
-<a href="/providers/aws/amplify/branches/">branches</a>
+<a href="/providers/aws/amplify/apps_list_only/">apps_list_only</a><br />
+<a href="/providers/aws/amplify/branch_tags/">branch_tags</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/amplify/domains/">domains</a>
+<a href="/providers/aws/amplify/branches/">branches</a><br />
+<a href="/providers/aws/amplify/branches_list_only/">branches_list_only</a><br />
+<a href="/providers/aws/amplify/domains/">domains</a><br />
+<a href="/providers/aws/amplify/domains_list_only/">domains_list_only</a>
 </div>
 </div>

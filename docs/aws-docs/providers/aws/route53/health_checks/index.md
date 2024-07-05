@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>health_check</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>health_check</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>health_checks</code> in a region.
+Gets all <code>health_checks</code> in a region.
 ```sql
 SELECT
 region,
-health_check_id
+health_check_id,
+health_check_config,
+health_check_tags
 FROM aws.route53.health_checks
 ;
 ```
-Gets all properties from a <code>health_check</code>.
+Gets all properties from an individual <code>health_check</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ health_check_tags
 FROM aws.route53.health_checks
 WHERE data__Identifier = '<HealthCheckId>';
 ```
-
 
 ## `INSERT` example
 

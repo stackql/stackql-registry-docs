@@ -57,7 +57,7 @@ Creates, updates, deletes or gets a <code>device_profile</code> resource or list
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,15 +69,19 @@ Creates, updates, deletes or gets a <code>device_profile</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>device_profiles</code> in a region.
+Gets all <code>device_profiles</code> in a region.
 ```sql
 SELECT
 region,
+name,
+lo_ra_wan,
+tags,
+arn,
 id
 FROM aws.iotwireless.device_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>device_profile</code>.
+Gets all properties from an individual <code>device_profile</code>.
 ```sql
 SELECT
 region,
@@ -89,7 +93,6 @@ id
 FROM aws.iotwireless.device_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

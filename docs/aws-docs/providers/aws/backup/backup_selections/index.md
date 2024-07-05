@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>backup_selection</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,15 +68,18 @@ Creates, updates, deletes or gets a <code>backup_selection</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>backup_selections</code> in a region.
+Gets all <code>backup_selections</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+backup_plan_id,
+backup_selection,
+selection_id
 FROM aws.backup.backup_selections
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>backup_selection</code>.
+Gets all properties from an individual <code>backup_selection</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +90,6 @@ selection_id
 FROM aws.backup.backup_selections
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

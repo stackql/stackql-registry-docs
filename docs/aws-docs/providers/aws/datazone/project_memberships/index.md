@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>project_membership</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,18 +73,18 @@ Creates, updates, deletes or gets a <code>project_membership</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>project_memberships</code> in a region.
+Gets all <code>project_memberships</code> in a region.
 ```sql
 SELECT
 region,
-domain_identifier,
-member_identifier,
-member_identifier_type,
-project_identifier
+project_identifier,
+designation,
+member,
+domain_identifier
 FROM aws.datazone.project_memberships
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>project_membership</code>.
+Gets all properties from an individual <code>project_membership</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +95,6 @@ domain_identifier
 FROM aws.datazone.project_memberships
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainIdentifier>|<MemberIdentifier>|<MemberIdentifierType>|<ProjectIdentifier>';
 ```
-
 
 ## `INSERT` example
 

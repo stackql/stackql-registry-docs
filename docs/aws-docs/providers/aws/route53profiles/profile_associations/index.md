@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>profile_association</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>profile_association</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>profile_associations</code> in a region.
+Gets all <code>profile_associations</code> in a region.
 ```sql
 SELECT
 region,
-id
+resource_id,
+profile_id,
+id,
+name,
+tags,
+arn
 FROM aws.route53profiles.profile_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>profile_association</code>.
+Gets all properties from an individual <code>profile_association</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ arn
 FROM aws.route53profiles.profile_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

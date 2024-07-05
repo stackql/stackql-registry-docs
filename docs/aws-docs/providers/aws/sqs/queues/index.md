@@ -75,7 +75,7 @@ Creates, updates, deletes or gets a <code>queue</code> resource or lists <code>q
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -87,15 +87,32 @@ Creates, updates, deletes or gets a <code>queue</code> resource or lists <code>q
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>queues</code> in a region.
+Gets all <code>queues</code> in a region.
 ```sql
 SELECT
 region,
-queue_url
+queue_url,
+arn,
+content_based_deduplication,
+deduplication_scope,
+delay_seconds,
+fifo_queue,
+fifo_throughput_limit,
+kms_data_key_reuse_period_seconds,
+kms_master_key_id,
+sqs_managed_sse_enabled,
+maximum_message_size,
+message_retention_period,
+queue_name,
+receive_message_wait_time_seconds,
+redrive_allow_policy,
+redrive_policy,
+tags,
+visibility_timeout
 FROM aws.sqs.queues
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>queue</code>.
+Gets all properties from an individual <code>queue</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +137,6 @@ visibility_timeout
 FROM aws.sqs.queues
 WHERE region = 'us-east-1' AND data__Identifier = '<QueueUrl>';
 ```
-
 
 ## `INSERT` example
 

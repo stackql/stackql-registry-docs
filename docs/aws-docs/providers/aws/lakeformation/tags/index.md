@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>tag</code> resource or lists <code>tag
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>tag</code> resource or lists <code>tag
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>tags</code> in a region.
+Gets all <code>tags</code> in a region.
 ```sql
 SELECT
 region,
-tag_key
+catalog_id,
+tag_key,
+tag_values
 FROM aws.lakeformation.tags
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>tag</code>.
+Gets all properties from an individual <code>tag</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ tag_values
 FROM aws.lakeformation.tags
 WHERE region = 'us-east-1' AND data__Identifier = '<TagKey>';
 ```
-
 
 ## `INSERT` example
 

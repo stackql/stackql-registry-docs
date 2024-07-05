@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>resource_set</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>resource_set</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>resource_sets</code> in a region.
+Gets all <code>resource_sets</code> in a region.
 ```sql
 SELECT
 region,
-resource_set_name
+resource_set_name,
+resources,
+resource_set_arn,
+resource_set_type,
+tags
 FROM aws.route53recoveryreadiness.resource_sets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>resource_set</code>.
+Gets all properties from an individual <code>resource_set</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.route53recoveryreadiness.resource_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<ResourceSetName>';
 ```
-
 
 ## `INSERT` example
 

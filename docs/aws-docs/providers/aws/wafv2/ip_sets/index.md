@@ -65,7 +65,7 @@ Creates, updates, deletes or gets an <code>ip_set</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,17 +77,22 @@ Creates, updates, deletes or gets an <code>ip_set</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>ip_sets</code> in a region.
+Gets all <code>ip_sets</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+description,
 name,
 id,
-scope
+scope,
+ip_address_version,
+addresses,
+tags
 FROM aws.wafv2.ip_sets
 ;
 ```
-Gets all properties from an <code>ip_set</code>.
+Gets all properties from an individual <code>ip_set</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +107,6 @@ tags
 FROM aws.wafv2.ip_sets
 WHERE data__Identifier = '<Name>|<Id>|<Scope>';
 ```
-
 
 ## `INSERT` example
 

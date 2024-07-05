@@ -68,7 +68,7 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>apps</code> in a region.
+Gets all <code>apps</code> in a region.
 ```sql
 SELECT
 region,
-app_arn
+name,
+description,
+app_arn,
+resiliency_policy_arn,
+tags,
+app_template_body,
+resource_mappings,
+app_assessment_schedule,
+permission_model,
+event_subscriptions,
+drift_status
 FROM aws.resiliencehub.apps
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>app</code>.
+Gets all properties from an individual <code>app</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ drift_status
 FROM aws.resiliencehub.apps
 WHERE region = 'us-east-1' AND data__Identifier = '<AppArn>';
 ```
-
 
 ## `INSERT` example
 

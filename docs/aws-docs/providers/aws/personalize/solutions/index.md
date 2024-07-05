@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>solution</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,22 @@ Creates, updates, deletes or gets a <code>solution</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>solutions</code> in a region.
+Gets all <code>solutions</code> in a region.
 ```sql
 SELECT
 region,
-solution_arn
+name,
+solution_arn,
+event_type,
+dataset_group_arn,
+perform_auto_ml,
+perform_hpo,
+recipe_arn,
+solution_config
 FROM aws.personalize.solutions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>solution</code>.
+Gets all properties from an individual <code>solution</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +102,6 @@ solution_config
 FROM aws.personalize.solutions
 WHERE region = 'us-east-1' AND data__Identifier = '<SolutionArn>';
 ```
-
 
 ## `INSERT` example
 

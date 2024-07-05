@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>traffic_distribution_group</code> reso
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>traffic_distribution_group</code> reso
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>traffic_distribution_groups</code> in a region.
+Gets all <code>traffic_distribution_groups</code> in a region.
 ```sql
 SELECT
 region,
-traffic_distribution_group_arn
+instance_arn,
+traffic_distribution_group_arn,
+description,
+name,
+status,
+tags,
+is_default
 FROM aws.connect.traffic_distribution_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>traffic_distribution_group</code>.
+Gets all properties from an individual <code>traffic_distribution_group</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ is_default
 FROM aws.connect.traffic_distribution_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<TrafficDistributionGroupArn>';
 ```
-
 
 ## `INSERT` example
 

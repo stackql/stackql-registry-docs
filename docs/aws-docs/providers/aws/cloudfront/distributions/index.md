@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>distribution</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>distribution</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>distributions</code> in a region.
+Gets all <code>distributions</code> in a region.
 ```sql
 SELECT
 region,
-id
+distribution_config,
+domain_name,
+id,
+tags
 FROM aws.cloudfront.distributions
 ;
 ```
-Gets all properties from a <code>distribution</code>.
+Gets all properties from an individual <code>distribution</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ tags
 FROM aws.cloudfront.distributions
 WHERE data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

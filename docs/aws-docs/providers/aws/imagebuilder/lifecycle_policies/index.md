@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>lifecycle_policy</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>lifecycle_policy</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>lifecycle_policies</code> in a region.
+Gets all <code>lifecycle_policies</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+description,
+status,
+execution_role,
+resource_type,
+policy_details,
+resource_selection,
+tags
 FROM aws.imagebuilder.lifecycle_policies
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>lifecycle_policy</code>.
+Gets all properties from an individual <code>lifecycle_policy</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.imagebuilder.lifecycle_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

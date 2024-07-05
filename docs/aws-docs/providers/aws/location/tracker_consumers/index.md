@@ -54,7 +54,7 @@ Creates, updates, deletes or gets a <code>tracker_consumer</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -66,16 +66,16 @@ Creates, updates, deletes or gets a <code>tracker_consumer</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>tracker_consumers</code> in a region.
+Gets all <code>tracker_consumers</code> in a region.
 ```sql
 SELECT
 region,
-tracker_name,
-consumer_arn
+consumer_arn,
+tracker_name
 FROM aws.location.tracker_consumers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>tracker_consumer</code>.
+Gets all properties from an individual <code>tracker_consumer</code>.
 ```sql
 SELECT
 region,
@@ -84,7 +84,6 @@ tracker_name
 FROM aws.location.tracker_consumers
 WHERE region = 'us-east-1' AND data__Identifier = '<TrackerName>|<ConsumerArn>';
 ```
-
 
 ## `INSERT` example
 

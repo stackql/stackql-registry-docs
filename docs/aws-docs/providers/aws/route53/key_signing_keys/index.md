@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>key_signing_key</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +73,18 @@ Creates, updates, deletes or gets a <code>key_signing_key</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>key_signing_keys</code> in a region.
+Gets all <code>key_signing_keys</code> in a region.
 ```sql
 SELECT
 region,
 hosted_zone_id,
-name
+status,
+name,
+key_management_service_arn
 FROM aws.route53.key_signing_keys
 ;
 ```
-Gets all properties from a <code>key_signing_key</code>.
+Gets all properties from an individual <code>key_signing_key</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +95,6 @@ key_management_service_arn
 FROM aws.route53.key_signing_keys
 WHERE data__Identifier = '<HostedZoneId>|<Name>';
 ```
-
 
 ## `INSERT` example
 

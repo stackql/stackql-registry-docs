@@ -81,7 +81,7 @@ Creates, updates, deletes or gets an <code>ipam_pool</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -93,15 +93,38 @@ Creates, updates, deletes or gets an <code>ipam_pool</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>ipam_pools</code> in a region.
+Gets all <code>ipam_pools</code> in a region.
 ```sql
 SELECT
 region,
-ipam_pool_id
+ipam_pool_id,
+address_family,
+allocation_min_netmask_length,
+allocation_default_netmask_length,
+allocation_max_netmask_length,
+allocation_resource_tags,
+arn,
+auto_import,
+aws_service,
+description,
+ipam_scope_id,
+ipam_scope_arn,
+ipam_scope_type,
+ipam_arn,
+locale,
+pool_depth,
+provisioned_cidrs,
+public_ip_source,
+publicly_advertisable,
+source_ipam_pool_id,
+source_resource,
+state,
+state_message,
+tags
 FROM aws.ec2.ipam_pools
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>ipam_pool</code>.
+Gets all properties from an individual <code>ipam_pool</code>.
 ```sql
 SELECT
 region,
@@ -132,7 +155,6 @@ tags
 FROM aws.ec2.ipam_pools
 WHERE region = 'us-east-1' AND data__Identifier = '<IpamPoolId>';
 ```
-
 
 ## `INSERT` example
 

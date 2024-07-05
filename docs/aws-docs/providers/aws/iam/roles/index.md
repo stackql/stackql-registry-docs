@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>role</code> resource or lists <code>ro
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>role</code> resource or lists <code>ro
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>roles</code> in a region.
+Gets all <code>roles</code> in a region.
 ```sql
 SELECT
 region,
-role_name
+arn,
+assume_role_policy_document,
+description,
+managed_policy_arns,
+max_session_duration,
+path,
+permissions_boundary,
+policies,
+role_id,
+role_name,
+tags
 FROM aws.iam.roles
 ;
 ```
-Gets all properties from a <code>role</code>.
+Gets all properties from an individual <code>role</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ tags
 FROM aws.iam.roles
 WHERE data__Identifier = '<RoleName>';
 ```
-
 
 ## `INSERT` example
 

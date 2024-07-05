@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>restore_testing_selection</code> resou
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,16 +77,22 @@ Creates, updates, deletes or gets a <code>restore_testing_selection</code> resou
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>restore_testing_selections</code> in a region.
+Gets all <code>restore_testing_selections</code> in a region.
 ```sql
 SELECT
 region,
+iam_role_arn,
+protected_resource_arns,
+protected_resource_conditions,
+protected_resource_type,
+restore_metadata_overrides,
 restore_testing_plan_name,
-restore_testing_selection_name
+restore_testing_selection_name,
+validation_window_hours
 FROM aws.backup.restore_testing_selections
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>restore_testing_selection</code>.
+Gets all properties from an individual <code>restore_testing_selection</code>.
 ```sql
 SELECT
 region,
@@ -101,7 +107,6 @@ validation_window_hours
 FROM aws.backup.restore_testing_selections
 WHERE region = 'us-east-1' AND data__Identifier = '<RestoreTestingPlanName>|<RestoreTestingSelectionName>';
 ```
-
 
 ## `INSERT` example
 

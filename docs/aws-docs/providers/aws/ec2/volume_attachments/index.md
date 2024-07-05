@@ -55,7 +55,7 @@ Creates, updates, deletes or gets a <code>volume_attachment</code> resource or l
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -67,16 +67,17 @@ Creates, updates, deletes or gets a <code>volume_attachment</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>volume_attachments</code> in a region.
+Gets all <code>volume_attachments</code> in a region.
 ```sql
 SELECT
 region,
 volume_id,
-instance_id
+instance_id,
+device
 FROM aws.ec2.volume_attachments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>volume_attachment</code>.
+Gets all properties from an individual <code>volume_attachment</code>.
 ```sql
 SELECT
 region,
@@ -86,7 +87,6 @@ device
 FROM aws.ec2.volume_attachments
 WHERE region = 'us-east-1' AND data__Identifier = '<VolumeId>|<InstanceId>';
 ```
-
 
 ## `INSERT` example
 

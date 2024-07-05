@@ -20,7 +20,7 @@ The iotcoredeviceadvisor service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,10 @@ The iotcoredeviceadvisor service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/iotcoredeviceadvisor/suite_definition_tags/">suite_definition_tags</a><br />
 <a href="/providers/aws/iotcoredeviceadvisor/suite_definitions/">suite_definitions</a>
 </div>
 <div class="providerDocColumn">
-
+<a href="/providers/aws/iotcoredeviceadvisor/suite_definitions_list_only/">suite_definitions_list_only</a>
 </div>
 </div>

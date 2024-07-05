@@ -62,7 +62,7 @@ Creates, updates, deletes or gets an <code>access_point</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets an <code>access_point</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>access_points</code> in a region.
+Gets all <code>access_points</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+bucket,
+name,
+vpc_configuration,
+policy
 FROM aws.s3outposts.access_points
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>access_point</code>.
+Gets all properties from an individual <code>access_point</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ policy
 FROM aws.s3outposts.access_points
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>tracker</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>tracker</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>trackers</code> in a region.
+Gets all <code>trackers</code> in a region.
 ```sql
 SELECT
 region,
-tracker_name
+create_time,
+description,
+event_bridge_enabled,
+kms_key_enable_geospatial_queries,
+kms_key_id,
+position_filtering,
+pricing_plan,
+pricing_plan_data_source,
+tags,
+tracker_arn,
+tracker_name,
+update_time,
+arn
 FROM aws.location.trackers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>tracker</code>.
+Gets all properties from an individual <code>tracker</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ arn
 FROM aws.location.trackers
 WHERE region = 'us-east-1' AND data__Identifier = '<TrackerName>';
 ```
-
 
 ## `INSERT` example
 

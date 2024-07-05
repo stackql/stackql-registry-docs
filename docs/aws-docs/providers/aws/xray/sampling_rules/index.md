@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>sampling_rule</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>sampling_rule</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>sampling_rules</code> in a region.
+Gets all <code>sampling_rules</code> in a region.
 ```sql
 SELECT
 region,
-rule_arn
+sampling_rule,
+sampling_rule_record,
+sampling_rule_update,
+rule_arn,
+rule_name,
+tags
 FROM aws.xray.sampling_rules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>sampling_rule</code>.
+Gets all properties from an individual <code>sampling_rule</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.xray.sampling_rules
 WHERE region = 'us-east-1' AND data__Identifier = '<RuleARN>';
 ```
-
 
 ## `INSERT` example
 

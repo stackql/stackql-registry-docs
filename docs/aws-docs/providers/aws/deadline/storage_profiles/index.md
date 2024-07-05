@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>storage_profile</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,16 +74,19 @@ Creates, updates, deletes or gets a <code>storage_profile</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>storage_profiles</code> in a region.
+Gets all <code>storage_profiles</code> in a region.
 ```sql
 SELECT
 region,
+display_name,
 farm_id,
+file_system_locations,
+os_family,
 storage_profile_id
 FROM aws.deadline.storage_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>storage_profile</code>.
+Gets all properties from an individual <code>storage_profile</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +98,6 @@ storage_profile_id
 FROM aws.deadline.storage_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<FarmId>|<StorageProfileId>';
 ```
-
 
 ## `INSERT` example
 

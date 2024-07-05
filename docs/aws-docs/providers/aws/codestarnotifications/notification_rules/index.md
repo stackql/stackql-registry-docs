@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>notification_rule</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>notification_rule</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>notification_rules</code> in a region.
+Gets all <code>notification_rules</code> in a region.
 ```sql
 SELECT
 region,
+event_type_id,
+created_by,
+target_address,
+event_type_ids,
+status,
+detail_type,
+resource,
+targets,
+tags,
+name,
 arn
 FROM aws.codestarnotifications.notification_rules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>notification_rule</code>.
+Gets all properties from an individual <code>notification_rule</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ arn
 FROM aws.codestarnotifications.notification_rules
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

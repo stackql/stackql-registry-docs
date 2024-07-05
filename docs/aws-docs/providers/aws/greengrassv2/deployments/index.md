@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>deployment</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>deployment</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>deployments</code> in a region.
+Gets all <code>deployments</code> in a region.
 ```sql
 SELECT
 region,
-deployment_id
+target_arn,
+parent_target_arn,
+deployment_id,
+deployment_name,
+components,
+iot_job_configuration,
+deployment_policies,
+tags
 FROM aws.greengrassv2.deployments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>deployment</code>.
+Gets all properties from an individual <code>deployment</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.greengrassv2.deployments
 WHERE region = 'us-east-1' AND data__Identifier = '<DeploymentId>';
 ```
-
 
 ## `INSERT` example
 

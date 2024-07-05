@@ -70,7 +70,7 @@ Creates, updates, deletes or gets an <code>entity</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,16 +82,27 @@ Creates, updates, deletes or gets an <code>entity</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>entities</code> in a region.
+Gets all <code>entities</code> in a region.
 ```sql
 SELECT
 region,
+entity_id,
+entity_name,
+status,
+has_child_entities,
+parent_entity_id,
+arn,
+description,
+creation_date_time,
+update_date_time,
+tags,
 workspace_id,
-entity_id
+components,
+composite_components
 FROM aws.iottwinmaker.entities
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>entity</code>.
+Gets all properties from an individual <code>entity</code>.
 ```sql
 SELECT
 region,
@@ -111,7 +122,6 @@ composite_components
 FROM aws.iottwinmaker.entities
 WHERE region = 'us-east-1' AND data__Identifier = '<WorkspaceId>|<EntityId>';
 ```
-
 
 ## `INSERT` example
 

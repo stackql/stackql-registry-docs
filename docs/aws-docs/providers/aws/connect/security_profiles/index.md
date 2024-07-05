@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>security_profile</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>security_profile</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>security_profiles</code> in a region.
+Gets all <code>security_profiles</code> in a region.
 ```sql
 SELECT
 region,
-security_profile_arn
+allowed_access_control_tags,
+description,
+instance_arn,
+permissions,
+security_profile_arn,
+security_profile_name,
+tag_restricted_resources,
+hierarchy_restricted_resources,
+allowed_access_control_hierarchy_group_id,
+applications,
+tags,
+last_modified_region,
+last_modified_time
 FROM aws.connect.security_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>security_profile</code>.
+Gets all properties from an individual <code>security_profile</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ last_modified_time
 FROM aws.connect.security_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<SecurityProfileArn>';
 ```
-
 
 ## `INSERT` example
 

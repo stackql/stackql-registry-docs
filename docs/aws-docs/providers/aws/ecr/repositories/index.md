@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>repository</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>repository</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>repositories</code> in a region.
+Gets all <code>repositories</code> in a region.
 ```sql
 SELECT
 region,
-repository_name
+empty_on_delete,
+lifecycle_policy,
+repository_name,
+repository_policy_text,
+tags,
+arn,
+repository_uri,
+image_tag_mutability,
+image_scanning_configuration,
+encryption_configuration
 FROM aws.ecr.repositories
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>repository</code>.
+Gets all properties from an individual <code>repository</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ encryption_configuration
 FROM aws.ecr.repositories
 WHERE region = 'us-east-1' AND data__Identifier = '<RepositoryName>';
 ```
-
 
 ## `INSERT` example
 

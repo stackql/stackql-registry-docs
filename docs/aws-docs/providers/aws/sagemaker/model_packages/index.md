@@ -84,7 +84,7 @@ Creates, updates, deletes or gets a <code>model_package</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -96,15 +96,41 @@ Creates, updates, deletes or gets a <code>model_package</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>model_packages</code> in a region.
+Gets all <code>model_packages</code> in a region.
 ```sql
 SELECT
 region,
-model_package_arn
+tags,
+additional_inference_specifications,
+certify_for_marketplace,
+client_token,
+customer_metadata_properties,
+domain,
+drift_check_baselines,
+inference_specification,
+metadata_properties,
+model_approval_status,
+model_metrics,
+model_package_description,
+model_package_group_name,
+model_package_name,
+sample_payload_url,
+skip_model_validation,
+source_algorithm_specification,
+task,
+validation_specification,
+model_package_arn,
+approval_description,
+creation_time,
+last_modified_time,
+model_package_status,
+model_package_version,
+additional_inference_specifications_to_add,
+model_package_status_details
 FROM aws.sagemaker.model_packages
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>model_package</code>.
+Gets all properties from an individual <code>model_package</code>.
 ```sql
 SELECT
 region,
@@ -138,7 +164,6 @@ model_package_status_details
 FROM aws.sagemaker.model_packages
 WHERE region = 'us-east-1' AND data__Identifier = '<ModelPackageArn>';
 ```
-
 
 ## `INSERT` example
 

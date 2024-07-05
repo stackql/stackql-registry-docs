@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>multiplex</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>multiplex</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>multiplexes</code> in a region.
+Gets all <code>multiplexes</code> in a region.
 ```sql
 SELECT
 region,
-id
+arn,
+availability_zones,
+destinations,
+id,
+multiplex_settings,
+name,
+pipelines_running_count,
+program_count,
+state,
+tags
 FROM aws.medialive.multiplexes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>multiplex</code>.
+Gets all properties from an individual <code>multiplex</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ tags
 FROM aws.medialive.multiplexes
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

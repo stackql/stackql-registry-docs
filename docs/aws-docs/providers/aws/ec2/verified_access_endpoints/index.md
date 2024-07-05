@@ -78,7 +78,7 @@ Creates, updates, deletes or gets a <code>verified_access_endpoint</code> resour
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -90,15 +90,35 @@ Creates, updates, deletes or gets a <code>verified_access_endpoint</code> resour
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>verified_access_endpoints</code> in a region.
+Gets all <code>verified_access_endpoints</code> in a region.
 ```sql
 SELECT
 region,
-verified_access_endpoint_id
+verified_access_endpoint_id,
+verified_access_group_id,
+verified_access_instance_id,
+status,
+security_group_ids,
+network_interface_options,
+load_balancer_options,
+endpoint_type,
+endpoint_domain,
+endpoint_domain_prefix,
+device_validation_domain,
+domain_certificate_arn,
+attachment_type,
+application_domain,
+creation_time,
+last_updated_time,
+description,
+policy_document,
+policy_enabled,
+tags,
+sse_specification
 FROM aws.ec2.verified_access_endpoints
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>verified_access_endpoint</code>.
+Gets all properties from an individual <code>verified_access_endpoint</code>.
 ```sql
 SELECT
 region,
@@ -126,7 +146,6 @@ sse_specification
 FROM aws.ec2.verified_access_endpoints
 WHERE region = 'us-east-1' AND data__Identifier = '<VerifiedAccessEndpointId>';
 ```
-
 
 ## `INSERT` example
 

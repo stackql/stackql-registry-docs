@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,15 +83,28 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>clusters</code> in a region.
+Gets all <code>clusters</code> in a region.
 ```sql
 SELECT
 region,
-arn
+broker_node_group_info,
+enhanced_monitoring,
+kafka_version,
+number_of_broker_nodes,
+encryption_info,
+open_monitoring,
+cluster_name,
+arn,
+current_version,
+client_authentication,
+logging_info,
+tags,
+configuration_info,
+storage_mode
 FROM aws.msk.clusters
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>cluster</code>.
+Gets all properties from an individual <code>cluster</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +125,6 @@ storage_mode
 FROM aws.msk.clusters
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

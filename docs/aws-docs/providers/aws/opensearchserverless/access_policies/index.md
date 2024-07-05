@@ -61,7 +61,7 @@ Creates, updates, deletes or gets an <code>access_policy</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +73,18 @@ Creates, updates, deletes or gets an <code>access_policy</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>access_policies</code> in a region.
+Gets all <code>access_policies</code> in a region.
 ```sql
 SELECT
 region,
+name,
 type,
-name
+description,
+policy
 FROM aws.opensearchserverless.access_policies
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>access_policy</code>.
+Gets all properties from an individual <code>access_policy</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +95,6 @@ policy
 FROM aws.opensearchserverless.access_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<Type>|<Name>';
 ```
-
 
 ## `INSERT` example
 

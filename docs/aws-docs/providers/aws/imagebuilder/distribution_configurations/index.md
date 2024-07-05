@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>distribution_configuration</code> reso
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>distribution_configuration</code> reso
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>distribution_configurations</code> in a region.
+Gets all <code>distribution_configurations</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+description,
+distributions,
+tags
 FROM aws.imagebuilder.distribution_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>distribution_configuration</code>.
+Gets all properties from an individual <code>distribution_configuration</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.imagebuilder.distribution_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

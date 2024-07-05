@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>stream</code> resource or lists <code>
 
 ## `SELECT` examples
 
-Gets all properties from a <code>stream</code>.
+Gets all properties from an individual <code>stream</code>.
 ```sql
 SELECT
 region,
@@ -86,7 +86,6 @@ tags
 FROM aws.kinesisvideo.streams
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

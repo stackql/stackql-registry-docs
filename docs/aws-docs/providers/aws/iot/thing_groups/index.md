@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>thing_group</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>thing_group</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>thing_groups</code> in a region.
+Gets all <code>thing_groups</code> in a region.
 ```sql
 SELECT
 region,
-thing_group_name
+id,
+arn,
+thing_group_name,
+parent_group_name,
+query_string,
+thing_group_properties,
+tags
 FROM aws.iot.thing_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>thing_group</code>.
+Gets all properties from an individual <code>thing_group</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.iot.thing_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<ThingGroupName>';
 ```
-
 
 ## `INSERT` example
 

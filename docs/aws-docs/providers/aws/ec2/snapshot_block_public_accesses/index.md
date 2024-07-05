@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>snapshot_block_public_access</code> re
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,16 @@ Creates, updates, deletes or gets a <code>snapshot_block_public_access</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>snapshot_block_public_accesses</code> in a region.
+Gets all <code>snapshot_block_public_accesses</code> in a region.
 ```sql
 SELECT
 region,
+state,
 account_id
 FROM aws.ec2.snapshot_block_public_accesses
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>snapshot_block_public_access</code>.
+Gets all properties from an individual <code>snapshot_block_public_access</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +89,6 @@ account_id
 FROM aws.ec2.snapshot_block_public_accesses
 WHERE region = 'us-east-1' AND data__Identifier = '<AccountId>';
 ```
-
 
 ## `INSERT` example
 

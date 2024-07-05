@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>bridge_output</code> resource or lists
 
 ## `SELECT` examples
 
-Gets all properties from a <code>bridge_output</code>.
+Gets all properties from an individual <code>bridge_output</code>.
 ```sql
 SELECT
 region,
@@ -78,7 +78,6 @@ name
 FROM aws.mediaconnect.bridge_outputs
 WHERE region = 'us-east-1' AND data__Identifier = '<BridgeArn>|<Name>';
 ```
-
 
 ## `INSERT` example
 

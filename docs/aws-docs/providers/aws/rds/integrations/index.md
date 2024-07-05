@@ -67,7 +67,7 @@ Creates, updates, deletes or gets an <code>integration</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets an <code>integration</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>integrations</code> in a region.
+Gets all <code>integrations</code> in a region.
 ```sql
 SELECT
 region,
-integration_arn
+integration_name,
+description,
+tags,
+data_filter,
+source_arn,
+target_arn,
+integration_arn,
+kms_key_id,
+additional_encryption_context,
+create_time
 FROM aws.rds.integrations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>integration</code>.
+Gets all properties from an individual <code>integration</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ create_time
 FROM aws.rds.integrations
 WHERE region = 'us-east-1' AND data__Identifier = '<IntegrationArn>';
 ```
-
 
 ## `INSERT` example
 

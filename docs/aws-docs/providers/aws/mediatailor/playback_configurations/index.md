@@ -75,7 +75,7 @@ Creates, updates, deletes or gets a <code>playback_configuration</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -87,15 +87,32 @@ Creates, updates, deletes or gets a <code>playback_configuration</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>playback_configurations</code> in a region.
+Gets all <code>playback_configurations</code> in a region.
 ```sql
 SELECT
 region,
-name
+ad_decision_server_url,
+avail_suppression,
+bumper,
+cdn_configuration,
+configuration_aliases,
+dash_configuration,
+live_pre_roll_configuration,
+manifest_processing_rules,
+name,
+personalization_threshold_seconds,
+session_initialization_endpoint_prefix,
+hls_configuration,
+playback_configuration_arn,
+playback_endpoint_prefix,
+slate_ad_url,
+tags,
+transcode_profile_name,
+video_content_source_url
 FROM aws.mediatailor.playback_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>playback_configuration</code>.
+Gets all properties from an individual <code>playback_configuration</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +137,6 @@ video_content_source_url
 FROM aws.mediatailor.playback_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

@@ -77,7 +77,7 @@ Creates, updates, deletes or gets a <code>serverless_cach</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -89,15 +89,34 @@ Creates, updates, deletes or gets a <code>serverless_cach</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>serverless_caches</code> in a region.
+Gets all <code>serverless_caches</code> in a region.
 ```sql
 SELECT
 region,
-serverless_cache_name
+serverless_cache_name,
+description,
+engine,
+major_engine_version,
+full_engine_version,
+cache_usage_limits,
+kms_key_id,
+security_group_ids,
+snapshot_arns_to_restore,
+tags,
+user_group_id,
+subnet_ids,
+snapshot_retention_limit,
+daily_snapshot_time,
+create_time,
+status,
+endpoint,
+reader_endpoint,
+arn,
+final_snapshot_name
 FROM aws.elasticache.serverless_caches
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>serverless_cach</code>.
+Gets all properties from an individual <code>serverless_cach</code>.
 ```sql
 SELECT
 region,
@@ -124,7 +143,6 @@ final_snapshot_name
 FROM aws.elasticache.serverless_caches
 WHERE region = 'us-east-1' AND data__Identifier = '<ServerlessCacheName>';
 ```
-
 
 ## `INSERT` example
 

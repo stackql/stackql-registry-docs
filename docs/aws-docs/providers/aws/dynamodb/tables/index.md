@@ -78,7 +78,7 @@ Creates, updates, deletes or gets a <code>table</code> resource or lists <code>t
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -90,15 +90,35 @@ Creates, updates, deletes or gets a <code>table</code> resource or lists <code>t
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>tables</code> in a region.
+Gets all <code>tables</code> in a region.
 ```sql
 SELECT
 region,
-table_name
+on_demand_throughput,
+sse_specification,
+kinesis_stream_specification,
+stream_specification,
+contributor_insights_specification,
+import_source_specification,
+point_in_time_recovery_specification,
+provisioned_throughput,
+table_name,
+attribute_definitions,
+billing_mode,
+global_secondary_indexes,
+resource_policy,
+key_schema,
+local_secondary_indexes,
+arn,
+stream_arn,
+deletion_protection_enabled,
+table_class,
+tags,
+time_to_live_specification
 FROM aws.dynamodb.tables
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>table</code>.
+Gets all properties from an individual <code>table</code>.
 ```sql
 SELECT
 region,
@@ -126,7 +146,6 @@ time_to_live_specification
 FROM aws.dynamodb.tables
 WHERE region = 'us-east-1' AND data__Identifier = '<TableName>';
 ```
-
 
 ## `INSERT` example
 

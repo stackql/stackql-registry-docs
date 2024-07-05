@@ -70,7 +70,7 @@ Creates, updates, deletes or gets an <code>app_block_builder</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets an <code>app_block_builder</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>app_block_builders</code> in a region.
+Gets all <code>app_block_builders</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+arn,
+description,
+display_name,
+platform,
+access_endpoints,
+tags,
+vpc_config,
+enable_default_internet_access,
+iam_role_arn,
+created_time,
+instance_type,
+app_block_arns
 FROM aws.appstream.app_block_builders
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>app_block_builder</code>.
+Gets all properties from an individual <code>app_block_builder</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ app_block_arns
 FROM aws.appstream.app_block_builders
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

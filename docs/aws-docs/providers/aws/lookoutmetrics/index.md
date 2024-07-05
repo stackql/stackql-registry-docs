@@ -20,7 +20,7 @@ The lookoutmetrics service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,11 @@ The lookoutmetrics service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/lookoutmetrics/alerts/">alerts</a>
+<a href="/providers/aws/lookoutmetrics/alerts/">alerts</a><br />
+<a href="/providers/aws/lookoutmetrics/alerts_list_only/">alerts_list_only</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/lookoutmetrics/anomaly_detectors/">anomaly_detectors</a>
+<a href="/providers/aws/lookoutmetrics/anomaly_detectors/">anomaly_detectors</a><br />
+<a href="/providers/aws/lookoutmetrics/anomaly_detectors_list_only/">anomaly_detectors_list_only</a>
 </div>
 </div>

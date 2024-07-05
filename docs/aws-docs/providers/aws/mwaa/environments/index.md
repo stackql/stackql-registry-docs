@@ -87,7 +87,7 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -99,15 +99,44 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>environments</code> in a region.
+Gets all <code>environments</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+arn,
+webserver_url,
+execution_role_arn,
+kms_key,
+airflow_version,
+source_bucket_arn,
+dag_s3_path,
+plugins_s3_path,
+plugins_s3_object_version,
+requirements_s3_path,
+requirements_s3_object_version,
+startup_script_s3_path,
+startup_script_s3_object_version,
+airflow_configuration_options,
+environment_class,
+max_workers,
+min_workers,
+max_webservers,
+min_webservers,
+schedulers,
+network_configuration,
+logging_configuration,
+weekly_maintenance_window_start,
+tags,
+webserver_access_mode,
+endpoint_management,
+celery_executor_queue,
+database_vpc_endpoint_service,
+webserver_vpc_endpoint_service
 FROM aws.mwaa.environments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>environment</code>.
+Gets all properties from an individual <code>environment</code>.
 ```sql
 SELECT
 region,
@@ -144,7 +173,6 @@ webserver_vpc_endpoint_service
 FROM aws.mwaa.environments
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>option_group</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets an <code>option_group</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>option_groups</code> in a region.
+Gets all <code>option_groups</code> in a region.
 ```sql
 SELECT
 region,
-option_group_name
+option_group_name,
+option_group_description,
+engine_name,
+major_engine_version,
+option_configurations,
+tags
 FROM aws.rds.option_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>option_group</code>.
+Gets all properties from an individual <code>option_group</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.rds.option_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<OptionGroupName>';
 ```
-
 
 ## `INSERT` example
 

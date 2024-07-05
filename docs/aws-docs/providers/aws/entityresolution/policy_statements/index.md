@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>policy_statement</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,16 +75,20 @@ Creates, updates, deletes or gets a <code>policy_statement</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>policy_statements</code> in a region.
+Gets all <code>policy_statements</code> in a region.
 ```sql
 SELECT
 region,
 arn,
-statement_id
+statement_id,
+effect,
+action,
+principal,
+condition
 FROM aws.entityresolution.policy_statements
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>policy_statement</code>.
+Gets all properties from an individual <code>policy_statement</code>.
 ```sql
 SELECT
 region,
@@ -97,7 +101,6 @@ condition
 FROM aws.entityresolution.policy_statements
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>|<StatementId>';
 ```
-
 
 ## `INSERT` example
 

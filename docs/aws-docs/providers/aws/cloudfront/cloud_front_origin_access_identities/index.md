@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>cloud_front_origin_access_identity</co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>cloud_front_origin_access_identity</co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>cloud_front_origin_access_identities</code> in a region.
+Gets all <code>cloud_front_origin_access_identities</code> in a region.
 ```sql
 SELECT
 region,
-id
+cloud_front_origin_access_identity_config,
+id,
+s3_canonical_user_id
 FROM aws.cloudfront.cloud_front_origin_access_identities
 ;
 ```
-Gets all properties from a <code>cloud_front_origin_access_identity</code>.
+Gets all properties from an individual <code>cloud_front_origin_access_identity</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ s3_canonical_user_id
 FROM aws.cloudfront.cloud_front_origin_access_identities
 WHERE data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

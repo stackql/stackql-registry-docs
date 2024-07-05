@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>reference_store</code> resource or lis
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,21 @@ Creates, updates, deletes or gets a <code>reference_store</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>reference_stores</code> in a region.
+Gets all <code>reference_stores</code> in a region.
 ```sql
 SELECT
 region,
-reference_store_id
+arn,
+creation_time,
+description,
+name,
+reference_store_id,
+sse_config,
+tags
 FROM aws.omics.reference_stores
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>reference_store</code>.
+Gets all properties from an individual <code>reference_store</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +99,6 @@ tags
 FROM aws.omics.reference_stores
 WHERE region = 'us-east-1' AND data__Identifier = '<ReferenceStoreId>';
 ```
-
 
 ## `INSERT` example
 

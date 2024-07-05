@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>load_balancer_tls_certificate</code> r
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,16 +77,22 @@ Creates, updates, deletes or gets a <code>load_balancer_tls_certificate</code> r
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>load_balancer_tls_certificates</code> in a region.
+Gets all <code>load_balancer_tls_certificates</code> in a region.
 ```sql
 SELECT
 region,
+load_balancer_name,
 certificate_name,
-load_balancer_name
+certificate_domain_name,
+certificate_alternative_names,
+load_balancer_tls_certificate_arn,
+is_attached,
+https_redirection_enabled,
+status
 FROM aws.lightsail.load_balancer_tls_certificates
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>load_balancer_tls_certificate</code>.
+Gets all properties from an individual <code>load_balancer_tls_certificate</code>.
 ```sql
 SELECT
 region,
@@ -101,7 +107,6 @@ status
 FROM aws.lightsail.load_balancer_tls_certificates
 WHERE region = 'us-east-1' AND data__Identifier = '<CertificateName>|<LoadBalancerName>';
 ```
-
 
 ## `INSERT` example
 

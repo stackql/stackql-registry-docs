@@ -81,7 +81,7 @@ Creates, updates, deletes or gets a <code>cloud_formation_provisioned_product</c
 
 ## `SELECT` examples
 
-Gets all properties from a <code>cloud_formation_provisioned_product</code>.
+Gets all properties from an individual <code>cloud_formation_provisioned_product</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +104,6 @@ outputs
 FROM aws.servicecatalog.cloud_formation_provisioned_products
 WHERE region = 'us-east-1' AND data__Identifier = '<ProvisionedProductId>';
 ```
-
 
 ## `INSERT` example
 

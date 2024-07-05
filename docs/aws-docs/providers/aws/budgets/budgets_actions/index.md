@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>budgets_action</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,16 +79,24 @@ Creates, updates, deletes or gets a <code>budgets_action</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>budgets_actions</code> in a region.
+Gets all <code>budgets_actions</code> in a region.
 ```sql
 SELECT
 region,
 action_id,
-budget_name
+budget_name,
+notification_type,
+action_type,
+action_threshold,
+execution_role_arn,
+approval_model,
+subscribers,
+definition,
+resource_tags
 FROM aws.budgets.budgets_actions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>budgets_action</code>.
+Gets all properties from an individual <code>budgets_action</code>.
 ```sql
 SELECT
 region,
@@ -105,7 +113,6 @@ resource_tags
 FROM aws.budgets.budgets_actions
 WHERE region = 'us-east-1' AND data__Identifier = '<ActionId>|<BudgetName>';
 ```
-
 
 ## `INSERT` example
 

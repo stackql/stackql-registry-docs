@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>hub</code> resource or lists <code>hub
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>hub</code> resource or lists <code>hub
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>hubs</code> in a region.
+Gets all <code>hubs</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+enable_default_standards,
+control_finding_generator,
+auto_enable_controls,
+tags,
+subscribed_at
 FROM aws.securityhub.hubs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>hub</code>.
+Gets all properties from an individual <code>hub</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ subscribed_at
 FROM aws.securityhub.hubs
 WHERE region = 'us-east-1' AND data__Identifier = '<ARN>';
 ```
-
 
 ## `INSERT` example
 

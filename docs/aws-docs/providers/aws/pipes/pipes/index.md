@@ -74,7 +74,7 @@ Creates, updates, deletes or gets a <code>pipe</code> resource or lists <code>pi
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -86,15 +86,31 @@ Creates, updates, deletes or gets a <code>pipe</code> resource or lists <code>pi
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>pipes</code> in a region.
+Gets all <code>pipes</code> in a region.
 ```sql
 SELECT
 region,
-name
+arn,
+creation_time,
+current_state,
+description,
+desired_state,
+enrichment,
+enrichment_parameters,
+last_modified_time,
+log_configuration,
+name,
+role_arn,
+source,
+source_parameters,
+state_reason,
+tags,
+target,
+target_parameters
 FROM aws.pipes.pipes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>pipe</code>.
+Gets all properties from an individual <code>pipe</code>.
 ```sql
 SELECT
 region,
@@ -118,7 +134,6 @@ target_parameters
 FROM aws.pipes.pipes
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>network_insights_path</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,15 +83,28 @@ Creates, updates, deletes or gets a <code>network_insights_path</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>network_insights_paths</code> in a region.
+Gets all <code>network_insights_paths</code> in a region.
 ```sql
 SELECT
 region,
-network_insights_path_id
+network_insights_path_id,
+network_insights_path_arn,
+created_date,
+source_ip,
+filter_at_source,
+filter_at_destination,
+destination_ip,
+source,
+destination,
+source_arn,
+destination_arn,
+protocol,
+destination_port,
+tags
 FROM aws.ec2.network_insights_paths
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>network_insights_path</code>.
+Gets all properties from an individual <code>network_insights_path</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +125,6 @@ tags
 FROM aws.ec2.network_insights_paths
 WHERE region = 'us-east-1' AND data__Identifier = '<NetworkInsightsPathId>';
 ```
-
 
 ## `INSERT` example
 

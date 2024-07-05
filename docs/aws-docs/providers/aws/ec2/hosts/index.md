@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>host</code> resource or lists <code>ho
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>host</code> resource or lists <code>ho
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>hosts</code> in a region.
+Gets all <code>hosts</code> in a region.
 ```sql
 SELECT
 region,
-host_id
+host_id,
+auto_placement,
+availability_zone,
+host_recovery,
+instance_type,
+instance_family,
+outpost_arn,
+host_maintenance,
+asset_id
 FROM aws.ec2.hosts
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>host</code>.
+Gets all properties from an individual <code>host</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ asset_id
 FROM aws.ec2.hosts
 WHERE region = 'us-east-1' AND data__Identifier = '<HostId>';
 ```
-
 
 ## `INSERT` example
 

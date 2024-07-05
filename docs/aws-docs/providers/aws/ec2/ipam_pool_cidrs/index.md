@@ -57,7 +57,7 @@ Creates, updates, deletes or gets an <code>ipam_pool_cidr</code> resource or lis
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,16 +69,19 @@ Creates, updates, deletes or gets an <code>ipam_pool_cidr</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>ipam_pool_cidrs</code> in a region.
+Gets all <code>ipam_pool_cidrs</code> in a region.
 ```sql
 SELECT
 region,
+ipam_pool_cidr_id,
 ipam_pool_id,
-ipam_pool_cidr_id
+cidr,
+netmask_length,
+state
 FROM aws.ec2.ipam_pool_cidrs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>ipam_pool_cidr</code>.
+Gets all properties from an individual <code>ipam_pool_cidr</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +93,6 @@ state
 FROM aws.ec2.ipam_pool_cidrs
 WHERE region = 'us-east-1' AND data__Identifier = '<IpamPoolId>|<IpamPoolCidrId>';
 ```
-
 
 ## `INSERT` example
 

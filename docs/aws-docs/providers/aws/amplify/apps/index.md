@@ -76,7 +76,7 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -88,15 +88,33 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>apps</code> in a region.
+Gets all <code>apps</code> in a region.
 ```sql
 SELECT
 region,
-arn
+access_token,
+app_id,
+app_name,
+arn,
+auto_branch_creation_config,
+basic_auth_config,
+build_spec,
+custom_headers,
+custom_rules,
+default_domain,
+description,
+enable_branch_auto_deletion,
+environment_variables,
+iam_service_role,
+name,
+oauth_token,
+platform,
+repository,
+tags
 FROM aws.amplify.apps
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>app</code>.
+Gets all properties from an individual <code>app</code>.
 ```sql
 SELECT
 region,
@@ -122,7 +140,6 @@ tags
 FROM aws.amplify.apps
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>portal</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>portal</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>portals</code> in a region.
+Gets all <code>portals</code> in a region.
 ```sql
 SELECT
 region,
-portal_id
+portal_auth_mode,
+portal_arn,
+portal_client_id,
+portal_contact_email,
+portal_description,
+portal_id,
+portal_name,
+portal_start_url,
+role_arn,
+notification_sender_email,
+alarms,
+tags
 FROM aws.iotsitewise.portals
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>portal</code>.
+Gets all properties from an individual <code>portal</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.iotsitewise.portals
 WHERE region = 'us-east-1' AND data__Identifier = '<PortalId>';
 ```
-
 
 ## `INSERT` example
 

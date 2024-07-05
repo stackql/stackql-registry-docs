@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,16 +81,26 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>data_sources</code> in a region.
+Gets all <code>data_sources</code> in a region.
 ```sql
 SELECT
 region,
+data_source_configuration,
+data_source_id,
+description,
 knowledge_base_id,
-data_source_id
+data_source_status,
+name,
+server_side_encryption_configuration,
+vector_ingestion_configuration,
+data_deletion_policy,
+created_at,
+updated_at,
+failure_reasons
 FROM aws.bedrock.data_sources
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>data_source</code>.
+Gets all properties from an individual <code>data_source</code>.
 ```sql
 SELECT
 region,
@@ -109,7 +119,6 @@ failure_reasons
 FROM aws.bedrock.data_sources
 WHERE region = 'us-east-1' AND data__Identifier = '<KnowledgeBaseId>|<DataSourceId>';
 ```
-
 
 ## `INSERT` example
 

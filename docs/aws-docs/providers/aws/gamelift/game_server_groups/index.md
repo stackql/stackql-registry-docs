@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>game_server_group</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,15 +83,28 @@ Creates, updates, deletes or gets a <code>game_server_group</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>game_server_groups</code> in a region.
+Gets all <code>game_server_groups</code> in a region.
 ```sql
 SELECT
 region,
-game_server_group_arn
+auto_scaling_group_arn,
+auto_scaling_policy,
+balancing_strategy,
+delete_option,
+game_server_group_arn,
+game_server_group_name,
+game_server_protection_policy,
+instance_definitions,
+launch_template,
+max_size,
+min_size,
+role_arn,
+tags,
+vpc_subnets
 FROM aws.gamelift.game_server_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>game_server_group</code>.
+Gets all properties from an individual <code>game_server_group</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +125,6 @@ vpc_subnets
 FROM aws.gamelift.game_server_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<GameServerGroupArn>';
 ```
-
 
 ## `INSERT` example
 

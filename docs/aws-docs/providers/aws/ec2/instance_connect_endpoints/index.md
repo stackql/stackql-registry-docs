@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>instance_connect_endpoint</code> reso
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets an <code>instance_connect_endpoint</code> reso
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>instance_connect_endpoints</code> in a region.
+Gets all <code>instance_connect_endpoints</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+subnet_id,
+client_token,
+preserve_client_ip,
+tags,
+security_group_ids
 FROM aws.ec2.instance_connect_endpoints
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>instance_connect_endpoint</code>.
+Gets all properties from an individual <code>instance_connect_endpoint</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ security_group_ids
 FROM aws.ec2.instance_connect_endpoints
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

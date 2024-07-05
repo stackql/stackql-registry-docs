@@ -57,7 +57,7 @@ Creates, updates, deletes or gets a <code>view_version</code> resource or lists 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,15 +69,19 @@ Creates, updates, deletes or gets a <code>view_version</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>view_versions</code> in a region.
+Gets all <code>view_versions</code> in a region.
 ```sql
 SELECT
 region,
-view_version_arn
+view_arn,
+view_version_arn,
+version_description,
+view_content_sha256,
+version
 FROM aws.connect.view_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>view_version</code>.
+Gets all properties from an individual <code>view_version</code>.
 ```sql
 SELECT
 region,
@@ -89,7 +93,6 @@ version
 FROM aws.connect.view_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<ViewVersionArn>';
 ```
-
 
 ## `INSERT` example
 

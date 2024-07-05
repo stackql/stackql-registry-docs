@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>storage_len</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,16 @@ Creates, updates, deletes or gets a <code>storage_len</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>storage_lens</code> in a region.
+Gets all <code>storage_lens</code> in a region.
 ```sql
 SELECT
 region,
-storage_lens_configuration/id
+storage_lens_configuration,
+tags
 FROM aws.s3.storage_lens
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>storage_len</code>.
+Gets all properties from an individual <code>storage_len</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +89,6 @@ tags
 FROM aws.s3.storage_lens
 WHERE region = 'us-east-1' AND data__Identifier = '<StorageLensConfiguration/Id>';
 ```
-
 
 ## `INSERT` example
 

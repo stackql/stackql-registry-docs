@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>group_policy</code> resource or lists 
 
 ## `SELECT` examples
 
-Gets all properties from a <code>group_policy</code>.
+Gets all properties from an individual <code>group_policy</code>.
 ```sql
 SELECT
 region,
@@ -83,7 +83,6 @@ group_name
 FROM aws.iam.group_policies
 WHERE data__Identifier = '<PolicyName>|<GroupName>';
 ```
-
 
 ## `INSERT` example
 

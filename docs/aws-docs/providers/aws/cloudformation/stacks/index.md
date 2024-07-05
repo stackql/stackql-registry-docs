@@ -80,7 +80,7 @@ Creates, updates, deletes or gets a <code>stack</code> resource or lists <code>s
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -92,15 +92,37 @@ Creates, updates, deletes or gets a <code>stack</code> resource or lists <code>s
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>stacks</code> in a region.
+Gets all <code>stacks</code> in a region.
 ```sql
 SELECT
 region,
-stack_id
+capabilities,
+role_arn,
+outputs,
+description,
+disable_rollback,
+enable_termination_protection,
+notification_arns,
+parameters,
+parent_id,
+root_id,
+change_set_id,
+stack_name,
+stack_id,
+stack_policy_body,
+stack_policy_url,
+stack_status,
+stack_status_reason,
+tags,
+template_body,
+template_url,
+timeout_in_minutes,
+last_update_time,
+creation_time
 FROM aws.cloudformation.stacks
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>stack</code>.
+Gets all properties from an individual <code>stack</code>.
 ```sql
 SELECT
 region,
@@ -130,7 +152,6 @@ creation_time
 FROM aws.cloudformation.stacks
 WHERE region = 'us-east-1' AND data__Identifier = '<StackId>';
 ```
-
 
 ## `INSERT` example
 

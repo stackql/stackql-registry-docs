@@ -67,7 +67,7 @@ Creates, updates, deletes or gets an <code>environment_account_connection</code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets an <code>environment_account_connection</code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>environment_account_connections</code> in a region.
+Gets all <code>environment_account_connections</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+codebuild_role_arn,
+component_role_arn,
+environment_account_id,
+environment_name,
+id,
+management_account_id,
+role_arn,
+status,
+tags
 FROM aws.proton.environment_account_connections
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>environment_account_connection</code>.
+Gets all properties from an individual <code>environment_account_connection</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ tags
 FROM aws.proton.environment_account_connections
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

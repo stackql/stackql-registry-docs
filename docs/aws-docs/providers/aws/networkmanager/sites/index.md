@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>site</code> resource or lists <code>si
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,16 +77,22 @@ Creates, updates, deletes or gets a <code>site</code> resource or lists <code>si
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>sites</code> in a region.
+Gets all <code>sites</code> in a region.
 ```sql
 SELECT
 region,
+site_arn,
+site_id,
+description,
+tags,
 global_network_id,
-site_id
+location,
+created_at,
+state
 FROM aws.networkmanager.sites
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>site</code>.
+Gets all properties from an individual <code>site</code>.
 ```sql
 SELECT
 region,
@@ -101,7 +107,6 @@ state
 FROM aws.networkmanager.sites
 WHERE region = 'us-east-1' AND data__Identifier = '<GlobalNetworkId>|<SiteId>';
 ```
-
 
 ## `INSERT` example
 

@@ -20,7 +20,7 @@ The kinesisfirehose service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,10 @@ The kinesisfirehose service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/kinesisfirehose/delivery_stream_tags/">delivery_stream_tags</a><br />
 <a href="/providers/aws/kinesisfirehose/delivery_streams/">delivery_streams</a>
 </div>
 <div class="providerDocColumn">
-
+<a href="/providers/aws/kinesisfirehose/delivery_streams_list_only/">delivery_streams_list_only</a>
 </div>
 </div>

@@ -81,7 +81,7 @@ Creates, updates, deletes or gets a <code>workspace</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -93,15 +93,38 @@ Creates, updates, deletes or gets a <code>workspace</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>workspaces</code> in a region.
+Gets all <code>workspaces</code> in a region.
 ```sql
 SELECT
 region,
-id
+authentication_providers,
+sso_client_id,
+saml_configuration,
+network_access_control,
+vpc_configuration,
+saml_configuration_status,
+client_token,
+status,
+creation_timestamp,
+modification_timestamp,
+grafana_version,
+endpoint,
+account_access_type,
+organization_role_name,
+permission_type,
+stack_set_name,
+data_sources,
+description,
+id,
+name,
+notification_destinations,
+organizational_units,
+role_arn,
+plugin_admin_enabled
 FROM aws.grafana.workspaces
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>workspace</code>.
+Gets all properties from an individual <code>workspace</code>.
 ```sql
 SELECT
 region,
@@ -132,7 +155,6 @@ plugin_admin_enabled
 FROM aws.grafana.workspaces
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

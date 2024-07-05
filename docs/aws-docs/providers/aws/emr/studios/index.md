@@ -77,7 +77,7 @@ Creates, updates, deletes or gets a <code>studio</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -89,15 +89,34 @@ Creates, updates, deletes or gets a <code>studio</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>studios</code> in a region.
+Gets all <code>studios</code> in a region.
 ```sql
 SELECT
 region,
-studio_id
+arn,
+auth_mode,
+default_s3_location,
+description,
+engine_security_group_id,
+name,
+service_role,
+studio_id,
+subnet_ids,
+tags,
+url,
+user_role,
+vpc_id,
+workspace_security_group_id,
+idp_auth_url,
+idp_relay_state_parameter_name,
+trusted_identity_propagation_enabled,
+idc_user_assignment,
+idc_instance_arn,
+encryption_key_arn
 FROM aws.emr.studios
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>studio</code>.
+Gets all properties from an individual <code>studio</code>.
 ```sql
 SELECT
 region,
@@ -124,7 +143,6 @@ encryption_key_arn
 FROM aws.emr.studios
 WHERE region = 'us-east-1' AND data__Identifier = '<StudioId>';
 ```
-
 
 ## `INSERT` example
 

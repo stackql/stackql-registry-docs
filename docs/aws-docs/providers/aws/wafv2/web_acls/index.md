@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>web_acl</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,17 +85,30 @@ Creates, updates, deletes or gets a <code>web_acl</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>web_acls</code> in a region.
+Gets all <code>web_acls</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+capacity,
+default_action,
+description,
 name,
 id,
-scope
+scope,
+rules,
+visibility_config,
+tags,
+label_namespace,
+custom_response_bodies,
+captcha_config,
+challenge_config,
+token_domains,
+association_config
 FROM aws.wafv2.web_acls
 ;
 ```
-Gets all properties from a <code>web_acl</code>.
+Gets all properties from an individual <code>web_acl</code>.
 ```sql
 SELECT
 region,
@@ -118,7 +131,6 @@ association_config
 FROM aws.wafv2.web_acls
 WHERE data__Identifier = '<Name>|<Id>|<Scope>';
 ```
-
 
 ## `INSERT` example
 

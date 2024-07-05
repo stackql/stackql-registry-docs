@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>robot_application_version</code> resou
 
 ## `SELECT` examples
 
-Gets all properties from a <code>robot_application_version</code>.
+Gets all properties from an individual <code>robot_application_version</code>.
 ```sql
 SELECT
 region,
@@ -75,7 +75,6 @@ arn
 FROM aws.robomaker.robot_application_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

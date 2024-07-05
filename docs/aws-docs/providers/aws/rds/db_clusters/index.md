@@ -116,7 +116,7 @@ Creates, updates, deletes or gets a <code>db_cluster</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -128,15 +128,73 @@ Creates, updates, deletes or gets a <code>db_cluster</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>db_clusters</code> in a region.
+Gets all <code>db_clusters</code> in a region.
 ```sql
 SELECT
 region,
-db_cluster_identifier
+storage_encrypted,
+db_system_id,
+restore_to_time,
+engine_mode,
+port,
+db_cluster_identifier,
+storage_throughput,
+monitoring_interval,
+endpoint,
+replication_source_identifier,
+engine,
+tags,
+engine_version,
+storage_type,
+kms_key_id,
+serverless_v2_scaling_configuration,
+performance_insights_retention_period,
+database_name,
+db_cluster_resource_id,
+auto_minor_version_upgrade,
+db_subnet_group_name,
+deletion_protection,
+allocated_storage,
+master_user_password,
+master_user_secret,
+source_db_cluster_identifier,
+master_username,
+scaling_configuration,
+read_endpoint,
+performance_insights_kms_key_id,
+publicly_accessible,
+domain,
+backtrack_window,
+db_instance_parameter_group_name,
+enable_global_write_forwarding,
+monitoring_role_arn,
+associated_roles,
+enable_http_endpoint,
+snapshot_identifier,
+preferred_backup_window,
+network_type,
+vpc_security_group_ids,
+copy_tags_to_snapshot,
+global_cluster_identifier,
+restore_type,
+domain_iam_role_name,
+db_cluster_instance_class,
+availability_zones,
+db_cluster_arn,
+preferred_maintenance_window,
+iops,
+source_region,
+use_latest_restorable_time,
+manage_master_user_password,
+enable_iam_database_authentication,
+db_cluster_parameter_group_name,
+performance_insights_enabled,
+backup_retention_period,
+enable_cloudwatch_logs_exports
 FROM aws.rds.db_clusters
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>db_cluster</code>.
+Gets all properties from an individual <code>db_cluster</code>.
 ```sql
 SELECT
 region,
@@ -202,7 +260,6 @@ enable_cloudwatch_logs_exports
 FROM aws.rds.db_clusters
 WHERE region = 'us-east-1' AND data__Identifier = '<DBClusterIdentifier>';
 ```
-
 
 ## `INSERT` example
 

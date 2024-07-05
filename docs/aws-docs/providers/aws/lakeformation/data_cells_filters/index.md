@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>data_cells_filter</code> resource or l
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,18 +71,21 @@ Creates, updates, deletes or gets a <code>data_cells_filter</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>data_cells_filters</code> in a region.
+Gets all <code>data_cells_filters</code> in a region.
 ```sql
 SELECT
 region,
 table_catalog_id,
 database_name,
 table_name,
-name
+name,
+row_filter,
+column_names,
+column_wildcard
 FROM aws.lakeformation.data_cells_filters
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>data_cells_filter</code>.
+Gets all properties from an individual <code>data_cells_filter</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +99,6 @@ column_wildcard
 FROM aws.lakeformation.data_cells_filters
 WHERE region = 'us-east-1' AND data__Identifier = '<TableCatalogId>|<DatabaseName>|<TableName>|<Name>';
 ```
-
 
 ## `INSERT` example
 

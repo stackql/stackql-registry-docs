@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>control_panel</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>control_panel</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>control_panels</code> in a region.
+Gets all <code>control_panels</code> in a region.
 ```sql
 SELECT
 region,
-control_panel_arn
+cluster_arn,
+control_panel_arn,
+name,
+status,
+default_control_panel,
+routing_control_count,
+tags
 FROM aws.route53recoverycontrol.control_panels
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>control_panel</code>.
+Gets all properties from an individual <code>control_panel</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.route53recoverycontrol.control_panels
 WHERE region = 'us-east-1' AND data__Identifier = '<ControlPanelArn>';
 ```
-
 
 ## `INSERT` example
 

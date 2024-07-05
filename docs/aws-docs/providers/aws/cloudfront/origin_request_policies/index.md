@@ -60,7 +60,7 @@ Creates, updates, deletes or gets an <code>origin_request_policy</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets an <code>origin_request_policy</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>origin_request_policies</code> in a region.
+Gets all <code>origin_request_policies</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+last_modified_time,
+origin_request_policy_config
 FROM aws.cloudfront.origin_request_policies
 ;
 ```
-Gets all properties from an <code>origin_request_policy</code>.
+Gets all properties from an individual <code>origin_request_policy</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ origin_request_policy_config
 FROM aws.cloudfront.origin_request_policies
 WHERE data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

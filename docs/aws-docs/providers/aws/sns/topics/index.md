@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>topic</code> resource or lists <code>t
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>topic</code> resource or lists <code>t
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>topics</code> in a region.
+Gets all <code>topics</code> in a region.
 ```sql
 SELECT
 region,
-topic_arn
+display_name,
+kms_master_key_id,
+data_protection_policy,
+subscription,
+fifo_topic,
+content_based_deduplication,
+archive_policy,
+tags,
+topic_name,
+topic_arn,
+signature_version,
+tracing_config,
+delivery_status_logging
 FROM aws.sns.topics
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>topic</code>.
+Gets all properties from an individual <code>topic</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ delivery_status_logging
 FROM aws.sns.topics
 WHERE region = 'us-east-1' AND data__Identifier = '<TopicArn>';
 ```
-
 
 ## `INSERT` example
 

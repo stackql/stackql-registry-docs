@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>fuota_task</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>fuota_task</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>fuota_tasks</code> in a region.
+Gets all <code>fuota_tasks</code> in a region.
 ```sql
 SELECT
 region,
-id
+name,
+description,
+lo_ra_wan,
+firmware_update_image,
+firmware_update_role,
+arn,
+id,
+tags,
+fuota_task_status,
+associate_wireless_device,
+disassociate_wireless_device,
+associate_multicast_group,
+disassociate_multicast_group
 FROM aws.iotwireless.fuota_tasks
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>fuota_task</code>.
+Gets all properties from an individual <code>fuota_task</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ disassociate_multicast_group
 FROM aws.iotwireless.fuota_tasks
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

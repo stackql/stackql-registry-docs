@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>global_replication_group</code> resour
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>global_replication_group</code> resour
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>global_replication_groups</code> in a region.
+Gets all <code>global_replication_groups</code> in a region.
 ```sql
 SELECT
 region,
-global_replication_group_id
+global_replication_group_id_suffix,
+automatic_failover_enabled,
+cache_node_type,
+engine_version,
+cache_parameter_group_name,
+global_node_group_count,
+global_replication_group_description,
+global_replication_group_id,
+members,
+status,
+regional_configurations
 FROM aws.elasticache.global_replication_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>global_replication_group</code>.
+Gets all properties from an individual <code>global_replication_group</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ regional_configurations
 FROM aws.elasticache.global_replication_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<GlobalReplicationGroupId>';
 ```
-
 
 ## `INSERT` example
 

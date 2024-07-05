@@ -73,7 +73,7 @@ Creates, updates, deletes or gets an <code>origin_endpoint</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets an <code>origin_endpoint</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>origin_endpoints</code> in a region.
+Gets all <code>origin_endpoints</code> in a region.
 ```sql
 SELECT
 region,
-id
+arn,
+url,
+id,
+channel_id,
+description,
+whitelist,
+startover_window_seconds,
+time_delay_seconds,
+manifest_name,
+origination,
+authorization,
+hls_package,
+dash_package,
+mss_package,
+cmaf_package,
+tags
 FROM aws.mediapackage.origin_endpoints
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>origin_endpoint</code>.
+Gets all properties from an individual <code>origin_endpoint</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ tags
 FROM aws.mediapackage.origin_endpoints
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

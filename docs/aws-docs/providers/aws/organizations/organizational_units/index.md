@@ -62,7 +62,7 @@ Creates, updates, deletes or gets an <code>organizational_unit</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets an <code>organizational_unit</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>organizational_units</code> in a region.
+Gets all <code>organizational_units</code> in a region.
 ```sql
 SELECT
 region,
-id
+arn,
+id,
+name,
+parent_id,
+tags
 FROM aws.organizations.organizational_units
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>organizational_unit</code>.
+Gets all properties from an individual <code>organizational_unit</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.organizations.organizational_units
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>studio_session_mapping</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,17 +73,18 @@ Creates, updates, deletes or gets a <code>studio_session_mapping</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>studio_session_mappings</code> in a region.
+Gets all <code>studio_session_mappings</code> in a region.
 ```sql
 SELECT
 region,
-studio_id,
+identity_name,
 identity_type,
-identity_name
+session_policy_arn,
+studio_id
 FROM aws.emr.studio_session_mappings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>studio_session_mapping</code>.
+Gets all properties from an individual <code>studio_session_mapping</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +95,6 @@ studio_id
 FROM aws.emr.studio_session_mappings
 WHERE region = 'us-east-1' AND data__Identifier = '<StudioId>|<IdentityType>|<IdentityName>';
 ```
-
 
 ## `INSERT` example
 

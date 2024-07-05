@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>trust_store</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>trust_store</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>trust_stores</code> in a region.
+Gets all <code>trust_stores</code> in a region.
 ```sql
 SELECT
 region,
+name,
+ca_certificates_bundle_s3_bucket,
+ca_certificates_bundle_s3_key,
+ca_certificates_bundle_s3_object_version,
+status,
+number_of_ca_certificates,
+tags,
 trust_store_arn
 FROM aws.elasticloadbalancingv2.trust_stores
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>trust_store</code>.
+Gets all properties from an individual <code>trust_store</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ trust_store_arn
 FROM aws.elasticloadbalancingv2.trust_stores
 WHERE region = 'us-east-1' AND data__Identifier = '<TrustStoreArn>';
 ```
-
 
 ## `INSERT` example
 

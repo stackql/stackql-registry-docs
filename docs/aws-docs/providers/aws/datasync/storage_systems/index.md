@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>storage_system</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>storage_system</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>storage_systems</code> in a region.
+Gets all <code>storage_systems</code> in a region.
 ```sql
 SELECT
 region,
-storage_system_arn
+server_configuration,
+server_credentials,
+secrets_manager_arn,
+system_type,
+agent_arns,
+cloud_watch_log_group_arn,
+name,
+tags,
+storage_system_arn,
+connectivity_status
 FROM aws.datasync.storage_systems
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>storage_system</code>.
+Gets all properties from an individual <code>storage_system</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ connectivity_status
 FROM aws.datasync.storage_systems
 WHERE region = 'us-east-1' AND data__Identifier = '<StorageSystemArn>';
 ```
-
 
 ## `INSERT` example
 

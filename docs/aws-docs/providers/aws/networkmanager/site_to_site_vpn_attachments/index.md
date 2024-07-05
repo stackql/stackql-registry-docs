@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>site_to_site_vpn_attachment</code> res
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets a <code>site_to_site_vpn_attachment</code> res
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>site_to_site_vpn_attachments</code> in a region.
+Gets all <code>site_to_site_vpn_attachments</code> in a region.
 ```sql
 SELECT
 region,
-attachment_id
+core_network_id,
+core_network_arn,
+attachment_id,
+owner_account_id,
+attachment_type,
+state,
+edge_location,
+resource_arn,
+attachment_policy_rule_number,
+segment_name,
+proposed_segment_change,
+tags,
+created_at,
+updated_at,
+vpn_connection_arn
 FROM aws.networkmanager.site_to_site_vpn_attachments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>site_to_site_vpn_attachment</code>.
+Gets all properties from an individual <code>site_to_site_vpn_attachment</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ vpn_connection_arn
 FROM aws.networkmanager.site_to_site_vpn_attachments
 WHERE region = 'us-east-1' AND data__Identifier = '<AttachmentId>';
 ```
-
 
 ## `INSERT` example
 

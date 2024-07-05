@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>protection</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>protection</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>protections</code> in a region.
+Gets all <code>protections</code> in a region.
 ```sql
 SELECT
 region,
-protection_arn
+protection_id,
+protection_arn,
+name,
+resource_arn,
+health_check_arns,
+application_layer_automatic_response_configuration,
+tags
 FROM aws.shield.protections
 ;
 ```
-Gets all properties from a <code>protection</code>.
+Gets all properties from an individual <code>protection</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.shield.protections
 WHERE data__Identifier = '<ProtectionArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>geofence_collection</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>geofence_collection</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>geofence_collections</code> in a region.
+Gets all <code>geofence_collections</code> in a region.
 ```sql
 SELECT
 region,
-collection_name
+collection_arn,
+collection_name,
+create_time,
+description,
+kms_key_id,
+pricing_plan,
+pricing_plan_data_source,
+tags,
+update_time,
+arn
 FROM aws.location.geofence_collections
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>geofence_collection</code>.
+Gets all properties from an individual <code>geofence_collection</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ arn
 FROM aws.location.geofence_collections
 WHERE region = 'us-east-1' AND data__Identifier = '<CollectionName>';
 ```
-
 
 ## `INSERT` example
 

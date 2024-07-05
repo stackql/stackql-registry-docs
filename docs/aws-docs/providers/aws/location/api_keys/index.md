@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>api_key</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets an <code>api_key</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>api_keys</code> in a region.
+Gets all <code>api_keys</code> in a region.
 ```sql
 SELECT
 region,
-key_name
+create_time,
+description,
+expire_time,
+force_update,
+key_arn,
+key_name,
+no_expiry,
+restrictions,
+tags,
+update_time,
+force_delete,
+arn
 FROM aws.location.api_keys
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>api_key</code>.
+Gets all properties from an individual <code>api_key</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ arn
 FROM aws.location.api_keys
 WHERE region = 'us-east-1' AND data__Identifier = '<KeyName>';
 ```
-
 
 ## `INSERT` example
 

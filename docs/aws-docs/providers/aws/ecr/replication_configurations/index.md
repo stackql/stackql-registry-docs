@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>replication_configuration</code> resou
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,16 @@ Creates, updates, deletes or gets a <code>replication_configuration</code> resou
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>replication_configurations</code> in a region.
+Gets all <code>replication_configurations</code> in a region.
 ```sql
 SELECT
 region,
+replication_configuration,
 registry_id
 FROM aws.ecr.replication_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>replication_configuration</code>.
+Gets all properties from an individual <code>replication_configuration</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +89,6 @@ registry_id
 FROM aws.ecr.replication_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<RegistryId>';
 ```
-
 
 ## `INSERT` example
 

@@ -104,7 +104,7 @@ Creates, updates, deletes or gets an <code>instance</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -116,15 +116,61 @@ Creates, updates, deletes or gets an <code>instance</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>instances</code> in a region.
+Gets all <code>instances</code> in a region.
 ```sql
 SELECT
 region,
-instance_id
+tenancy,
+security_groups,
+private_dns_name,
+private_ip_address,
+user_data,
+block_device_mappings,
+iam_instance_profile,
+ipv6_addresses,
+kernel_id,
+subnet_id,
+ebs_optimized,
+propagate_tags_to_volume_on_creation,
+elastic_gpu_specifications,
+elastic_inference_accelerators,
+volumes,
+private_ip,
+ipv6_address_count,
+launch_template,
+enclave_options,
+network_interfaces,
+image_id,
+instance_type,
+monitoring,
+tags,
+additional_info,
+hibernation_options,
+license_specifications,
+instance_id,
+public_ip,
+instance_initiated_shutdown_behavior,
+cpu_options,
+availability_zone,
+private_dns_name_options,
+host_id,
+host_resource_group_arn,
+public_dns_name,
+security_group_ids,
+disable_api_termination,
+key_name,
+ramdisk_id,
+source_dest_check,
+placement_group_name,
+ssm_associations,
+vpc_id,
+state,
+affinity,
+credit_specification
 FROM aws.ec2.instances
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>instance</code>.
+Gets all properties from an individual <code>instance</code>.
 ```sql
 SELECT
 region,
@@ -178,7 +224,6 @@ credit_specification
 FROM aws.ec2.instances
 WHERE region = 'us-east-1' AND data__Identifier = '<InstanceId>';
 ```
-
 
 ## `INSERT` example
 

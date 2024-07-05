@@ -75,7 +75,7 @@ Creates, updates, deletes or gets a <code>task_definition</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -87,15 +87,32 @@ Creates, updates, deletes or gets a <code>task_definition</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>task_definitions</code> in a region.
+Gets all <code>task_definitions</code> in a region.
 ```sql
 SELECT
 region,
-task_definition_arn
+task_definition_arn,
+family,
+container_definitions,
+cpu,
+execution_role_arn,
+ephemeral_storage,
+inference_accelerators,
+memory,
+network_mode,
+placement_constraints,
+proxy_configuration,
+requires_compatibilities,
+task_role_arn,
+volumes,
+pid_mode,
+runtime_platform,
+ipc_mode,
+tags
 FROM aws.ecs.task_definitions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>task_definition</code>.
+Gets all properties from an individual <code>task_definition</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +137,6 @@ tags
 FROM aws.ecs.task_definitions
 WHERE region = 'us-east-1' AND data__Identifier = '<TaskDefinitionArn>';
 ```
-
 
 ## `INSERT` example
 

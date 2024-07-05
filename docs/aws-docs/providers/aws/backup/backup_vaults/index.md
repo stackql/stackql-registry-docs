@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>backup_vault</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>backup_vault</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>backup_vaults</code> in a region.
+Gets all <code>backup_vaults</code> in a region.
 ```sql
 SELECT
 region,
-backup_vault_name
+access_policy,
+backup_vault_name,
+backup_vault_tags,
+encryption_key_arn,
+notifications,
+lock_configuration,
+backup_vault_arn
 FROM aws.backup.backup_vaults
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>backup_vault</code>.
+Gets all properties from an individual <code>backup_vault</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ backup_vault_arn
 FROM aws.backup.backup_vaults
 WHERE region = 'us-east-1' AND data__Identifier = '<BackupVaultName>';
 ```
-
 
 ## `INSERT` example
 

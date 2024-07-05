@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>wireless_device_import_task</code> res
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>wireless_device_import_task</code> res
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>wireless_device_import_tasks</code> in a region.
+Gets all <code>wireless_device_import_tasks</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+arn,
+destination_name,
+creation_date,
+sidewalk,
+status,
+status_reason,
+initialized_imported_devices_count,
+pending_imported_devices_count,
+onboarded_imported_devices_count,
+failed_imported_devices_count,
+tags
 FROM aws.iotwireless.wireless_device_import_tasks
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>wireless_device_import_task</code>.
+Gets all properties from an individual <code>wireless_device_import_task</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.iotwireless.wireless_device_import_tasks
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

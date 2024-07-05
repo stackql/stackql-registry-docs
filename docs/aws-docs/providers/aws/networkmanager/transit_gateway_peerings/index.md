@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>transit_gateway_peering</code> resourc
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>transit_gateway_peering</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>transit_gateway_peerings</code> in a region.
+Gets all <code>transit_gateway_peerings</code> in a region.
 ```sql
 SELECT
 region,
-peering_id
+core_network_id,
+core_network_arn,
+transit_gateway_arn,
+transit_gateway_peering_attachment_id,
+peering_id,
+state,
+edge_location,
+resource_arn,
+owner_account_id,
+peering_type,
+created_at,
+tags
 FROM aws.networkmanager.transit_gateway_peerings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>transit_gateway_peering</code>.
+Gets all properties from an individual <code>transit_gateway_peering</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.networkmanager.transit_gateway_peerings
 WHERE region = 'us-east-1' AND data__Identifier = '<PeeringId>';
 ```
-
 
 ## `INSERT` example
 

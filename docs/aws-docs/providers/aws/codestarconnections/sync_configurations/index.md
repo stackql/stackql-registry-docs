@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>sync_configuration</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,16 +80,25 @@ Creates, updates, deletes or gets a <code>sync_configuration</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>sync_configurations</code> in a region.
+Gets all <code>sync_configurations</code> in a region.
 ```sql
 SELECT
 region,
+owner_id,
 resource_name,
-sync_type
+repository_name,
+provider_type,
+branch,
+config_file,
+sync_type,
+role_arn,
+publish_deployment_status,
+trigger_resource_update_on,
+repository_link_id
 FROM aws.codestarconnections.sync_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>sync_configuration</code>.
+Gets all properties from an individual <code>sync_configuration</code>.
 ```sql
 SELECT
 region,
@@ -107,7 +116,6 @@ repository_link_id
 FROM aws.codestarconnections.sync_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<ResourceName>|<SyncType>';
 ```
-
 
 ## `INSERT` example
 

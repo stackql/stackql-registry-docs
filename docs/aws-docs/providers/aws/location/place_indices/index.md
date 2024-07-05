@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>place_index</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>place_index</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>place_indices</code> in a region.
+Gets all <code>place_indices</code> in a region.
 ```sql
 SELECT
 region,
-index_name
+create_time,
+data_source,
+data_source_configuration,
+description,
+index_arn,
+index_name,
+pricing_plan,
+tags,
+update_time,
+arn
 FROM aws.location.place_indices
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>place_index</code>.
+Gets all properties from an individual <code>place_index</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ arn
 FROM aws.location.place_indices
 WHERE region = 'us-east-1' AND data__Identifier = '<IndexName>';
 ```
-
 
 ## `INSERT` example
 

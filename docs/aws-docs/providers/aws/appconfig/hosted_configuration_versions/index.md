@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>hosted_configuration_version</code> re
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,17 +72,22 @@ Creates, updates, deletes or gets a <code>hosted_configuration_version</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>hosted_configuration_versions</code> in a region.
+Gets all <code>hosted_configuration_versions</code> in a region.
 ```sql
 SELECT
 region,
-application_id,
 configuration_profile_id,
+description,
+content_type,
+latest_version_number,
+content,
+version_label,
+application_id,
 version_number
 FROM aws.appconfig.hosted_configuration_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>hosted_configuration_version</code>.
+Gets all properties from an individual <code>hosted_configuration_version</code>.
 ```sql
 SELECT
 region,
@@ -97,7 +102,6 @@ version_number
 FROM aws.appconfig.hosted_configuration_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationId>|<ConfigurationProfileId>|<VersionNumber>';
 ```
-
 
 ## `INSERT` example
 

@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>mount_target</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>mount_target</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>mount_targets</code> in a region.
+Gets all <code>mount_targets</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+ip_address,
+file_system_id,
+security_groups,
+subnet_id
 FROM aws.efs.mount_targets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>mount_target</code>.
+Gets all properties from an individual <code>mount_target</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ subnet_id
 FROM aws.efs.mount_targets
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

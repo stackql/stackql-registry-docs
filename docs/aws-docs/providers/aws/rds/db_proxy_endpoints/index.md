@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>db_proxy_endpoint</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>db_proxy_endpoint</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>db_proxy_endpoints</code> in a region.
+Gets all <code>db_proxy_endpoints</code> in a region.
 ```sql
 SELECT
 region,
-db_proxy_endpoint_name
+db_proxy_endpoint_name,
+db_proxy_endpoint_arn,
+db_proxy_name,
+vpc_id,
+vpc_security_group_ids,
+vpc_subnet_ids,
+endpoint,
+target_role,
+is_default,
+tags
 FROM aws.rds.db_proxy_endpoints
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>db_proxy_endpoint</code>.
+Gets all properties from an individual <code>db_proxy_endpoint</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ tags
 FROM aws.rds.db_proxy_endpoints
 WHERE region = 'us-east-1' AND data__Identifier = '<DBProxyEndpointName>';
 ```
-
 
 ## `INSERT` example
 
