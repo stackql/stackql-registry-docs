@@ -78,7 +78,7 @@ Creates, updates, deletes or gets a <code>method</code> resource or lists <code>
 
 ## `SELECT` examples
 
-Gets all properties from a <code>method</code>.
+Gets all properties from an individual <code>method</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +98,6 @@ http_method
 FROM aws.apigateway.methods
 WHERE region = 'us-east-1' AND data__Identifier = '<RestApiId>|<ResourceId>|<HttpMethod>';
 ```
-
 
 ## `INSERT` example
 

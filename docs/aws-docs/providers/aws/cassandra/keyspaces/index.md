@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>keyspace</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>keyspace</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>keyspaces</code> in a region.
+Gets all <code>keyspaces</code> in a region.
 ```sql
 SELECT
 region,
-keyspace_name
+keyspace_name,
+tags,
+replication_specification
 FROM aws.cassandra.keyspaces
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>keyspace</code>.
+Gets all properties from an individual <code>keyspace</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ replication_specification
 FROM aws.cassandra.keyspaces
 WHERE region = 'us-east-1' AND data__Identifier = '<KeyspaceName>';
 ```
-
 
 ## `INSERT` example
 

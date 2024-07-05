@@ -74,7 +74,7 @@ Creates, updates, deletes or gets a <code>subscription_target</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -86,17 +86,31 @@ Creates, updates, deletes or gets a <code>subscription_target</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>subscription_targets</code> in a region.
+Gets all <code>subscription_targets</code> in a region.
 ```sql
 SELECT
 region,
+applicable_asset_types,
+authorized_principals,
+created_at,
+created_by,
 domain_id,
+domain_identifier,
 environment_id,
-id
+environment_identifier,
+id,
+manage_access_role,
+name,
+project_id,
+provider,
+subscription_target_config,
+type,
+updated_at,
+updated_by
 FROM aws.datazone.subscription_targets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>subscription_target</code>.
+Gets all properties from an individual <code>subscription_target</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +134,6 @@ updated_by
 FROM aws.datazone.subscription_targets
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainId>|<EnvironmentId>|<Id>';
 ```
-
 
 ## `INSERT` example
 

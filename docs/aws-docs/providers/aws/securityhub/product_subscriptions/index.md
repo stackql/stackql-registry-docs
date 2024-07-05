@@ -54,7 +54,7 @@ Creates, updates, deletes or gets a <code>product_subscription</code> resource o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -66,15 +66,16 @@ Creates, updates, deletes or gets a <code>product_subscription</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>product_subscriptions</code> in a region.
+Gets all <code>product_subscriptions</code> in a region.
 ```sql
 SELECT
 region,
+product_arn,
 product_subscription_arn
 FROM aws.securityhub.product_subscriptions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>product_subscription</code>.
+Gets all properties from an individual <code>product_subscription</code>.
 ```sql
 SELECT
 region,
@@ -83,7 +84,6 @@ product_subscription_arn
 FROM aws.securityhub.product_subscriptions
 WHERE region = 'us-east-1' AND data__Identifier = '<ProductSubscriptionArn>';
 ```
-
 
 ## `INSERT` example
 

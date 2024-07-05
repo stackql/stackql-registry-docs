@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>schedule_group</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>schedule_group</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>schedule_groups</code> in a region.
+Gets all <code>schedule_groups</code> in a region.
 ```sql
 SELECT
 region,
-name
+arn,
+creation_date,
+last_modification_date,
+name,
+state,
+tags
 FROM aws.scheduler.schedule_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>schedule_group</code>.
+Gets all properties from an individual <code>schedule_group</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.scheduler.schedule_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

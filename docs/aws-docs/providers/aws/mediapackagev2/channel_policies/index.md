@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>channel_policy</code> resource or list
 
 ## `SELECT` examples
 
-Gets all properties from a <code>channel_policy</code>.
+Gets all properties from an individual <code>channel_policy</code>.
 ```sql
 SELECT
 region,
@@ -78,7 +78,6 @@ policy
 FROM aws.mediapackagev2.channel_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<ChannelGroupName>|<ChannelName>';
 ```
-
 
 ## `INSERT` example
 

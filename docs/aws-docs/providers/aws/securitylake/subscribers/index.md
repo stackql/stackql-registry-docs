@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>subscriber</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>subscriber</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>subscribers</code> in a region.
+Gets all <code>subscribers</code> in a region.
 ```sql
 SELECT
 region,
+access_types,
+data_lake_arn,
+subscriber_identity,
+subscriber_name,
+subscriber_description,
+tags,
+sources,
+resource_share_arn,
+resource_share_name,
+subscriber_role_arn,
+s3_bucket_arn,
 subscriber_arn
 FROM aws.securitylake.subscribers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>subscriber</code>.
+Gets all properties from an individual <code>subscriber</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ subscriber_arn
 FROM aws.securitylake.subscribers
 WHERE region = 'us-east-1' AND data__Identifier = '<SubscriberArn>';
 ```
-
 
 ## `INSERT` example
 

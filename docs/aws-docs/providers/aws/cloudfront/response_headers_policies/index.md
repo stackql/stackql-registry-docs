@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>response_headers_policy</code> resourc
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>response_headers_policy</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>response_headers_policies</code> in a region.
+Gets all <code>response_headers_policies</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+last_modified_time,
+response_headers_policy_config
 FROM aws.cloudfront.response_headers_policies
 ;
 ```
-Gets all properties from a <code>response_headers_policy</code>.
+Gets all properties from an individual <code>response_headers_policy</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ response_headers_policy_config
 FROM aws.cloudfront.response_headers_policies
 WHERE data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

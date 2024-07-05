@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>collection</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>collection</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>collections</code> in a region.
+Gets all <code>collections</code> in a region.
 ```sql
 SELECT
 region,
-collection_id
+arn,
+collection_id,
+tags
 FROM aws.rekognition.collections
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>collection</code>.
+Gets all properties from an individual <code>collection</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ tags
 FROM aws.rekognition.collections
 WHERE region = 'us-east-1' AND data__Identifier = '<CollectionId>';
 ```
-
 
 ## `INSERT` example
 

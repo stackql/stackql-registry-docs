@@ -20,7 +20,7 @@ The acmpca service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -30,9 +30,11 @@ The acmpca service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/aws/acmpca/certificate_authorities/">certificate_authorities</a><br />
+<a href="/providers/aws/acmpca/certificate_authorities_list_only/">certificate_authorities_list_only</a><br />
 <a href="/providers/aws/acmpca/certificate_authority_activations/">certificate_authority_activations</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/acmpca/certificate_authority_tags/">certificate_authority_tags</a><br />
 <a href="/providers/aws/acmpca/certificates/">certificates</a><br />
 <a href="/providers/aws/acmpca/permissions/">permissions</a>
 </div>

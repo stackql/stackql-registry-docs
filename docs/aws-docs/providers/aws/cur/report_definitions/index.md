@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>report_definition</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>report_definition</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>report_definitions</code> in a region.
+Gets all <code>report_definitions</code> in a region.
 ```sql
 SELECT
 region,
-report_name
+report_name,
+time_unit,
+format,
+compression,
+additional_schema_elements,
+s3_bucket,
+s3_prefix,
+s3_region,
+additional_artifacts,
+refresh_closed_reports,
+report_versioning,
+billing_view_arn
 FROM aws.cur.report_definitions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>report_definition</code>.
+Gets all properties from an individual <code>report_definition</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ billing_view_arn
 FROM aws.cur.report_definitions
 WHERE region = 'us-east-1' AND data__Identifier = '<ReportName>';
 ```
-
 
 ## `INSERT` example
 

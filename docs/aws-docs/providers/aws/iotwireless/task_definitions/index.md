@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>task_definition</code> resource or lis
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,22 @@ Creates, updates, deletes or gets a <code>task_definition</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>task_definitions</code> in a region.
+Gets all <code>task_definitions</code> in a region.
 ```sql
 SELECT
 region,
-id
+name,
+auto_create_tasks,
+update,
+lo_ra_wan_update_gateway_task_entry,
+id,
+task_definition_type,
+arn,
+tags
 FROM aws.iotwireless.task_definitions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>task_definition</code>.
+Gets all properties from an individual <code>task_definition</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +102,6 @@ tags
 FROM aws.iotwireless.task_definitions
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

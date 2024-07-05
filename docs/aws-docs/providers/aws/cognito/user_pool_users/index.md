@@ -60,7 +60,7 @@ Creates, updates, deletes or gets an <code>user_pool_user</code> resource or lis
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,16 +72,22 @@ Creates, updates, deletes or gets an <code>user_pool_user</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>user_pool_users</code> in a region.
+Gets all <code>user_pool_users</code> in a region.
 ```sql
 SELECT
 region,
+desired_delivery_mediums,
+force_alias_creation,
+user_attributes,
+message_action,
+username,
 user_pool_id,
-username
+validation_data,
+client_metadata
 FROM aws.cognito.user_pool_users
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>user_pool_user</code>.
+Gets all properties from an individual <code>user_pool_user</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +102,6 @@ client_metadata
 FROM aws.cognito.user_pool_users
 WHERE region = 'us-east-1' AND data__Identifier = '<UserPoolId>|<Username>';
 ```
-
 
 ## `INSERT` example
 

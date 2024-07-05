@@ -65,7 +65,7 @@ Creates, updates, deletes or gets an <code>evaluation_form</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets an <code>evaluation_form</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>evaluation_forms</code> in a region.
+Gets all <code>evaluation_forms</code> in a region.
 ```sql
 SELECT
 region,
-evaluation_form_arn
+title,
+description,
+evaluation_form_arn,
+instance_arn,
+items,
+scoring_strategy,
+status,
+tags
 FROM aws.connect.evaluation_forms
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>evaluation_form</code>.
+Gets all properties from an individual <code>evaluation_form</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.connect.evaluation_forms
 WHERE region = 'us-east-1' AND data__Identifier = '<EvaluationFormArn>';
 ```
-
 
 ## `INSERT` example
 

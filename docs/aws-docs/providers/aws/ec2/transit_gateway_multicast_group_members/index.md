@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>transit_gateway_multicast_group_member
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,17 +75,25 @@ Creates, updates, deletes or gets a <code>transit_gateway_multicast_group_member
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>transit_gateway_multicast_group_members</code> in a region.
+Gets all <code>transit_gateway_multicast_group_members</code> in a region.
 ```sql
 SELECT
 region,
-transit_gateway_multicast_domain_id,
 group_ip_address,
-network_interface_id
+transit_gateway_attachment_id,
+transit_gateway_multicast_domain_id,
+subnet_id,
+resource_id,
+resource_type,
+network_interface_id,
+group_member,
+group_source,
+member_type,
+source_type
 FROM aws.ec2.transit_gateway_multicast_group_members
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>transit_gateway_multicast_group_member</code>.
+Gets all properties from an individual <code>transit_gateway_multicast_group_member</code>.
 ```sql
 SELECT
 region,
@@ -103,7 +111,6 @@ source_type
 FROM aws.ec2.transit_gateway_multicast_group_members
 WHERE region = 'us-east-1' AND data__Identifier = '<TransitGatewayMulticastDomainId>|<GroupIpAddress>|<NetworkInterfaceId>';
 ```
-
 
 ## `INSERT` example
 

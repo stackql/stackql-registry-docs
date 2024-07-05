@@ -20,7 +20,7 @@ The events service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>13</b></span><br />
 </div>
 </div>
 
@@ -30,12 +30,19 @@ The events service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/aws/events/api_destinations/">api_destinations</a><br />
+<a href="/providers/aws/events/api_destinations_list_only/">api_destinations_list_only</a><br />
 <a href="/providers/aws/events/archives/">archives</a><br />
-<a href="/providers/aws/events/connections/">connections</a>
+<a href="/providers/aws/events/archives_list_only/">archives_list_only</a><br />
+<a href="/providers/aws/events/connections/">connections</a><br />
+<a href="/providers/aws/events/connections_list_only/">connections_list_only</a><br />
+<a href="/providers/aws/events/endpoints/">endpoints</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/events/endpoints/">endpoints</a><br />
+<a href="/providers/aws/events/endpoints_list_only/">endpoints_list_only</a><br />
+<a href="/providers/aws/events/event_bus_tags/">event_bus_tags</a><br />
 <a href="/providers/aws/events/event_buses/">event_buses</a><br />
-<a href="/providers/aws/events/rules/">rules</a>
+<a href="/providers/aws/events/event_buses_list_only/">event_buses_list_only</a><br />
+<a href="/providers/aws/events/rules/">rules</a><br />
+<a href="/providers/aws/events/rules_list_only/">rules_list_only</a>
 </div>
 </div>

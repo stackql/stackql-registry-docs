@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>base_path_mapping</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +73,18 @@ Creates, updates, deletes or gets a <code>base_path_mapping</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>base_path_mappings</code> in a region.
+Gets all <code>base_path_mappings</code> in a region.
 ```sql
 SELECT
 region,
+base_path,
 domain_name,
-base_path
+rest_api_id,
+stage
 FROM aws.apigateway.base_path_mappings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>base_path_mapping</code>.
+Gets all properties from an individual <code>base_path_mapping</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +95,6 @@ stage
 FROM aws.apigateway.base_path_mappings
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>|<BasePath>';
 ```
-
 
 ## `INSERT` example
 

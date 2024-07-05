@@ -66,7 +66,7 @@ Creates, updates, deletes or gets an <code>alarm_model</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets an <code>alarm_model</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>alarm_models</code> in a region.
+Gets all <code>alarm_models</code> in a region.
 ```sql
 SELECT
 region,
-alarm_model_name
+alarm_model_name,
+alarm_model_description,
+role_arn,
+key,
+severity,
+alarm_rule,
+alarm_event_actions,
+alarm_capabilities,
+tags
 FROM aws.iotevents.alarm_models
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>alarm_model</code>.
+Gets all properties from an individual <code>alarm_model</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.iotevents.alarm_models
 WHERE region = 'us-east-1' AND data__Identifier = '<AlarmModelName>';
 ```
-
 
 ## `INSERT` example
 

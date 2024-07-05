@@ -54,7 +54,7 @@ Creates, updates, deletes or gets an <code>egress_only_internet_gateway</code> r
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -66,15 +66,16 @@ Creates, updates, deletes or gets an <code>egress_only_internet_gateway</code> r
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>egress_only_internet_gateways</code> in a region.
+Gets all <code>egress_only_internet_gateways</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+vpc_id
 FROM aws.ec2.egress_only_internet_gateways
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>egress_only_internet_gateway</code>.
+Gets all properties from an individual <code>egress_only_internet_gateway</code>.
 ```sql
 SELECT
 region,
@@ -83,7 +84,6 @@ vpc_id
 FROM aws.ec2.egress_only_internet_gateways
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

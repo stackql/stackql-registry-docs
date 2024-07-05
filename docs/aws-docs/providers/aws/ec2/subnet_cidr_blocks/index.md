@@ -57,7 +57,7 @@ Creates, updates, deletes or gets a <code>subnet_cidr_block</code> resource or l
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,15 +69,19 @@ Creates, updates, deletes or gets a <code>subnet_cidr_block</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>subnet_cidr_blocks</code> in a region.
+Gets all <code>subnet_cidr_blocks</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+ipv6_cidr_block,
+ipv6_ipam_pool_id,
+ipv6_netmask_length,
+subnet_id
 FROM aws.ec2.subnet_cidr_blocks
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>subnet_cidr_block</code>.
+Gets all properties from an individual <code>subnet_cidr_block</code>.
 ```sql
 SELECT
 region,
@@ -89,7 +93,6 @@ subnet_id
 FROM aws.ec2.subnet_cidr_blocks
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

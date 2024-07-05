@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>listener_rule</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>listener_rule</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>listener_rules</code> in a region.
+Gets all <code>listener_rules</code> in a region.
 ```sql
 SELECT
 region,
-rule_arn
+listener_arn,
+rule_arn,
+actions,
+priority,
+conditions,
+is_default
 FROM aws.elasticloadbalancingv2.listener_rules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>listener_rule</code>.
+Gets all properties from an individual <code>listener_rule</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ is_default
 FROM aws.elasticloadbalancingv2.listener_rules
 WHERE region = 'us-east-1' AND data__Identifier = '<RuleArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -1,0 +1,69 @@
+---
+title: standards_list_only
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - standards_list_only
+  - securityhub
+  - aws
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage AWS resources using SQL
+custom_edit_url: null
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Lists <code>standards</code> in a region or regions, for all properties use <a href="/providers/aws/serviceName/standards/"><code>standards</code></a>
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>standards_list_only</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::SecurityHub::Standard</code> resource specifies the enablement of a security standard. The standard is identified by the <code>StandardsArn</code> property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the &#91;DescribeStandards&#93;(https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.<br />You must create a separate <code>AWS::SecurityHub::Standard</code> resource for each standard that you want to enable.<br />For more information about ASH standards, see &#91;standards reference&#93;(https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.securityhub.standards_list_only" /></td></tr>
+</tbody></table>
+
+## Fields
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="standards_subscription_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="standards_arn" /></td><td><code>string</code></td><td>The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the &#91;DescribeStandards&#93;(https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.</td></tr>
+<tr><td><CopyableCode code="disabled_standards_controls" /></td><td><code>array</code></td><td>Specifies which controls are to be disabled in a standard. <br />*Maximum*: <code>100</code></td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
+</tbody></table>
+
+## Methods
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><CopyableCode code="list_resources" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="region" /></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` examples
+Lists all <code>standards</code> in a region.
+```sql
+SELECT
+region,
+standards_subscription_arn
+FROM aws.securityhub.standards_list_only
+WHERE region = 'us-east-1';
+```
+
+
+## Permissions
+
+For permissions required to operate on the <code>standards_list_only</code> resource, see <a href="/providers/aws/securityhub/standards/#permissions"><code>standards</code></a>
+
+

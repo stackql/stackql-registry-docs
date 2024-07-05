@@ -74,7 +74,7 @@ Creates, updates, deletes or gets a <code>component</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -86,17 +86,31 @@ Creates, updates, deletes or gets a <code>component</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>components</code> in a region.
+Gets all <code>components</code> in a region.
 ```sql
 SELECT
 region,
 app_id,
+binding_properties,
+children,
+collection_properties,
+component_type,
+created_at,
 environment_name,
-id
+events,
+id,
+modified_at,
+name,
+overrides,
+properties,
+schema_version,
+source_id,
+tags,
+variants
 FROM aws.amplifyuibuilder.components
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>component</code>.
+Gets all properties from an individual <code>component</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +134,6 @@ variants
 FROM aws.amplifyuibuilder.components
 WHERE region = 'us-east-1' AND data__Identifier = '<AppId>|<EnvironmentName>|<Id>';
 ```
-
 
 ## `INSERT` example
 

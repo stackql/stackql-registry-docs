@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>hook_type_config</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>hook_type_config</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>hook_type_configs</code> in a region.
+Gets all <code>hook_type_configs</code> in a region.
 ```sql
 SELECT
 region,
-configuration_arn
+type_arn,
+type_name,
+configuration_arn,
+configuration,
+configuration_alias
 FROM aws.cloudformation.hook_type_configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>hook_type_config</code>.
+Gets all properties from an individual <code>hook_type_config</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ configuration_alias
 FROM aws.cloudformation.hook_type_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<ConfigurationArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>capacity_reservation</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>capacity_reservation</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>capacity_reservations</code> in a region.
+Gets all <code>capacity_reservations</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+status,
+target_dpus,
+allocated_dpus,
+capacity_assignment_configuration,
+creation_time,
+last_successful_allocation_time,
+tags
 FROM aws.athena.capacity_reservations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>capacity_reservation</code>.
+Gets all properties from an individual <code>capacity_reservation</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.athena.capacity_reservations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>log_anomaly_detector</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>log_anomaly_detector</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>log_anomaly_detectors</code> in a region.
+Gets all <code>log_anomaly_detectors</code> in a region.
 ```sql
 SELECT
 region,
+account_id,
+kms_key_id,
+detector_name,
+log_group_arn_list,
+evaluation_frequency,
+filter_pattern,
+anomaly_detector_status,
+anomaly_visibility_time,
+creation_time_stamp,
+last_modified_time_stamp,
 anomaly_detector_arn
 FROM aws.logs.log_anomaly_detectors
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>log_anomaly_detector</code>.
+Gets all properties from an individual <code>log_anomaly_detector</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ anomaly_detector_arn
 FROM aws.logs.log_anomaly_detectors
 WHERE region = 'us-east-1' AND data__Identifier = '<AnomalyDetectorArn>';
 ```
-
 
 ## `INSERT` example
 

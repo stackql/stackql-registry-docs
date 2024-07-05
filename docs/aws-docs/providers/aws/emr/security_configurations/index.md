@@ -54,7 +54,7 @@ Creates, updates, deletes or gets a <code>security_configuration</code> resource
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -66,15 +66,16 @@ Creates, updates, deletes or gets a <code>security_configuration</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>security_configurations</code> in a region.
+Gets all <code>security_configurations</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+security_configuration
 FROM aws.emr.security_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>security_configuration</code>.
+Gets all properties from an individual <code>security_configuration</code>.
 ```sql
 SELECT
 region,
@@ -83,7 +84,6 @@ security_configuration
 FROM aws.emr.security_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>composite_alarm</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>composite_alarm</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>composite_alarms</code> in a region.
+Gets all <code>composite_alarms</code> in a region.
 ```sql
 SELECT
 region,
-alarm_name
+arn,
+alarm_name,
+alarm_rule,
+alarm_description,
+actions_enabled,
+ok_actions,
+alarm_actions,
+insufficient_data_actions,
+actions_suppressor,
+actions_suppressor_wait_period,
+actions_suppressor_extension_period,
+tags
 FROM aws.cloudwatch.composite_alarms
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>composite_alarm</code>.
+Gets all properties from an individual <code>composite_alarm</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.cloudwatch.composite_alarms
 WHERE region = 'us-east-1' AND data__Identifier = '<AlarmName>';
 ```
-
 
 ## `INSERT` example
 

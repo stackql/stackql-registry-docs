@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>vdm_attribute</code> resource or lists
 
 ## `SELECT` examples
 
-Gets all properties from a <code>vdm_attribute</code>.
+Gets all properties from an individual <code>vdm_attribute</code>.
 ```sql
 SELECT
 region,
@@ -78,7 +78,6 @@ guardian_attributes
 FROM aws.ses.vdm_attributes
 WHERE region = 'us-east-1' AND data__Identifier = '<VdmAttributesResourceId>';
 ```
-
 
 ## `INSERT` example
 

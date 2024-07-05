@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>file_system</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets a <code>file_system</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>file_systems</code> in a region.
+Gets all <code>file_systems</code> in a region.
 ```sql
 SELECT
 region,
-file_system_id
+file_system_id,
+arn,
+encrypted,
+file_system_tags,
+kms_key_id,
+lifecycle_policies,
+file_system_protection,
+performance_mode,
+provisioned_throughput_in_mibps,
+throughput_mode,
+file_system_policy,
+bypass_policy_lockout_safety_check,
+backup_policy,
+availability_zone_name,
+replication_configuration
 FROM aws.efs.file_systems
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>file_system</code>.
+Gets all properties from an individual <code>file_system</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ replication_configuration
 FROM aws.efs.file_systems
 WHERE region = 'us-east-1' AND data__Identifier = '<FileSystemId>';
 ```
-
 
 ## `INSERT` example
 

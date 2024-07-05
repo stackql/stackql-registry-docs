@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>collaboration</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>collaboration</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>collaborations</code> in a region.
+Gets all <code>collaborations</code> in a region.
 ```sql
 SELECT
 region,
-collaboration_identifier
+arn,
+tags,
+collaboration_identifier,
+creator_display_name,
+creator_member_abilities,
+data_encryption_metadata,
+description,
+members,
+name,
+query_log_status,
+creator_payment_configuration
 FROM aws.cleanrooms.collaborations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>collaboration</code>.
+Gets all properties from an individual <code>collaboration</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ creator_payment_configuration
 FROM aws.cleanrooms.collaborations
 WHERE region = 'us-east-1' AND data__Identifier = '<CollaborationIdentifier>';
 ```
-
 
 ## `INSERT` example
 

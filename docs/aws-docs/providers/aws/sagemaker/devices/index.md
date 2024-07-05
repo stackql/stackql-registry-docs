@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>device</code> resource or lists <code>
 
 ## `SELECT` examples
 
-Gets all properties from a <code>device</code>.
+Gets all properties from an individual <code>device</code>.
 ```sql
 SELECT
 region,
@@ -78,7 +78,6 @@ tags
 FROM aws.sagemaker.devices
 WHERE region = 'us-east-1' AND data__Identifier = '<Device/DeviceName>';
 ```
-
 
 ## `INSERT` example
 

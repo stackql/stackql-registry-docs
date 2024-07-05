@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>function</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>function</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>functions</code> in a region.
+Gets all <code>functions</code> in a region.
 ```sql
 SELECT
 region,
-function_arn
+auto_publish,
+function_arn,
+function_code,
+function_config,
+function_metadata,
+name,
+stage
 FROM aws.cloudfront.functions
 ;
 ```
-Gets all properties from a <code>function</code>.
+Gets all properties from an individual <code>function</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ stage
 FROM aws.cloudfront.functions
 WHERE data__Identifier = '<FunctionARN>';
 ```
-
 
 ## `INSERT` example
 

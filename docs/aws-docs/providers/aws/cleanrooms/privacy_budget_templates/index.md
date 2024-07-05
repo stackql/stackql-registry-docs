@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>privacy_budget_template</code> resourc
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,16 +79,24 @@ Creates, updates, deletes or gets a <code>privacy_budget_template</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>privacy_budget_templates</code> in a region.
+Gets all <code>privacy_budget_templates</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+collaboration_arn,
+collaboration_identifier,
 privacy_budget_template_identifier,
+tags,
+auto_refresh,
+privacy_budget_type,
+parameters,
+membership_arn,
 membership_identifier
 FROM aws.cleanrooms.privacy_budget_templates
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>privacy_budget_template</code>.
+Gets all properties from an individual <code>privacy_budget_template</code>.
 ```sql
 SELECT
 region,
@@ -105,7 +113,6 @@ membership_identifier
 FROM aws.cleanrooms.privacy_budget_templates
 WHERE region = 'us-east-1' AND data__Identifier = '<PrivacyBudgetTemplateIdentifier>|<MembershipIdentifier>';
 ```
-
 
 ## `INSERT` example
 

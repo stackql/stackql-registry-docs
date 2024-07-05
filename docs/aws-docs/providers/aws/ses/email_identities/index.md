@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>email_identity</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets an <code>email_identity</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>email_identities</code> in a region.
+Gets all <code>email_identities</code> in a region.
 ```sql
 SELECT
 region,
-email_identity
+email_identity,
+configuration_set_attributes,
+dkim_signing_attributes,
+dkim_attributes,
+mail_from_attributes,
+feedback_attributes,
+dkim_dns_token_name1,
+dkim_dns_token_name2,
+dkim_dns_token_name3,
+dkim_dns_token_value1,
+dkim_dns_token_value2,
+dkim_dns_token_value3
 FROM aws.ses.email_identities
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>email_identity</code>.
+Gets all properties from an individual <code>email_identity</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ dkim_dns_token_value3
 FROM aws.ses.email_identities
 WHERE region = 'us-east-1' AND data__Identifier = '<EmailIdentity>';
 ```
-
 
 ## `INSERT` example
 

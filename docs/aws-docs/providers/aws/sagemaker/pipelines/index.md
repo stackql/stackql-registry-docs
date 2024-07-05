@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>pipeline</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>pipeline</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>pipelines</code> in a region.
+Gets all <code>pipelines</code> in a region.
 ```sql
 SELECT
 region,
-pipeline_name
+pipeline_name,
+pipeline_display_name,
+pipeline_description,
+pipeline_definition,
+role_arn,
+tags,
+parallelism_configuration
 FROM aws.sagemaker.pipelines
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>pipeline</code>.
+Gets all properties from an individual <code>pipeline</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ parallelism_configuration
 FROM aws.sagemaker.pipelines
 WHERE region = 'us-east-1' AND data__Identifier = '<PipelineName>';
 ```
-
 
 ## `INSERT` example
 

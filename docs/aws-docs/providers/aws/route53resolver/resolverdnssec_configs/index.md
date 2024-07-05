@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>resolverdnssec_config</code> resource 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,15 +68,18 @@ Creates, updates, deletes or gets a <code>resolverdnssec_config</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>resolverdnssec_configs</code> in a region.
+Gets all <code>resolverdnssec_configs</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+owner_id,
+resource_id,
+validation_status
 FROM aws.route53resolver.resolverdnssec_configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>resolverdnssec_config</code>.
+Gets all properties from an individual <code>resolverdnssec_config</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +90,6 @@ validation_status
 FROM aws.route53resolver.resolverdnssec_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

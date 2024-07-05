@@ -62,7 +62,7 @@ Creates, updates, deletes or gets an <code>application_fleet_association</code> 
 
 ## `SELECT` examples
 
-Gets all properties from an <code>application_fleet_association</code>.
+Gets all properties from an individual <code>application_fleet_association</code>.
 ```sql
 SELECT
 region,
@@ -71,7 +71,6 @@ application_arn
 FROM aws.appstream.application_fleet_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<FleetName>|<ApplicationArn>';
 ```
-
 
 ## `INSERT` example
 

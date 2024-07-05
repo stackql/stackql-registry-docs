@@ -57,7 +57,7 @@ Creates, updates, deletes or gets a <code>member_invitation</code> resource or l
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,16 +69,19 @@ Creates, updates, deletes or gets a <code>member_invitation</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>member_invitations</code> in a region.
+Gets all <code>member_invitations</code> in a region.
 ```sql
 SELECT
 region,
 graph_arn,
-member_id
+member_id,
+member_email_address,
+disable_email_notification,
+message
 FROM aws.detective.member_invitations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>member_invitation</code>.
+Gets all properties from an individual <code>member_invitation</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +93,6 @@ message
 FROM aws.detective.member_invitations
 WHERE region = 'us-east-1' AND data__Identifier = '<GraphArn>|<MemberId>';
 ```
-
 
 ## `INSERT` example
 

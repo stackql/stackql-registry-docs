@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>anomaly_detector</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets an <code>anomaly_detector</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>anomaly_detectors</code> in a region.
+Gets all <code>anomaly_detectors</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+anomaly_detector_name,
+anomaly_detector_description,
+anomaly_detector_config,
+metric_set_list,
+kms_key_arn
 FROM aws.lookoutmetrics.anomaly_detectors
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>anomaly_detector</code>.
+Gets all properties from an individual <code>anomaly_detector</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ kms_key_arn
 FROM aws.lookoutmetrics.anomaly_detectors
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

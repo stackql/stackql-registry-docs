@@ -61,7 +61,7 @@ Creates, updates, deletes or gets an <code>instance_profile</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets an <code>instance_profile</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>instance_profiles</code> in a region.
+Gets all <code>instance_profiles</code> in a region.
 ```sql
 SELECT
 region,
-instance_profile_name
+path,
+roles,
+instance_profile_name,
+arn
 FROM aws.iam.instance_profiles
 ;
 ```
-Gets all properties from an <code>instance_profile</code>.
+Gets all properties from an individual <code>instance_profile</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ arn
 FROM aws.iam.instance_profiles
 WHERE data__Identifier = '<InstanceProfileName>';
 ```
-
 
 ## `INSERT` example
 

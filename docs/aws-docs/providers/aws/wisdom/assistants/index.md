@@ -64,7 +64,7 @@ Creates, updates, deletes or gets an <code>assistant</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets an <code>assistant</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>assistants</code> in a region.
+Gets all <code>assistants</code> in a region.
 ```sql
 SELECT
 region,
-assistant_id
+type,
+description,
+assistant_arn,
+assistant_id,
+server_side_encryption_configuration,
+tags,
+name
 FROM aws.wisdom.assistants
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>assistant</code>.
+Gets all properties from an individual <code>assistant</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ name
 FROM aws.wisdom.assistants
 WHERE region = 'us-east-1' AND data__Identifier = '<AssistantId>';
 ```
-
 
 ## `INSERT` example
 

@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>schema</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,15 +68,18 @@ Creates, updates, deletes or gets a <code>schema</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>schemata</code> in a region.
+Gets all <code>schemata</code> in a region.
 ```sql
 SELECT
 region,
-schema_arn
+name,
+schema_arn,
+schema,
+domain
 FROM aws.personalize.schemata
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>schema</code>.
+Gets all properties from an individual <code>schema</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +90,6 @@ domain
 FROM aws.personalize.schemata
 WHERE region = 'us-east-1' AND data__Identifier = '<SchemaArn>';
 ```
-
 
 ## `INSERT` example
 

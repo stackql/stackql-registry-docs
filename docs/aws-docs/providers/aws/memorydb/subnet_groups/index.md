@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>subnet_group</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>subnet_group</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>subnet_groups</code> in a region.
+Gets all <code>subnet_groups</code> in a region.
 ```sql
 SELECT
 region,
-subnet_group_name
+subnet_group_name,
+description,
+subnet_ids,
+tags,
+arn
 FROM aws.memorydb.subnet_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>subnet_group</code>.
+Gets all properties from an individual <code>subnet_group</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ arn
 FROM aws.memorydb.subnet_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<SubnetGroupName>';
 ```
-
 
 ## `INSERT` example
 

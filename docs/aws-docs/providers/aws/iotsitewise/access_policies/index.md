@@ -62,7 +62,7 @@ Creates, updates, deletes or gets an <code>access_policy</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets an <code>access_policy</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>access_policies</code> in a region.
+Gets all <code>access_policies</code> in a region.
 ```sql
 SELECT
 region,
-access_policy_id
+access_policy_id,
+access_policy_arn,
+access_policy_identity,
+access_policy_permission,
+access_policy_resource
 FROM aws.iotsitewise.access_policies
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>access_policy</code>.
+Gets all properties from an individual <code>access_policy</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ access_policy_resource
 FROM aws.iotsitewise.access_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<AccessPolicyId>';
 ```
-
 
 ## `INSERT` example
 

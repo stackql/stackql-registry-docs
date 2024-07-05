@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>data_provider</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>data_provider</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>data_providers</code> in a region.
+Gets all <code>data_providers</code> in a region.
 ```sql
 SELECT
 region,
-data_provider_arn
+data_provider_name,
+data_provider_identifier,
+data_provider_arn,
+data_provider_creation_time,
+description,
+engine,
+exact_settings,
+settings,
+tags
 FROM aws.dms.data_providers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>data_provider</code>.
+Gets all properties from an individual <code>data_provider</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.dms.data_providers
 WHERE region = 'us-east-1' AND data__Identifier = '<DataProviderArn>';
 ```
-
 
 ## `INSERT` example
 

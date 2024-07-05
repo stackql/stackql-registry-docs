@@ -74,7 +74,7 @@ Creates, updates, deletes or gets a <code>namespace</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -86,15 +86,31 @@ Creates, updates, deletes or gets a <code>namespace</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>namespaces</code> in a region.
+Gets all <code>namespaces</code> in a region.
 ```sql
 SELECT
 region,
-namespace_name
+admin_password_secret_kms_key_id,
+admin_user_password,
+admin_username,
+db_name,
+default_iam_role_arn,
+iam_roles,
+kms_key_id,
+log_exports,
+manage_admin_password,
+namespace,
+namespace_name,
+tags,
+final_snapshot_name,
+final_snapshot_retention_period,
+namespace_resource_policy,
+redshift_idc_application_arn,
+snapshot_copy_configurations
 FROM aws.redshiftserverless.namespaces
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>namespace</code>.
+Gets all properties from an individual <code>namespace</code>.
 ```sql
 SELECT
 region,
@@ -118,7 +134,6 @@ snapshot_copy_configurations
 FROM aws.redshiftserverless.namespaces
 WHERE region = 'us-east-1' AND data__Identifier = '<NamespaceName>';
 ```
-
 
 ## `INSERT` example
 

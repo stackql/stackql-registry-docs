@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>crl</code> resource or lists <code>crl
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>crl</code> resource or lists <code>crl
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>crls</code> in a region.
+Gets all <code>crls</code> in a region.
 ```sql
 SELECT
 region,
-crl_id
+crl_data,
+crl_id,
+enabled,
+name,
+trust_anchor_arn,
+tags
 FROM aws.rolesanywhere.crls
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>crl</code>.
+Gets all properties from an individual <code>crl</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.rolesanywhere.crls
 WHERE region = 'us-east-1' AND data__Identifier = '<CrlId>';
 ```
-
 
 ## `INSERT` example
 

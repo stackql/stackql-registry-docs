@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>dataset</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>dataset</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>datasets</code> in a region.
+Gets all <code>datasets</code> in a region.
 ```sql
 SELECT
 region,
-dataset_arn
+name,
+dataset_arn,
+dataset_type,
+dataset_group_arn,
+schema_arn,
+dataset_import_job
 FROM aws.personalize.datasets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>dataset</code>.
+Gets all properties from an individual <code>dataset</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ dataset_import_job
 FROM aws.personalize.datasets
 WHERE region = 'us-east-1' AND data__Identifier = '<DatasetArn>';
 ```
-
 
 ## `INSERT` example
 

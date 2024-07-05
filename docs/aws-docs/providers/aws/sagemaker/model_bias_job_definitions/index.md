@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>model_bias_job_definition</code> resou
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,27 @@ Creates, updates, deletes or gets a <code>model_bias_job_definition</code> resou
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>model_bias_job_definitions</code> in a region.
+Gets all <code>model_bias_job_definitions</code> in a region.
 ```sql
 SELECT
 region,
-job_definition_arn
+job_definition_arn,
+job_definition_name,
+model_bias_baseline_config,
+model_bias_app_specification,
+model_bias_job_input,
+model_bias_job_output_config,
+job_resources,
+network_config,
+endpoint_name,
+role_arn,
+stopping_condition,
+tags,
+creation_time
 FROM aws.sagemaker.model_bias_job_definitions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>model_bias_job_definition</code>.
+Gets all properties from an individual <code>model_bias_job_definition</code>.
 ```sql
 SELECT
 region,
@@ -105,7 +117,6 @@ creation_time
 FROM aws.sagemaker.model_bias_job_definitions
 WHERE region = 'us-east-1' AND data__Identifier = '<JobDefinitionArn>';
 ```
-
 
 ## `INSERT` example
 

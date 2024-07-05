@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>stream_processor</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets a <code>stream_processor</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>stream_processors</code> in a region.
+Gets all <code>stream_processors</code> in a region.
 ```sql
 SELECT
 region,
-name
+arn,
+name,
+kms_key_id,
+role_arn,
+kinesis_video_stream,
+face_search_settings,
+connected_home_settings,
+kinesis_data_stream,
+s3_destination,
+notification_channel,
+data_sharing_preference,
+polygon_regions_of_interest,
+bounding_box_regions_of_interest,
+status,
+status_message,
+tags
 FROM aws.rekognition.stream_processors
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>stream_processor</code>.
+Gets all properties from an individual <code>stream_processor</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ tags
 FROM aws.rekognition.stream_processors
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

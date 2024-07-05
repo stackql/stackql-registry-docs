@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>core_network</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>core_network</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>core_networks</code> in a region.
+Gets all <code>core_networks</code> in a region.
 ```sql
 SELECT
 region,
-core_network_id
+global_network_id,
+core_network_id,
+core_network_arn,
+policy_document,
+description,
+created_at,
+state,
+segments,
+edges,
+owner_account,
+tags
 FROM aws.networkmanager.core_networks
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>core_network</code>.
+Gets all properties from an individual <code>core_network</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ tags
 FROM aws.networkmanager.core_networks
 WHERE region = 'us-east-1' AND data__Identifier = '<CoreNetworkId>';
 ```
-
 
 ## `INSERT` example
 

@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>ruleset</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>ruleset</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>rulesets</code> in a region.
+Gets all <code>rulesets</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+description,
+target_arn,
+rules,
+tags
 FROM aws.databrew.rulesets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>ruleset</code>.
+Gets all properties from an individual <code>ruleset</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.databrew.rulesets
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

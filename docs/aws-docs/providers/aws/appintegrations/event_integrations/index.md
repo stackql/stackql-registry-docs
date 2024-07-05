@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>event_integration</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets an <code>event_integration</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>event_integrations</code> in a region.
+Gets all <code>event_integrations</code> in a region.
 ```sql
 SELECT
 region,
-name
+description,
+event_integration_arn,
+name,
+event_bridge_bus,
+event_filter,
+tags
 FROM aws.appintegrations.event_integrations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>event_integration</code>.
+Gets all properties from an individual <code>event_integration</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.appintegrations.event_integrations
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

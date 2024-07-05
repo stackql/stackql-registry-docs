@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>location_ef</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>location_ef</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>location_efs</code> in a region.
+Gets all <code>location_efs</code> in a region.
 ```sql
 SELECT
 region,
-location_arn
+ec2_config,
+efs_filesystem_arn,
+access_point_arn,
+file_system_access_role_arn,
+in_transit_encryption,
+subdirectory,
+tags,
+location_arn,
+location_uri
 FROM aws.datasync.location_efs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>location_ef</code>.
+Gets all properties from an individual <code>location_ef</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ location_uri
 FROM aws.datasync.location_efs
 WHERE region = 'us-east-1' AND data__Identifier = '<LocationArn>';
 ```
-
 
 ## `INSERT` example
 

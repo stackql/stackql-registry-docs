@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>landing_zone</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>landing_zone</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>landing_zones</code> in a region.
+Gets all <code>landing_zones</code> in a region.
 ```sql
 SELECT
 region,
-landing_zone_identifier
+landing_zone_identifier,
+arn,
+status,
+latest_available_version,
+drift_status,
+manifest,
+version,
+tags
 FROM aws.controltower.landing_zones
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>landing_zone</code>.
+Gets all properties from an individual <code>landing_zone</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.controltower.landing_zones
 WHERE region = 'us-east-1' AND data__Identifier = '<LandingZoneIdentifier>';
 ```
-
 
 ## `INSERT` example
 

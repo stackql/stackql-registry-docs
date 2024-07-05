@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>saml_provider</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>saml_provider</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>saml_providers</code> in a region.
+Gets all <code>saml_providers</code> in a region.
 ```sql
 SELECT
 region,
-arn
+name,
+saml_metadata_document,
+arn,
+tags
 FROM aws.iam.saml_providers
 ;
 ```
-Gets all properties from a <code>saml_provider</code>.
+Gets all properties from an individual <code>saml_provider</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ tags
 FROM aws.iam.saml_providers
 WHERE data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

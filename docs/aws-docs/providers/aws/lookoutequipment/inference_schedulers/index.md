@@ -67,7 +67,7 @@ Creates, updates, deletes or gets an <code>inference_scheduler</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets an <code>inference_scheduler</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>inference_schedulers</code> in a region.
+Gets all <code>inference_schedulers</code> in a region.
 ```sql
 SELECT
 region,
-inference_scheduler_name
+data_delay_offset_in_minutes,
+data_input_configuration,
+data_output_configuration,
+data_upload_frequency,
+inference_scheduler_name,
+model_name,
+role_arn,
+server_side_kms_key_id,
+tags,
+inference_scheduler_arn
 FROM aws.lookoutequipment.inference_schedulers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>inference_scheduler</code>.
+Gets all properties from an individual <code>inference_scheduler</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ inference_scheduler_arn
 FROM aws.lookoutequipment.inference_schedulers
 WHERE region = 'us-east-1' AND data__Identifier = '<InferenceSchedulerName>';
 ```
-
 
 ## `INSERT` example
 

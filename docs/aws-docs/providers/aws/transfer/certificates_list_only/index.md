@@ -1,0 +1,81 @@
+---
+title: certificates_list_only
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - certificates_list_only
+  - transfer
+  - aws
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage AWS resources using SQL
+custom_edit_url: null
+image: /img/providers/aws/stackql-aws-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Lists <code>certificates</code> in a region or regions, for all properties use <a href="/providers/aws/serviceName/certificates/"><code>certificates</code></a>
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>certificates_list_only</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::Transfer::Certificate</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="aws.transfer.certificates_list_only" /></td></tr>
+</tbody></table>
+
+## Fields
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="usage" /></td><td><code>string</code></td><td>Specifies the usage type for the certificate.</td></tr>
+<tr><td><CopyableCode code="certificate" /></td><td><code>string</code></td><td>Specifies the certificate body to be imported.</td></tr>
+<tr><td><CopyableCode code="certificate_chain" /></td><td><code>string</code></td><td>Specifies the certificate chain to be imported.</td></tr>
+<tr><td><CopyableCode code="private_key" /></td><td><code>string</code></td><td>Specifies the private key for the certificate.</td></tr>
+<tr><td><CopyableCode code="active_date" /></td><td><code>string</code></td><td>Specifies the active date for the certificate.</td></tr>
+<tr><td><CopyableCode code="inactive_date" /></td><td><code>string</code></td><td>Specifies the inactive date for the certificate.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A textual description for the certificate.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Specifies the unique Amazon Resource Name (ARN) for the agreement.</td></tr>
+<tr><td><CopyableCode code="certificate_id" /></td><td><code>string</code></td><td>A unique identifier for the certificate.</td></tr>
+<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>A status description for the certificate.</td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>Describing the type of certificate. With or without a private key.</td></tr>
+<tr><td><CopyableCode code="serial" /></td><td><code>string</code></td><td>Specifies Certificate's serial.</td></tr>
+<tr><td><CopyableCode code="not_before_date" /></td><td><code>string</code></td><td>Specifies the not before date for the certificate.</td></tr>
+<tr><td><CopyableCode code="not_after_date" /></td><td><code>string</code></td><td>Specifies the not after date for the certificate.</td></tr>
+<tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
+</tbody></table>
+
+## Methods
+
+<table><tbody>
+  <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+  </tr>
+  <tr>
+    <td><CopyableCode code="list_resources" /></td>
+    <td><code>SELECT</code></td>
+    <td><CopyableCode code="region" /></td>
+  </tr>
+</tbody></table>
+
+## `SELECT` examples
+Lists all <code>certificates</code> in a region.
+```sql
+SELECT
+region,
+certificate_id
+FROM aws.transfer.certificates_list_only
+WHERE region = 'us-east-1';
+```
+
+
+## Permissions
+
+For permissions required to operate on the <code>certificates_list_only</code> resource, see <a href="/providers/aws/transfer/certificates/#permissions"><code>certificates</code></a>
+
+

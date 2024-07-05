@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>cross_account_attachment</code> resour
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>cross_account_attachment</code> resour
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>cross_account_attachments</code> in a region.
+Gets all <code>cross_account_attachments</code> in a region.
 ```sql
 SELECT
 region,
-attachment_arn
+name,
+attachment_arn,
+principals,
+resources,
+tags
 FROM aws.globalaccelerator.cross_account_attachments
 ;
 ```
-Gets all properties from a <code>cross_account_attachment</code>.
+Gets all properties from an individual <code>cross_account_attachment</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.globalaccelerator.cross_account_attachments
 WHERE data__Identifier = '<AttachmentArn>';
 ```
-
 
 ## `INSERT` example
 

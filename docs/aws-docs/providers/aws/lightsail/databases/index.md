@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>database</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets a <code>database</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>databases</code> in a region.
+Gets all <code>databases</code> in a region.
 ```sql
 SELECT
 region,
-relational_database_name
+relational_database_name,
+database_arn,
+availability_zone,
+relational_database_blueprint_id,
+relational_database_bundle_id,
+master_database_name,
+master_username,
+master_user_password,
+preferred_backup_window,
+preferred_maintenance_window,
+publicly_accessible,
+ca_certificate_identifier,
+backup_retention,
+rotate_master_user_password,
+relational_database_parameters,
+tags
 FROM aws.lightsail.databases
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>database</code>.
+Gets all properties from an individual <code>database</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ tags
 FROM aws.lightsail.databases
 WHERE region = 'us-east-1' AND data__Identifier = '<RelationalDatabaseName>';
 ```
-
 
 ## `INSERT` example
 

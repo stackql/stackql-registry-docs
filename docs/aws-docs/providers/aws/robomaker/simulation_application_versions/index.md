@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>simulation_application_version</code> 
 
 ## `SELECT` examples
 
-Gets all properties from a <code>simulation_application_version</code>.
+Gets all properties from an individual <code>simulation_application_version</code>.
 ```sql
 SELECT
 region,
@@ -75,7 +75,6 @@ arn
 FROM aws.robomaker.simulation_application_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>studio_component</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,16 +82,27 @@ Creates, updates, deletes or gets a <code>studio_component</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>studio_components</code> in a region.
+Gets all <code>studio_components</code> in a region.
 ```sql
 SELECT
 region,
+configuration,
+description,
+ec2_security_group_ids,
+initialization_scripts,
+name,
+runtime_role_arn,
+script_parameters,
+secure_initialization_role_arn,
 studio_component_id,
-studio_id
+studio_id,
+subtype,
+tags,
+type
 FROM aws.nimblestudio.studio_components
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>studio_component</code>.
+Gets all properties from an individual <code>studio_component</code>.
 ```sql
 SELECT
 region,
@@ -111,7 +122,6 @@ type
 FROM aws.nimblestudio.studio_components
 WHERE region = 'us-east-1' AND data__Identifier = '<StudioComponentId>|<StudioId>';
 ```
-
 
 ## `INSERT` example
 

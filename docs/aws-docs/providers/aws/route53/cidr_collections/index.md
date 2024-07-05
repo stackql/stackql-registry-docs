@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>cidr_collection</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>cidr_collection</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>cidr_collections</code> in a region.
+Gets all <code>cidr_collections</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+name,
+arn,
+locations
 FROM aws.route53.cidr_collections
 ;
 ```
-Gets all properties from a <code>cidr_collection</code>.
+Gets all properties from an individual <code>cidr_collection</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ locations
 FROM aws.route53.cidr_collections
 WHERE data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

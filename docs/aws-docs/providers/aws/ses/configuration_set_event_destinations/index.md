@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>configuration_set_event_destination</c
 
 ## `SELECT` examples
 
-Gets all properties from a <code>configuration_set_event_destination</code>.
+Gets all properties from an individual <code>configuration_set_event_destination</code>.
 ```sql
 SELECT
 region,
@@ -78,7 +78,6 @@ event_destination
 FROM aws.ses.configuration_set_event_destinations
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

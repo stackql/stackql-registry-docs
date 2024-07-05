@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>wal_workspace</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,16 @@ Creates, updates, deletes or gets a <code>wal_workspace</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>wal_workspaces</code> in a region.
+Gets all <code>wal_workspaces</code> in a region.
 ```sql
 SELECT
 region,
-wal_workspace_name
+wal_workspace_name,
+tags
 FROM aws.emr.wal_workspaces
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>wal_workspace</code>.
+Gets all properties from an individual <code>wal_workspace</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +89,6 @@ tags
 FROM aws.emr.wal_workspaces
 WHERE region = 'us-east-1' AND data__Identifier = '<WALWorkspaceName>';
 ```
-
 
 ## `INSERT` example
 

@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>automation_rule</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets an <code>automation_rule</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>automation_rules</code> in a region.
+Gets all <code>automation_rules</code> in a region.
 ```sql
 SELECT
 region,
-rule_arn
+rule_arn,
+rule_status,
+rule_order,
+description,
+rule_name,
+created_at,
+updated_at,
+created_by,
+is_terminal,
+actions,
+criteria,
+tags
 FROM aws.securityhub.automation_rules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>automation_rule</code>.
+Gets all properties from an individual <code>automation_rule</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.securityhub.automation_rules
 WHERE region = 'us-east-1' AND data__Identifier = '<RuleArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>fhir_datastore</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>fhir_datastore</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>fhir_datastores</code> in a region.
+Gets all <code>fhir_datastores</code> in a region.
 ```sql
 SELECT
 region,
-datastore_id
+created_at,
+datastore_arn,
+datastore_endpoint,
+datastore_id,
+datastore_name,
+datastore_status,
+datastore_type_version,
+preload_data_config,
+sse_configuration,
+identity_provider_configuration,
+tags
 FROM aws.healthlake.fhir_datastores
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>fhir_datastore</code>.
+Gets all properties from an individual <code>fhir_datastore</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ tags
 FROM aws.healthlake.fhir_datastores
 WHERE region = 'us-east-1' AND data__Identifier = '<DatastoreId>';
 ```
-
 
 ## `INSERT` example
 

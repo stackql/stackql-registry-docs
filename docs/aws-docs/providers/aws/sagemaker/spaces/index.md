@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>space</code> resource or lists <code>s
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,16 +78,23 @@ Creates, updates, deletes or gets a <code>space</code> resource or lists <code>s
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>spaces</code> in a region.
+Gets all <code>spaces</code> in a region.
 ```sql
 SELECT
 region,
+space_arn,
 domain_id,
-space_name
+space_name,
+space_settings,
+tags,
+ownership_settings,
+space_sharing_settings,
+space_display_name,
+url
 FROM aws.sagemaker.spaces
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>space</code>.
+Gets all properties from an individual <code>space</code>.
 ```sql
 SELECT
 region,
@@ -103,7 +110,6 @@ url
 FROM aws.sagemaker.spaces
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainId>|<SpaceName>';
 ```
-
 
 ## `INSERT` example
 

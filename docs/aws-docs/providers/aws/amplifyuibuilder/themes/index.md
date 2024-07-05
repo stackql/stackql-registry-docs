@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>theme</code> resource or lists <code>t
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,17 +78,23 @@ Creates, updates, deletes or gets a <code>theme</code> resource or lists <code>t
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>themes</code> in a region.
+Gets all <code>themes</code> in a region.
 ```sql
 SELECT
 region,
 app_id,
+created_at,
 environment_name,
-id
+id,
+modified_at,
+name,
+overrides,
+tags,
+values
 FROM aws.amplifyuibuilder.themes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>theme</code>.
+Gets all properties from an individual <code>theme</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +110,6 @@ values
 FROM aws.amplifyuibuilder.themes
 WHERE region = 'us-east-1' AND data__Identifier = '<AppId>|<EnvironmentName>|<Id>';
 ```
-
 
 ## `INSERT` example
 

@@ -66,7 +66,7 @@ Creates, updates, deletes or gets an <code>ip_access_setting</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets an <code>ip_access_setting</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>ip_access_settings</code> in a region.
+Gets all <code>ip_access_settings</code> in a region.
 ```sql
 SELECT
 region,
-ip_access_settings_arn
+additional_encryption_context,
+associated_portal_arns,
+creation_date,
+customer_managed_key,
+description,
+display_name,
+ip_access_settings_arn,
+ip_rules,
+tags
 FROM aws.workspacesweb.ip_access_settings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>ip_access_setting</code>.
+Gets all properties from an individual <code>ip_access_setting</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.workspacesweb.ip_access_settings
 WHERE region = 'us-east-1' AND data__Identifier = '<IpAccessSettingsArn>';
 ```
-
 
 ## `INSERT` example
 

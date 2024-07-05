@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>certificate</code> resource or lists <
 
 ## `SELECT` examples
 
-Gets all properties from a <code>certificate</code>.
+Gets all properties from an individual <code>certificate</code>.
 ```sql
 SELECT
 region,
@@ -85,7 +85,6 @@ arn
 FROM aws.acmpca.certificates
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>|<CertificateAuthorityArn>';
 ```
-
 
 ## `INSERT` example
 

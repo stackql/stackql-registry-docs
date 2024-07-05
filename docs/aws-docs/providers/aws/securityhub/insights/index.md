@@ -61,7 +61,7 @@ Creates, updates, deletes or gets an <code>insight</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets an <code>insight</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>insights</code> in a region.
+Gets all <code>insights</code> in a region.
 ```sql
 SELECT
 region,
-insight_arn
+insight_arn,
+name,
+filters,
+group_by_attribute
 FROM aws.securityhub.insights
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>insight</code>.
+Gets all properties from an individual <code>insight</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ group_by_attribute
 FROM aws.securityhub.insights
 WHERE region = 'us-east-1' AND data__Identifier = '<InsightArn>';
 ```
-
 
 ## `INSERT` example
 

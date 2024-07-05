@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>project</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>project</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>projects</code> in a region.
+Gets all <code>projects</code> in a region.
 ```sql
 SELECT
 region,
-project_arn
+tags,
+project_arn,
+project_id,
+project_name,
+project_description,
+creation_time,
+service_catalog_provisioning_details,
+service_catalog_provisioned_product_details,
+project_status
 FROM aws.sagemaker.projects
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>project</code>.
+Gets all properties from an individual <code>project</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ project_status
 FROM aws.sagemaker.projects
 WHERE region = 'us-east-1' AND data__Identifier = '<ProjectArn>';
 ```
-
 
 ## `INSERT` example
 

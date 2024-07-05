@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>public_repository</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>public_repository</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>public_repositories</code> in a region.
+Gets all <code>public_repositories</code> in a region.
 ```sql
 SELECT
 region,
-repository_name
+repository_name,
+repository_policy_text,
+arn,
+repository_catalog_data,
+tags
 FROM aws.ecr.public_repositories
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>public_repository</code>.
+Gets all properties from an individual <code>public_repository</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.ecr.public_repositories
 WHERE region = 'us-east-1' AND data__Identifier = '<RepositoryName>';
 ```
-
 
 ## `INSERT` example
 

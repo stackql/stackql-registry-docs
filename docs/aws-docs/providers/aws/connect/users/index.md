@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>user</code> resource or lists <code>us
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>user</code> resource or lists <code>us
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>users</code> in a region.
+Gets all <code>users</code> in a region.
 ```sql
 SELECT
 region,
-user_arn
+instance_arn,
+directory_user_id,
+hierarchy_group_arn,
+username,
+password,
+routing_profile_arn,
+identity_info,
+phone_config,
+security_profile_arns,
+user_arn,
+tags,
+user_proficiencies
 FROM aws.connect.users
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>user</code>.
+Gets all properties from an individual <code>user</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ user_proficiencies
 FROM aws.connect.users
 WHERE region = 'us-east-1' AND data__Identifier = '<UserArn>';
 ```
-
 
 ## `INSERT` example
 

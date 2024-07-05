@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>policy</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets a <code>policy</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>policies</code> in a region.
+Gets all <code>policies</code> in a region.
 ```sql
 SELECT
 region,
-id
+exclude_map,
+exclude_resource_tags,
+include_map,
+id,
+policy_name,
+policy_description,
+remediation_enabled,
+resource_tags,
+resource_type,
+resource_type_list,
+resource_set_ids,
+security_service_policy_data,
+arn,
+delete_all_policy_resources,
+resources_clean_up,
+tags
 FROM aws.fms.policies
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>policy</code>.
+Gets all properties from an individual <code>policy</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ tags
 FROM aws.fms.policies
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

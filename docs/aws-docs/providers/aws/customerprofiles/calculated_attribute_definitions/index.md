@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>calculated_attribute_definition</code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,16 +79,24 @@ Creates, updates, deletes or gets a <code>calculated_attribute_definition</code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>calculated_attribute_definitions</code> in a region.
+Gets all <code>calculated_attribute_definitions</code> in a region.
 ```sql
 SELECT
 region,
 domain_name,
-calculated_attribute_name
+calculated_attribute_name,
+display_name,
+description,
+attribute_details,
+conditions,
+statistic,
+created_at,
+last_updated_at,
+tags
 FROM aws.customerprofiles.calculated_attribute_definitions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>calculated_attribute_definition</code>.
+Gets all properties from an individual <code>calculated_attribute_definition</code>.
 ```sql
 SELECT
 region,
@@ -105,7 +113,6 @@ tags
 FROM aws.customerprofiles.calculated_attribute_definitions
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>|<CalculatedAttributeName>';
 ```
-
 
 ## `INSERT` example
 

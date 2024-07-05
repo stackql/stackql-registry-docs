@@ -68,7 +68,7 @@ Creates, updates, deletes or gets an <code>auth_policy</code> resource or lists 
 
 ## `SELECT` examples
 
-Gets all properties from an <code>auth_policy</code>.
+Gets all properties from an individual <code>auth_policy</code>.
 ```sql
 SELECT
 region,
@@ -78,7 +78,6 @@ state
 FROM aws.vpclattice.auth_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<ResourceIdentifier>';
 ```
-
 
 ## `INSERT` example
 

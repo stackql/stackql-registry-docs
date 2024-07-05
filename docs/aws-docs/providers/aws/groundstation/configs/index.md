@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>config</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>config</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>configs</code> in a region.
+Gets all <code>configs</code> in a region.
 ```sql
 SELECT
 region,
-arn
+name,
+tags,
+type,
+config_data,
+arn,
+id
 FROM aws.groundstation.configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>config</code>.
+Gets all properties from an individual <code>config</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ id
 FROM aws.groundstation.configs
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -78,7 +78,7 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -90,15 +90,35 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>campaigns</code> in a region.
+Gets all <code>campaigns</code> in a region.
 ```sql
 SELECT
 region,
-name
+status,
+action,
+creation_time,
+compression,
+description,
+priority,
+signals_to_collect,
+data_destination_configs,
+start_time,
+name,
+expiry_time,
+last_modification_time,
+spooling_mode,
+signal_catalog_arn,
+post_trigger_collection_duration,
+data_extra_dimensions,
+diagnostics_mode,
+target_arn,
+arn,
+collection_scheme,
+tags
 FROM aws.iotfleetwise.campaigns
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>campaign</code>.
+Gets all properties from an individual <code>campaign</code>.
 ```sql
 SELECT
 region,
@@ -126,7 +146,6 @@ tags
 FROM aws.iotfleetwise.campaigns
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

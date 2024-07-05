@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>stack_set</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets a <code>stack_set</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>stack_sets</code> in a region.
+Gets all <code>stack_sets</code> in a region.
 ```sql
 SELECT
 region,
-stack_set_id
+stack_set_name,
+stack_set_id,
+administration_role_arn,
+auto_deployment,
+capabilities,
+description,
+execution_role_name,
+operation_preferences,
+stack_instances_group,
+parameters,
+permission_model,
+tags,
+template_body,
+template_url,
+call_as,
+managed_execution
 FROM aws.cloudformation.stack_sets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>stack_set</code>.
+Gets all properties from an individual <code>stack_set</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ managed_execution
 FROM aws.cloudformation.stack_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<StackSetId>';
 ```
-
 
 ## `INSERT` example
 

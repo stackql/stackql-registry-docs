@@ -61,7 +61,7 @@ Creates, updates, deletes or gets an <code>identity_pool_role_attachment</code> 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets an <code>identity_pool_role_attachment</code> 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>identity_pool_role_attachments</code> in a region.
+Gets all <code>identity_pool_role_attachments</code> in a region.
 ```sql
 SELECT
 region,
-id
+identity_pool_id,
+roles,
+id,
+role_mappings
 FROM aws.cognito.identity_pool_role_attachments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>identity_pool_role_attachment</code>.
+Gets all properties from an individual <code>identity_pool_role_attachment</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ role_mappings
 FROM aws.cognito.identity_pool_role_attachments
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

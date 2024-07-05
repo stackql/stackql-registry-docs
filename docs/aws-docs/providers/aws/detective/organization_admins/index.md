@@ -54,7 +54,7 @@ Creates, updates, deletes or gets an <code>organization_admin</code> resource or
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -66,15 +66,16 @@ Creates, updates, deletes or gets an <code>organization_admin</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>organization_admins</code> in a region.
+Gets all <code>organization_admins</code> in a region.
 ```sql
 SELECT
 region,
-account_id
+account_id,
+graph_arn
 FROM aws.detective.organization_admins
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>organization_admin</code>.
+Gets all properties from an individual <code>organization_admin</code>.
 ```sql
 SELECT
 region,
@@ -83,7 +84,6 @@ graph_arn
 FROM aws.detective.organization_admins
 WHERE region = 'us-east-1' AND data__Identifier = '<AccountId>';
 ```
-
 
 ## `INSERT` example
 

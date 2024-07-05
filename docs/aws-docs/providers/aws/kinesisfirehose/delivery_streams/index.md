@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>delivery_stream</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets a <code>delivery_stream</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>delivery_streams</code> in a region.
+Gets all <code>delivery_streams</code> in a region.
 ```sql
 SELECT
 region,
-delivery_stream_name
+arn,
+delivery_stream_encryption_configuration_input,
+delivery_stream_name,
+delivery_stream_type,
+elasticsearch_destination_configuration,
+amazonopensearchservice_destination_configuration,
+amazon_open_search_serverless_destination_configuration,
+extended_s3_destination_configuration,
+kinesis_stream_source_configuration,
+msk_source_configuration,
+redshift_destination_configuration,
+s3_destination_configuration,
+splunk_destination_configuration,
+http_endpoint_destination_configuration,
+snowflake_destination_configuration,
+tags
 FROM aws.kinesisfirehose.delivery_streams
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>delivery_stream</code>.
+Gets all properties from an individual <code>delivery_stream</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ tags
 FROM aws.kinesisfirehose.delivery_streams
 WHERE region = 'us-east-1' AND data__Identifier = '<DeliveryStreamName>';
 ```
-
 
 ## `INSERT` example
 

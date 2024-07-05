@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>directory_registration</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>directory_registration</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>directory_registrations</code> in a region.
+Gets all <code>directory_registrations</code> in a region.
 ```sql
 SELECT
 region,
-directory_registration_arn
+directory_id,
+directory_registration_arn,
+tags
 FROM aws.pcaconnectorad.directory_registrations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>directory_registration</code>.
+Gets all properties from an individual <code>directory_registration</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ tags
 FROM aws.pcaconnectorad.directory_registrations
 WHERE region = 'us-east-1' AND data__Identifier = '<DirectoryRegistrationArn>';
 ```
-
 
 ## `INSERT` example
 

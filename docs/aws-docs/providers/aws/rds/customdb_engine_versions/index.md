@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>customdb_engine_version</code> resourc
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,16 +82,27 @@ Creates, updates, deletes or gets a <code>customdb_engine_version</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>customdb_engine_versions</code> in a region.
+Gets all <code>customdb_engine_versions</code> in a region.
 ```sql
 SELECT
 region,
+database_installation_files_s3_bucket_name,
+database_installation_files_s3_prefix,
+description,
 engine,
-engine_version
+engine_version,
+kms_key_id,
+manifest,
+db_engine_version_arn,
+source_custom_db_engine_version_identifier,
+use_aws_provided_latest_image,
+image_id,
+status,
+tags
 FROM aws.rds.customdb_engine_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>customdb_engine_version</code>.
+Gets all properties from an individual <code>customdb_engine_version</code>.
 ```sql
 SELECT
 region,
@@ -111,7 +122,6 @@ tags
 FROM aws.rds.customdb_engine_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<Engine>|<EngineVersion>';
 ```
-
 
 ## `INSERT` example
 

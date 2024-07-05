@@ -58,7 +58,7 @@ Creates, updates, deletes or gets an <code>observability_configuration</code> re
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -70,15 +70,20 @@ Creates, updates, deletes or gets an <code>observability_configuration</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>observability_configurations</code> in a region.
+Gets all <code>observability_configurations</code> in a region.
 ```sql
 SELECT
 region,
-observability_configuration_arn
+observability_configuration_arn,
+observability_configuration_name,
+observability_configuration_revision,
+latest,
+trace_configuration,
+tags
 FROM aws.apprunner.observability_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>observability_configuration</code>.
+Gets all properties from an individual <code>observability_configuration</code>.
 ```sql
 SELECT
 region,
@@ -91,7 +96,6 @@ tags
 FROM aws.apprunner.observability_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<ObservabilityConfigurationArn>';
 ```
-
 
 ## `INSERT` example
 

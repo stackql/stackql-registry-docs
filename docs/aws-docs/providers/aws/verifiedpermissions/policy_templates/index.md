@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>policy_template</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +73,18 @@ Creates, updates, deletes or gets a <code>policy_template</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>policy_templates</code> in a region.
+Gets all <code>policy_templates</code> in a region.
 ```sql
 SELECT
 region,
+description,
 policy_store_id,
-policy_template_id
+policy_template_id,
+statement
 FROM aws.verifiedpermissions.policy_templates
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>policy_template</code>.
+Gets all properties from an individual <code>policy_template</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +95,6 @@ statement
 FROM aws.verifiedpermissions.policy_templates
 WHERE region = 'us-east-1' AND data__Identifier = '<PolicyStoreId>|<PolicyTemplateId>';
 ```
-
 
 ## `INSERT` example
 

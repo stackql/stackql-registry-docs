@@ -75,7 +75,7 @@ Creates, updates, deletes or gets a <code>launch</code> resource or lists <code>
 
 ## `SELECT` examples
 
-Gets all properties from a <code>launch</code>.
+Gets all properties from an individual <code>launch</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +92,6 @@ execution_status
 FROM aws.evidently.launches
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

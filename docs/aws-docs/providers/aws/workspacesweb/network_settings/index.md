@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>network_setting</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>network_setting</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>network_settings</code> in a region.
+Gets all <code>network_settings</code> in a region.
 ```sql
 SELECT
 region,
-network_settings_arn
+associated_portal_arns,
+network_settings_arn,
+security_group_ids,
+subnet_ids,
+tags,
+vpc_id
 FROM aws.workspacesweb.network_settings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>network_setting</code>.
+Gets all properties from an individual <code>network_setting</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ vpc_id
 FROM aws.workspacesweb.network_settings
 WHERE region = 'us-east-1' AND data__Identifier = '<NetworkSettingsArn>';
 ```
-
 
 ## `INSERT` example
 

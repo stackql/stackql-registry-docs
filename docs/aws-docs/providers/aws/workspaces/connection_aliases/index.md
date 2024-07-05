@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>connection_alias</code> resource or li
 
 ## `SELECT` examples
 
-Gets all properties from a <code>connection_alias</code>.
+Gets all properties from an individual <code>connection_alias</code>.
 ```sql
 SELECT
 region,
@@ -77,7 +77,6 @@ tags
 FROM aws.workspaces.connection_aliases
 WHERE region = 'us-east-1' AND data__Identifier = '<AliasId>';
 ```
-
 
 ## `INSERT` example
 

@@ -55,7 +55,7 @@ Creates, updates, deletes or gets a <code>subnet_network_acl_association</code> 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -67,15 +67,17 @@ Creates, updates, deletes or gets a <code>subnet_network_acl_association</code> 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>subnet_network_acl_associations</code> in a region.
+Gets all <code>subnet_network_acl_associations</code> in a region.
 ```sql
 SELECT
 region,
+subnet_id,
+network_acl_id,
 association_id
 FROM aws.ec2.subnet_network_acl_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>subnet_network_acl_association</code>.
+Gets all properties from an individual <code>subnet_network_acl_association</code>.
 ```sql
 SELECT
 region,
@@ -85,7 +87,6 @@ association_id
 FROM aws.ec2.subnet_network_acl_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<AssociationId>';
 ```
-
 
 ## `INSERT` example
 

@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>permission</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>permission</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>permissions</code> in a region.
+Gets all <code>permissions</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+version,
+is_resource_type_default,
+permission_type,
+resource_type,
+policy_template,
+tags
 FROM aws.ram.permissions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>permission</code>.
+Gets all properties from an individual <code>permission</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.ram.permissions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

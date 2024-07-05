@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>bridge</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>bridge</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>bridges</code> in a region.
+Gets all <code>bridges</code> in a region.
 ```sql
 SELECT
 region,
-bridge_arn
+name,
+bridge_arn,
+placement_arn,
+bridge_state,
+source_failover_config,
+outputs,
+sources,
+ingress_gateway_bridge,
+egress_gateway_bridge
 FROM aws.mediaconnect.bridges
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>bridge</code>.
+Gets all properties from an individual <code>bridge</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ egress_gateway_bridge
 FROM aws.mediaconnect.bridges
 WHERE region = 'us-east-1' AND data__Identifier = '<BridgeArn>';
 ```
-
 
 ## `INSERT` example
 

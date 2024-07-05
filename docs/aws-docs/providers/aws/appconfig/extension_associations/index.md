@@ -66,7 +66,7 @@ Creates, updates, deletes or gets an <code>extension_association</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets an <code>extension_association</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>extension_associations</code> in a region.
+Gets all <code>extension_associations</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+arn,
+extension_arn,
+resource_arn,
+extension_identifier,
+resource_identifier,
+extension_version_number,
+parameters,
+tags
 FROM aws.appconfig.extension_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>extension_association</code>.
+Gets all properties from an individual <code>extension_association</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.appconfig.extension_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

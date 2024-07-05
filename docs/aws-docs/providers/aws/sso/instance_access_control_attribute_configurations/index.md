@@ -60,7 +60,7 @@ Creates, updates, deletes or gets an <code>instance_access_control_attribute_con
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets an <code>instance_access_control_attribute_con
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>instance_access_control_attribute_configurations</code> in a region.
+Gets all <code>instance_access_control_attribute_configurations</code> in a region.
 ```sql
 SELECT
 region,
-instance_arn
+instance_arn,
+instance_access_control_attribute_configuration,
+access_control_attributes
 FROM aws.sso.instance_access_control_attribute_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>instance_access_control_attribute_configuration</code>.
+Gets all properties from an individual <code>instance_access_control_attribute_configuration</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ access_control_attributes
 FROM aws.sso.instance_access_control_attribute_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<InstanceArn>';
 ```
-
 
 ## `INSERT` example
 

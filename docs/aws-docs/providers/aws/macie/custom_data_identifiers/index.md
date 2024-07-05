@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>custom_data_identifier</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>custom_data_identifier</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>custom_data_identifiers</code> in a region.
+Gets all <code>custom_data_identifiers</code> in a region.
 ```sql
 SELECT
 region,
-id
+name,
+description,
+regex,
+maximum_match_distance,
+keywords,
+ignore_words,
+id,
+arn,
+tags
 FROM aws.macie.custom_data_identifiers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>custom_data_identifier</code>.
+Gets all properties from an individual <code>custom_data_identifier</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.macie.custom_data_identifiers
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

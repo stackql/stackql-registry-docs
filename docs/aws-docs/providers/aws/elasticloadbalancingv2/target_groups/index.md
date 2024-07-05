@@ -80,7 +80,7 @@ Creates, updates, deletes or gets a <code>target_group</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -92,15 +92,37 @@ Creates, updates, deletes or gets a <code>target_group</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>target_groups</code> in a region.
+Gets all <code>target_groups</code> in a region.
 ```sql
 SELECT
 region,
-target_group_arn
+ip_address_type,
+health_check_interval_seconds,
+load_balancer_arns,
+matcher,
+health_check_path,
+port,
+targets,
+health_check_enabled,
+protocol_version,
+unhealthy_threshold_count,
+health_check_timeout_seconds,
+name,
+vpc_id,
+target_group_full_name,
+healthy_threshold_count,
+health_check_protocol,
+target_group_attributes,
+target_type,
+health_check_port,
+target_group_arn,
+protocol,
+target_group_name,
+tags
 FROM aws.elasticloadbalancingv2.target_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>target_group</code>.
+Gets all properties from an individual <code>target_group</code>.
 ```sql
 SELECT
 region,
@@ -130,7 +152,6 @@ tags
 FROM aws.elasticloadbalancingv2.target_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<TargetGroupArn>';
 ```
-
 
 ## `INSERT` example
 

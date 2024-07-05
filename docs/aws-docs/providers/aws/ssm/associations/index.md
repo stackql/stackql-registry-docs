@@ -75,7 +75,7 @@ Creates, updates, deletes or gets an <code>association</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -87,15 +87,32 @@ Creates, updates, deletes or gets an <code>association</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>associations</code> in a region.
+Gets all <code>associations</code> in a region.
 ```sql
 SELECT
 region,
-association_id
+association_name,
+calendar_names,
+schedule_expression,
+max_errors,
+parameters,
+instance_id,
+wait_for_success_timeout_seconds,
+max_concurrency,
+compliance_severity,
+targets,
+sync_compliance,
+output_location,
+schedule_offset,
+name,
+apply_only_at_cron_interval,
+document_version,
+association_id,
+automation_target_parameter_name
 FROM aws.ssm.associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>association</code>.
+Gets all properties from an individual <code>association</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +137,6 @@ automation_target_parameter_name
 FROM aws.ssm.associations
 WHERE region = 'us-east-1' AND data__Identifier = '<AssociationId>';
 ```
-
 
 ## `INSERT` example
 

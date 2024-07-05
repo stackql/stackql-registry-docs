@@ -58,7 +58,7 @@ Creates, updates, deletes or gets a <code>transit_gateway_multicast_domain_assoc
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -70,17 +70,20 @@ Creates, updates, deletes or gets a <code>transit_gateway_multicast_domain_assoc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>transit_gateway_multicast_domain_associations</code> in a region.
+Gets all <code>transit_gateway_multicast_domain_associations</code> in a region.
 ```sql
 SELECT
 region,
 transit_gateway_multicast_domain_id,
 transit_gateway_attachment_id,
+resource_id,
+resource_type,
+state,
 subnet_id
 FROM aws.ec2.transit_gateway_multicast_domain_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>transit_gateway_multicast_domain_association</code>.
+Gets all properties from an individual <code>transit_gateway_multicast_domain_association</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +96,6 @@ subnet_id
 FROM aws.ec2.transit_gateway_multicast_domain_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<TransitGatewayMulticastDomainId>|<TransitGatewayAttachmentId>|<SubnetId>';
 ```
-
 
 ## `INSERT` example
 

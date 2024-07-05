@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>browser_setting</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>browser_setting</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>browser_settings</code> in a region.
+Gets all <code>browser_settings</code> in a region.
 ```sql
 SELECT
 region,
-browser_settings_arn
+additional_encryption_context,
+associated_portal_arns,
+browser_policy,
+browser_settings_arn,
+customer_managed_key,
+tags
 FROM aws.workspacesweb.browser_settings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>browser_setting</code>.
+Gets all properties from an individual <code>browser_setting</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.workspacesweb.browser_settings
 WHERE region = 'us-east-1' AND data__Identifier = '<BrowserSettingsArn>';
 ```
-
 
 ## `INSERT` example
 

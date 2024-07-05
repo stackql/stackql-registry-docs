@@ -57,4 +57,3 @@ Represents a log event.
 
 
 
-

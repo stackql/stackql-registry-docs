@@ -87,7 +87,7 @@ Creates, updates, deletes or gets an <code>auto_scaling_group</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -99,15 +99,44 @@ Creates, updates, deletes or gets an <code>auto_scaling_group</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>auto_scaling_groups</code> in a region.
+Gets all <code>auto_scaling_groups</code> in a region.
 ```sql
 SELECT
 region,
-auto_scaling_group_name
+lifecycle_hook_specification_list,
+load_balancer_names,
+launch_configuration_name,
+service_linked_role_arn,
+target_group_arns,
+cooldown,
+notification_configurations,
+desired_capacity,
+health_check_grace_period,
+default_instance_warmup,
+new_instances_protected_from_scale_in,
+launch_template,
+mixed_instances_policy,
+vpc_zone_identifier,
+tags,
+context,
+capacity_rebalance,
+instance_id,
+availability_zones,
+notification_configuration,
+metrics_collection,
+instance_maintenance_policy,
+max_size,
+min_size,
+termination_policies,
+auto_scaling_group_name,
+desired_capacity_type,
+placement_group,
+health_check_type,
+max_instance_lifetime
 FROM aws.autoscaling.auto_scaling_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>auto_scaling_group</code>.
+Gets all properties from an individual <code>auto_scaling_group</code>.
 ```sql
 SELECT
 region,
@@ -144,7 +173,6 @@ max_instance_lifetime
 FROM aws.autoscaling.auto_scaling_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<AutoScalingGroupName>';
 ```
-
 
 ## `INSERT` example
 

@@ -64,7 +64,7 @@ Creates, updates, deletes or gets an <code>ip_set</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,16 +76,21 @@ Creates, updates, deletes or gets an <code>ip_set</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>ip_sets</code> in a region.
+Gets all <code>ip_sets</code> in a region.
 ```sql
 SELECT
 region,
 id,
-detector_id
+format,
+activate,
+detector_id,
+name,
+location,
+tags
 FROM aws.guardduty.ip_sets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>ip_set</code>.
+Gets all properties from an individual <code>ip_set</code>.
 ```sql
 SELECT
 region,
@@ -99,7 +104,6 @@ tags
 FROM aws.guardduty.ip_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>|<DetectorId>';
 ```
-
 
 ## `INSERT` example
 

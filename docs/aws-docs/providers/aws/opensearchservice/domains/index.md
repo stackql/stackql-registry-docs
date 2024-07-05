@@ -90,7 +90,7 @@ Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>
 
 ## `SELECT` examples
 
-Gets all properties from a <code>domain</code>.
+Gets all properties from an individual <code>domain</code>.
 ```sql
 SELECT
 region,
@@ -122,7 +122,6 @@ software_update_options
 FROM aws.opensearchservice.domains
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>';
 ```
-
 
 ## `INSERT` example
 

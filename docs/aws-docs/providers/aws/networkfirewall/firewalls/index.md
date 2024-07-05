@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>firewall</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>firewall</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>firewalls</code> in a region.
+Gets all <code>firewalls</code> in a region.
 ```sql
 SELECT
 region,
-firewall_arn
+firewall_name,
+firewall_arn,
+firewall_id,
+firewall_policy_arn,
+vpc_id,
+subnet_mappings,
+delete_protection,
+subnet_change_protection,
+firewall_policy_change_protection,
+description,
+endpoint_ids,
+tags
 FROM aws.networkfirewall.firewalls
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>firewall</code>.
+Gets all properties from an individual <code>firewall</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.networkfirewall.firewalls
 WHERE region = 'us-east-1' AND data__Identifier = '<FirewallArn>';
 ```
-
 
 ## `INSERT` example
 

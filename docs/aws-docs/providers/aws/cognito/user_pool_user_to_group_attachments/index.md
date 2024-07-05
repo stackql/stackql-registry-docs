@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>user_pool_user_to_group_attachment</c
 
 ## `SELECT` examples
 
-Gets all properties from an <code>user_pool_user_to_group_attachment</code>.
+Gets all properties from an individual <code>user_pool_user_to_group_attachment</code>.
 ```sql
 SELECT
 region,
@@ -73,7 +73,6 @@ group_name
 FROM aws.cognito.user_pool_user_to_group_attachments
 WHERE region = 'us-east-1' AND data__Identifier = '<UserPoolId>|<GroupName>|<Username>';
 ```
-
 
 ## `INSERT` example
 

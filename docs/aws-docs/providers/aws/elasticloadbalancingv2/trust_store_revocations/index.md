@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>trust_store_revocation</code> resource
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,16 +68,18 @@ Creates, updates, deletes or gets a <code>trust_store_revocation</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>trust_store_revocations</code> in a region.
+Gets all <code>trust_store_revocations</code> in a region.
 ```sql
 SELECT
 region,
+revocation_contents,
+trust_store_arn,
 revocation_id,
-trust_store_arn
+trust_store_revocations
 FROM aws.elasticloadbalancingv2.trust_store_revocations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>trust_store_revocation</code>.
+Gets all properties from an individual <code>trust_store_revocation</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +90,6 @@ trust_store_revocations
 FROM aws.elasticloadbalancingv2.trust_store_revocations
 WHERE region = 'us-east-1' AND data__Identifier = '<RevocationId>|<TrustStoreArn>';
 ```
-
 
 ## `INSERT` example
 

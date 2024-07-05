@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>domain_name_api_association</code> res
 
 ## `SELECT` examples
 
-Gets all properties from a <code>domain_name_api_association</code>.
+Gets all properties from an individual <code>domain_name_api_association</code>.
 ```sql
 SELECT
 region,
@@ -78,7 +78,6 @@ api_association_identifier
 FROM aws.appsync.domain_name_api_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<ApiAssociationIdentifier>';
 ```
-
 
 ## `INSERT` example
 

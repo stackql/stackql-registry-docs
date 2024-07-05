@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>connect_attachment</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets a <code>connect_attachment</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>connect_attachments</code> in a region.
+Gets all <code>connect_attachments</code> in a region.
 ```sql
 SELECT
 region,
-attachment_id
+core_network_id,
+core_network_arn,
+attachment_id,
+owner_account_id,
+attachment_type,
+state,
+edge_location,
+resource_arn,
+attachment_policy_rule_number,
+segment_name,
+proposed_segment_change,
+tags,
+created_at,
+updated_at,
+transport_attachment_id,
+options
 FROM aws.networkmanager.connect_attachments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>connect_attachment</code>.
+Gets all properties from an individual <code>connect_attachment</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ options
 FROM aws.networkmanager.connect_attachments
 WHERE region = 'us-east-1' AND data__Identifier = '<AttachmentId>';
 ```
-
 
 ## `INSERT` example
 

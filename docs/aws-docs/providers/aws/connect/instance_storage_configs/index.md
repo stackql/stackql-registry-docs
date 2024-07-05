@@ -65,7 +65,7 @@ Creates, updates, deletes or gets an <code>instance_storage_config</code> resour
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,17 +77,22 @@ Creates, updates, deletes or gets an <code>instance_storage_config</code> resour
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>instance_storage_configs</code> in a region.
+Gets all <code>instance_storage_configs</code> in a region.
 ```sql
 SELECT
 region,
 instance_arn,
+resource_type,
 association_id,
-resource_type
+storage_type,
+s3_config,
+kinesis_video_stream_config,
+kinesis_stream_config,
+kinesis_firehose_config
 FROM aws.connect.instance_storage_configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>instance_storage_config</code>.
+Gets all properties from an individual <code>instance_storage_config</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +107,6 @@ kinesis_firehose_config
 FROM aws.connect.instance_storage_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<InstanceArn>|<AssociationId>|<ResourceType>';
 ```
-
 
 ## `INSERT` example
 

@@ -58,7 +58,7 @@ Creates, updates, deletes or gets an <code>assessment_template</code> resource o
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -70,15 +70,20 @@ Creates, updates, deletes or gets an <code>assessment_template</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>assessment_templates</code> in a region.
+Gets all <code>assessment_templates</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+assessment_target_arn,
+duration_in_seconds,
+assessment_template_name,
+rules_package_arns,
+user_attributes_for_findings
 FROM aws.inspector.assessment_templates
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>assessment_template</code>.
+Gets all properties from an individual <code>assessment_template</code>.
 ```sql
 SELECT
 region,
@@ -91,7 +96,6 @@ user_attributes_for_findings
 FROM aws.inspector.assessment_templates
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

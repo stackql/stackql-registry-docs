@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>partnership</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>partnership</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>partnerships</code> in a region.
+Gets all <code>partnerships</code> in a region.
 ```sql
 SELECT
 region,
-partnership_id
+capabilities,
+created_at,
+email,
+modified_at,
+name,
+partnership_arn,
+partnership_id,
+phone,
+profile_id,
+tags,
+trading_partner_id
 FROM aws.b2bi.partnerships
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>partnership</code>.
+Gets all properties from an individual <code>partnership</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ trading_partner_id
 FROM aws.b2bi.partnerships
 WHERE region = 'us-east-1' AND data__Identifier = '<PartnershipId>';
 ```
-
 
 ## `INSERT` example
 

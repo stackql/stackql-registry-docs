@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>stream</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,16 +78,23 @@ Creates, updates, deletes or gets a <code>stream</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>streams</code> in a region.
+Gets all <code>streams</code> in a region.
 ```sql
 SELECT
 region,
 ledger_name,
+stream_name,
+role_arn,
+inclusive_start_time,
+exclusive_end_time,
+kinesis_configuration,
+tags,
+arn,
 id
 FROM aws.qldb.streams
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>stream</code>.
+Gets all properties from an individual <code>stream</code>.
 ```sql
 SELECT
 region,
@@ -103,7 +110,6 @@ id
 FROM aws.qldb.streams
 WHERE region = 'us-east-1' AND data__Identifier = '<LedgerName>|<Id>';
 ```
-
 
 ## `INSERT` example
 

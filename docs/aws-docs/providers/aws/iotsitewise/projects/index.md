@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>project</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>project</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>projects</code> in a region.
+Gets all <code>projects</code> in a region.
 ```sql
 SELECT
 region,
-project_id
+portal_id,
+project_id,
+project_name,
+project_description,
+project_arn,
+asset_ids,
+tags
 FROM aws.iotsitewise.projects
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>project</code>.
+Gets all properties from an individual <code>project</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.iotsitewise.projects
 WHERE region = 'us-east-1' AND data__Identifier = '<ProjectId>';
 ```
-
 
 ## `INSERT` example
 

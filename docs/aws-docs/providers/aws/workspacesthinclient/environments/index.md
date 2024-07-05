@@ -76,7 +76,7 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -88,15 +88,33 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>environments</code> in a region.
+Gets all <code>environments</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+name,
+desktop_arn,
+desktop_endpoint,
+desktop_type,
+activation_code,
+registered_devices_count,
+software_set_update_schedule,
+maintenance_window,
+software_set_update_mode,
+desired_software_set_id,
+pending_software_set_id,
+pending_software_set_version,
+software_set_compliance_status,
+created_at,
+updated_at,
+arn,
+kms_key_arn,
+tags
 FROM aws.workspacesthinclient.environments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>environment</code>.
+Gets all properties from an individual <code>environment</code>.
 ```sql
 SELECT
 region,
@@ -122,7 +140,6 @@ tags
 FROM aws.workspacesthinclient.environments
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

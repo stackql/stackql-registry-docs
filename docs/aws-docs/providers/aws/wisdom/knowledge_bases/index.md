@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>knowledge_base</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>knowledge_base</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>knowledge_bases</code> in a region.
+Gets all <code>knowledge_bases</code> in a region.
 ```sql
 SELECT
 region,
-knowledge_base_id
+description,
+knowledge_base_arn,
+knowledge_base_id,
+knowledge_base_type,
+name,
+rendering_configuration,
+server_side_encryption_configuration,
+source_configuration,
+tags
 FROM aws.wisdom.knowledge_bases
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>knowledge_base</code>.
+Gets all properties from an individual <code>knowledge_base</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.wisdom.knowledge_bases
 WHERE region = 'us-east-1' AND data__Identifier = '<KnowledgeBaseId>';
 ```
-
 
 ## `INSERT` example
 

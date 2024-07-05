@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>task</code> resource or lists <code>ta
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets a <code>task</code> resource or lists <code>ta
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>tasks</code> in a region.
+Gets all <code>tasks</code> in a region.
 ```sql
 SELECT
 region,
-task_arn
+excludes,
+includes,
+tags,
+cloud_watch_log_group_arn,
+destination_location_arn,
+name,
+options,
+task_report_config,
+manifest_config,
+schedule,
+source_location_arn,
+task_arn,
+status,
+source_network_interface_arns,
+destination_network_interface_arns
 FROM aws.datasync.tasks
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>task</code>.
+Gets all properties from an individual <code>task</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ destination_network_interface_arns
 FROM aws.datasync.tasks
 WHERE region = 'us-east-1' AND data__Identifier = '<TaskArn>';
 ```
-
 
 ## `INSERT` example
 

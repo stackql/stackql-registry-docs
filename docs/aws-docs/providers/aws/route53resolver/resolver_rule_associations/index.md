@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>resolver_rule_association</code> resou
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,15 +68,18 @@ Creates, updates, deletes or gets a <code>resolver_rule_association</code> resou
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>resolver_rule_associations</code> in a region.
+Gets all <code>resolver_rule_associations</code> in a region.
 ```sql
 SELECT
 region,
-resolver_rule_association_id
+vpc_id,
+resolver_rule_id,
+resolver_rule_association_id,
+name
 FROM aws.route53resolver.resolver_rule_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>resolver_rule_association</code>.
+Gets all properties from an individual <code>resolver_rule_association</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +90,6 @@ name
 FROM aws.route53resolver.resolver_rule_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<ResolverRuleAssociationId>';
 ```
-
 
 ## `INSERT` example
 

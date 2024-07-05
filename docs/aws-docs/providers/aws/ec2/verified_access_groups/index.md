@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>verified_access_group</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>verified_access_group</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>verified_access_groups</code> in a region.
+Gets all <code>verified_access_groups</code> in a region.
 ```sql
 SELECT
 region,
-verified_access_group_id
+verified_access_group_id,
+verified_access_instance_id,
+verified_access_group_arn,
+owner,
+creation_time,
+last_updated_time,
+description,
+policy_document,
+policy_enabled,
+tags,
+sse_specification
 FROM aws.ec2.verified_access_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>verified_access_group</code>.
+Gets all properties from an individual <code>verified_access_group</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ sse_specification
 FROM aws.ec2.verified_access_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<VerifiedAccessGroupId>';
 ```
-
 
 ## `INSERT` example
 

@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>customer_gateway_association</code> re
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,16 +68,18 @@ Creates, updates, deletes or gets a <code>customer_gateway_association</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>customer_gateway_associations</code> in a region.
+Gets all <code>customer_gateway_associations</code> in a region.
 ```sql
 SELECT
 region,
 global_network_id,
-customer_gateway_arn
+customer_gateway_arn,
+device_id,
+link_id
 FROM aws.networkmanager.customer_gateway_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>customer_gateway_association</code>.
+Gets all properties from an individual <code>customer_gateway_association</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +90,6 @@ link_id
 FROM aws.networkmanager.customer_gateway_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<GlobalNetworkId>|<CustomerGatewayArn>';
 ```
-
 
 ## `INSERT` example
 

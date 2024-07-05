@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>signaling_channel</code> resource or l
 
 ## `SELECT` examples
 
-Gets all properties from a <code>signaling_channel</code>.
+Gets all properties from an individual <code>signaling_channel</code>.
 ```sql
 SELECT
 region,
@@ -82,7 +82,6 @@ tags
 FROM aws.kinesisvideo.signaling_channels
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

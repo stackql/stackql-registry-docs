@@ -72,7 +72,7 @@ Creates, updates, deletes or gets an <code>image_pipeline</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets an <code>image_pipeline</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>image_pipelines</code> in a region.
+Gets all <code>image_pipelines</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+description,
+image_tests_configuration,
+status,
+schedule,
+image_recipe_arn,
+container_recipe_arn,
+distribution_configuration_arn,
+infrastructure_configuration_arn,
+workflows,
+enhanced_image_metadata_enabled,
+image_scanning_configuration,
+execution_role,
+tags
 FROM aws.imagebuilder.image_pipelines
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>image_pipeline</code>.
+Gets all properties from an individual <code>image_pipeline</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ tags
 FROM aws.imagebuilder.image_pipelines
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

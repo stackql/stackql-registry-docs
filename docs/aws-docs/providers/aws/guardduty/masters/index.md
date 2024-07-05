@@ -55,7 +55,7 @@ Creates, updates, deletes or gets a <code>master</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -67,16 +67,17 @@ Creates, updates, deletes or gets a <code>master</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>masters</code> in a region.
+Gets all <code>masters</code> in a region.
 ```sql
 SELECT
 region,
-detector_id,
-master_id
+master_id,
+invitation_id,
+detector_id
 FROM aws.guardduty.masters
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>master</code>.
+Gets all properties from an individual <code>master</code>.
 ```sql
 SELECT
 region,
@@ -86,7 +87,6 @@ detector_id
 FROM aws.guardduty.masters
 WHERE region = 'us-east-1' AND data__Identifier = '<DetectorId>|<MasterId>';
 ```
-
 
 ## `INSERT` example
 

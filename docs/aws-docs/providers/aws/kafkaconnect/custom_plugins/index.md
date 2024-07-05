@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>custom_plugin</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>custom_plugin</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>custom_plugins</code> in a region.
+Gets all <code>custom_plugins</code> in a region.
 ```sql
 SELECT
 region,
-custom_plugin_arn
+name,
+description,
+custom_plugin_arn,
+content_type,
+file_description,
+location,
+revision,
+tags
 FROM aws.kafkaconnect.custom_plugins
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>custom_plugin</code>.
+Gets all properties from an individual <code>custom_plugin</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.kafkaconnect.custom_plugins
 WHERE region = 'us-east-1' AND data__Identifier = '<CustomPluginArn>';
 ```
-
 
 ## `INSERT` example
 

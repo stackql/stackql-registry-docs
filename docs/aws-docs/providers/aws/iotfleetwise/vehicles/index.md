@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>vehicle</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>vehicle</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vehicles</code> in a region.
+Gets all <code>vehicles</code> in a region.
 ```sql
 SELECT
 region,
-name
+arn,
+association_behavior,
+attributes,
+creation_time,
+decoder_manifest_arn,
+name,
+last_modification_time,
+model_manifest_arn,
+tags
 FROM aws.iotfleetwise.vehicles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vehicle</code>.
+Gets all properties from an individual <code>vehicle</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.iotfleetwise.vehicles
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

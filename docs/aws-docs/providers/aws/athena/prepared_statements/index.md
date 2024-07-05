@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>prepared_statement</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +73,18 @@ Creates, updates, deletes or gets a <code>prepared_statement</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>prepared_statements</code> in a region.
+Gets all <code>prepared_statements</code> in a region.
 ```sql
 SELECT
 region,
 statement_name,
-work_group
+work_group,
+description,
+query_statement
 FROM aws.athena.prepared_statements
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>prepared_statement</code>.
+Gets all properties from an individual <code>prepared_statement</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +95,6 @@ query_statement
 FROM aws.athena.prepared_statements
 WHERE region = 'us-east-1' AND data__Identifier = '<StatementName>|<WorkGroup>';
 ```
-
 
 ## `INSERT` example
 

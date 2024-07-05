@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>packaging_configuration</code> resourc
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,22 @@ Creates, updates, deletes or gets a <code>packaging_configuration</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>packaging_configurations</code> in a region.
+Gets all <code>packaging_configurations</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+packaging_group_id,
+arn,
+cmaf_package,
+dash_package,
+hls_package,
+mss_package,
+tags
 FROM aws.mediapackage.packaging_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>packaging_configuration</code>.
+Gets all properties from an individual <code>packaging_configuration</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +102,6 @@ tags
 FROM aws.mediapackage.packaging_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

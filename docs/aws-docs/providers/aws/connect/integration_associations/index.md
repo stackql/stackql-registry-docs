@@ -56,7 +56,7 @@ Creates, updates, deletes or gets an <code>integration_association</code> resour
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,17 +68,18 @@ Creates, updates, deletes or gets an <code>integration_association</code> resour
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>integration_associations</code> in a region.
+Gets all <code>integration_associations</code> in a region.
 ```sql
 SELECT
 region,
+integration_association_id,
 instance_id,
-integration_type,
-integration_arn
+integration_arn,
+integration_type
 FROM aws.connect.integration_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>integration_association</code>.
+Gets all properties from an individual <code>integration_association</code>.
 ```sql
 SELECT
 region,
@@ -89,7 +90,6 @@ integration_type
 FROM aws.connect.integration_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<InstanceId>|<IntegrationType>|<IntegrationArn>';
 ```
-
 
 ## `INSERT` example
 

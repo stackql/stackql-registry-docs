@@ -20,7 +20,7 @@ The evidently service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>5</b></span><br />
+<span>total resources:&nbsp;<b>7</b></span><br />
 </div>
 </div>
 
@@ -31,10 +31,12 @@ The evidently service documentation.
 <div class="providerDocColumn">
 <a href="/providers/aws/evidently/experiments/">experiments</a><br />
 <a href="/providers/aws/evidently/features/">features</a><br />
-<a href="/providers/aws/evidently/launches/">launches</a>
+<a href="/providers/aws/evidently/launches/">launches</a><br />
+<a href="/providers/aws/evidently/projects/">projects</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/evidently/projects/">projects</a><br />
-<a href="/providers/aws/evidently/segments/">segments</a>
+<a href="/providers/aws/evidently/segment_tags/">segment_tags</a><br />
+<a href="/providers/aws/evidently/segments/">segments</a><br />
+<a href="/providers/aws/evidently/segments_list_only/">segments_list_only</a>
 </div>
 </div>

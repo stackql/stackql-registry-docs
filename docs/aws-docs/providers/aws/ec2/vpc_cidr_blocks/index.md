@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>vpc_cidr_block</code> resource or list
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,16 +74,24 @@ Creates, updates, deletes or gets a <code>vpc_cidr_block</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vpc_cidr_blocks</code> in a region.
+Gets all <code>vpc_cidr_blocks</code> in a region.
 ```sql
 SELECT
 region,
+cidr_block,
+ipv6_pool,
 id,
-vpc_id
+vpc_id,
+ipv6_cidr_block,
+ipv4_ipam_pool_id,
+ipv4_netmask_length,
+ipv6_ipam_pool_id,
+ipv6_netmask_length,
+amazon_provided_ipv6_cidr_block
 FROM aws.ec2.vpc_cidr_blocks
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vpc_cidr_block</code>.
+Gets all properties from an individual <code>vpc_cidr_block</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +108,6 @@ amazon_provided_ipv6_cidr_block
 FROM aws.ec2.vpc_cidr_blocks
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>|<VpcId>';
 ```
-
 
 ## `INSERT` example
 

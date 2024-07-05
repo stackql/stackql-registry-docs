@@ -57,7 +57,7 @@ Creates, updates, deletes or gets a <code>serverless_cluster</code> resource or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,15 +69,19 @@ Creates, updates, deletes or gets a <code>serverless_cluster</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>serverless_clusters</code> in a region.
+Gets all <code>serverless_clusters</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+cluster_name,
+vpc_configs,
+client_authentication,
+tags
 FROM aws.msk.serverless_clusters
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>serverless_cluster</code>.
+Gets all properties from an individual <code>serverless_cluster</code>.
 ```sql
 SELECT
 region,
@@ -89,7 +93,6 @@ tags
 FROM aws.msk.serverless_clusters
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -20,7 +20,7 @@ The paymentcryptography service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,12 @@ The paymentcryptography service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/paymentcryptography/aliases/">aliases</a>
+<a href="/providers/aws/paymentcryptography/aliases/">aliases</a><br />
+<a href="/providers/aws/paymentcryptography/aliases_list_only/">aliases_list_only</a><br />
+<a href="/providers/aws/paymentcryptography/key_tags/">key_tags</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/paymentcryptography/keys/">keys</a>
+<a href="/providers/aws/paymentcryptography/keys/">keys</a><br />
+<a href="/providers/aws/paymentcryptography/keys_list_only/">keys_list_only</a>
 </div>
 </div>

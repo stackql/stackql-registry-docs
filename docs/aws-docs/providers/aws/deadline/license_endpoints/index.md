@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>license_endpoint</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,22 @@ Creates, updates, deletes or gets a <code>license_endpoint</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>license_endpoints</code> in a region.
+Gets all <code>license_endpoints</code> in a region.
 ```sql
 SELECT
 region,
+dns_name,
+license_endpoint_id,
+security_group_ids,
+status,
+status_message,
+subnet_ids,
+vpc_id,
 arn
 FROM aws.deadline.license_endpoints
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>license_endpoint</code>.
+Gets all properties from an individual <code>license_endpoint</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +102,6 @@ arn
 FROM aws.deadline.license_endpoints
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

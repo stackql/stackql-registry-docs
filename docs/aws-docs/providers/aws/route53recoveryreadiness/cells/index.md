@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>cell</code> resource or lists <code>ce
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>cell</code> resource or lists <code>ce
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>cells</code> in a region.
+Gets all <code>cells</code> in a region.
 ```sql
 SELECT
 region,
-cell_name
+cell_name,
+cell_arn,
+cells,
+parent_readiness_scopes,
+tags
 FROM aws.route53recoveryreadiness.cells
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>cell</code>.
+Gets all properties from an individual <code>cell</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.route53recoveryreadiness.cells
 WHERE region = 'us-east-1' AND data__Identifier = '<CellName>';
 ```
-
 
 ## `INSERT` example
 

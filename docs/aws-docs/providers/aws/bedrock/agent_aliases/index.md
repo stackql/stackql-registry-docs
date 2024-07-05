@@ -68,7 +68,7 @@ Creates, updates, deletes or gets an <code>agent_alias</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,16 +80,25 @@ Creates, updates, deletes or gets an <code>agent_alias</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>agent_aliases</code> in a region.
+Gets all <code>agent_aliases</code> in a region.
 ```sql
 SELECT
 region,
+agent_alias_arn,
+agent_alias_history_events,
+agent_alias_id,
+agent_alias_name,
+agent_alias_status,
 agent_id,
-agent_alias_id
+created_at,
+description,
+routing_configuration,
+tags,
+updated_at
 FROM aws.bedrock.agent_aliases
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>agent_alias</code>.
+Gets all properties from an individual <code>agent_alias</code>.
 ```sql
 SELECT
 region,
@@ -107,7 +116,6 @@ updated_at
 FROM aws.bedrock.agent_aliases
 WHERE region = 'us-east-1' AND data__Identifier = '<AgentId>|<AgentAliasId>';
 ```
-
 
 ## `INSERT` example
 

@@ -58,7 +58,7 @@ Creates, updates, deletes or gets an <code>eip_association</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -70,15 +70,20 @@ Creates, updates, deletes or gets an <code>eip_association</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>eip_associations</code> in a region.
+Gets all <code>eip_associations</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+allocation_id,
+network_interface_id,
+instance_id,
+private_ip_address,
+e_ip
 FROM aws.ec2.eip_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>eip_association</code>.
+Gets all properties from an individual <code>eip_association</code>.
 ```sql
 SELECT
 region,
@@ -91,7 +96,6 @@ e_ip
 FROM aws.ec2.eip_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

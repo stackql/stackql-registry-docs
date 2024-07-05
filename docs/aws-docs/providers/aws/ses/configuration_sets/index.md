@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>configuration_set</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>configuration_set</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>configuration_sets</code> in a region.
+Gets all <code>configuration_sets</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+tracking_options,
+delivery_options,
+reputation_options,
+sending_options,
+suppression_options,
+vdm_options
 FROM aws.ses.configuration_sets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>configuration_set</code>.
+Gets all properties from an individual <code>configuration_set</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ vdm_options
 FROM aws.ses.configuration_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

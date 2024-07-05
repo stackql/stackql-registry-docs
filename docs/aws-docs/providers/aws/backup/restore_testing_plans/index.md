@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>restore_testing_plan</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>restore_testing_plan</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>restore_testing_plans</code> in a region.
+Gets all <code>restore_testing_plans</code> in a region.
 ```sql
 SELECT
 region,
-restore_testing_plan_name
+recovery_point_selection,
+restore_testing_plan_arn,
+restore_testing_plan_name,
+schedule_expression,
+schedule_expression_timezone,
+start_window_hours,
+tags
 FROM aws.backup.restore_testing_plans
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>restore_testing_plan</code>.
+Gets all properties from an individual <code>restore_testing_plan</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.backup.restore_testing_plans
 WHERE region = 'us-east-1' AND data__Identifier = '<RestoreTestingPlanName>';
 ```
-
 
 ## `INSERT` example
 

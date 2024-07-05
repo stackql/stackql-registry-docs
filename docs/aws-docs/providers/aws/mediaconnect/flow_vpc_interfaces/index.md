@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>flow_vpc_interface</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,16 +75,20 @@ Creates, updates, deletes or gets a <code>flow_vpc_interface</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>flow_vpc_interfaces</code> in a region.
+Gets all <code>flow_vpc_interfaces</code> in a region.
 ```sql
 SELECT
 region,
 flow_arn,
-name
+name,
+role_arn,
+security_group_ids,
+subnet_id,
+network_interface_ids
 FROM aws.mediaconnect.flow_vpc_interfaces
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>flow_vpc_interface</code>.
+Gets all properties from an individual <code>flow_vpc_interface</code>.
 ```sql
 SELECT
 region,
@@ -97,7 +101,6 @@ network_interface_ids
 FROM aws.mediaconnect.flow_vpc_interfaces
 WHERE region = 'us-east-1' AND data__Identifier = '<FlowArn>|<Name>';
 ```
-
 
 ## `INSERT` example
 

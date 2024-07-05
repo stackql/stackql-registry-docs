@@ -66,7 +66,7 @@ Creates, updates, deletes or gets an <code>extension</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets an <code>extension</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>extensions</code> in a region.
+Gets all <code>extensions</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+arn,
+version_number,
+name,
+description,
+actions,
+parameters,
+latest_version_number,
+tags
 FROM aws.appconfig.extensions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>extension</code>.
+Gets all properties from an individual <code>extension</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.appconfig.extensions
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

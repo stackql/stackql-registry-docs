@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>global_table</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets a <code>global_table</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>global_tables</code> in a region.
+Gets all <code>global_tables</code> in a region.
 ```sql
 SELECT
 region,
-table_name
+arn,
+stream_arn,
+attribute_definitions,
+billing_mode,
+global_secondary_indexes,
+key_schema,
+local_secondary_indexes,
+write_provisioned_throughput_settings,
+write_on_demand_throughput_settings,
+replicas,
+sse_specification,
+stream_specification,
+table_name,
+table_id,
+time_to_live_specification
 FROM aws.dynamodb.global_tables
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>global_table</code>.
+Gets all properties from an individual <code>global_table</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ time_to_live_specification
 FROM aws.dynamodb.global_tables
 WHERE region = 'us-east-1' AND data__Identifier = '<TableName>';
 ```
-
 
 ## `INSERT` example
 

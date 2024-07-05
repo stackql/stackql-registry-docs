@@ -67,7 +67,7 @@ Creates, updates, deletes or gets an <code>accelerator</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets an <code>accelerator</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>accelerators</code> in a region.
+Gets all <code>accelerators</code> in a region.
 ```sql
 SELECT
 region,
-accelerator_arn
+name,
+ip_address_type,
+ip_addresses,
+enabled,
+dns_name,
+ipv4_addresses,
+ipv6_addresses,
+dual_stack_dns_name,
+accelerator_arn,
+tags
 FROM aws.globalaccelerator.accelerators
 ;
 ```
-Gets all properties from an <code>accelerator</code>.
+Gets all properties from an individual <code>accelerator</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ tags
 FROM aws.globalaccelerator.accelerators
 WHERE data__Identifier = '<AcceleratorArn>';
 ```
-
 
 ## `INSERT` example
 

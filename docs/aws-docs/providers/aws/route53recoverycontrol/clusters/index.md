@@ -57,7 +57,7 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,15 +69,19 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>clusters</code> in a region.
+Gets all <code>clusters</code> in a region.
 ```sql
 SELECT
 region,
-cluster_arn
+name,
+cluster_arn,
+status,
+cluster_endpoints,
+tags
 FROM aws.route53recoverycontrol.clusters
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>cluster</code>.
+Gets all properties from an individual <code>cluster</code>.
 ```sql
 SELECT
 region,
@@ -89,7 +93,6 @@ tags
 FROM aws.route53recoverycontrol.clusters
 WHERE region = 'us-east-1' AND data__Identifier = '<ClusterArn>';
 ```
-
 
 ## `INSERT` example
 

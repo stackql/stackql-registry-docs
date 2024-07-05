@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>domains</code> in a region.
+Gets all <code>domains</code> in a region.
 ```sql
 SELECT
 region,
+domain_name,
+name,
+owner,
+encryption_key,
+permissions_policy_document,
+tags,
 arn
 FROM aws.codeartifact.domains
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>domain</code>.
+Gets all properties from an individual <code>domain</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ arn
 FROM aws.codeartifact.domains
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

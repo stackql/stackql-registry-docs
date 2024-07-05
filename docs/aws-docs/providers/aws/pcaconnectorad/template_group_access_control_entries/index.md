@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>template_group_access_control_entry</c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +73,18 @@ Creates, updates, deletes or gets a <code>template_group_access_control_entry</c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>template_group_access_control_entries</code> in a region.
+Gets all <code>template_group_access_control_entries</code> in a region.
 ```sql
 SELECT
 region,
+access_rights,
+group_display_name,
 group_security_identifier,
 template_arn
 FROM aws.pcaconnectorad.template_group_access_control_entries
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>template_group_access_control_entry</code>.
+Gets all properties from an individual <code>template_group_access_control_entry</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +95,6 @@ template_arn
 FROM aws.pcaconnectorad.template_group_access_control_entries
 WHERE region = 'us-east-1' AND data__Identifier = '<GroupSecurityIdentifier>|<TemplateArn>';
 ```
-
 
 ## `INSERT` example
 

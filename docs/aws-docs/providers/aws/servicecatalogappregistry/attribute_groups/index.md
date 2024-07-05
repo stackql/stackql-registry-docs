@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>attribute_group</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets an <code>attribute_group</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>attribute_groups</code> in a region.
+Gets all <code>attribute_groups</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+arn,
+name,
+description,
+attributes,
+tags
 FROM aws.servicecatalogappregistry.attribute_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>attribute_group</code>.
+Gets all properties from an individual <code>attribute_group</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.servicecatalogappregistry.attribute_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>contact_flow_module</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>contact_flow_module</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>contact_flow_modules</code> in a region.
+Gets all <code>contact_flow_modules</code> in a region.
 ```sql
 SELECT
 region,
-contact_flow_module_arn
+instance_arn,
+contact_flow_module_arn,
+name,
+content,
+description,
+state,
+status,
+tags
 FROM aws.connect.contact_flow_modules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>contact_flow_module</code>.
+Gets all properties from an individual <code>contact_flow_module</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.connect.contact_flow_modules
 WHERE region = 'us-east-1' AND data__Identifier = '<ContactFlowModuleArn>';
 ```
-
 
 ## `INSERT` example
 

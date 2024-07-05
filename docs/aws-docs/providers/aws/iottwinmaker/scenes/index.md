@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>scene</code> resource or lists <code>s
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,16 +80,25 @@ Creates, updates, deletes or gets a <code>scene</code> resource or lists <code>s
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>scenes</code> in a region.
+Gets all <code>scenes</code> in a region.
 ```sql
 SELECT
 region,
+scene_id,
+arn,
+description,
+content_location,
+creation_date_time,
+update_date_time,
+tags,
 workspace_id,
-scene_id
+capabilities,
+scene_metadata,
+generated_scene_metadata
 FROM aws.iottwinmaker.scenes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>scene</code>.
+Gets all properties from an individual <code>scene</code>.
 ```sql
 SELECT
 region,
@@ -107,7 +116,6 @@ generated_scene_metadata
 FROM aws.iottwinmaker.scenes
 WHERE region = 'us-east-1' AND data__Identifier = '<WorkspaceId>|<SceneId>';
 ```
-
 
 ## `INSERT` example
 

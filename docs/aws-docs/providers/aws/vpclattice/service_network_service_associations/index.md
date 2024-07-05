@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>service_network_service_association</c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,15 +83,28 @@ Creates, updates, deletes or gets a <code>service_network_service_association</c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>service_network_service_associations</code> in a region.
+Gets all <code>service_network_service_associations</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+created_at,
+dns_entry,
+id,
+service_network_arn,
+service_network_id,
+service_network_identifier,
+service_network_name,
+service_arn,
+service_id,
+service_identifier,
+service_name,
+status,
+tags
 FROM aws.vpclattice.service_network_service_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>service_network_service_association</code>.
+Gets all properties from an individual <code>service_network_service_association</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +125,6 @@ tags
 FROM aws.vpclattice.service_network_service_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

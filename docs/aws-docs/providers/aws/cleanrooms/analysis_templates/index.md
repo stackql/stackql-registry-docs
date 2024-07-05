@@ -70,7 +70,7 @@ Creates, updates, deletes or gets an <code>analysis_template</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,16 +82,27 @@ Creates, updates, deletes or gets an <code>analysis_template</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>analysis_templates</code> in a region.
+Gets all <code>analysis_templates</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+collaboration_arn,
+collaboration_identifier,
+tags,
+analysis_parameters,
 analysis_template_identifier,
-membership_identifier
+description,
+membership_arn,
+membership_identifier,
+name,
+schema,
+source,
+format
 FROM aws.cleanrooms.analysis_templates
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>analysis_template</code>.
+Gets all properties from an individual <code>analysis_template</code>.
 ```sql
 SELECT
 region,
@@ -111,7 +122,6 @@ format
 FROM aws.cleanrooms.analysis_templates
 WHERE region = 'us-east-1' AND data__Identifier = '<AnalysisTemplateIdentifier>|<MembershipIdentifier>';
 ```
-
 
 ## `INSERT` example
 

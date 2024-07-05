@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>vpc_gateway_attachment</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +73,18 @@ Creates, updates, deletes or gets a <code>vpc_gateway_attachment</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vpc_gateway_attachments</code> in a region.
+Gets all <code>vpc_gateway_attachments</code> in a region.
 ```sql
 SELECT
 region,
 attachment_type,
-vpc_id
+internet_gateway_id,
+vpc_id,
+vpn_gateway_id
 FROM aws.ec2.vpc_gateway_attachments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vpc_gateway_attachment</code>.
+Gets all properties from an individual <code>vpc_gateway_attachment</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +95,6 @@ vpn_gateway_id
 FROM aws.ec2.vpc_gateway_attachments
 WHERE region = 'us-east-1' AND data__Identifier = '<AttachmentType>|<VpcId>';
 ```
-
 
 ## `INSERT` example
 

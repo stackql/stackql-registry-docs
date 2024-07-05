@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>clusters</code> in a region.
+Gets all <code>clusters</code> in a region.
 ```sql
 SELECT
 region,
-cluster_arn
+cluster_name,
+cluster_arn,
+cluster_endpoint,
+admin_user_name,
+admin_user_password,
+shard_capacity,
+shard_count,
+vpc_security_group_ids,
+subnet_ids,
+preferred_maintenance_window,
+preferred_backup_window,
+backup_retention_period,
+shard_instance_count,
+kms_key_id,
+tags,
+auth_type
 FROM aws.docdbelastic.clusters
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>cluster</code>.
+Gets all properties from an individual <code>cluster</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ auth_type
 FROM aws.docdbelastic.clusters
 WHERE region = 'us-east-1' AND data__Identifier = '<ClusterArn>';
 ```
-
 
 ## `INSERT` example
 

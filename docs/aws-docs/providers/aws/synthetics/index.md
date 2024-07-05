@@ -20,7 +20,7 @@ The synthetics service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,13 @@ The synthetics service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/synthetics/canaries/">canaries</a>
+<a href="/providers/aws/synthetics/canaries/">canaries</a><br />
+<a href="/providers/aws/synthetics/canaries_list_only/">canaries_list_only</a><br />
+<a href="/providers/aws/synthetics/canary_tags/">canary_tags</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/synthetics/groups/">groups</a>
+<a href="/providers/aws/synthetics/group_tags/">group_tags</a><br />
+<a href="/providers/aws/synthetics/groups/">groups</a><br />
+<a href="/providers/aws/synthetics/groups_list_only/">groups_list_only</a>
 </div>
 </div>

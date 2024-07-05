@@ -55,7 +55,7 @@ Creates, updates, deletes or gets a <code>service_action_association</code> reso
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>service_action_association</code> reso
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>service_action_associations</code> in a region.
+Gets all <code>service_action_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -77,7 +77,7 @@ service_action_id
 FROM aws.servicecatalog.service_action_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>service_action_association</code>.
+Gets all properties from an individual <code>service_action_association</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +87,6 @@ service_action_id
 FROM aws.servicecatalog.service_action_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<ProductId>|<ProvisioningArtifactId>|<ServiceActionId>';
 ```
-
 
 ## `INSERT` example
 

@@ -75,7 +75,7 @@ Creates, updates, deletes or gets an <code>event_data_store</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -87,15 +87,32 @@ Creates, updates, deletes or gets an <code>event_data_store</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>event_data_stores</code> in a region.
+Gets all <code>event_data_stores</code> in a region.
 ```sql
 SELECT
 region,
-event_data_store_arn
+advanced_event_selectors,
+created_timestamp,
+event_data_store_arn,
+federation_enabled,
+federation_role_arn,
+multi_region_enabled,
+name,
+organization_enabled,
+billing_mode,
+retention_period,
+status,
+termination_protection_enabled,
+updated_timestamp,
+kms_key_id,
+tags,
+insight_selectors,
+insights_destination,
+ingestion_enabled
 FROM aws.cloudtrail.event_data_stores
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>event_data_store</code>.
+Gets all properties from an individual <code>event_data_store</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +137,6 @@ ingestion_enabled
 FROM aws.cloudtrail.event_data_stores
 WHERE region = 'us-east-1' AND data__Identifier = '<EventDataStoreArn>';
 ```
-
 
 ## `INSERT` example
 

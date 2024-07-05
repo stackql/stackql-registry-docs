@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>transit_gateway_vpc_attachment</code> 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>transit_gateway_vpc_attachment</code> 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>transit_gateway_vpc_attachments</code> in a region.
+Gets all <code>transit_gateway_vpc_attachments</code> in a region.
 ```sql
 SELECT
 region,
-id
+options,
+transit_gateway_id,
+vpc_id,
+remove_subnet_ids,
+id,
+subnet_ids,
+add_subnet_ids,
+tags
 FROM aws.ec2.transit_gateway_vpc_attachments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>transit_gateway_vpc_attachment</code>.
+Gets all properties from an individual <code>transit_gateway_vpc_attachment</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.ec2.transit_gateway_vpc_attachments
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

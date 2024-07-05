@@ -68,7 +68,7 @@ Creates, updates, deletes or gets an <code>ipam_resource_discovery_association</
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets an <code>ipam_resource_discovery_association</
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>ipam_resource_discovery_associations</code> in a region.
+Gets all <code>ipam_resource_discovery_associations</code> in a region.
 ```sql
 SELECT
 region,
-ipam_resource_discovery_association_id
+ipam_arn,
+ipam_region,
+ipam_resource_discovery_association_id,
+ipam_resource_discovery_id,
+ipam_id,
+ipam_resource_discovery_association_arn,
+is_default,
+owner_id,
+state,
+resource_discovery_status,
+tags
 FROM aws.ec2.ipam_resource_discovery_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>ipam_resource_discovery_association</code>.
+Gets all properties from an individual <code>ipam_resource_discovery_association</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ tags
 FROM aws.ec2.ipam_resource_discovery_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<IpamResourceDiscoveryAssociationId>';
 ```
-
 
 ## `INSERT` example
 

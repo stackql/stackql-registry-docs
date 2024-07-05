@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>managed_policy</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets a <code>managed_policy</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>managed_policies</code> in a region.
+Gets all <code>managed_policies</code> in a region.
 ```sql
 SELECT
 region,
-policy_arn
+description,
+groups,
+managed_policy_name,
+path,
+policy_document,
+roles,
+users,
+policy_arn,
+attachment_count,
+create_date,
+update_date,
+default_version_id,
+is_attachable,
+permissions_boundary_usage_count,
+policy_id
 FROM aws.iam.managed_policies
 ;
 ```
-Gets all properties from a <code>managed_policy</code>.
+Gets all properties from an individual <code>managed_policy</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ policy_id
 FROM aws.iam.managed_policies
 WHERE data__Identifier = '<PolicyArn>';
 ```
-
 
 ## `INSERT` example
 

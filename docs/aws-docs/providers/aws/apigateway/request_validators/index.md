@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>request_validator</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,16 +74,19 @@ Creates, updates, deletes or gets a <code>request_validator</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>request_validators</code> in a region.
+Gets all <code>request_validators</code> in a region.
 ```sql
 SELECT
 region,
+request_validator_id,
+name,
 rest_api_id,
-request_validator_id
+validate_request_body,
+validate_request_parameters
 FROM aws.apigateway.request_validators
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>request_validator</code>.
+Gets all properties from an individual <code>request_validator</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +98,6 @@ validate_request_parameters
 FROM aws.apigateway.request_validators
 WHERE region = 'us-east-1' AND data__Identifier = '<RestApiId>|<RequestValidatorId>';
 ```
-
 
 ## `INSERT` example
 

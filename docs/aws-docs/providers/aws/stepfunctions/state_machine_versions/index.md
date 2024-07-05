@@ -56,7 +56,7 @@ Creates, updates, deletes or gets a <code>state_machine_version</code> resource 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -68,15 +68,18 @@ Creates, updates, deletes or gets a <code>state_machine_version</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>state_machine_versions</code> in a region.
+Gets all <code>state_machine_versions</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+state_machine_arn,
+state_machine_revision_id,
+description
 FROM aws.stepfunctions.state_machine_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>state_machine_version</code>.
+Gets all properties from an individual <code>state_machine_version</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +90,6 @@ description
 FROM aws.stepfunctions.state_machine_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

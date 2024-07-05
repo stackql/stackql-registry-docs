@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>microsoft_teams_channel_configuration<
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>microsoft_teams_channel_configuration<
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>microsoft_teams_channel_configurations</code> in a region.
+Gets all <code>microsoft_teams_channel_configurations</code> in a region.
 ```sql
 SELECT
 region,
-arn
+team_id,
+teams_channel_id,
+teams_tenant_id,
+configuration_name,
+iam_role_arn,
+sns_topic_arns,
+logging_level,
+arn,
+guardrail_policies,
+user_role_required,
+tags
 FROM aws.chatbot.microsoft_teams_channel_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>microsoft_teams_channel_configuration</code>.
+Gets all properties from an individual <code>microsoft_teams_channel_configuration</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ tags
 FROM aws.chatbot.microsoft_teams_channel_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

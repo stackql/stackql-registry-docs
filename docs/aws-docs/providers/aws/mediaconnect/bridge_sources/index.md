@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>bridge_source</code> resource or lists
 
 ## `SELECT` examples
 
-Gets all properties from a <code>bridge_source</code>.
+Gets all properties from an individual <code>bridge_source</code>.
 ```sql
 SELECT
 region,
@@ -80,7 +80,6 @@ network_source
 FROM aws.mediaconnect.bridge_sources
 WHERE region = 'us-east-1' AND data__Identifier = '<BridgeArn>|<Name>';
 ```
-
 
 ## `INSERT` example
 

@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>feature_group</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>feature_group</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>feature_groups</code> in a region.
+Gets all <code>feature_groups</code> in a region.
 ```sql
 SELECT
 region,
-feature_group_name
+feature_group_name,
+record_identifier_feature_name,
+event_time_feature_name,
+feature_definitions,
+online_store_config,
+offline_store_config,
+throughput_config,
+role_arn,
+description,
+creation_time,
+feature_group_status,
+tags
 FROM aws.sagemaker.feature_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>feature_group</code>.
+Gets all properties from an individual <code>feature_group</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.sagemaker.feature_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<FeatureGroupName>';
 ```
-
 
 ## `INSERT` example
 

@@ -50,7 +50,7 @@ Creates, updates, deletes or gets a <code>module_default_version</code> resource
     <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -62,15 +62,17 @@ Creates, updates, deletes or gets a <code>module_default_version</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>module_default_versions</code> in a region.
+Gets all <code>module_default_versions</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+module_name,
+version_id
 FROM aws.cloudformation.module_default_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>module_default_version</code>.
+Gets all properties from an individual <code>module_default_version</code>.
 ```sql
 SELECT
 region,
@@ -80,7 +82,6 @@ version_id
 FROM aws.cloudformation.module_default_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

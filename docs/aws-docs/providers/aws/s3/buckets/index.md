@@ -82,7 +82,7 @@ Creates, updates, deletes or gets a <code>bucket</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -94,15 +94,39 @@ Creates, updates, deletes or gets a <code>bucket</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>buckets</code> in a region.
+Gets all <code>buckets</code> in a region.
 ```sql
 SELECT
 region,
-bucket_name
+accelerate_configuration,
+access_control,
+analytics_configurations,
+bucket_encryption,
+bucket_name,
+cors_configuration,
+intelligent_tiering_configurations,
+inventory_configurations,
+lifecycle_configuration,
+logging_configuration,
+metrics_configurations,
+notification_configuration,
+object_lock_configuration,
+object_lock_enabled,
+ownership_controls,
+public_access_block_configuration,
+replication_configuration,
+tags,
+versioning_configuration,
+website_configuration,
+arn,
+domain_name,
+dual_stack_domain_name,
+regional_domain_name,
+website_url
 FROM aws.s3.buckets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>bucket</code>.
+Gets all properties from an individual <code>bucket</code>.
 ```sql
 SELECT
 region,
@@ -134,7 +158,6 @@ website_url
 FROM aws.s3.buckets
 WHERE region = 'us-east-1' AND data__Identifier = '<BucketName>';
 ```
-
 
 ## `INSERT` example
 

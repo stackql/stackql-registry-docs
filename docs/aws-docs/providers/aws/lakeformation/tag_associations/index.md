@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>tag_association</code> resource or lis
 
 ## `SELECT` examples
 
-Gets all properties from a <code>tag_association</code>.
+Gets all properties from an individual <code>tag_association</code>.
 ```sql
 SELECT
 region,
@@ -75,7 +75,6 @@ tags_identifier
 FROM aws.lakeformation.tag_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<ResourceIdentifier>|<TagsIdentifier>';
 ```
-
 
 ## `INSERT` example
 

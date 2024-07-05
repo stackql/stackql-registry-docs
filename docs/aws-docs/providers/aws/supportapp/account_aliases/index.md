@@ -59,7 +59,7 @@ Creates, updates, deletes or gets an <code>account_alias</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,16 @@ Creates, updates, deletes or gets an <code>account_alias</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>account_aliases</code> in a region.
+Gets all <code>account_aliases</code> in a region.
 ```sql
 SELECT
 region,
+account_alias,
 account_alias_resource_id
 FROM aws.supportapp.account_aliases
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>account_alias</code>.
+Gets all properties from an individual <code>account_alias</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +89,6 @@ account_alias_resource_id
 FROM aws.supportapp.account_aliases
 WHERE region = 'us-east-1' AND data__Identifier = '<AccountAliasResourceId>';
 ```
-
 
 ## `INSERT` example
 

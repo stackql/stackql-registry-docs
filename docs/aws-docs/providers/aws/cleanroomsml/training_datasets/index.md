@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>training_dataset</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>training_dataset</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>training_datasets</code> in a region.
+Gets all <code>training_datasets</code> in a region.
 ```sql
 SELECT
 region,
-training_dataset_arn
+description,
+name,
+role_arn,
+tags,
+training_data,
+training_dataset_arn,
+status
 FROM aws.cleanroomsml.training_datasets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>training_dataset</code>.
+Gets all properties from an individual <code>training_dataset</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ status
 FROM aws.cleanroomsml.training_datasets
 WHERE region = 'us-east-1' AND data__Identifier = '<TrainingDatasetArn>';
 ```
-
 
 ## `INSERT` example
 

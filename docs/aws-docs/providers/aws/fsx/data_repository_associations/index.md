@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>data_repository_association</code> res
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>data_repository_association</code> res
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>data_repository_associations</code> in a region.
+Gets all <code>data_repository_associations</code> in a region.
 ```sql
 SELECT
 region,
-association_id
+association_id,
+resource_arn,
+file_system_id,
+file_system_path,
+data_repository_path,
+batch_import_meta_data_on_create,
+imported_file_chunk_size,
+s3,
+tags
 FROM aws.fsx.data_repository_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>data_repository_association</code>.
+Gets all properties from an individual <code>data_repository_association</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.fsx.data_repository_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<AssociationId>';
 ```
-
 
 ## `INSERT` example
 

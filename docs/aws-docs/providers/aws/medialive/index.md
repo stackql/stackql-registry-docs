@@ -20,7 +20,7 @@ The medialive service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,12 @@ The medialive service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/medialive/multiplexes/">multiplexes</a>
+<a href="/providers/aws/medialive/multiplex_tags/">multiplex_tags</a><br />
+<a href="/providers/aws/medialive/multiplexes/">multiplexes</a><br />
+<a href="/providers/aws/medialive/multiplexes_list_only/">multiplexes_list_only</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/medialive/multiplexprograms/">multiplexprograms</a>
+<a href="/providers/aws/medialive/multiplexprograms/">multiplexprograms</a><br />
+<a href="/providers/aws/medialive/multiplexprograms_list_only/">multiplexprograms_list_only</a>
 </div>
 </div>

@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>bucket_policy</code> resource or lists
 
 ## `SELECT` examples
 
-Gets all properties from a <code>bucket_policy</code>.
+Gets all properties from an individual <code>bucket_policy</code>.
 ```sql
 SELECT
 region,
@@ -76,7 +76,6 @@ policy_document
 FROM aws.s3outposts.bucket_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<Bucket>';
 ```
-
 
 ## `INSERT` example
 

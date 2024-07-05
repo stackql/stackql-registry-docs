@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>resource_version</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,24 @@ Creates, updates, deletes or gets a <code>resource_version</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>resource_versions</code> in a region.
+Gets all <code>resource_versions</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+type_arn,
+execution_role_arn,
+is_default_version,
+logging_config,
+provisioning_type,
+schema_handler_package,
+type_name,
+version_id,
+visibility
 FROM aws.cloudformation.resource_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>resource_version</code>.
+Gets all properties from an individual <code>resource_version</code>.
 ```sql
 SELECT
 region,
@@ -99,7 +108,6 @@ visibility
 FROM aws.cloudformation.resource_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

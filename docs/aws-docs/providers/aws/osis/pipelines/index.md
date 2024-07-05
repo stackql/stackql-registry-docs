@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>pipeline</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>pipeline</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>pipelines</code> in a region.
+Gets all <code>pipelines</code> in a region.
 ```sql
 SELECT
 region,
-pipeline_arn
+buffer_options,
+encryption_at_rest_options,
+log_publishing_options,
+max_units,
+min_units,
+pipeline_configuration_body,
+pipeline_name,
+tags,
+vpc_options,
+vpc_endpoints,
+pipeline_arn,
+ingest_endpoint_urls
 FROM aws.osis.pipelines
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>pipeline</code>.
+Gets all properties from an individual <code>pipeline</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ ingest_endpoint_urls
 FROM aws.osis.pipelines
 WHERE region = 'us-east-1' AND data__Identifier = '<PipelineArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>bot_alias</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,16 +80,25 @@ Creates, updates, deletes or gets a <code>bot_alias</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>bot_aliases</code> in a region.
+Gets all <code>bot_aliases</code> in a region.
 ```sql
 SELECT
 region,
 bot_alias_id,
-bot_id
+bot_id,
+arn,
+bot_alias_status,
+bot_alias_locale_settings,
+bot_alias_name,
+bot_version,
+conversation_log_settings,
+description,
+sentiment_analysis_settings,
+bot_alias_tags
 FROM aws.lex.bot_aliases
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>bot_alias</code>.
+Gets all properties from an individual <code>bot_alias</code>.
 ```sql
 SELECT
 region,
@@ -107,7 +116,6 @@ bot_alias_tags
 FROM aws.lex.bot_aliases
 WHERE region = 'us-east-1' AND data__Identifier = '<BotAliasId>|<BotId>';
 ```
-
 
 ## `INSERT` example
 

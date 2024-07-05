@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>wireless_device</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets a <code>wireless_device</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>wireless_devices</code> in a region.
+Gets all <code>wireless_devices</code> in a region.
 ```sql
 SELECT
 region,
-id
+type,
+name,
+description,
+destination_name,
+lo_ra_wan,
+tags,
+arn,
+id,
+thing_arn,
+thing_name,
+last_uplink_received_at,
+positioning
 FROM aws.iotwireless.wireless_devices
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>wireless_device</code>.
+Gets all properties from an individual <code>wireless_device</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ positioning
 FROM aws.iotwireless.wireless_devices
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

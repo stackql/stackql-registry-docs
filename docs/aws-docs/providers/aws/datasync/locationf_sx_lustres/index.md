@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>locationf_sx_lustre</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>locationf_sx_lustre</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>locationf_sx_lustres</code> in a region.
+Gets all <code>locationf_sx_lustres</code> in a region.
 ```sql
 SELECT
 region,
-location_arn
+fsx_filesystem_arn,
+security_group_arns,
+subdirectory,
+tags,
+location_arn,
+location_uri
 FROM aws.datasync.locationf_sx_lustres
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>locationf_sx_lustre</code>.
+Gets all properties from an individual <code>locationf_sx_lustre</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ location_uri
 FROM aws.datasync.locationf_sx_lustres
 WHERE region = 'us-east-1' AND data__Identifier = '<LocationArn>';
 ```
-
 
 ## `INSERT` example
 

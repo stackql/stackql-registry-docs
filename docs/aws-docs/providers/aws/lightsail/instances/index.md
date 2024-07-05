@@ -78,7 +78,7 @@ Creates, updates, deletes or gets an <code>instance</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -90,15 +90,35 @@ Creates, updates, deletes or gets an <code>instance</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>instances</code> in a region.
+Gets all <code>instances</code> in a region.
 ```sql
 SELECT
 region,
-instance_name
+support_code,
+resource_type,
+is_static_ip,
+private_ip_address,
+public_ip_address,
+ipv6_addresses,
+location,
+hardware,
+state,
+networking,
+user_name,
+ssh_key_name,
+instance_name,
+availability_zone,
+bundle_id,
+blueprint_id,
+add_ons,
+user_data,
+key_pair_name,
+tags,
+instance_arn
 FROM aws.lightsail.instances
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>instance</code>.
+Gets all properties from an individual <code>instance</code>.
 ```sql
 SELECT
 region,
@@ -126,7 +146,6 @@ instance_arn
 FROM aws.lightsail.instances
 WHERE region = 'us-east-1' AND data__Identifier = '<InstanceName>';
 ```
-
 
 ## `INSERT` example
 

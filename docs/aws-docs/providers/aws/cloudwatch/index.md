@@ -20,7 +20,7 @@ The cloudwatch service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>12</b></span><br />
 </div>
 </div>
 
@@ -29,13 +29,19 @@ The cloudwatch service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/cloudwatch/alarm_tags/">alarm_tags</a><br />
 <a href="/providers/aws/cloudwatch/alarms/">alarms</a><br />
+<a href="/providers/aws/cloudwatch/alarms_list_only/">alarms_list_only</a><br />
+<a href="/providers/aws/cloudwatch/composite_alarm_tags/">composite_alarm_tags</a><br />
 <a href="/providers/aws/cloudwatch/composite_alarms/">composite_alarms</a><br />
-<a href="/providers/aws/cloudwatch/log_events/">log_events</a>
+<a href="/providers/aws/cloudwatch/composite_alarms_list_only/">composite_alarms_list_only</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/cloudwatch/log_events/">log_events</a><br />
 <a href="/providers/aws/cloudwatch/log_groups/">log_groups</a><br />
 <a href="/providers/aws/cloudwatch/log_streams/">log_streams</a><br />
-<a href="/providers/aws/cloudwatch/metric_streams/">metric_streams</a>
+<a href="/providers/aws/cloudwatch/metric_stream_tags/">metric_stream_tags</a><br />
+<a href="/providers/aws/cloudwatch/metric_streams/">metric_streams</a><br />
+<a href="/providers/aws/cloudwatch/metric_streams_list_only/">metric_streams_list_only</a>
 </div>
 </div>

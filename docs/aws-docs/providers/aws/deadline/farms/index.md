@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>farm</code> resource or lists <code>fa
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>farm</code> resource or lists <code>fa
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>farms</code> in a region.
+Gets all <code>farms</code> in a region.
 ```sql
 SELECT
 region,
+description,
+display_name,
+farm_id,
+kms_key_arn,
 arn
 FROM aws.deadline.farms
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>farm</code>.
+Gets all properties from an individual <code>farm</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ arn
 FROM aws.deadline.farms
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

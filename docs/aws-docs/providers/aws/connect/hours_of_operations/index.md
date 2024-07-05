@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>hours_of_operation</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>hours_of_operation</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>hours_of_operations</code> in a region.
+Gets all <code>hours_of_operations</code> in a region.
 ```sql
 SELECT
 region,
-hours_of_operation_arn
+instance_arn,
+name,
+description,
+time_zone,
+config,
+hours_of_operation_arn,
+tags
 FROM aws.connect.hours_of_operations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>hours_of_operation</code>.
+Gets all properties from an individual <code>hours_of_operation</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.connect.hours_of_operations
 WHERE region = 'us-east-1' AND data__Identifier = '<HoursOfOperationArn>';
 ```
-
 
 ## `INSERT` example
 

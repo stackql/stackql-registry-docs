@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>detector_model</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>detector_model</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>detector_models</code> in a region.
+Gets all <code>detector_models</code> in a region.
 ```sql
 SELECT
 region,
-detector_model_name
+detector_model_definition,
+detector_model_description,
+detector_model_name,
+evaluation_method,
+key,
+role_arn,
+tags
 FROM aws.iotevents.detector_models
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>detector_model</code>.
+Gets all properties from an individual <code>detector_model</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.iotevents.detector_models
 WHERE region = 'us-east-1' AND data__Identifier = '<DetectorModelName>';
 ```
-
 
 ## `INSERT` example
 

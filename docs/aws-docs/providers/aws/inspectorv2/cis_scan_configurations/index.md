@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>cis_scan_configuration</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>cis_scan_configuration</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>cis_scan_configurations</code> in a region.
+Gets all <code>cis_scan_configurations</code> in a region.
 ```sql
 SELECT
 region,
-arn
+scan_name,
+security_level,
+schedule,
+targets,
+arn,
+tags
 FROM aws.inspectorv2.cis_scan_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>cis_scan_configuration</code>.
+Gets all properties from an individual <code>cis_scan_configuration</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.inspectorv2.cis_scan_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>contact</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>contact</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>contacts</code> in a region.
+Gets all <code>contacts</code> in a region.
 ```sql
 SELECT
 region,
+alias,
+display_name,
+type,
+plan,
 arn
 FROM aws.ssmcontacts.contacts
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>contact</code>.
+Gets all properties from an individual <code>contact</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ arn
 FROM aws.ssmcontacts.contacts
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

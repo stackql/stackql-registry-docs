@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>configured_table</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>configured_table</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>configured_tables</code> in a region.
+Gets all <code>configured_tables</code> in a region.
 ```sql
 SELECT
 region,
-configured_table_identifier
+arn,
+tags,
+allowed_columns,
+analysis_method,
+configured_table_identifier,
+description,
+name,
+analysis_rules,
+table_reference
 FROM aws.cleanrooms.configured_tables
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>configured_table</code>.
+Gets all properties from an individual <code>configured_table</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ table_reference
 FROM aws.cleanrooms.configured_tables
 WHERE region = 'us-east-1' AND data__Identifier = '<ConfiguredTableIdentifier>';
 ```
-
 
 ## `INSERT` example
 

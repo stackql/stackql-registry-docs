@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>resource_policy</code> resource or lis
 
 ## `SELECT` examples
 
-Gets all properties from a <code>resource_policy</code>.
+Gets all properties from an individual <code>resource_policy</code>.
 ```sql
 SELECT
 region,
@@ -76,7 +76,6 @@ resource_policy
 FROM aws.cloudtrail.resource_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<ResourceArn>';
 ```
-
 
 ## `INSERT` example
 

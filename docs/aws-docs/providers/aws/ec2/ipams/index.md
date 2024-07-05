@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>ipam</code> resource or lists <code>i
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets an <code>ipam</code> resource or lists <code>i
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>ipams</code> in a region.
+Gets all <code>ipams</code> in a region.
 ```sql
 SELECT
 region,
-ipam_id
+ipam_id,
+arn,
+default_resource_discovery_id,
+default_resource_discovery_association_id,
+resource_discovery_association_count,
+description,
+public_default_scope_id,
+private_default_scope_id,
+scope_count,
+operating_regions,
+tier,
+tags
 FROM aws.ec2.ipams
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>ipam</code>.
+Gets all properties from an individual <code>ipam</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.ec2.ipams
 WHERE region = 'us-east-1' AND data__Identifier = '<IpamId>';
 ```
-
 
 ## `INSERT` example
 

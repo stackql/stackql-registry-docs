@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>pod_identity_association</code> resour
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>pod_identity_association</code> resour
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>pod_identity_associations</code> in a region.
+Gets all <code>pod_identity_associations</code> in a region.
 ```sql
 SELECT
 region,
-association_arn
+cluster_name,
+role_arn,
+namespace,
+service_account,
+association_arn,
+association_id,
+tags
 FROM aws.eks.pod_identity_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>pod_identity_association</code>.
+Gets all properties from an individual <code>pod_identity_association</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.eks.pod_identity_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<AssociationArn>';
 ```
-
 
 ## `INSERT` example
 

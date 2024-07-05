@@ -65,7 +65,7 @@ Creates, updates, deletes or gets an <code>event_stream</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,16 +77,22 @@ Creates, updates, deletes or gets an <code>event_stream</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>event_streams</code> in a region.
+Gets all <code>event_streams</code> in a region.
 ```sql
 SELECT
 region,
 domain_name,
-event_stream_name
+event_stream_name,
+uri,
+event_stream_arn,
+tags,
+created_at,
+state,
+destination_details
 FROM aws.customerprofiles.event_streams
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>event_stream</code>.
+Gets all properties from an individual <code>event_stream</code>.
 ```sql
 SELECT
 region,
@@ -101,7 +107,6 @@ destination_details
 FROM aws.customerprofiles.event_streams
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>|<EventStreamName>';
 ```
-
 
 ## `INSERT` example
 

@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>hypervisor</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>hypervisor</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>hypervisors</code> in a region.
+Gets all <code>hypervisors</code> in a region.
 ```sql
 SELECT
 region,
-hypervisor_arn
+host,
+hypervisor_arn,
+kms_key_arn,
+log_group_arn,
+name,
+password,
+tags,
+username
 FROM aws.backupgateway.hypervisors
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>hypervisor</code>.
+Gets all properties from an individual <code>hypervisor</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ username
 FROM aws.backupgateway.hypervisors
 WHERE region = 'us-east-1' AND data__Identifier = '<HypervisorArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>playback_restriction_policy</code> res
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>playback_restriction_policy</code> res
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>playback_restriction_policies</code> in a region.
+Gets all <code>playback_restriction_policies</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+allowed_countries,
+allowed_origins,
+enable_strict_origin_enforcement,
+name,
+tags
 FROM aws.ivs.playback_restriction_policies
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>playback_restriction_policy</code>.
+Gets all properties from an individual <code>playback_restriction_policy</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.ivs.playback_restriction_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

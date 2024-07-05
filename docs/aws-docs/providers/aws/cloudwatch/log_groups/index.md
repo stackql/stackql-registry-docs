@@ -73,4 +73,3 @@ Represents a log group.
 
 
 
-

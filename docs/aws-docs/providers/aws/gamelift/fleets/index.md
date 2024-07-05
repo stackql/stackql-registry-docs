@@ -86,7 +86,7 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -98,15 +98,43 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>fleets</code> in a region.
+Gets all <code>fleets</code> in a region.
 ```sql
 SELECT
 region,
-fleet_id
+scaling_policies,
+anywhere_configuration,
+apply_capacity,
+certificate_configuration,
+compute_type,
+container_groups_configuration,
+description,
+desired_ec2_instances,
+e_c2_inbound_permissions,
+e_c2_instance_type,
+fleet_type,
+instance_role_arn,
+instance_role_credentials_provider,
+locations,
+log_paths,
+max_size,
+metric_groups,
+min_size,
+name,
+new_game_session_protection_policy,
+peer_vpc_aws_account_id,
+peer_vpc_id,
+resource_creation_limit_policy,
+fleet_id,
+build_id,
+script_id,
+runtime_configuration,
+server_launch_parameters,
+server_launch_path
 FROM aws.gamelift.fleets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>fleet</code>.
+Gets all properties from an individual <code>fleet</code>.
 ```sql
 SELECT
 region,
@@ -142,7 +170,6 @@ server_launch_path
 FROM aws.gamelift.fleets
 WHERE region = 'us-east-1' AND data__Identifier = '<FleetId>';
 ```
-
 
 ## `INSERT` example
 

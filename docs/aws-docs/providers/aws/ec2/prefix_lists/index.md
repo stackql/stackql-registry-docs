@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>prefix_list</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>prefix_list</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>prefix_lists</code> in a region.
+Gets all <code>prefix_lists</code> in a region.
 ```sql
 SELECT
 region,
-prefix_list_id
+prefix_list_name,
+prefix_list_id,
+owner_id,
+address_family,
+max_entries,
+version,
+tags,
+entries,
+arn
 FROM aws.ec2.prefix_lists
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>prefix_list</code>.
+Gets all properties from an individual <code>prefix_list</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ arn
 FROM aws.ec2.prefix_lists
 WHERE region = 'us-east-1' AND data__Identifier = '<PrefixListId>';
 ```
-
 
 ## `INSERT` example
 

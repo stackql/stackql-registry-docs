@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>bucket</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>bucket</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>buckets</code> in a region.
+Gets all <code>buckets</code> in a region.
 ```sql
 SELECT
 region,
-bucket_name
+bucket_name,
+bundle_id,
+bucket_arn,
+object_versioning,
+access_rules,
+resources_receiving_access,
+read_only_access_accounts,
+tags,
+url,
+able_to_update_bundle
 FROM aws.lightsail.buckets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>bucket</code>.
+Gets all properties from an individual <code>bucket</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ able_to_update_bundle
 FROM aws.lightsail.buckets
 WHERE region = 'us-east-1' AND data__Identifier = '<BucketName>';
 ```
-
 
 ## `INSERT` example
 

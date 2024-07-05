@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>deployment</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +73,18 @@ Creates, updates, deletes or gets a <code>deployment</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>deployments</code> in a region.
+Gets all <code>deployments</code> in a region.
 ```sql
 SELECT
 region,
-api_id,
-deployment_id
+deployment_id,
+description,
+stage_name,
+api_id
 FROM aws.apigatewayv2.deployments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>deployment</code>.
+Gets all properties from an individual <code>deployment</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +95,6 @@ api_id
 FROM aws.apigatewayv2.deployments
 WHERE region = 'us-east-1' AND data__Identifier = '<ApiId>|<DeploymentId>';
 ```
-
 
 ## `INSERT` example
 

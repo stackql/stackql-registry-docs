@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>repository_link</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>repository_link</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>repository_links</code> in a region.
+Gets all <code>repository_links</code> in a region.
 ```sql
 SELECT
 region,
-repository_link_arn
+connection_arn,
+provider_type,
+owner_id,
+repository_name,
+encryption_key_arn,
+repository_link_id,
+repository_link_arn,
+tags
 FROM aws.codestarconnections.repository_links
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>repository_link</code>.
+Gets all properties from an individual <code>repository_link</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.codestarconnections.repository_links
 WHERE region = 'us-east-1' AND data__Identifier = '<RepositoryLinkArn>';
 ```
-
 
 ## `INSERT` example
 

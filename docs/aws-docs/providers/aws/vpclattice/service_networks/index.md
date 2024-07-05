@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>service_network</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>service_network</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>service_networks</code> in a region.
+Gets all <code>service_networks</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+created_at,
+id,
+last_updated_at,
+name,
+auth_type,
+tags
 FROM aws.vpclattice.service_networks
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>service_network</code>.
+Gets all properties from an individual <code>service_network</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.vpclattice.service_networks
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

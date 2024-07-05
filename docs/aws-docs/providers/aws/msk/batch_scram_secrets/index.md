@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>batch_scram_secret</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,16 @@ Creates, updates, deletes or gets a <code>batch_scram_secret</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>batch_scram_secrets</code> in a region.
+Gets all <code>batch_scram_secrets</code> in a region.
 ```sql
 SELECT
 region,
-cluster_arn
+cluster_arn,
+secret_arn_list
 FROM aws.msk.batch_scram_secrets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>batch_scram_secret</code>.
+Gets all properties from an individual <code>batch_scram_secret</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +89,6 @@ secret_arn_list
 FROM aws.msk.batch_scram_secrets
 WHERE region = 'us-east-1' AND data__Identifier = '<ClusterArn>';
 ```
-
 
 ## `INSERT` example
 

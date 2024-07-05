@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>form</code> resource or lists <code>fo
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,17 +82,27 @@ Creates, updates, deletes or gets a <code>form</code> resource or lists <code>fo
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>forms</code> in a region.
+Gets all <code>forms</code> in a region.
 ```sql
 SELECT
 region,
 app_id,
+cta,
+data_type,
 environment_name,
-id
+fields,
+form_action_type,
+id,
+label_decorator,
+name,
+schema_version,
+sectional_elements,
+style,
+tags
 FROM aws.amplifyuibuilder.forms
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>form</code>.
+Gets all properties from an individual <code>form</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +122,6 @@ tags
 FROM aws.amplifyuibuilder.forms
 WHERE region = 'us-east-1' AND data__Identifier = '<AppId>|<EnvironmentName>|<Id>';
 ```
-
 
 ## `INSERT` example
 

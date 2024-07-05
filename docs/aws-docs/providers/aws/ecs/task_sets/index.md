@@ -77,7 +77,7 @@ Creates, updates, deletes or gets a <code>task_set</code> resource or lists <cod
 
 ## `SELECT` examples
 
-Gets all properties from a <code>task_set</code>.
+Gets all properties from an individual <code>task_set</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +96,6 @@ task_definition
 FROM aws.ecs.task_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<Cluster>|<Service>|<Id>';
 ```
-
 
 ## `INSERT` example
 

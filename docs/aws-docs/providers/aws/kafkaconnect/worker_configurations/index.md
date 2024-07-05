@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>worker_configuration</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>worker_configuration</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>worker_configurations</code> in a region.
+Gets all <code>worker_configurations</code> in a region.
 ```sql
 SELECT
 region,
-worker_configuration_arn
+name,
+description,
+worker_configuration_arn,
+properties_file_content,
+revision,
+tags
 FROM aws.kafkaconnect.worker_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>worker_configuration</code>.
+Gets all properties from an individual <code>worker_configuration</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.kafkaconnect.worker_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<WorkerConfigurationArn>';
 ```
-
 
 ## `INSERT` example
 

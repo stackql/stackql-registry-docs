@@ -54,7 +54,7 @@ Creates, updates, deletes or gets a <code>transit_gateway_registration</code> re
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>transit_gateway_registration</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>transit_gateway_registrations</code> in a region.
+Gets all <code>transit_gateway_registrations</code> in a region.
 ```sql
 SELECT
 region,
@@ -75,7 +75,7 @@ transit_gateway_arn
 FROM aws.networkmanager.transit_gateway_registrations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>transit_gateway_registration</code>.
+Gets all properties from an individual <code>transit_gateway_registration</code>.
 ```sql
 SELECT
 region,
@@ -84,7 +84,6 @@ transit_gateway_arn
 FROM aws.networkmanager.transit_gateway_registrations
 WHERE region = 'us-east-1' AND data__Identifier = '<GlobalNetworkId>|<TransitGatewayArn>';
 ```
-
 
 ## `INSERT` example
 

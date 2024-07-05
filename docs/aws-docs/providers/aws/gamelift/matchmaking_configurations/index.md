@@ -75,7 +75,7 @@ Creates, updates, deletes or gets a <code>matchmaking_configuration</code> resou
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -87,15 +87,32 @@ Creates, updates, deletes or gets a <code>matchmaking_configuration</code> resou
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>matchmaking_configurations</code> in a region.
+Gets all <code>matchmaking_configurations</code> in a region.
 ```sql
 SELECT
 region,
-name
+acceptance_required,
+acceptance_timeout_seconds,
+additional_player_count,
+backfill_mode,
+arn,
+creation_time,
+custom_event_data,
+description,
+flex_match_mode,
+game_properties,
+game_session_data,
+game_session_queue_arns,
+name,
+notification_target,
+request_timeout_seconds,
+rule_set_arn,
+rule_set_name,
+tags
 FROM aws.gamelift.matchmaking_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>matchmaking_configuration</code>.
+Gets all properties from an individual <code>matchmaking_configuration</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +137,6 @@ tags
 FROM aws.gamelift.matchmaking_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

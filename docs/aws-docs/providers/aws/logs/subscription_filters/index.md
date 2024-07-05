@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>subscription_filter</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,16 +75,20 @@ Creates, updates, deletes or gets a <code>subscription_filter</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>subscription_filters</code> in a region.
+Gets all <code>subscription_filters</code> in a region.
 ```sql
 SELECT
 region,
 filter_name,
-log_group_name
+destination_arn,
+filter_pattern,
+log_group_name,
+role_arn,
+distribution
 FROM aws.logs.subscription_filters
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>subscription_filter</code>.
+Gets all properties from an individual <code>subscription_filter</code>.
 ```sql
 SELECT
 region,
@@ -97,7 +101,6 @@ distribution
 FROM aws.logs.subscription_filters
 WHERE region = 'us-east-1' AND data__Identifier = '<FilterName>|<LogGroupName>';
 ```
-
 
 ## `INSERT` example
 

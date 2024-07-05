@@ -64,7 +64,7 @@ Creates, updates, deletes or gets an <code>organization_conformance_pack</code> 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets an <code>organization_conformance_pack</code> 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>organization_conformance_packs</code> in a region.
+Gets all <code>organization_conformance_packs</code> in a region.
 ```sql
 SELECT
 region,
-organization_conformance_pack_name
+organization_conformance_pack_name,
+template_s3_uri,
+template_body,
+delivery_s3_bucket,
+delivery_s3_key_prefix,
+conformance_pack_input_parameters,
+excluded_accounts
 FROM aws.config.organization_conformance_packs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>organization_conformance_pack</code>.
+Gets all properties from an individual <code>organization_conformance_pack</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ excluded_accounts
 FROM aws.config.organization_conformance_packs
 WHERE region = 'us-east-1' AND data__Identifier = '<OrganizationConformancePackName>';
 ```
-
 
 ## `INSERT` example
 

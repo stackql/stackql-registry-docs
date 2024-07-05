@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>repository</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>repository</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>repositories</code> in a region.
+Gets all <code>repositories</code> in a region.
 ```sql
 SELECT
 region,
-arn
+repository_name,
+name,
+domain_name,
+domain_owner,
+description,
+arn,
+external_connections,
+upstreams,
+permissions_policy_document,
+tags
 FROM aws.codeartifact.repositories
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>repository</code>.
+Gets all properties from an individual <code>repository</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ tags
 FROM aws.codeartifact.repositories
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

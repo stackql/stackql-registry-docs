@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>directory_config</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>directory_config</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>directory_configs</code> in a region.
+Gets all <code>directory_configs</code> in a region.
 ```sql
 SELECT
 region,
-directory_name
+organizational_unit_distinguished_names,
+service_account_credentials,
+directory_name,
+certificate_based_auth_properties
 FROM aws.appstream.directory_configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>directory_config</code>.
+Gets all properties from an individual <code>directory_config</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ certificate_based_auth_properties
 FROM aws.appstream.directory_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<DirectoryName>';
 ```
-
 
 ## `INSERT` example
 

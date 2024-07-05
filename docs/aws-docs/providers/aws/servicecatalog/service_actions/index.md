@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>service_action</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>service_action</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>service_actions</code> in a region.
+Gets all <code>service_actions</code> in a region.
 ```sql
 SELECT
 region,
+accept_language,
+name,
+definition_type,
+definition,
+description,
 id
 FROM aws.servicecatalog.service_actions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>service_action</code>.
+Gets all properties from an individual <code>service_action</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ id
 FROM aws.servicecatalog.service_actions
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

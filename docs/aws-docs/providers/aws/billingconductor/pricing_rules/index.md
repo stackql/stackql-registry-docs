@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>pricing_rule</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets a <code>pricing_rule</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>pricing_rules</code> in a region.
+Gets all <code>pricing_rules</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+description,
+scope,
+type,
+modifier_percentage,
+service,
+billing_entity,
+tiering,
+usage_type,
+operation,
+associated_pricing_plan_count,
+creation_time,
+last_modified_time,
+tags
 FROM aws.billingconductor.pricing_rules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>pricing_rule</code>.
+Gets all properties from an individual <code>pricing_rule</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ tags
 FROM aws.billingconductor.pricing_rules
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -77,7 +77,7 @@ Creates, updates, deletes or gets a <code>job</code> resource or lists <code>job
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -89,15 +89,34 @@ Creates, updates, deletes or gets a <code>job</code> resource or lists <code>job
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>jobs</code> in a region.
+Gets all <code>jobs</code> in a region.
 ```sql
 SELECT
 region,
-name
+dataset_name,
+encryption_key_arn,
+encryption_mode,
+name,
+type,
+log_subscription,
+max_capacity,
+max_retries,
+outputs,
+data_catalog_outputs,
+database_outputs,
+output_location,
+project_name,
+recipe,
+role_arn,
+tags,
+timeout,
+job_sample,
+profile_configuration,
+validation_configurations
 FROM aws.databrew.jobs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>job</code>.
+Gets all properties from an individual <code>job</code>.
 ```sql
 SELECT
 region,
@@ -124,7 +143,6 @@ validation_configurations
 FROM aws.databrew.jobs
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>finding_aggregator</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>finding_aggregator</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>finding_aggregators</code> in a region.
+Gets all <code>finding_aggregators</code> in a region.
 ```sql
 SELECT
 region,
-finding_aggregator_arn
+finding_aggregator_arn,
+region_linking_mode,
+regions,
+finding_aggregation_region
 FROM aws.securityhub.finding_aggregators
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>finding_aggregator</code>.
+Gets all properties from an individual <code>finding_aggregator</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ finding_aggregation_region
 FROM aws.securityhub.finding_aggregators
 WHERE region = 'us-east-1' AND data__Identifier = '<FindingAggregatorArn>';
 ```
-
 
 ## `INSERT` example
 

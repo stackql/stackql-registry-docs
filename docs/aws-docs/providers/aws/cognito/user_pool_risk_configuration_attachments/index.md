@@ -70,7 +70,7 @@ Creates, updates, deletes or gets an <code>user_pool_risk_configuration_attachme
 
 ## `SELECT` examples
 
-Gets all properties from an <code>user_pool_risk_configuration_attachment</code>.
+Gets all properties from an individual <code>user_pool_risk_configuration_attachment</code>.
 ```sql
 SELECT
 region,
@@ -82,7 +82,6 @@ account_takeover_risk_configuration
 FROM aws.cognito.user_pool_risk_configuration_attachments
 WHERE region = 'us-east-1' AND data__Identifier = '<UserPoolId>|<ClientId>';
 ```
-
 
 ## `INSERT` example
 

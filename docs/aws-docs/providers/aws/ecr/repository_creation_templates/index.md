@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>repository_creation_template</code> re
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>repository_creation_template</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>repository_creation_templates</code> in a region.
+Gets all <code>repository_creation_templates</code> in a region.
 ```sql
 SELECT
 region,
-prefix
+prefix,
+description,
+image_tag_mutability,
+repository_policy,
+lifecycle_policy,
+encryption_configuration,
+resource_tags,
+applied_for,
+created_at,
+updated_at
 FROM aws.ecr.repository_creation_templates
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>repository_creation_template</code>.
+Gets all properties from an individual <code>repository_creation_template</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ updated_at
 FROM aws.ecr.repository_creation_templates
 WHERE region = 'us-east-1' AND data__Identifier = '<Prefix>';
 ```
-
 
 ## `INSERT` example
 

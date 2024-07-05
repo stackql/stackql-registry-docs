@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>prompt</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>prompt</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>prompts</code> in a region.
+Gets all <code>prompts</code> in a region.
 ```sql
 SELECT
 region,
-prompt_arn
+instance_arn,
+name,
+description,
+s3_uri,
+prompt_arn,
+tags
 FROM aws.connect.prompts
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>prompt</code>.
+Gets all properties from an individual <code>prompt</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.connect.prompts
 WHERE region = 'us-east-1' AND data__Identifier = '<PromptArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>job_template</code> resource or lists 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,28 @@ Creates, updates, deletes or gets a <code>job_template</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>job_templates</code> in a region.
+Gets all <code>job_templates</code> in a region.
 ```sql
 SELECT
 region,
-job_template_id
+arn,
+job_arn,
+job_template_id,
+description,
+document,
+document_source,
+timeout_config,
+job_executions_rollout_config,
+abort_config,
+presigned_url_config,
+job_executions_retry_config,
+maintenance_windows,
+destination_package_versions,
+tags
 FROM aws.iot.job_templates
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>job_template</code>.
+Gets all properties from an individual <code>job_template</code>.
 ```sql
 SELECT
 region,
@@ -107,7 +120,6 @@ tags
 FROM aws.iot.job_templates
 WHERE region = 'us-east-1' AND data__Identifier = '<JobTemplateId>';
 ```
-
 
 ## `INSERT` example
 

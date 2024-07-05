@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>flywheel</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>flywheel</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>flywheels</code> in a region.
+Gets all <code>flywheels</code> in a region.
 ```sql
 SELECT
 region,
+active_model_arn,
+data_access_role_arn,
+data_lake_s3_uri,
+data_security_config,
+flywheel_name,
+model_type,
+tags,
+task_config,
 arn
 FROM aws.comprehend.flywheels
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>flywheel</code>.
+Gets all properties from an individual <code>flywheel</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ arn
 FROM aws.comprehend.flywheels
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

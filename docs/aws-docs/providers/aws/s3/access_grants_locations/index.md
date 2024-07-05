@@ -62,7 +62,7 @@ Creates, updates, deletes or gets an <code>access_grants_location</code> resourc
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets an <code>access_grants_location</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>access_grants_locations</code> in a region.
+Gets all <code>access_grants_locations</code> in a region.
 ```sql
 SELECT
 region,
-access_grants_location_id
+access_grants_location_arn,
+access_grants_location_id,
+iam_role_arn,
+location_scope,
+tags
 FROM aws.s3.access_grants_locations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>access_grants_location</code>.
+Gets all properties from an individual <code>access_grants_location</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.s3.access_grants_locations
 WHERE region = 'us-east-1' AND data__Identifier = '<AccessGrantsLocationId>';
 ```
-
 
 ## `INSERT` example
 

@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>workflow</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,15 +83,28 @@ Creates, updates, deletes or gets a <code>workflow</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>workflows</code> in a region.
+Gets all <code>workflows</code> in a region.
 ```sql
 SELECT
 region,
-id
+arn,
+creation_time,
+definition_uri,
+description,
+engine,
+id,
+main,
+name,
+parameter_template,
+status,
+accelerators,
+storage_capacity,
+tags,
+type
 FROM aws.omics.workflows
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>workflow</code>.
+Gets all properties from an individual <code>workflow</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +125,6 @@ type
 FROM aws.omics.workflows
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

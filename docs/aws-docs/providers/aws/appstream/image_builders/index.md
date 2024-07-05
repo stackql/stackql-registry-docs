@@ -66,7 +66,7 @@ Creates, updates, deletes or gets an <code>image_builder</code> resource or list
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,28 @@ Creates, updates, deletes or gets an <code>image_builder</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>image_builders</code> in a region.
+Gets all <code>image_builders</code> in a region.
 ```sql
 SELECT
 region,
-name
+description,
+vpc_config,
+enable_default_internet_access,
+domain_join_info,
+appstream_agent_version,
+name,
+image_name,
+display_name,
+iam_role_arn,
+instance_type,
+tags,
+streaming_url,
+image_arn,
+access_endpoints
 FROM aws.appstream.image_builders
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>image_builder</code>.
+Gets all properties from an individual <code>image_builder</code>.
 ```sql
 SELECT
 region,
@@ -107,7 +120,6 @@ access_endpoints
 FROM aws.appstream.image_builders
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

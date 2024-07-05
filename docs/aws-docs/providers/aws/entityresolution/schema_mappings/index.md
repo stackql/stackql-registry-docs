@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>schema_mapping</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>schema_mapping</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>schema_mappings</code> in a region.
+Gets all <code>schema_mappings</code> in a region.
 ```sql
 SELECT
 region,
-schema_name
+schema_name,
+description,
+mapped_input_fields,
+tags,
+schema_arn,
+created_at,
+updated_at,
+has_workflows
 FROM aws.entityresolution.schema_mappings
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>schema_mapping</code>.
+Gets all properties from an individual <code>schema_mapping</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ has_workflows
 FROM aws.entityresolution.schema_mappings
 WHERE region = 'us-east-1' AND data__Identifier = '<SchemaName>';
 ```
-
 
 ## `INSERT` example
 

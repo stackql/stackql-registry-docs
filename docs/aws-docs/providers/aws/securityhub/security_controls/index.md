@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>security_control</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>security_control</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>security_controls</code> in a region.
+Gets all <code>security_controls</code> in a region.
 ```sql
 SELECT
 region,
-security_control_id
+security_control_id,
+security_control_arn,
+last_update_reason,
+parameters
 FROM aws.securityhub.security_controls
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>security_control</code>.
+Gets all properties from an individual <code>security_control</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ parameters
 FROM aws.securityhub.security_controls
 WHERE region = 'us-east-1' AND data__Identifier = '<SecurityControlId>';
 ```
-
 
 ## `INSERT` example
 

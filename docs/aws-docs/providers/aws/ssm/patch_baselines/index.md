@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>patch_baseline</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets a <code>patch_baseline</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>patch_baselines</code> in a region.
+Gets all <code>patch_baselines</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+default_baseline,
+operating_system,
+description,
+approval_rules,
+sources,
+name,
+rejected_patches,
+approved_patches,
+rejected_patches_action,
+patch_groups,
+approved_patches_compliance_level,
+approved_patches_enable_non_security,
+global_filters,
+tags
 FROM aws.ssm.patch_baselines
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>patch_baseline</code>.
+Gets all properties from an individual <code>patch_baseline</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ tags
 FROM aws.ssm.patch_baselines
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

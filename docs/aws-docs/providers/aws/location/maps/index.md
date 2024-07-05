@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>map</code> resource or lists <code>map
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>map</code> resource or lists <code>map
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>maps</code> in a region.
+Gets all <code>maps</code> in a region.
 ```sql
 SELECT
 region,
-map_name
+configuration,
+create_time,
+description,
+map_arn,
+map_name,
+pricing_plan,
+tags,
+update_time,
+arn
 FROM aws.location.maps
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>map</code>.
+Gets all properties from an individual <code>map</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ arn
 FROM aws.location.maps
 WHERE region = 'us-east-1' AND data__Identifier = '<MapName>';
 ```
-
 
 ## `INSERT` example
 

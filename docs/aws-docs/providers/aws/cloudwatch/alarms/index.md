@@ -80,7 +80,7 @@ Creates, updates, deletes or gets an <code>alarm</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -92,15 +92,37 @@ Creates, updates, deletes or gets an <code>alarm</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>alarms</code> in a region.
+Gets all <code>alarms</code> in a region.
 ```sql
 SELECT
 region,
-alarm_name
+threshold_metric_id,
+evaluate_low_sample_count_percentile,
+extended_statistic,
+comparison_operator,
+treat_missing_data,
+dimensions,
+period,
+evaluation_periods,
+unit,
+namespace,
+ok_actions,
+alarm_actions,
+metric_name,
+actions_enabled,
+metrics,
+alarm_description,
+alarm_name,
+statistic,
+insufficient_data_actions,
+arn,
+datapoints_to_alarm,
+threshold,
+tags
 FROM aws.cloudwatch.alarms
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>alarm</code>.
+Gets all properties from an individual <code>alarm</code>.
 ```sql
 SELECT
 region,
@@ -130,7 +152,6 @@ tags
 FROM aws.cloudwatch.alarms
 WHERE region = 'us-east-1' AND data__Identifier = '<AlarmName>';
 ```
-
 
 ## `INSERT` example
 

@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>principal_permission</code> resource o
 
 ## `SELECT` examples
 
-Gets all properties from a <code>principal_permission</code>.
+Gets all properties from an individual <code>principal_permission</code>.
 ```sql
 SELECT
 region,
@@ -81,7 +81,6 @@ resource_identifier
 FROM aws.lakeformation.principal_permissions
 WHERE region = 'us-east-1' AND data__Identifier = '<PrincipalIdentifier>|<ResourceIdentifier>';
 ```
-
 
 ## `INSERT` example
 

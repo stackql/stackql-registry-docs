@@ -67,7 +67,7 @@ Creates, updates, deletes or gets an <code>addon</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,16 +79,24 @@ Creates, updates, deletes or gets an <code>addon</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>addons</code> in a region.
+Gets all <code>addons</code> in a region.
 ```sql
 SELECT
 region,
 cluster_name,
-addon_name
+addon_name,
+addon_version,
+preserve_on_delete,
+resolve_conflicts,
+service_account_role_arn,
+pod_identity_associations,
+configuration_values,
+arn,
+tags
 FROM aws.eks.addons
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>addon</code>.
+Gets all properties from an individual <code>addon</code>.
 ```sql
 SELECT
 region,
@@ -105,7 +113,6 @@ tags
 FROM aws.eks.addons
 WHERE region = 'us-east-1' AND data__Identifier = '<ClusterName>|<AddonName>';
 ```
-
 
 ## `INSERT` example
 

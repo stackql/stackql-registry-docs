@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>project</code> resource or lists <code
 
 ## `SELECT` examples
 
-Gets all properties from a <code>project</code>.
+Gets all properties from an individual <code>project</code>.
 ```sql
 SELECT
 region,
@@ -84,7 +84,6 @@ tags
 FROM aws.evidently.projects
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

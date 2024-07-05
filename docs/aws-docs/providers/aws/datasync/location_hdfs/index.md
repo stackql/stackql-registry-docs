@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>location_hdf</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets a <code>location_hdf</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>location_hdfs</code> in a region.
+Gets all <code>location_hdfs</code> in a region.
 ```sql
 SELECT
 region,
-location_arn
+name_nodes,
+block_size,
+replication_factor,
+kms_key_provider_uri,
+qop_configuration,
+authentication_type,
+simple_user,
+kerberos_principal,
+kerberos_keytab,
+kerberos_krb5_conf,
+tags,
+agent_arns,
+subdirectory,
+location_arn,
+location_uri
 FROM aws.datasync.location_hdfs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>location_hdf</code>.
+Gets all properties from an individual <code>location_hdf</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ location_uri
 FROM aws.datasync.location_hdfs
 WHERE region = 'us-east-1' AND data__Identifier = '<LocationArn>';
 ```
-
 
 ## `INSERT` example
 

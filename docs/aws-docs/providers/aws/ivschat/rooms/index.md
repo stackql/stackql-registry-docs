@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>room</code> resource or lists <code>ro
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>room</code> resource or lists <code>ro
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>rooms</code> in a region.
+Gets all <code>rooms</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+id,
+name,
+logging_configuration_identifiers,
+maximum_message_length,
+maximum_message_rate_per_second,
+message_review_handler,
+tags
 FROM aws.ivschat.rooms
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>room</code>.
+Gets all properties from an individual <code>room</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.ivschat.rooms
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

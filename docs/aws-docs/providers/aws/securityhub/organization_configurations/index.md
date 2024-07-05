@@ -64,7 +64,7 @@ Creates, updates, deletes or gets an <code>organization_configuration</code> res
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets an <code>organization_configuration</code> res
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>organization_configurations</code> in a region.
+Gets all <code>organization_configurations</code> in a region.
 ```sql
 SELECT
 region,
+auto_enable,
+auto_enable_standards,
+configuration_type,
+status,
+status_message,
+member_account_limit_reached,
 organization_configuration_identifier
 FROM aws.securityhub.organization_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>organization_configuration</code>.
+Gets all properties from an individual <code>organization_configuration</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ organization_configuration_identifier
 FROM aws.securityhub.organization_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<OrganizationConfigurationIdentifier>';
 ```
-
 
 ## `INSERT` example
 

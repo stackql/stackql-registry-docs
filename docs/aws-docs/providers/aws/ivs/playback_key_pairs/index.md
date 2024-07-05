@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>playback_key_pair</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>playback_key_pair</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>playback_key_pairs</code> in a region.
+Gets all <code>playback_key_pairs</code> in a region.
 ```sql
 SELECT
 region,
-arn
+name,
+public_key_material,
+fingerprint,
+arn,
+tags
 FROM aws.ivs.playback_key_pairs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>playback_key_pair</code>.
+Gets all properties from an individual <code>playback_key_pair</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.ivs.playback_key_pairs
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

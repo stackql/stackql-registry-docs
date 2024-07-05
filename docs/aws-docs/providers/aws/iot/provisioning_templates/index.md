@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>provisioning_template</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>provisioning_template</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>provisioning_templates</code> in a region.
+Gets all <code>provisioning_templates</code> in a region.
 ```sql
 SELECT
 region,
-template_name
+template_arn,
+template_name,
+description,
+enabled,
+provisioning_role_arn,
+template_body,
+template_type,
+pre_provisioning_hook,
+tags
 FROM aws.iot.provisioning_templates
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>provisioning_template</code>.
+Gets all properties from an individual <code>provisioning_template</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.iot.provisioning_templates
 WHERE region = 'us-east-1' AND data__Identifier = '<TemplateName>';
 ```
-
 
 ## `INSERT` example
 

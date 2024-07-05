@@ -71,7 +71,7 @@ Creates, updates, deletes or gets a <code>transit_gateway</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,15 +83,28 @@ Creates, updates, deletes or gets a <code>transit_gateway</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>transit_gateways</code> in a region.
+Gets all <code>transit_gateways</code> in a region.
 ```sql
 SELECT
 region,
-id
+description,
+association_default_route_table_id,
+auto_accept_shared_attachments,
+transit_gateway_arn,
+default_route_table_propagation,
+transit_gateway_cidr_blocks,
+propagation_default_route_table_id,
+default_route_table_association,
+id,
+vpn_ecmp_support,
+dns_support,
+multicast_support,
+amazon_side_asn,
+tags
 FROM aws.ec2.transit_gateways
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>transit_gateway</code>.
+Gets all properties from an individual <code>transit_gateway</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +125,6 @@ tags
 FROM aws.ec2.transit_gateways
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

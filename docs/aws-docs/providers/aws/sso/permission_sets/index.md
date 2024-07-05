@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>permission_set</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,16 +80,25 @@ Creates, updates, deletes or gets a <code>permission_set</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>permission_sets</code> in a region.
+Gets all <code>permission_sets</code> in a region.
 ```sql
 SELECT
 region,
+name,
+permission_set_arn,
+description,
 instance_arn,
-permission_set_arn
+session_duration,
+relay_state_type,
+managed_policies,
+inline_policy,
+tags,
+customer_managed_policy_references,
+permissions_boundary
 FROM aws.sso.permission_sets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>permission_set</code>.
+Gets all properties from an individual <code>permission_set</code>.
 ```sql
 SELECT
 region,
@@ -107,7 +116,6 @@ permissions_boundary
 FROM aws.sso.permission_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<InstanceArn>|<PermissionSetArn>';
 ```
-
 
 ## `INSERT` example
 

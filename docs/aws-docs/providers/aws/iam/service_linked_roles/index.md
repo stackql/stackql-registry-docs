@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>service_linked_role</code> resource or
 
 ## `SELECT` examples
 
-Gets all properties from a <code>service_linked_role</code>.
+Gets all properties from an individual <code>service_linked_role</code>.
 ```sql
 SELECT
 region,
@@ -80,7 +80,6 @@ aws_service_name
 FROM aws.iam.service_linked_roles
 WHERE data__Identifier = '<RoleName>';
 ```
-
 
 ## `INSERT` example
 

@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>rule</code> resource or lists <code>ru
 
 ## `SELECT` examples
 
-Gets all properties from a <code>rule</code>.
+Gets all properties from an individual <code>rule</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +88,6 @@ tags
 FROM aws.connect.rules
 WHERE region = 'us-east-1' AND data__Identifier = '<RuleArn>';
 ```
-
 
 ## `INSERT` example
 

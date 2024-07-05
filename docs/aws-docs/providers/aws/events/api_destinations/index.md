@@ -64,7 +64,7 @@ Creates, updates, deletes or gets an <code>api_destination</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets an <code>api_destination</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>api_destinations</code> in a region.
+Gets all <code>api_destinations</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+description,
+connection_arn,
+arn,
+invocation_rate_limit_per_second,
+invocation_endpoint,
+http_method
 FROM aws.events.api_destinations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>api_destination</code>.
+Gets all properties from an individual <code>api_destination</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ http_method
 FROM aws.events.api_destinations
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

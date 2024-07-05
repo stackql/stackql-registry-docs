@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>dhcp_option</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>dhcp_option</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>dhcp_options</code> in a region.
+Gets all <code>dhcp_options</code> in a region.
 ```sql
 SELECT
 region,
-dhcp_options_id
+dhcp_options_id,
+domain_name,
+domain_name_servers,
+netbios_name_servers,
+netbios_node_type,
+ntp_servers,
+ipv6_address_preferred_lease_time,
+tags
 FROM aws.ec2.dhcp_options
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>dhcp_option</code>.
+Gets all properties from an individual <code>dhcp_option</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.ec2.dhcp_options
 WHERE region = 'us-east-1' AND data__Identifier = '<DhcpOptionsId>';
 ```
-
 
 ## `INSERT` example
 

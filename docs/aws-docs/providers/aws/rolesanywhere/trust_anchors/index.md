@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>trust_anchor</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>trust_anchor</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>trust_anchors</code> in a region.
+Gets all <code>trust_anchors</code> in a region.
 ```sql
 SELECT
 region,
-trust_anchor_id
+enabled,
+name,
+notification_settings,
+source,
+tags,
+trust_anchor_id,
+trust_anchor_arn
 FROM aws.rolesanywhere.trust_anchors
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>trust_anchor</code>.
+Gets all properties from an individual <code>trust_anchor</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ trust_anchor_arn
 FROM aws.rolesanywhere.trust_anchors
 WHERE region = 'us-east-1' AND data__Identifier = '<TrustAnchorId>';
 ```
-
 
 ## `INSERT` example
 

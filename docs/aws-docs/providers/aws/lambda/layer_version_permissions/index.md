@@ -57,7 +57,7 @@ Creates, updates, deletes or gets a <code>layer_version_permission</code> resour
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,15 +69,19 @@ Creates, updates, deletes or gets a <code>layer_version_permission</code> resour
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>layer_version_permissions</code> in a region.
+Gets all <code>layer_version_permissions</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+action,
+layer_version_arn,
+organization_id,
+principal
 FROM aws.lambda.layer_version_permissions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>layer_version_permission</code>.
+Gets all properties from an individual <code>layer_version_permission</code>.
 ```sql
 SELECT
 region,
@@ -89,7 +93,6 @@ principal
 FROM aws.lambda.layer_version_permissions
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

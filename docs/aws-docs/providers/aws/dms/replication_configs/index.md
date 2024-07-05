@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>replication_config</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>replication_config</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>replication_configs</code> in a region.
+Gets all <code>replication_configs</code> in a region.
 ```sql
 SELECT
 region,
-replication_config_arn
+replication_config_identifier,
+replication_config_arn,
+source_endpoint_arn,
+target_endpoint_arn,
+replication_type,
+compute_config,
+replication_settings,
+supplemental_settings,
+resource_identifier,
+table_mappings,
+tags
 FROM aws.dms.replication_configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>replication_config</code>.
+Gets all properties from an individual <code>replication_config</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ tags
 FROM aws.dms.replication_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<ReplicationConfigArn>';
 ```
-
 
 ## `INSERT` example
 

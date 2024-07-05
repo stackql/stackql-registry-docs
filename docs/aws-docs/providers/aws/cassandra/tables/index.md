@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>table</code> resource or lists <code>t
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,16 +82,27 @@ Creates, updates, deletes or gets a <code>table</code> resource or lists <code>t
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>tables</code> in a region.
+Gets all <code>tables</code> in a region.
 ```sql
 SELECT
 region,
 keyspace_name,
-table_name
+table_name,
+regular_columns,
+partition_key_columns,
+clustering_key_columns,
+billing_mode,
+point_in_time_recovery_enabled,
+client_side_timestamps_enabled,
+tags,
+default_time_to_live,
+encryption_specification,
+auto_scaling_specifications,
+replica_specifications
 FROM aws.cassandra.tables
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>table</code>.
+Gets all properties from an individual <code>table</code>.
 ```sql
 SELECT
 region,
@@ -111,7 +122,6 @@ replica_specifications
 FROM aws.cassandra.tables
 WHERE region = 'us-east-1' AND data__Identifier = '<KeyspaceName>|<TableName>';
 ```
-
 
 ## `INSERT` example
 

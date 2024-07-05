@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>continuous_deployment_policy</code> re
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>continuous_deployment_policy</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>continuous_deployment_policies</code> in a region.
+Gets all <code>continuous_deployment_policies</code> in a region.
 ```sql
 SELECT
 region,
-id
+continuous_deployment_policy_config,
+id,
+last_modified_time
 FROM aws.cloudfront.continuous_deployment_policies
 ;
 ```
-Gets all properties from a <code>continuous_deployment_policy</code>.
+Gets all properties from an individual <code>continuous_deployment_policy</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ last_modified_time
 FROM aws.cloudfront.continuous_deployment_policies
 WHERE data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

@@ -64,7 +64,7 @@ Creates, updates, deletes or gets an <code>assistant_association</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,16 +76,21 @@ Creates, updates, deletes or gets an <code>assistant_association</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>assistant_associations</code> in a region.
+Gets all <code>assistant_associations</code> in a region.
 ```sql
 SELECT
 region,
+assistant_association_arn,
+assistant_arn,
 assistant_association_id,
-assistant_id
+assistant_id,
+association,
+association_type,
+tags
 FROM aws.wisdom.assistant_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>assistant_association</code>.
+Gets all properties from an individual <code>assistant_association</code>.
 ```sql
 SELECT
 region,
@@ -99,7 +104,6 @@ tags
 FROM aws.wisdom.assistant_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<AssistantAssociationId>|<AssistantId>';
 ```
-
 
 ## `INSERT` example
 

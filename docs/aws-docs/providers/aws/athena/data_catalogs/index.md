@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>data_catalog</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>data_catalog</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>data_catalogs</code> in a region.
+Gets all <code>data_catalogs</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+description,
+parameters,
+tags,
+type
 FROM aws.athena.data_catalogs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>data_catalog</code>.
+Gets all properties from an individual <code>data_catalog</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ type
 FROM aws.athena.data_catalogs
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

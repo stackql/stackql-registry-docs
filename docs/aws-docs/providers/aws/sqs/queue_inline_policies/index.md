@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>queue_inline_policy</code> resource or
 
 ## `SELECT` examples
 
-Gets all properties from a <code>queue_inline_policy</code>.
+Gets all properties from an individual <code>queue_inline_policy</code>.
 ```sql
 SELECT
 region,
@@ -76,7 +76,6 @@ queue
 FROM aws.sqs.queue_inline_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<Queue>';
 ```
-
 
 ## `INSERT` example
 

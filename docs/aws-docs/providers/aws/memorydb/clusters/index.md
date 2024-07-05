@@ -85,7 +85,7 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -97,15 +97,42 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>clusters</code> in a region.
+Gets all <code>clusters</code> in a region.
 ```sql
 SELECT
 region,
-cluster_name
+cluster_name,
+description,
+status,
+node_type,
+num_shards,
+num_replicas_per_shard,
+subnet_group_name,
+security_group_ids,
+maintenance_window,
+parameter_group_name,
+parameter_group_status,
+port,
+snapshot_retention_limit,
+snapshot_window,
+acl_name,
+sns_topic_arn,
+sns_topic_status,
+tls_enabled,
+data_tiering,
+kms_key_id,
+snapshot_arns,
+snapshot_name,
+final_snapshot_name,
+arn,
+engine_version,
+cluster_endpoint,
+auto_minor_version_upgrade,
+tags
 FROM aws.memorydb.clusters
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>cluster</code>.
+Gets all properties from an individual <code>cluster</code>.
 ```sql
 SELECT
 region,
@@ -140,7 +167,6 @@ tags
 FROM aws.memorydb.clusters
 WHERE region = 'us-east-1' AND data__Identifier = '<ClusterName>';
 ```
-
 
 ## `INSERT` example
 

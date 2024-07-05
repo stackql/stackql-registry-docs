@@ -55,7 +55,7 @@ Creates, updates, deletes or gets a <code>queue_fleet_association</code> resourc
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>queue_fleet_association</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>queue_fleet_associations</code> in a region.
+Gets all <code>queue_fleet_associations</code> in a region.
 ```sql
 SELECT
 region,
@@ -77,7 +77,7 @@ queue_id
 FROM aws.deadline.queue_fleet_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>queue_fleet_association</code>.
+Gets all properties from an individual <code>queue_fleet_association</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +87,6 @@ queue_id
 FROM aws.deadline.queue_fleet_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<FarmId>|<FleetId>|<QueueId>';
 ```
-
 
 ## `INSERT` example
 

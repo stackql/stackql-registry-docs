@@ -79,7 +79,7 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 
 ## `SELECT` examples
 
-Gets all properties from an <code>application</code>.
+Gets all properties from an individual <code>application</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +100,6 @@ created_time
 FROM aws.appstream.applications
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>transformer</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>transformer</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>transformers</code> in a region.
+Gets all <code>transformers</code> in a region.
 ```sql
 SELECT
 region,
+created_at,
+edi_type,
+file_format,
+mapping_template,
+modified_at,
+name,
+sample_document,
+status,
+tags,
+transformer_arn,
 transformer_id
 FROM aws.b2bi.transformers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>transformer</code>.
+Gets all properties from an individual <code>transformer</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ transformer_id
 FROM aws.b2bi.transformers
 WHERE region = 'us-east-1' AND data__Identifier = '<TransformerId>';
 ```
-
 
 ## `INSERT` example
 

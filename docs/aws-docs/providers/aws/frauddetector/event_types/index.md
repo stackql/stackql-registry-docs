@@ -66,7 +66,7 @@ Creates, updates, deletes or gets an <code>event_type</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets an <code>event_type</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>event_types</code> in a region.
+Gets all <code>event_types</code> in a region.
 ```sql
 SELECT
 region,
-arn
+name,
+tags,
+description,
+event_variables,
+labels,
+entity_types,
+arn,
+created_time,
+last_updated_time
 FROM aws.frauddetector.event_types
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>event_type</code>.
+Gets all properties from an individual <code>event_type</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ last_updated_time
 FROM aws.frauddetector.event_types
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

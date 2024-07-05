@@ -63,7 +63,7 @@ Creates, updates, deletes or gets an <code>app_image_config</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets an <code>app_image_config</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>app_image_configs</code> in a region.
+Gets all <code>app_image_configs</code> in a region.
 ```sql
 SELECT
 region,
-app_image_config_name
+app_image_config_arn,
+app_image_config_name,
+kernel_gateway_image_config,
+jupyter_lab_app_image_config,
+code_editor_app_image_config,
+tags
 FROM aws.sagemaker.app_image_configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>app_image_config</code>.
+Gets all properties from an individual <code>app_image_config</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.sagemaker.app_image_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<AppImageConfigName>';
 ```
-
 
 ## `INSERT` example
 

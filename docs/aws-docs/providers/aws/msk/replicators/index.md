@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>replicator</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>replicator</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>replicators</code> in a region.
+Gets all <code>replicators</code> in a region.
 ```sql
 SELECT
 region,
-replicator_arn
+replicator_arn,
+replicator_name,
+current_version,
+description,
+kafka_clusters,
+replication_info_list,
+service_execution_role_arn,
+tags
 FROM aws.msk.replicators
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>replicator</code>.
+Gets all properties from an individual <code>replicator</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.msk.replicators
 WHERE region = 'us-east-1' AND data__Identifier = '<ReplicatorArn>';
 ```
-
 
 ## `INSERT` example
 

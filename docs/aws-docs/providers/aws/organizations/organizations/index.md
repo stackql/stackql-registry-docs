@@ -59,7 +59,7 @@ Creates, updates, deletes or gets an <code>organization</code> resource or lists
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,21 @@ Creates, updates, deletes or gets an <code>organization</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>organizations</code> in a region.
+Gets all <code>organizations</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+arn,
+feature_set,
+management_account_arn,
+management_account_id,
+management_account_email,
+root_id
 FROM aws.organizations.organizations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>organization</code>.
+Gets all properties from an individual <code>organization</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +99,6 @@ root_id
 FROM aws.organizations.organizations
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

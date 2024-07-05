@@ -62,7 +62,7 @@ Creates, updates, deletes or gets an <code>identity_source</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,16 +74,19 @@ Creates, updates, deletes or gets an <code>identity_source</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>identity_sources</code> in a region.
+Gets all <code>identity_sources</code> in a region.
 ```sql
 SELECT
 region,
+configuration,
+details,
 identity_source_id,
-policy_store_id
+policy_store_id,
+principal_entity_type
 FROM aws.verifiedpermissions.identity_sources
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>identity_source</code>.
+Gets all properties from an individual <code>identity_source</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +98,6 @@ principal_entity_type
 FROM aws.verifiedpermissions.identity_sources
 WHERE region = 'us-east-1' AND data__Identifier = '<IdentitySourceId>|<PolicyStoreId>';
 ```
-
 
 ## `INSERT` example
 

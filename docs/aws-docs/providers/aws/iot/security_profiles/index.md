@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>security_profile</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>security_profile</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>security_profiles</code> in a region.
+Gets all <code>security_profiles</code> in a region.
 ```sql
 SELECT
 region,
-security_profile_name
+security_profile_name,
+security_profile_description,
+behaviors,
+alert_targets,
+additional_metrics_to_retain_v2,
+metrics_export_config,
+tags,
+target_arns,
+security_profile_arn
 FROM aws.iot.security_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>security_profile</code>.
+Gets all properties from an individual <code>security_profile</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ security_profile_arn
 FROM aws.iot.security_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<SecurityProfileName>';
 ```
-
 
 ## `INSERT` example
 

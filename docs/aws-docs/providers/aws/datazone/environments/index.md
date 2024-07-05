@@ -76,7 +76,7 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -88,16 +88,33 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>environments</code> in a region.
+Gets all <code>environments</code> in a region.
 ```sql
 SELECT
 region,
+aws_account_id,
+aws_account_region,
+created_at,
+created_by,
+description,
 domain_id,
-id
+domain_identifier,
+environment_blueprint_id,
+environment_profile_id,
+environment_profile_identifier,
+glossary_terms,
+id,
+name,
+project_id,
+project_identifier,
+provider,
+status,
+updated_at,
+user_parameters
 FROM aws.datazone.environments
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>environment</code>.
+Gets all properties from an individual <code>environment</code>.
 ```sql
 SELECT
 region,
@@ -123,7 +140,6 @@ user_parameters
 FROM aws.datazone.environments
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainId>|<Id>';
 ```
-
 
 ## `INSERT` example
 

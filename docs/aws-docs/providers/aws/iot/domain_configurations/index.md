@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>domain_configuration</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>domain_configuration</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>domain_configurations</code> in a region.
+Gets all <code>domain_configurations</code> in a region.
 ```sql
 SELECT
 region,
-domain_configuration_name
+domain_configuration_name,
+authorizer_config,
+domain_name,
+server_certificate_arns,
+service_type,
+validation_certificate_arn,
+arn,
+domain_configuration_status,
+domain_type,
+server_certificate_config,
+server_certificates,
+tls_config,
+tags
 FROM aws.iot.domain_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>domain_configuration</code>.
+Gets all properties from an individual <code>domain_configuration</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ tags
 FROM aws.iot.domain_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainConfigurationName>';
 ```
-
 
 ## `INSERT` example
 

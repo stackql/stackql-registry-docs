@@ -58,7 +58,7 @@ Creates, updates, deletes or gets a <code>dataflow_endpoint_group</code> resourc
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -70,15 +70,20 @@ Creates, updates, deletes or gets a <code>dataflow_endpoint_group</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>dataflow_endpoint_groups</code> in a region.
+Gets all <code>dataflow_endpoint_groups</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+arn,
+endpoint_details,
+contact_pre_pass_duration_seconds,
+contact_post_pass_duration_seconds,
+tags
 FROM aws.groundstation.dataflow_endpoint_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>dataflow_endpoint_group</code>.
+Gets all properties from an individual <code>dataflow_endpoint_group</code>.
 ```sql
 SELECT
 region,
@@ -91,7 +96,6 @@ tags
 FROM aws.groundstation.dataflow_endpoint_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

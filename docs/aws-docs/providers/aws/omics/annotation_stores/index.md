@@ -71,7 +71,7 @@ Creates, updates, deletes or gets an <code>annotation_store</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -83,15 +83,28 @@ Creates, updates, deletes or gets an <code>annotation_store</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>annotation_stores</code> in a region.
+Gets all <code>annotation_stores</code> in a region.
 ```sql
 SELECT
 region,
-name
+creation_time,
+description,
+id,
+name,
+reference,
+sse_config,
+status,
+status_message,
+store_arn,
+store_format,
+store_options,
+store_size_bytes,
+tags,
+update_time
 FROM aws.omics.annotation_stores
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>annotation_store</code>.
+Gets all properties from an individual <code>annotation_store</code>.
 ```sql
 SELECT
 region,
@@ -112,7 +125,6 @@ update_time
 FROM aws.omics.annotation_stores
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

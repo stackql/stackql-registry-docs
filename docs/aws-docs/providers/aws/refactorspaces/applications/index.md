@@ -66,7 +66,7 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,16 +78,28 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>applications</code> in a region.
+Gets all <code>applications</code> in a region.
 ```sql
 SELECT
 region,
+api_gateway_proxy,
+arn,
+api_gateway_id,
+vpc_link_id,
+nlb_arn,
+nlb_name,
+application_identifier,
 environment_identifier,
-application_identifier
+name,
+proxy_type,
+vpc_id,
+stage_name,
+proxy_url,
+tags
 FROM aws.refactorspaces.applications
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>application</code>.
+Gets all properties from an individual <code>application</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +120,6 @@ tags
 FROM aws.refactorspaces.applications
 WHERE region = 'us-east-1' AND data__Identifier = '<EnvironmentIdentifier>|<ApplicationIdentifier>';
 ```
-
 
 ## `INSERT` example
 

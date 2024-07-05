@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>default_view_association</code> resour
 
 ## `SELECT` examples
 
-Gets all properties from a <code>default_view_association</code>.
+Gets all properties from an individual <code>default_view_association</code>.
 ```sql
 SELECT
 region,
@@ -76,7 +76,6 @@ associated_aws_principal
 FROM aws.resourceexplorer2.default_view_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<AssociatedAwsPrincipal>';
 ```
-
 
 ## `INSERT` example
 

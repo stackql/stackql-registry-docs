@@ -74,7 +74,7 @@ Creates, updates, deletes or gets a <code>monitor</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -86,15 +86,31 @@ Creates, updates, deletes or gets a <code>monitor</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>monitors</code> in a region.
+Gets all <code>monitors</code> in a region.
 ```sql
 SELECT
 region,
-monitor_name
+created_at,
+modified_at,
+monitor_arn,
+monitor_name,
+linked_account_id,
+include_linked_accounts,
+processing_status,
+processing_status_info,
+resources,
+resources_to_add,
+resources_to_remove,
+status,
+tags,
+max_city_networks_to_monitor,
+traffic_percentage_to_monitor,
+internet_measurements_log_delivery,
+health_events_config
 FROM aws.internetmonitor.monitors
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>monitor</code>.
+Gets all properties from an individual <code>monitor</code>.
 ```sql
 SELECT
 region,
@@ -118,7 +134,6 @@ health_events_config
 FROM aws.internetmonitor.monitors
 WHERE region = 'us-east-1' AND data__Identifier = '<MonitorName>';
 ```
-
 
 ## `INSERT` example
 

@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>rule</code> resource or lists <code>ru
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>rule</code> resource or lists <code>ru
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>rules</code> in a region.
+Gets all <code>rules</code> in a region.
 ```sql
 SELECT
 region,
-arn
+action,
+arn,
+id,
+listener_identifier,
+match,
+name,
+priority,
+service_identifier,
+tags
 FROM aws.vpclattice.rules
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>rule</code>.
+Gets all properties from an individual <code>rule</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ tags
 FROM aws.vpclattice.rules
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>queue</code> resource or lists <code>q
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>queue</code> resource or lists <code>q
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>queues</code> in a region.
+Gets all <code>queues</code> in a region.
 ```sql
 SELECT
 region,
-queue_arn
+instance_arn,
+description,
+hours_of_operation_arn,
+max_contacts,
+name,
+outbound_caller_config,
+queue_arn,
+status,
+quick_connect_arns,
+tags,
+type
 FROM aws.connect.queues
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>queue</code>.
+Gets all properties from an individual <code>queue</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ type
 FROM aws.connect.queues
 WHERE region = 'us-east-1' AND data__Identifier = '<QueueArn>';
 ```
-
 
 ## `INSERT` example
 

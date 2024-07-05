@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>outpost_resolver</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets an <code>outpost_resolver</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>outpost_resolvers</code> in a region.
+Gets all <code>outpost_resolvers</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+creator_request_id,
+name,
+arn,
+outpost_arn,
+preferred_instance_type,
+status,
+status_message,
+instance_count,
+creation_time,
+modification_time,
+tags
 FROM aws.route53resolver.outpost_resolvers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>outpost_resolver</code>.
+Gets all properties from an individual <code>outpost_resolver</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ tags
 FROM aws.route53resolver.outpost_resolvers
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

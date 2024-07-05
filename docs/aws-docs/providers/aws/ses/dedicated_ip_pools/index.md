@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>dedicated_ip_pool</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,16 @@ Creates, updates, deletes or gets a <code>dedicated_ip_pool</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>dedicated_ip_pools</code> in a region.
+Gets all <code>dedicated_ip_pools</code> in a region.
 ```sql
 SELECT
 region,
-pool_name
+pool_name,
+scaling_mode
 FROM aws.ses.dedicated_ip_pools
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>dedicated_ip_pool</code>.
+Gets all properties from an individual <code>dedicated_ip_pool</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +89,6 @@ scaling_mode
 FROM aws.ses.dedicated_ip_pools
 WHERE region = 'us-east-1' AND data__Identifier = '<PoolName>';
 ```
-
 
 ## `INSERT` example
 

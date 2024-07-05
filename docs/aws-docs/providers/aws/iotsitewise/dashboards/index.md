@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>dashboard</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>dashboard</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>dashboards</code> in a region.
+Gets all <code>dashboards</code> in a region.
 ```sql
 SELECT
 region,
-dashboard_id
+project_id,
+dashboard_id,
+dashboard_name,
+dashboard_description,
+dashboard_definition,
+dashboard_arn,
+tags
 FROM aws.iotsitewise.dashboards
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>dashboard</code>.
+Gets all properties from an individual <code>dashboard</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.iotsitewise.dashboards
 WHERE region = 'us-east-1' AND data__Identifier = '<DashboardId>';
 ```
-
 
 ## `INSERT` example
 

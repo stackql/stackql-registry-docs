@@ -61,7 +61,7 @@ Creates, updates, deletes or gets an <code>account_audit_configuration</code> re
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets an <code>account_audit_configuration</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>account_audit_configurations</code> in a region.
+Gets all <code>account_audit_configurations</code> in a region.
 ```sql
 SELECT
 region,
-account_id
+account_id,
+audit_check_configurations,
+audit_notification_target_configurations,
+role_arn
 FROM aws.iot.account_audit_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>account_audit_configuration</code>.
+Gets all properties from an individual <code>account_audit_configuration</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ role_arn
 FROM aws.iot.account_audit_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<AccountId>';
 ```
-
 
 ## `INSERT` example
 

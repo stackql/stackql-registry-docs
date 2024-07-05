@@ -78,7 +78,7 @@ Creates, updates, deletes or gets a <code>flow_source</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -90,15 +90,35 @@ Creates, updates, deletes or gets a <code>flow_source</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>flow_sources</code> in a region.
+Gets all <code>flow_sources</code> in a region.
 ```sql
 SELECT
 region,
-source_arn
+flow_arn,
+source_arn,
+decryption,
+description,
+entitlement_arn,
+gateway_bridge_source,
+ingest_ip,
+ingest_port,
+max_bitrate,
+max_latency,
+min_latency,
+name,
+protocol,
+sender_ip_address,
+sender_control_port,
+stream_id,
+source_ingest_port,
+source_listener_address,
+source_listener_port,
+vpc_interface_name,
+whitelist_cidr
 FROM aws.mediaconnect.flow_sources
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>flow_source</code>.
+Gets all properties from an individual <code>flow_source</code>.
 ```sql
 SELECT
 region,
@@ -126,7 +146,6 @@ whitelist_cidr
 FROM aws.mediaconnect.flow_sources
 WHERE region = 'us-east-1' AND data__Identifier = '<SourceArn>';
 ```
-
 
 ## `INSERT` example
 

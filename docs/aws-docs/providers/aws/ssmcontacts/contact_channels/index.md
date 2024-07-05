@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>contact_channel</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>contact_channel</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>contact_channels</code> in a region.
+Gets all <code>contact_channels</code> in a region.
 ```sql
 SELECT
 region,
+contact_id,
+channel_name,
+channel_type,
+defer_activation,
+channel_address,
 arn
 FROM aws.ssmcontacts.contact_channels
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>contact_channel</code>.
+Gets all properties from an individual <code>contact_channel</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ arn
 FROM aws.ssmcontacts.contact_channels
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

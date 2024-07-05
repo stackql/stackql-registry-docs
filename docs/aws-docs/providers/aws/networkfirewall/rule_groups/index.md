@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>rule_group</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>rule_group</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>rule_groups</code> in a region.
+Gets all <code>rule_groups</code> in a region.
 ```sql
 SELECT
 region,
-rule_group_arn
+rule_group_name,
+rule_group_arn,
+rule_group_id,
+rule_group,
+type,
+capacity,
+description,
+tags
 FROM aws.networkfirewall.rule_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>rule_group</code>.
+Gets all properties from an individual <code>rule_group</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.networkfirewall.rule_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<RuleGroupArn>';
 ```
-
 
 ## `INSERT` example
 

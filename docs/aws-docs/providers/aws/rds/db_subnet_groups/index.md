@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>db_subnet_group</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>db_subnet_group</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>db_subnet_groups</code> in a region.
+Gets all <code>db_subnet_groups</code> in a region.
 ```sql
 SELECT
 region,
-db_subnet_group_name
+db_subnet_group_description,
+db_subnet_group_name,
+subnet_ids,
+tags
 FROM aws.rds.db_subnet_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>db_subnet_group</code>.
+Gets all properties from an individual <code>db_subnet_group</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ tags
 FROM aws.rds.db_subnet_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<DBSubnetGroupName>';
 ```
-
 
 ## `INSERT` example
 

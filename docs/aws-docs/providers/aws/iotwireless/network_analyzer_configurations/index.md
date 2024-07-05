@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>network_analyzer_configuration</code> 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>network_analyzer_configuration</code> 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>network_analyzer_configurations</code> in a region.
+Gets all <code>network_analyzer_configurations</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+description,
+trace_content,
+wireless_devices,
+wireless_gateways,
+arn,
+tags
 FROM aws.iotwireless.network_analyzer_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>network_analyzer_configuration</code>.
+Gets all properties from an individual <code>network_analyzer_configuration</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.iotwireless.network_analyzer_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

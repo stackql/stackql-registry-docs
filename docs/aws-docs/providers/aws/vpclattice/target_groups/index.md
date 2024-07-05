@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>target_group</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>target_group</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>target_groups</code> in a region.
+Gets all <code>target_groups</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+config,
+created_at,
+id,
+last_updated_at,
+name,
+status,
+type,
+targets,
+tags
 FROM aws.vpclattice.target_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>target_group</code>.
+Gets all properties from an individual <code>target_group</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ tags
 FROM aws.vpclattice.target_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

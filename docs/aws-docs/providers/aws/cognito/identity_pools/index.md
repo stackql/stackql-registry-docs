@@ -70,7 +70,7 @@ Creates, updates, deletes or gets an <code>identity_pool</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets an <code>identity_pool</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>identity_pools</code> in a region.
+Gets all <code>identity_pools</code> in a region.
 ```sql
 SELECT
 region,
-id
+push_sync,
+cognito_identity_providers,
+developer_provider_name,
+cognito_streams,
+supported_login_providers,
+name,
+cognito_events,
+id,
+identity_pool_name,
+allow_unauthenticated_identities,
+saml_provider_arns,
+open_id_connect_provider_arns,
+allow_classic_flow
 FROM aws.cognito.identity_pools
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>identity_pool</code>.
+Gets all properties from an individual <code>identity_pool</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ allow_classic_flow
 FROM aws.cognito.identity_pools
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

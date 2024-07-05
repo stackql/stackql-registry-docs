@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>vod_source</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,16 +74,19 @@ Creates, updates, deletes or gets a <code>vod_source</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vod_sources</code> in a region.
+Gets all <code>vod_sources</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+http_package_configurations,
 source_location_name,
+tags,
 vod_source_name
 FROM aws.mediatailor.vod_sources
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vod_source</code>.
+Gets all properties from an individual <code>vod_source</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +98,6 @@ vod_source_name
 FROM aws.mediatailor.vod_sources
 WHERE region = 'us-east-1' AND data__Identifier = '<SourceLocationName>|<VodSourceName>';
 ```
-
 
 ## `INSERT` example
 

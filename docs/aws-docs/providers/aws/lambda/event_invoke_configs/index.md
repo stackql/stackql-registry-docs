@@ -62,7 +62,7 @@ Creates, updates, deletes or gets an <code>event_invoke_config</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,16 +74,19 @@ Creates, updates, deletes or gets an <code>event_invoke_config</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>event_invoke_configs</code> in a region.
+Gets all <code>event_invoke_configs</code> in a region.
 ```sql
 SELECT
 region,
+destination_config,
 function_name,
+maximum_event_age_in_seconds,
+maximum_retry_attempts,
 qualifier
 FROM aws.lambda.event_invoke_configs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>event_invoke_config</code>.
+Gets all properties from an individual <code>event_invoke_config</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +98,6 @@ qualifier
 FROM aws.lambda.event_invoke_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<FunctionName>|<Qualifier>';
 ```
-
 
 ## `INSERT` example
 

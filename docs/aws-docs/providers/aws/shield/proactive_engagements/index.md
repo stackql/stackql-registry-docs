@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>proactive_engagement</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>proactive_engagement</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>proactive_engagements</code> in a region.
+Gets all <code>proactive_engagements</code> in a region.
 ```sql
 SELECT
 region,
-account_id
+account_id,
+proactive_engagement_status,
+emergency_contact_list
 FROM aws.shield.proactive_engagements
 ;
 ```
-Gets all properties from a <code>proactive_engagement</code>.
+Gets all properties from an individual <code>proactive_engagement</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ emergency_contact_list
 FROM aws.shield.proactive_engagements
 WHERE data__Identifier = '<AccountId>';
 ```
-
 
 ## `INSERT` example
 

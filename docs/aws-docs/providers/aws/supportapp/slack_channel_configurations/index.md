@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>slack_channel_configuration</code> res
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,16 +77,22 @@ Creates, updates, deletes or gets a <code>slack_channel_configuration</code> res
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>slack_channel_configurations</code> in a region.
+Gets all <code>slack_channel_configurations</code> in a region.
 ```sql
 SELECT
 region,
 team_id,
-channel_id
+channel_id,
+channel_name,
+notify_on_create_or_reopen_case,
+notify_on_add_correspondence_to_case,
+notify_on_resolve_case,
+notify_on_case_severity,
+channel_role_arn
 FROM aws.supportapp.slack_channel_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>slack_channel_configuration</code>.
+Gets all properties from an individual <code>slack_channel_configuration</code>.
 ```sql
 SELECT
 region,
@@ -101,7 +107,6 @@ channel_role_arn
 FROM aws.supportapp.slack_channel_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<TeamId>|<ChannelId>';
 ```
-
 
 ## `INSERT` example
 

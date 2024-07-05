@@ -59,7 +59,7 @@ Creates, updates, deletes or gets a <code>vpc_endpoint_service_permission</code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -71,15 +71,16 @@ Creates, updates, deletes or gets a <code>vpc_endpoint_service_permission</code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vpc_endpoint_service_permissions</code> in a region.
+Gets all <code>vpc_endpoint_service_permissions</code> in a region.
 ```sql
 SELECT
 region,
+allowed_principals,
 service_id
 FROM aws.ec2.vpc_endpoint_service_permissions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vpc_endpoint_service_permission</code>.
+Gets all properties from an individual <code>vpc_endpoint_service_permission</code>.
 ```sql
 SELECT
 region,
@@ -88,7 +89,6 @@ service_id
 FROM aws.ec2.vpc_endpoint_service_permissions
 WHERE region = 'us-east-1' AND data__Identifier = '<ServiceId>';
 ```
-
 
 ## `INSERT` example
 

@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>configured_table_association</code> re
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,16 +77,22 @@ Creates, updates, deletes or gets a <code>configured_table_association</code> re
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>configured_table_associations</code> in a region.
+Gets all <code>configured_table_associations</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+tags,
 configured_table_association_identifier,
-membership_identifier
+configured_table_identifier,
+description,
+membership_identifier,
+name,
+role_arn
 FROM aws.cleanrooms.configured_table_associations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>configured_table_association</code>.
+Gets all properties from an individual <code>configured_table_association</code>.
 ```sql
 SELECT
 region,
@@ -101,7 +107,6 @@ role_arn
 FROM aws.cleanrooms.configured_table_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<ConfiguredTableAssociationIdentifier>|<MembershipIdentifier>';
 ```
-
 
 ## `INSERT` example
 

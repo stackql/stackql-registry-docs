@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>readiness_check</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>readiness_check</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>readiness_checks</code> in a region.
+Gets all <code>readiness_checks</code> in a region.
 ```sql
 SELECT
 region,
-readiness_check_name
+resource_set_name,
+readiness_check_name,
+readiness_check_arn,
+tags
 FROM aws.route53recoveryreadiness.readiness_checks
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>readiness_check</code>.
+Gets all properties from an individual <code>readiness_check</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ tags
 FROM aws.route53recoveryreadiness.readiness_checks
 WHERE region = 'us-east-1' AND data__Identifier = '<ReadinessCheckName>';
 ```
-
 
 ## `INSERT` example
 

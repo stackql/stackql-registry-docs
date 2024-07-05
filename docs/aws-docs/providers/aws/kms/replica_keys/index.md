@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>replica_key</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>replica_key</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>replica_keys</code> in a region.
+Gets all <code>replica_keys</code> in a region.
 ```sql
 SELECT
 region,
-key_id
+description,
+pending_window_in_days,
+key_policy,
+primary_key_arn,
+enabled,
+key_id,
+arn,
+tags
 FROM aws.kms.replica_keys
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>replica_key</code>.
+Gets all properties from an individual <code>replica_key</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ tags
 FROM aws.kms.replica_keys
 WHERE region = 'us-east-1' AND data__Identifier = '<KeyId>';
 ```
-
 
 ## `INSERT` example
 

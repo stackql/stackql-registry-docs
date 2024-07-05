@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>launch_template</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>launch_template</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>launch_templates</code> in a region.
+Gets all <code>launch_templates</code> in a region.
 ```sql
 SELECT
 region,
-launch_template_id
+launch_template_name,
+launch_template_data,
+version_description,
+tag_specifications,
+latest_version_number,
+launch_template_id,
+default_version_number
 FROM aws.ec2.launch_templates
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>launch_template</code>.
+Gets all properties from an individual <code>launch_template</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ default_version_number
 FROM aws.ec2.launch_templates
 WHERE region = 'us-east-1' AND data__Identifier = '<LaunchTemplateId>';
 ```
-
 
 ## `INSERT` example
 

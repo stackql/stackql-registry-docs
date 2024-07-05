@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>subscriber_notification</code> resourc
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,17 @@ Creates, updates, deletes or gets a <code>subscriber_notification</code> resourc
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>subscriber_notifications</code> in a region.
+Gets all <code>subscriber_notifications</code> in a region.
 ```sql
 SELECT
 region,
-subscriber_arn
+notification_configuration,
+subscriber_arn,
+subscriber_endpoint
 FROM aws.securitylake.subscriber_notifications
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>subscriber_notification</code>.
+Gets all properties from an individual <code>subscriber_notification</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +92,6 @@ subscriber_endpoint
 FROM aws.securitylake.subscriber_notifications
 WHERE region = 'us-east-1' AND data__Identifier = '<SubscriberArn>';
 ```
-
 
 ## `INSERT` example
 

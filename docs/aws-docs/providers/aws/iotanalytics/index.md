@@ -20,7 +20,7 @@ The iotanalytics service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>6</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,13 @@ The iotanalytics service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/iotanalytics/datasets/">datasets</a>
+<a href="/providers/aws/iotanalytics/dataset_tags/">dataset_tags</a><br />
+<a href="/providers/aws/iotanalytics/datasets/">datasets</a><br />
+<a href="/providers/aws/iotanalytics/datasets_list_only/">datasets_list_only</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/iotanalytics/pipelines/">pipelines</a>
+<a href="/providers/aws/iotanalytics/pipeline_tags/">pipeline_tags</a><br />
+<a href="/providers/aws/iotanalytics/pipelines/">pipelines</a><br />
+<a href="/providers/aws/iotanalytics/pipelines_list_only/">pipelines_list_only</a>
 </div>
 </div>

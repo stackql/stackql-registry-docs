@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>guardrail_version</code> resource or l
 
 ## `SELECT` examples
 
-Gets all properties from a <code>guardrail_version</code>.
+Gets all properties from an individual <code>guardrail_version</code>.
 ```sql
 SELECT
 region,
@@ -77,7 +77,6 @@ version
 FROM aws.bedrock.guardrail_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<GuardrailId>|<Version>';
 ```
-
 
 ## `INSERT` example
 

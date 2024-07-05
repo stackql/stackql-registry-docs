@@ -61,7 +61,7 @@ Creates, updates, deletes or gets a <code>software_package</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,15 +73,18 @@ Creates, updates, deletes or gets a <code>software_package</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>software_packages</code> in a region.
+Gets all <code>software_packages</code> in a region.
 ```sql
 SELECT
 region,
-package_name
+description,
+package_arn,
+package_name,
+tags
 FROM aws.iot.software_packages
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>software_package</code>.
+Gets all properties from an individual <code>software_package</code>.
 ```sql
 SELECT
 region,
@@ -92,7 +95,6 @@ tags
 FROM aws.iot.software_packages
 WHERE region = 'us-east-1' AND data__Identifier = '<PackageName>';
 ```
-
 
 ## `INSERT` example
 

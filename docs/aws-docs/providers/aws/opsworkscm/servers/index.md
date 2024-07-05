@@ -80,7 +80,7 @@ Creates, updates, deletes or gets a <code>server</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -92,15 +92,37 @@ Creates, updates, deletes or gets a <code>server</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>servers</code> in a region.
+Gets all <code>servers</code> in a region.
 ```sql
 SELECT
 region,
-server_name
+key_pair,
+engine_version,
+service_role_arn,
+disable_automated_backup,
+backup_id,
+engine_model,
+preferred_maintenance_window,
+associate_public_ip_address,
+instance_profile_arn,
+custom_certificate,
+preferred_backup_window,
+security_group_ids,
+subnet_ids,
+custom_domain,
+endpoint,
+custom_private_key,
+server_name,
+engine_attributes,
+backup_retention_count,
+arn,
+instance_type,
+tags,
+engine
 FROM aws.opsworkscm.servers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>server</code>.
+Gets all properties from an individual <code>server</code>.
 ```sql
 SELECT
 region,
@@ -130,7 +152,6 @@ engine
 FROM aws.opsworkscm.servers
 WHERE region = 'us-east-1' AND data__Identifier = '<ServerName>';
 ```
-
 
 ## `INSERT` example
 

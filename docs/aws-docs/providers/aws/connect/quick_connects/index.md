@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>quick_connect</code> resource or lists
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>quick_connect</code> resource or lists
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>quick_connects</code> in a region.
+Gets all <code>quick_connects</code> in a region.
 ```sql
 SELECT
 region,
-quick_connect_arn
+instance_arn,
+name,
+description,
+quick_connect_config,
+quick_connect_arn,
+tags,
+quick_connect_type
 FROM aws.connect.quick_connects
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>quick_connect</code>.
+Gets all properties from an individual <code>quick_connect</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ quick_connect_type
 FROM aws.connect.quick_connects
 WHERE region = 'us-east-1' AND data__Identifier = '<QuickConnectArn>';
 ```
-
 
 ## `INSERT` example
 

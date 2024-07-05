@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>container_recipe</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,30 @@ Creates, updates, deletes or gets a <code>container_recipe</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>container_recipes</code> in a region.
+Gets all <code>container_recipes</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+name,
+description,
+version,
+components,
+instance_configuration,
+dockerfile_template_data,
+dockerfile_template_uri,
+platform_override,
+container_type,
+image_os_version_override,
+target_repository,
+kms_key_id,
+parent_image,
+working_directory,
+tags
 FROM aws.imagebuilder.container_recipes
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>container_recipe</code>.
+Gets all properties from an individual <code>container_recipe</code>.
 ```sql
 SELECT
 region,
@@ -111,7 +126,6 @@ tags
 FROM aws.imagebuilder.container_recipes
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

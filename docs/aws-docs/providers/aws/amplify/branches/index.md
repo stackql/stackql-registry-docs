@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>branch</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,15 +84,29 @@ Creates, updates, deletes or gets a <code>branch</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>branches</code> in a region.
+Gets all <code>branches</code> in a region.
 ```sql
 SELECT
 region,
-arn
+app_id,
+arn,
+basic_auth_config,
+backend,
+branch_name,
+build_spec,
+description,
+enable_auto_build,
+enable_performance_mode,
+enable_pull_request_preview,
+environment_variables,
+framework,
+pull_request_environment_name,
+stage,
+tags
 FROM aws.amplify.branches
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>branch</code>.
+Gets all properties from an individual <code>branch</code>.
 ```sql
 SELECT
 region,
@@ -114,7 +128,6 @@ tags
 FROM aws.amplify.branches
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

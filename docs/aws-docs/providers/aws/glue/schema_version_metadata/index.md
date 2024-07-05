@@ -55,7 +55,7 @@ Creates, updates, deletes or gets a <code>schema_version_metadatum</code> resour
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>schema_version_metadatum</code> resour
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>schema_version_metadata</code> in a region.
+Gets all <code>schema_version_metadata</code> in a region.
 ```sql
 SELECT
 region,
@@ -77,7 +77,7 @@ value
 FROM aws.glue.schema_version_metadata
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>schema_version_metadatum</code>.
+Gets all properties from an individual <code>schema_version_metadatum</code>.
 ```sql
 SELECT
 region,
@@ -87,7 +87,6 @@ value
 FROM aws.glue.schema_version_metadata
 WHERE region = 'us-east-1' AND data__Identifier = '<SchemaVersionId>|<Key>|<Value>';
 ```
-
 
 ## `INSERT` example
 

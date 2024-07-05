@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>function_configuration</code> resource
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,15 +85,30 @@ Creates, updates, deletes or gets a <code>function_configuration</code> resource
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>function_configurations</code> in a region.
+Gets all <code>function_configurations</code> in a region.
 ```sql
 SELECT
 region,
-function_arn
+function_id,
+function_arn,
+api_id,
+code,
+code_s3_location,
+data_source_name,
+description,
+function_version,
+max_batch_size,
+name,
+request_mapping_template,
+request_mapping_template_s3_location,
+response_mapping_template,
+response_mapping_template_s3_location,
+runtime,
+sync_config
 FROM aws.appsync.function_configurations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>function_configuration</code>.
+Gets all properties from an individual <code>function_configuration</code>.
 ```sql
 SELECT
 region,
@@ -116,7 +131,6 @@ sync_config
 FROM aws.appsync.function_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<FunctionArn>';
 ```
-
 
 ## `INSERT` example
 

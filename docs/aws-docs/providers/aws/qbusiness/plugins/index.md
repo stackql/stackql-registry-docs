@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>plugin</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,16 +82,27 @@ Creates, updates, deletes or gets a <code>plugin</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>plugins</code> in a region.
+Gets all <code>plugins</code> in a region.
 ```sql
 SELECT
 region,
 application_id,
-plugin_id
+auth_configuration,
+build_status,
+created_at,
+custom_plugin_configuration,
+display_name,
+plugin_arn,
+plugin_id,
+server_url,
+state,
+tags,
+type,
+updated_at
 FROM aws.qbusiness.plugins
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>plugin</code>.
+Gets all properties from an individual <code>plugin</code>.
 ```sql
 SELECT
 region,
@@ -111,7 +122,6 @@ updated_at
 FROM aws.qbusiness.plugins
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationId>|<PluginId>';
 ```
-
 
 ## `INSERT` example
 

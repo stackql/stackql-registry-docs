@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>location_smb</code> resource or lists 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>location_smb</code> resource or lists 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>location_smbs</code> in a region.
+Gets all <code>location_smbs</code> in a region.
 ```sql
 SELECT
 region,
-location_arn
+agent_arns,
+domain,
+mount_options,
+password,
+server_hostname,
+subdirectory,
+user,
+tags,
+location_arn,
+location_uri
 FROM aws.datasync.location_smbs
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>location_smb</code>.
+Gets all properties from an individual <code>location_smb</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ location_uri
 FROM aws.datasync.location_smbs
 WHERE region = 'us-east-1' AND data__Identifier = '<LocationArn>';
 ```
-
 
 ## `INSERT` example
 

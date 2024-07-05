@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>multicast_group</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>multicast_group</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>multicast_groups</code> in a region.
+Gets all <code>multicast_groups</code> in a region.
 ```sql
 SELECT
 region,
-id
+name,
+description,
+lo_ra_wan,
+arn,
+id,
+tags,
+status,
+associate_wireless_device,
+disassociate_wireless_device
 FROM aws.iotwireless.multicast_groups
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>multicast_group</code>.
+Gets all properties from an individual <code>multicast_group</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ disassociate_wireless_device
 FROM aws.iotwireless.multicast_groups
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

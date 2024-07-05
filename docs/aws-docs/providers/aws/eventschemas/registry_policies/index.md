@@ -69,7 +69,7 @@ Creates, updates, deletes or gets a <code>registry_policy</code> resource or lis
 
 ## `SELECT` examples
 
-Gets all properties from a <code>registry_policy</code>.
+Gets all properties from an individual <code>registry_policy</code>.
 ```sql
 SELECT
 region,
@@ -80,7 +80,6 @@ revision_id
 FROM aws.eventschemas.registry_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

@@ -57,7 +57,7 @@ Creates, updates, deletes or gets a <code>profile_permission</code> resource or 
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -69,16 +69,19 @@ Creates, updates, deletes or gets a <code>profile_permission</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>profile_permissions</code> in a region.
+Gets all <code>profile_permissions</code> in a region.
 ```sql
 SELECT
 region,
-statement_id,
-profile_name
+profile_name,
+profile_version,
+action,
+principal,
+statement_id
 FROM aws.signer.profile_permissions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>profile_permission</code>.
+Gets all properties from an individual <code>profile_permission</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +93,6 @@ statement_id
 FROM aws.signer.profile_permissions
 WHERE region = 'us-east-1' AND data__Identifier = '<StatementId>|<ProfileName>';
 ```
-
 
 ## `INSERT` example
 

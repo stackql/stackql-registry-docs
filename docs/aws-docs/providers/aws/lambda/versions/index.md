@@ -60,7 +60,7 @@ Creates, updates, deletes or gets a <code>version</code> resource or lists <code
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -72,15 +72,22 @@ Creates, updates, deletes or gets a <code>version</code> resource or lists <code
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>versions</code> in a region.
+Gets all <code>versions</code> in a region.
 ```sql
 SELECT
 region,
-function_arn
+function_arn,
+version,
+code_sha256,
+description,
+function_name,
+policy,
+provisioned_concurrency_config,
+runtime_policy
 FROM aws.lambda.versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>version</code>.
+Gets all properties from an individual <code>version</code>.
 ```sql
 SELECT
 region,
@@ -95,7 +102,6 @@ runtime_policy
 FROM aws.lambda.versions
 WHERE region = 'us-east-1' AND data__Identifier = '<FunctionArn>';
 ```
-
 
 ## `INSERT` example
 

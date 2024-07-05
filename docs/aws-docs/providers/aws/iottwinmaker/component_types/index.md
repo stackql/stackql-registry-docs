@@ -73,7 +73,7 @@ Creates, updates, deletes or gets a <code>component_type</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -85,16 +85,30 @@ Creates, updates, deletes or gets a <code>component_type</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>component_types</code> in a region.
+Gets all <code>component_types</code> in a region.
 ```sql
 SELECT
 region,
 workspace_id,
-component_type_id
+component_type_id,
+description,
+extends_from,
+functions,
+is_singleton,
+property_definitions,
+property_groups,
+composite_component_types,
+arn,
+creation_date_time,
+update_date_time,
+status,
+is_abstract,
+is_schema_initialized,
+tags
 FROM aws.iottwinmaker.component_types
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>component_type</code>.
+Gets all properties from an individual <code>component_type</code>.
 ```sql
 SELECT
 region,
@@ -117,7 +131,6 @@ tags
 FROM aws.iottwinmaker.component_types
 WHERE region = 'us-east-1' AND data__Identifier = '<WorkspaceId>|<ComponentTypeId>';
 ```
-
 
 ## `INSERT` example
 

@@ -72,7 +72,7 @@ Creates, updates, deletes or gets a <code>vpc_connection</code> resource or list
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -84,16 +84,29 @@ Creates, updates, deletes or gets a <code>vpc_connection</code> resource or list
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>vpc_connections</code> in a region.
+Gets all <code>vpc_connections</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+availability_status,
 aws_account_id,
-vpc_connection_id
+created_time,
+dns_resolvers,
+last_updated_time,
+name,
+network_interfaces,
+role_arn,
+security_group_ids,
+status,
+subnet_ids,
+tags,
+vpc_connection_id,
+vpc_id
 FROM aws.quicksight.vpc_connections
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>vpc_connection</code>.
+Gets all properties from an individual <code>vpc_connection</code>.
 ```sql
 SELECT
 region,
@@ -115,7 +128,6 @@ vpc_id
 FROM aws.quicksight.vpc_connections
 WHERE region = 'us-east-1' AND data__Identifier = '<AwsAccountId>|<VPCConnectionId>';
 ```
-
 
 ## `INSERT` example
 

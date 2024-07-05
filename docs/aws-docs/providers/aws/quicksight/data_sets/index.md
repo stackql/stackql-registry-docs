@@ -79,7 +79,7 @@ Creates, updates, deletes or gets a <code>data_set</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -91,16 +91,36 @@ Creates, updates, deletes or gets a <code>data_set</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>data_sets</code> in a region.
+Gets all <code>data_sets</code> in a region.
 ```sql
 SELECT
 region,
+arn,
 aws_account_id,
-data_set_id
+column_groups,
+column_level_permission_rules,
+consumed_spice_capacity_in_bytes,
+created_time,
+data_set_id,
+data_set_refresh_properties,
+data_set_usage_configuration,
+dataset_parameters,
+field_folders,
+import_mode,
+last_updated_time,
+logical_table_map,
+name,
+output_columns,
+permissions,
+physical_table_map,
+row_level_permission_data_set,
+row_level_permission_tag_configuration,
+tags,
+ingestion_wait_policy
 FROM aws.quicksight.data_sets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>data_set</code>.
+Gets all properties from an individual <code>data_set</code>.
 ```sql
 SELECT
 region,
@@ -129,7 +149,6 @@ ingestion_wait_policy
 FROM aws.quicksight.data_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<AwsAccountId>|<DataSetId>';
 ```
-
 
 ## `INSERT` example
 

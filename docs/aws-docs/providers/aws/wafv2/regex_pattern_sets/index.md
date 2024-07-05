@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>regex_pattern_set</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,17 +76,21 @@ Creates, updates, deletes or gets a <code>regex_pattern_set</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>regex_pattern_sets</code> in a region.
+Gets all <code>regex_pattern_sets</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+description,
 name,
 id,
-scope
+regular_expression_list,
+scope,
+tags
 FROM aws.wafv2.regex_pattern_sets
 ;
 ```
-Gets all properties from a <code>regex_pattern_set</code>.
+Gets all properties from an individual <code>regex_pattern_set</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +104,6 @@ tags
 FROM aws.wafv2.regex_pattern_sets
 WHERE data__Identifier = '<Name>|<Id>|<Scope>';
 ```
-
 
 ## `INSERT` example
 

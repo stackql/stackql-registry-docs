@@ -58,7 +58,7 @@ Creates, updates, deletes or gets a <code>metered_product</code> resource or lis
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -70,15 +70,20 @@ Creates, updates, deletes or gets a <code>metered_product</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>metered_products</code> in a region.
+Gets all <code>metered_products</code> in a region.
 ```sql
 SELECT
 region,
+license_endpoint_id,
+product_id,
+port,
+family,
+vendor,
 arn
 FROM aws.deadline.metered_products
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>metered_product</code>.
+Gets all properties from an individual <code>metered_product</code>.
 ```sql
 SELECT
 region,
@@ -91,7 +96,6 @@ arn
 FROM aws.deadline.metered_products
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

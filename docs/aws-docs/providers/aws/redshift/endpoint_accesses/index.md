@@ -68,7 +68,7 @@ Creates, updates, deletes or gets an <code>endpoint_access</code> resource or li
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets an <code>endpoint_access</code> resource or li
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>endpoint_accesses</code> in a region.
+Gets all <code>endpoint_accesses</code> in a region.
 ```sql
 SELECT
 region,
-endpoint_name
+endpoint_status,
+vpc_endpoint,
+address,
+endpoint_name,
+vpc_security_group_ids,
+resource_owner,
+subnet_group_name,
+port,
+endpoint_create_time,
+cluster_identifier,
+vpc_security_groups
 FROM aws.redshift.endpoint_accesses
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>endpoint_access</code>.
+Gets all properties from an individual <code>endpoint_access</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ vpc_security_groups
 FROM aws.redshift.endpoint_accesses
 WHERE region = 'us-east-1' AND data__Identifier = '<EndpointName>';
 ```
-
 
 ## `INSERT` example
 

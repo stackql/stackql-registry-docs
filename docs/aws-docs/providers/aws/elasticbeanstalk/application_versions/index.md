@@ -61,7 +61,7 @@ Creates, updates, deletes or gets an <code>application_version</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -73,16 +73,18 @@ Creates, updates, deletes or gets an <code>application_version</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>application_versions</code> in a region.
+Gets all <code>application_versions</code> in a region.
 ```sql
 SELECT
 region,
+id,
 application_name,
-id
+description,
+source_bundle
 FROM aws.elasticbeanstalk.application_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>application_version</code>.
+Gets all properties from an individual <code>application_version</code>.
 ```sql
 SELECT
 region,
@@ -93,7 +95,6 @@ source_bundle
 FROM aws.elasticbeanstalk.application_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationName>|<Id>';
 ```
-
 
 ## `INSERT` example
 

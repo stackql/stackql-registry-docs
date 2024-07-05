@@ -76,7 +76,7 @@ Creates, updates, deletes or gets a <code>dashboard</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -88,16 +88,33 @@ Creates, updates, deletes or gets a <code>dashboard</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>dashboards</code> in a region.
+Gets all <code>dashboards</code> in a region.
 ```sql
 SELECT
 region,
+created_time,
+parameters,
+version_description,
+source_entity,
+theme_arn,
+definition,
+last_updated_time,
+validation_strategy,
+dashboard_id,
+link_sharing_configuration,
+name,
+dashboard_publish_options,
+last_published_time,
+version,
 aws_account_id,
-dashboard_id
+permissions,
+link_entities,
+arn,
+tags
 FROM aws.quicksight.dashboards
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>dashboard</code>.
+Gets all properties from an individual <code>dashboard</code>.
 ```sql
 SELECT
 region,
@@ -123,7 +140,6 @@ tags
 FROM aws.quicksight.dashboards
 WHERE region = 'us-east-1' AND data__Identifier = '<AwsAccountId>|<DashboardId>';
 ```
-
 
 ## `INSERT` example
 

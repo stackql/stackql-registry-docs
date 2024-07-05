@@ -67,7 +67,7 @@ Creates, updates, deletes or gets an <code>access_point_policy</code> resource o
 
 ## `SELECT` examples
 
-Gets all properties from an <code>access_point_policy</code>.
+Gets all properties from an individual <code>access_point_policy</code>.
 ```sql
 SELECT
 region,
@@ -76,7 +76,6 @@ policy_document
 FROM aws.s3objectlambda.access_point_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<ObjectLambdaAccessPoint>';
 ```
-
 
 ## `INSERT` example
 

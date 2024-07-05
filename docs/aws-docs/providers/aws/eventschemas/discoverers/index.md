@@ -64,7 +64,7 @@ Creates, updates, deletes or gets a <code>discoverer</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -76,15 +76,21 @@ Creates, updates, deletes or gets a <code>discoverer</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>discoverers</code> in a region.
+Gets all <code>discoverers</code> in a region.
 ```sql
 SELECT
 region,
-discoverer_arn
+discoverer_arn,
+discoverer_id,
+description,
+source_arn,
+cross_account,
+state,
+tags
 FROM aws.eventschemas.discoverers
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>discoverer</code>.
+Gets all properties from an individual <code>discoverer</code>.
 ```sql
 SELECT
 region,
@@ -98,7 +104,6 @@ tags
 FROM aws.eventschemas.discoverers
 WHERE region = 'us-east-1' AND data__Identifier = '<DiscovererArn>';
 ```
-
 
 ## `INSERT` example
 

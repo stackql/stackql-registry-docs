@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>game_session_queue</code> resource or 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>game_session_queue</code> resource or 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>game_session_queues</code> in a region.
+Gets all <code>game_session_queues</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+timeout_in_seconds,
+destinations,
+player_latency_policies,
+custom_event_data,
+notification_target,
+filter_configuration,
+priority_configuration,
+arn,
+tags
 FROM aws.gamelift.game_session_queues
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>game_session_queue</code>.
+Gets all properties from an individual <code>game_session_queue</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ tags
 FROM aws.gamelift.game_session_queues
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

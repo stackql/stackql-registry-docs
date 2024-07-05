@@ -70,7 +70,7 @@ Creates, updates, deletes or gets a <code>firewall_domain_list</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -82,15 +82,27 @@ Creates, updates, deletes or gets a <code>firewall_domain_list</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>firewall_domain_lists</code> in a region.
+Gets all <code>firewall_domain_lists</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+arn,
+name,
+domain_count,
+status,
+status_message,
+managed_owner_name,
+creator_request_id,
+creation_time,
+modification_time,
+domains,
+domain_file_url,
+tags
 FROM aws.route53resolver.firewall_domain_lists
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>firewall_domain_list</code>.
+Gets all properties from an individual <code>firewall_domain_list</code>.
 ```sql
 SELECT
 region,
@@ -110,7 +122,6 @@ tags
 FROM aws.route53resolver.firewall_domain_lists
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

@@ -137,7 +137,7 @@ Creates, updates, deletes or gets a <code>db_instance</code> resource or lists <
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -149,15 +149,94 @@ Creates, updates, deletes or gets a <code>db_instance</code> resource or lists <
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>db_instances</code> in a region.
+Gets all <code>db_instances</code> in a region.
 ```sql
 SELECT
 region,
-db_instance_identifier
+storage_encrypted,
+timezone,
+db_system_id,
+certificate_details,
+port,
+db_cluster_identifier,
+storage_throughput,
+dbi_resource_id,
+monitoring_interval,
+db_parameter_group_name,
+db_instance_arn,
+endpoint,
+tde_credential_arn,
+automatic_backup_replication_kms_key_id,
+multi_az,
+engine,
+tags,
+performance_insights_kms_key_id,
+tde_credential_password,
+source_db_instance_identifier,
+engine_version,
+storage_type,
+kms_key_id,
+db_instance_class,
+delete_automated_backups,
+performance_insights_retention_period,
+availability_zone,
+option_group_name,
+enable_performance_insights,
+auto_minor_version_upgrade,
+db_subnet_group_name,
+deletion_protection,
+db_instance_identifier,
+allocated_storage,
+master_user_password,
+master_user_secret,
+nchar_character_set_name,
+source_db_cluster_identifier,
+db_security_groups,
+master_username,
+max_allocated_storage,
+promotion_tier,
+publicly_accessible,
+domain,
+domain_fqdn,
+character_set_name,
+monitoring_role_arn,
+associated_roles,
+domain_ou,
+db_cluster_snapshot_identifier,
+source_db_instance_automated_backups_arn,
+processor_features,
+preferred_backup_window,
+restore_time,
+certificate_rotation_restart,
+network_type,
+dedicated_log_volume,
+copy_tags_to_snapshot,
+domain_iam_role_name,
+replica_mode,
+license_model,
+domain_dns_ips,
+preferred_maintenance_window,
+iops,
+source_region,
+use_latest_restorable_time,
+ca_certificate_identifier,
+manage_master_user_password,
+source_dbi_resource_id,
+domain_auth_secret_arn,
+automatic_backup_replication_region,
+vpc_security_groups,
+allow_major_version_upgrade,
+db_name,
+enable_iam_database_authentication,
+backup_retention_period,
+custom_iam_instance_profile,
+db_snapshot_identifier,
+enable_cloudwatch_logs_exports,
+use_default_processor_features
 FROM aws.rds.db_instances
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>db_instance</code>.
+Gets all properties from an individual <code>db_instance</code>.
 ```sql
 SELECT
 region,
@@ -244,7 +323,6 @@ use_default_processor_features
 FROM aws.rds.db_instances
 WHERE region = 'us-east-1' AND data__Identifier = '<DBInstanceIdentifier>';
 ```
-
 
 ## `INSERT` example
 

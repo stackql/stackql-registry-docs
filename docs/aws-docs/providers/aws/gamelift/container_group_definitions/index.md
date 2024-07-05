@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>container_group_definition</code> reso
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>container_group_definition</code> reso
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>container_group_definitions</code> in a region.
+Gets all <code>container_group_definitions</code> in a region.
 ```sql
 SELECT
 region,
-name
+container_group_definition_arn,
+name,
+creation_time,
+scheduling_strategy,
+total_memory_limit,
+total_cpu_limit,
+container_definitions,
+tags,
+operating_system
 FROM aws.gamelift.container_group_definitions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>container_group_definition</code>.
+Gets all properties from an individual <code>container_group_definition</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ operating_system
 FROM aws.gamelift.container_group_definitions
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

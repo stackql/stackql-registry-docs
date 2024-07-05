@@ -20,7 +20,7 @@ The appflow service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total resources:&nbsp;<b>7</b></span><br />
 </div>
 </div>
 
@@ -30,9 +30,13 @@ The appflow service documentation.
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/aws/appflow/connector_profiles/">connector_profiles</a><br />
-<a href="/providers/aws/appflow/connectors/">connectors</a>
+<a href="/providers/aws/appflow/connector_profiles_list_only/">connector_profiles_list_only</a><br />
+<a href="/providers/aws/appflow/connectors/">connectors</a><br />
+<a href="/providers/aws/appflow/connectors_list_only/">connectors_list_only</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/appflow/flows/">flows</a>
+<a href="/providers/aws/appflow/flow_tags/">flow_tags</a><br />
+<a href="/providers/aws/appflow/flows/">flows</a><br />
+<a href="/providers/aws/appflow/flows_list_only/">flows_list_only</a>
 </div>
 </div>

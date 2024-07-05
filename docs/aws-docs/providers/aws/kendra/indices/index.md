@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>index</code> resource or lists <code>
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -81,15 +81,26 @@ Creates, updates, deletes or gets an <code>index</code> resource or lists <code>
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>indices</code> in a region.
+Gets all <code>indices</code> in a region.
 ```sql
 SELECT
 region,
-id
+id,
+arn,
+description,
+server_side_encryption_configuration,
+tags,
+name,
+role_arn,
+edition,
+document_metadata_configurations,
+capacity_units,
+user_context_policy,
+user_token_configurations
 FROM aws.kendra.indices
 WHERE region = 'us-east-1';
 ```
-Gets all properties from an <code>index</code>.
+Gets all properties from an individual <code>index</code>.
 ```sql
 SELECT
 region,
@@ -108,7 +119,6 @@ user_token_configurations
 FROM aws.kendra.indices
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
-
 
 ## `INSERT` example
 

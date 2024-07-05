@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>logging_configuration</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>logging_configuration</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>logging_configurations</code> in a region.
+Gets all <code>logging_configurations</code> in a region.
 ```sql
 SELECT
 region,
-resource_arn
+resource_arn,
+log_destination_configs,
+redacted_fields,
+managed_by_firewall_manager,
+logging_filter
 FROM aws.wafv2.logging_configurations
 ;
 ```
-Gets all properties from a <code>logging_configuration</code>.
+Gets all properties from an individual <code>logging_configuration</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ logging_filter
 FROM aws.wafv2.logging_configurations
 WHERE data__Identifier = '<ResourceArn>';
 ```
-
 
 ## `INSERT` example
 

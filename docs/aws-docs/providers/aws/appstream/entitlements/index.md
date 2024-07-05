@@ -72,7 +72,7 @@ Creates, updates, deletes or gets an <code>entitlement</code> resource or lists 
 
 ## `SELECT` examples
 
-Gets all properties from an <code>entitlement</code>.
+Gets all properties from an individual <code>entitlement</code>.
 ```sql
 SELECT
 region,
@@ -86,7 +86,6 @@ last_modified_time
 FROM aws.appstream.entitlements
 WHERE region = 'us-east-1' AND data__Identifier = '<StackName>|<Name>';
 ```
-
 
 ## `INSERT` example
 

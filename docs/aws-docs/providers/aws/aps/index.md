@@ -20,7 +20,7 @@ The aps service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>3</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
 </div>
 </div>
 
@@ -29,10 +29,16 @@ The aps service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/aps/rule_groups_namespace_tags/">rule_groups_namespace_tags</a><br />
 <a href="/providers/aws/aps/rule_groups_namespaces/">rule_groups_namespaces</a><br />
+<a href="/providers/aws/aps/rule_groups_namespaces_list_only/">rule_groups_namespaces_list_only</a><br />
+<a href="/providers/aws/aps/scraper_tags/">scraper_tags</a><br />
 <a href="/providers/aws/aps/scrapers/">scrapers</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/aps/workspaces/">workspaces</a>
+<a href="/providers/aws/aps/scrapers_list_only/">scrapers_list_only</a><br />
+<a href="/providers/aws/aps/workspace_tags/">workspace_tags</a><br />
+<a href="/providers/aws/aps/workspaces/">workspaces</a><br />
+<a href="/providers/aws/aps/workspaces_list_only/">workspaces_list_only</a>
 </div>
 </div>

@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>delivery_destination</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>delivery_destination</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>delivery_destinations</code> in a region.
+Gets all <code>delivery_destinations</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+arn,
+destination_resource_arn,
+tags,
+delivery_destination_type,
+delivery_destination_policy
 FROM aws.logs.delivery_destinations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>delivery_destination</code>.
+Gets all properties from an individual <code>delivery_destination</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ delivery_destination_policy
 FROM aws.logs.delivery_destinations
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

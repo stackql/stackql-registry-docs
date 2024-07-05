@@ -66,7 +66,7 @@ Creates, updates, deletes or gets a <code>capability</code> resource or lists <c
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -78,15 +78,23 @@ Creates, updates, deletes or gets a <code>capability</code> resource or lists <c
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>capabilities</code> in a region.
+Gets all <code>capabilities</code> in a region.
 ```sql
 SELECT
 region,
-capability_id
+capability_arn,
+capability_id,
+configuration,
+created_at,
+instructions_documents,
+modified_at,
+name,
+tags,
+type
 FROM aws.b2bi.capabilities
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>capability</code>.
+Gets all properties from an individual <code>capability</code>.
 ```sql
 SELECT
 region,
@@ -102,7 +110,6 @@ type
 FROM aws.b2bi.capabilities
 WHERE region = 'us-east-1' AND data__Identifier = '<CapabilityId>';
 ```
-
 
 ## `INSERT` example
 

@@ -68,7 +68,7 @@ Creates, updates, deletes or gets a <code>type_activation</code> resource or lis
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -80,15 +80,25 @@ Creates, updates, deletes or gets a <code>type_activation</code> resource or lis
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>type_activations</code> in a region.
+Gets all <code>type_activations</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+execution_role_arn,
+publisher_id,
+logging_config,
+public_type_arn,
+auto_update,
+type_name_alias,
+version_bump,
+major_version,
+type_name,
+type
 FROM aws.cloudformation.type_activations
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>type_activation</code>.
+Gets all properties from an individual <code>type_activation</code>.
 ```sql
 SELECT
 region,
@@ -106,7 +116,6 @@ type
 FROM aws.cloudformation.type_activations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

@@ -65,7 +65,7 @@ Creates, updates, deletes or gets a <code>connector_profile</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -77,15 +77,22 @@ Creates, updates, deletes or gets a <code>connector_profile</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>connector_profiles</code> in a region.
+Gets all <code>connector_profiles</code> in a region.
 ```sql
 SELECT
 region,
-connector_profile_name
+connector_profile_arn,
+connector_label,
+connector_profile_name,
+kms_arn,
+connector_type,
+connection_mode,
+connector_profile_config,
+credentials_arn
 FROM aws.appflow.connector_profiles
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>connector_profile</code>.
+Gets all properties from an individual <code>connector_profile</code>.
 ```sql
 SELECT
 region,
@@ -100,7 +107,6 @@ credentials_arn
 FROM aws.appflow.connector_profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<ConnectorProfileName>';
 ```
-
 
 ## `INSERT` example
 

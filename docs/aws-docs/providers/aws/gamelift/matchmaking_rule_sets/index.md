@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>matchmaking_rule_set</code> resource o
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>matchmaking_rule_set</code> resource o
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>matchmaking_rule_sets</code> in a region.
+Gets all <code>matchmaking_rule_sets</code> in a region.
 ```sql
 SELECT
 region,
-name
+name,
+rule_set_body,
+creation_time,
+arn,
+tags
 FROM aws.gamelift.matchmaking_rule_sets
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>matchmaking_rule_set</code>.
+Gets all properties from an individual <code>matchmaking_rule_set</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ tags
 FROM aws.gamelift.matchmaking_rule_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
-
 
 ## `INSERT` example
 

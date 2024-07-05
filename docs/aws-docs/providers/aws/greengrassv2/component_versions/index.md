@@ -63,7 +63,7 @@ Creates, updates, deletes or gets a <code>component_version</code> resource or l
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -75,15 +75,20 @@ Creates, updates, deletes or gets a <code>component_version</code> resource or l
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>component_versions</code> in a region.
+Gets all <code>component_versions</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+component_name,
+component_version,
+inline_recipe,
+lambda_function,
+tags
 FROM aws.greengrassv2.component_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>component_version</code>.
+Gets all properties from an individual <code>component_version</code>.
 ```sql
 SELECT
 region,
@@ -96,7 +101,6 @@ tags
 FROM aws.greengrassv2.component_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

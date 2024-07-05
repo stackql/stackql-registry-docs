@@ -75,7 +75,7 @@ Creates, updates, deletes or gets a <code>guardrail</code> resource or lists <co
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -87,15 +87,32 @@ Creates, updates, deletes or gets a <code>guardrail</code> resource or lists <co
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>guardrails</code> in a region.
+Gets all <code>guardrails</code> in a region.
 ```sql
 SELECT
 region,
-guardrail_arn
+blocked_input_messaging,
+blocked_outputs_messaging,
+content_policy_config,
+created_at,
+description,
+failure_recommendations,
+guardrail_arn,
+guardrail_id,
+kms_key_arn,
+name,
+sensitive_information_policy_config,
+status,
+status_reasons,
+tags,
+topic_policy_config,
+updated_at,
+version,
+word_policy_config
 FROM aws.bedrock.guardrails
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>guardrail</code>.
+Gets all properties from an individual <code>guardrail</code>.
 ```sql
 SELECT
 region,
@@ -120,7 +137,6 @@ word_policy_config
 FROM aws.bedrock.guardrails
 WHERE region = 'us-east-1' AND data__Identifier = '<GuardrailArn>';
 ```
-
 
 ## `INSERT` example
 

@@ -55,7 +55,7 @@ Creates, updates, deletes or gets a <code>public_type_version</code> resource or
     <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -67,15 +67,22 @@ Creates, updates, deletes or gets a <code>public_type_version</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>public_type_versions</code> in a region.
+Gets all <code>public_type_versions</code> in a region.
 ```sql
 SELECT
 region,
-public_type_arn
+arn,
+type_version_arn,
+public_version_number,
+publisher_id,
+public_type_arn,
+type_name,
+log_delivery_bucket,
+type
 FROM aws.cloudformation.public_type_versions
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>public_type_version</code>.
+Gets all properties from an individual <code>public_type_version</code>.
 ```sql
 SELECT
 region,
@@ -90,7 +97,6 @@ type
 FROM aws.cloudformation.public_type_versions
 WHERE region = 'us-east-1' AND data__Identifier = '<PublicTypeArn>';
 ```
-
 
 ## `INSERT` example
 

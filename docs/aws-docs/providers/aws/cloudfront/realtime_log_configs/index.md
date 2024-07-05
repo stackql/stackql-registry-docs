@@ -62,7 +62,7 @@ Creates, updates, deletes or gets a <code>realtime_log_config</code> resource or
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -74,15 +74,19 @@ Creates, updates, deletes or gets a <code>realtime_log_config</code> resource or
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>realtime_log_configs</code> in a region.
+Gets all <code>realtime_log_configs</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+end_points,
+fields,
+name,
+sampling_rate
 FROM aws.cloudfront.realtime_log_configs
 ;
 ```
-Gets all properties from a <code>realtime_log_config</code>.
+Gets all properties from an individual <code>realtime_log_config</code>.
 ```sql
 SELECT
 region,
@@ -94,7 +98,6 @@ sampling_rate
 FROM aws.cloudfront.realtime_log_configs
 WHERE data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 

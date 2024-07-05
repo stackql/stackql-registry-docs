@@ -20,7 +20,7 @@ The appconfig service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>17</b></span><br />
 </div>
 </div>
 
@@ -29,13 +29,24 @@ The appconfig service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/appconfig/application_tags/">application_tags</a><br />
 <a href="/providers/aws/appconfig/applications/">applications</a><br />
+<a href="/providers/aws/appconfig/applications_list_only/">applications_list_only</a><br />
+<a href="/providers/aws/appconfig/configuration_profile_tags/">configuration_profile_tags</a><br />
 <a href="/providers/aws/appconfig/configuration_profiles/">configuration_profiles</a><br />
-<a href="/providers/aws/appconfig/environments/">environments</a>
+<a href="/providers/aws/appconfig/configuration_profiles_list_only/">configuration_profiles_list_only</a><br />
+<a href="/providers/aws/appconfig/environment_tags/">environment_tags</a><br />
+<a href="/providers/aws/appconfig/environments/">environments</a><br />
+<a href="/providers/aws/appconfig/environments_list_only/">environments_list_only</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/appconfig/extension_association_tags/">extension_association_tags</a><br />
 <a href="/providers/aws/appconfig/extension_associations/">extension_associations</a><br />
+<a href="/providers/aws/appconfig/extension_associations_list_only/">extension_associations_list_only</a><br />
+<a href="/providers/aws/appconfig/extension_tags/">extension_tags</a><br />
 <a href="/providers/aws/appconfig/extensions/">extensions</a><br />
-<a href="/providers/aws/appconfig/hosted_configuration_versions/">hosted_configuration_versions</a>
+<a href="/providers/aws/appconfig/extensions_list_only/">extensions_list_only</a><br />
+<a href="/providers/aws/appconfig/hosted_configuration_versions/">hosted_configuration_versions</a><br />
+<a href="/providers/aws/appconfig/hosted_configuration_versions_list_only/">hosted_configuration_versions_list_only</a>
 </div>
 </div>

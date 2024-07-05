@@ -20,7 +20,7 @@ The codegurureviewer service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total resources:&nbsp;<b>3</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,10 @@ The codegurureviewer service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/codegurureviewer/repository_association_tags/">repository_association_tags</a><br />
 <a href="/providers/aws/codegurureviewer/repository_associations/">repository_associations</a>
 </div>
 <div class="providerDocColumn">
-
+<a href="/providers/aws/codegurureviewer/repository_associations_list_only/">repository_associations_list_only</a>
 </div>
 </div>

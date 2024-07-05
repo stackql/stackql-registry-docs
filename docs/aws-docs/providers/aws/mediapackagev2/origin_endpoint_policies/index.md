@@ -69,7 +69,7 @@ Creates, updates, deletes or gets an <code>origin_endpoint_policy</code> resourc
 
 ## `SELECT` examples
 
-Gets all properties from an <code>origin_endpoint_policy</code>.
+Gets all properties from an individual <code>origin_endpoint_policy</code>.
 ```sql
 SELECT
 region,
@@ -80,7 +80,6 @@ policy
 FROM aws.mediapackagev2.origin_endpoint_policies
 WHERE region = 'us-east-1' AND data__Identifier = '<ChannelGroupName>|<ChannelName>|<OriginEndpointName>';
 ```
-
 
 ## `INSERT` example
 

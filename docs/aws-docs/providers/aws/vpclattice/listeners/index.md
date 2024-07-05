@@ -67,7 +67,7 @@ Creates, updates, deletes or gets a <code>listener</code> resource or lists <cod
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resource" /></td>
+    <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
   </tr>
@@ -79,15 +79,24 @@ Creates, updates, deletes or gets a <code>listener</code> resource or lists <cod
 </tbody></table>
 
 ## `SELECT` examples
-List all <code>listeners</code> in a region.
+Gets all <code>listeners</code> in a region.
 ```sql
 SELECT
 region,
-arn
+arn,
+default_action,
+id,
+name,
+port,
+protocol,
+service_arn,
+service_id,
+service_identifier,
+tags
 FROM aws.vpclattice.listeners
 WHERE region = 'us-east-1';
 ```
-Gets all properties from a <code>listener</code>.
+Gets all properties from an individual <code>listener</code>.
 ```sql
 SELECT
 region,
@@ -104,7 +113,6 @@ tags
 FROM aws.vpclattice.listeners
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
-
 
 ## `INSERT` example
 
