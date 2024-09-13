@@ -1,3 +1,4 @@
+
 ---
 title: response_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - response_policies
   - dns
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>response_policy</code> resource or lists <code>response_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,6 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | User labels. |
 | <CopyableCode code="networks" /> | `array` | List of network names specifying networks to which this policy is applied. |
 | <CopyableCode code="responsePolicyName" /> | `string` | User assigned name for this Response Policy. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,5 +48,112 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new Response Policy |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, responsePolicy" /> | Deletes a previously created Response Policy. Fails if the response policy is non-empty or still being referenced by a network. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, responsePolicy" /> | Applies a partial update to an existing Response Policy. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="project, responsePolicy" /> | Updates an existing Response Policy. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Enumerates all Response Policies associated with a project. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, responsePolicy" /> | Updates an existing Response Policy. |
+
+## `SELECT` examples
+
+Enumerates all Response Policies associated with a project.
+
+```sql
+SELECT
+id,
+description,
+gkeClusters,
+kind,
+labels,
+networks,
+responsePolicyName
+FROM google.dns.response_policies
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>response_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dns.response_policies (
+project,
+id,
+responsePolicyName,
+description,
+networks,
+gkeClusters,
+labels,
+kind
+)
+SELECT 
+'{{ project }}',
+'{{ id }}',
+'{{ responsePolicyName }}',
+'{{ description }}',
+'{{ networks }}',
+'{{ gkeClusters }}',
+'{{ labels }}',
+'{{ kind }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: id
+        value: '{{ id }}'
+      - name: responsePolicyName
+        value: '{{ responsePolicyName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: networks
+        value: '{{ networks }}'
+      - name: gkeClusters
+        value: '{{ gkeClusters }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: kind
+        value: '{{ kind }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a response_policy only if the necessary resources are available.
+
+```sql
+UPDATE google.dns.response_policies
+SET 
+id = '{{ id }}',
+responsePolicyName = '{{ responsePolicyName }}',
+description = '{{ description }}',
+networks = '{{ networks }}',
+gkeClusters = '{{ gkeClusters }}',
+labels = '{{ labels }}',
+kind = '{{ kind }}'
+WHERE 
+project = '{{ project }}'
+AND responsePolicy = '{{ responsePolicy }}';
+```
+
+## `DELETE` example
+
+Deletes the specified response_policy resource.
+
+```sql
+DELETE FROM google.dns.response_policies
+WHERE project = '{{ project }}'
+AND responsePolicy = '{{ responsePolicy }}';
+```

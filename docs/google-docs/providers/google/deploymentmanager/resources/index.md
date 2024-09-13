@@ -1,3 +1,4 @@
+
 ---
 title: resources
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - resources
   - deploymentmanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>resource</code> resource or lists <code>resources</code> in a region
 
 ## Overview
 <table><tbody>
@@ -42,9 +44,32 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. Update timestamp in RFC3339 text format. |
 | <CopyableCode code="url" /> | `string` | Output only. The URL of the actual resource. |
 | <CopyableCode code="warnings" /> | `array` | Output only. If warning messages are generated during processing of this resource, this field will be populated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deployment, project, resource" /> | Gets information about a single resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="deployment, project" /> | Lists all resources in a given deployment. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Lists all resources in a given deployment. |
+
+## `SELECT` examples
+
+Lists all resources in a given deployment.
+
+```sql
+SELECT
+id,
+name,
+accessControl,
+finalProperties,
+insertTime,
+manifest,
+properties,
+type,
+update,
+updateTime,
+url,
+warnings
+FROM google.deploymentmanager.resources
+WHERE deployment = '{{ deployment }}'
+AND project = '{{ project }}'; 
+```

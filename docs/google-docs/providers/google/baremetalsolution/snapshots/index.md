@@ -1,3 +1,4 @@
+
 ---
 title: snapshots
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - snapshots
   - baremetalsolution
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>snapshot</code> resource or lists <code>snapshots</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation time of the snapshot. |
 | <CopyableCode code="storageVolume" /> | `string` | Output only. The name of the volume which this snapshot belongs to. |
 | <CopyableCode code="type" /> | `string` | Output only. The type of the snapshot which indicates whether it was scheduled or manual/ad-hoc. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,5 +46,96 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, volumesId" /> | Retrieves the list of snapshots for the specified volume. Returns a response with an empty list of snapshots if called for a non-boot volume. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, volumesId" /> | Takes a snapshot of a boot volume. Returns INVALID_ARGUMENT if called for a non-boot volume. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, snapshotsId, volumesId" /> | Deletes a volume snapshot. Returns INVALID_ARGUMENT if called for a non-boot volume. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, volumesId" /> | Retrieves the list of snapshots for the specified volume. Returns a response with an empty list of snapshots if called for a non-boot volume. |
 | <CopyableCode code="restore_volume_snapshot" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, snapshotsId, volumesId" /> | Uses the specified snapshot to restore its parent volume. Returns INVALID_ARGUMENT if called for a non-boot volume. |
+
+## `SELECT` examples
+
+Retrieves the list of snapshots for the specified volume. Returns a response with an empty list of snapshots if called for a non-boot volume.
+
+```sql
+SELECT
+id,
+name,
+description,
+createTime,
+storageVolume,
+type
+FROM google.baremetalsolution.snapshots
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND volumesId = '{{ volumesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>snapshots</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.baremetalsolution.snapshots (
+locationsId,
+projectsId,
+volumesId,
+name,
+id,
+description,
+createTime,
+storageVolume,
+type
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ volumesId }}',
+'{{ name }}',
+'{{ id }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ storageVolume }}',
+'{{ type }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: id
+        value: '{{ id }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: storageVolume
+        value: '{{ storageVolume }}'
+      - name: type
+        value: '{{ type }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified snapshot resource.
+
+```sql
+DELETE FROM google.baremetalsolution.snapshots
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND snapshotsId = '{{ snapshotsId }}'
+AND volumesId = '{{ volumesId }}';
+```

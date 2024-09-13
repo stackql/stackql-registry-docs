@@ -1,3 +1,4 @@
+
 ---
 title: actions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - actions
   - connectors
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>action</code> resource or lists <code>actions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,10 +39,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="inputParameters" /> | `array` | List containing input parameter metadata. |
 | <CopyableCode code="resultJsonSchema" /> | `object` | JsonSchema representation of schema metadata |
 | <CopyableCode code="resultMetadata" /> | `array` | List containing the metadata of result fields. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="actionsId, connectionsId, locationsId, projectsId" /> | Gets the schema of the given action. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Gets the schema of all the actions supported by the connector. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Gets the schema of all the actions supported by the connector. |
 | <CopyableCode code="execute" /> | `EXEC` | <CopyableCode code="actionsId, connectionsId, locationsId, projectsId" /> | Executes an action with the name specified in the request. The input parameters for executing the action are passed through the body of the ExecuteAction request. |
+
+## `SELECT` examples
+
+Gets the schema of all the actions supported by the connector.
+
+```sql
+SELECT
+name,
+description,
+displayName,
+inputJsonSchema,
+inputParameters,
+resultJsonSchema,
+resultMetadata
+FROM google.connectors.actions
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: files
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - files
   - artifactregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>file</code> resource or lists <code>files</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,11 +39,42 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="owner" /> | `string` | The name of the Package or Version that owns this file, if any. |
 | <CopyableCode code="sizeBytes" /> | `string` | The size of the File in bytes. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time when the File was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="filesId, locationsId, projectsId, repositoriesId" /> | Gets a file. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists files. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="filesId, locationsId, projectsId, repositoriesId" /> | Deletes a file and all of its content. It is only allowed on generic repositories. The returned operation will complete once the file has been deleted. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists files. |
 | <CopyableCode code="download" /> | `EXEC` | <CopyableCode code="filesId, locationsId, projectsId, repositoriesId" /> | Download a file. |
+
+## `SELECT` examples
+
+Lists files.
+
+```sql
+SELECT
+name,
+createTime,
+fetchTime,
+hashes,
+owner,
+sizeBytes,
+updateTime
+FROM google.artifactregistry.files
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified file resource.
+
+```sql
+DELETE FROM google.artifactregistry.files
+WHERE filesId = '{{ filesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
+```

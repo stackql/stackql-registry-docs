@@ -1,3 +1,4 @@
+
 ---
 title: network_peerings
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - network_peerings
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>network_peering</code> resource or lists <code>network_peerings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,13 +41,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="importCustomRoutes" /> | `boolean` | Optional. True if custom routes are imported from the peered network; false otherwise. The default value is true. |
 | <CopyableCode code="importCustomRoutesWithPublicIp" /> | `boolean` | Optional. True if all subnet routes with public IP address range are imported; false otherwise. The default value is true. IPv4 special-use ranges (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always imported to peers and are not controlled by this field. |
 | <CopyableCode code="peerMtu" /> | `integer` | Optional. Maximum transmission unit (MTU) in bytes. The default value is `1500`. If a value of `0` is provided for this field, VMware Engine uses the default value instead. |
-| <CopyableCode code="peerNetwork" /> | `string` | Required. The relative resource name of the network to peer with a standard VMware Engine network. The provided network can be a consumer VPC network or another standard VMware Engine network. If the `peer_network_type` is VMWARE_ENGINE_NETWORK, specify the name in the form: `projects/&#123;project&#125;/locations/global/vmwareEngineNetworks/&#123;vmware_engine_network_id&#125;`. Otherwise specify the name in the form: `projects/&#123;project&#125;/global/networks/&#123;network_id&#125;`, where `&#123;project&#125;` can either be a project number or a project ID. |
+| <CopyableCode code="peerNetwork" /> | `string` | Required. The relative resource name of the network to peer with a standard VMware Engine network. The provided network can be a consumer VPC network or another standard VMware Engine network. If the `peer_network_type` is VMWARE_ENGINE_NETWORK, specify the name in the form: `projects/{project}/locations/global/vmwareEngineNetworks/{vmware_engine_network_id}`. Otherwise specify the name in the form: `projects/{project}/global/networks/{network_id}`, where `{project}` can either be a project number or a project ID. |
 | <CopyableCode code="peerNetworkType" /> | `string` | Required. The type of the network to peer with the VMware Engine network. |
 | <CopyableCode code="state" /> | `string` | Output only. State of the network peering. This field has a value of 'ACTIVE' when there's a matching configuration in the peer network. New values may be added to this enum when appropriate. |
 | <CopyableCode code="stateDetails" /> | `string` | Output only. Output Only. Details about the current state of the network peering. |
 | <CopyableCode code="uid" /> | `string` | Output only. System-generated unique identifier for the resource. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Last update time of this resource. |
-| <CopyableCode code="vmwareEngineNetwork" /> | `string` | Required. The relative resource name of the VMware Engine network. Specify the name in the following form: `projects/&#123;project&#125;/locations/&#123;location&#125;/vmwareEngineNetworks/&#123;vmware_engine_network_id&#125;` where `&#123;project&#125;` can either be a project number or a project ID. |
+| <CopyableCode code="vmwareEngineNetwork" /> | `string` | Required. The relative resource name of the VMware Engine network. Specify the name in the following form: `projects/{project}/locations/{location}/vmwareEngineNetworks/{vmware_engine_network_id}` where `{project}` can either be a project number or a project ID. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,4 +57,170 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new network peering between the peer network and VMware Engine network provided in a `NetworkPeering` resource. NetworkPeering is a global resource and location can only be global. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, networkPeeringsId, projectsId" /> | Deletes a `NetworkPeering` resource. When a network peering is deleted for a VMware Engine network, the peer network becomes inaccessible to that VMware Engine network. NetworkPeering is a global resource and location can only be global. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, networkPeeringsId, projectsId" /> | Modifies a `NetworkPeering` resource. Only the `description` field can be updated. Only fields specified in `updateMask` are applied. NetworkPeering is a global resource and location can only be global. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists `NetworkPeering` resources in a given project. NetworkPeering is a global resource and location can only be global. |
+
+## `SELECT` examples
+
+Lists `NetworkPeering` resources in a given project. NetworkPeering is a global resource and location can only be global.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+exchangeSubnetRoutes,
+exportCustomRoutes,
+exportCustomRoutesWithPublicIp,
+importCustomRoutes,
+importCustomRoutesWithPublicIp,
+peerMtu,
+peerNetwork,
+peerNetworkType,
+state,
+stateDetails,
+uid,
+updateTime,
+vmwareEngineNetwork
+FROM google.vmwareengine.network_peerings
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>network_peerings</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.vmwareengine.network_peerings (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+peerNetwork,
+exportCustomRoutes,
+importCustomRoutes,
+exchangeSubnetRoutes,
+exportCustomRoutesWithPublicIp,
+importCustomRoutesWithPublicIp,
+state,
+stateDetails,
+peerMtu,
+peerNetworkType,
+uid,
+vmwareEngineNetwork,
+description
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ peerNetwork }}',
+true|false,
+true|false,
+true|false,
+true|false,
+true|false,
+'{{ state }}',
+'{{ stateDetails }}',
+'{{ peerMtu }}',
+'{{ peerNetworkType }}',
+'{{ uid }}',
+'{{ vmwareEngineNetwork }}',
+'{{ description }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: peerNetwork
+        value: '{{ peerNetwork }}'
+      - name: exportCustomRoutes
+        value: '{{ exportCustomRoutes }}'
+      - name: importCustomRoutes
+        value: '{{ importCustomRoutes }}'
+      - name: exchangeSubnetRoutes
+        value: '{{ exchangeSubnetRoutes }}'
+      - name: exportCustomRoutesWithPublicIp
+        value: '{{ exportCustomRoutesWithPublicIp }}'
+      - name: importCustomRoutesWithPublicIp
+        value: '{{ importCustomRoutesWithPublicIp }}'
+      - name: state
+        value: '{{ state }}'
+      - name: stateDetails
+        value: '{{ stateDetails }}'
+      - name: peerMtu
+        value: '{{ peerMtu }}'
+      - name: peerNetworkType
+        value: '{{ peerNetworkType }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: vmwareEngineNetwork
+        value: '{{ vmwareEngineNetwork }}'
+      - name: description
+        value: '{{ description }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a network_peering only if the necessary resources are available.
+
+```sql
+UPDATE google.vmwareengine.network_peerings
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+peerNetwork = '{{ peerNetwork }}',
+exportCustomRoutes = true|false,
+importCustomRoutes = true|false,
+exchangeSubnetRoutes = true|false,
+exportCustomRoutesWithPublicIp = true|false,
+importCustomRoutesWithPublicIp = true|false,
+state = '{{ state }}',
+stateDetails = '{{ stateDetails }}',
+peerMtu = '{{ peerMtu }}',
+peerNetworkType = '{{ peerNetworkType }}',
+uid = '{{ uid }}',
+vmwareEngineNetwork = '{{ vmwareEngineNetwork }}',
+description = '{{ description }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND networkPeeringsId = '{{ networkPeeringsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified network_peering resource.
+
+```sql
+DELETE FROM google.vmwareengine.network_peerings
+WHERE locationsId = '{{ locationsId }}'
+AND networkPeeringsId = '{{ networkPeeringsId }}'
+AND projectsId = '{{ projectsId }}';
+```

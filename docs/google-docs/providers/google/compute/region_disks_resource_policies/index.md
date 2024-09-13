@@ -1,3 +1,4 @@
+
 ---
 title: region_disks_resource_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_disks_resource_policies
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_disks_resource_policy</code> resource or lists <code>region_disks_resource_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,9 +30,64 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="add_resource_policies" /> | `EXEC` | <CopyableCode code="disk, project, region" /> | Adds existing resource policies to a regional disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. |
-| <CopyableCode code="remove_resource_policies" /> | `EXEC` | <CopyableCode code="disk, project, region" /> | Removes resource policies from a regional disk. |
+| <CopyableCode code="add_resource_policies" /> | `INSERT` | <CopyableCode code="disk, project, region" /> | Adds existing resource policies to a regional disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. |
+| <CopyableCode code="remove_resource_policies" /> | `DELETE` | <CopyableCode code="disk, project, region" /> | Removes resource policies from a regional disk. |
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>region_disks_resource_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.region_disks_resource_policies (
+disk,
+project,
+region,
+resourcePolicies
+)
+SELECT 
+'{{ disk }}',
+'{{ project }}',
+'{{ region }}',
+'{{ resourcePolicies }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: resourcePolicies
+        value: '{{ resourcePolicies }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified region_disks_resource_policy resource.
+
+```sql
+DELETE FROM google.compute.region_disks_resource_policies
+WHERE disk = '{{ disk }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

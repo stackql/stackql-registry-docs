@@ -1,3 +1,4 @@
+
 ---
 title: photos_media
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - photos_media
   - places
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>photos_media</code> resource or lists <code>photos_media</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,9 +32,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of a photo media in the format: `places/&#123;place_id&#125;/photos/&#123;photo_reference&#125;/media`. |
+| <CopyableCode code="name" /> | `string` | The resource name of a photo media in the format: `places/{place_id}/photos/{photo_reference}/media`. |
 | <CopyableCode code="photoUri" /> | `string` | A short-lived uri that can be used to render the photo. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_media" /> | `SELECT` | <CopyableCode code="photosId, placesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_media" /> | `SELECT` | <CopyableCode code="photosId, placesId" /> | Get a photo media with a photo reference string. |
+
+## `SELECT` examples
+
+Get a photo media with a photo reference string.
+
+```sql
+SELECT
+name,
+photoUri
+FROM google.places.photos_media
+WHERE photosId = '{{ photosId }}'
+AND placesId = '{{ placesId }}'; 
+```

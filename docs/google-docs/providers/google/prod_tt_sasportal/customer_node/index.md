@@ -1,3 +1,4 @@
+
 ---
 title: customer_node
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - customer_node
   - prod_tt_sasportal
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>customer_node</code> resource or lists <code>customer_node</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,7 +35,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. Resource name. |
 | <CopyableCode code="displayName" /> | `string` | The node's display name. |
 | <CopyableCode code="sasUserIds" /> | `array` | User ids used by the devices belonging to this node. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="customers_nodes_get" /> | `SELECT` | <CopyableCode code="customersId, nodesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="customers_nodes_get" /> | `SELECT` | <CopyableCode code="customersId, nodesId" /> | Returns a requested node. |
+
+## `SELECT` examples
+
+Returns a requested node.
+
+```sql
+SELECT
+name,
+displayName,
+sasUserIds
+FROM google.prod_tt_sasportal.customer_node
+WHERE customersId = '{{ customersId }}'
+AND nodesId = '{{ nodesId }}'; 
+```

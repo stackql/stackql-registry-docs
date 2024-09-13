@@ -1,3 +1,4 @@
+
 ---
 title: pipelines
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - pipelines
   - datapipelines
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>pipeline</code> resource or lists <code>pipelines</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,6 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Required. The state of the pipeline. When the pipeline is created, the state is set to 'PIPELINE_STATE_ACTIVE' by default. State changes can be requested by setting the state to stopping, paused, or resuming. State cannot be changed through UpdatePipeline requests. |
 | <CopyableCode code="type" /> | `string` | Required. The type of the pipeline. This field affects the scheduling of the pipeline and the type of metrics to show for the pipeline. |
 | <CopyableCode code="workload" /> | `object` | Workload details for creating the pipeline jobs. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,6 +52,142 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a pipeline. For a batch pipeline, you can pass scheduler information. Data Pipelines uses the scheduler information to create an internal scheduler that runs jobs periodically. If the internal scheduler is not configured, you can use RunPipeline to run jobs. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, pipelinesId, projectsId" /> | Deletes a pipeline. If a scheduler job is attached to the pipeline, it will be deleted. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, pipelinesId, projectsId" /> | Updates a pipeline. If successful, the updated Pipeline is returned. Returns `NOT_FOUND` if the pipeline doesn't exist. If UpdatePipeline does not return successfully, you can retry the UpdatePipeline request until you receive a successful response. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have permission to access it. |
 | <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="locationsId, pipelinesId, projectsId" /> | Creates a job for the specified pipeline directly. You can use this method when the internal scheduler is not configured and you want to trigger the job directly or through an external system. Returns a "NOT_FOUND" error if the pipeline doesn't exist. Returns a "FORBIDDEN" error if the user doesn't have permission to access the pipeline or run jobs for the pipeline. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="locationsId, pipelinesId, projectsId" /> | Freezes pipeline execution permanently. If there's a corresponding scheduler entry, it's deleted, and the pipeline state is changed to "ARCHIVED". However, pipeline metadata is retained. |
+
+## `SELECT` examples
+
+Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have permission to access it.
+
+```sql
+SELECT
+name,
+createTime,
+displayName,
+jobCount,
+lastUpdateTime,
+pipelineSources,
+scheduleInfo,
+schedulerServiceAccountEmail,
+state,
+type,
+workload
+FROM google.datapipelines.pipelines
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>pipelines</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.datapipelines.pipelines (
+locationsId,
+projectsId,
+pipelineSources,
+createTime,
+displayName,
+lastUpdateTime,
+jobCount,
+workload,
+type,
+scheduleInfo,
+schedulerServiceAccountEmail,
+state,
+name
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ pipelineSources }}',
+'{{ createTime }}',
+'{{ displayName }}',
+'{{ lastUpdateTime }}',
+'{{ jobCount }}',
+'{{ workload }}',
+'{{ type }}',
+'{{ scheduleInfo }}',
+'{{ schedulerServiceAccountEmail }}',
+'{{ state }}',
+'{{ name }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: pipelineSources
+        value: '{{ pipelineSources }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: lastUpdateTime
+        value: '{{ lastUpdateTime }}'
+      - name: jobCount
+        value: '{{ jobCount }}'
+      - name: workload
+        value: '{{ workload }}'
+      - name: type
+        value: '{{ type }}'
+      - name: scheduleInfo
+        value: '{{ scheduleInfo }}'
+      - name: schedulerServiceAccountEmail
+        value: '{{ schedulerServiceAccountEmail }}'
+      - name: state
+        value: '{{ state }}'
+      - name: name
+        value: '{{ name }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a pipeline only if the necessary resources are available.
+
+```sql
+UPDATE google.datapipelines.pipelines
+SET 
+pipelineSources = '{{ pipelineSources }}',
+createTime = '{{ createTime }}',
+displayName = '{{ displayName }}',
+lastUpdateTime = '{{ lastUpdateTime }}',
+jobCount = '{{ jobCount }}',
+workload = '{{ workload }}',
+type = '{{ type }}',
+scheduleInfo = '{{ scheduleInfo }}',
+schedulerServiceAccountEmail = '{{ schedulerServiceAccountEmail }}',
+state = '{{ state }}',
+name = '{{ name }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND pipelinesId = '{{ pipelinesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified pipeline resource.
+
+```sql
+DELETE FROM google.datapipelines.pipelines
+WHERE locationsId = '{{ locationsId }}'
+AND pipelinesId = '{{ pipelinesId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: group_stats
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - group_stats
   - clouderrorreporting
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>group_stat</code> resource or lists <code>group_stats</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,8 +41,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="numAffectedServices" /> | `integer` | The total number of services with a non-zero error count for the given filter criteria. |
 | <CopyableCode code="representative" /> | `object` | An error event which is returned by the Error Reporting system. |
 | <CopyableCode code="timedCounts" /> | `array` | Approximate number of occurrences over time. Timed counts returned by ListGroups are guaranteed to be: - Inside the requested time interval - Non-overlapping, and - Ordered by ascending time. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists the specified groups. |
+
+## `SELECT` examples
+
+Lists the specified groups.
+
+```sql
+SELECT
+affectedServices,
+affectedUsersCount,
+count,
+firstSeenTime,
+group,
+lastSeenTime,
+numAffectedServices,
+representative,
+timedCounts
+FROM google.clouderrorreporting.group_stats
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: instances_network_interface
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances_network_interface
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instances_network_interface</code> resource or lists <code>instances_network_interface</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,40 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="update_network_interface" /> | `EXEC` | <CopyableCode code="instance, networkInterface, project, zone" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="update_network_interface" /> | `UPDATE` | <CopyableCode code="instance, networkInterface, project, zone" /> | Updates an instance's network interface. This method can only update an interface's alias IP range and attached network. See Modifying alias IP ranges for an existing instance for instructions on changing alias IP ranges. See Migrating a VM between networks for instructions on migrating an interface. This method follows PATCH semantics. |
+
+## `UPDATE` example
+
+Updates a instances_network_interface only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.instances_network_interface
+SET 
+kind = '{{ kind }}',
+network = '{{ network }}',
+subnetwork = '{{ subnetwork }}',
+networkIP = '{{ networkIP }}',
+ipv6Address = '{{ ipv6Address }}',
+internalIpv6PrefixLength = '{{ internalIpv6PrefixLength }}',
+name = '{{ name }}',
+accessConfigs = '{{ accessConfigs }}',
+ipv6AccessConfigs = '{{ ipv6AccessConfigs }}',
+aliasIpRanges = '{{ aliasIpRanges }}',
+fingerprint = '{{ fingerprint }}',
+stackType = '{{ stackType }}',
+ipv6AccessType = '{{ ipv6AccessType }}',
+queueCount = '{{ queueCount }}',
+nicType = '{{ nicType }}',
+networkAttachment = '{{ networkAttachment }}'
+WHERE 
+instance = '{{ instance }}'
+AND networkInterface = '{{ networkInterface }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```

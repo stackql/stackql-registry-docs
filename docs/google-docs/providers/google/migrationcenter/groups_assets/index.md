@@ -1,3 +1,4 @@
+
 ---
 title: groups_assets
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - groups_assets
   - migrationcenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>groups_asset</code> resource or lists <code>groups_assets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,9 +30,72 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="add_assets" /> | `EXEC` | <CopyableCode code="groupsId, locationsId, projectsId" /> | Adds assets to a group. |
-| <CopyableCode code="remove_assets" /> | `EXEC` | <CopyableCode code="groupsId, locationsId, projectsId" /> | Removes assets from a group. |
+| <CopyableCode code="add_assets" /> | `INSERT` | <CopyableCode code="groupsId, locationsId, projectsId" /> | Adds assets to a group. |
+| <CopyableCode code="remove_assets" /> | `DELETE` | <CopyableCode code="groupsId, locationsId, projectsId" /> | Removes assets from a group. |
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>groups_assets</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.migrationcenter.groups_assets (
+groupsId,
+locationsId,
+projectsId,
+requestId,
+assets,
+allowExisting
+)
+SELECT 
+'{{ groupsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ requestId }}',
+'{{ assets }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: requestId
+        value: '{{ requestId }}'
+      - name: assets
+        value: '{{ assets }}'
+      - name: allowExisting
+        value: '{{ allowExisting }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified groups_asset resource.
+
+```sql
+DELETE FROM google.migrationcenter.groups_assets
+WHERE groupsId = '{{ groupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

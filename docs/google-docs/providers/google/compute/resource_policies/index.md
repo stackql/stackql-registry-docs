@@ -1,3 +1,4 @@
+
 ---
 title: resource_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - resource_policies
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>resource_policy</code> resource or lists <code>resource_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined fully-qualified URL for this resource. |
 | <CopyableCode code="snapshotSchedulePolicy" /> | `object` | A snapshot schedule policy specifies when and how frequently snapshots are to be created for the target disk. Also specifies how many and how long these scheduled snapshots should be retained. |
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of resource policy creation. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,4 +55,151 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a new resource policy. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, resourcePolicy" /> | Deletes the specified resource policy. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, region, resourcePolicy" /> | Modify the specified resource policy. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+diskConsistencyGroupPolicy,
+groupPlacementPolicy,
+instanceSchedulePolicy,
+kind,
+region,
+resourceStatus,
+selfLink,
+snapshotSchedulePolicy,
+status
+FROM google.compute.resource_policies
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>resource_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.resource_policies (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+selfLink,
+region,
+description,
+name,
+snapshotSchedulePolicy,
+groupPlacementPolicy,
+instanceSchedulePolicy,
+diskConsistencyGroupPolicy,
+status,
+resourceStatus
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ selfLink }}',
+'{{ region }}',
+'{{ description }}',
+'{{ name }}',
+'{{ snapshotSchedulePolicy }}',
+'{{ groupPlacementPolicy }}',
+'{{ instanceSchedulePolicy }}',
+'{{ diskConsistencyGroupPolicy }}',
+'{{ status }}',
+'{{ resourceStatus }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: region
+        value: '{{ region }}'
+      - name: description
+        value: '{{ description }}'
+      - name: name
+        value: '{{ name }}'
+      - name: snapshotSchedulePolicy
+        value: '{{ snapshotSchedulePolicy }}'
+      - name: groupPlacementPolicy
+        value: '{{ groupPlacementPolicy }}'
+      - name: instanceSchedulePolicy
+        value: '{{ instanceSchedulePolicy }}'
+      - name: diskConsistencyGroupPolicy
+        value: '{{ diskConsistencyGroupPolicy }}'
+      - name: status
+        value: '{{ status }}'
+      - name: resourceStatus
+        value: '{{ resourceStatus }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a resource_policy only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.resource_policies
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+selfLink = '{{ selfLink }}',
+region = '{{ region }}',
+description = '{{ description }}',
+name = '{{ name }}',
+snapshotSchedulePolicy = '{{ snapshotSchedulePolicy }}',
+groupPlacementPolicy = '{{ groupPlacementPolicy }}',
+instanceSchedulePolicy = '{{ instanceSchedulePolicy }}',
+diskConsistencyGroupPolicy = '{{ diskConsistencyGroupPolicy }}',
+status = '{{ status }}',
+resourceStatus = '{{ resourceStatus }}'
+WHERE 
+project = '{{ project }}'
+AND region = '{{ region }}'
+AND resourcePolicy = '{{ resourcePolicy }}';
+```
+
+## `DELETE` example
+
+Deletes the specified resource_policy resource.
+
+```sql
+DELETE FROM google.compute.resource_policies
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND resourcePolicy = '{{ resourcePolicy }}';
+```

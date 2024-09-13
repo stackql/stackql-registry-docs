@@ -1,3 +1,4 @@
+
 ---
 title: network_endpoint_groups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - network_endpoint_groups
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>network_endpoint_group</code> resource or lists <code>network_endpoint_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -49,6 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="size" /> | `integer` | [Output only] Number of network endpoints in the network endpoint group. |
 | <CopyableCode code="subnetwork" /> | `string` | Optional URL of the subnetwork to which all network endpoints in the NEG belong. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] The URL of the zone where the network endpoint group is located. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -57,6 +60,157 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves the list of network endpoint groups that are located in the specified project and zone. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates a network endpoint group in the specified project using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="networkEndpointGroup, project, zone" /> | Deletes the specified network endpoint group. The network endpoints in the NEG and the VM instances they belong to are not terminated when the NEG is deleted. Note that the NEG cannot be deleted if there are backend services referencing it. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves the list of network endpoint groups and sorts them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="attach_network_endpoints" /> | `EXEC` | <CopyableCode code="networkEndpointGroup, project, zone" /> | Attach a list of network endpoints to the specified network endpoint group. |
 | <CopyableCode code="detach_network_endpoints" /> | `EXEC` | <CopyableCode code="networkEndpointGroup, project, zone" /> | Detach a list of network endpoints from the specified network endpoint group. |
+
+## `SELECT` examples
+
+Retrieves the list of network endpoint groups and sorts them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+annotations,
+appEngine,
+cloudFunction,
+cloudRun,
+creationTimestamp,
+defaultPort,
+kind,
+network,
+networkEndpointType,
+pscData,
+pscTargetService,
+region,
+selfLink,
+size,
+subnetwork,
+zone
+FROM google.compute.network_endpoint_groups
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>network_endpoint_groups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.network_endpoint_groups (
+project,
+zone,
+kind,
+id,
+creationTimestamp,
+selfLink,
+name,
+description,
+networkEndpointType,
+size,
+region,
+zone,
+network,
+subnetwork,
+defaultPort,
+annotations,
+cloudRun,
+appEngine,
+cloudFunction,
+pscTargetService,
+pscData
+)
+SELECT 
+'{{ project }}',
+'{{ zone }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ selfLink }}',
+'{{ name }}',
+'{{ description }}',
+'{{ networkEndpointType }}',
+'{{ size }}',
+'{{ region }}',
+'{{ zone }}',
+'{{ network }}',
+'{{ subnetwork }}',
+'{{ defaultPort }}',
+'{{ annotations }}',
+'{{ cloudRun }}',
+'{{ appEngine }}',
+'{{ cloudFunction }}',
+'{{ pscTargetService }}',
+'{{ pscData }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: networkEndpointType
+        value: '{{ networkEndpointType }}'
+      - name: size
+        value: '{{ size }}'
+      - name: region
+        value: '{{ region }}'
+      - name: zone
+        value: '{{ zone }}'
+      - name: network
+        value: '{{ network }}'
+      - name: subnetwork
+        value: '{{ subnetwork }}'
+      - name: defaultPort
+        value: '{{ defaultPort }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: cloudRun
+        value: '{{ cloudRun }}'
+      - name: appEngine
+        value: '{{ appEngine }}'
+      - name: cloudFunction
+        value: '{{ cloudFunction }}'
+      - name: pscTargetService
+        value: '{{ pscTargetService }}'
+      - name: pscData
+        value: '{{ pscData }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified network_endpoint_group resource.
+
+```sql
+DELETE FROM google.compute.network_endpoint_groups
+WHERE networkEndpointGroup = '{{ networkEndpointGroup }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: discovery_configs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - discovery_configs
   - dlp
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>discovery_config</code> resource or lists <code>discovery_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,6 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `string` | Required. A status for this configuration. |
 | <CopyableCode code="targets" /> | `array` | Target to match against for determining what to scan and how frequently. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of a DiscoveryConfig. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,5 +57,95 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_discovery_configs_delete" /> | `DELETE` | <CopyableCode code="discoveryConfigsId, locationsId, projectsId" /> | Deletes a discovery configuration. |
 | <CopyableCode code="organizations_locations_discovery_configs_patch" /> | `UPDATE` | <CopyableCode code="discoveryConfigsId, locationsId, organizationsId" /> | Updates a discovery configuration. |
 | <CopyableCode code="projects_locations_discovery_configs_patch" /> | `UPDATE` | <CopyableCode code="discoveryConfigsId, locationsId, projectsId" /> | Updates a discovery configuration. |
-| <CopyableCode code="_organizations_locations_discovery_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists discovery configurations. |
-| <CopyableCode code="_projects_locations_discovery_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists discovery configurations. |
+
+## `SELECT` examples
+
+Lists discovery configurations.
+
+```sql
+SELECT
+name,
+actions,
+createTime,
+displayName,
+errors,
+inspectTemplates,
+lastRunTime,
+orgConfig,
+status,
+targets,
+updateTime
+FROM google.dlp.discovery_configs
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>discovery_configs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dlp.discovery_configs (
+locationsId,
+projectsId,
+configId,
+discoveryConfig
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ configId }}',
+'{{ discoveryConfig }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: configId
+        value: '{{ configId }}'
+      - name: discoveryConfig
+        value: '{{ discoveryConfig }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a discovery_config only if the necessary resources are available.
+
+```sql
+UPDATE google.dlp.discovery_configs
+SET 
+updateMask = '{{ updateMask }}',
+discoveryConfig = '{{ discoveryConfig }}'
+WHERE 
+discoveryConfigsId = '{{ discoveryConfigsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified discovery_config resource.
+
+```sql
+DELETE FROM google.dlp.discovery_configs
+WHERE discoveryConfigsId = '{{ discoveryConfigsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

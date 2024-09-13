@@ -1,3 +1,4 @@
+
 ---
 title: feature_online_stores
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - feature_online_stores
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>feature_online_store</code> resource or lists <code>feature_online_stores</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. Name of the FeatureOnlineStore. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/featureOnlineStores/&#123;featureOnlineStore&#125;` |
+| <CopyableCode code="name" /> | `string` | Identifier. Name of the FeatureOnlineStore. Format: `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}` |
 | <CopyableCode code="bigtable" /> | `object` |  |
 | <CopyableCode code="createTime" /> | `string` | Output only. Timestamp when this FeatureOnlineStore was created. |
 | <CopyableCode code="dedicatedServingEndpoint" /> | `object` | The dedicated serving endpoint for this FeatureOnlineStore. Only need to set when you choose Optimized storage type. Public endpoint is provisioned by default. |
@@ -38,8 +40,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="etag" /> | `string` | Optional. Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
 | <CopyableCode code="labels" /> | `object` | Optional. The labels with user-defined metadata to organize your FeatureOnlineStore. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information on and examples of labels. No more than 64 user labels can be associated with one FeatureOnlineStore(System labels are excluded)." System reserved label keys are prefixed with "aiplatform.googleapis.com/" and are immutable. |
 | <CopyableCode code="optimized" /> | `object` | Optimized storage type |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="state" /> | `string` | Output only. State of the featureOnlineStore. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this FeatureOnlineStore was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,4 +53,146 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new FeatureOnlineStore in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="featureOnlineStoresId, locationsId, projectsId" /> | Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not contain any FeatureViews. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="featureOnlineStoresId, locationsId, projectsId" /> | Updates the parameters of a single FeatureOnlineStore. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists FeatureOnlineStores in a given project and location. |
+
+## `SELECT` examples
+
+Lists FeatureOnlineStores in a given project and location.
+
+```sql
+SELECT
+name,
+bigtable,
+createTime,
+dedicatedServingEndpoint,
+encryptionSpec,
+etag,
+labels,
+optimized,
+satisfiesPzi,
+satisfiesPzs,
+state,
+updateTime
+FROM google.aiplatform.feature_online_stores
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>feature_online_stores</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.feature_online_stores (
+locationsId,
+projectsId,
+dedicatedServingEndpoint,
+updateTime,
+etag,
+satisfiesPzs,
+labels,
+createTime,
+optimized,
+name,
+bigtable,
+state,
+encryptionSpec,
+satisfiesPzi
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ dedicatedServingEndpoint }}',
+'{{ updateTime }}',
+'{{ etag }}',
+true|false,
+'{{ labels }}',
+'{{ createTime }}',
+'{{ optimized }}',
+'{{ name }}',
+'{{ bigtable }}',
+'{{ state }}',
+'{{ encryptionSpec }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: dedicatedServingEndpoint
+        value: '{{ dedicatedServingEndpoint }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: optimized
+        value: '{{ optimized }}'
+      - name: name
+        value: '{{ name }}'
+      - name: bigtable
+        value: '{{ bigtable }}'
+      - name: state
+        value: '{{ state }}'
+      - name: encryptionSpec
+        value: '{{ encryptionSpec }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a feature_online_store only if the necessary resources are available.
+
+```sql
+UPDATE google.aiplatform.feature_online_stores
+SET 
+dedicatedServingEndpoint = '{{ dedicatedServingEndpoint }}',
+updateTime = '{{ updateTime }}',
+etag = '{{ etag }}',
+satisfiesPzs = true|false,
+labels = '{{ labels }}',
+createTime = '{{ createTime }}',
+optimized = '{{ optimized }}',
+name = '{{ name }}',
+bigtable = '{{ bigtable }}',
+state = '{{ state }}',
+encryptionSpec = '{{ encryptionSpec }}',
+satisfiesPzi = true|false
+WHERE 
+featureOnlineStoresId = '{{ featureOnlineStoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified feature_online_store resource.
+
+```sql
+DELETE FROM google.aiplatform.feature_online_stores
+WHERE featureOnlineStoresId = '{{ featureOnlineStoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

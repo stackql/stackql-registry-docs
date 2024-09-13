@@ -1,3 +1,4 @@
+
 ---
 title: hmac_keys
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - hmac_keys
   - storage
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>hmac_key</code> resource or lists <code>hmac_keys</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | The state of the key. Can be one of ACTIVE, INACTIVE, or DELETED. |
 | <CopyableCode code="timeCreated" /> | `string` | The creation time of the HMAC key in RFC 3339 format. |
 | <CopyableCode code="updated" /> | `string` | The last modification time of the HMAC key metadata in RFC 3339 format. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,5 +50,70 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectId" /> | Retrieves a list of HMAC keys matching the criteria. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectId, serviceAccountEmail" /> | Creates a new HMAC key for the specified service account. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accessId, projectId" /> | Deletes an HMAC key. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="accessId, projectId" /> | Updates the state of an HMAC key. See the HMAC Key resource descriptor for valid states. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectId" /> | Retrieves a list of HMAC keys matching the criteria. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accessId, projectId" /> | Updates the state of an HMAC key. See the [HMAC Key resource descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body) for valid states. |
+
+## `SELECT` examples
+
+Retrieves a list of HMAC keys matching the criteria.
+
+```sql
+SELECT
+id,
+accessId,
+etag,
+kind,
+projectId,
+selfLink,
+serviceAccountEmail,
+state,
+timeCreated,
+updated
+FROM google.storage.hmac_keys
+WHERE projectId = '{{ projectId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>hmac_keys</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.storage.hmac_keys (
+projectId,
+serviceAccountEmail
+)
+SELECT 
+'{{ projectId }}',
+'{{ serviceAccountEmail }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props: []
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified hmac_key resource.
+
+```sql
+DELETE FROM google.storage.hmac_keys
+WHERE accessId = '{{ accessId }}'
+AND projectId = '{{ projectId }}';
+```

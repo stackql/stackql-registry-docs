@@ -9,41 +9,30 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages the API keys associated with developer projects.  
-    
+The apikeys service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
-<span>total selectable resources:&nbsp;<b>3</b></span><br />
-<span>total methods:&nbsp;<b>10</b></span><br />
 </div>
 </div>
 
 :::
 
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.apikeys</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>API Keys API</td></tr>
-<tr><td><b>Description</b></td><td>Manages the API keys associated with developer projects.</td></tr>
-<tr><td><b>Id</b></td><td><code>apikeys:v24.06.00236</code></td></tr>
-</tbody></table>
-
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/apikeys/keys/">keys</a><br />
-<a href="/providers/google/apikeys/keys_key_string/">keys_key_string</a><br />
+<a href="/providers/google/apikeys/keys_key_string/">keys_key_string</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/apikeys/operations/">operations</a><br />
+<a href="/providers/google/apikeys/operations/">operations</a>
 </div>
 </div>

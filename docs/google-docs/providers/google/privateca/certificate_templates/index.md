@@ -1,3 +1,4 @@
+
 ---
 title: certificate_templates
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - certificate_templates
   - privateca
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>certificate_template</code> resource or lists <code>certificate_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="passthroughExtensions" /> | `object` | Describes a set of X.509 extensions that may be part of some certificate issuance controls. |
 | <CopyableCode code="predefinedValues" /> | `object` | An X509Parameters is used to describe certain fields of an X.509 certificate, such as the key usage fields, fields specific to CA certificates, certificate policy extensions and custom extensions. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time at which this CertificateTemplate was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,4 +50,128 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a new CertificateTemplate in a given Project and Location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="certificateTemplatesId, locationsId, projectsId" /> | DeleteCertificateTemplate deletes a CertificateTemplate. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="certificateTemplatesId, locationsId, projectsId" /> | Update a CertificateTemplate. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists CertificateTemplates. |
+
+## `SELECT` examples
+
+Lists CertificateTemplates.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+identityConstraints,
+labels,
+maximumLifetime,
+passthroughExtensions,
+predefinedValues,
+updateTime
+FROM google.privateca.certificate_templates
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>certificate_templates</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.privateca.certificate_templates (
+locationsId,
+projectsId,
+name,
+maximumLifetime,
+predefinedValues,
+identityConstraints,
+passthroughExtensions,
+description,
+createTime,
+updateTime,
+labels
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ maximumLifetime }}',
+'{{ predefinedValues }}',
+'{{ identityConstraints }}',
+'{{ passthroughExtensions }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: maximumLifetime
+        value: '{{ maximumLifetime }}'
+      - name: predefinedValues
+        value: '{{ predefinedValues }}'
+      - name: identityConstraints
+        value: '{{ identityConstraints }}'
+      - name: passthroughExtensions
+        value: '{{ passthroughExtensions }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a certificate_template only if the necessary resources are available.
+
+```sql
+UPDATE google.privateca.certificate_templates
+SET 
+name = '{{ name }}',
+maximumLifetime = '{{ maximumLifetime }}',
+predefinedValues = '{{ predefinedValues }}',
+identityConstraints = '{{ identityConstraints }}',
+passthroughExtensions = '{{ passthroughExtensions }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}'
+WHERE 
+certificateTemplatesId = '{{ certificateTemplatesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified certificate_template resource.
+
+```sql
+DELETE FROM google.privateca.certificate_templates
+WHERE certificateTemplatesId = '{{ certificateTemplatesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

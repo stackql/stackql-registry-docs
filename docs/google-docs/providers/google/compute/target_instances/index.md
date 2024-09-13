@@ -1,3 +1,4 @@
+
 ---
 title: target_instances
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - target_instances
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>target_instance</code> resource or lists <code>target_instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,6 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="securityPolicy" /> | `string` | [Output Only] The resource URL for the security policy associated with this target instance. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] URL of the zone where the target instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,5 +52,116 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves a list of TargetInstance resources available to the specified project and zone. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates a TargetInstance resource in the specified project and zone using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, targetInstance, zone" /> | Deletes the specified TargetInstance resource. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of target instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="set_security_policy" /> | `EXEC` | <CopyableCode code="project, targetInstance, zone" /> | Sets the Google Cloud Armor security policy for the specified target instance. For more information, see Google Cloud Armor Overview |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of target instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+instance,
+kind,
+natPolicy,
+network,
+securityPolicy,
+selfLink,
+zone
+FROM google.compute.target_instances
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>target_instances</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.target_instances (
+project,
+zone,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+zone,
+natPolicy,
+instance,
+selfLink,
+network,
+securityPolicy
+)
+SELECT 
+'{{ project }}',
+'{{ zone }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ zone }}',
+'{{ natPolicy }}',
+'{{ instance }}',
+'{{ selfLink }}',
+'{{ network }}',
+'{{ securityPolicy }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: zone
+        value: '{{ zone }}'
+      - name: natPolicy
+        value: '{{ natPolicy }}'
+      - name: instance
+        value: '{{ instance }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: network
+        value: '{{ network }}'
+      - name: securityPolicy
+        value: '{{ securityPolicy }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified target_instance resource.
+
+```sql
+DELETE FROM google.compute.target_instances
+WHERE project = '{{ project }}'
+AND targetInstance = '{{ targetInstance }}'
+AND zone = '{{ zone }}';
+```

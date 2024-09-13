@@ -1,3 +1,4 @@
+
 ---
 title: conversion_workspaces
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - conversion_workspaces
   - datamigration
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>conversion_workspace</code> resource or lists <code>conversion_workspaces</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Full name of the workspace resource, in the form of: projects/&#123;project&#125;/locations/&#123;location&#125;/conversionWorkspaces/&#123;conversion_workspace&#125;. |
+| <CopyableCode code="name" /> | `string` | Full name of the workspace resource, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when the workspace resource was created. |
 | <CopyableCode code="destination" /> | `object` | The type and version of a source or destination database. |
 | <CopyableCode code="displayName" /> | `string` | Optional. The display name for the workspace. |
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="latestCommitTime" /> | `string` | Output only. The timestamp when the workspace was committed. |
 | <CopyableCode code="source" /> | `object` | The type and version of a source or destination database. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the workspace resource was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,7 +51,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new conversion workspace in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Deletes a single conversion workspace. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Updates the parameters of a single conversion workspace. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists conversion workspaces in a given project and location. |
 | <CopyableCode code="apply" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Applies draft tree onto a specific destination database. |
 | <CopyableCode code="commit" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Marks all the data in the conversion workspace as committed. |
 | <CopyableCode code="convert" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Creates a draft tree schema for the destination database. |
@@ -57,3 +59,134 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="rollback" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Rolls back a conversion workspace to the last committed snapshot. |
 | <CopyableCode code="search_background_jobs" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Searches/lists the background jobs for a specific conversion workspace. The background jobs are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are a way to expose the data plane jobs log. |
 | <CopyableCode code="seed" /> | `EXEC` | <CopyableCode code="conversionWorkspacesId, locationsId, projectsId" /> | Imports a snapshot of the source database into the conversion workspace. |
+
+## `SELECT` examples
+
+Lists conversion workspaces in a given project and location.
+
+```sql
+SELECT
+name,
+createTime,
+destination,
+displayName,
+globalSettings,
+hasUncommittedChanges,
+latestCommitId,
+latestCommitTime,
+source,
+updateTime
+FROM google.datamigration.conversion_workspaces
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>conversion_workspaces</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.datamigration.conversion_workspaces (
+locationsId,
+projectsId,
+name,
+source,
+destination,
+globalSettings,
+hasUncommittedChanges,
+latestCommitId,
+latestCommitTime,
+createTime,
+updateTime,
+displayName
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ source }}',
+'{{ destination }}',
+'{{ globalSettings }}',
+true|false,
+'{{ latestCommitId }}',
+'{{ latestCommitTime }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ displayName }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: source
+        value: '{{ source }}'
+      - name: destination
+        value: '{{ destination }}'
+      - name: globalSettings
+        value: '{{ globalSettings }}'
+      - name: hasUncommittedChanges
+        value: '{{ hasUncommittedChanges }}'
+      - name: latestCommitId
+        value: '{{ latestCommitId }}'
+      - name: latestCommitTime
+        value: '{{ latestCommitTime }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: displayName
+        value: '{{ displayName }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a conversion_workspace only if the necessary resources are available.
+
+```sql
+UPDATE google.datamigration.conversion_workspaces
+SET 
+name = '{{ name }}',
+source = '{{ source }}',
+destination = '{{ destination }}',
+globalSettings = '{{ globalSettings }}',
+hasUncommittedChanges = true|false,
+latestCommitId = '{{ latestCommitId }}',
+latestCommitTime = '{{ latestCommitTime }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+displayName = '{{ displayName }}'
+WHERE 
+conversionWorkspacesId = '{{ conversionWorkspacesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified conversion_workspace resource.
+
+```sql
+DELETE FROM google.datamigration.conversion_workspaces
+WHERE conversionWorkspacesId = '{{ conversionWorkspacesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

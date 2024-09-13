@@ -1,3 +1,4 @@
+
 ---
 title: streams
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - streams
   - datastream
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>stream</code> resource or lists <code>streams</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sourceConfig" /> | `object` | The configuration of the stream source. |
 | <CopyableCode code="state" /> | `string` | The state of the stream. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update time of the stream. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,5 +54,153 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Use this method to create a stream. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, streamsId" /> | Use this method to delete a stream. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, streamsId" /> | Use this method to update the configuration of a stream. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Use this method to list streams in a project and location. |
-| <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, streamsId" /> | Use this method to start, resume or recover a stream with a non default CDC strategy. NOTE: This feature is currently experimental. |
+| <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, streamsId" /> | Use this method to start, resume or recover a stream with a non default CDC strategy. |
+
+## `SELECT` examples
+
+Use this method to list streams in a project and location.
+
+```sql
+SELECT
+name,
+backfillAll,
+backfillNone,
+createTime,
+customerManagedEncryptionKey,
+destinationConfig,
+displayName,
+errors,
+labels,
+lastRecoveryTime,
+sourceConfig,
+state,
+updateTime
+FROM google.datastream.streams
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>streams</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.datastream.streams (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+labels,
+displayName,
+sourceConfig,
+destinationConfig,
+state,
+backfillAll,
+backfillNone,
+errors,
+customerManagedEncryptionKey,
+lastRecoveryTime
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ displayName }}',
+'{{ sourceConfig }}',
+'{{ destinationConfig }}',
+'{{ state }}',
+'{{ backfillAll }}',
+'{{ backfillNone }}',
+'{{ errors }}',
+'{{ customerManagedEncryptionKey }}',
+'{{ lastRecoveryTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: sourceConfig
+        value: '{{ sourceConfig }}'
+      - name: destinationConfig
+        value: '{{ destinationConfig }}'
+      - name: state
+        value: '{{ state }}'
+      - name: backfillAll
+        value: '{{ backfillAll }}'
+      - name: backfillNone
+        value: '{{ backfillNone }}'
+      - name: errors
+        value: '{{ errors }}'
+      - name: customerManagedEncryptionKey
+        value: '{{ customerManagedEncryptionKey }}'
+      - name: lastRecoveryTime
+        value: '{{ lastRecoveryTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a stream only if the necessary resources are available.
+
+```sql
+UPDATE google.datastream.streams
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+displayName = '{{ displayName }}',
+sourceConfig = '{{ sourceConfig }}',
+destinationConfig = '{{ destinationConfig }}',
+state = '{{ state }}',
+backfillAll = '{{ backfillAll }}',
+backfillNone = '{{ backfillNone }}',
+errors = '{{ errors }}',
+customerManagedEncryptionKey = '{{ customerManagedEncryptionKey }}',
+lastRecoveryTime = '{{ lastRecoveryTime }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND streamsId = '{{ streamsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified stream resource.
+
+```sql
+DELETE FROM google.datastream.streams
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND streamsId = '{{ streamsId }}';
+```

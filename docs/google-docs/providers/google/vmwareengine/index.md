@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-The Google VMware Engine API lets you programmatically manage VMware environments.  
-    
+The vmwareengine service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>23</b></span><br />
-<span>total selectable resources:&nbsp;<b>22</b></span><br />
-<span>total methods:&nbsp;<b>107</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.vmwareengine</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>VMware Engine API</td></tr>
-<tr><td><b>Description</b></td><td>The Google VMware Engine API lets you programmatically manage VMware environments.</td></tr>
-<tr><td><b>Id</b></td><td><code>vmwareengine:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -51,7 +40,7 @@ The Google VMware Engine API lets you programmatically manage VMware environment
 <a href="/providers/google/vmwareengine/logging_servers/">logging_servers</a><br />
 <a href="/providers/google/vmwareengine/management_dns_zone_bindings/">management_dns_zone_bindings</a><br />
 <a href="/providers/google/vmwareengine/network_peerings/">network_peerings</a><br />
-<a href="/providers/google/vmwareengine/network_policies/">network_policies</a><br />
+<a href="/providers/google/vmwareengine/network_policies/">network_policies</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/vmwareengine/network_policies_external_addresses/">network_policies_external_addresses</a><br />
@@ -64,6 +53,6 @@ The Google VMware Engine API lets you programmatically manage VMware environment
 <a href="/providers/google/vmwareengine/private_clouds_iam_policies/">private_clouds_iam_policies</a><br />
 <a href="/providers/google/vmwareengine/private_connections/">private_connections</a><br />
 <a href="/providers/google/vmwareengine/subnets/">subnets</a><br />
-<a href="/providers/google/vmwareengine/vmware_engine_networks/">vmware_engine_networks</a><br />
+<a href="/providers/google/vmwareengine/vmware_engine_networks/">vmware_engine_networks</a>
 </div>
 </div>

@@ -1,3 +1,4 @@
+
 ---
 title: taxonomies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - taxonomies
   - datacatalog
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>taxonomy</code> resource or lists <code>taxonomies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,6 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="policyTagCount" /> | `integer` | Output only. Number of policy tags in this taxonomy. |
 | <CopyableCode code="service" /> | `object` | The source system of the Taxonomy. |
 | <CopyableCode code="taxonomyTimestamps" /> | `object` | Timestamps associated with this resource in a particular system. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,7 +48,119 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_taxonomies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a taxonomy in a specified project. The taxonomy is initially empty, that is, it doesn't contain policy tags. |
 | <CopyableCode code="projects_locations_taxonomies_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Deletes a taxonomy, including all policy tags in this taxonomy, their associated policies, and the policy tags references from BigQuery columns. |
 | <CopyableCode code="projects_locations_taxonomies_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Updates a taxonomy, including its display name, description, and activated policy types. |
-| <CopyableCode code="_projects_locations_taxonomies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all taxonomies in a project in a particular location that you have a permission to view. |
 | <CopyableCode code="projects_locations_taxonomies_export" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Exports taxonomies in the requested type and returns them, including their policy tags. The requested taxonomies must belong to the same project. This method generates `SerializedTaxonomy` protocol buffers with nested policy tags that can be used as input for `ImportTaxonomies` calls. |
 | <CopyableCode code="projects_locations_taxonomies_import" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Creates new taxonomies (including their policy tags) in a given project by importing from inlined or cross-regional sources. For a cross-regional source, new taxonomies are created by copying from a source in another region. For an inlined source, taxonomies and policy tags are created in bulk using nested protocol buffer structures. |
 | <CopyableCode code="projects_locations_taxonomies_replace" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Replaces (updates) a taxonomy and all its policy tags. The taxonomy and its entire hierarchy of policy tags must be represented literally by `SerializedTaxonomy` and the nested `SerializedPolicyTag` messages. This operation automatically does the following: - Deletes the existing policy tags that are missing from the `SerializedPolicyTag`. - Creates policy tags that don't have resource names. They are considered new. - Updates policy tags with valid resources names accordingly. |
+
+## `SELECT` examples
+
+Lists all taxonomies in a project in a particular location that you have a permission to view.
+
+```sql
+SELECT
+name,
+description,
+activatedPolicyTypes,
+displayName,
+policyTagCount,
+service,
+taxonomyTimestamps
+FROM google.datacatalog.taxonomies
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>taxonomies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.datacatalog.taxonomies (
+locationsId,
+projectsId,
+name,
+displayName,
+description,
+policyTagCount,
+taxonomyTimestamps,
+activatedPolicyTypes,
+service
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ policyTagCount }}',
+'{{ taxonomyTimestamps }}',
+'{{ activatedPolicyTypes }}',
+'{{ service }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: policyTagCount
+        value: '{{ policyTagCount }}'
+      - name: taxonomyTimestamps
+        value: '{{ taxonomyTimestamps }}'
+      - name: activatedPolicyTypes
+        value: '{{ activatedPolicyTypes }}'
+      - name: service
+        value: '{{ service }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a taxonomy only if the necessary resources are available.
+
+```sql
+UPDATE google.datacatalog.taxonomies
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+policyTagCount = '{{ policyTagCount }}',
+taxonomyTimestamps = '{{ taxonomyTimestamps }}',
+activatedPolicyTypes = '{{ activatedPolicyTypes }}',
+service = '{{ service }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND taxonomiesId = '{{ taxonomiesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified taxonomy resource.
+
+```sql
+DELETE FROM google.datacatalog.taxonomies
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND taxonomiesId = '{{ taxonomiesId }}';
+```

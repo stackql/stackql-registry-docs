@@ -1,3 +1,4 @@
+
 ---
 title: autoscalers
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - autoscalers
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>autoscaler</code> resource or lists <code>autoscalers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="statusDetails" /> | `array` | [Output Only] Human-readable details about the current state of the autoscaler. Read the documentation for Commonly returned status messages for examples of status messages you might encounter. |
 | <CopyableCode code="target" /> | `string` | URL of the managed instance group that this autoscaler will scale. This field is required when creating an autoscaler. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] URL of the zone where the instance group resides (for autoscalers living in zonal scope). |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -53,5 +56,157 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates an autoscaler in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="autoscaler, project, zone" /> | Deletes the specified autoscaler. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, zone" /> | Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="project, zone" /> | Updates an autoscaler in the specified project using the data included in the request. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of autoscalers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, zone" /> | Updates an autoscaler in the specified project using the data included in the request. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of autoscalers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+autoscalingPolicy,
+creationTimestamp,
+kind,
+recommendedSize,
+region,
+scalingScheduleStatus,
+selfLink,
+status,
+statusDetails,
+target,
+zone
+FROM google.compute.autoscalers
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>autoscalers</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.autoscalers (
+project,
+zone,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+target,
+autoscalingPolicy,
+zone,
+region,
+selfLink,
+status,
+statusDetails,
+recommendedSize,
+scalingScheduleStatus
+)
+SELECT 
+'{{ project }}',
+'{{ zone }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ target }}',
+'{{ autoscalingPolicy }}',
+'{{ zone }}',
+'{{ region }}',
+'{{ selfLink }}',
+'{{ status }}',
+'{{ statusDetails }}',
+'{{ recommendedSize }}',
+'{{ scalingScheduleStatus }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: target
+        value: '{{ target }}'
+      - name: autoscalingPolicy
+        value: '{{ autoscalingPolicy }}'
+      - name: zone
+        value: '{{ zone }}'
+      - name: region
+        value: '{{ region }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: status
+        value: '{{ status }}'
+      - name: statusDetails
+        value: '{{ statusDetails }}'
+      - name: recommendedSize
+        value: '{{ recommendedSize }}'
+      - name: scalingScheduleStatus
+        value: '{{ scalingScheduleStatus }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a autoscaler only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.autoscalers
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+target = '{{ target }}',
+autoscalingPolicy = '{{ autoscalingPolicy }}',
+zone = '{{ zone }}',
+region = '{{ region }}',
+selfLink = '{{ selfLink }}',
+status = '{{ status }}',
+statusDetails = '{{ statusDetails }}',
+recommendedSize = '{{ recommendedSize }}',
+scalingScheduleStatus = '{{ scalingScheduleStatus }}'
+WHERE 
+project = '{{ project }}'
+AND zone = '{{ zone }}';
+```
+
+## `DELETE` example
+
+Deletes the specified autoscaler resource.
+
+```sql
+DELETE FROM google.compute.autoscalers
+WHERE autoscaler = '{{ autoscaler }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```

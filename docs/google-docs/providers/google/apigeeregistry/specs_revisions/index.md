@@ -1,3 +1,4 @@
+
 ---
 title: specs_revisions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - specs_revisions
   - apigeeregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>specs_revision</code> resource or lists <code>specs_revisions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,8 +46,36 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="revisionUpdateTime" /> | `string` | Output only. Last update timestamp: when the represented revision was last modified. |
 | <CopyableCode code="sizeBytes" /> | `integer` | Output only. The size of the spec file in bytes. If the spec is gzipped, this is the size of the uncompressed spec. |
 | <CopyableCode code="sourceUri" /> | `string` | The original source URI of the spec (if one exists). This is an external location that can be used for reference purposes but which may not be authoritative since this external resource may change after the spec is retrieved. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_apis_versions_specs_list_revisions" /> | `SELECT` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> |
-| <CopyableCode code="_projects_locations_apis_versions_specs_list_revisions" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_apis_versions_specs_list_revisions" /> | `SELECT` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Lists all revisions of a spec. Revisions are returned in descending order of revision creation time. |
+
+## `SELECT` examples
+
+Lists all revisions of a spec. Revisions are returned in descending order of revision creation time.
+
+```sql
+SELECT
+name,
+description,
+annotations,
+contents,
+createTime,
+filename,
+hash,
+labels,
+mimeType,
+revisionCreateTime,
+revisionId,
+revisionUpdateTime,
+sizeBytes,
+sourceUri
+FROM google.apigeeregistry.specs_revisions
+WHERE apisId = '{{ apisId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND specsId = '{{ specsId }}'
+AND versionsId = '{{ versionsId }}'; 
+```

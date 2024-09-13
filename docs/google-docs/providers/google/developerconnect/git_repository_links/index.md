@@ -1,3 +1,4 @@
+
 ---
 title: git_repository_links
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - git_repository_links
   - developerconnect
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>git_repository_link</code> resource or lists <code>git_repository_links</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="reconciling" /> | `boolean` | Output only. Set to true when the connection is being set up or updated in the background. |
 | <CopyableCode code="uid" /> | `string` | Output only. A system-assigned unique identifier for a the GitRepositoryLink. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. [Output only] Update timestamp |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,4 +50,115 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists GitRepositoryLinks in a given project, location, and connection. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Creates a GitRepositoryLink. Upon linking a Git Repository, Developer Connect will configure the Git Repository to send webhook events to Developer Connect. Connections that use Firebase GitHub Application will have events forwarded to the Firebase service. All other Connections will have events forwarded to Cloud Build. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="connectionsId, gitRepositoryLinksId, locationsId, projectsId" /> | Deletes a single GitRepositoryLink. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists GitRepositoryLinks in a given project, location, and connection. |
+
+## `SELECT` examples
+
+Lists GitRepositoryLinks in a given project, location, and connection.
+
+```sql
+SELECT
+name,
+annotations,
+cloneUri,
+createTime,
+deleteTime,
+etag,
+labels,
+reconciling,
+uid,
+updateTime
+FROM google.developerconnect.git_repository_links
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>git_repository_links</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.developerconnect.git_repository_links (
+connectionsId,
+locationsId,
+projectsId,
+name,
+cloneUri,
+createTime,
+updateTime,
+deleteTime,
+labels,
+etag,
+reconciling,
+annotations,
+uid
+)
+SELECT 
+'{{ connectionsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ cloneUri }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ deleteTime }}',
+'{{ labels }}',
+'{{ etag }}',
+true|false,
+'{{ annotations }}',
+'{{ uid }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: cloneUri
+        value: '{{ cloneUri }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: uid
+        value: '{{ uid }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified git_repository_link resource.
+
+```sql
+DELETE FROM google.developerconnect.git_repository_links
+WHERE connectionsId = '{{ connectionsId }}'
+AND gitRepositoryLinksId = '{{ gitRepositoryLinksId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

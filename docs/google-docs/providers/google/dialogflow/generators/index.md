@@ -1,3 +1,4 @@
+
 ---
 title: generators
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - generators
   - dialogflow
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>generator</code> resource or lists <code>generators</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,6 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | Required. The human-readable name of the generator, unique within the agent. The prompt contains pre-defined parameters such as $conversation, $last-user-utterance, etc. populated by Dialogflow. It can also contain custom placeholders which will be resolved during fulfillment. |
 | <CopyableCode code="placeholders" /> | `array` | Optional. List of custom placeholders in the prompt text. |
 | <CopyableCode code="promptText" /> | `object` | Text input which can be used for prompt or banned phrases. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,4 +45,103 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_generators_create" /> | `INSERT` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Creates a generator in the specified agent. |
 | <CopyableCode code="projects_locations_agents_generators_delete" /> | `DELETE` | <CopyableCode code="agentsId, generatorsId, locationsId, projectsId" /> | Deletes the specified generators. |
 | <CopyableCode code="projects_locations_agents_generators_patch" /> | `UPDATE` | <CopyableCode code="agentsId, generatorsId, locationsId, projectsId" /> | Update the specified generator. |
-| <CopyableCode code="_projects_locations_agents_generators_list" /> | `EXEC` | <CopyableCode code="agentsId, locationsId, projectsId" /> | Returns the list of all generators in the specified agent. |
+
+## `SELECT` examples
+
+Returns the list of all generators in the specified agent.
+
+```sql
+SELECT
+name,
+displayName,
+placeholders,
+promptText
+FROM google.dialogflow.generators
+WHERE agentsId = '{{ agentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>generators</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dialogflow.generators (
+agentsId,
+locationsId,
+projectsId,
+name,
+displayName,
+promptText,
+placeholders
+)
+SELECT 
+'{{ agentsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ promptText }}',
+'{{ placeholders }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: promptText
+        value: '{{ promptText }}'
+      - name: placeholders
+        value: '{{ placeholders }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a generator only if the necessary resources are available.
+
+```sql
+UPDATE google.dialogflow.generators
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+promptText = '{{ promptText }}',
+placeholders = '{{ placeholders }}'
+WHERE 
+agentsId = '{{ agentsId }}'
+AND generatorsId = '{{ generatorsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified generator resource.
+
+```sql
+DELETE FROM google.dialogflow.generators
+WHERE agentsId = '{{ agentsId }}'
+AND generatorsId = '{{ generatorsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

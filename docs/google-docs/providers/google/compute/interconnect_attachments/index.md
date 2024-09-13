@@ -1,3 +1,4 @@
+
 ---
 title: interconnect_attachments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - interconnect_attachments
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>interconnect_attachment</code> resource or lists <code>interconnect_attachments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -70,6 +72,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="subnetLength" /> | `integer` | Length of the IPv4 subnet mask. Allowed values: - 29 (default) - 30 The default value is 29, except for Cross-Cloud Interconnect connections that use an InterconnectRemoteLocation with a constraints.subnetLengthRange.min equal to 30. For example, connections that use an Azure remote location fall into this category. In these cases, the default value is 30, and requesting 29 returns an error. Where both 29 and 30 are allowed, 29 is preferred, because it gives Google Cloud Support more debugging visibility.  |
 | <CopyableCode code="type" /> | `string` | The type of interconnect attachment this is, which can take one of the following values: - DEDICATED: an attachment to a Dedicated Interconnect. - PARTNER: an attachment to a Partner Interconnect, created by the customer. - PARTNER_PROVIDER: an attachment to a Partner Interconnect, created by the partner.  |
 | <CopyableCode code="vlanTag8021q" /> | `integer` | The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4093. Only specified at creation time. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -79,5 +82,314 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates an InterconnectAttachment in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="interconnectAttachment, project, region" /> | Deletes the specified interconnect attachment. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="interconnectAttachment, project, region" /> | Updates the specified interconnect attachment with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of interconnect attachments. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Sets the labels on an InterconnectAttachment. To learn more about labels, read the Labeling Resources documentation. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of interconnect attachments. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+adminEnabled,
+bandwidth,
+candidateIpv6Subnets,
+candidateSubnets,
+cloudRouterIpAddress,
+cloudRouterIpv6Address,
+cloudRouterIpv6InterfaceId,
+configurationConstraints,
+creationTimestamp,
+customerRouterIpAddress,
+customerRouterIpv6Address,
+customerRouterIpv6InterfaceId,
+dataplaneVersion,
+edgeAvailabilityDomain,
+encryption,
+googleReferenceId,
+interconnect,
+ipsecInternalAddresses,
+kind,
+labelFingerprint,
+labels,
+mtu,
+operationalStatus,
+pairingKey,
+partnerAsn,
+partnerMetadata,
+privateInterconnectInfo,
+region,
+remoteService,
+router,
+satisfiesPzs,
+selfLink,
+stackType,
+state,
+subnetLength,
+type,
+vlanTag8021q
+FROM google.compute.interconnect_attachments
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>interconnect_attachments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.interconnect_attachments (
+project,
+region,
+kind,
+description,
+selfLink,
+id,
+creationTimestamp,
+name,
+interconnect,
+router,
+region,
+googleReferenceId,
+mtu,
+privateInterconnectInfo,
+operationalStatus,
+cloudRouterIpAddress,
+customerRouterIpAddress,
+type,
+pairingKey,
+adminEnabled,
+vlanTag8021q,
+edgeAvailabilityDomain,
+candidateSubnets,
+bandwidth,
+partnerMetadata,
+labels,
+labelFingerprint,
+state,
+partnerAsn,
+encryption,
+ipsecInternalAddresses,
+dataplaneVersion,
+satisfiesPzs,
+stackType,
+cloudRouterIpv6Address,
+customerRouterIpv6Address,
+candidateIpv6Subnets,
+cloudRouterIpv6InterfaceId,
+customerRouterIpv6InterfaceId,
+subnetLength,
+remoteService,
+configurationConstraints
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ interconnect }}',
+'{{ router }}',
+'{{ region }}',
+'{{ googleReferenceId }}',
+'{{ mtu }}',
+'{{ privateInterconnectInfo }}',
+'{{ operationalStatus }}',
+'{{ cloudRouterIpAddress }}',
+'{{ customerRouterIpAddress }}',
+'{{ type }}',
+'{{ pairingKey }}',
+true|false,
+'{{ vlanTag8021q }}',
+'{{ edgeAvailabilityDomain }}',
+'{{ candidateSubnets }}',
+'{{ bandwidth }}',
+'{{ partnerMetadata }}',
+'{{ labels }}',
+'{{ labelFingerprint }}',
+'{{ state }}',
+'{{ partnerAsn }}',
+'{{ encryption }}',
+'{{ ipsecInternalAddresses }}',
+'{{ dataplaneVersion }}',
+true|false,
+'{{ stackType }}',
+'{{ cloudRouterIpv6Address }}',
+'{{ customerRouterIpv6Address }}',
+'{{ candidateIpv6Subnets }}',
+'{{ cloudRouterIpv6InterfaceId }}',
+'{{ customerRouterIpv6InterfaceId }}',
+'{{ subnetLength }}',
+'{{ remoteService }}',
+'{{ configurationConstraints }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: interconnect
+        value: '{{ interconnect }}'
+      - name: router
+        value: '{{ router }}'
+      - name: region
+        value: '{{ region }}'
+      - name: googleReferenceId
+        value: '{{ googleReferenceId }}'
+      - name: mtu
+        value: '{{ mtu }}'
+      - name: privateInterconnectInfo
+        value: '{{ privateInterconnectInfo }}'
+      - name: operationalStatus
+        value: '{{ operationalStatus }}'
+      - name: cloudRouterIpAddress
+        value: '{{ cloudRouterIpAddress }}'
+      - name: customerRouterIpAddress
+        value: '{{ customerRouterIpAddress }}'
+      - name: type
+        value: '{{ type }}'
+      - name: pairingKey
+        value: '{{ pairingKey }}'
+      - name: adminEnabled
+        value: '{{ adminEnabled }}'
+      - name: vlanTag8021q
+        value: '{{ vlanTag8021q }}'
+      - name: edgeAvailabilityDomain
+        value: '{{ edgeAvailabilityDomain }}'
+      - name: candidateSubnets
+        value: '{{ candidateSubnets }}'
+      - name: bandwidth
+        value: '{{ bandwidth }}'
+      - name: partnerMetadata
+        value: '{{ partnerMetadata }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+      - name: state
+        value: '{{ state }}'
+      - name: partnerAsn
+        value: '{{ partnerAsn }}'
+      - name: encryption
+        value: '{{ encryption }}'
+      - name: ipsecInternalAddresses
+        value: '{{ ipsecInternalAddresses }}'
+      - name: dataplaneVersion
+        value: '{{ dataplaneVersion }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: stackType
+        value: '{{ stackType }}'
+      - name: cloudRouterIpv6Address
+        value: '{{ cloudRouterIpv6Address }}'
+      - name: customerRouterIpv6Address
+        value: '{{ customerRouterIpv6Address }}'
+      - name: candidateIpv6Subnets
+        value: '{{ candidateIpv6Subnets }}'
+      - name: cloudRouterIpv6InterfaceId
+        value: '{{ cloudRouterIpv6InterfaceId }}'
+      - name: customerRouterIpv6InterfaceId
+        value: '{{ customerRouterIpv6InterfaceId }}'
+      - name: subnetLength
+        value: '{{ subnetLength }}'
+      - name: remoteService
+        value: '{{ remoteService }}'
+      - name: configurationConstraints
+        value: '{{ configurationConstraints }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a interconnect_attachment only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.interconnect_attachments
+SET 
+kind = '{{ kind }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+interconnect = '{{ interconnect }}',
+router = '{{ router }}',
+region = '{{ region }}',
+googleReferenceId = '{{ googleReferenceId }}',
+mtu = '{{ mtu }}',
+privateInterconnectInfo = '{{ privateInterconnectInfo }}',
+operationalStatus = '{{ operationalStatus }}',
+cloudRouterIpAddress = '{{ cloudRouterIpAddress }}',
+customerRouterIpAddress = '{{ customerRouterIpAddress }}',
+type = '{{ type }}',
+pairingKey = '{{ pairingKey }}',
+adminEnabled = true|false,
+vlanTag8021q = '{{ vlanTag8021q }}',
+edgeAvailabilityDomain = '{{ edgeAvailabilityDomain }}',
+candidateSubnets = '{{ candidateSubnets }}',
+bandwidth = '{{ bandwidth }}',
+partnerMetadata = '{{ partnerMetadata }}',
+labels = '{{ labels }}',
+labelFingerprint = '{{ labelFingerprint }}',
+state = '{{ state }}',
+partnerAsn = '{{ partnerAsn }}',
+encryption = '{{ encryption }}',
+ipsecInternalAddresses = '{{ ipsecInternalAddresses }}',
+dataplaneVersion = '{{ dataplaneVersion }}',
+satisfiesPzs = true|false,
+stackType = '{{ stackType }}',
+cloudRouterIpv6Address = '{{ cloudRouterIpv6Address }}',
+customerRouterIpv6Address = '{{ customerRouterIpv6Address }}',
+candidateIpv6Subnets = '{{ candidateIpv6Subnets }}',
+cloudRouterIpv6InterfaceId = '{{ cloudRouterIpv6InterfaceId }}',
+customerRouterIpv6InterfaceId = '{{ customerRouterIpv6InterfaceId }}',
+subnetLength = '{{ subnetLength }}',
+remoteService = '{{ remoteService }}',
+configurationConstraints = '{{ configurationConstraints }}'
+WHERE 
+interconnectAttachment = '{{ interconnectAttachment }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```
+
+## `DELETE` example
+
+Deletes the specified interconnect_attachment resource.
+
+```sql
+DELETE FROM google.compute.interconnect_attachments
+WHERE interconnectAttachment = '{{ interconnectAttachment }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: error_frames
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - error_frames
   - migrationcenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>error_frame</code> resource or lists <code>error_frames</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,9 +36,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="ingestionTime" /> | `string` | Output only. Frame ingestion time. |
 | <CopyableCode code="originalFrame" /> | `object` | Contains data reported from an inventory source on an asset. |
 | <CopyableCode code="violations" /> | `array` | Output only. All the violations that were detected for the frame. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="errorFramesId, locationsId, projectsId, sourcesId" /> | Gets the details of an error frame. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Lists all error frames in a given source and location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Lists all error frames in a given source and location. |
+
+## `SELECT` examples
+
+Lists all error frames in a given source and location.
+
+```sql
+SELECT
+name,
+ingestionTime,
+originalFrame,
+violations
+FROM google.migrationcenter.error_frames
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}'; 
+```

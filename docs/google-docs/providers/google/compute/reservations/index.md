@@ -1,3 +1,4 @@
+
 ---
 title: reservations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - reservations
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>reservation</code> resource or lists <code>reservations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -46,6 +48,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="specificReservationRequired" /> | `boolean` | Indicates whether the reservation can be consumed by VMs with affinity for "any" reservation. If the field is set, then only VMs that target the reservation by name can consume from this reservation. |
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of the reservation. |
 | <CopyableCode code="zone" /> | `string` | Zone in which the reservation resides. A zone must be provided if the reservation is created within a commitment. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -55,5 +58,170 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates a new reservation. For more information, read Reserving zonal resources. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, reservation, zone" /> | Deletes the specified reservation. |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="project, reservation, zone" /> | Update share settings of the reservation. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of reservations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="resize" /> | `EXEC` | <CopyableCode code="project, reservation, zone" /> | Resizes the reservation (applicable to standalone reservations only). For more information, read Modifying reservations. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of reservations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+aggregateReservation,
+commitment,
+creationTimestamp,
+kind,
+resourcePolicies,
+resourceStatus,
+satisfiesPzs,
+selfLink,
+shareSettings,
+specificReservation,
+specificReservationRequired,
+status,
+zone
+FROM google.compute.reservations
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>reservations</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.reservations (
+project,
+zone,
+kind,
+id,
+creationTimestamp,
+selfLink,
+zone,
+description,
+name,
+specificReservation,
+aggregateReservation,
+commitment,
+specificReservationRequired,
+status,
+shareSettings,
+satisfiesPzs,
+resourcePolicies,
+resourceStatus
+)
+SELECT 
+'{{ project }}',
+'{{ zone }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ selfLink }}',
+'{{ zone }}',
+'{{ description }}',
+'{{ name }}',
+'{{ specificReservation }}',
+'{{ aggregateReservation }}',
+'{{ commitment }}',
+true|false,
+'{{ status }}',
+'{{ shareSettings }}',
+true|false,
+'{{ resourcePolicies }}',
+'{{ resourceStatus }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: zone
+        value: '{{ zone }}'
+      - name: description
+        value: '{{ description }}'
+      - name: name
+        value: '{{ name }}'
+      - name: specificReservation
+        value: '{{ specificReservation }}'
+      - name: aggregateReservation
+        value: '{{ aggregateReservation }}'
+      - name: commitment
+        value: '{{ commitment }}'
+      - name: specificReservationRequired
+        value: '{{ specificReservationRequired }}'
+      - name: status
+        value: '{{ status }}'
+      - name: shareSettings
+        value: '{{ shareSettings }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: resourcePolicies
+        value: '{{ resourcePolicies }}'
+      - name: resourceStatus
+        value: '{{ resourceStatus }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a reservation only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.reservations
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+selfLink = '{{ selfLink }}',
+zone = '{{ zone }}',
+description = '{{ description }}',
+name = '{{ name }}',
+specificReservation = '{{ specificReservation }}',
+aggregateReservation = '{{ aggregateReservation }}',
+commitment = '{{ commitment }}',
+specificReservationRequired = true|false,
+status = '{{ status }}',
+shareSettings = '{{ shareSettings }}',
+satisfiesPzs = true|false,
+resourcePolicies = '{{ resourcePolicies }}',
+resourceStatus = '{{ resourceStatus }}'
+WHERE 
+project = '{{ project }}'
+AND reservation = '{{ reservation }}'
+AND zone = '{{ zone }}';
+```
+
+## `DELETE` example
+
+Deletes the specified reservation resource.
+
+```sql
+DELETE FROM google.compute.reservations
+WHERE project = '{{ project }}'
+AND reservation = '{{ reservation }}'
+AND zone = '{{ zone }}';
+```

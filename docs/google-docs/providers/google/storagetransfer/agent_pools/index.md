@@ -1,3 +1,4 @@
+
 ---
 title: agent_pools
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - agent_pools
   - storagetransfer
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>agent_pool</code> resource or lists <code>agent_pools</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,10 +32,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Specifies a unique string that identifies the agent pool. Format: `projects/&#123;project_id&#125;/agentPools/&#123;agent_pool_id&#125;` |
+| <CopyableCode code="name" /> | `string` | Required. Specifies a unique string that identifies the agent pool. Format: `projects/{project_id}/agentPools/{agent_pool_id}` |
 | <CopyableCode code="bandwidthLimit" /> | `object` | Specifies a bandwidth limit for an agent pool. |
 | <CopyableCode code="displayName" /> | `string` | Specifies the client-specified AgentPool description. |
 | <CopyableCode code="state" /> | `string` | Output only. Specifies the state of the AgentPool. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,4 +45,93 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates an agent pool resource. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="agentPoolsId, projectsId" /> | Deletes an agent pool. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="agentPoolsId, projectsId" /> | Updates an existing agent pool resource. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists agent pools. |
+
+## `SELECT` examples
+
+Lists agent pools.
+
+```sql
+SELECT
+name,
+bandwidthLimit,
+displayName,
+state
+FROM google.storagetransfer.agent_pools
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>agent_pools</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.storagetransfer.agent_pools (
+projectsId,
+name,
+displayName,
+state,
+bandwidthLimit
+)
+SELECT 
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ state }}',
+'{{ bandwidthLimit }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: state
+        value: '{{ state }}'
+      - name: bandwidthLimit
+        value: '{{ bandwidthLimit }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a agent_pool only if the necessary resources are available.
+
+```sql
+UPDATE google.storagetransfer.agent_pools
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+state = '{{ state }}',
+bandwidthLimit = '{{ bandwidthLimit }}'
+WHERE 
+agentPoolsId = '{{ agentPoolsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified agent_pool resource.
+
+```sql
+DELETE FROM google.storagetransfer.agent_pools
+WHERE agentPoolsId = '{{ agentPoolsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: evaluations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - evaluations
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>evaluation</code> resource or lists <code>evaluations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,10 +43,33 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="metricsSchemaUri" /> | `string` | Points to a YAML file stored on Google Cloud Storage describing the metrics of this ModelEvaluation. The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject). |
 | <CopyableCode code="modelExplanation" /> | `object` | Aggregated explanation metrics for a Model over a set of instances. |
 | <CopyableCode code="sliceDimensions" /> | `array` | All possible dimensions of ModelEvaluationSlices. The dimensions can be used as the filter of the ModelService.ListModelEvaluationSlices request, in the form of `slice.dimension = `. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="evaluationsId, locationsId, modelsId, projectsId" /> | Gets a ModelEvaluation. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, modelsId, projectsId" /> | Lists ModelEvaluations in a Model. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId" /> | Lists ModelEvaluations in a Model. |
 | <CopyableCode code="import" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId" /> | Imports an externally generated ModelEvaluation. |
+
+## `SELECT` examples
+
+Lists ModelEvaluations in a Model.
+
+```sql
+SELECT
+name,
+annotationSchemaUri,
+createTime,
+dataItemSchemaUri,
+displayName,
+explanationSpecs,
+metadata,
+metrics,
+metricsSchemaUri,
+modelExplanation,
+sliceDimensions
+FROM google.aiplatform.evaluations
+WHERE locationsId = '{{ locationsId }}'
+AND modelsId = '{{ modelsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: well_known_openid_configuration
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - well_known_openid_configuration
   - container
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>well_known_openid_configuration</code> resource or lists <code>well_known_openid_configuration</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,7 +40,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="jwks_uri" /> | `string` | JSON Web Key uri. |
 | <CopyableCode code="response_types_supported" /> | `array` | Supported response types. |
 | <CopyableCode code="subject_types_supported" /> | `array` | Supported subject types. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_clusters_well-known_get_openid-configuration" /> | `SELECT` | <CopyableCode code="clustersId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_clusters_well-known_get_openid-configuration" /> | `SELECT` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Gets the OIDC discovery document for the cluster. See the [OpenID Connect Discovery 1.0 specification](https://openid.net/specs/openid-connect-discovery-1_0.html) for details. |
+
+## `SELECT` examples
+
+Gets the OIDC discovery document for the cluster. See the [OpenID Connect Discovery 1.0 specification](https://openid.net/specs/openid-connect-discovery-1_0.html) for details.
+
+```sql
+SELECT
+cacheHeader,
+claims_supported,
+grant_types,
+id_token_signing_alg_values_supported,
+issuer,
+jwks_uri,
+response_types_supported,
+subject_types_supported
+FROM google.container.well_known_openid_configuration
+WHERE clustersId = '{{ clustersId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

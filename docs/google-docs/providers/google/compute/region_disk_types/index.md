@@ -1,3 +1,4 @@
+
 ---
 title: region_disk_types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_disk_types
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_disk_type</code> resource or lists <code>region_disk_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,8 +43,31 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="validDiskSize" /> | `string` | [Output Only] An optional textual description of the valid disk size, such as "10GB-10TB". |
 | <CopyableCode code="zone" /> | `string` | [Output Only] URL of the zone where the disk type resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="diskType, project, region" /> | Returns the specified regional disk type. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of regional disk types available to the specified project. |
+
+## `SELECT` examples
+
+Retrieves a list of regional disk types available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+defaultDiskSizeGb,
+deprecated,
+kind,
+region,
+selfLink,
+validDiskSize,
+zone
+FROM google.compute.region_disk_types
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'; 
+```

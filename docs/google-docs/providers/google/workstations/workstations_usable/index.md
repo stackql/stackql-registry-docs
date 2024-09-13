@@ -1,3 +1,4 @@
+
 ---
 title: workstations_usable
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - workstations_usable
   - workstations
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>workstations_usable</code> resource or lists <code>workstations_usable</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,7 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | Optional. Human-readable name for this workstation. |
 | <CopyableCode code="env" /> | `object` | Optional. Environment variables passed to the workstation container's entrypoint. |
 | <CopyableCode code="etag" /> | `string` | Optional. Checksum computed by the server. May be sent on update and delete requests to make sure that the client has an up-to-date value before proceeding. |
-| <CopyableCode code="host" /> | `string` | Output only. Host to which clients can send HTTPS traffic that will be received by the workstation. Authorized traffic will be received to the workstation as HTTP on port 80. To send traffic to a different port, clients may prefix the host with the destination port in the format `&#123;port&#125;-&#123;host&#125;`. |
+| <CopyableCode code="host" /> | `string` | Output only. Host to which clients can send HTTPS traffic that will be received by the workstation. Authorized traffic will be received to the workstation as HTTP on port 80. To send traffic to a different port, clients may prefix the host with the destination port in the format `{port}-{host}`. |
 | <CopyableCode code="kmsKey" /> | `string` | Output only. The name of the Google Cloud KMS encryption key used to encrypt this workstation. The KMS key can only be configured in the WorkstationConfig. The expected format is `projects/*/locations/*/keyRings/*/cryptoKeys/*`. |
 | <CopyableCode code="labels" /> | `object` | Optional. [Labels](https://cloud.google.com/workstations/docs/label-resources) that are applied to the workstation and that are also propagated to the underlying Compute Engine resources. |
 | <CopyableCode code="reconciling" /> | `boolean` | Output only. Indicates whether this workstation is currently being updated to match its intended state. |
@@ -45,8 +47,36 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. Current state of the workstation. |
 | <CopyableCode code="uid" /> | `string` | Output only. A system-assigned unique identifier for this workstation. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when this workstation was most recently updated. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_usable" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId" /> |
-| <CopyableCode code="_list_usable" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_usable" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, workstationClustersId, workstationConfigsId" /> | Returns all workstations using the specified workstation configuration on which the caller has the "workstations.workstations.use" permission. |
+
+## `SELECT` examples
+
+Returns all workstations using the specified workstation configuration on which the caller has the "workstations.workstations.use" permission.
+
+```sql
+SELECT
+name,
+annotations,
+createTime,
+deleteTime,
+displayName,
+env,
+etag,
+host,
+kmsKey,
+labels,
+reconciling,
+startTime,
+state,
+uid,
+updateTime
+FROM google.workstations.workstations_usable
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND workstationClustersId = '{{ workstationClustersId }}'
+AND workstationConfigsId = '{{ workstationConfigsId }}'; 
+```

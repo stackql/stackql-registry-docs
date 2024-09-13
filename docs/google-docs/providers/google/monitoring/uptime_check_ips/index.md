@@ -1,3 +1,4 @@
+
 ---
 title: uptime_check_ips
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - uptime_check_ips
   - monitoring
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>uptime_check_ip</code> resource or lists <code>uptime_check_ips</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,8 +35,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="ipAddress" /> | `string` | The IP address from which the Uptime check originates. This is a fully specified IP address (not an IP address range). Most IP addresses, as of this publication, are in IPv4 format; however, one should not rely on the IP addresses being in IPv4 format indefinitely, and should support interpreting this field in either IPv4 or IPv6 format. |
 | <CopyableCode code="location" /> | `string` | A more specific location within the region that typically encodes a particular city/town/metro (and its containing state/province or country) within the broader umbrella region category. |
 | <CopyableCode code="region" /> | `string` | A broad region category in which the IP address is located. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="uptime_check_ips_list" /> | `SELECT` |  |
-| <CopyableCode code="_uptime_check_ips_list" /> | `EXEC` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="uptime_check_ips_list" /> | `SELECT` | <CopyableCode code="" /> | Returns the list of IP addresses that checkers run from. |
+
+## `SELECT` examples
+
+Returns the list of IP addresses that checkers run from.
+
+```sql
+SELECT
+ipAddress,
+location,
+region
+FROM google.monitoring.uptime_check_ips
+WHERE  = '{{  }}'; 
+```

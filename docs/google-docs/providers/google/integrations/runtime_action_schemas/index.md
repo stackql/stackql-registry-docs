@@ -1,3 +1,4 @@
+
 ---
 title: runtime_action_schemas
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - runtime_action_schemas
   - integrations
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>runtime_action_schema</code> resource or lists <code>runtime_action_schemas</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,8 +35,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="action" /> | `string` | Name of the action. |
 | <CopyableCode code="inputSchema" /> | `string` | Input parameter schema for the action. |
 | <CopyableCode code="outputSchema" /> | `string` | Output parameter schema for the action. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_connections_runtime_action_schemas_list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> |
-| <CopyableCode code="_projects_locations_connections_runtime_action_schemas_list" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_connections_runtime_action_schemas_list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists the JSON schemas for the inputs and outputs of actions, filtered by action name. |
+
+## `SELECT` examples
+
+Lists the JSON schemas for the inputs and outputs of actions, filtered by action name.
+
+```sql
+SELECT
+action,
+inputSchema,
+outputSchema
+FROM google.integrations.runtime_action_schemas
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

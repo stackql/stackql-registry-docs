@@ -1,3 +1,4 @@
+
 ---
 title: connection_profiles
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - connection_profiles
   - datastream
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>connection_profile</code> resource or lists <code>connection_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sqlServerProfile" /> | `object` | SQLServer database profile |
 | <CopyableCode code="staticServiceIpConnectivity" /> | `object` | Static IP address connectivity. Used when the source database is configured to allow incoming connections from the Datastream public IP addresses for the region specified in the connection profile. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The update time of the resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,5 +55,159 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Use this method to create a connection profile in a project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="connectionProfilesId, locationsId, projectsId" /> | Use this method to delete a connection profile. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="connectionProfilesId, locationsId, projectsId" /> | Use this method to update the parameters of a connection profile. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Use this method to list connection profiles created in a project and location. |
 | <CopyableCode code="discover" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Use this method to discover a connection profile. The discover API call exposes the data objects and metadata belonging to the profile. Typically, a request returns children data objects of a parent data object that's optionally supplied in the request. |
+
+## `SELECT` examples
+
+Use this method to list connection profiles created in a project and location.
+
+```sql
+SELECT
+name,
+bigqueryProfile,
+createTime,
+displayName,
+forwardSshConnectivity,
+gcsProfile,
+labels,
+mysqlProfile,
+oracleProfile,
+postgresqlProfile,
+privateConnectivity,
+sqlServerProfile,
+staticServiceIpConnectivity,
+updateTime
+FROM google.datastream.connection_profiles
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>connection_profiles</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.datastream.connection_profiles (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+labels,
+displayName,
+oracleProfile,
+gcsProfile,
+mysqlProfile,
+bigqueryProfile,
+postgresqlProfile,
+sqlServerProfile,
+staticServiceIpConnectivity,
+forwardSshConnectivity,
+privateConnectivity
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ displayName }}',
+'{{ oracleProfile }}',
+'{{ gcsProfile }}',
+'{{ mysqlProfile }}',
+'{{ bigqueryProfile }}',
+'{{ postgresqlProfile }}',
+'{{ sqlServerProfile }}',
+'{{ staticServiceIpConnectivity }}',
+'{{ forwardSshConnectivity }}',
+'{{ privateConnectivity }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: oracleProfile
+        value: '{{ oracleProfile }}'
+      - name: gcsProfile
+        value: '{{ gcsProfile }}'
+      - name: mysqlProfile
+        value: '{{ mysqlProfile }}'
+      - name: bigqueryProfile
+        value: '{{ bigqueryProfile }}'
+      - name: postgresqlProfile
+        value: '{{ postgresqlProfile }}'
+      - name: sqlServerProfile
+        value: '{{ sqlServerProfile }}'
+      - name: staticServiceIpConnectivity
+        value: '{{ staticServiceIpConnectivity }}'
+      - name: forwardSshConnectivity
+        value: '{{ forwardSshConnectivity }}'
+      - name: privateConnectivity
+        value: '{{ privateConnectivity }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a connection_profile only if the necessary resources are available.
+
+```sql
+UPDATE google.datastream.connection_profiles
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+displayName = '{{ displayName }}',
+oracleProfile = '{{ oracleProfile }}',
+gcsProfile = '{{ gcsProfile }}',
+mysqlProfile = '{{ mysqlProfile }}',
+bigqueryProfile = '{{ bigqueryProfile }}',
+postgresqlProfile = '{{ postgresqlProfile }}',
+sqlServerProfile = '{{ sqlServerProfile }}',
+staticServiceIpConnectivity = '{{ staticServiceIpConnectivity }}',
+forwardSshConnectivity = '{{ forwardSshConnectivity }}',
+privateConnectivity = '{{ privateConnectivity }}'
+WHERE 
+connectionProfilesId = '{{ connectionProfilesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified connection_profile resource.
+
+```sql
+DELETE FROM google.datastream.connection_profiles
+WHERE connectionProfilesId = '{{ connectionProfilesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

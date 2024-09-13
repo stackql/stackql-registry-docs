@@ -1,3 +1,4 @@
+
 ---
 title: grpc_routes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - grpc_routes
   - networkservices
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>grpc_route</code> resource or lists <code>grpc_routes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Name of the GrpcRoute resource. It matches pattern `projects/*/locations/global/grpcRoutes/` |
+| <CopyableCode code="name" /> | `string` | Identifier. Name of the GrpcRoute resource. It matches pattern `projects/*/locations/global/grpcRoutes/` |
 | <CopyableCode code="description" /> | `string` | Optional. A free-text description of the resource. Max length 1024 characters. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when the resource was created. |
 | <CopyableCode code="gateways" /> | `array` | Optional. Gateways defines a list of gateways this GrpcRoute is attached to, as one of the routing rules to route the requests served by the gateway. Each gateway reference should match the pattern: `projects/*/locations/global/gateways/` |
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="rules" /> | `array` | Required. A list of detailed rules defining how to route traffic. Within a single GrpcRoute, the GrpcRoute.RouteAction associated with the first matching GrpcRoute.RouteRule will be executed. At least one rule must be supplied. |
 | <CopyableCode code="selfLink" /> | `string` | Output only. Server-defined URL of this resource |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the resource was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,4 +51,134 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new GrpcRoute in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="grpcRoutesId, locationsId, projectsId" /> | Deletes a single GrpcRoute. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="grpcRoutesId, locationsId, projectsId" /> | Updates the parameters of a single GrpcRoute. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists GrpcRoutes in a given project and location. |
+
+## `SELECT` examples
+
+Lists GrpcRoutes in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+gateways,
+hostnames,
+labels,
+meshes,
+rules,
+selfLink,
+updateTime
+FROM google.networkservices.grpc_routes
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>grpc_routes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networkservices.grpc_routes (
+locationsId,
+projectsId,
+name,
+selfLink,
+createTime,
+updateTime,
+labels,
+description,
+hostnames,
+meshes,
+gateways,
+rules
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ selfLink }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ description }}',
+'{{ hostnames }}',
+'{{ meshes }}',
+'{{ gateways }}',
+'{{ rules }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: description
+        value: '{{ description }}'
+      - name: hostnames
+        value: '{{ hostnames }}'
+      - name: meshes
+        value: '{{ meshes }}'
+      - name: gateways
+        value: '{{ gateways }}'
+      - name: rules
+        value: '{{ rules }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a grpc_route only if the necessary resources are available.
+
+```sql
+UPDATE google.networkservices.grpc_routes
+SET 
+name = '{{ name }}',
+selfLink = '{{ selfLink }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+description = '{{ description }}',
+hostnames = '{{ hostnames }}',
+meshes = '{{ meshes }}',
+gateways = '{{ gateways }}',
+rules = '{{ rules }}'
+WHERE 
+grpcRoutesId = '{{ grpcRoutesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified grpc_route resource.
+
+```sql
+DELETE FROM google.networkservices.grpc_routes
+WHERE grpcRoutesId = '{{ grpcRoutesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

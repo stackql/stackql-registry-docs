@@ -1,3 +1,4 @@
+
 ---
 title: logging_settings
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - logging_settings
   - logging
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>logging_setting</code> resource or lists <code>logging_settings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,8 +39,44 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kmsServiceAccountId" /> | `string` | Output only. The service account that will be used by the Log Router to access your Cloud KMS key.Before enabling CMEK, you must first assign the role roles/cloudkms.cryptoKeyEncrypterDecrypter to the service account that will be used to access your Cloud KMS key. Use GetSettings to obtain the service account ID.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information. |
 | <CopyableCode code="loggingServiceAccountId" /> | `string` | Output only. The service account for the given resource container, such as project or folder. Log sinks use this service account as their writer_identity if no custom service account is provided in the request when calling the create sink method. |
 | <CopyableCode code="storageLocation" /> | `string` | Optional. The storage location for the _Default and _Required log buckets of newly created projects and folders, unless the storage location is explicitly provided.Example value: europe-west1.Note: this setting does not affect the location of resources where a location is explicitly provided when created, such as custom log buckets. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_settings" /> | `SELECT` | <CopyableCode code="name" /> | Gets the settings for the given resource.Note: Settings can be retrieved for Google Cloud projects, folders, organizations, and billing accounts.See View default resource settings for Logging (https://cloud.google.com/logging/docs/default-settings#view-org-settings) for more information. |
-| <CopyableCode code="update_settings" /> | `EXEC` | <CopyableCode code="name" /> | Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings fails when any of the following are true: The value of storage_location either isn't supported by Logging or violates the location OrgPolicy. The default_sink_config field is set, but it has an unspecified filter write mode. The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information. |
+| <CopyableCode code="update_settings" /> | `UPDATE` | <CopyableCode code="name" /> | Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings fails when any of the following are true: The value of storage_location either isn't supported by Logging or violates the location OrgPolicy. The default_sink_config field is set, but it has an unspecified filter write mode. The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information. |
+
+## `SELECT` examples
+
+Gets the settings for the given resource.Note: Settings can be retrieved for Google Cloud projects, folders, organizations, and billing accounts.See View default resource settings for Logging (https://cloud.google.com/logging/docs/default-settings#view-org-settings) for more information.
+
+```sql
+SELECT
+name,
+defaultSinkConfig,
+disableDefaultSink,
+kmsKeyName,
+kmsServiceAccountId,
+loggingServiceAccountId,
+storageLocation
+FROM google.logging.logging_settings
+WHERE name = '{{ name }}'; 
+```
+
+## `UPDATE` example
+
+Updates a logging_setting only if the necessary resources are available.
+
+```sql
+UPDATE google.logging.logging_settings
+SET 
+name = '{{ name }}',
+kmsKeyName = '{{ kmsKeyName }}',
+kmsServiceAccountId = '{{ kmsServiceAccountId }}',
+storageLocation = '{{ storageLocation }}',
+disableDefaultSink = true|false,
+defaultSinkConfig = '{{ defaultSinkConfig }}',
+loggingServiceAccountId = '{{ loggingServiceAccountId }}'
+WHERE 
+name = '{{ name }}';
+```

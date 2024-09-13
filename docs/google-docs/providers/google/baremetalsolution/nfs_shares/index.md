@@ -1,3 +1,4 @@
+
 ---
 title: nfs_shares
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - nfs_shares
   - baremetalsolution
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>nfs_share</code> resource or lists <code>nfs_shares</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The state of the NFS share. |
 | <CopyableCode code="storageType" /> | `string` | Immutable. The storage type of the underlying volume. |
 | <CopyableCode code="volume" /> | `string` | Output only. The underlying volume of the share. Created automatically during provisioning. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,5 +51,135 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create an NFS share. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, nfsSharesId, projectsId" /> | Delete an NFS share. The underlying volume is automatically deleted. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, nfsSharesId, projectsId" /> | Update details of a single NFS share. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List NFS shares. |
 | <CopyableCode code="rename" /> | `EXEC` | <CopyableCode code="locationsId, nfsSharesId, projectsId" /> | RenameNfsShare sets a new name for an nfsshare. Use with caution, previous names become immediately invalidated. |
+
+## `SELECT` examples
+
+List NFS shares.
+
+```sql
+SELECT
+id,
+name,
+allowedClients,
+labels,
+nfsShareId,
+pod,
+requestedSizeGib,
+state,
+storageType,
+volume
+FROM google.baremetalsolution.nfs_shares
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>nfs_shares</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.baremetalsolution.nfs_shares (
+locationsId,
+projectsId,
+name,
+nfsShareId,
+id,
+state,
+volume,
+allowedClients,
+labels,
+requestedSizeGib,
+storageType,
+pod
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ nfsShareId }}',
+'{{ id }}',
+'{{ state }}',
+'{{ volume }}',
+'{{ allowedClients }}',
+'{{ labels }}',
+'{{ requestedSizeGib }}',
+'{{ storageType }}',
+'{{ pod }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: nfsShareId
+        value: '{{ nfsShareId }}'
+      - name: id
+        value: '{{ id }}'
+      - name: state
+        value: '{{ state }}'
+      - name: volume
+        value: '{{ volume }}'
+      - name: allowedClients
+        value: '{{ allowedClients }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: requestedSizeGib
+        value: '{{ requestedSizeGib }}'
+      - name: storageType
+        value: '{{ storageType }}'
+      - name: pod
+        value: '{{ pod }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a nfs_share only if the necessary resources are available.
+
+```sql
+UPDATE google.baremetalsolution.nfs_shares
+SET 
+name = '{{ name }}',
+nfsShareId = '{{ nfsShareId }}',
+id = '{{ id }}',
+state = '{{ state }}',
+volume = '{{ volume }}',
+allowedClients = '{{ allowedClients }}',
+labels = '{{ labels }}',
+requestedSizeGib = '{{ requestedSizeGib }}',
+storageType = '{{ storageType }}',
+pod = '{{ pod }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND nfsSharesId = '{{ nfsSharesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified nfs_share resource.
+
+```sql
+DELETE FROM google.baremetalsolution.nfs_shares
+WHERE locationsId = '{{ locationsId }}'
+AND nfsSharesId = '{{ nfsSharesId }}'
+AND projectsId = '{{ projectsId }}';
+```

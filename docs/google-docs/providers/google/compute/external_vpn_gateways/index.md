@@ -1,3 +1,4 @@
+
 ---
 title: external_vpn_gateways
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - external_vpn_gateways
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>external_vpn_gateway</code> resource or lists <code>external_vpn_gateways</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Labels for this resource. These can only be added or modified by the setLabels method. Each label key/value pair must comply with RFC1035. Label values may be empty. |
 | <CopyableCode code="redundancyType" /> | `string` | Indicates the user-supplied redundancy type of this external VPN gateway. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,3 +51,107 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a ExternalVpnGateway in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="externalVpnGateway, project" /> | Deletes the specified externalVpnGateway. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, resource" /> | Sets the labels on an ExternalVpnGateway. To learn more about labels, read the Labeling Resources documentation. |
+
+## `SELECT` examples
+
+Retrieves the list of ExternalVpnGateway available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+interfaces,
+kind,
+labelFingerprint,
+labels,
+redundancyType,
+selfLink
+FROM google.compute.external_vpn_gateways
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>external_vpn_gateways</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.external_vpn_gateways (
+project,
+kind,
+description,
+selfLink,
+id,
+creationTimestamp,
+name,
+redundancyType,
+interfaces,
+labels,
+labelFingerprint
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ redundancyType }}',
+'{{ interfaces }}',
+'{{ labels }}',
+'{{ labelFingerprint }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: redundancyType
+        value: '{{ redundancyType }}'
+      - name: interfaces
+        value: '{{ interfaces }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified external_vpn_gateway resource.
+
+```sql
+DELETE FROM google.compute.external_vpn_gateways
+WHERE externalVpnGateway = '{{ externalVpnGateway }}'
+AND project = '{{ project }}';
+```

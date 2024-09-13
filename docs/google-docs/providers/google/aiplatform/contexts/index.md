@@ -1,3 +1,4 @@
+
 ---
 title: contexts
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - contexts
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>context</code> resource or lists <code>contexts</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,14 +43,156 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="schemaTitle" /> | `string` | The title of the schema describing the metadata. Schema title and version is expected to be registered in earlier Create Schema calls. And both are used together as unique identifiers to identify schemas within the local metadata store. |
 | <CopyableCode code="schemaVersion" /> | `string` | The version of the schema in schema_name to use. Schema title and version is expected to be registered in earlier Create Schema calls. And both are used together as unique identifiers to identify schemas within the local metadata store. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this Context was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="contextsId, locationsId, metadataStoresId, projectsId" /> | Retrieves a specific Context. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Lists Contexts on the MetadataStore. |
+| <CopyableCode code="query_context_lineage_subgraph" /> | `SELECT` | <CopyableCode code="contextsId, locationsId, metadataStoresId, projectsId" /> | Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Creates a Context associated with a MetadataStore. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="contextsId, locationsId, metadataStoresId, projectsId" /> | Deletes a stored Context. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="contextsId, locationsId, metadataStoresId, projectsId" /> | Updates a stored Context. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Lists Contexts on the MetadataStore. |
 | <CopyableCode code="purge" /> | `EXEC` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Purges Contexts. |
-| <CopyableCode code="query_context_lineage_subgraph" /> | `EXEC` | <CopyableCode code="contextsId, locationsId, metadataStoresId, projectsId" /> | Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph. |
+
+## `SELECT` examples
+
+Lists Contexts on the MetadataStore.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+displayName,
+etag,
+labels,
+metadata,
+parentContexts,
+schemaTitle,
+schemaVersion,
+updateTime
+FROM google.aiplatform.contexts
+WHERE locationsId = '{{ locationsId }}'
+AND metadataStoresId = '{{ metadataStoresId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>contexts</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.contexts (
+locationsId,
+metadataStoresId,
+projectsId,
+description,
+updateTime,
+displayName,
+parentContexts,
+createTime,
+labels,
+name,
+schemaTitle,
+metadata,
+etag,
+schemaVersion
+)
+SELECT 
+'{{ locationsId }}',
+'{{ metadataStoresId }}',
+'{{ projectsId }}',
+'{{ description }}',
+'{{ updateTime }}',
+'{{ displayName }}',
+'{{ parentContexts }}',
+'{{ createTime }}',
+'{{ labels }}',
+'{{ name }}',
+'{{ schemaTitle }}',
+'{{ metadata }}',
+'{{ etag }}',
+'{{ schemaVersion }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: description
+        value: '{{ description }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: parentContexts
+        value: '{{ parentContexts }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: name
+        value: '{{ name }}'
+      - name: schemaTitle
+        value: '{{ schemaTitle }}'
+      - name: metadata
+        value: '{{ metadata }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: schemaVersion
+        value: '{{ schemaVersion }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a context only if the necessary resources are available.
+
+```sql
+UPDATE google.aiplatform.contexts
+SET 
+description = '{{ description }}',
+updateTime = '{{ updateTime }}',
+displayName = '{{ displayName }}',
+parentContexts = '{{ parentContexts }}',
+createTime = '{{ createTime }}',
+labels = '{{ labels }}',
+name = '{{ name }}',
+schemaTitle = '{{ schemaTitle }}',
+metadata = '{{ metadata }}',
+etag = '{{ etag }}',
+schemaVersion = '{{ schemaVersion }}'
+WHERE 
+contextsId = '{{ contextsId }}'
+AND locationsId = '{{ locationsId }}'
+AND metadataStoresId = '{{ metadataStoresId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified context resource.
+
+```sql
+DELETE FROM google.aiplatform.contexts
+WHERE contextsId = '{{ contextsId }}'
+AND locationsId = '{{ locationsId }}'
+AND metadataStoresId = '{{ metadataStoresId }}'
+AND projectsId = '{{ projectsId }}';
+```

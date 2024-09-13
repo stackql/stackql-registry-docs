@@ -1,3 +1,4 @@
+
 ---
 title: subnetworks
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - subnetworks
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>subnetwork</code> resource or lists <code>subnetworks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,7 +40,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="externalIpv6Prefix" /> | `string` | The external IPv6 address range that is owned by this subnetwork. |
 | <CopyableCode code="fingerprint" /> | `string` | Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a Subnetwork. An up-to-date fingerprint must be provided in order to update the Subnetwork, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve a Subnetwork. |
 | <CopyableCode code="gatewayAddress" /> | `string` | [Output Only] The gateway address for default routes to reach destination addresses outside this subnetwork. |
-| <CopyableCode code="internalIpv6Prefix" /> | `string` | [Output Only] The internal IPv6 address range that is assigned to this subnetwork. |
+| <CopyableCode code="internalIpv6Prefix" /> | `string` | The internal IPv6 address range that is owned by this subnetwork. |
 | <CopyableCode code="ipCidrRange" /> | `string` | The range of internal addresses that are owned by this subnetwork. Provide this property when you create the subnetwork. For example, 10.0.0.0/8 or 100.64.0.0/10. Ranges must be unique and non-overlapping within a network. Only IPv4 is supported. This field is set at resource creation time. The range can be any range listed in the Valid ranges list. The range can be expanded after creation using expandIpCidrRange. |
 | <CopyableCode code="ipv6AccessType" /> | `string` | The access type of IPv6 address this subnet holds. It's immutable and can only be specified during creation or the first time the subnet is updated into IPV4_IPV6 dual stack. |
 | <CopyableCode code="ipv6CidrRange" /> | `string` | [Output Only] This field is for internal use. |
@@ -55,6 +57,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="stackType" /> | `string` | The stack type for the subnet. If set to IPV4_ONLY, new VMs in the subnet are assigned IPv4 addresses only. If set to IPV4_IPV6, new VMs in the subnet can be assigned both IPv4 and IPv6 addresses. If not specified, IPV4_ONLY is used. This field can be both set at resource creation time and updated using patch. |
 | <CopyableCode code="state" /> | `string` | [Output Only] The state of the subnetwork, which can be one of the following values: READY: Subnetwork is created and ready to use DRAINING: only applicable to subnetworks that have the purpose set to INTERNAL_HTTPS_LOAD_BALANCER and indicates that connections to the load balancer are being drained. A subnetwork that is draining cannot be used or modified until it reaches a status of READY |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -64,6 +67,225 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a subnetwork in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, subnetwork" /> | Deletes the specified subnetwork. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, region, subnetwork" /> | Patches the specified subnetwork with the data included in the request. Only certain fields can be updated with a patch request as indicated in the field descriptions. You must specify the current fingerprint of the subnetwork resource being patched. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of subnetworks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="expand_ip_cidr_range" /> | `EXEC` | <CopyableCode code="project, region, subnetwork" /> | Expands the IP CIDR range of the subnetwork to a specified value. |
 | <CopyableCode code="set_private_ip_google_access" /> | `EXEC` | <CopyableCode code="project, region, subnetwork" /> | Set whether VMs in this subnet can access Google services without assigning external IP addresses through Private Google Access. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of subnetworks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+enableFlowLogs,
+externalIpv6Prefix,
+fingerprint,
+gatewayAddress,
+internalIpv6Prefix,
+ipCidrRange,
+ipv6AccessType,
+ipv6CidrRange,
+kind,
+logConfig,
+network,
+privateIpGoogleAccess,
+privateIpv6GoogleAccess,
+purpose,
+region,
+reservedInternalRange,
+role,
+secondaryIpRanges,
+selfLink,
+stackType,
+state
+FROM google.compute.subnetworks
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>subnetworks</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.subnetworks (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+network,
+ipCidrRange,
+reservedInternalRange,
+gatewayAddress,
+region,
+selfLink,
+privateIpGoogleAccess,
+secondaryIpRanges,
+fingerprint,
+enableFlowLogs,
+privateIpv6GoogleAccess,
+ipv6CidrRange,
+externalIpv6Prefix,
+internalIpv6Prefix,
+purpose,
+role,
+state,
+logConfig,
+stackType,
+ipv6AccessType
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ network }}',
+'{{ ipCidrRange }}',
+'{{ reservedInternalRange }}',
+'{{ gatewayAddress }}',
+'{{ region }}',
+'{{ selfLink }}',
+true|false,
+'{{ secondaryIpRanges }}',
+'{{ fingerprint }}',
+true|false,
+'{{ privateIpv6GoogleAccess }}',
+'{{ ipv6CidrRange }}',
+'{{ externalIpv6Prefix }}',
+'{{ internalIpv6Prefix }}',
+'{{ purpose }}',
+'{{ role }}',
+'{{ state }}',
+'{{ logConfig }}',
+'{{ stackType }}',
+'{{ ipv6AccessType }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: network
+        value: '{{ network }}'
+      - name: ipCidrRange
+        value: '{{ ipCidrRange }}'
+      - name: reservedInternalRange
+        value: '{{ reservedInternalRange }}'
+      - name: gatewayAddress
+        value: '{{ gatewayAddress }}'
+      - name: region
+        value: '{{ region }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: privateIpGoogleAccess
+        value: '{{ privateIpGoogleAccess }}'
+      - name: secondaryIpRanges
+        value: '{{ secondaryIpRanges }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: enableFlowLogs
+        value: '{{ enableFlowLogs }}'
+      - name: privateIpv6GoogleAccess
+        value: '{{ privateIpv6GoogleAccess }}'
+      - name: ipv6CidrRange
+        value: '{{ ipv6CidrRange }}'
+      - name: externalIpv6Prefix
+        value: '{{ externalIpv6Prefix }}'
+      - name: internalIpv6Prefix
+        value: '{{ internalIpv6Prefix }}'
+      - name: purpose
+        value: '{{ purpose }}'
+      - name: role
+        value: '{{ role }}'
+      - name: state
+        value: '{{ state }}'
+      - name: logConfig
+        value: '{{ logConfig }}'
+      - name: stackType
+        value: '{{ stackType }}'
+      - name: ipv6AccessType
+        value: '{{ ipv6AccessType }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a subnetwork only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.subnetworks
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+network = '{{ network }}',
+ipCidrRange = '{{ ipCidrRange }}',
+reservedInternalRange = '{{ reservedInternalRange }}',
+gatewayAddress = '{{ gatewayAddress }}',
+region = '{{ region }}',
+selfLink = '{{ selfLink }}',
+privateIpGoogleAccess = true|false,
+secondaryIpRanges = '{{ secondaryIpRanges }}',
+fingerprint = '{{ fingerprint }}',
+enableFlowLogs = true|false,
+privateIpv6GoogleAccess = '{{ privateIpv6GoogleAccess }}',
+ipv6CidrRange = '{{ ipv6CidrRange }}',
+externalIpv6Prefix = '{{ externalIpv6Prefix }}',
+internalIpv6Prefix = '{{ internalIpv6Prefix }}',
+purpose = '{{ purpose }}',
+role = '{{ role }}',
+state = '{{ state }}',
+logConfig = '{{ logConfig }}',
+stackType = '{{ stackType }}',
+ipv6AccessType = '{{ ipv6AccessType }}'
+WHERE 
+project = '{{ project }}'
+AND region = '{{ region }}'
+AND subnetwork = '{{ subnetwork }}';
+```
+
+## `DELETE` example
+
+Deletes the specified subnetwork resource.
+
+```sql
+DELETE FROM google.compute.subnetworks
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND subnetwork = '{{ subnetwork }}';
+```

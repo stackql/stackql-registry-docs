@@ -1,3 +1,4 @@
+
 ---
 title: index_endpoints
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - index_endpoints
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>index_endpoint</code> resource or lists <code>index_endpoints</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,11 +41,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="encryptionSpec" /> | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
 | <CopyableCode code="etag" /> | `string` | Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
 | <CopyableCode code="labels" /> | `object` | The labels with user-defined metadata to organize your IndexEndpoints. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. |
-| <CopyableCode code="network" /> | `string` | Optional. The full name of the Google Compute Engine [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks) to which the IndexEndpoint should be peered. Private services access must already be configured for the network. If left unspecified, the Endpoint is not peered with any network. network and private_service_connect_config are mutually exclusive. [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert): `projects/&#123;project&#125;/global/networks/&#123;network&#125;`. Where &#123;project&#125; is a project number, as in '12345', and &#123;network&#125; is network name. |
+| <CopyableCode code="network" /> | `string` | Optional. The full name of the Google Compute Engine [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks) to which the IndexEndpoint should be peered. Private services access must already be configured for the network. If left unspecified, the Endpoint is not peered with any network. network and private_service_connect_config are mutually exclusive. [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert): `projects/{project}/global/networks/{network}`. Where {project} is a project number, as in '12345', and {network} is network name. |
 | <CopyableCode code="privateServiceConnectConfig" /> | `object` | Represents configuration for private service connect. |
 | <CopyableCode code="publicEndpointDomainName" /> | `string` | Output only. If public_endpoint_enabled is true, this field will be populated with the domain name to use for this index endpoint. |
 | <CopyableCode code="publicEndpointEnabled" /> | `boolean` | Optional. If true, the deployed index will be accessible through public endpoint. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this IndexEndpoint was last updated. This timestamp is not updated when the endpoint's DeployedIndexes are updated, e.g. due to updates of the original Indexes they are the deployments of. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,9 +57,175 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an IndexEndpoint. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Deletes an IndexEndpoint. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Updates an IndexEndpoint. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists IndexEndpoints in a Location. |
 | <CopyableCode code="deploy_index" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it. Only non-empty Indexes can be deployed. |
 | <CopyableCode code="find_neighbors" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Finds the nearest neighbors of each vector within the request. |
 | <CopyableCode code="mutate_deployed_index" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Update an existing DeployedIndex under an IndexEndpoint. |
 | <CopyableCode code="read_index_datapoints" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Reads the datapoints/vectors of the given IDs. A maximum of 1000 datapoints can be retrieved in a batch. |
 | <CopyableCode code="undeploy_index" /> | `EXEC` | <CopyableCode code="indexEndpointsId, locationsId, projectsId" /> | Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using. |
+
+## `SELECT` examples
+
+Lists IndexEndpoints in a Location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+deployedIndexes,
+displayName,
+enablePrivateServiceConnect,
+encryptionSpec,
+etag,
+labels,
+network,
+privateServiceConnectConfig,
+publicEndpointDomainName,
+publicEndpointEnabled,
+satisfiesPzi,
+satisfiesPzs,
+updateTime
+FROM google.aiplatform.index_endpoints
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>index_endpoints</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.index_endpoints (
+locationsId,
+projectsId,
+encryptionSpec,
+network,
+displayName,
+publicEndpointDomainName,
+deployedIndexes,
+publicEndpointEnabled,
+name,
+enablePrivateServiceConnect,
+satisfiesPzs,
+etag,
+labels,
+satisfiesPzi,
+privateServiceConnectConfig,
+createTime,
+description,
+updateTime
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ encryptionSpec }}',
+'{{ network }}',
+'{{ displayName }}',
+'{{ publicEndpointDomainName }}',
+'{{ deployedIndexes }}',
+true|false,
+'{{ name }}',
+true|false,
+true|false,
+'{{ etag }}',
+'{{ labels }}',
+true|false,
+'{{ privateServiceConnectConfig }}',
+'{{ createTime }}',
+'{{ description }}',
+'{{ updateTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: encryptionSpec
+        value: '{{ encryptionSpec }}'
+      - name: network
+        value: '{{ network }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: publicEndpointDomainName
+        value: '{{ publicEndpointDomainName }}'
+      - name: deployedIndexes
+        value: '{{ deployedIndexes }}'
+      - name: publicEndpointEnabled
+        value: '{{ publicEndpointEnabled }}'
+      - name: name
+        value: '{{ name }}'
+      - name: enablePrivateServiceConnect
+        value: '{{ enablePrivateServiceConnect }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+      - name: privateServiceConnectConfig
+        value: '{{ privateServiceConnectConfig }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: description
+        value: '{{ description }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a index_endpoint only if the necessary resources are available.
+
+```sql
+UPDATE google.aiplatform.index_endpoints
+SET 
+encryptionSpec = '{{ encryptionSpec }}',
+network = '{{ network }}',
+displayName = '{{ displayName }}',
+publicEndpointDomainName = '{{ publicEndpointDomainName }}',
+deployedIndexes = '{{ deployedIndexes }}',
+publicEndpointEnabled = true|false,
+name = '{{ name }}',
+enablePrivateServiceConnect = true|false,
+satisfiesPzs = true|false,
+etag = '{{ etag }}',
+labels = '{{ labels }}',
+satisfiesPzi = true|false,
+privateServiceConnectConfig = '{{ privateServiceConnectConfig }}',
+createTime = '{{ createTime }}',
+description = '{{ description }}',
+updateTime = '{{ updateTime }}'
+WHERE 
+indexEndpointsId = '{{ indexEndpointsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified index_endpoint resource.
+
+```sql
+DELETE FROM google.aiplatform.index_endpoints
+WHERE indexEndpointsId = '{{ indexEndpointsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

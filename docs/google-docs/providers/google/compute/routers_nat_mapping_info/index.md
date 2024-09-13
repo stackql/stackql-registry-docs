@@ -1,3 +1,4 @@
+
 ---
 title: routers_nat_mapping_info
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - routers_nat_mapping_info
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>routers_nat_mapping_info</code> resource or lists <code>routers_nat_mapping_info</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,8 +34,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="instanceName" /> | `string` | Name of the VM instance which the endpoint belongs to |
 | <CopyableCode code="interfaceNatMappings" /> | `array` |  |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_nat_mapping_info" /> | `SELECT` | <CopyableCode code="project, region, router" /> |
-| <CopyableCode code="_get_nat_mapping_info" /> | `EXEC` | <CopyableCode code="project, region, router" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_nat_mapping_info" /> | `SELECT` | <CopyableCode code="project, region, router" /> | Retrieves runtime Nat mapping information of VM endpoints. |
+
+## `SELECT` examples
+
+Retrieves runtime Nat mapping information of VM endpoints.
+
+```sql
+SELECT
+instanceName,
+interfaceNatMappings
+FROM google.compute.routers_nat_mapping_info
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND router = '{{ router }}'; 
+```

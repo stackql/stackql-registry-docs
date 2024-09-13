@@ -1,3 +1,4 @@
+
 ---
 title: cases
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - cases
   - cloudsupport
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>case</code> resource or lists <code>cases</code> in a region
 
 ## Overview
 <table><tbody>
@@ -45,11 +47,159 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="testCase" /> | `boolean` | Whether this case was created for internal API testing and should not be acted on by the support team. |
 | <CopyableCode code="timeZone" /> | `string` | The timezone of the user who created the support case. It should be in a format IANA recognizes: https://www.iana.org/time-zones. There is no additional validation done by the API. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time this case was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="parent, parentType" /> | Retrieve all cases under a parent, but not its children. For example, listing cases under an organization only returns the cases that are directly parented by that organization. To retrieve cases under an organization and its projects, use `cases.search`. EXAMPLES: cURL: ```shell parent="projects/some-project" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$parent/cases" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version=&#123;api_version&#125;", ) request = supportApiService.cases().list(parent="projects/some-project") print(request.execute()) ``` |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="parent, parentType" /> | Create a new case and associate it with a parent. It must have the following fields set: `display_name`, `description`, `classification`, and `priority`. If you're just testing the API and don't want to route your case to an agent, set `testCase=true`. EXAMPLES: cURL: ```shell parent="projects/some-project" curl \ --request POST \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ --header 'Content-Type: application/json' \ --data '&#123; "display_name": "Test case created by me.", "description": "a random test case, feel free to close", "classification": &#123; "id": "100IK2AKCLHMGRJ9CDGMOCGP8DM6UTB4BT262T31BT1M2T31DHNMENPO6KS36CPJ786L2TBFEHGN6NPI64R3CDHN8880G08I1H3MURR7DHII0GRCDTQM8" &#125;, "time_zone": "-07:00", "subscriber_email_addresses": [ "foo@domain.com", "bar@domain.com" ], "testCase": true, "priority": "P3" &#125;' \ "https://cloudsupport.googleapis.com/v2/$parent/cases" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version=&#123;api_version&#125;", ) request = supportApiService.cases().create( parent="projects/some-project", body=&#123; "displayName": "A Test Case", "description": "This is a test case.", "testCase": True, "priority": "P2", "classification": &#123; "id": "100IK2AKCLHMGRJ9CDGMOCGP8DM6UTB4BT262T31BT1M2T31DHNMENPO6KS36CPJ786L2TBFEHGN6NPI64R3CDHN8880G08I1H3MURR7DHII0GRCDTQM8" &#125;, &#125;, ) print(request.execute()) ``` |
-| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="name" /> | Update a case. Only some fields can be updated. EXAMPLES: cURL: ```shell case="projects/some-project/cases/43595344" curl \ --request PATCH \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ --header "Content-Type: application/json" \ --data '&#123; "priority": "P1" &#125;' \ "https://cloudsupport.googleapis.com/v2/$case?updateMask=priority" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version=&#123;api_version&#125;", ) request = supportApiService.cases().patch( name="projects/some-project/cases/43112854", body=&#123; "displayName": "This is Now a New Title", "priority": "P2", &#125;, ) print(request.execute()) ``` |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Retrieve all cases under a parent, but not its children. For example, listing cases under an organization only returns the cases that are directly parented by that organization. To retrieve cases under an organization and its projects, use `cases.search`. EXAMPLES: cURL: ```shell parent="projects/some-project" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$parent/cases" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version=&#123;api_version&#125;", ) request = supportApiService.cases().list(parent="projects/some-project") print(request.execute()) ``` |
-| <CopyableCode code="escalate" /> | `EXEC` | <CopyableCode code="name" /> | Escalate a case, starting the Google Cloud Support escalation management process. This operation is only available for some support services. Go to https://cloud.google.com/support and look for 'Technical support escalations' in the feature list to find out which ones let you do that. EXAMPLES: cURL: ```shell case="projects/some-project/cases/43595344" curl \ --request POST \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ --header "Content-Type: application/json" \ --data '&#123; "escalation": &#123; "reason": "BUSINESS_IMPACT", "justification": "This is a test escalation." &#125; &#125;' \ "https://cloudsupport.googleapis.com/v2/$case:escalate" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version=&#123;api_version&#125;", ) request = supportApiService.cases().escalate( name="projects/some-project/cases/43595344", body=&#123; "escalation": &#123; "reason": "BUSINESS_IMPACT", "justification": "This is a test escalation.", &#125;, &#125;, ) print(request.execute()) ``` |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="parent, parentType" /> | Retrieve all cases under a parent, but not its children. For example, listing cases under an organization only returns the cases that are directly parented by that organization. To retrieve cases under an organization and its projects, use `cases.search`. EXAMPLES: cURL: ```shell parent="projects/some-project" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$parent/cases" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().list(parent="projects/some-project") print(request.execute()) ``` |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="parent, parentType" /> | Create a new case and associate it with a parent. It must have the following fields set: `display_name`, `description`, `classification`, and `priority`. If you're just testing the API and don't want to route your case to an agent, set `testCase=true`. EXAMPLES: cURL: ```shell parent="projects/some-project" curl \ --request POST \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ --header 'Content-Type: application/json' \ --data '{ "display_name": "Test case created by me.", "description": "a random test case, feel free to close", "classification": { "id": "100IK2AKCLHMGRJ9CDGMOCGP8DM6UTB4BT262T31BT1M2T31DHNMENPO6KS36CPJ786L2TBFEHGN6NPI64R3CDHN8880G08I1H3MURR7DHII0GRCDTQM8" }, "time_zone": "-07:00", "subscriber_email_addresses": [ "foo@domain.com", "bar@domain.com" ], "testCase": true, "priority": "P3" }' \ "https://cloudsupport.googleapis.com/v2/$parent/cases" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().create( parent="projects/some-project", body={ "displayName": "A Test Case", "description": "This is a test case.", "testCase": True, "priority": "P2", "classification": { "id": "100IK2AKCLHMGRJ9CDGMOCGP8DM6UTB4BT262T31BT1M2T31DHNMENPO6KS36CPJ786L2TBFEHGN6NPI64R3CDHN8880G08I1H3MURR7DHII0GRCDTQM8" }, }, ) print(request.execute()) ``` |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="name" /> | Update a case. Only some fields can be updated. EXAMPLES: cURL: ```shell case="projects/some-project/cases/43595344" curl \ --request PATCH \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ --header "Content-Type: application/json" \ --data '{ "priority": "P1" }' \ "https://cloudsupport.googleapis.com/v2/$case?updateMask=priority" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().patch( name="projects/some-project/cases/43112854", body={ "displayName": "This is Now a New Title", "priority": "P2", }, ) print(request.execute()) ``` |
+| <CopyableCode code="escalate" /> | `EXEC` | <CopyableCode code="name" /> | Escalate a case, starting the Google Cloud Support escalation management process. This operation is only available for some support services. Go to https://cloud.google.com/support and look for 'Technical support escalations' in the feature list to find out which ones let you do that. EXAMPLES: cURL: ```shell case="projects/some-project/cases/43595344" curl \ --request POST \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ --header "Content-Type: application/json" \ --data '{ "escalation": { "reason": "BUSINESS_IMPACT", "justification": "This is a test escalation." } }' \ "https://cloudsupport.googleapis.com/v2/$case:escalate" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().escalate( name="projects/some-project/cases/43595344", body={ "escalation": { "reason": "BUSINESS_IMPACT", "justification": "This is a test escalation.", }, }, ) print(request.execute()) ``` |
+
+## `SELECT` examples
+
+Retrieve all cases under a parent, but not its children. For example, listing cases under an organization only returns the cases that are directly parented by that organization. To retrieve cases under an organization and its projects, use `cases.search`. EXAMPLES: cURL: ```shell parent="projects/some-project" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$parent/cases" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().list(parent="projects/some-project") print(request.execute()) ```
+
+```sql
+SELECT
+name,
+description,
+classification,
+contactEmail,
+createTime,
+creator,
+displayName,
+escalated,
+languageCode,
+priority,
+state,
+subscriberEmailAddresses,
+testCase,
+timeZone,
+updateTime
+FROM google.cloudsupport.cases
+WHERE parent = '{{ parent }}'
+AND parentType = '{{ parentType }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>cases</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.cloudsupport.cases (
+parent,
+parentType,
+timeZone,
+subscriberEmailAddresses,
+creator,
+createTime,
+name,
+languageCode,
+testCase,
+classification,
+description,
+priority,
+state,
+escalated,
+displayName,
+updateTime,
+contactEmail
+)
+SELECT 
+'{{ parent }}',
+'{{ parentType }}',
+'{{ timeZone }}',
+'{{ subscriberEmailAddresses }}',
+'{{ creator }}',
+'{{ createTime }}',
+'{{ name }}',
+'{{ languageCode }}',
+true|false,
+'{{ classification }}',
+'{{ description }}',
+'{{ priority }}',
+'{{ state }}',
+true|false,
+'{{ displayName }}',
+'{{ updateTime }}',
+'{{ contactEmail }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: timeZone
+        value: '{{ timeZone }}'
+      - name: subscriberEmailAddresses
+        value: '{{ subscriberEmailAddresses }}'
+      - name: creator
+        value: '{{ creator }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: name
+        value: '{{ name }}'
+      - name: languageCode
+        value: '{{ languageCode }}'
+      - name: testCase
+        value: '{{ testCase }}'
+      - name: classification
+        value: '{{ classification }}'
+      - name: description
+        value: '{{ description }}'
+      - name: priority
+        value: '{{ priority }}'
+      - name: state
+        value: '{{ state }}'
+      - name: escalated
+        value: '{{ escalated }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: contactEmail
+        value: '{{ contactEmail }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a case only if the necessary resources are available.
+
+```sql
+UPDATE google.cloudsupport.cases
+SET 
+timeZone = '{{ timeZone }}',
+subscriberEmailAddresses = '{{ subscriberEmailAddresses }}',
+creator = '{{ creator }}',
+createTime = '{{ createTime }}',
+name = '{{ name }}',
+languageCode = '{{ languageCode }}',
+testCase = true|false,
+classification = '{{ classification }}',
+description = '{{ description }}',
+priority = '{{ priority }}',
+state = '{{ state }}',
+escalated = true|false,
+displayName = '{{ displayName }}',
+updateTime = '{{ updateTime }}',
+contactEmail = '{{ contactEmail }}'
+WHERE 
+name = '{{ name }}';
+```

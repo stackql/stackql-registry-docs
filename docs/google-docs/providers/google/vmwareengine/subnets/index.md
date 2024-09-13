@@ -1,3 +1,4 @@
+
 ---
 title: subnets
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - subnets
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>subnet</code> resource or lists <code>subnets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,10 +38,48 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The state of the resource. |
 | <CopyableCode code="type" /> | `string` | Output only. The type of the subnet. For example "management" or "userDefined". |
 | <CopyableCode code="vlanId" /> | `integer` | Output only. VLAN ID of the VLAN on which the subnet is configured |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, privateCloudsId, projectsId, subnetsId" /> | Gets details of a single subnet. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists subnets in a given private cloud. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, privateCloudsId, projectsId, subnetsId" /> | Updates the parameters of a single subnet. Only fields specified in `update_mask` are applied. *Note*: This API is synchronous and always returns a successful `google.longrunning.Operation` (LRO). The returned LRO will only have `done` and `response` fields. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists subnets in a given private cloud. |
+
+## `SELECT` examples
+
+Lists subnets in a given private cloud.
+
+```sql
+SELECT
+name,
+gatewayIp,
+ipCidrRange,
+state,
+type,
+vlanId
+FROM google.vmwareengine.subnets
+WHERE locationsId = '{{ locationsId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a subnet only if the necessary resources are available.
+
+```sql
+UPDATE google.vmwareengine.subnets
+SET 
+name = '{{ name }}',
+ipCidrRange = '{{ ipCidrRange }}',
+gatewayIp = '{{ gatewayIp }}',
+type = '{{ type }}',
+state = '{{ state }}',
+vlanId = '{{ vlanId }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}'
+AND subnetsId = '{{ subnetsId }}';
+```

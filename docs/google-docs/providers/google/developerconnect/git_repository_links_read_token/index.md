@@ -1,3 +1,4 @@
+
 ---
 title: git_repository_links_read_token
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - git_repository_links_read_token
   - developerconnect
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>git_repository_links_read_token</code> resource or lists <code>git_repository_links_read_token</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="expirationTime" /> | `string` | Expiration timestamp. Can be empty if unknown or non-expiring. |
+| <CopyableCode code="gitUsername" /> | `string` | The git_username to specify when making a git clone with the token. For example, for GitHub GitRepositoryLinks, this would be "x-access-token" |
+| <CopyableCode code="token" /> | `string` | The token content. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="fetch_read_token" /> | `EXEC` | <CopyableCode code="connectionsId, gitRepositoryLinksId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch_read_token" /> | `SELECT` | <CopyableCode code="connectionsId, gitRepositoryLinksId, locationsId, projectsId" /> | Fetches read token of a given gitRepositoryLink. |
+
+## `SELECT` examples
+
+Fetches read token of a given gitRepositoryLink.
+
+```sql
+SELECT
+expirationTime,
+gitUsername,
+token
+FROM google.developerconnect.git_repository_links_read_token
+WHERE connectionsId = '{{ connectionsId }}'
+AND gitRepositoryLinksId = '{{ gitRepositoryLinksId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

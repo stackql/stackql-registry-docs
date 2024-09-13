@@ -1,3 +1,4 @@
+
 ---
 title: zones_serverconfig
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - zones_serverconfig
   - container
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>zones_serverconfig</code> resource or lists <code>zones_serverconfig</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,7 +38,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="validImageTypes" /> | `array` | List of valid image types. |
 | <CopyableCode code="validMasterVersions" /> | `array` | List of valid master versions, in descending order. |
 | <CopyableCode code="validNodeVersions" /> | `array` | List of valid node upgrade target versions, in descending order. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_zones_get_serverconfig" /> | `SELECT` | <CopyableCode code="projectId, zone" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_zones_get_serverconfig" /> | `SELECT` | <CopyableCode code="projectId, zone" /> | Returns configuration info about the Google Kubernetes Engine service. |
+
+## `SELECT` examples
+
+Returns configuration info about the Google Kubernetes Engine service.
+
+```sql
+SELECT
+channels,
+defaultClusterVersion,
+defaultImageType,
+validImageTypes,
+validMasterVersions,
+validNodeVersions
+FROM google.container.zones_serverconfig
+WHERE projectId = '{{ projectId }}'
+AND zone = '{{ zone }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: billing_accounts_settings
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - billing_accounts_settings
   - logging
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>billing_accounts_setting</code> resource or lists <code>billing_accounts_settings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,7 +39,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kmsServiceAccountId" /> | `string` | Output only. The service account that will be used by the Log Router to access your Cloud KMS key.Before enabling CMEK, you must first assign the role roles/cloudkms.cryptoKeyEncrypterDecrypter to the service account that will be used to access your Cloud KMS key. Use GetSettings to obtain the service account ID.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information. |
 | <CopyableCode code="loggingServiceAccountId" /> | `string` | Output only. The service account for the given resource container, such as project or folder. Log sinks use this service account as their writer_identity if no custom service account is provided in the request when calling the create sink method. |
 | <CopyableCode code="storageLocation" /> | `string` | Optional. The storage location for the _Default and _Required log buckets of newly created projects and folders, unless the storage location is explicitly provided.Example value: europe-west1.Note: this setting does not affect the location of resources where a location is explicitly provided when created, such as custom log buckets. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="billing_accounts_get_settings" /> | `SELECT` | <CopyableCode code="billingAccountsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="billing_accounts_get_settings" /> | `SELECT` | <CopyableCode code="billingAccountsId" /> | Gets the settings for the given resource.Note: Settings can be retrieved for Google Cloud projects, folders, organizations, and billing accounts.See View default resource settings for Logging (https://cloud.google.com/logging/docs/default-settings#view-org-settings) for more information. |
+
+## `SELECT` examples
+
+Gets the settings for the given resource.Note: Settings can be retrieved for Google Cloud projects, folders, organizations, and billing accounts.See View default resource settings for Logging (https://cloud.google.com/logging/docs/default-settings#view-org-settings) for more information.
+
+```sql
+SELECT
+name,
+defaultSinkConfig,
+disableDefaultSink,
+kmsKeyName,
+kmsServiceAccountId,
+loggingServiceAccountId,
+storageLocation
+FROM google.logging.billing_accounts_settings
+WHERE billingAccountsId = '{{ billingAccountsId }}'; 
+```

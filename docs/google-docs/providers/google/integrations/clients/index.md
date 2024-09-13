@@ -1,3 +1,4 @@
+
 ---
 title: clients
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - clients
   - integrations
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>client</code> resource or lists <code>clients</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,6 +30,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="client" /> | `object` | The configuration information for the Client |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -37,3 +43,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_clients_replace" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Update run-as service account for provisioned client |
 | <CopyableCode code="projects_locations_clients_switch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Update client from GMEK to CMEK |
 | <CopyableCode code="projects_locations_clients_switch_variable_masking" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Update variable masking for provisioned client |
+
+## `SELECT` examples
+
+Gets the client configuration for the given project and location resource name
+
+```sql
+SELECT
+client
+FROM google.integrations.clients
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

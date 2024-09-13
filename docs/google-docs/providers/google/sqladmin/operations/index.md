@@ -1,3 +1,4 @@
+
 ---
 title: operations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - operations
   - sqladmin
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>operation</code> resource or lists <code>operations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -48,10 +50,38 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="targetLink" /> | `string` |  |
 | <CopyableCode code="targetProject" /> | `string` | The project ID of the target instance related to this operation. |
 | <CopyableCode code="user" /> | `string` | The email address of the user who initiated this operation. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="operation, project" /> | Retrieves an instance operation that has been performed on an instance. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Lists all instance operations that have been performed on the given Cloud SQL instance in the reverse chronological order of the start time. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Lists all instance operations that have been performed on the given Cloud SQL instance in the reverse chronological order of the start time. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="operation, project" /> | Cancels an instance operation that has been performed on an instance. |
+
+## `SELECT` examples
+
+Lists all instance operations that have been performed on the given Cloud SQL instance in the reverse chronological order of the start time.
+
+```sql
+SELECT
+name,
+acquireSsrsLeaseContext,
+apiWarning,
+backupContext,
+endTime,
+error,
+exportContext,
+importContext,
+insertTime,
+kind,
+operationType,
+selfLink,
+startTime,
+status,
+targetId,
+targetLink,
+targetProject,
+user
+FROM google.sqladmin.operations
+WHERE project = '{{ project }}'; 
+```

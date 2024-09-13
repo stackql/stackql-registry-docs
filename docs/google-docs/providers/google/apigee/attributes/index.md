@@ -1,3 +1,4 @@
+
 ---
 title: attributes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - attributes
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>attribute</code> resource or lists <code>attributes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,6 +34,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | API key of the attribute. |
 | <CopyableCode code="value" /> | `string` | Value of the attribute. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,3 +47,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_apiproducts_attributes_delete" /> | `DELETE` | <CopyableCode code="apiproductsId, attributesId, organizationsId" /> | Deletes an API product attribute. |
 | <CopyableCode code="organizations_developers_apps_attributes_delete" /> | `DELETE` | <CopyableCode code="appsId, attributesId, developersId, organizationsId" /> | Deletes a developer app attribute. |
 | <CopyableCode code="organizations_developers_attributes_delete" /> | `DELETE` | <CopyableCode code="attributesId, developersId, organizationsId" /> | Deletes a developer attribute. |
+
+## `SELECT` examples
+
+Returns a list of all developer attributes.
+
+```sql
+SELECT
+name,
+value
+FROM google.apigee.attributes
+WHERE developersId = '{{ developersId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified attribute resource.
+
+```sql
+DELETE FROM google.apigee.attributes
+WHERE attributesId = '{{ attributesId }}'
+AND developersId = '{{ developersId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

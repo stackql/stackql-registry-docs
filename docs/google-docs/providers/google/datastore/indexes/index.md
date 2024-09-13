@@ -1,3 +1,4 @@
+
 ---
 title: indexes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - indexes
   - datastore
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>index</code> resource or lists <code>indexes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projectId" /> | `string` | Output only. Project ID. |
 | <CopyableCode code="properties" /> | `array` | Required. An ordered sequence of property names and their index attributes. Requires: * A maximum of 100 properties. |
 | <CopyableCode code="state" /> | `string` | Output only. The state of the index. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,4 +46,87 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectId" /> | Lists the indexes that match the specified filters. Datastore uses an eventually consistent query to fetch the list of indexes and may occasionally return stale results. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectId" /> | Creates the specified index. A newly created index's initial state is `CREATING`. On completion of the returned google.longrunning.Operation, the state will be `READY`. If the index already exists, the call will return an `ALREADY_EXISTS` status. During index creation, the process could result in an error, in which case the index will move to the `ERROR` state. The process can be recovered by fixing the data that caused the error, removing the index with delete, then re-creating the index with create. Indexes with a single property cannot be created. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="indexId, projectId" /> | Deletes an existing index. An index can only be deleted if it is in a `READY` or `ERROR` state. On successful execution of the request, the index will be in a `DELETING` state. And on completion of the returned google.longrunning.Operation, the index will be removed. During index deletion, the process could result in an error, in which case the index will move to the `ERROR` state. The process can be recovered by fixing the data that caused the error, followed by calling delete again. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectId" /> | Lists the indexes that match the specified filters. Datastore uses an eventually consistent query to fetch the list of indexes and may occasionally return stale results. |
+
+## `SELECT` examples
+
+Lists the indexes that match the specified filters. Datastore uses an eventually consistent query to fetch the list of indexes and may occasionally return stale results.
+
+```sql
+SELECT
+ancestor,
+indexId,
+kind,
+projectId,
+properties,
+state
+FROM google.datastore.indexes
+WHERE projectId = '{{ projectId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>indexes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.datastore.indexes (
+projectId,
+projectId,
+indexId,
+kind,
+ancestor,
+properties,
+state
+)
+SELECT 
+'{{ projectId }}',
+'{{ projectId }}',
+'{{ indexId }}',
+'{{ kind }}',
+'{{ ancestor }}',
+'{{ properties }}',
+'{{ state }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: projectId
+        value: '{{ projectId }}'
+      - name: indexId
+        value: '{{ indexId }}'
+      - name: kind
+        value: '{{ kind }}'
+      - name: ancestor
+        value: '{{ ancestor }}'
+      - name: properties
+        value: '{{ properties }}'
+      - name: state
+        value: '{{ state }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified index resource.
+
+```sql
+DELETE FROM google.datastore.indexes
+WHERE indexId = '{{ indexId }}'
+AND projectId = '{{ projectId }}';
+```

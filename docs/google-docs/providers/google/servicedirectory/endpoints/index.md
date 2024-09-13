@@ -1,3 +1,4 @@
+
 ---
 title: endpoints
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - endpoints
   - servicedirectory
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>endpoint</code> resource or lists <code>endpoints</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="network" /> | `string` | Immutable. The Google Compute Engine network (VPC) of the endpoint in the format `projects//locations/global/networks/*`. The project must be specified by project number (project id is rejected). Incorrectly formatted networks are rejected, we also check to make sure that you have the servicedirectory.networks.attach permission on the project specified. |
 | <CopyableCode code="port" /> | `integer` | Optional. Service Directory rejects values outside of `[0, 65535]`. |
 | <CopyableCode code="uid" /> | `string` | Output only. The globally unique identifier of the endpoint in the UUID4 format. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,4 +47,120 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Creates an endpoint, and returns the new endpoint. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointsId, locationsId, namespacesId, projectsId, servicesId" /> | Deletes an endpoint. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="endpointsId, locationsId, namespacesId, projectsId, servicesId" /> | Updates an endpoint. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Lists all endpoints. |
+
+## `SELECT` examples
+
+Lists all endpoints.
+
+```sql
+SELECT
+name,
+address,
+annotations,
+network,
+port,
+uid
+FROM google.servicedirectory.endpoints
+WHERE locationsId = '{{ locationsId }}'
+AND namespacesId = '{{ namespacesId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>endpoints</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.servicedirectory.endpoints (
+locationsId,
+namespacesId,
+projectsId,
+servicesId,
+name,
+address,
+port,
+annotations,
+network,
+uid
+)
+SELECT 
+'{{ locationsId }}',
+'{{ namespacesId }}',
+'{{ projectsId }}',
+'{{ servicesId }}',
+'{{ name }}',
+'{{ address }}',
+'{{ port }}',
+'{{ annotations }}',
+'{{ network }}',
+'{{ uid }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: address
+        value: '{{ address }}'
+      - name: port
+        value: '{{ port }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: network
+        value: '{{ network }}'
+      - name: uid
+        value: '{{ uid }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a endpoint only if the necessary resources are available.
+
+```sql
+UPDATE google.servicedirectory.endpoints
+SET 
+name = '{{ name }}',
+address = '{{ address }}',
+port = '{{ port }}',
+annotations = '{{ annotations }}',
+network = '{{ network }}',
+uid = '{{ uid }}'
+WHERE 
+endpointsId = '{{ endpointsId }}'
+AND locationsId = '{{ locationsId }}'
+AND namespacesId = '{{ namespacesId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified endpoint resource.
+
+```sql
+DELETE FROM google.servicedirectory.endpoints
+WHERE endpointsId = '{{ endpointsId }}'
+AND locationsId = '{{ locationsId }}'
+AND namespacesId = '{{ namespacesId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}';
+```

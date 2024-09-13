@@ -1,3 +1,4 @@
+
 ---
 title: vulnerabilities
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - vulnerabilities
   - ondemandscanning
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>vulnerability</code> resource or lists <code>vulnerabilities</code> in a region
 
 ## Overview
 <table><tbody>
@@ -49,8 +51,39 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time this occurrence was last updated. |
 | <CopyableCode code="upgrade" /> | `object` | An Upgrade Occurrence represents that a specific resource_url could install a specific upgrade. This presence is supplied via local sources (i.e. it is present in the mirror and the running system has noticed its availability). For Windows, both distribution and windows_update contain information for the Windows update. |
 | <CopyableCode code="vulnerability" /> | `object` | An occurrence of a severity vulnerability on a resource. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, scansId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, scansId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, scansId" /> | Lists vulnerabilities resulting from a successfully completed scan. |
+
+## `SELECT` examples
+
+Lists vulnerabilities resulting from a successfully completed scan.
+
+```sql
+SELECT
+name,
+attestation,
+build,
+compliance,
+createTime,
+deployment,
+discovery,
+dsseAttestation,
+envelope,
+image,
+kind,
+noteName,
+package,
+remediation,
+resourceUri,
+sbomReference,
+updateTime,
+upgrade,
+vulnerability
+FROM google.ondemandscanning.vulnerabilities
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND scansId = '{{ scansId }}'; 
+```

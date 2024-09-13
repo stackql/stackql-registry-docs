@@ -1,3 +1,4 @@
+
 ---
 title: projects
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - projects
   - dns
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>project</code> resource or lists <code>projects</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,7 +36,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` |  |
 | <CopyableCode code="number" /> | `string` | Unique numeric identifier for the resource; defined by the server (output only). |
 | <CopyableCode code="quota" /> | `object` | Limits associated with a Project. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project" /> | Fetches the representation of an existing Project. |
+
+## `SELECT` examples
+
+Fetches the representation of an existing Project.
+
+```sql
+SELECT
+id,
+kind,
+number,
+quota
+FROM google.dns.projects
+WHERE project = '{{ project }}'; 
+```

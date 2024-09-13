@@ -1,3 +1,4 @@
+
 ---
 title: provisioning_quotas
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - provisioning_quotas
   - baremetalsolution
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>provisioning_quota</code> resource or lists <code>provisioning_quotas</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,8 +41,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="networkBandwidth" /> | `string` | Network bandwidth, Gbps |
 | <CopyableCode code="serverCount" /> | `string` | Server count. |
 | <CopyableCode code="storageGib" /> | `string` | Storage size (GB). |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | List the budget details to provision resources on a given project. |
+
+## `SELECT` examples
+
+List the budget details to provision resources on a given project.
+
+```sql
+SELECT
+name,
+assetType,
+availableCount,
+gcpService,
+instanceQuota,
+location,
+networkBandwidth,
+serverCount,
+storageGib
+FROM google.baremetalsolution.provisioning_quotas
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

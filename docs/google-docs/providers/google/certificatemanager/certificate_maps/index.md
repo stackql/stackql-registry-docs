@@ -1,3 +1,4 @@
+
 ---
 title: certificate_maps
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - certificate_maps
   - certificatemanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>certificate_map</code> resource or lists <code>certificate_maps</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,12 +32,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | A user-defined name of the Certificate Map. Certificate Map names must be unique globally and match pattern `projects/*/locations/*/certificateMaps/*`. |
-| <CopyableCode code="description" /> | `string` | One or more paragraphs of text description of a certificate map. |
+| <CopyableCode code="name" /> | `string` | Identifier. A user-defined name of the Certificate Map. Certificate Map names must be unique globally and match pattern `projects/*/locations/*/certificateMaps/*`. |
+| <CopyableCode code="description" /> | `string` | Optional. One or more paragraphs of text description of a certificate map. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation timestamp of a Certificate Map. |
 | <CopyableCode code="gclbTargets" /> | `array` | Output only. A list of GCLB targets that use this Certificate Map. A Target Proxy is only present on this list if it's attached to a Forwarding Rule. |
-| <CopyableCode code="labels" /> | `object` | Set of labels associated with a Certificate Map. |
+| <CopyableCode code="labels" /> | `object` | Optional. Set of labels associated with a Certificate Map. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The update timestamp of a Certificate Map. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,4 +47,110 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new CertificateMap in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="certificateMapsId, locationsId, projectsId" /> | Deletes a single CertificateMap. A Certificate Map can't be deleted if it contains Certificate Map Entries. Remove all the entries from the map before calling this method. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="certificateMapsId, locationsId, projectsId" /> | Updates a CertificateMap. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists CertificateMaps in a given project and location. |
+
+## `SELECT` examples
+
+Lists CertificateMaps in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+gclbTargets,
+labels,
+updateTime
+FROM google.certificatemanager.certificate_maps
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>certificate_maps</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.certificatemanager.certificate_maps (
+locationsId,
+projectsId,
+name,
+description,
+createTime,
+updateTime,
+labels,
+gclbTargets
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ gclbTargets }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: gclbTargets
+        value: '{{ gclbTargets }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a certificate_map only if the necessary resources are available.
+
+```sql
+UPDATE google.certificatemanager.certificate_maps
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+gclbTargets = '{{ gclbTargets }}'
+WHERE 
+certificateMapsId = '{{ certificateMapsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified certificate_map resource.
+
+```sql
+DELETE FROM google.certificatemanager.certificate_maps
+WHERE certificateMapsId = '{{ certificateMapsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

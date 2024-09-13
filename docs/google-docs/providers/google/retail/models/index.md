@@ -1,3 +1,4 @@
+
 ---
 title: models
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - models
   - retail
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>model</code> resource or lists <code>models</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,14 +32,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. The fully qualified resource name of the model. Format: `projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/catalogs/&#123;catalog_id&#125;/models/&#123;model_id&#125;` catalog_id has char limit of 50. recommendation_model_id has char limit of 40. |
+| <CopyableCode code="name" /> | `string` | Required. The fully qualified resource name of the model. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` catalog_id has char limit of 50. recommendation_model_id has char limit of 40. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Timestamp the Recommendation Model was created at. |
 | <CopyableCode code="dataState" /> | `string` | Output only. The state of data requirements for this model: `DATA_OK` and `DATA_ERROR`. Recommendation model cannot be trained if the data is in `DATA_ERROR` state. Recommendation model can have `DATA_ERROR` state even if serving state is `ACTIVE`: models were trained successfully before, but cannot be refreshed because model no longer has sufficient data for training. |
 | <CopyableCode code="displayName" /> | `string` | Required. The display name of the model. Should be human readable, used to display Recommendation Models in the Retail Cloud Console Dashboard. UTF-8 encoded string with limit of 1024 characters. |
 | <CopyableCode code="filteringOption" /> | `string` | Optional. If `RECOMMENDATIONS_FILTERING_ENABLED`, recommendation filtering by attributes is enabled for the model. |
 | <CopyableCode code="lastTuneTime" /> | `string` | Output only. The timestamp when the latest successful tune finished. |
 | <CopyableCode code="modelFeaturesConfig" /> | `object` | Additional model features config. |
-| <CopyableCode code="optimizationObjective" /> | `string` | Optional. The optimization objective e.g. `cvr`. Currently supported values: `ctr`, `cvr`, `revenue-per-order`. If not specified, we choose default based on model type. Default depends on type of recommendation: `recommended-for-you` =&gt; `ctr` `others-you-may-like` =&gt; `ctr` `frequently-bought-together` =&gt; `revenue_per_order` This field together with optimization_objective describe model metadata to use to control model training and serving. See https://cloud.google.com/retail/docs/models for more details on what the model metadata control and which combination of parameters are valid. For invalid combinations of parameters (e.g. type = `frequently-bought-together` and optimization_objective = `ctr`), you receive an error 400 if you try to create/update a recommendation with this set of knobs. |
+| <CopyableCode code="optimizationObjective" /> | `string` | Optional. The optimization objective e.g. `cvr`. Currently supported values: `ctr`, `cvr`, `revenue-per-order`. If not specified, we choose default based on model type. Default depends on type of recommendation: `recommended-for-you` => `ctr` `others-you-may-like` => `ctr` `frequently-bought-together` => `revenue_per_order` This field together with optimization_objective describe model metadata to use to control model training and serving. See https://cloud.google.com/retail/docs/models for more details on what the model metadata control and which combination of parameters are valid. For invalid combinations of parameters (e.g. type = `frequently-bought-together` and optimization_objective = `ctr`), you receive an error 400 if you try to create/update a recommendation with this set of knobs. |
 | <CopyableCode code="periodicTuningState" /> | `string` | Optional. The state of periodic tuning. The period we use is 3 months - to do a one-off tune earlier use the `TuneModel` method. Default value is `PERIODIC_TUNING_ENABLED`. |
 | <CopyableCode code="servingConfigLists" /> | `array` | Output only. The list of valid serving configs associated with the PageOptimizationConfig. |
 | <CopyableCode code="servingState" /> | `string` | Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`. |
@@ -45,6 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="tuningOperation" /> | `string` | Output only. The tune operation associated with the model. Can be used to determine if there is an ongoing tune for this recommendation. Empty field implies no tune is goig on. |
 | <CopyableCode code="type" /> | `string` | Required. The type of model e.g. `home-page`. Currently supported values: `recommended-for-you`, `others-you-may-like`, `frequently-bought-together`, `page-optimization`, `similar-items`, `buy-it-again`, `on-sale-items`, and `recently-viewed`(readonly value). This field together with optimization_objective describe model metadata to use to control model training and serving. See https://cloud.google.com/retail/docs/models for more details on what the model metadata control and which combination of parameters are valid. For invalid combinations of parameters (e.g. type = `frequently-bought-together` and optimization_objective = `ctr`), you receive an error 400 if you try to create/update a recommendation with this set of knobs. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp the Recommendation Model was last updated. E.g. if a Recommendation Model was paused - this would be the time the pause was initiated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -53,7 +56,172 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_catalogs_models_create" /> | `INSERT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Creates a new model. |
 | <CopyableCode code="projects_locations_catalogs_models_delete" /> | `DELETE` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Deletes an existing model. |
 | <CopyableCode code="projects_locations_catalogs_models_patch" /> | `UPDATE` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Update of model metadata. Only fields that currently can be updated are: `filtering_option` and `periodic_tuning_state`. If other values are provided, this API method ignores them. |
-| <CopyableCode code="_projects_locations_catalogs_models_list" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Lists all the models linked to this event store. |
 | <CopyableCode code="projects_locations_catalogs_models_pause" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Pauses the training of an existing model. |
 | <CopyableCode code="projects_locations_catalogs_models_resume" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Resumes the training of an existing model. |
 | <CopyableCode code="projects_locations_catalogs_models_tune" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, modelsId, projectsId" /> | Tunes an existing model. |
+
+## `SELECT` examples
+
+Lists all the models linked to this event store.
+
+```sql
+SELECT
+name,
+createTime,
+dataState,
+displayName,
+filteringOption,
+lastTuneTime,
+modelFeaturesConfig,
+optimizationObjective,
+periodicTuningState,
+servingConfigLists,
+servingState,
+trainingState,
+tuningOperation,
+type,
+updateTime
+FROM google.retail.models
+WHERE catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>models</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.retail.models (
+catalogsId,
+locationsId,
+projectsId,
+name,
+displayName,
+trainingState,
+servingState,
+createTime,
+updateTime,
+type,
+optimizationObjective,
+periodicTuningState,
+lastTuneTime,
+tuningOperation,
+dataState,
+filteringOption,
+servingConfigLists,
+modelFeaturesConfig
+)
+SELECT 
+'{{ catalogsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ trainingState }}',
+'{{ servingState }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ type }}',
+'{{ optimizationObjective }}',
+'{{ periodicTuningState }}',
+'{{ lastTuneTime }}',
+'{{ tuningOperation }}',
+'{{ dataState }}',
+'{{ filteringOption }}',
+'{{ servingConfigLists }}',
+'{{ modelFeaturesConfig }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: trainingState
+        value: '{{ trainingState }}'
+      - name: servingState
+        value: '{{ servingState }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: type
+        value: '{{ type }}'
+      - name: optimizationObjective
+        value: '{{ optimizationObjective }}'
+      - name: periodicTuningState
+        value: '{{ periodicTuningState }}'
+      - name: lastTuneTime
+        value: '{{ lastTuneTime }}'
+      - name: tuningOperation
+        value: '{{ tuningOperation }}'
+      - name: dataState
+        value: '{{ dataState }}'
+      - name: filteringOption
+        value: '{{ filteringOption }}'
+      - name: servingConfigLists
+        value: '{{ servingConfigLists }}'
+      - name: modelFeaturesConfig
+        value: '{{ modelFeaturesConfig }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a model only if the necessary resources are available.
+
+```sql
+UPDATE google.retail.models
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+trainingState = '{{ trainingState }}',
+servingState = '{{ servingState }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+type = '{{ type }}',
+optimizationObjective = '{{ optimizationObjective }}',
+periodicTuningState = '{{ periodicTuningState }}',
+lastTuneTime = '{{ lastTuneTime }}',
+tuningOperation = '{{ tuningOperation }}',
+dataState = '{{ dataState }}',
+filteringOption = '{{ filteringOption }}',
+servingConfigLists = '{{ servingConfigLists }}',
+modelFeaturesConfig = '{{ modelFeaturesConfig }}'
+WHERE 
+catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND modelsId = '{{ modelsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified model resource.
+
+```sql
+DELETE FROM google.retail.models
+WHERE catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND modelsId = '{{ modelsId }}'
+AND projectsId = '{{ projectsId }}';
+```

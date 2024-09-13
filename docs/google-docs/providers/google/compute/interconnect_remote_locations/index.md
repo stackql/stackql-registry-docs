@@ -1,3 +1,4 @@
+
 ---
 title: interconnect_remote_locations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - interconnect_remote_locations
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>interconnect_remote_location</code> resource or lists <code>interconnect_remote_locations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -50,8 +52,39 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="remoteService" /> | `string` | [Output Only] Indicates the service provider present at the remote location. Example values: "Amazon Web Services", "Microsoft Azure". |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of this InterconnectRemoteLocation, which can take one of the following values: - CLOSED: The InterconnectRemoteLocation is closed and is unavailable for provisioning new Cross-Cloud Interconnects. - AVAILABLE: The InterconnectRemoteLocation is available for provisioning new Cross-Cloud Interconnects.  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="interconnectRemoteLocation, project" /> | Returns the details for the specified interconnect remote location. Gets a list of available interconnect remote locations by making a list() request. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of interconnect remote locations available to the specified project. |
+
+## `SELECT` examples
+
+Retrieves the list of interconnect remote locations available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+address,
+attachmentConfigurationConstraints,
+city,
+constraints,
+continent,
+creationTimestamp,
+facilityProvider,
+facilityProviderFacilityId,
+kind,
+lacp,
+maxLagSize100Gbps,
+maxLagSize10Gbps,
+peeringdbFacilityId,
+permittedConnections,
+remoteService,
+selfLink,
+status
+FROM google.compute.interconnect_remote_locations
+WHERE project = '{{ project }}'; 
+```

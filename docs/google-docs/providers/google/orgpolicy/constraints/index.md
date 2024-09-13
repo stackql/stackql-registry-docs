@@ -1,3 +1,4 @@
+
 ---
 title: constraints
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - constraints
   - orgpolicy
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>constraint</code> resource or lists <code>constraints</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,19 +32,34 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the constraint. Must be in one of the following forms: * `projects/&#123;project_number&#125;/constraints/&#123;constraint_name&#125;` * `folders/&#123;folder_id&#125;/constraints/&#123;constraint_name&#125;` * `organizations/&#123;organization_id&#125;/constraints/&#123;constraint_name&#125;` For example, "/projects/123/constraints/compute.disableSerialPortAccess". |
+| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the constraint. Must be in one of the following forms: * `projects/{project_number}/constraints/{constraint_name}` * `folders/{folder_id}/constraints/{constraint_name}` * `organizations/{organization_id}/constraints/{constraint_name}` For example, "/projects/123/constraints/compute.disableSerialPortAccess". |
 | <CopyableCode code="description" /> | `string` | Detailed description of what this constraint controls as well as how and where it is enforced. Mutable. |
 | <CopyableCode code="booleanConstraint" /> | `object` | A constraint that is either enforced or not. For example, a constraint `constraints/compute.disableSerialPortAccess`. If it is enforced on a VM instance, serial port connections will not be opened to that instance. |
 | <CopyableCode code="constraintDefault" /> | `string` | The evaluation behavior of this constraint in the absence of a policy. |
 | <CopyableCode code="displayName" /> | `string` | The human readable name. Mutable. |
 | <CopyableCode code="listConstraint" /> | `object` | A constraint that allows or disallows a list of string values, which are configured by an Organization Policy administrator with a policy. |
 | <CopyableCode code="supportsDryRun" /> | `boolean` | Shows if dry run is supported for this constraint or not. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="folders_constraints_list" /> | `SELECT` | <CopyableCode code="foldersId" /> |
-| <CopyableCode code="organizations_constraints_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> |
-| <CopyableCode code="projects_constraints_list" /> | `SELECT` | <CopyableCode code="projectsId" /> |
-| <CopyableCode code="_folders_constraints_list" /> | `EXEC` | <CopyableCode code="foldersId" /> |
-| <CopyableCode code="_organizations_constraints_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> |
-| <CopyableCode code="_projects_constraints_list" /> | `EXEC` | <CopyableCode code="projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="folders_constraints_list" /> | `SELECT` | <CopyableCode code="foldersId" /> | Lists constraints that could be applied on the specified resource. |
+| <CopyableCode code="organizations_constraints_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists constraints that could be applied on the specified resource. |
+| <CopyableCode code="projects_constraints_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists constraints that could be applied on the specified resource. |
+
+## `SELECT` examples
+
+Lists constraints that could be applied on the specified resource.
+
+```sql
+SELECT
+name,
+description,
+booleanConstraint,
+constraintDefault,
+displayName,
+listConstraint,
+supportsDryRun
+FROM google.orgpolicy.constraints
+WHERE foldersId = '{{ foldersId }}'; 
+```

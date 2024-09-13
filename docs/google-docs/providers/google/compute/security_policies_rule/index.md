@@ -1,3 +1,4 @@
+
 ---
 title: security_policies_rule
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - security_policies_rule
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>security_policies_rule</code> resource or lists <code>security_policies_rule</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,9 +43,122 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="priority" /> | `integer` | An integer indicating the priority of a rule in the list. The priority must be a positive value between 0 and 2147483647. Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest priority. |
 | <CopyableCode code="rateLimitOptions" /> | `object` |  |
 | <CopyableCode code="redirectOptions" /> | `object` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_rule" /> | `SELECT` | <CopyableCode code="project, securityPolicy" /> | Gets a rule at the specified priority. |
-| <CopyableCode code="add_rule" /> | `EXEC` | <CopyableCode code="project, securityPolicy" /> | Inserts a rule into a security policy. |
-| <CopyableCode code="remove_rule" /> | `EXEC` | <CopyableCode code="project, securityPolicy" /> | Deletes a rule at the specified priority. |
+| <CopyableCode code="add_rule" /> | `INSERT` | <CopyableCode code="project, securityPolicy" /> | Inserts a rule into a security policy. |
+| <CopyableCode code="remove_rule" /> | `DELETE` | <CopyableCode code="project, securityPolicy" /> | Deletes a rule at the specified priority. |
+
+## `SELECT` examples
+
+Gets a rule at the specified priority.
+
+```sql
+SELECT
+description,
+action,
+headerAction,
+kind,
+match,
+networkMatch,
+preconfiguredWafConfig,
+preview,
+priority,
+rateLimitOptions,
+redirectOptions
+FROM google.compute.security_policies_rule
+WHERE project = '{{ project }}'
+AND securityPolicy = '{{ securityPolicy }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>security_policies_rule</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.security_policies_rule (
+project,
+securityPolicy,
+kind,
+description,
+priority,
+match,
+networkMatch,
+action,
+preview,
+rateLimitOptions,
+headerAction,
+redirectOptions,
+preconfiguredWafConfig
+)
+SELECT 
+'{{ project }}',
+'{{ securityPolicy }}',
+'{{ kind }}',
+'{{ description }}',
+'{{ priority }}',
+'{{ match }}',
+'{{ networkMatch }}',
+'{{ action }}',
+true|false,
+'{{ rateLimitOptions }}',
+'{{ headerAction }}',
+'{{ redirectOptions }}',
+'{{ preconfiguredWafConfig }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: description
+        value: '{{ description }}'
+      - name: priority
+        value: '{{ priority }}'
+      - name: match
+        value: '{{ match }}'
+      - name: networkMatch
+        value: '{{ networkMatch }}'
+      - name: action
+        value: '{{ action }}'
+      - name: preview
+        value: '{{ preview }}'
+      - name: rateLimitOptions
+        value: '{{ rateLimitOptions }}'
+      - name: headerAction
+        value: '{{ headerAction }}'
+      - name: redirectOptions
+        value: '{{ redirectOptions }}'
+      - name: preconfiguredWafConfig
+        value: '{{ preconfiguredWafConfig }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified security_policies_rule resource.
+
+```sql
+DELETE FROM google.compute.security_policies_rule
+WHERE project = '{{ project }}'
+AND securityPolicy = '{{ securityPolicy }}';
+```

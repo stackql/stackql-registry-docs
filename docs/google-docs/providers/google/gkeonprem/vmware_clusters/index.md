@@ -1,3 +1,4 @@
+
 ---
 title: vmware_clusters
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - vmware_clusters
   - gkeonprem
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>vmware_cluster</code> resource or lists <code>vmware_clusters</code> in a region
 
 ## Overview
 <table><tbody>
@@ -62,6 +64,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="validationCheck" /> | `object` | ValidationCheck represents the result of preflight check. |
 | <CopyableCode code="vcenter" /> | `object` | Represents configuration for the VMware VCenter for the user cluster. |
 | <CopyableCode code="vmTrackingEnabled" /> | `boolean` | Enable VM tracking. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -70,7 +73,269 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_vmware_clusters_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new VMware user cluster in a given project and location. |
 | <CopyableCode code="projects_locations_vmware_clusters_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Deletes a single VMware Cluster. |
 | <CopyableCode code="projects_locations_vmware_clusters_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Updates the parameters of a single VMware cluster. |
-| <CopyableCode code="_projects_locations_vmware_clusters_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists VMware Clusters in a given project and location. |
 | <CopyableCode code="projects_locations_vmware_clusters_enroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Enrolls an existing VMware user cluster and its node pools to the Anthos On-Prem API within a given project and location. Through enrollment, an existing cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster and/or its node pools will be expected to be performed through the API. |
 | <CopyableCode code="projects_locations_vmware_clusters_query_version_config" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Queries the VMware user cluster version config. |
 | <CopyableCode code="projects_locations_vmware_clusters_unenroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Unenrolls an existing VMware user cluster and its node pools from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters and node pools will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or UI. |
+
+## `SELECT` examples
+
+Lists VMware Clusters in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+adminClusterMembership,
+adminClusterName,
+annotations,
+antiAffinityGroups,
+authorization,
+autoRepairConfig,
+binaryAuthorization,
+controlPlaneNode,
+createTime,
+dataplaneV2,
+deleteTime,
+disableBundledIngress,
+enableControlPlaneV2,
+endpoint,
+etag,
+fleet,
+loadBalancer,
+localName,
+networkConfig,
+onPremVersion,
+reconciling,
+state,
+status,
+storage,
+uid,
+updateTime,
+upgradePolicy,
+validationCheck,
+vcenter,
+vmTrackingEnabled
+FROM google.gkeonprem.vmware_clusters
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>vmware_clusters</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.gkeonprem.vmware_clusters (
+locationsId,
+projectsId,
+name,
+adminClusterMembership,
+description,
+onPremVersion,
+uid,
+state,
+endpoint,
+reconciling,
+createTime,
+updateTime,
+localName,
+etag,
+annotations,
+controlPlaneNode,
+antiAffinityGroups,
+storage,
+networkConfig,
+loadBalancer,
+vcenter,
+status,
+dataplaneV2,
+vmTrackingEnabled,
+autoRepairConfig,
+fleet,
+authorization,
+deleteTime,
+validationCheck,
+adminClusterName,
+enableControlPlaneV2,
+binaryAuthorization,
+upgradePolicy,
+disableBundledIngress
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ adminClusterMembership }}',
+'{{ description }}',
+'{{ onPremVersion }}',
+'{{ uid }}',
+'{{ state }}',
+'{{ endpoint }}',
+true|false,
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ localName }}',
+'{{ etag }}',
+'{{ annotations }}',
+'{{ controlPlaneNode }}',
+'{{ antiAffinityGroups }}',
+'{{ storage }}',
+'{{ networkConfig }}',
+'{{ loadBalancer }}',
+'{{ vcenter }}',
+'{{ status }}',
+'{{ dataplaneV2 }}',
+true|false,
+'{{ autoRepairConfig }}',
+'{{ fleet }}',
+'{{ authorization }}',
+'{{ deleteTime }}',
+'{{ validationCheck }}',
+'{{ adminClusterName }}',
+true|false,
+'{{ binaryAuthorization }}',
+'{{ upgradePolicy }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: adminClusterMembership
+        value: '{{ adminClusterMembership }}'
+      - name: description
+        value: '{{ description }}'
+      - name: onPremVersion
+        value: '{{ onPremVersion }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: state
+        value: '{{ state }}'
+      - name: endpoint
+        value: '{{ endpoint }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: localName
+        value: '{{ localName }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: controlPlaneNode
+        value: '{{ controlPlaneNode }}'
+      - name: antiAffinityGroups
+        value: '{{ antiAffinityGroups }}'
+      - name: storage
+        value: '{{ storage }}'
+      - name: networkConfig
+        value: '{{ networkConfig }}'
+      - name: loadBalancer
+        value: '{{ loadBalancer }}'
+      - name: vcenter
+        value: '{{ vcenter }}'
+      - name: status
+        value: '{{ status }}'
+      - name: dataplaneV2
+        value: '{{ dataplaneV2 }}'
+      - name: vmTrackingEnabled
+        value: '{{ vmTrackingEnabled }}'
+      - name: autoRepairConfig
+        value: '{{ autoRepairConfig }}'
+      - name: fleet
+        value: '{{ fleet }}'
+      - name: authorization
+        value: '{{ authorization }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: validationCheck
+        value: '{{ validationCheck }}'
+      - name: adminClusterName
+        value: '{{ adminClusterName }}'
+      - name: enableControlPlaneV2
+        value: '{{ enableControlPlaneV2 }}'
+      - name: binaryAuthorization
+        value: '{{ binaryAuthorization }}'
+      - name: upgradePolicy
+        value: '{{ upgradePolicy }}'
+      - name: disableBundledIngress
+        value: '{{ disableBundledIngress }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a vmware_cluster only if the necessary resources are available.
+
+```sql
+UPDATE google.gkeonprem.vmware_clusters
+SET 
+name = '{{ name }}',
+adminClusterMembership = '{{ adminClusterMembership }}',
+description = '{{ description }}',
+onPremVersion = '{{ onPremVersion }}',
+uid = '{{ uid }}',
+state = '{{ state }}',
+endpoint = '{{ endpoint }}',
+reconciling = true|false,
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+localName = '{{ localName }}',
+etag = '{{ etag }}',
+annotations = '{{ annotations }}',
+controlPlaneNode = '{{ controlPlaneNode }}',
+antiAffinityGroups = '{{ antiAffinityGroups }}',
+storage = '{{ storage }}',
+networkConfig = '{{ networkConfig }}',
+loadBalancer = '{{ loadBalancer }}',
+vcenter = '{{ vcenter }}',
+status = '{{ status }}',
+dataplaneV2 = '{{ dataplaneV2 }}',
+vmTrackingEnabled = true|false,
+autoRepairConfig = '{{ autoRepairConfig }}',
+fleet = '{{ fleet }}',
+authorization = '{{ authorization }}',
+deleteTime = '{{ deleteTime }}',
+validationCheck = '{{ validationCheck }}',
+adminClusterName = '{{ adminClusterName }}',
+enableControlPlaneV2 = true|false,
+binaryAuthorization = '{{ binaryAuthorization }}',
+upgradePolicy = '{{ upgradePolicy }}',
+disableBundledIngress = true|false
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND vmwareClustersId = '{{ vmwareClustersId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified vmware_cluster resource.
+
+```sql
+DELETE FROM google.gkeonprem.vmware_clusters
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND vmwareClustersId = '{{ vmwareClustersId }}';
+```

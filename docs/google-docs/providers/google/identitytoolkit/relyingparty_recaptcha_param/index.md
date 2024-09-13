@@ -1,3 +1,4 @@
+
 ---
 title: relyingparty_recaptcha_param
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - relyingparty_recaptcha_param
   - identitytoolkit
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>relyingparty_recaptcha_param</code> resource or lists <code>relyingparty_recaptcha_param</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,7 +35,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | The fixed string "identitytoolkit#GetRecaptchaParamResponse". |
 | <CopyableCode code="recaptchaSiteKey" /> | `string` | Site key registered at recaptcha. |
 | <CopyableCode code="recaptchaStoken" /> | `string` | The stoken field for the recaptcha widget, used to request captcha challenge. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_recaptcha_param" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_recaptcha_param" /> | `SELECT` | <CopyableCode code="" /> | Get recaptcha secure param. |
+
+## `SELECT` examples
+
+Get recaptcha secure param.
+
+```sql
+SELECT
+kind,
+recaptchaSiteKey,
+recaptchaStoken
+FROM google.identitytoolkit.relyingparty_recaptcha_param
+WHERE  = '{{  }}'; 
+```

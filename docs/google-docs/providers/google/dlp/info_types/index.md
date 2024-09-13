@@ -1,3 +1,4 @@
+
 ---
 title: info_types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - info_types
   - dlp
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>info_type</code> resource or lists <code>info_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="infoTypes" /> | `array` | Set of sensitive infoTypes. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="info_types_list" /> | `SELECT` |  |
-| <CopyableCode code="locations_info_types_list" /> | `SELECT` | <CopyableCode code="locationsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="info_types_list" /> | `SELECT` | <CopyableCode code="" /> | Returns a list of the sensitive information types that DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more. |
+| <CopyableCode code="locations_info_types_list" /> | `SELECT` | <CopyableCode code="locationsId" /> | Returns a list of the sensitive information types that DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more. |
+
+## `SELECT` examples
+
+Returns a list of the sensitive information types that DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
+
+```sql
+SELECT
+infoTypes
+FROM google.dlp.info_types
+WHERE  = '{{  }}'; 
+```

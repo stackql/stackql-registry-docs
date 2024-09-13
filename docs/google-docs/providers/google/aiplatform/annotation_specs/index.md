@@ -1,3 +1,4 @@
+
 ---
 title: annotation_specs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - annotation_specs
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>annotation_spec</code> resource or lists <code>annotation_specs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,7 +37,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | Required. The user-defined name of the AnnotationSpec. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
 | <CopyableCode code="etag" /> | `string` | Optional. Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when AnnotationSpec was last updated. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="annotationSpecsId, datasetsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="annotationSpecsId, datasetsId, locationsId, projectsId" /> | Gets an AnnotationSpec. |
+
+## `SELECT` examples
+
+Gets an AnnotationSpec.
+
+```sql
+SELECT
+name,
+createTime,
+displayName,
+etag,
+updateTime
+FROM google.aiplatform.annotation_specs
+WHERE annotationSpecsId = '{{ annotationSpecsId }}'
+AND datasetsId = '{{ datasetsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

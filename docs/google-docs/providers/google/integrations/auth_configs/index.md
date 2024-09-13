@@ -1,3 +1,4 @@
+
 ---
 title: auth_configs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - auth_configs
   - integrations
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>auth_config</code> resource or lists <code>auth_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Resource name of the auth config. For more information, see Manage authentication profiles. projects/&#123;project&#125;/locations/&#123;location&#125;/authConfigs/&#123;authConfig&#125;. |
+| <CopyableCode code="name" /> | `string` | Resource name of the auth config. For more information, see Manage authentication profiles. projects/{project}/locations/{location}/authConfigs/{authConfig}. |
 | <CopyableCode code="description" /> | `string` | A description of the auth config. |
 | <CopyableCode code="certificateId" /> | `string` | Certificate id for client certificate |
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when the auth config is created. |
@@ -47,6 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the auth config is modified. |
 | <CopyableCode code="validTime" /> | `string` | The time until the auth config is valid. Empty or max value is considered the auth config won't expire. |
 | <CopyableCode code="visibility" /> | `string` | The visibility of the auth config. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -60,5 +63,176 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_products_auth_configs_delete" /> | `DELETE` | <CopyableCode code="authConfigsId, locationsId, productsId, projectsId" /> | Deletes an auth config. |
 | <CopyableCode code="projects_locations_auth_configs_patch" /> | `UPDATE` | <CopyableCode code="authConfigsId, locationsId, projectsId" /> | Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config. |
 | <CopyableCode code="projects_locations_products_auth_configs_patch" /> | `UPDATE` | <CopyableCode code="authConfigsId, locationsId, productsId, projectsId" /> | Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config. |
-| <CopyableCode code="_projects_locations_auth_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only. |
-| <CopyableCode code="_projects_locations_products_auth_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, productsId, projectsId" /> | Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only. |
+
+## `SELECT` examples
+
+Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only.
+
+```sql
+SELECT
+name,
+description,
+certificateId,
+createTime,
+creatorEmail,
+credentialType,
+decryptedCredential,
+displayName,
+encryptedCredential,
+expiryNotificationDuration,
+lastModifierEmail,
+overrideValidTime,
+reason,
+state,
+updateTime,
+validTime,
+visibility
+FROM google.integrations.auth_configs
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>auth_configs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.integrations.auth_configs (
+locationsId,
+projectsId,
+reason,
+visibility,
+displayName,
+encryptedCredential,
+name,
+description,
+creatorEmail,
+credentialType,
+validTime,
+state,
+lastModifierEmail,
+overrideValidTime,
+expiryNotificationDuration,
+createTime,
+updateTime,
+certificateId,
+decryptedCredential
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ reason }}',
+'{{ visibility }}',
+'{{ displayName }}',
+'{{ encryptedCredential }}',
+'{{ name }}',
+'{{ description }}',
+'{{ creatorEmail }}',
+'{{ credentialType }}',
+'{{ validTime }}',
+'{{ state }}',
+'{{ lastModifierEmail }}',
+'{{ overrideValidTime }}',
+'{{ expiryNotificationDuration }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ certificateId }}',
+'{{ decryptedCredential }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: reason
+        value: '{{ reason }}'
+      - name: visibility
+        value: '{{ visibility }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: encryptedCredential
+        value: '{{ encryptedCredential }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: creatorEmail
+        value: '{{ creatorEmail }}'
+      - name: credentialType
+        value: '{{ credentialType }}'
+      - name: validTime
+        value: '{{ validTime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: lastModifierEmail
+        value: '{{ lastModifierEmail }}'
+      - name: overrideValidTime
+        value: '{{ overrideValidTime }}'
+      - name: expiryNotificationDuration
+        value: '{{ expiryNotificationDuration }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: certificateId
+        value: '{{ certificateId }}'
+      - name: decryptedCredential
+        value: '{{ decryptedCredential }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a auth_config only if the necessary resources are available.
+
+```sql
+UPDATE google.integrations.auth_configs
+SET 
+reason = '{{ reason }}',
+visibility = '{{ visibility }}',
+displayName = '{{ displayName }}',
+encryptedCredential = '{{ encryptedCredential }}',
+name = '{{ name }}',
+description = '{{ description }}',
+creatorEmail = '{{ creatorEmail }}',
+credentialType = '{{ credentialType }}',
+validTime = '{{ validTime }}',
+state = '{{ state }}',
+lastModifierEmail = '{{ lastModifierEmail }}',
+overrideValidTime = '{{ overrideValidTime }}',
+expiryNotificationDuration = '{{ expiryNotificationDuration }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+certificateId = '{{ certificateId }}',
+decryptedCredential = '{{ decryptedCredential }}'
+WHERE 
+authConfigsId = '{{ authConfigsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified auth_config resource.
+
+```sql
+DELETE FROM google.integrations.auth_configs
+WHERE authConfigsId = '{{ authConfigsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: entity_types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - entity_types
   - connectors
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>entity_type</code> resource or lists <code>entity_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,9 +36,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="fields" /> | `array` | List containing metadata information about each field of the entity type. |
 | <CopyableCode code="jsonSchema" /> | `object` | JsonSchema representation of schema metadata |
 | <CopyableCode code="operations" /> | `array` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="connectionsId, entityTypesId, locationsId, projectsId" /> | Gets metadata of given entity type |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists metadata related to all entity types present in the external system. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists metadata related to all entity types present in the external system. |
+
+## `SELECT` examples
+
+Lists metadata related to all entity types present in the external system.
+
+```sql
+SELECT
+name,
+fields,
+jsonSchema,
+operations
+FROM google.connectors.entity_types
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

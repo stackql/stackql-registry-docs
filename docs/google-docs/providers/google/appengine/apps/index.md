@@ -1,3 +1,4 @@
+
 ---
 title: apps
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - apps
   - appengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>app</code> resource or lists <code>apps</code> in a region
 
 ## Overview
 <table><tbody>
@@ -46,10 +48,162 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="locationId" /> | `string` | Location from which this application runs. Application instances run out of the data centers in the specified location, which is also where all of the application's end user content is stored.Defaults to us-central.View the list of supported locations (https://cloud.google.com/appengine/docs/locations). |
 | <CopyableCode code="serviceAccount" /> | `string` | The service account associated with the application. This is the app-level default identity. If no identity provided during create version, Admin API will fallback to this one. |
 | <CopyableCode code="servingStatus" /> | `string` | Serving status of this application. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="appsId" /> | Gets information about an application. |
-| <CopyableCode code="create" /> | `INSERT` |  | Creates an App Engine application for a Google Cloud Platform project. Required fields: id - The ID of the target Cloud Platform project. location - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/standard/python/console/). |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="" /> | Creates an App Engine application for a Google Cloud Platform project. Required fields: id - The ID of the target Cloud Platform project. location - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/standard/python/console/). |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="appsId" /> | Updates the specified Application resource. You can update the following fields: auth_domain - Google authentication domain for controlling user access to the application. default_cookie_expiration - Cookie expiration policy for the application. iap - Identity-Aware Proxy properties for the application. |
 | <CopyableCode code="repair" /> | `EXEC` | <CopyableCode code="appsId" /> | Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account. Use this method if you receive an error message about a missing feature, for example, Error retrieving the App Engine service account. If you have deleted your App Engine service account, this will not be able to recreate it. Instead, you should attempt to use the IAM undelete API if possible at https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts/undelete?apix_params=%7B"name"%3A"projects%2F-%2FserviceAccounts%2Funique_id"%2C"resource"%3A%7B%7D%7D . If the deletion was recent, the numeric ID can be found in the Cloud Console Activity Log. |
+
+## `SELECT` examples
+
+Gets information about an application.
+
+```sql
+SELECT
+id,
+name,
+authDomain,
+codeBucket,
+databaseType,
+defaultBucket,
+defaultCookieExpiration,
+defaultHostname,
+dispatchRules,
+featureSettings,
+gcrDomain,
+generatedCustomerMetadata,
+iap,
+locationId,
+serviceAccount,
+servingStatus
+FROM google.appengine.apps
+WHERE appsId = '{{ appsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>apps</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.appengine.apps (
+,
+name,
+id,
+dispatchRules,
+authDomain,
+locationId,
+codeBucket,
+defaultCookieExpiration,
+servingStatus,
+defaultHostname,
+defaultBucket,
+serviceAccount,
+iap,
+gcrDomain,
+databaseType,
+featureSettings,
+generatedCustomerMetadata
+)
+SELECT 
+'{{  }}',
+'{{ name }}',
+'{{ id }}',
+'{{ dispatchRules }}',
+'{{ authDomain }}',
+'{{ locationId }}',
+'{{ codeBucket }}',
+'{{ defaultCookieExpiration }}',
+'{{ servingStatus }}',
+'{{ defaultHostname }}',
+'{{ defaultBucket }}',
+'{{ serviceAccount }}',
+'{{ iap }}',
+'{{ gcrDomain }}',
+'{{ databaseType }}',
+'{{ featureSettings }}',
+'{{ generatedCustomerMetadata }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: id
+        value: '{{ id }}'
+      - name: dispatchRules
+        value: '{{ dispatchRules }}'
+      - name: authDomain
+        value: '{{ authDomain }}'
+      - name: locationId
+        value: '{{ locationId }}'
+      - name: codeBucket
+        value: '{{ codeBucket }}'
+      - name: defaultCookieExpiration
+        value: '{{ defaultCookieExpiration }}'
+      - name: servingStatus
+        value: '{{ servingStatus }}'
+      - name: defaultHostname
+        value: '{{ defaultHostname }}'
+      - name: defaultBucket
+        value: '{{ defaultBucket }}'
+      - name: serviceAccount
+        value: '{{ serviceAccount }}'
+      - name: iap
+        value: '{{ iap }}'
+      - name: gcrDomain
+        value: '{{ gcrDomain }}'
+      - name: databaseType
+        value: '{{ databaseType }}'
+      - name: featureSettings
+        value: '{{ featureSettings }}'
+      - name: generatedCustomerMetadata
+        value: '{{ generatedCustomerMetadata }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a app only if the necessary resources are available.
+
+```sql
+UPDATE google.appengine.apps
+SET 
+name = '{{ name }}',
+id = '{{ id }}',
+dispatchRules = '{{ dispatchRules }}',
+authDomain = '{{ authDomain }}',
+locationId = '{{ locationId }}',
+codeBucket = '{{ codeBucket }}',
+defaultCookieExpiration = '{{ defaultCookieExpiration }}',
+servingStatus = '{{ servingStatus }}',
+defaultHostname = '{{ defaultHostname }}',
+defaultBucket = '{{ defaultBucket }}',
+serviceAccount = '{{ serviceAccount }}',
+iap = '{{ iap }}',
+gcrDomain = '{{ gcrDomain }}',
+databaseType = '{{ databaseType }}',
+featureSettings = '{{ featureSettings }}',
+generatedCustomerMetadata = '{{ generatedCustomerMetadata }}'
+WHERE 
+appsId = '{{ appsId }}';
+```

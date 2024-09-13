@@ -1,3 +1,4 @@
+
 ---
 title: insights
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - insights
   - recommender
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>insight</code> resource or lists <code>insights</code> in a region
 
 ## Overview
 <table><tbody>
@@ -42,6 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="severity" /> | `string` | Insight's severity. |
 | <CopyableCode code="stateInfo" /> | `object` | Information related to insight state. |
 | <CopyableCode code="targetResources" /> | `array` | Fully qualified resource names that this insight is targeting. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -53,11 +56,31 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_insight_types_insights_list" /> | `SELECT` | <CopyableCode code="insightTypesId, locationsId, organizationsId" /> | Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type. |
 | <CopyableCode code="projects_locations_insight_types_insights_get" /> | `SELECT` | <CopyableCode code="insightTypesId, insightsId, locationsId, projectsId" /> | Gets the requested insight. Requires the recommender.*.get IAM permission for the specified insight type. |
 | <CopyableCode code="projects_locations_insight_types_insights_list" /> | `SELECT` | <CopyableCode code="insightTypesId, locationsId, projectsId" /> | Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type. |
-| <CopyableCode code="_billing_accounts_locations_insight_types_insights_list" /> | `EXEC` | <CopyableCode code="billingAccountsId, insightTypesId, locationsId" /> | Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type. |
-| <CopyableCode code="_folders_locations_insight_types_insights_list" /> | `EXEC` | <CopyableCode code="foldersId, insightTypesId, locationsId" /> | Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type. |
-| <CopyableCode code="_organizations_locations_insight_types_insights_list" /> | `EXEC` | <CopyableCode code="insightTypesId, locationsId, organizationsId" /> | Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type. |
-| <CopyableCode code="_projects_locations_insight_types_insights_list" /> | `EXEC` | <CopyableCode code="insightTypesId, locationsId, projectsId" /> | Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type. |
 | <CopyableCode code="billing_accounts_locations_insight_types_insights_mark_accepted" /> | `EXEC` | <CopyableCode code="billingAccountsId, insightTypesId, insightsId, locationsId" /> | Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight. |
 | <CopyableCode code="folders_locations_insight_types_insights_mark_accepted" /> | `EXEC` | <CopyableCode code="foldersId, insightTypesId, insightsId, locationsId" /> | Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight. |
 | <CopyableCode code="organizations_locations_insight_types_insights_mark_accepted" /> | `EXEC` | <CopyableCode code="insightTypesId, insightsId, locationsId, organizationsId" /> | Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight. |
 | <CopyableCode code="projects_locations_insight_types_insights_mark_accepted" /> | `EXEC` | <CopyableCode code="insightTypesId, insightsId, locationsId, projectsId" /> | Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight. |
+
+## `SELECT` examples
+
+Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type.
+
+```sql
+SELECT
+name,
+description,
+associatedRecommendations,
+category,
+content,
+etag,
+insightSubtype,
+lastRefreshTime,
+observationPeriod,
+severity,
+stateInfo,
+targetResources
+FROM google.recommender.insights
+WHERE foldersId = '{{ foldersId }}'
+AND insightTypesId = '{{ insightTypesId }}'
+AND locationsId = '{{ locationsId }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: operations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - operations
   - deploymentmanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>operation</code> resource or lists <code>operations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -56,9 +58,45 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="user" /> | `string` | [Output Only] User who requested the operation, for example: `user@example.com` or `alice_smith_identifier (global/workforcePools/example-com-us-employees)`. |
 | <CopyableCode code="warnings" /> | `array` | [Output Only] If warning messages are generated during processing of the operation, this field will be populated. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] The URL of the zone where the operation resides. Only applicable when performing per-zone operations. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="operation, project" /> | Gets information about a specific operation. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Lists all operations for a project. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Lists all operations for a project. |
+
+## `SELECT` examples
+
+Lists all operations for a project.
+
+```sql
+SELECT
+id,
+name,
+description,
+clientOperationId,
+creationTimestamp,
+endTime,
+error,
+httpErrorMessage,
+httpErrorStatusCode,
+insertTime,
+instancesBulkInsertOperationMetadata,
+kind,
+operationGroupId,
+operationType,
+progress,
+region,
+selfLink,
+setCommonInstanceMetadataOperationMetadata,
+startTime,
+status,
+statusMessage,
+targetId,
+targetLink,
+user,
+warnings,
+zone
+FROM google.deploymentmanager.operations
+WHERE project = '{{ project }}'; 
+```

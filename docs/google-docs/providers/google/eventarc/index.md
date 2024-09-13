@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Build event-driven applications on Google Cloud Platform.  
-    
+The eventarc service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>10</b></span><br />
-<span>total selectable resources:&nbsp;<b>10</b></span><br />
-<span>total methods:&nbsp;<b>42</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.eventarc</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Eventarc API</td></tr>
-<tr><td><b>Description</b></td><td>Build event-driven applications on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>eventarc:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -44,13 +33,13 @@ Build event-driven applications on Google Cloud Platform.
 <a href="/providers/google/eventarc/channel_connections_iam_policies/">channel_connections_iam_policies</a><br />
 <a href="/providers/google/eventarc/channels/">channels</a><br />
 <a href="/providers/google/eventarc/channels_iam_policies/">channels_iam_policies</a><br />
-<a href="/providers/google/eventarc/google_channel_config/">google_channel_config</a><br />
+<a href="/providers/google/eventarc/google_channel_config/">google_channel_config</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/eventarc/locations/">locations</a><br />
 <a href="/providers/google/eventarc/operations/">operations</a><br />
 <a href="/providers/google/eventarc/providers/">providers</a><br />
 <a href="/providers/google/eventarc/triggers/">triggers</a><br />
-<a href="/providers/google/eventarc/triggers_iam_policies/">triggers_iam_policies</a><br />
+<a href="/providers/google/eventarc/triggers_iam_policies/">triggers_iam_policies</a>
 </div>
 </div>

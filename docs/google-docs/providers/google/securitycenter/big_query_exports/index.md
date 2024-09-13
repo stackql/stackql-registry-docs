@@ -1,3 +1,4 @@
+
 ---
 title: big_query_exports
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - big_query_exports
   - securitycenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>big_query_export</code> resource or lists <code>big_query_exports</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,14 +32,15 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The relative resource name of this export. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name. Example format: "organizations/&#123;organization_id&#125;/bigQueryExports/&#123;export_id&#125;" Example format: "folders/&#123;folder_id&#125;/bigQueryExports/&#123;export_id&#125;" Example format: "projects/&#123;project_id&#125;/bigQueryExports/&#123;export_id&#125;" This field is provided in responses, and is ignored when provided in create requests. |
+| <CopyableCode code="name" /> | `string` | The relative resource name of this export. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name. Example format: "organizations/{organization_id}/bigQueryExports/{export_id}" Example format: "folders/{folder_id}/bigQueryExports/{export_id}" Example format: "projects/{project_id}/bigQueryExports/{export_id}" This field is provided in responses, and is ignored when provided in create requests. |
 | <CopyableCode code="description" /> | `string` | The description of the export (max of 1024 characters). |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time at which the BigQuery export was created. This field is set by the server and will be ignored if provided on export on creation. |
 | <CopyableCode code="dataset" /> | `string` | The dataset to write findings' updates to. Its format is "projects/[project_id]/datasets/[bigquery_dataset_id]". BigQuery Dataset unique ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). |
-| <CopyableCode code="filter" /> | `string` | Expression that defines the filter to apply across create/update events of findings. The expression is a list of zero or more restrictions combined via logical operators `AND` and `OR`. Parentheses are supported, and `OR` has higher precedence than `AND`. Restrictions have the form ` ` and may have a `-` character in front of them to indicate negation. The fields map to those defined in the corresponding resource. The supported operators are: * `=` for all value types. * `&gt;`, `&lt;`, `&gt;=`, `&lt;=` for integer values. * `:`, meaning substring matching, for strings. The supported value types are: * string literals in quotes. * integer literals without quotes. * boolean literals `true` and `false` without quotes. |
+| <CopyableCode code="filter" /> | `string` | Expression that defines the filter to apply across create/update events of findings. The expression is a list of zero or more restrictions combined via logical operators `AND` and `OR`. Parentheses are supported, and `OR` has higher precedence than `AND`. Restrictions have the form ` ` and may have a `-` character in front of them to indicate negation. The fields map to those defined in the corresponding resource. The supported operators are: * `=` for all value types. * `>`, `<`, `>=`, `<=` for integer values. * `:`, meaning substring matching, for strings. The supported value types are: * string literals in quotes. * integer literals without quotes. * boolean literals `true` and `false` without quotes. |
 | <CopyableCode code="mostRecentEditor" /> | `string` | Output only. Email address of the user who last edited the BigQuery export. This field is set by the server and will be ignored if provided on export creation or update. |
 | <CopyableCode code="principal" /> | `string` | Output only. The service account that needs permission to create table and upload data to the BigQuery dataset. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The most recent time at which the BigQuery export was updated. This field is set by the server and will be ignored if provided on export creation or update. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -56,6 +59,117 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_big_query_exports_patch" /> | `UPDATE` | <CopyableCode code="bigQueryExportsId, foldersId" /> | Updates a BigQuery export. |
 | <CopyableCode code="organizations_big_query_exports_patch" /> | `UPDATE` | <CopyableCode code="bigQueryExportsId, organizationsId" /> | Updates a BigQuery export. |
 | <CopyableCode code="projects_big_query_exports_patch" /> | `UPDATE` | <CopyableCode code="bigQueryExportsId, projectsId" /> | Updates a BigQuery export. |
-| <CopyableCode code="_folders_big_query_exports_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists BigQuery exports. Note that when requesting BigQuery exports at a given level all exports under that level are also returned e.g. if requesting BigQuery exports under a folder, then all BigQuery exports immediately under the folder plus the ones created under the projects within the folder are returned. |
-| <CopyableCode code="_organizations_big_query_exports_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists BigQuery exports. Note that when requesting BigQuery exports at a given level all exports under that level are also returned e.g. if requesting BigQuery exports under a folder, then all BigQuery exports immediately under the folder plus the ones created under the projects within the folder are returned. |
-| <CopyableCode code="_projects_big_query_exports_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists BigQuery exports. Note that when requesting BigQuery exports at a given level all exports under that level are also returned e.g. if requesting BigQuery exports under a folder, then all BigQuery exports immediately under the folder plus the ones created under the projects within the folder are returned. |
+
+## `SELECT` examples
+
+Lists BigQuery exports. Note that when requesting BigQuery exports at a given level all exports under that level are also returned e.g. if requesting BigQuery exports under a folder, then all BigQuery exports immediately under the folder plus the ones created under the projects within the folder are returned.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+dataset,
+filter,
+mostRecentEditor,
+principal,
+updateTime
+FROM google.securitycenter.big_query_exports
+WHERE foldersId = '{{ foldersId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>big_query_exports</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.securitycenter.big_query_exports (
+foldersId,
+name,
+description,
+filter,
+dataset,
+createTime,
+updateTime,
+mostRecentEditor,
+principal
+)
+SELECT 
+'{{ foldersId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ filter }}',
+'{{ dataset }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ mostRecentEditor }}',
+'{{ principal }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: filter
+        value: '{{ filter }}'
+      - name: dataset
+        value: '{{ dataset }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: mostRecentEditor
+        value: '{{ mostRecentEditor }}'
+      - name: principal
+        value: '{{ principal }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a big_query_export only if the necessary resources are available.
+
+```sql
+UPDATE google.securitycenter.big_query_exports
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+filter = '{{ filter }}',
+dataset = '{{ dataset }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+mostRecentEditor = '{{ mostRecentEditor }}',
+principal = '{{ principal }}'
+WHERE 
+bigQueryExportsId = '{{ bigQueryExportsId }}'
+AND foldersId = '{{ foldersId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified big_query_export resource.
+
+```sql
+DELETE FROM google.securitycenter.big_query_exports
+WHERE bigQueryExportsId = '{{ bigQueryExportsId }}'
+AND foldersId = '{{ foldersId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: data_scans
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - data_scans
   - dataplex
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>data_scan</code> resource or lists <code>data_scans</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the scan, of the form: projects/&#123;project&#125;/locations/&#123;location_id&#125;/dataScans/&#123;datascan_id&#125;, where project refers to a project_id or project_number and location_id refers to a GCP region. |
+| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the scan, of the form: projects/{project}/locations/{location_id}/dataScans/{datascan_id}, where project refers to a project_id or project_number and location_id refers to a GCP region. |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the scan. Must be between 1-1024 characters. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time when the scan was created. |
 | <CopyableCode code="data" /> | `object` | The data source for DataScan. |
@@ -46,6 +48,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="type" /> | `string` | Output only. The type of DataScan. |
 | <CopyableCode code="uid" /> | `string` | Output only. System generated globally unique ID for the scan. This ID will be different if the scan is deleted and re-created with the same name. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time when the scan was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,6 +57,172 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_scans_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a DataScan resource. |
 | <CopyableCode code="projects_locations_data_scans_delete" /> | `DELETE` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Deletes a DataScan resource. |
 | <CopyableCode code="projects_locations_data_scans_patch" /> | `UPDATE` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Updates a DataScan resource. |
-| <CopyableCode code="_projects_locations_data_scans_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists DataScans. |
-| <CopyableCode code="projects_locations_data_scans_generate_data_quality_rules" /> | `EXEC` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Generates recommended DataQualityRule from a data profiling DataScan. |
+| <CopyableCode code="projects_locations_data_scans_generate_data_quality_rules" /> | `EXEC` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Generates recommended data quality rules based on the results of a data profiling scan.Use the recommendations to build rules for a data quality scan. |
 | <CopyableCode code="projects_locations_data_scans_run" /> | `EXEC` | <CopyableCode code="dataScansId, locationsId, projectsId" /> | Runs an on-demand execution of a DataScan |
+
+## `SELECT` examples
+
+Lists DataScans.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+data,
+dataProfileResult,
+dataProfileSpec,
+dataQualityResult,
+dataQualitySpec,
+displayName,
+executionSpec,
+executionStatus,
+labels,
+state,
+type,
+uid,
+updateTime
+FROM google.dataplex.data_scans
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>data_scans</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataplex.data_scans (
+locationsId,
+projectsId,
+name,
+uid,
+description,
+displayName,
+labels,
+state,
+createTime,
+updateTime,
+data,
+executionSpec,
+executionStatus,
+type,
+dataQualitySpec,
+dataProfileSpec,
+dataQualityResult,
+dataProfileResult
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ description }}',
+'{{ displayName }}',
+'{{ labels }}',
+'{{ state }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ data }}',
+'{{ executionSpec }}',
+'{{ executionStatus }}',
+'{{ type }}',
+'{{ dataQualitySpec }}',
+'{{ dataProfileSpec }}',
+'{{ dataQualityResult }}',
+'{{ dataProfileResult }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: description
+        value: '{{ description }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: state
+        value: '{{ state }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: data
+        value: '{{ data }}'
+      - name: executionSpec
+        value: '{{ executionSpec }}'
+      - name: executionStatus
+        value: '{{ executionStatus }}'
+      - name: type
+        value: '{{ type }}'
+      - name: dataQualitySpec
+        value: '{{ dataQualitySpec }}'
+      - name: dataProfileSpec
+        value: '{{ dataProfileSpec }}'
+      - name: dataQualityResult
+        value: '{{ dataQualityResult }}'
+      - name: dataProfileResult
+        value: '{{ dataProfileResult }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a data_scan only if the necessary resources are available.
+
+```sql
+UPDATE google.dataplex.data_scans
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+description = '{{ description }}',
+displayName = '{{ displayName }}',
+labels = '{{ labels }}',
+state = '{{ state }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+data = '{{ data }}',
+executionSpec = '{{ executionSpec }}',
+executionStatus = '{{ executionStatus }}',
+type = '{{ type }}',
+dataQualitySpec = '{{ dataQualitySpec }}',
+dataProfileSpec = '{{ dataProfileSpec }}',
+dataQualityResult = '{{ dataQualityResult }}',
+dataProfileResult = '{{ dataProfileResult }}'
+WHERE 
+dataScansId = '{{ dataScansId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified data_scan resource.
+
+```sql
+DELETE FROM google.dataplex.data_scans
+WHERE dataScansId = '{{ dataScansId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: disks
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - disks
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>disk</code> resource or lists <code>disks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -80,19 +82,193 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="type" /> | `string` | URL of the disk type resource describing which disk type to use to create the disk. Provide this when creating the disk. For example: projects/project /zones/zone/diskTypes/pd-ssd . See Persistent disk types. |
 | <CopyableCode code="users" /> | `array` | [Output Only] Links to the users of the disk (attached instances) in form: projects/project/zones/zone/instances/instance |
 | <CopyableCode code="zone" /> | `string` | [Output Only] URL of the zone where the disk resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of persistent disks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="disk, project, zone" /> | Returns the specified persistent disk. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves a list of persistent disks contained within the specified zone. |
+| <CopyableCode code="bulk_insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Bulk create a set of disks. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates a persistent disk in the specified project using the data in the request. You can create a disk from a source (sourceImage, sourceSnapshot, or sourceDisk) or create an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by specifying the sizeGb property. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="disk, project, zone" /> | Deletes the specified persistent disk. Deleting a disk removes its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots. |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="disk, project, zone" /> | Updates the specified disk with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of persistent disks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
-| <CopyableCode code="bulk_insert" /> | `EXEC` | <CopyableCode code="project, zone" /> | Bulk create a set of disks. |
 | <CopyableCode code="resize" /> | `EXEC` | <CopyableCode code="disk, project, zone" /> | Resizes the specified persistent disk. You can only increase the size of the disk. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, resource, zone" /> | Sets the labels on a disk. To learn more about labels, read the Labeling Resources documentation. |
 | <CopyableCode code="start_async_replication" /> | `EXEC` | <CopyableCode code="disk, project, zone" /> | Starts asynchronous replication. Must be invoked on the primary disk. |
 | <CopyableCode code="stop_async_replication" /> | `EXEC` | <CopyableCode code="disk, project, zone" /> | Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. |
 | <CopyableCode code="stop_group_async_replication" /> | `EXEC` | <CopyableCode code="project, zone" /> | Stops asynchronous replication for a consistency group of disks. Can be invoked either in the primary or secondary scope. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of persistent disks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+accessMode,
+architecture,
+asyncPrimaryDisk,
+asyncSecondaryDisks,
+creationTimestamp,
+diskEncryptionKey,
+enableConfidentialCompute,
+guestOsFeatures,
+kind,
+labelFingerprint,
+labels,
+lastAttachTimestamp,
+lastDetachTimestamp,
+licenseCodes,
+licenses,
+locationHint,
+options,
+params,
+physicalBlockSizeBytes,
+provisionedIops,
+provisionedThroughput,
+region,
+replicaZones,
+resourcePolicies,
+resourceStatus,
+satisfiesPzi,
+satisfiesPzs,
+selfLink,
+sizeGb,
+sourceConsistencyGroupPolicy,
+sourceConsistencyGroupPolicyId,
+sourceDisk,
+sourceDiskId,
+sourceImage,
+sourceImageEncryptionKey,
+sourceImageId,
+sourceInstantSnapshot,
+sourceInstantSnapshotId,
+sourceSnapshot,
+sourceSnapshotEncryptionKey,
+sourceSnapshotId,
+sourceStorageObject,
+status,
+storagePool,
+type,
+users,
+zone
+FROM google.compute.disks
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>disks</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.disks (
+project,
+zone,
+sourceConsistencyGroupPolicy
+)
+SELECT 
+'{{ project }}',
+'{{ zone }}',
+'{{ sourceConsistencyGroupPolicy }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: sourceConsistencyGroupPolicy
+        value: '{{ sourceConsistencyGroupPolicy }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a disk only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.disks
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+sizeGb = '{{ sizeGb }}',
+zone = '{{ zone }}',
+status = '{{ status }}',
+sourceSnapshot = '{{ sourceSnapshot }}',
+sourceSnapshotId = '{{ sourceSnapshotId }}',
+sourceStorageObject = '{{ sourceStorageObject }}',
+options = '{{ options }}',
+selfLink = '{{ selfLink }}',
+sourceImage = '{{ sourceImage }}',
+sourceImageId = '{{ sourceImageId }}',
+type = '{{ type }}',
+licenses = '{{ licenses }}',
+guestOsFeatures = '{{ guestOsFeatures }}',
+lastAttachTimestamp = '{{ lastAttachTimestamp }}',
+lastDetachTimestamp = '{{ lastDetachTimestamp }}',
+users = '{{ users }}',
+diskEncryptionKey = '{{ diskEncryptionKey }}',
+sourceImageEncryptionKey = '{{ sourceImageEncryptionKey }}',
+sourceSnapshotEncryptionKey = '{{ sourceSnapshotEncryptionKey }}',
+labels = '{{ labels }}',
+labelFingerprint = '{{ labelFingerprint }}',
+region = '{{ region }}',
+replicaZones = '{{ replicaZones }}',
+licenseCodes = '{{ licenseCodes }}',
+physicalBlockSizeBytes = '{{ physicalBlockSizeBytes }}',
+resourcePolicies = '{{ resourcePolicies }}',
+sourceDisk = '{{ sourceDisk }}',
+sourceDiskId = '{{ sourceDiskId }}',
+provisionedIops = '{{ provisionedIops }}',
+provisionedThroughput = '{{ provisionedThroughput }}',
+enableConfidentialCompute = true|false,
+sourceInstantSnapshot = '{{ sourceInstantSnapshot }}',
+sourceInstantSnapshotId = '{{ sourceInstantSnapshotId }}',
+satisfiesPzs = true|false,
+satisfiesPzi = true|false,
+locationHint = '{{ locationHint }}',
+storagePool = '{{ storagePool }}',
+accessMode = '{{ accessMode }}',
+asyncPrimaryDisk = '{{ asyncPrimaryDisk }}',
+asyncSecondaryDisks = '{{ asyncSecondaryDisks }}',
+resourceStatus = '{{ resourceStatus }}',
+sourceConsistencyGroupPolicy = '{{ sourceConsistencyGroupPolicy }}',
+sourceConsistencyGroupPolicyId = '{{ sourceConsistencyGroupPolicyId }}',
+architecture = '{{ architecture }}',
+params = '{{ params }}'
+WHERE 
+disk = '{{ disk }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```
+
+## `DELETE` example
+
+Deletes the specified disk resource.
+
+```sql
+DELETE FROM google.compute.disks
+WHERE disk = '{{ disk }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```

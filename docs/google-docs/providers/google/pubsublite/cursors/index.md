@@ -1,3 +1,4 @@
+
 ---
 title: cursors
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - cursors
   - pubsublite
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>cursor</code> resource or lists <code>cursors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,8 +34,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="cursor" /> | `object` | A cursor that describes the position of a message within a topic partition. |
 | <CopyableCode code="partition" /> | `string` | The partition this is for. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="cursor_projects_locations_subscriptions_cursors_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, subscriptionsId" /> |
-| <CopyableCode code="_cursor_projects_locations_subscriptions_cursors_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, subscriptionsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="cursor_projects_locations_subscriptions_cursors_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, subscriptionsId" /> | Returns all committed cursor information for a subscription. |
+
+## `SELECT` examples
+
+Returns all committed cursor information for a subscription.
+
+```sql
+SELECT
+cursor,
+partition
+FROM google.pubsublite.cursors
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND subscriptionsId = '{{ subscriptionsId }}'; 
+```

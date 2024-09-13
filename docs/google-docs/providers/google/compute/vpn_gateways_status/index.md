@@ -1,3 +1,4 @@
+
 ---
 title: vpn_gateways_status
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - vpn_gateways_status
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>vpn_gateways_status</code> resource or lists <code>vpn_gateways_status</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="result" /> | `object` |  |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_status" /> | `SELECT` | <CopyableCode code="project, region, vpnGateway" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_status" /> | `SELECT` | <CopyableCode code="project, region, vpnGateway" /> | Returns the status for the specified VPN gateway. |
+
+## `SELECT` examples
+
+Returns the status for the specified VPN gateway.
+
+```sql
+SELECT
+result
+FROM google.compute.vpn_gateways_status
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND vpnGateway = '{{ vpnGateway }}'; 
+```

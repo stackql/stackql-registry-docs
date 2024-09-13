@@ -1,3 +1,4 @@
+
 ---
 title: insight_types_config
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - insight_types_config
   - recommender
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>insight_types_config</code> resource or lists <code>insight_types_config</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,12 +39,52 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insightTypeGenerationConfig" /> | `object` | A configuration to customize the generation of insights. Eg, customizing the lookback period considered when generating a insight. |
 | <CopyableCode code="revisionId" /> | `string` | Output only. Immutable. The revision ID of the config. A new revision is committed whenever the config is changed in any way. The format is an 8-character hexadecimal string. |
 | <CopyableCode code="updateTime" /> | `string` | Last time when the config was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="billing_accounts_locations_insight_types_get_config" /> | `SELECT` | <CopyableCode code="billingAccountsId, insightTypesId, locationsId" /> | Gets the requested InsightTypeConfig. There is only one instance of the config for each InsightType. |
 | <CopyableCode code="organizations_locations_insight_types_get_config" /> | `SELECT` | <CopyableCode code="insightTypesId, locationsId, organizationsId" /> | Gets the requested InsightTypeConfig. There is only one instance of the config for each InsightType. |
 | <CopyableCode code="projects_locations_insight_types_get_config" /> | `SELECT` | <CopyableCode code="insightTypesId, locationsId, projectsId" /> | Gets the requested InsightTypeConfig. There is only one instance of the config for each InsightType. |
-| <CopyableCode code="billing_accounts_locations_insight_types_update_config" /> | `EXEC` | <CopyableCode code="billingAccountsId, insightTypesId, locationsId" /> | Updates an InsightTypeConfig change. This will create a new revision of the config. |
-| <CopyableCode code="organizations_locations_insight_types_update_config" /> | `EXEC` | <CopyableCode code="insightTypesId, locationsId, organizationsId" /> | Updates an InsightTypeConfig change. This will create a new revision of the config. |
-| <CopyableCode code="projects_locations_insight_types_update_config" /> | `EXEC` | <CopyableCode code="insightTypesId, locationsId, projectsId" /> | Updates an InsightTypeConfig change. This will create a new revision of the config. |
+| <CopyableCode code="billing_accounts_locations_insight_types_update_config" /> | `UPDATE` | <CopyableCode code="billingAccountsId, insightTypesId, locationsId" /> | Updates an InsightTypeConfig change. This will create a new revision of the config. |
+| <CopyableCode code="organizations_locations_insight_types_update_config" /> | `UPDATE` | <CopyableCode code="insightTypesId, locationsId, organizationsId" /> | Updates an InsightTypeConfig change. This will create a new revision of the config. |
+| <CopyableCode code="projects_locations_insight_types_update_config" /> | `UPDATE` | <CopyableCode code="insightTypesId, locationsId, projectsId" /> | Updates an InsightTypeConfig change. This will create a new revision of the config. |
+
+## `SELECT` examples
+
+Gets the requested InsightTypeConfig. There is only one instance of the config for each InsightType.
+
+```sql
+SELECT
+name,
+annotations,
+displayName,
+etag,
+insightTypeGenerationConfig,
+revisionId,
+updateTime
+FROM google.recommender.insight_types_config
+WHERE insightTypesId = '{{ insightTypesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a insight_types_config only if the necessary resources are available.
+
+```sql
+UPDATE google.recommender.insight_types_config
+SET 
+name = '{{ name }}',
+updateTime = '{{ updateTime }}',
+annotations = '{{ annotations }}',
+etag = '{{ etag }}',
+displayName = '{{ displayName }}',
+revisionId = '{{ revisionId }}',
+insightTypeGenerationConfig = '{{ insightTypeGenerationConfig }}'
+WHERE 
+insightTypesId = '{{ insightTypesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

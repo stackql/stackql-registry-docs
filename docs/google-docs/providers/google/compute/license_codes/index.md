@@ -1,3 +1,4 @@
+
 ---
 title: license_codes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - license_codes
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>license_code</code> resource or lists <code>license_codes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,7 +41,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="state" /> | `string` | [Output Only] Current state of this License Code. |
 | <CopyableCode code="transferable" /> | `boolean` | [Output Only] If true, the license will remain attached when creating images or snapshots from disks. Otherwise, the license is not transferred. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="licenseCode, project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="licenseCode, project" /> | Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  |
+
+## `SELECT` examples
+
+Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+kind,
+licenseAlias,
+selfLink,
+state,
+transferable
+FROM google.compute.license_codes
+WHERE licenseCode = '{{ licenseCode }}'
+AND project = '{{ project }}'; 
+```

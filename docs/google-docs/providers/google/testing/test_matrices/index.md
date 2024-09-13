@@ -1,3 +1,4 @@
+
 ---
 title: test_matrices
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - test_matrices
   - testing
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>test_matrix</code> resource or lists <code>test_matrices</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,9 +46,125 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="testMatrixId" /> | `string` | Output only. Unique id set by the service. |
 | <CopyableCode code="testSpecification" /> | `object` | A description of how to run the test. |
 | <CopyableCode code="timestamp" /> | `string` | Output only. The time this test matrix was initially created. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="projectId, testMatrixId" /> | Checks the status of a test matrix and the executions once they are created. The test matrix will contain the list of test executions to run if and only if the resultStorage.toolResultsExecution fields have been populated. Note: Flaky test executions may be added to the matrix at a later stage. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Test Matrix does not exist |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectId" /> | Creates and runs a matrix of tests according to the given specifications. Unsupported environments will be returned in the state UNSUPPORTED. A test matrix is limited to use at most 2000 devices in parallel. The returned matrix will not yet contain the executions that will be created for this matrix. Execution creation happens later on and will require a call to GetTestMatrix. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed or if the matrix tries to use too many simultaneous devices. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="projectId, testMatrixId" /> | Cancels unfinished test executions in a test matrix. This call returns immediately and cancellation proceeds asynchronously. If the matrix is already final, this operation will have no effect. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Test Matrix does not exist |
+
+## `SELECT` examples
+
+Checks the status of a test matrix and the executions once they are created. The test matrix will contain the list of test executions to run if and only if the resultStorage.toolResultsExecution fields have been populated. Note: Flaky test executions may be added to the matrix at a later stage. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Test Matrix does not exist
+
+```sql
+SELECT
+clientInfo,
+environmentMatrix,
+extendedInvalidMatrixDetails,
+failFast,
+flakyTestAttempts,
+invalidMatrixDetails,
+outcomeSummary,
+projectId,
+resultStorage,
+state,
+testExecutions,
+testMatrixId,
+testSpecification,
+timestamp
+FROM google.testing.test_matrices
+WHERE projectId = '{{ projectId }}'
+AND testMatrixId = '{{ testMatrixId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>test_matrices</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.testing.test_matrices (
+projectId,
+testMatrixId,
+projectId,
+clientInfo,
+testSpecification,
+environmentMatrix,
+testExecutions,
+resultStorage,
+state,
+timestamp,
+invalidMatrixDetails,
+extendedInvalidMatrixDetails,
+flakyTestAttempts,
+outcomeSummary,
+failFast
+)
+SELECT 
+'{{ projectId }}',
+'{{ testMatrixId }}',
+'{{ projectId }}',
+'{{ clientInfo }}',
+'{{ testSpecification }}',
+'{{ environmentMatrix }}',
+'{{ testExecutions }}',
+'{{ resultStorage }}',
+'{{ state }}',
+'{{ timestamp }}',
+'{{ invalidMatrixDetails }}',
+'{{ extendedInvalidMatrixDetails }}',
+'{{ flakyTestAttempts }}',
+'{{ outcomeSummary }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: testMatrixId
+        value: '{{ testMatrixId }}'
+      - name: projectId
+        value: '{{ projectId }}'
+      - name: clientInfo
+        value: '{{ clientInfo }}'
+      - name: testSpecification
+        value: '{{ testSpecification }}'
+      - name: environmentMatrix
+        value: '{{ environmentMatrix }}'
+      - name: testExecutions
+        value: '{{ testExecutions }}'
+      - name: resultStorage
+        value: '{{ resultStorage }}'
+      - name: state
+        value: '{{ state }}'
+      - name: timestamp
+        value: '{{ timestamp }}'
+      - name: invalidMatrixDetails
+        value: '{{ invalidMatrixDetails }}'
+      - name: extendedInvalidMatrixDetails
+        value: '{{ extendedInvalidMatrixDetails }}'
+      - name: flakyTestAttempts
+        value: '{{ flakyTestAttempts }}'
+      - name: outcomeSummary
+        value: '{{ outcomeSummary }}'
+      - name: failFast
+        value: '{{ failFast }}'
+
+```
+</TabItem>
+</Tabs>

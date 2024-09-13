@@ -1,3 +1,4 @@
+
 ---
 title: clusters_master
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - clusters_master
   - container
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>clusters_master</code> resource or lists <code>clusters_master</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_clusters_update_master" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_clusters_update_master" /> | `UPDATE` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Updates the master for a specific cluster. |
+
+## `UPDATE` example
+
+Updates a clusters_master only if the necessary resources are available.
+
+```sql
+UPDATE google.container.clusters_master
+SET 
+projectId = '{{ projectId }}',
+zone = '{{ zone }}',
+clusterId = '{{ clusterId }}',
+masterVersion = '{{ masterVersion }}',
+name = '{{ name }}'
+WHERE 
+clustersId = '{{ clustersId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

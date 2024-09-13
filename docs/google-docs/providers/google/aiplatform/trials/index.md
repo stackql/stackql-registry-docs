@@ -1,3 +1,4 @@
+
 ---
 title: trials
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - trials
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>trial</code> resource or lists <code>trials</code> in a region
 
 ## Overview
 <table><tbody>
@@ -42,6 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="startTime" /> | `string` | Output only. Time when the Trial was started. |
 | <CopyableCode code="state" /> | `string` | Output only. The detailed state of the Trial. |
 | <CopyableCode code="webAccessUris" /> | `object` | Output only. URIs for accessing [interactive shells](https://cloud.google.com/vertex-ai/docs/training/monitor-debug-interactive-shell) (one URI for each training node). Only available if this trial is part of a HyperparameterTuningJob and the job's trial_job_spec.enable_web_access field is `true`. The keys are names of each node used for the trial; for example, `workerpool0-0` for the primary node, `workerpool1-0` for the first node in the second worker pool, and `workerpool1-1` for the second node in the second worker pool. The values are the URIs for each node's interactive shell. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,8 +52,129 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, studiesId" /> | Lists the Trials associated with a Study. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, studiesId" /> | Adds a user provided Trial to a Study. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, studiesId, trialsId" /> | Deletes a Trial. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, studiesId" /> | Lists the Trials associated with a Study. |
 | <CopyableCode code="check_trial_early_stopping_state" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, studiesId, trialsId" /> | Checks whether a Trial should stop or not. Returns a long-running operation. When the operation is successful, it will contain a CheckTrialEarlyStoppingStateResponse. |
 | <CopyableCode code="complete" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, studiesId, trialsId" /> | Marks a Trial as complete. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, studiesId, trialsId" /> | Stops a Trial. |
 | <CopyableCode code="suggest" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, studiesId" /> | Adds one or more Trials to a Study, with parameter values suggested by Vertex AI Vizier. Returns a long-running operation associated with the generation of Trial suggestions. When this long-running operation succeeds, it will contain a SuggestTrialsResponse. |
+
+## `SELECT` examples
+
+Lists the Trials associated with a Study.
+
+```sql
+SELECT
+id,
+name,
+clientId,
+customJob,
+endTime,
+finalMeasurement,
+infeasibleReason,
+measurements,
+parameters,
+startTime,
+state,
+webAccessUris
+FROM google.aiplatform.trials
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND studiesId = '{{ studiesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>trials</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.trials (
+locationsId,
+projectsId,
+studiesId,
+state,
+startTime,
+finalMeasurement,
+clientId,
+id,
+measurements,
+webAccessUris,
+parameters,
+endTime,
+infeasibleReason,
+name,
+customJob
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ studiesId }}',
+'{{ state }}',
+'{{ startTime }}',
+'{{ finalMeasurement }}',
+'{{ clientId }}',
+'{{ id }}',
+'{{ measurements }}',
+'{{ webAccessUris }}',
+'{{ parameters }}',
+'{{ endTime }}',
+'{{ infeasibleReason }}',
+'{{ name }}',
+'{{ customJob }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: state
+        value: '{{ state }}'
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: finalMeasurement
+        value: '{{ finalMeasurement }}'
+      - name: clientId
+        value: '{{ clientId }}'
+      - name: id
+        value: '{{ id }}'
+      - name: measurements
+        value: '{{ measurements }}'
+      - name: webAccessUris
+        value: '{{ webAccessUris }}'
+      - name: parameters
+        value: '{{ parameters }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: infeasibleReason
+        value: '{{ infeasibleReason }}'
+      - name: name
+        value: '{{ name }}'
+      - name: customJob
+        value: '{{ customJob }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified trial resource.
+
+```sql
+DELETE FROM google.aiplatform.trials
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND studiesId = '{{ studiesId }}'
+AND trialsId = '{{ trialsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: environments_deployed_config
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - environments_deployed_config
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>environments_deployed_config</code> resource or lists <code>environments_deployed_config</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the environment configuration in the following format: `organizations/&#123;org&#125;/environments/&#123;env&#125;/configs/&#123;config&#125;` |
+| <CopyableCode code="name" /> | `string` | Name of the environment configuration in the following format: `organizations/{org}/environments/{env}/configs/{config}` |
 | <CopyableCode code="addonsConfig" /> | `object` | RuntimeAddonsConfig defines the runtime configurations for add-ons in an environment. |
 | <CopyableCode code="arcConfigLocation" /> | `string` | The location for the config blob of API Runtime Control, aka Envoy Adapter, for op-based authentication as a URI, e.g. a Cloud Storage URI. This is only used by Envoy-based gateways. |
 | <CopyableCode code="createTime" /> | `string` | Time that the environment configuration was created. |
@@ -53,7 +55,42 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="targets" /> | `array` | List of target servers in the environment. Disabled target servers are not displayed. |
 | <CopyableCode code="traceConfig" /> | `object` | NEXT ID: 8 RuntimeTraceConfig defines the configurations for distributed trace in an environment. |
 | <CopyableCode code="uid" /> | `string` | Unique ID for the environment configuration. The ID will only change if the environment is deleted and recreated. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="organizations_environments_get_deployed_config" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_environments_get_deployed_config" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Gets the deployed configuration for an environment. |
+
+## `SELECT` examples
+
+Gets the deployed configuration for an environment.
+
+```sql
+SELECT
+name,
+addonsConfig,
+arcConfigLocation,
+createTime,
+dataCollectors,
+debugMask,
+deploymentGroups,
+deployments,
+envScopedRevisionId,
+featureFlags,
+flowhooks,
+forwardProxyUri,
+gatewayConfigLocation,
+keystores,
+provider,
+pubsubTopic,
+resourceReferences,
+resources,
+revisionId,
+sequenceNumber,
+targets,
+traceConfig,
+uid
+FROM google.apigee.environments_deployed_config
+WHERE environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```

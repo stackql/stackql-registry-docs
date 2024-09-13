@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Use the Apigee API to programmatically develop and manage APIs with a set of RESTful operations. Develop and secure API proxies, deploy and undeploy API proxy revisions, monitor APIs, configure environments, manage users, and more. Note: This product is available as a free trial for a time period of 60 days.  
-    
+The apigee service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>98</b></span><br />
-<span>total selectable resources:&nbsp;<b>78</b></span><br />
-<span>total methods:&nbsp;<b>339</b></span><br />
+<span>total resources:&nbsp;<b>99</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.apigee</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Apigee API</td></tr>
-<tr><td><b>Description</b></td><td>Use the Apigee API to programmatically develop and manage APIs with a set of RESTful operations. Develop and secure API proxies, deploy and undeploy API proxy revisions, monitor APIs, configure environments, manage users, and more. Note: This product is available as a free trial for a time period of 60 days.</td></tr>
-<tr><td><b>Id</b></td><td><code>apigee:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -70,6 +59,7 @@ Use the Apigee API to programmatically develop and manage APIs with a set of RES
 <a href="/providers/google/apigee/debugsessions_data/">debugsessions_data</a><br />
 <a href="/providers/google/apigee/deployed_ingress_config/">deployed_ingress_config</a><br />
 <a href="/providers/google/apigee/deployments/">deployments</a><br />
+<a href="/providers/google/apigee/deployments_iam_policies/">deployments_iam_policies</a><br />
 <a href="/providers/google/apigee/developers/">developers</a><br />
 <a href="/providers/google/apigee/developers_balance/">developers_balance</a><br />
 <a href="/providers/google/apigee/developers_monetization_config/">developers_monetization_config</a><br />
@@ -88,7 +78,7 @@ Use the Apigee API to programmatically develop and manage APIs with a set of RES
 <a href="/providers/google/apigee/environments_trace_config/">environments_trace_config</a><br />
 <a href="/providers/google/apigee/exports/">exports</a><br />
 <a href="/providers/google/apigee/flowhooks/">flowhooks</a><br />
-<a href="/providers/google/apigee/host_queries/">host_queries</a><br />
+<a href="/providers/google/apigee/host_queries/">host_queries</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/apigee/host_queries_result/">host_queries_result</a><br />
@@ -139,6 +129,6 @@ Use the Apigee API to programmatically develop and manage APIs with a set of RES
 <a href="/providers/google/apigee/stats/">stats</a><br />
 <a href="/providers/google/apigee/subscriptions/">subscriptions</a><br />
 <a href="/providers/google/apigee/sync_authorization/">sync_authorization</a><br />
-<a href="/providers/google/apigee/targetservers/">targetservers</a><br />
+<a href="/providers/google/apigee/targetservers/">targetservers</a>
 </div>
 </div>

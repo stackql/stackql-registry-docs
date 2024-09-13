@@ -1,3 +1,4 @@
+
 ---
 title: bi_reservation
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - bi_reservation
   - bigqueryreservation
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>bi_reservation</code> resource or lists <code>bi_reservation</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,12 +32,44 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the singleton BI reservation. Reservation names have the form `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/biReservation`. |
+| <CopyableCode code="name" /> | `string` | The resource name of the singleton BI reservation. Reservation names have the form `projects/{project_id}/locations/{location_id}/biReservation`. |
 | <CopyableCode code="preferredTables" /> | `array` | Preferred tables to use BI capacity for. |
 | <CopyableCode code="size" /> | `string` | Size of a reservation, in bytes. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of a reservation. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_bi_reservation" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Retrieves a BI reservation. |
-| <CopyableCode code="update_bi_reservation" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Updates a BI reservation. Only fields specified in the `field_mask` are updated. A singleton BI reservation always exists with default size 0. In order to reserve BI capacity it needs to be updated to an amount greater than 0. In order to release BI capacity reservation size must be set to 0. |
+| <CopyableCode code="update_bi_reservation" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId" /> | Updates a BI reservation. Only fields specified in the `field_mask` are updated. A singleton BI reservation always exists with default size 0. In order to reserve BI capacity it needs to be updated to an amount greater than 0. In order to release BI capacity reservation size must be set to 0. |
+
+## `SELECT` examples
+
+Retrieves a BI reservation.
+
+```sql
+SELECT
+name,
+preferredTables,
+size,
+updateTime
+FROM google.bigqueryreservation.bi_reservation
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a bi_reservation only if the necessary resources are available.
+
+```sql
+UPDATE google.bigqueryreservation.bi_reservation
+SET 
+name = '{{ name }}',
+updateTime = '{{ updateTime }}',
+size = '{{ size }}',
+preferredTables = '{{ preferredTables }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

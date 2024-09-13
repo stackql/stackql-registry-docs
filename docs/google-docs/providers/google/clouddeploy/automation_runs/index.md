@@ -1,3 +1,4 @@
+
 ---
 title: automation_runs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - automation_runs
   - clouddeploy
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>automation_run</code> resource or lists <code>automation_runs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. Name of the `AutomationRun`. Format is `projects/&#123;project&#125;/locations/&#123;location&#125;/deliveryPipelines/&#123;delivery_pipeline&#125;/automationRuns/&#123;automation_run&#125;`. |
+| <CopyableCode code="name" /> | `string` | Output only. Name of the `AutomationRun`. Format is `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}/automationRuns/{automation_run}`. |
 | <CopyableCode code="advanceRolloutOperation" /> | `object` | Contains the information of an automated advance-rollout operation. |
 | <CopyableCode code="automationId" /> | `string` | Output only. The ID of the automation that initiated the operation. |
 | <CopyableCode code="automationSnapshot" /> | `object` | An `Automation` resource in the Cloud Deploy API. An `Automation` enables the automation of manually driven actions for a Delivery Pipeline, which includes Release promotion among Targets, Rollout repair and Rollout deployment strategy advancement. The intention of Automation is to reduce manual intervention in the continuous delivery process. |
@@ -46,10 +48,38 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="targetId" /> | `string` | Output only. The ID of the target that represents the promotion stage that initiates the `AutomationRun`. The value of this field is the last segment of a target name. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time at which the automationRun was updated. |
 | <CopyableCode code="waitUntilTime" /> | `string` | Output only. Earliest time the `AutomationRun` will attempt to resume. Wait-time is configured by `wait` in automation rule. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationRunsId, deliveryPipelinesId, locationsId, projectsId" /> | Gets details of a single AutomationRun. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Lists AutomationRuns in a given project and location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Lists AutomationRuns in a given project and location. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="automationRunsId, deliveryPipelinesId, locationsId, projectsId" /> | Cancels an AutomationRun. The `state` of the `AutomationRun` after cancelling is `CANCELLED`. `CancelAutomationRun` can be called on AutomationRun in the state `IN_PROGRESS` and `PENDING`; AutomationRun in a different state returns an `FAILED_PRECONDITION` error. |
+
+## `SELECT` examples
+
+Lists AutomationRuns in a given project and location.
+
+```sql
+SELECT
+name,
+advanceRolloutOperation,
+automationId,
+automationSnapshot,
+createTime,
+etag,
+expireTime,
+promoteReleaseOperation,
+repairRolloutOperation,
+ruleId,
+serviceAccount,
+state,
+stateDescription,
+targetId,
+updateTime,
+waitUntilTime
+FROM google.clouddeploy.automation_runs
+WHERE deliveryPipelinesId = '{{ deliveryPipelinesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

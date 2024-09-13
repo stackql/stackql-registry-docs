@@ -1,3 +1,4 @@
+
 ---
 title: volume_restores
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - volume_restores
   - gkebackup
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>volume_restore</code> resource or lists <code>volume_restores</code> in a region
 
 ## Overview
 <table><tbody>
@@ -42,9 +44,34 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="volumeBackup" /> | `string` | Output only. The full name of the VolumeBackup from which the volume will be restored. Format: `projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*`. |
 | <CopyableCode code="volumeHandle" /> | `string` | Output only. A storage system-specific opaque handler to the underlying volume created for the target PVC from the volume backup. |
 | <CopyableCode code="volumeType" /> | `string` | Output only. The type of volume provisioned |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, restorePlansId, restoresId, volumeRestoresId" /> | Retrieve the details of a single VolumeRestore. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, restorePlansId, restoresId" /> | Lists the VolumeRestores for a given Restore. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, restorePlansId, restoresId" /> | Lists the VolumeRestores for a given Restore. |
+
+## `SELECT` examples
+
+Lists the VolumeRestores for a given Restore.
+
+```sql
+SELECT
+name,
+completeTime,
+createTime,
+etag,
+state,
+stateMessage,
+targetPvc,
+uid,
+updateTime,
+volumeBackup,
+volumeHandle,
+volumeType
+FROM google.gkebackup.volume_restores
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND restorePlansId = '{{ restorePlansId }}'
+AND restoresId = '{{ restoresId }}'; 
+```

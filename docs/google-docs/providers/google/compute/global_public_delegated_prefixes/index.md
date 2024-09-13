@@ -1,3 +1,4 @@
+
 ---
 title: global_public_delegated_prefixes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - global_public_delegated_prefixes
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>global_public_delegated_prefix</code> resource or lists <code>global_public_delegated_prefixes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -46,6 +48,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the public delegated prefix resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of the public delegated prefix, which can be one of following values: - `INITIALIZING` The public delegated prefix is being initialized and addresses cannot be created yet. - `READY_TO_ANNOUNCE` The public delegated prefix is a live migration prefix and is active. - `ANNOUNCED` The public delegated prefix is active. - `DELETING` The public delegated prefix is being deprovsioned.  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,3 +57,165 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a global PublicDelegatedPrefix in the specified project using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, publicDelegatedPrefix" /> | Deletes the specified global PublicDelegatedPrefix. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, publicDelegatedPrefix" /> | Patches the specified global PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
+
+## `SELECT` examples
+
+Lists the global PublicDelegatedPrefixes for a project.
+
+```sql
+SELECT
+id,
+name,
+description,
+allocatablePrefixLength,
+byoipApiVersion,
+creationTimestamp,
+fingerprint,
+ipCidrRange,
+isLiveMigration,
+kind,
+mode,
+parentPrefix,
+publicDelegatedSubPrefixs,
+region,
+selfLink,
+status
+FROM google.compute.global_public_delegated_prefixes
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>global_public_delegated_prefixes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.global_public_delegated_prefixes (
+project,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+region,
+ipCidrRange,
+status,
+parentPrefix,
+publicDelegatedSubPrefixs,
+isLiveMigration,
+fingerprint,
+mode,
+allocatablePrefixLength,
+byoipApiVersion
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ region }}',
+'{{ ipCidrRange }}',
+'{{ status }}',
+'{{ parentPrefix }}',
+'{{ publicDelegatedSubPrefixs }}',
+true|false,
+'{{ fingerprint }}',
+'{{ mode }}',
+'{{ allocatablePrefixLength }}',
+'{{ byoipApiVersion }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: region
+        value: '{{ region }}'
+      - name: ipCidrRange
+        value: '{{ ipCidrRange }}'
+      - name: status
+        value: '{{ status }}'
+      - name: parentPrefix
+        value: '{{ parentPrefix }}'
+      - name: publicDelegatedSubPrefixs
+        value: '{{ publicDelegatedSubPrefixs }}'
+      - name: isLiveMigration
+        value: '{{ isLiveMigration }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: mode
+        value: '{{ mode }}'
+      - name: allocatablePrefixLength
+        value: '{{ allocatablePrefixLength }}'
+      - name: byoipApiVersion
+        value: '{{ byoipApiVersion }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a global_public_delegated_prefix only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.global_public_delegated_prefixes
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+region = '{{ region }}',
+ipCidrRange = '{{ ipCidrRange }}',
+status = '{{ status }}',
+parentPrefix = '{{ parentPrefix }}',
+publicDelegatedSubPrefixs = '{{ publicDelegatedSubPrefixs }}',
+isLiveMigration = true|false,
+fingerprint = '{{ fingerprint }}',
+mode = '{{ mode }}',
+allocatablePrefixLength = '{{ allocatablePrefixLength }}',
+byoipApiVersion = '{{ byoipApiVersion }}'
+WHERE 
+project = '{{ project }}'
+AND publicDelegatedPrefix = '{{ publicDelegatedPrefix }}';
+```
+
+## `DELETE` example
+
+Deletes the specified global_public_delegated_prefix resource.
+
+```sql
+DELETE FROM google.compute.global_public_delegated_prefixes
+WHERE project = '{{ project }}'
+AND publicDelegatedPrefix = '{{ publicDelegatedPrefix }}';
+```

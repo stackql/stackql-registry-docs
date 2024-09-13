@@ -1,3 +1,4 @@
+
 ---
 title: feature_groups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - feature_groups
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>feature_group</code> resource or lists <code>feature_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,13 +32,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. Name of the FeatureGroup. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/featureGroups/&#123;featureGroup&#125;` |
+| <CopyableCode code="name" /> | `string` | Identifier. Name of the FeatureGroup. Format: `projects/{project}/locations/{location}/featureGroups/{featureGroup}` |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the FeatureGroup. |
 | <CopyableCode code="bigQuery" /> | `object` | Input source type for BigQuery Tables and Views. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Timestamp when this FeatureGroup was created. |
 | <CopyableCode code="etag" /> | `string` | Optional. Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
 | <CopyableCode code="labels" /> | `object` | Optional. The labels with user-defined metadata to organize your FeatureGroup. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information on and examples of labels. No more than 64 user labels can be associated with one FeatureGroup(System labels are excluded)." System reserved label keys are prefixed with "aiplatform.googleapis.com/" and are immutable. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this FeatureGroup was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,4 +48,116 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new FeatureGroup in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="featureGroupsId, locationsId, projectsId" /> | Deletes a single FeatureGroup. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="featureGroupsId, locationsId, projectsId" /> | Updates the parameters of a single FeatureGroup. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists FeatureGroups in a given project and location. |
+
+## `SELECT` examples
+
+Lists FeatureGroups in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+bigQuery,
+createTime,
+etag,
+labels,
+updateTime
+FROM google.aiplatform.feature_groups
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>feature_groups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.feature_groups (
+locationsId,
+projectsId,
+bigQuery,
+updateTime,
+name,
+description,
+labels,
+createTime,
+etag
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ bigQuery }}',
+'{{ updateTime }}',
+'{{ name }}',
+'{{ description }}',
+'{{ labels }}',
+'{{ createTime }}',
+'{{ etag }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: bigQuery
+        value: '{{ bigQuery }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: etag
+        value: '{{ etag }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a feature_group only if the necessary resources are available.
+
+```sql
+UPDATE google.aiplatform.feature_groups
+SET 
+bigQuery = '{{ bigQuery }}',
+updateTime = '{{ updateTime }}',
+name = '{{ name }}',
+description = '{{ description }}',
+labels = '{{ labels }}',
+createTime = '{{ createTime }}',
+etag = '{{ etag }}'
+WHERE 
+featureGroupsId = '{{ featureGroupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified feature_group resource.
+
+```sql
+DELETE FROM google.aiplatform.feature_groups
+WHERE featureGroupsId = '{{ featureGroupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

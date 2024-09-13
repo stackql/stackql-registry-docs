@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manage, store, and access healthcare data in Google Cloud Platform.  
-    
+The healthcare service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>39</b></span><br />
-<span>total selectable resources:&nbsp;<b>24</b></span><br />
-<span>total methods:&nbsp;<b>154</b></span><br />
+<span>total resources:&nbsp;<b>40</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.healthcare</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Cloud Healthcare API</td></tr>
-<tr><td><b>Description</b></td><td>Manage, store, and access healthcare data in Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>healthcare:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -59,7 +48,7 @@ Manage, store, and access healthcare data in Google Cloud Platform.
 <a href="/providers/google/healthcare/fhir_stores_iam_policies/">fhir_stores_iam_policies</a><br />
 <a href="/providers/google/healthcare/frames_frames/">frames_frames</a><br />
 <a href="/providers/google/healthcare/frames_rendered/">frames_rendered</a><br />
-<a href="/providers/google/healthcare/hl7_v2_stores/">hl7_v2_stores</a><br />
+<a href="/providers/google/healthcare/hl7_v2_stores/">hl7_v2_stores</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/healthcare/hl7_v2_stores_hl7v2_store_metrics/">hl7_v2_stores_hl7v2_store_metrics</a><br />
@@ -68,6 +57,7 @@ Manage, store, and access healthcare data in Google Cloud Platform.
 <a href="/providers/google/healthcare/instances_instance/">instances_instance</a><br />
 <a href="/providers/google/healthcare/instances_metadata/">instances_metadata</a><br />
 <a href="/providers/google/healthcare/instances_rendered/">instances_rendered</a><br />
+<a href="/providers/google/healthcare/instances_storage_info/">instances_storage_info</a><br />
 <a href="/providers/google/healthcare/locations/">locations</a><br />
 <a href="/providers/google/healthcare/messages/">messages</a><br />
 <a href="/providers/google/healthcare/nlp/">nlp</a><br />
@@ -80,6 +70,6 @@ Manage, store, and access healthcare data in Google Cloud Platform.
 <a href="/providers/google/healthcare/studies_metadata/">studies_metadata</a><br />
 <a href="/providers/google/healthcare/studies_study/">studies_study</a><br />
 <a href="/providers/google/healthcare/studies_study_metrics/">studies_study_metrics</a><br />
-<a href="/providers/google/healthcare/user_data_mappings/">user_data_mappings</a><br />
+<a href="/providers/google/healthcare/user_data_mappings/">user_data_mappings</a>
 </div>
 </div>

@@ -1,3 +1,4 @@
+
 ---
 title: tasks
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - tasks
   - run
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>task</code> resource or lists <code>tasks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -61,9 +63,53 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last-modified time. |
 | <CopyableCode code="volumes" /> | `array` | A list of Volumes to make available to containers. |
 | <CopyableCode code="vpcAccess" /> | `object` | VPC Access settings. For more information on sending traffic to a VPC network, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="executionsId, jobsId, locationsId, projectsId, tasksId" /> | Gets information about a Task. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="executionsId, jobsId, locationsId, projectsId" /> | Lists Tasks from an Execution of a Job. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="executionsId, jobsId, locationsId, projectsId" /> | Lists Tasks from an Execution of a Job. |
+
+## `SELECT` examples
+
+Lists Tasks from an Execution of a Job.
+
+```sql
+SELECT
+name,
+annotations,
+completionTime,
+conditions,
+containers,
+createTime,
+deleteTime,
+encryptionKey,
+etag,
+execution,
+executionEnvironment,
+expireTime,
+generation,
+index,
+job,
+labels,
+lastAttemptResult,
+logUri,
+maxRetries,
+observedGeneration,
+reconciling,
+retried,
+satisfiesPzs,
+scheduledTime,
+serviceAccount,
+startTime,
+timeout,
+uid,
+updateTime,
+volumes,
+vpcAccess
+FROM google.run.tasks
+WHERE executionsId = '{{ executionsId }}'
+AND jobsId = '{{ jobsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

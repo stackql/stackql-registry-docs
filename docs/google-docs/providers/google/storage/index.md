@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Stores and retrieves potentially large, immutable data objects.  
-    
+The storage service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>17</b></span><br />
-<span>total selectable resources:&nbsp;<b>16</b></span><br />
-<span>total methods:&nbsp;<b>87</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.storage</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Cloud Storage JSON API</td></tr>
-<tr><td><b>Description</b></td><td>Stores and retrieves potentially large, immutable data objects.</td></tr>
-<tr><td><b>Id</b></td><td><code>storage:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -48,7 +37,7 @@ Stores and retrieves potentially large, immutable data objects.
 <a href="/providers/google/storage/channels/">channels</a><br />
 <a href="/providers/google/storage/default_object_access_controls/">default_object_access_controls</a><br />
 <a href="/providers/google/storage/folders/">folders</a><br />
-<a href="/providers/google/storage/hmac_keys/">hmac_keys</a><br />
+<a href="/providers/google/storage/hmac_keys/">hmac_keys</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/storage/managed_folders/">managed_folders</a><br />
@@ -58,6 +47,6 @@ Stores and retrieves potentially large, immutable data objects.
 <a href="/providers/google/storage/objects/">objects</a><br />
 <a href="/providers/google/storage/objects_iam_policies/">objects_iam_policies</a><br />
 <a href="/providers/google/storage/operations/">operations</a><br />
-<a href="/providers/google/storage/service_account/">service_account</a><br />
+<a href="/providers/google/storage/service_account/">service_account</a>
 </div>
 </div>

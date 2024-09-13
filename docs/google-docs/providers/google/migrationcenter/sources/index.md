@@ -1,3 +1,4 @@
+
 ---
 title: sources
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - sources
   - migrationcenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>source</code> resource or lists <code>sources</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,6 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The state of the source. |
 | <CopyableCode code="type" /> | `string` | Data source type. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the source was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,4 +52,140 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new source in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Deletes a source. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Updates the parameters of a source. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all the sources in a given project and location. |
+
+## `SELECT` examples
+
+Lists all the sources in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+displayName,
+errorFrameCount,
+managed,
+pendingFrameCount,
+priority,
+state,
+type,
+updateTime
+FROM google.migrationcenter.sources
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>sources</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.migrationcenter.sources (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+displayName,
+description,
+type,
+priority,
+managed,
+pendingFrameCount,
+errorFrameCount,
+state
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ type }}',
+'{{ priority }}',
+true|false,
+'{{ pendingFrameCount }}',
+'{{ errorFrameCount }}',
+'{{ state }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: type
+        value: '{{ type }}'
+      - name: priority
+        value: '{{ priority }}'
+      - name: managed
+        value: '{{ managed }}'
+      - name: pendingFrameCount
+        value: '{{ pendingFrameCount }}'
+      - name: errorFrameCount
+        value: '{{ errorFrameCount }}'
+      - name: state
+        value: '{{ state }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a source only if the necessary resources are available.
+
+```sql
+UPDATE google.migrationcenter.sources
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+type = '{{ type }}',
+priority = '{{ priority }}',
+managed = true|false,
+pendingFrameCount = '{{ pendingFrameCount }}',
+errorFrameCount = '{{ errorFrameCount }}',
+state = '{{ state }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified source resource.
+
+```sql
+DELETE FROM google.migrationcenter.sources
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}';
+```

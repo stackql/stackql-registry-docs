@@ -1,3 +1,4 @@
+
 ---
 title: workloads
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - workloads
   - assuredworkloads
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>workload</code> resource or lists <code>workloads</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,8 +32,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Optional. The resource name of the workload. Format: organizations/&#123;organization&#125;/locations/&#123;location&#125;/workloads/&#123;workload&#125; Read-only. |
-| <CopyableCode code="billingAccount" /> | `string` | Optional. The billing account used for the resources which are direct children of workload. This billing account is initially associated with the resources created as part of Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form `billingAccounts/&#123;billing_account_id&#125;`. For example, `billingAccounts/012345-567890-ABCDEF`. |
+| <CopyableCode code="name" /> | `string` | Optional. The resource name of the workload. Format: organizations/{organization}/locations/{location}/workloads/{workload} Read-only. |
+| <CopyableCode code="billingAccount" /> | `string` | Optional. The billing account used for the resources which are direct children of workload. This billing account is initially associated with the resources created as part of Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form `billingAccounts/{billing_account_id}`. For example, `billingAccounts/012345-567890-ABCDEF`. |
 | <CopyableCode code="complianceRegime" /> | `string` | Required. Immutable. Compliance Regime associated with this workload. |
 | <CopyableCode code="complianceStatus" /> | `object` | Represents the Compliance Status of this workload |
 | <CopyableCode code="compliantButDisallowedServices" /> | `array` | Output only. Urls for services which are compliant for this Assured Workload, but which are currently disallowed by the ResourceUsageRestriction org policy. Invoke RestrictAllowedResources endpoint to allow your project developers to use these services in their environment. |
@@ -45,12 +47,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Optional. Labels applied to the workload. |
 | <CopyableCode code="partner" /> | `string` | Optional. Partner regime associated with this workload. |
 | <CopyableCode code="partnerPermissions" /> | `object` | Permissions granted to the AW Partner SA account for the customer workload |
-| <CopyableCode code="provisionedResourcesParent" /> | `string` | Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not specified all resources are created under the parent organization. Format: folders/&#123;folder_id&#125; |
+| <CopyableCode code="partnerServicesBillingAccount" /> | `string` | Optional. Billing account necessary for purchasing services from Sovereign Partners. This field is required for creating SIA/PSN/CNTXT partner workloads. The caller should have 'billing.resourceAssociations.create' IAM permission on this billing-account. The format of this string is billingAccounts/AAAAAA-BBBBBB-CCCCCC |
+| <CopyableCode code="provisionedResourcesParent" /> | `string` | Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not specified all resources are created under the parent organization. Format: folders/{folder_id} |
 | <CopyableCode code="resourceMonitoringEnabled" /> | `boolean` | Output only. Indicates whether resource monitoring is enabled for workload or not. It is true when Resource feed is subscribed to AWM topic and AWM Service Agent Role is binded to AW Service Account for resource Assured workload. |
 | <CopyableCode code="resourceSettings" /> | `array` | Input only. Resource properties that are used to customize workload resources. These properties (such as custom project id) will be used to create workload resources if possible. This field is optional. |
 | <CopyableCode code="resources" /> | `array` | Output only. The resources associated with this workload. These resources will be created when creating the workload. If any of the projects already exist, the workload creation will fail. Always read only. |
 | <CopyableCode code="saaEnrollmentResponse" /> | `object` | Signed Access Approvals (SAA) enrollment response. |
 | <CopyableCode code="violationNotificationsEnabled" /> | `boolean` | Optional. Indicates whether the e-mail notification for a violation is enabled for a workload. This value will be by default True, and if not present will be considered as true. This should only be updated via updateWorkload call. Any Changes to this field during the createWorkload call will not be honored. This will always be true while creating the workload. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -59,8 +63,210 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, organizationsId" /> | Creates Assured Workload. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Deletes the workload. Make sure that workload's direct children are already in a deleted state, otherwise the request will fail with a FAILED_PRECONDITION error. In addition to assuredworkloads.workload.delete permission, the user should also have orgpolicy.policy.set permission on the deleted folder to remove Assured Workloads OrgPolicies. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Updates an existing workload. Currently allows updating of workload display_name and labels. For force updates don't set etag field in the Workload. Only one update operation per workload can be in progress. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists Assured Workloads under a CRM Node. |
 | <CopyableCode code="analyze_workload_move" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Analyzes a hypothetical move of a source resource to a target workload to surface compliance risks. The analysis is best effort and is not guaranteed to be exhaustive. |
 | <CopyableCode code="enable_resource_monitoring" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Enable resource violation monitoring for a workload. |
 | <CopyableCode code="mutate_partner_permissions" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Update the permissions settings for an existing partner workload. For force updates don't set etag field in the Workload. Only one update operation per workload can be in progress. |
 | <CopyableCode code="restrict_allowed_resources" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, workloadsId" /> | Restrict the list of resources allowed in the Workload environment. The current list of allowed products can be found at https://cloud.google.com/assured-workloads/docs/supported-products In addition to assuredworkloads.workload.update permission, the user should also have orgpolicy.policy.set permission on the folder resource to use this functionality. |
+
+## `SELECT` examples
+
+Lists Assured Workloads under a CRM Node.
+
+```sql
+SELECT
+name,
+billingAccount,
+complianceRegime,
+complianceStatus,
+compliantButDisallowedServices,
+createTime,
+displayName,
+ekmProvisioningResponse,
+enableSovereignControls,
+etag,
+kajEnrollmentState,
+kmsSettings,
+labels,
+partner,
+partnerPermissions,
+partnerServicesBillingAccount,
+provisionedResourcesParent,
+resourceMonitoringEnabled,
+resourceSettings,
+resources,
+saaEnrollmentResponse,
+violationNotificationsEnabled
+FROM google.assuredworkloads.workloads
+WHERE locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>workloads</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.assuredworkloads.workloads (
+locationsId,
+organizationsId,
+saaEnrollmentResponse,
+resourceSettings,
+partner,
+createTime,
+resources,
+displayName,
+kmsSettings,
+partnerServicesBillingAccount,
+complianceStatus,
+resourceMonitoringEnabled,
+kajEnrollmentState,
+violationNotificationsEnabled,
+enableSovereignControls,
+billingAccount,
+etag,
+complianceRegime,
+partnerPermissions,
+compliantButDisallowedServices,
+provisionedResourcesParent,
+labels,
+ekmProvisioningResponse,
+name
+)
+SELECT 
+'{{ locationsId }}',
+'{{ organizationsId }}',
+'{{ saaEnrollmentResponse }}',
+'{{ resourceSettings }}',
+'{{ partner }}',
+'{{ createTime }}',
+'{{ resources }}',
+'{{ displayName }}',
+'{{ kmsSettings }}',
+'{{ partnerServicesBillingAccount }}',
+'{{ complianceStatus }}',
+true|false,
+'{{ kajEnrollmentState }}',
+true|false,
+true|false,
+'{{ billingAccount }}',
+'{{ etag }}',
+'{{ complianceRegime }}',
+'{{ partnerPermissions }}',
+'{{ compliantButDisallowedServices }}',
+'{{ provisionedResourcesParent }}',
+'{{ labels }}',
+'{{ ekmProvisioningResponse }}',
+'{{ name }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: saaEnrollmentResponse
+        value: '{{ saaEnrollmentResponse }}'
+      - name: resourceSettings
+        value: '{{ resourceSettings }}'
+      - name: partner
+        value: '{{ partner }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: resources
+        value: '{{ resources }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: kmsSettings
+        value: '{{ kmsSettings }}'
+      - name: partnerServicesBillingAccount
+        value: '{{ partnerServicesBillingAccount }}'
+      - name: complianceStatus
+        value: '{{ complianceStatus }}'
+      - name: resourceMonitoringEnabled
+        value: '{{ resourceMonitoringEnabled }}'
+      - name: kajEnrollmentState
+        value: '{{ kajEnrollmentState }}'
+      - name: violationNotificationsEnabled
+        value: '{{ violationNotificationsEnabled }}'
+      - name: enableSovereignControls
+        value: '{{ enableSovereignControls }}'
+      - name: billingAccount
+        value: '{{ billingAccount }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: complianceRegime
+        value: '{{ complianceRegime }}'
+      - name: partnerPermissions
+        value: '{{ partnerPermissions }}'
+      - name: compliantButDisallowedServices
+        value: '{{ compliantButDisallowedServices }}'
+      - name: provisionedResourcesParent
+        value: '{{ provisionedResourcesParent }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: ekmProvisioningResponse
+        value: '{{ ekmProvisioningResponse }}'
+      - name: name
+        value: '{{ name }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a workload only if the necessary resources are available.
+
+```sql
+UPDATE google.assuredworkloads.workloads
+SET 
+saaEnrollmentResponse = '{{ saaEnrollmentResponse }}',
+resourceSettings = '{{ resourceSettings }}',
+partner = '{{ partner }}',
+createTime = '{{ createTime }}',
+resources = '{{ resources }}',
+displayName = '{{ displayName }}',
+kmsSettings = '{{ kmsSettings }}',
+partnerServicesBillingAccount = '{{ partnerServicesBillingAccount }}',
+complianceStatus = '{{ complianceStatus }}',
+resourceMonitoringEnabled = true|false,
+kajEnrollmentState = '{{ kajEnrollmentState }}',
+violationNotificationsEnabled = true|false,
+enableSovereignControls = true|false,
+billingAccount = '{{ billingAccount }}',
+etag = '{{ etag }}',
+complianceRegime = '{{ complianceRegime }}',
+partnerPermissions = '{{ partnerPermissions }}',
+compliantButDisallowedServices = '{{ compliantButDisallowedServices }}',
+provisionedResourcesParent = '{{ provisionedResourcesParent }}',
+labels = '{{ labels }}',
+ekmProvisioningResponse = '{{ ekmProvisioningResponse }}',
+name = '{{ name }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND workloadsId = '{{ workloadsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified workload resource.
+
+```sql
+DELETE FROM google.assuredworkloads.workloads
+WHERE locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND workloadsId = '{{ workloadsId }}';
+```

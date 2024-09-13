@@ -1,3 +1,4 @@
+
 ---
 title: time_series
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - time_series
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>time_sery</code> resource or lists <code>time_series</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="pluginName" /> | `string` | Immutable. Name of the plugin this time series pertain to. Such as Scalar, Tensor, Blob |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this TensorboardTimeSeries was last updated. |
 | <CopyableCode code="valueType" /> | `string` | Required. Immutable. Type of TensorboardTimeSeries value. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,7 +51,152 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="experimentsId, locationsId, projectsId, runsId, tensorboardsId" /> | Creates a TensorboardTimeSeries. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="experimentsId, locationsId, projectsId, runsId, tensorboardsId, timeSeriesId" /> | Deletes a TensorboardTimeSeries. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="experimentsId, locationsId, projectsId, runsId, tensorboardsId, timeSeriesId" /> | Updates a TensorboardTimeSeries. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="experimentsId, locationsId, projectsId, runsId, tensorboardsId" /> | Lists TensorboardTimeSeries in a Location. |
 | <CopyableCode code="export_tensorboard_time_series" /> | `EXEC` | <CopyableCode code="experimentsId, locationsId, projectsId, runsId, tensorboardsId, timeSeriesId" /> | Exports a TensorboardTimeSeries' data. Data is returned in paginated responses. |
 | <CopyableCode code="read" /> | `EXEC` | <CopyableCode code="experimentsId, locationsId, projectsId, runsId, tensorboardsId, timeSeriesId" /> | Reads a TensorboardTimeSeries' data. By default, if the number of data points stored is less than 1000, all data is returned. Otherwise, 1000 data points is randomly selected from this time series and returned. This value can be changed by changing max_data_points, which can't be greater than 10k. |
 | <CopyableCode code="read_blob_data" /> | `EXEC` | <CopyableCode code="experimentsId, locationsId, projectsId, runsId, tensorboardsId, timeSeriesId" /> | Gets bytes of TensorboardBlobs. This is to allow reading blob data stored in consumer project's Cloud Storage bucket without users having to obtain Cloud Storage access permission. |
+
+## `SELECT` examples
+
+Lists TensorboardTimeSeries in a Location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+displayName,
+etag,
+metadata,
+pluginData,
+pluginName,
+updateTime,
+valueType
+FROM google.aiplatform.time_series
+WHERE experimentsId = '{{ experimentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND runsId = '{{ runsId }}'
+AND tensorboardsId = '{{ tensorboardsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>time_series</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.time_series (
+experimentsId,
+locationsId,
+projectsId,
+runsId,
+tensorboardsId,
+description,
+createTime,
+pluginName,
+pluginData,
+metadata,
+updateTime,
+name,
+valueType,
+etag,
+displayName
+)
+SELECT 
+'{{ experimentsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ runsId }}',
+'{{ tensorboardsId }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ pluginName }}',
+'{{ pluginData }}',
+'{{ metadata }}',
+'{{ updateTime }}',
+'{{ name }}',
+'{{ valueType }}',
+'{{ etag }}',
+'{{ displayName }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: pluginName
+        value: '{{ pluginName }}'
+      - name: pluginData
+        value: '{{ pluginData }}'
+      - name: metadata
+        value: '{{ metadata }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: name
+        value: '{{ name }}'
+      - name: valueType
+        value: '{{ valueType }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: displayName
+        value: '{{ displayName }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a time_sery only if the necessary resources are available.
+
+```sql
+UPDATE google.aiplatform.time_series
+SET 
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+pluginName = '{{ pluginName }}',
+pluginData = '{{ pluginData }}',
+metadata = '{{ metadata }}',
+updateTime = '{{ updateTime }}',
+name = '{{ name }}',
+valueType = '{{ valueType }}',
+etag = '{{ etag }}',
+displayName = '{{ displayName }}'
+WHERE 
+experimentsId = '{{ experimentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND runsId = '{{ runsId }}'
+AND tensorboardsId = '{{ tensorboardsId }}'
+AND timeSeriesId = '{{ timeSeriesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified time_sery resource.
+
+```sql
+DELETE FROM google.aiplatform.time_series
+WHERE experimentsId = '{{ experimentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND runsId = '{{ runsId }}'
+AND tensorboardsId = '{{ tensorboardsId }}'
+AND timeSeriesId = '{{ timeSeriesId }}';
+```

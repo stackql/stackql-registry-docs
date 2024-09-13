@@ -1,3 +1,4 @@
+
 ---
 title: nas_jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - nas_jobs
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>nas_job</code> resource or lists <code>nas_jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,9 +42,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | The labels with user-defined metadata to organize NasJobs. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. |
 | <CopyableCode code="nasJobOutput" /> | `object` | Represents a uCAIP NasJob output. |
 | <CopyableCode code="nasJobSpec" /> | `object` | Represents the spec of a NasJob. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="startTime" /> | `string` | Output only. Time when the NasJob for the first time entered the `JOB_STATE_RUNNING` state. |
 | <CopyableCode code="state" /> | `string` | Output only. The detailed state of the job. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the NasJob was most recently updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -50,5 +55,137 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists NasJobs in a Location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a NasJob |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, nasJobsId, projectsId" /> | Deletes a NasJob. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists NasJobs in a Location. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="locationsId, nasJobsId, projectsId" /> | Cancels a NasJob. Starts asynchronous cancellation on the NasJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use JobService.GetNasJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the NasJob is not deleted; instead it becomes a job with a NasJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and NasJob.state is set to `CANCELLED`. |
+
+## `SELECT` examples
+
+Lists NasJobs in a Location.
+
+```sql
+SELECT
+name,
+createTime,
+displayName,
+enableRestrictedImageTraining,
+encryptionSpec,
+endTime,
+error,
+labels,
+nasJobOutput,
+nasJobSpec,
+satisfiesPzi,
+satisfiesPzs,
+startTime,
+state,
+updateTime
+FROM google.aiplatform.nas_jobs
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>nas_jobs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.nas_jobs (
+locationsId,
+projectsId,
+createTime,
+encryptionSpec,
+startTime,
+error,
+satisfiesPzi,
+nasJobSpec,
+satisfiesPzs,
+nasJobOutput,
+displayName,
+endTime,
+updateTime,
+enableRestrictedImageTraining,
+labels,
+name,
+state
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ createTime }}',
+'{{ encryptionSpec }}',
+'{{ startTime }}',
+'{{ error }}',
+true|false,
+'{{ nasJobSpec }}',
+true|false,
+'{{ nasJobOutput }}',
+'{{ displayName }}',
+'{{ endTime }}',
+'{{ updateTime }}',
+true|false,
+'{{ labels }}',
+'{{ name }}',
+'{{ state }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: encryptionSpec
+        value: '{{ encryptionSpec }}'
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: error
+        value: '{{ error }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+      - name: nasJobSpec
+        value: '{{ nasJobSpec }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: nasJobOutput
+        value: '{{ nasJobOutput }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: enableRestrictedImageTraining
+        value: '{{ enableRestrictedImageTraining }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: name
+        value: '{{ name }}'
+      - name: state
+        value: '{{ state }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified nas_job resource.
+
+```sql
+DELETE FROM google.aiplatform.nas_jobs
+WHERE locationsId = '{{ locationsId }}'
+AND nasJobsId = '{{ nasJobsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: crypto_keys_protected_resources_summary
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - crypto_keys_protected_resources_summary
   - kmsinventory
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>crypto_keys_protected_resources_summary</code> resource or lists <code>crypto_keys_protected_resources_summary</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,7 +38,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projectCount" /> | `integer` | The number of distinct Cloud projects in the same Cloud organization as the key that have resources protected by the key. |
 | <CopyableCode code="resourceCount" /> | `string` | The total number of protected resources in the same Cloud organization as the key. |
 | <CopyableCode code="resourceTypes" /> | `object` | The number of resources protected by the key grouped by resource type. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_protected_resources_summary" /> | `SELECT` | <CopyableCode code="cryptoKeysId, keyRingsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_protected_resources_summary" /> | `SELECT` | <CopyableCode code="cryptoKeysId, keyRingsId, locationsId, projectsId" /> | Returns aggregate information about the resources protected by the given Cloud KMS CryptoKey. Only resources within the same Cloud organization as the key will be returned. The project that holds the key must be part of an organization in order for this call to succeed. |
+
+## `SELECT` examples
+
+Returns aggregate information about the resources protected by the given Cloud KMS CryptoKey. Only resources within the same Cloud organization as the key will be returned. The project that holds the key must be part of an organization in order for this call to succeed.
+
+```sql
+SELECT
+name,
+cloudProducts,
+locations,
+projectCount,
+resourceCount,
+resourceTypes
+FROM google.kmsinventory.crypto_keys_protected_resources_summary
+WHERE cryptoKeysId = '{{ cryptoKeysId }}'
+AND keyRingsId = '{{ keyRingsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

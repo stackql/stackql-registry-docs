@@ -1,3 +1,4 @@
+
 ---
 title: engines
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - engines
   - discoveryengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>engine</code> resource or lists <code>engines</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The fully qualified resource name of the engine. This field must be a UTF-8 encoded string with a length limit of 1024 characters. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/collections/&#123;collection&#125;/engines/&#123;engine&#125;` engine should be 1-63 characters, and valid characters are /a-z0-9*/. Otherwise, an INVALID_ARGUMENT error is returned. |
+| <CopyableCode code="name" /> | `string` | Immutable. The fully qualified resource name of the engine. This field must be a UTF-8 encoded string with a length limit of 1024 characters. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}` engine should be 1-63 characters, and valid characters are /a-z0-9*/. Otherwise, an INVALID_ARGUMENT error is returned. |
 | <CopyableCode code="chatEngineConfig" /> | `object` | Configurations for a Chat Engine. |
 | <CopyableCode code="chatEngineMetadata" /> | `object` | Additional information of a Chat Engine. Fields in this message are output only. |
 | <CopyableCode code="commonConfig" /> | `object` | Common configurations for an Engine. |
@@ -41,6 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="searchEngineConfig" /> | `object` | Configurations for a Search Engine. |
 | <CopyableCode code="solutionType" /> | `string` | Required. The solutions of the engine. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp the Recommendation Engine was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,4 +52,145 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_collections_engines_create" /> | `INSERT` | <CopyableCode code="collectionsId, locationsId, projectsId" /> | Creates a Engine. |
 | <CopyableCode code="projects_locations_collections_engines_delete" /> | `DELETE` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId" /> | Deletes a Engine. |
 | <CopyableCode code="projects_locations_collections_engines_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId" /> | Updates an Engine |
-| <CopyableCode code="_projects_locations_collections_engines_list" /> | `EXEC` | <CopyableCode code="collectionsId, locationsId, projectsId" /> | Lists all the Engines associated with the project. |
+
+## `SELECT` examples
+
+Lists all the Engines associated with the project.
+
+```sql
+SELECT
+name,
+chatEngineConfig,
+chatEngineMetadata,
+commonConfig,
+createTime,
+dataStoreIds,
+displayName,
+industryVertical,
+searchEngineConfig,
+solutionType,
+updateTime
+FROM google.discoveryengine.engines
+WHERE collectionsId = '{{ collectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>engines</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.discoveryengine.engines (
+collectionsId,
+locationsId,
+projectsId,
+chatEngineConfig,
+searchEngineConfig,
+chatEngineMetadata,
+name,
+displayName,
+createTime,
+updateTime,
+dataStoreIds,
+solutionType,
+industryVertical,
+commonConfig
+)
+SELECT 
+'{{ collectionsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ chatEngineConfig }}',
+'{{ searchEngineConfig }}',
+'{{ chatEngineMetadata }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ dataStoreIds }}',
+'{{ solutionType }}',
+'{{ industryVertical }}',
+'{{ commonConfig }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: chatEngineConfig
+        value: '{{ chatEngineConfig }}'
+      - name: searchEngineConfig
+        value: '{{ searchEngineConfig }}'
+      - name: chatEngineMetadata
+        value: '{{ chatEngineMetadata }}'
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: dataStoreIds
+        value: '{{ dataStoreIds }}'
+      - name: solutionType
+        value: '{{ solutionType }}'
+      - name: industryVertical
+        value: '{{ industryVertical }}'
+      - name: commonConfig
+        value: '{{ commonConfig }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a engine only if the necessary resources are available.
+
+```sql
+UPDATE google.discoveryengine.engines
+SET 
+chatEngineConfig = '{{ chatEngineConfig }}',
+searchEngineConfig = '{{ searchEngineConfig }}',
+chatEngineMetadata = '{{ chatEngineMetadata }}',
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+dataStoreIds = '{{ dataStoreIds }}',
+solutionType = '{{ solutionType }}',
+industryVertical = '{{ industryVertical }}',
+commonConfig = '{{ commonConfig }}'
+WHERE 
+collectionsId = '{{ collectionsId }}'
+AND enginesId = '{{ enginesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified engine resource.
+
+```sql
+DELETE FROM google.discoveryengine.engines
+WHERE collectionsId = '{{ collectionsId }}'
+AND enginesId = '{{ enginesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

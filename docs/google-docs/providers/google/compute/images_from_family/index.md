@@ -1,3 +1,4 @@
+
 ---
 title: images_from_family
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - images_from_family
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>images_from_family</code> resource or lists <code>images_from_family</code> in a region
 
 ## Overview
 <table><tbody>
@@ -64,7 +66,53 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sourceType" /> | `string` | The type of the image used to create this disk. The default and only valid value is RAW. |
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of the image. An image can be used to create other resources, such as instances, only after the image has been successfully created and the status is set to READY. Possible values are FAILED, PENDING, or READY. |
 | <CopyableCode code="storageLocations" /> | `array` | Cloud Storage bucket storage location of the image (regional or multi-regional). |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_from_family" /> | `SELECT` | <CopyableCode code="family, project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_from_family" /> | `SELECT` | <CopyableCode code="family, project" /> | Returns the latest image that is part of an image family and is not deprecated. For more information on image families, see Public image families documentation. |
+
+## `SELECT` examples
+
+Returns the latest image that is part of an image family and is not deprecated. For more information on image families, see Public image families documentation.
+
+```sql
+SELECT
+id,
+name,
+description,
+architecture,
+archiveSizeBytes,
+creationTimestamp,
+deprecated,
+diskSizeGb,
+enableConfidentialCompute,
+family,
+guestOsFeatures,
+imageEncryptionKey,
+kind,
+labelFingerprint,
+labels,
+licenseCodes,
+licenses,
+rawDisk,
+satisfiesPzi,
+satisfiesPzs,
+selfLink,
+shieldedInstanceInitialState,
+sourceDisk,
+sourceDiskEncryptionKey,
+sourceDiskId,
+sourceImage,
+sourceImageEncryptionKey,
+sourceImageId,
+sourceSnapshot,
+sourceSnapshotEncryptionKey,
+sourceSnapshotId,
+sourceType,
+status,
+storageLocations
+FROM google.compute.images_from_family
+WHERE family = '{{ family }}'
+AND project = '{{ project }}'; 
+```

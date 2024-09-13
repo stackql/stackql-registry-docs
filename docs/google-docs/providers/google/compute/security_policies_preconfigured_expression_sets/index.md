@@ -1,3 +1,4 @@
+
 ---
 title: security_policies_preconfigured_expression_sets
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - security_policies_preconfigured_expression_sets
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>security_policies_preconfigured_expression_set</code> resource or lists <code>security_policies_preconfigured_expression_sets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="preconfiguredExpressionSets" /> | `object` |  |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_preconfigured_expression_sets" /> | `SELECT` | <CopyableCode code="project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_preconfigured_expression_sets" /> | `SELECT` | <CopyableCode code="project" /> | Gets the current list of preconfigured Web Application Firewall (WAF) expressions. |
+
+## `SELECT` examples
+
+Gets the current list of preconfigured Web Application Firewall (WAF) expressions.
+
+```sql
+SELECT
+preconfiguredExpressionSets
+FROM google.compute.security_policies_preconfigured_expression_sets
+WHERE project = '{{ project }}'; 
+```

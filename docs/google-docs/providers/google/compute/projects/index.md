@@ -1,3 +1,4 @@
+
 ---
 title: projects
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - projects
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>project</code> resource or lists <code>projects</code> in a region
 
 ## Overview
 <table><tbody>
@@ -45,6 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="usageExportLocation" /> | `object` | The location in Cloud Storage and naming method of the daily usage report. Contains bucket_name and report_name prefix. |
 | <CopyableCode code="vmDnsSetting" /> | `string` | [Output Only] Default internal DNS setting used by VMs running in this project. |
 | <CopyableCode code="xpnProjectStatus" /> | `string` | [Output Only] The role this project has in a shared VPC configuration. Currently, only projects with the host role, which is specified by the value HOST, are differentiated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -59,3 +62,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="set_common_instance_metadata" /> | `EXEC` | <CopyableCode code="project" /> | Sets metadata common to all instances within the specified project using the data included in the request. |
 | <CopyableCode code="set_default_network_tier" /> | `EXEC` | <CopyableCode code="project" /> | Sets the default network tier of the project. The default network tier is used when an address/forwardingRule/instance is created without specifying the network tier field. |
 | <CopyableCode code="set_usage_export_bucket" /> | `EXEC` | <CopyableCode code="project" /> | Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the usage export feature will be disabled. |
+
+## `SELECT` examples
+
+Returns the specified Project resource. To decrease latency for this method, you can optionally omit any unneeded information from the response by using a field mask. This practice is especially recommended for unused quota information (the `quotas` field). To exclude one or more fields, set your request's `fields` query parameter to only include the fields you need. For example, to only include the `id` and `selfLink` fields, add the query parameter `?fields=id,selfLink` to your request.
+
+```sql
+SELECT
+id,
+name,
+description,
+cloudArmorTier,
+commonInstanceMetadata,
+creationTimestamp,
+defaultNetworkTier,
+defaultServiceAccount,
+enabledFeatures,
+kind,
+quotas,
+selfLink,
+usageExportLocation,
+vmDnsSetting,
+xpnProjectStatus
+FROM google.compute.projects
+WHERE project = '{{ project }}'; 
+```

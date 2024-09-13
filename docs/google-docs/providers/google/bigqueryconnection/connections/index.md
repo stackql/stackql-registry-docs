@@ -1,3 +1,4 @@
+
 ---
 title: connections
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - connections
   - bigqueryconnection
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>connection</code> resource or lists <code>connections</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The resource name of the connection in the form of: `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/connections/&#123;connection_id&#125;` |
+| <CopyableCode code="name" /> | `string` | Output only. The resource name of the connection in the form of: `projects/{project_id}/locations/{location_id}/connections/{connection_id}` |
 | <CopyableCode code="description" /> | `string` | User provided description. |
 | <CopyableCode code="aws" /> | `object` | Connection properties specific to Amazon Web Services (AWS). |
 | <CopyableCode code="azure" /> | `object` | Container for connection properties specific to Azure. |
@@ -41,10 +43,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="creationTime" /> | `string` | Output only. The creation timestamp of the connection. |
 | <CopyableCode code="friendlyName" /> | `string` | User provided display name for the connection. |
 | <CopyableCode code="hasCredential" /> | `boolean` | Output only. True, if credential is configured for this connection. |
-| <CopyableCode code="kmsKeyName" /> | `string` | Optional. The Cloud KMS key that is used for encryption. Example: `projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]` |
+| <CopyableCode code="kmsKeyName" /> | `string` | Optional. The Cloud KMS key that is used for credentials encryption. If omitted, internal Google owned encryption keys are used. Example: `projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]` |
 | <CopyableCode code="lastModifiedTime" /> | `string` | Output only. The last update timestamp of the connection. |
 | <CopyableCode code="salesforceDataCloud" /> | `object` | Connection properties specific to Salesforce DataCloud. This is intended for use only by Salesforce partner projects. |
 | <CopyableCode code="spark" /> | `object` | Container for connection properties to execute stored procedures for Apache Spark. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -53,4 +56,164 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new connection. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Deletes connection and associated credential. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Updates the specified connection. For security reasons, also resets credential if connection properties are in the update field mask. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns a list of connections in the given project. |
+
+## `SELECT` examples
+
+Returns a list of connections in the given project.
+
+```sql
+SELECT
+name,
+description,
+aws,
+azure,
+cloudResource,
+cloudSpanner,
+cloudSql,
+configuration,
+creationTime,
+friendlyName,
+hasCredential,
+kmsKeyName,
+lastModifiedTime,
+salesforceDataCloud,
+spark
+FROM google.bigqueryconnection.connections
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>connections</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.bigqueryconnection.connections (
+locationsId,
+projectsId,
+name,
+friendlyName,
+description,
+cloudSql,
+aws,
+azure,
+cloudSpanner,
+cloudResource,
+spark,
+salesforceDataCloud,
+configuration,
+creationTime,
+lastModifiedTime,
+hasCredential,
+kmsKeyName
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ friendlyName }}',
+'{{ description }}',
+'{{ cloudSql }}',
+'{{ aws }}',
+'{{ azure }}',
+'{{ cloudSpanner }}',
+'{{ cloudResource }}',
+'{{ spark }}',
+'{{ salesforceDataCloud }}',
+'{{ configuration }}',
+'{{ creationTime }}',
+'{{ lastModifiedTime }}',
+true|false,
+'{{ kmsKeyName }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: friendlyName
+        value: '{{ friendlyName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: cloudSql
+        value: '{{ cloudSql }}'
+      - name: aws
+        value: '{{ aws }}'
+      - name: azure
+        value: '{{ azure }}'
+      - name: cloudSpanner
+        value: '{{ cloudSpanner }}'
+      - name: cloudResource
+        value: '{{ cloudResource }}'
+      - name: spark
+        value: '{{ spark }}'
+      - name: salesforceDataCloud
+        value: '{{ salesforceDataCloud }}'
+      - name: configuration
+        value: '{{ configuration }}'
+      - name: creationTime
+        value: '{{ creationTime }}'
+      - name: lastModifiedTime
+        value: '{{ lastModifiedTime }}'
+      - name: hasCredential
+        value: '{{ hasCredential }}'
+      - name: kmsKeyName
+        value: '{{ kmsKeyName }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a connection only if the necessary resources are available.
+
+```sql
+UPDATE google.bigqueryconnection.connections
+SET 
+name = '{{ name }}',
+friendlyName = '{{ friendlyName }}',
+description = '{{ description }}',
+cloudSql = '{{ cloudSql }}',
+aws = '{{ aws }}',
+azure = '{{ azure }}',
+cloudSpanner = '{{ cloudSpanner }}',
+cloudResource = '{{ cloudResource }}',
+spark = '{{ spark }}',
+salesforceDataCloud = '{{ salesforceDataCloud }}',
+configuration = '{{ configuration }}',
+creationTime = '{{ creationTime }}',
+lastModifiedTime = '{{ lastModifiedTime }}',
+hasCredential = true|false,
+kmsKeyName = '{{ kmsKeyName }}'
+WHERE 
+connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified connection resource.
+
+```sql
+DELETE FROM google.bigqueryconnection.connections
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: test_environment_catalog
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - test_environment_catalog
   - testing
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>test_environment_catalog</code> resource or lists <code>test_environment_catalog</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,7 +37,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="iosDeviceCatalog" /> | `object` | The currently supported iOS devices. |
 | <CopyableCode code="networkConfigurationCatalog" /> | `object` |  |
 | <CopyableCode code="softwareCatalog" /> | `object` | The currently provided software environment on the devices under test. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="environmentType" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="environmentType" /> | Gets the catalog of supported test environments. May return any of the following canonical error codes: - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the environment type does not exist - INTERNAL - if an internal error occurred |
+
+## `SELECT` examples
+
+Gets the catalog of supported test environments. May return any of the following canonical error codes: - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the environment type does not exist - INTERNAL - if an internal error occurred
+
+```sql
+SELECT
+androidDeviceCatalog,
+deviceIpBlockCatalog,
+iosDeviceCatalog,
+networkConfigurationCatalog,
+softwareCatalog
+FROM google.testing.test_environment_catalog
+WHERE environmentType = '{{ environmentType }}'; 
+```

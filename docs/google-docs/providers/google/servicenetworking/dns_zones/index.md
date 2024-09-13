@@ -1,3 +1,4 @@
+
 ---
 title: dns_zones
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - dns_zones
   - servicenetworking
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>dns_zone</code> resource or lists <code>dns_zones</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,14 +30,84 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| <CopyableCode code="consumerPeeringZone" /> | `object` |
-| <CopyableCode code="producerPrivateZone" /> | `object` |
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="consumerPeeringZone" /> | `object` | Represents a DNS zone resource. |
+| <CopyableCode code="producerPrivateZone" /> | `object` | Represents a DNS zone resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dnsZonesId, networksId, projectsId, servicesId" /> | Service producers can use this method to retrieve a DNS zone in the shared producer host project and the matching peering zones in consumer project |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="networksId, projectsId, servicesId" /> | * Service producers can use this method to retrieve a list of available DNS zones in the shared producer host project and the matching peering zones in the consumer project. * |
-| <CopyableCode code="add" /> | `EXEC` | <CopyableCode code="servicesId" /> | Service producers can use this method to add private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
-| <CopyableCode code="remove" /> | `EXEC` | <CopyableCode code="servicesId" /> | Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
+| <CopyableCode code="add" /> | `INSERT` | <CopyableCode code="servicesId" /> | Service producers can use this method to add private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
+| <CopyableCode code="remove" /> | `DELETE` | <CopyableCode code="servicesId" /> | Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. |
+
+## `SELECT` examples
+
+* Service producers can use this method to retrieve a list of available DNS zones in the shared producer host project and the matching peering zones in the consumer project. *
+
+```sql
+SELECT
+consumerPeeringZone,
+producerPrivateZone
+FROM google.servicenetworking.dns_zones
+WHERE networksId = '{{ networksId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>dns_zones</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.servicenetworking.dns_zones (
+servicesId,
+name,
+dnsSuffix,
+consumerNetwork
+)
+SELECT 
+'{{ servicesId }}',
+'{{ name }}',
+'{{ dnsSuffix }}',
+'{{ consumerNetwork }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: dnsSuffix
+        value: '{{ dnsSuffix }}'
+      - name: consumerNetwork
+        value: '{{ consumerNetwork }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified dns_zone resource.
+
+```sql
+DELETE FROM google.servicenetworking.dns_zones
+WHERE servicesId = '{{ servicesId }}';
+```

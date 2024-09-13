@@ -1,3 +1,4 @@
+
 ---
 title: notes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - notes
   - containeranalysis
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>note</code> resource or lists <code>notes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -51,6 +53,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="upgrade" /> | `object` | An Upgrade Note represents a potential upgrade of a package to a given version. For each package version combination (i.e. bash 4.0, bash 4.1, bash 4.1.2), there will be an Upgrade Note. For Windows, windows_update field represents the information related to the update. |
 | <CopyableCode code="vulnerability" /> | `object` | A security vulnerability that can be found in resources. |
 | <CopyableCode code="vulnerabilityAssessment" /> | `object` | A single VulnerabilityAssessmentNote represents one particular product's vulnerability assessment for one CVE. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -58,9 +61,123 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_notes_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists notes for the specified project. |
 | <CopyableCode code="projects_notes_get" /> | `SELECT` | <CopyableCode code="notesId, projectsId" /> | Gets the specified note. |
 | <CopyableCode code="projects_notes_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists notes for the specified project. |
+| <CopyableCode code="projects_locations_notes_batch_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates new notes in batch. |
+| <CopyableCode code="projects_locations_notes_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new note. |
+| <CopyableCode code="projects_notes_batch_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates new notes in batch. |
 | <CopyableCode code="projects_notes_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new note. |
+| <CopyableCode code="projects_locations_notes_delete" /> | `DELETE` | <CopyableCode code="locationsId, notesId, projectsId" /> | Deletes the specified note. |
 | <CopyableCode code="projects_notes_delete" /> | `DELETE` | <CopyableCode code="notesId, projectsId" /> | Deletes the specified note. |
+| <CopyableCode code="projects_locations_notes_patch" /> | `UPDATE` | <CopyableCode code="locationsId, notesId, projectsId" /> | Updates the specified note. |
 | <CopyableCode code="projects_notes_patch" /> | `UPDATE` | <CopyableCode code="notesId, projectsId" /> | Updates the specified note. |
-| <CopyableCode code="_projects_locations_notes_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists notes for the specified project. |
-| <CopyableCode code="_projects_notes_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists notes for the specified project. |
-| <CopyableCode code="projects_notes_batch_create" /> | `EXEC` | <CopyableCode code="projectsId" /> | Creates new notes in batch. |
+
+## `SELECT` examples
+
+Lists notes for the specified project.
+
+```sql
+SELECT
+name,
+attestation,
+build,
+compliance,
+createTime,
+deployment,
+discovery,
+dsseAttestation,
+expirationTime,
+image,
+kind,
+longDescription,
+package,
+relatedNoteNames,
+relatedUrl,
+sbomReference,
+shortDescription,
+updateTime,
+upgrade,
+vulnerability,
+vulnerabilityAssessment
+FROM google.containeranalysis.notes
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>notes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.containeranalysis.notes (
+projectsId,
+notes
+)
+SELECT 
+'{{ projectsId }}',
+'{{ notes }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: notes
+        value: '{{ notes }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a note only if the necessary resources are available.
+
+```sql
+UPDATE google.containeranalysis.notes
+SET 
+longDescription = '{{ longDescription }}',
+vulnerability = '{{ vulnerability }}',
+vulnerabilityAssessment = '{{ vulnerabilityAssessment }}',
+discovery = '{{ discovery }}',
+kind = '{{ kind }}',
+dsseAttestation = '{{ dsseAttestation }}',
+shortDescription = '{{ shortDescription }}',
+build = '{{ build }}',
+updateTime = '{{ updateTime }}',
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+relatedNoteNames = '{{ relatedNoteNames }}',
+compliance = '{{ compliance }}',
+sbomReference = '{{ sbomReference }}',
+package = '{{ package }}',
+upgrade = '{{ upgrade }}',
+image = '{{ image }}',
+attestation = '{{ attestation }}',
+deployment = '{{ deployment }}',
+relatedUrl = '{{ relatedUrl }}',
+expirationTime = '{{ expirationTime }}'
+WHERE 
+notesId = '{{ notesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified note resource.
+
+```sql
+DELETE FROM google.containeranalysis.notes
+WHERE notesId = '{{ notesId }}'
+AND projectsId = '{{ projectsId }}';
+```

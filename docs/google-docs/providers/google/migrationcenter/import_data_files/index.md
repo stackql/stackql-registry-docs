@@ -1,3 +1,4 @@
+
 ---
 title: import_data_files
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - import_data_files
   - migrationcenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>import_data_file</code> resource or lists <code>import_data_files</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="format" /> | `string` | Required. The payload format. |
 | <CopyableCode code="state" /> | `string` | Output only. The state of the import data file. |
 | <CopyableCode code="uploadFileInfo" /> | `object` | A resource that contains a URI to which a data file can be uploaded. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,4 +46,95 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | List import data files. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | Creates an import data file. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="importDataFilesId, importJobsId, locationsId, projectsId" /> | Delete an import data file. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | List import data files. |
+
+## `SELECT` examples
+
+List import data files.
+
+```sql
+SELECT
+name,
+createTime,
+displayName,
+format,
+state,
+uploadFileInfo
+FROM google.migrationcenter.import_data_files
+WHERE importJobsId = '{{ importJobsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>import_data_files</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.migrationcenter.import_data_files (
+importJobsId,
+locationsId,
+projectsId,
+name,
+displayName,
+format,
+createTime,
+state,
+uploadFileInfo
+)
+SELECT 
+'{{ importJobsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ format }}',
+'{{ createTime }}',
+'{{ state }}',
+'{{ uploadFileInfo }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: format
+        value: '{{ format }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: uploadFileInfo
+        value: '{{ uploadFileInfo }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified import_data_file resource.
+
+```sql
+DELETE FROM google.migrationcenter.import_data_files
+WHERE importDataFilesId = '{{ importDataFilesId }}'
+AND importJobsId = '{{ importJobsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

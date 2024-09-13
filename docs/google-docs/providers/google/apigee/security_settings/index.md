@@ -1,3 +1,4 @@
+
 ---
 title: security_settings
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - security_settings
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>security_setting</code> resource or lists <code>security_settings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,10 +32,36 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. Full resource name is always `organizations/&#123;org&#125;/securitySettings`. |
+| <CopyableCode code="name" /> | `string` | Identifier. Full resource name is always `organizations/{org}/securitySettings`. |
 | <CopyableCode code="mlRetrainingFeedbackEnabled" /> | `boolean` | Optional. If true the user consents to the use of ML models for Abuse detection. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_get_security_settings" /> | `SELECT` | <CopyableCode code="organizationsId" /> | GetSecuritySettings gets the security settings for API Security. |
-| <CopyableCode code="organizations_update_security_settings" /> | `EXEC` | <CopyableCode code="organizationsId" /> | UpdateSecuritySettings updates the current security settings for API Security. |
+| <CopyableCode code="organizations_update_security_settings" /> | `UPDATE` | <CopyableCode code="organizationsId" /> | UpdateSecuritySettings updates the current security settings for API Security. |
+
+## `SELECT` examples
+
+GetSecuritySettings gets the security settings for API Security.
+
+```sql
+SELECT
+name,
+mlRetrainingFeedbackEnabled
+FROM google.apigee.security_settings
+WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a security_setting only if the necessary resources are available.
+
+```sql
+UPDATE google.apigee.security_settings
+SET 
+mlRetrainingFeedbackEnabled = true|false,
+name = '{{ name }}'
+WHERE 
+organizationsId = '{{ organizationsId }}';
+```

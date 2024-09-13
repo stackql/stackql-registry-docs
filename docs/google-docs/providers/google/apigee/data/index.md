@@ -1,3 +1,4 @@
+
 ---
 title: data
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - data
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>datum</code> resource or lists <code>data</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,7 +34,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="completed" /> | `boolean` | Flag indicating whether a transaction is completed or not |
 | <CopyableCode code="point" /> | `array` | List of debug data collected by runtime plane at various defined points in the flow. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="organizations_environments_apis_revisions_debugsessions_data_get" /> | `SELECT` | <CopyableCode code="apisId, dataId, debugsessionsId, environmentsId, organizationsId, revisionsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_environments_apis_revisions_debugsessions_data_get" /> | `SELECT` | <CopyableCode code="apisId, dataId, debugsessionsId, environmentsId, organizationsId, revisionsId" /> | Gets the debug data from a transaction. |
+
+## `SELECT` examples
+
+Gets the debug data from a transaction.
+
+```sql
+SELECT
+completed,
+point
+FROM google.apigee.data
+WHERE apisId = '{{ apisId }}'
+AND dataId = '{{ dataId }}'
+AND debugsessionsId = '{{ debugsessionsId }}'
+AND environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND revisionsId = '{{ revisionsId }}'; 
+```

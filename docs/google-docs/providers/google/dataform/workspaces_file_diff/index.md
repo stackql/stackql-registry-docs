@@ -1,3 +1,4 @@
+
 ---
 title: workspaces_file_diff
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - workspaces_file_diff
   - dataform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>workspaces_file_diff</code> resource or lists <code>workspaces_file_diff</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="formattedDiff" /> | `string` | The raw formatted Git diff for the file. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="fetch_file_diff" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId, workspacesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch_file_diff" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId, workspacesId" /> | Fetches Git diff for an uncommitted file in a Workspace. |
+
+## `SELECT` examples
+
+Fetches Git diff for an uncommitted file in a Workspace.
+
+```sql
+SELECT
+formattedDiff
+FROM google.dataform.workspaces_file_diff
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'
+AND workspacesId = '{{ workspacesId }}'; 
+```

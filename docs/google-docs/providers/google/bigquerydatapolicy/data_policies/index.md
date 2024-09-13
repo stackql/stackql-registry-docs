@@ -1,3 +1,4 @@
+
 ---
 title: data_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - data_policies
   - bigquerydatapolicy
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>data_policy</code> resource or lists <code>data_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,11 +32,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. Resource name of this data policy, in the format of `projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/dataPolicies/&#123;data_policy_id&#125;`. |
+| <CopyableCode code="name" /> | `string` | Output only. Resource name of this data policy, in the format of `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`. |
 | <CopyableCode code="dataMaskingPolicy" /> | `object` | The data masking policy that is used to specify data masking rule. |
-| <CopyableCode code="dataPolicyId" /> | `string` | User-assigned (human readable) ID of the data policy that needs to be unique within a project. Used as &#123;data_policy_id&#125; in part of the resource name. |
+| <CopyableCode code="dataPolicyId" /> | `string` | User-assigned (human readable) ID of the data policy that needs to be unique within a project. Used as {data_policy_id} in part of the resource name. |
 | <CopyableCode code="dataPolicyType" /> | `string` | Type of data policy. |
-| <CopyableCode code="policyTag" /> | `string` | Policy tag resource name, in the format of `projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/taxonomies/&#123;taxonomy_id&#125;/policyTags/&#123;policyTag_id&#125;`. |
+| <CopyableCode code="policyTag" /> | `string` | Policy tag resource name, in the format of `projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{policyTag_id}`. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,5 +46,105 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new data policy under a project with the given `dataPolicyId` (used as the display name), policy tag, and data policy type. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Deletes the data policy specified by its resource name. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Updates the metadata for an existing data policy. The target data policy can be specified by the resource name. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List all of the data policies in the specified parent project. |
 | <CopyableCode code="rename" /> | `EXEC` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Renames the id (display name) of the specified data policy. |
+
+## `SELECT` examples
+
+List all of the data policies in the specified parent project.
+
+```sql
+SELECT
+name,
+dataMaskingPolicy,
+dataPolicyId,
+dataPolicyType,
+policyTag
+FROM google.bigquerydatapolicy.data_policies
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>data_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.bigquerydatapolicy.data_policies (
+locationsId,
+projectsId,
+policyTag,
+dataMaskingPolicy,
+name,
+dataPolicyType,
+dataPolicyId
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ policyTag }}',
+'{{ dataMaskingPolicy }}',
+'{{ name }}',
+'{{ dataPolicyType }}',
+'{{ dataPolicyId }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: policyTag
+        value: '{{ policyTag }}'
+      - name: dataMaskingPolicy
+        value: '{{ dataMaskingPolicy }}'
+      - name: name
+        value: '{{ name }}'
+      - name: dataPolicyType
+        value: '{{ dataPolicyType }}'
+      - name: dataPolicyId
+        value: '{{ dataPolicyId }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a data_policy only if the necessary resources are available.
+
+```sql
+UPDATE google.bigquerydatapolicy.data_policies
+SET 
+policyTag = '{{ policyTag }}',
+dataMaskingPolicy = '{{ dataMaskingPolicy }}',
+name = '{{ name }}',
+dataPolicyType = '{{ dataPolicyType }}',
+dataPolicyId = '{{ dataPolicyId }}'
+WHERE 
+dataPoliciesId = '{{ dataPoliciesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified data_policy resource.
+
+```sql
+DELETE FROM google.bigquerydatapolicy.data_policies
+WHERE dataPoliciesId = '{{ dataPoliciesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

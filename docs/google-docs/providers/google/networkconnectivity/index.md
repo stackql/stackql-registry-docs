@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-This API enables connectivity with and between Google Cloud resources.  
-    
+The networkconnectivity service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>21</b></span><br />
-<span>total selectable resources:&nbsp;<b>21</b></span><br />
-<span>total methods:&nbsp;<b>100</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.networkconnectivity</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Network Connectivity API</td></tr>
-<tr><td><b>Description</b></td><td>This API enables connectivity with and between Google Cloud resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>networkconnectivity:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -50,7 +39,7 @@ This API enables connectivity with and between Google Cloud resources.
 <a href="/providers/google/networkconnectivity/policy_based_routes/">policy_based_routes</a><br />
 <a href="/providers/google/networkconnectivity/policy_based_routes_iam_policies/">policy_based_routes_iam_policies</a><br />
 <a href="/providers/google/networkconnectivity/regional_endpoints/">regional_endpoints</a><br />
-<a href="/providers/google/networkconnectivity/route_tables/">route_tables</a><br />
+<a href="/providers/google/networkconnectivity/route_tables/">route_tables</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/networkconnectivity/routes/">routes</a><br />
@@ -62,6 +51,6 @@ This API enables connectivity with and between Google Cloud resources.
 <a href="/providers/google/networkconnectivity/service_connection_policies_iam_policies/">service_connection_policies_iam_policies</a><br />
 <a href="/providers/google/networkconnectivity/service_connection_tokens/">service_connection_tokens</a><br />
 <a href="/providers/google/networkconnectivity/spokes/">spokes</a><br />
-<a href="/providers/google/networkconnectivity/spokes_iam_policies/">spokes_iam_policies</a><br />
+<a href="/providers/google/networkconnectivity/spokes_iam_policies/">spokes_iam_policies</a>
 </div>
 </div>

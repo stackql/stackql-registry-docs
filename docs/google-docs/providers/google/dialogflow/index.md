@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Builds conversational interfaces (for example, chatbots, and voice-powered apps and devices).  
-    
+The dialogflow service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>23</b></span><br />
-<span>total selectable resources:&nbsp;<b>22</b></span><br />
-<span>total methods:&nbsp;<b>154</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.dialogflow</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Dialogflow API</td></tr>
-<tr><td><b>Description</b></td><td>Builds conversational interfaces (for example, chatbots, and voice-powered apps and devices).</td></tr>
-<tr><td><b>Id</b></td><td><code>dialogflow:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -51,7 +40,7 @@ Builds conversational interfaces (for example, chatbots, and voice-powered apps 
 <a href="/providers/google/dialogflow/experiments/">experiments</a><br />
 <a href="/providers/google/dialogflow/flows/">flows</a><br />
 <a href="/providers/google/dialogflow/flows_validation_result/">flows_validation_result</a><br />
-<a href="/providers/google/dialogflow/generators/">generators</a><br />
+<a href="/providers/google/dialogflow/generators/">generators</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/dialogflow/intents/">intents</a><br />
@@ -64,6 +53,6 @@ Builds conversational interfaces (for example, chatbots, and voice-powered apps 
 <a href="/providers/google/dialogflow/test_cases/">test_cases</a><br />
 <a href="/providers/google/dialogflow/transition_route_groups/">transition_route_groups</a><br />
 <a href="/providers/google/dialogflow/versions/">versions</a><br />
-<a href="/providers/google/dialogflow/webhooks/">webhooks</a><br />
+<a href="/providers/google/dialogflow/webhooks/">webhooks</a>
 </div>
 </div>

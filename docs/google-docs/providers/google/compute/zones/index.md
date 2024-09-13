@@ -1,3 +1,4 @@
+
 ---
 title: zones
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - zones
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>zone</code> resource or lists <code>zones</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,8 +43,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="status" /> | `string` | [Output Only] Status of the zone, either UP or DOWN. |
 | <CopyableCode code="supportsPzs" /> | `boolean` | [Output Only] Reserved for future use. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project, zone" /> | Returns the specified Zone resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of Zone resources available to the specified project. |
+
+## `SELECT` examples
+
+Retrieves the list of Zone resources available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+availableCpuPlatforms,
+creationTimestamp,
+deprecated,
+kind,
+region,
+selfLink,
+status,
+supportsPzs
+FROM google.compute.zones
+WHERE project = '{{ project }}'; 
+```

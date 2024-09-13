@@ -1,3 +1,4 @@
+
 ---
 title: exclusions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - exclusions
   - logging
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>exclusion</code> resource or lists <code>exclusions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,8 +36,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="description" /> | `string` | Optional. A description of this exclusion. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation timestamp of the exclusion.This field may not be present for older exclusions. |
 | <CopyableCode code="disabled" /> | `boolean` | Optional. If set to True, then this exclusion is disabled and it does not exclude any log entries. You can update an exclusion to change the value of this field. |
-| <CopyableCode code="filter" /> | `string` | Required. An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-queries) that matches the log entries to be excluded. By using the sample function (https://cloud.google.com/logging/docs/view/advanced-queries#sample), you can exclude less than 100% of the matching log entries.For example, the following query matches 99% of low-severity log entries from Google Cloud Storage buckets:resource.type=gcs_bucket severity&lt;ERROR sample(insertId, 0.99) |
+| <CopyableCode code="filter" /> | `string` | Required. An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-queries) that matches the log entries to be excluded. By using the sample function (https://cloud.google.com/logging/docs/view/advanced-queries#sample), you can exclude less than 100% of the matching log entries.For example, the following query matches 99% of low-severity log entries from Google Cloud Storage buckets:resource.type=gcs_bucket severity<ERROR sample(insertId, 0.99) |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of the exclusion.This field may not be present for older exclusions. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -64,8 +67,103 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_exclusions_patch" /> | `UPDATE` | <CopyableCode code="exclusionsId, foldersId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
 | <CopyableCode code="organizations_exclusions_patch" /> | `UPDATE` | <CopyableCode code="exclusionsId, organizationsId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
 | <CopyableCode code="projects_exclusions_patch" /> | `UPDATE` | <CopyableCode code="exclusionsId, projectsId" /> | Changes one or more properties of an existing exclusion in the _Default sink. |
-| <CopyableCode code="_billing_accounts_exclusions_list" /> | `EXEC` | <CopyableCode code="billingAccountsId" /> | Lists all the exclusions on the _Default sink in a parent resource. |
-| <CopyableCode code="_exclusions_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Lists all the exclusions on the _Default sink in a parent resource. |
-| <CopyableCode code="_folders_exclusions_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists all the exclusions on the _Default sink in a parent resource. |
-| <CopyableCode code="_organizations_exclusions_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all the exclusions on the _Default sink in a parent resource. |
-| <CopyableCode code="_projects_exclusions_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists all the exclusions on the _Default sink in a parent resource. |
+
+## `SELECT` examples
+
+Gets the description of an exclusion in the _Default sink.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+disabled,
+filter,
+updateTime
+FROM google.logging.exclusions
+WHERE name = '{{ name }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>exclusions</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.logging.exclusions (
+foldersId,
+name,
+description,
+filter,
+disabled,
+createTime,
+updateTime
+)
+SELECT 
+'{{ foldersId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ filter }}',
+true|false,
+'{{ createTime }}',
+'{{ updateTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: filter
+        value: '{{ filter }}'
+      - name: disabled
+        value: '{{ disabled }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a exclusion only if the necessary resources are available.
+
+```sql
+UPDATE google.logging.exclusions
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+filter = '{{ filter }}',
+disabled = true|false,
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}'
+WHERE 
+name = '{{ name }}';
+```
+
+## `DELETE` example
+
+Deletes the specified exclusion resource.
+
+```sql
+DELETE FROM google.logging.exclusions
+WHERE name = '{{ name }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: endpoint_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - endpoint_policies
   - networkservices
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>endpoint_policy</code> resource or lists <code>endpoint_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Name of the EndpointPolicy resource. It matches pattern `projects/&#123;project&#125;/locations/global/endpointPolicies/&#123;endpoint_policy&#125;`. |
+| <CopyableCode code="name" /> | `string` | Identifier. Name of the EndpointPolicy resource. It matches pattern `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`. |
 | <CopyableCode code="description" /> | `string` | Optional. A free-text description of the resource. Max length 1024 characters. |
 | <CopyableCode code="authorizationPolicy" /> | `string` | Optional. This field specifies the URL of AuthorizationPolicy resource that applies authorization policies to the inbound traffic at the matched endpoints. Refer to Authorization. If this field is not specified, authorization is disabled(no authz checks) for this endpoint. |
 | <CopyableCode code="clientTlsPolicy" /> | `string` | Optional. A URL referring to a ClientTlsPolicy resource. ClientTlsPolicy can be set to specify the authentication for traffic from the proxy to the actual endpoints. More specifically, it is applied to the outgoing traffic from the proxy to the endpoint. This is typically used for sidecar model where the proxy identifies itself as endpoint to the control plane, with the connection between sidecar and endpoint requiring authentication. If this field is not set, authentication is disabled(open). Applicable only when EndpointPolicyType is SIDECAR_PROXY. |
@@ -41,6 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="trafficPortSelector" /> | `object` | Specification of a port-based selector. |
 | <CopyableCode code="type" /> | `string` | Required. The type of endpoint policy. This is primarily used to validate the configuration. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the resource was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,4 +52,140 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new EndpointPolicy in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointPoliciesId, locationsId, projectsId" /> | Deletes a single EndpointPolicy. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="endpointPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single EndpointPolicy. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists EndpointPolicies in a given project and location. |
+
+## `SELECT` examples
+
+Lists EndpointPolicies in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+authorizationPolicy,
+clientTlsPolicy,
+createTime,
+endpointMatcher,
+labels,
+serverTlsPolicy,
+trafficPortSelector,
+type,
+updateTime
+FROM google.networkservices.endpoint_policies
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>endpoint_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networkservices.endpoint_policies (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+labels,
+type,
+authorizationPolicy,
+endpointMatcher,
+trafficPortSelector,
+description,
+serverTlsPolicy,
+clientTlsPolicy
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ type }}',
+'{{ authorizationPolicy }}',
+'{{ endpointMatcher }}',
+'{{ trafficPortSelector }}',
+'{{ description }}',
+'{{ serverTlsPolicy }}',
+'{{ clientTlsPolicy }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: type
+        value: '{{ type }}'
+      - name: authorizationPolicy
+        value: '{{ authorizationPolicy }}'
+      - name: endpointMatcher
+        value: '{{ endpointMatcher }}'
+      - name: trafficPortSelector
+        value: '{{ trafficPortSelector }}'
+      - name: description
+        value: '{{ description }}'
+      - name: serverTlsPolicy
+        value: '{{ serverTlsPolicy }}'
+      - name: clientTlsPolicy
+        value: '{{ clientTlsPolicy }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a endpoint_policy only if the necessary resources are available.
+
+```sql
+UPDATE google.networkservices.endpoint_policies
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+type = '{{ type }}',
+authorizationPolicy = '{{ authorizationPolicy }}',
+endpointMatcher = '{{ endpointMatcher }}',
+trafficPortSelector = '{{ trafficPortSelector }}',
+description = '{{ description }}',
+serverTlsPolicy = '{{ serverTlsPolicy }}',
+clientTlsPolicy = '{{ clientTlsPolicy }}'
+WHERE 
+endpointPoliciesId = '{{ endpointPoliciesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified endpoint_policy resource.
+
+```sql
+DELETE FROM google.networkservices.endpoint_policies
+WHERE endpointPoliciesId = '{{ endpointPoliciesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

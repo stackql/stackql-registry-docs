@@ -1,3 +1,4 @@
+
 ---
 title: accelerator_types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - accelerator_types
   - tpu
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>accelerator_type</code> resource or lists <code>accelerator_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,9 +35,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | The resource name. |
 | <CopyableCode code="acceleratorConfigs" /> | `array` | The accelerator config. |
 | <CopyableCode code="type" /> | `string` | The accelerator type. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="acceleratorTypesId, locationsId, projectsId" /> | Gets AcceleratorType. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists accelerator types supported by this API. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists accelerator types supported by this API. |
+
+## `SELECT` examples
+
+Lists accelerator types supported by this API.
+
+```sql
+SELECT
+name,
+acceleratorConfigs,
+type
+FROM google.tpu.accelerator_types
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

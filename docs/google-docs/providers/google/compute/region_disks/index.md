@@ -1,3 +1,4 @@
+
 ---
 title: region_disks
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_disks
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_disk</code> resource or lists <code>region_disks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -80,17 +82,193 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="type" /> | `string` | URL of the disk type resource describing which disk type to use to create the disk. Provide this when creating the disk. For example: projects/project /zones/zone/diskTypes/pd-ssd . See Persistent disk types. |
 | <CopyableCode code="users" /> | `array` | [Output Only] Links to the users of the disk (attached instances) in form: projects/project/zones/zone/instances/instance |
 | <CopyableCode code="zone" /> | `string` | [Output Only] URL of the zone where the disk resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="disk, project, region" /> | Returns a specified regional persistent disk. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves the list of persistent disks contained within the specified region. |
+| <CopyableCode code="bulk_insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Bulk create a set of disks. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a persistent regional disk in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="disk, project, region" /> | Deletes the specified regional persistent disk. Deleting a regional disk removes all the replicas of its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots. |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="disk, project, region" /> | Update the specified disk with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license. |
-| <CopyableCode code="bulk_insert" /> | `EXEC` | <CopyableCode code="project, region" /> | Bulk create a set of disks. |
 | <CopyableCode code="resize" /> | `EXEC` | <CopyableCode code="disk, project, region" /> | Resizes the specified regional persistent disk. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Sets the labels on the target regional disk. |
 | <CopyableCode code="start_async_replication" /> | `EXEC` | <CopyableCode code="disk, project, region" /> | Starts asynchronous replication. Must be invoked on the primary disk. |
 | <CopyableCode code="stop_async_replication" /> | `EXEC` | <CopyableCode code="disk, project, region" /> | Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. |
 | <CopyableCode code="stop_group_async_replication" /> | `EXEC` | <CopyableCode code="project, region" /> | Stops asynchronous replication for a consistency group of disks. Can be invoked either in the primary or secondary scope. |
+
+## `SELECT` examples
+
+Retrieves the list of persistent disks contained within the specified region.
+
+```sql
+SELECT
+id,
+name,
+description,
+accessMode,
+architecture,
+asyncPrimaryDisk,
+asyncSecondaryDisks,
+creationTimestamp,
+diskEncryptionKey,
+enableConfidentialCompute,
+guestOsFeatures,
+kind,
+labelFingerprint,
+labels,
+lastAttachTimestamp,
+lastDetachTimestamp,
+licenseCodes,
+licenses,
+locationHint,
+options,
+params,
+physicalBlockSizeBytes,
+provisionedIops,
+provisionedThroughput,
+region,
+replicaZones,
+resourcePolicies,
+resourceStatus,
+satisfiesPzi,
+satisfiesPzs,
+selfLink,
+sizeGb,
+sourceConsistencyGroupPolicy,
+sourceConsistencyGroupPolicyId,
+sourceDisk,
+sourceDiskId,
+sourceImage,
+sourceImageEncryptionKey,
+sourceImageId,
+sourceInstantSnapshot,
+sourceInstantSnapshotId,
+sourceSnapshot,
+sourceSnapshotEncryptionKey,
+sourceSnapshotId,
+sourceStorageObject,
+status,
+storagePool,
+type,
+users,
+zone
+FROM google.compute.region_disks
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>region_disks</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.region_disks (
+project,
+region,
+sourceConsistencyGroupPolicy
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ sourceConsistencyGroupPolicy }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: sourceConsistencyGroupPolicy
+        value: '{{ sourceConsistencyGroupPolicy }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a region_disk only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.region_disks
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+sizeGb = '{{ sizeGb }}',
+zone = '{{ zone }}',
+status = '{{ status }}',
+sourceSnapshot = '{{ sourceSnapshot }}',
+sourceSnapshotId = '{{ sourceSnapshotId }}',
+sourceStorageObject = '{{ sourceStorageObject }}',
+options = '{{ options }}',
+selfLink = '{{ selfLink }}',
+sourceImage = '{{ sourceImage }}',
+sourceImageId = '{{ sourceImageId }}',
+type = '{{ type }}',
+licenses = '{{ licenses }}',
+guestOsFeatures = '{{ guestOsFeatures }}',
+lastAttachTimestamp = '{{ lastAttachTimestamp }}',
+lastDetachTimestamp = '{{ lastDetachTimestamp }}',
+users = '{{ users }}',
+diskEncryptionKey = '{{ diskEncryptionKey }}',
+sourceImageEncryptionKey = '{{ sourceImageEncryptionKey }}',
+sourceSnapshotEncryptionKey = '{{ sourceSnapshotEncryptionKey }}',
+labels = '{{ labels }}',
+labelFingerprint = '{{ labelFingerprint }}',
+region = '{{ region }}',
+replicaZones = '{{ replicaZones }}',
+licenseCodes = '{{ licenseCodes }}',
+physicalBlockSizeBytes = '{{ physicalBlockSizeBytes }}',
+resourcePolicies = '{{ resourcePolicies }}',
+sourceDisk = '{{ sourceDisk }}',
+sourceDiskId = '{{ sourceDiskId }}',
+provisionedIops = '{{ provisionedIops }}',
+provisionedThroughput = '{{ provisionedThroughput }}',
+enableConfidentialCompute = true|false,
+sourceInstantSnapshot = '{{ sourceInstantSnapshot }}',
+sourceInstantSnapshotId = '{{ sourceInstantSnapshotId }}',
+satisfiesPzs = true|false,
+satisfiesPzi = true|false,
+locationHint = '{{ locationHint }}',
+storagePool = '{{ storagePool }}',
+accessMode = '{{ accessMode }}',
+asyncPrimaryDisk = '{{ asyncPrimaryDisk }}',
+asyncSecondaryDisks = '{{ asyncSecondaryDisks }}',
+resourceStatus = '{{ resourceStatus }}',
+sourceConsistencyGroupPolicy = '{{ sourceConsistencyGroupPolicy }}',
+sourceConsistencyGroupPolicyId = '{{ sourceConsistencyGroupPolicyId }}',
+architecture = '{{ architecture }}',
+params = '{{ params }}'
+WHERE 
+disk = '{{ disk }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```
+
+## `DELETE` example
+
+Deletes the specified region_disk resource.
+
+```sql
+DELETE FROM google.compute.region_disks
+WHERE disk = '{{ disk }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

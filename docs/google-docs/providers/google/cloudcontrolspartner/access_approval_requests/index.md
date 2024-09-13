@@ -1,3 +1,4 @@
+
 ---
 title: access_approval_requests
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - access_approval_requests
   - cloudcontrolspartner
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>access_approval_request</code> resource or lists <code>access_approval_requests</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,12 +32,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. Format: `organizations/&#123;organization&#125;/locations/&#123;location&#125;/customers/&#123;customer&#125;/workloads/&#123;workload&#125;/accessApprovalRequests/&#123;access_approval_request&#125;` |
+| <CopyableCode code="name" /> | `string` | Identifier. Format: `organizations/{organization}/locations/{location}/customers/{customer}/workloads/{workload}/accessApprovalRequests/{access_approval_request}` |
 | <CopyableCode code="requestTime" /> | `string` | The time at which approval was requested. |
 | <CopyableCode code="requestedExpirationTime" /> | `string` | The requested expiration for the approval. If the request is approved, access will be granted from the time of approval until the expiration time. |
 | <CopyableCode code="requestedReason" /> | `object` | Reason for the access. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="customersId, locationsId, organizationsId, workloadsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="customersId, locationsId, organizationsId, workloadsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="customersId, locationsId, organizationsId, workloadsId" /> | Deprecated: Only returns access approval requests directly associated with an assured workload folder. |
+
+## `SELECT` examples
+
+Deprecated: Only returns access approval requests directly associated with an assured workload folder.
+
+```sql
+SELECT
+name,
+requestTime,
+requestedExpirationTime,
+requestedReason
+FROM google.cloudcontrolspartner.access_approval_requests
+WHERE customersId = '{{ customersId }}'
+AND locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND workloadsId = '{{ workloadsId }}'; 
+```

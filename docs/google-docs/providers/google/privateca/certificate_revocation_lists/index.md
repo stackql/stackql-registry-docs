@@ -1,3 +1,4 @@
+
 ---
 title: certificate_revocation_lists
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - certificate_revocation_lists
   - privateca
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>certificate_revocation_list</code> resource or lists <code>certificate_revocation_lists</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,10 +42,58 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sequenceNumber" /> | `string` | Output only. The CRL sequence number that appears in pem_crl. |
 | <CopyableCode code="state" /> | `string` | Output only. The State for this CertificateRevocationList. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time at which this CertificateRevocationList was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId" /> | Returns a CertificateRevocationList. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Lists CertificateRevocationLists. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, certificateRevocationListsId, locationsId, projectsId" /> | Update a CertificateRevocationList. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Lists CertificateRevocationLists. |
+
+## `SELECT` examples
+
+Lists CertificateRevocationLists.
+
+```sql
+SELECT
+name,
+accessUrl,
+createTime,
+labels,
+pemCrl,
+revisionId,
+revokedCertificates,
+sequenceNumber,
+state,
+updateTime
+FROM google.privateca.certificate_revocation_lists
+WHERE caPoolsId = '{{ caPoolsId }}'
+AND certificateAuthoritiesId = '{{ certificateAuthoritiesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a certificate_revocation_list only if the necessary resources are available.
+
+```sql
+UPDATE google.privateca.certificate_revocation_lists
+SET 
+name = '{{ name }}',
+sequenceNumber = '{{ sequenceNumber }}',
+revokedCertificates = '{{ revokedCertificates }}',
+pemCrl = '{{ pemCrl }}',
+accessUrl = '{{ accessUrl }}',
+state = '{{ state }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+revisionId = '{{ revisionId }}',
+labels = '{{ labels }}'
+WHERE 
+caPoolsId = '{{ caPoolsId }}'
+AND certificateAuthoritiesId = '{{ certificateAuthoritiesId }}'
+AND certificateRevocationListsId = '{{ certificateRevocationListsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

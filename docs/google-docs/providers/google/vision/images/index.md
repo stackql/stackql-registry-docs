@@ -1,3 +1,4 @@
+
 ---
 title: images
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - images
   - vision
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>image</code> resource or lists <code>images</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,12 +30,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="images_annotate" /> | `EXEC` |  | Run image detection and annotation for a batch of images. |
-| <CopyableCode code="images_async_batch_annotate" /> | `EXEC` |  | Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. |
+| <CopyableCode code="images_annotate" /> | `EXEC` | <CopyableCode code="" /> | Run image detection and annotation for a batch of images. |
+| <CopyableCode code="images_async_batch_annotate" /> | `EXEC` | <CopyableCode code="" /> | Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. |
 | <CopyableCode code="projects_images_annotate" /> | `EXEC` | <CopyableCode code="projectsId" /> | Run image detection and annotation for a batch of images. |
 | <CopyableCode code="projects_images_async_batch_annotate" /> | `EXEC` | <CopyableCode code="projectsId" /> | Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. |
 | <CopyableCode code="projects_locations_images_annotate" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Run image detection and annotation for a batch of images. |

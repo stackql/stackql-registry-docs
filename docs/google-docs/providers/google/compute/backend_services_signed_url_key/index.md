@@ -1,3 +1,4 @@
+
 ---
 title: backend_services_signed_url_key
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - backend_services_signed_url_key
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>backend_services_signed_url_key</code> resource or lists <code>backend_services_signed_url_key</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,9 +30,66 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="add_signed_url_key" /> | `EXEC` | <CopyableCode code="backendService, project" /> | Adds a key for validating requests with signed URLs for this backend service. |
-| <CopyableCode code="delete_signed_url_key" /> | `EXEC` | <CopyableCode code="backendService, keyName, project" /> | Deletes a key for validating requests with signed URLs for this backend service. |
+| <CopyableCode code="add_signed_url_key" /> | `INSERT` | <CopyableCode code="backendService, project" /> | Adds a key for validating requests with signed URLs for this backend service. |
+| <CopyableCode code="delete_signed_url_key" /> | `DELETE` | <CopyableCode code="backendService, keyName, project" /> | Deletes a key for validating requests with signed URLs for this backend service. |
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>backend_services_signed_url_key</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.backend_services_signed_url_key (
+backendService,
+project,
+keyName,
+keyValue
+)
+SELECT 
+'{{ backendService }}',
+'{{ project }}',
+'{{ keyName }}',
+'{{ keyValue }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: keyName
+        value: '{{ keyName }}'
+      - name: keyValue
+        value: '{{ keyValue }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified backend_services_signed_url_key resource.
+
+```sql
+DELETE FROM google.compute.backend_services_signed_url_key
+WHERE backendService = '{{ backendService }}'
+AND keyName = '{{ keyName }}'
+AND project = '{{ project }}';
+```

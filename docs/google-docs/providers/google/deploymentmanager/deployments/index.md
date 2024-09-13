@@ -1,3 +1,4 @@
+
 ---
 title: deployments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - deployments
   - deploymentmanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>deployment</code> resource or lists <code>deployments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,11 +39,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insertTime" /> | `string` | Output only. Creation timestamp in RFC3339 text format. |
 | <CopyableCode code="labels" /> | `array` | Map of One Platform labels; provided by the client when the resource is created or updated. Specifically: Label keys must be between 1 and 63 characters long and must conform to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?` Label values must be between 0 and 63 characters long and must conform to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`. |
 | <CopyableCode code="manifest" /> | `string` | Output only. URL of the manifest representing the last manifest that was successfully deployed. If no manifest has been successfully deployed, this field will be absent. |
-| <CopyableCode code="operation" /> | `object` | Represents an Operation resource. Google Compute Engine has three Operation resources: * [Global](/compute/docs/reference/rest/&#123;$api_version&#125;/globalOperations) * [Regional](/compute/docs/reference/rest/&#123;$api_version&#125;/regionOperations) * [Zonal](/compute/docs/reference/rest/&#123;$api_version&#125;/zoneOperations) You can use an operation resource to manage asynchronous API requests. For more information, read Handling API responses. Operations can be global, regional or zonal. - For global operations, use the `globalOperations` resource. - For regional operations, use the `regionOperations` resource. - For zonal operations, use the `zoneOperations` resource. For more information, read Global, Regional, and Zonal Resources. Note that completed Operation resources have a limited retention period. |
+| <CopyableCode code="operation" /> | `object` | Represents an Operation resource. Google Compute Engine has three Operation resources: * [Global](/compute/docs/reference/rest/{$api_version}/globalOperations) * [Regional](/compute/docs/reference/rest/{$api_version}/regionOperations) * [Zonal](/compute/docs/reference/rest/{$api_version}/zoneOperations) You can use an operation resource to manage asynchronous API requests. For more information, read Handling API responses. Operations can be global, regional or zonal. - For global operations, use the `globalOperations` resource. - For regional operations, use the `regionOperations` resource. - For zonal operations, use the `zoneOperations` resource. For more information, read Global, Regional, and Zonal Resources. Note that completed Operation resources have a limited retention period. |
 | <CopyableCode code="selfLink" /> | `string` | Output only. Server defined URL for the resource. |
 | <CopyableCode code="target" /> | `object` |  |
 | <CopyableCode code="update" /> | `object` |  |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Update timestamp in RFC3339 text format. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -50,7 +53,144 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a deployment and all of the resources described by the deployment manifest. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="deployment, project" /> | Deletes a deployment and all of the resources in the deployment. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="deployment, project" /> | Patches a deployment and all of the resources described by the deployment manifest. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="deployment, project" /> | Updates a deployment and all of the resources described by the deployment manifest. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Lists all deployments for a given project. |
 | <CopyableCode code="cancel_preview" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Cancels and removes the preview currently associated with the deployment. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Stops an ongoing operation. This does not roll back any work that has already been completed, but prevents any new work from being started. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Updates a deployment and all of the resources described by the deployment manifest. |
+
+## `SELECT` examples
+
+Lists all deployments for a given project.
+
+```sql
+SELECT
+id,
+name,
+description,
+fingerprint,
+insertTime,
+labels,
+manifest,
+operation,
+selfLink,
+target,
+update,
+updateTime
+FROM google.deploymentmanager.deployments
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>deployments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.deploymentmanager.deployments (
+project,
+id,
+name,
+description,
+operation,
+fingerprint,
+manifest,
+update,
+insertTime,
+updateTime,
+target,
+labels,
+selfLink
+)
+SELECT 
+'{{ project }}',
+'{{ id }}',
+'{{ name }}',
+'{{ description }}',
+'{{ operation }}',
+'{{ fingerprint }}',
+'{{ manifest }}',
+'{{ update }}',
+'{{ insertTime }}',
+'{{ updateTime }}',
+'{{ target }}',
+'{{ labels }}',
+'{{ selfLink }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: id
+        value: '{{ id }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: operation
+        value: '{{ operation }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: manifest
+        value: '{{ manifest }}'
+      - name: update
+        value: '{{ update }}'
+      - name: insertTime
+        value: '{{ insertTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: target
+        value: '{{ target }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a deployment only if the necessary resources are available.
+
+```sql
+UPDATE google.deploymentmanager.deployments
+SET 
+id = '{{ id }}',
+name = '{{ name }}',
+description = '{{ description }}',
+operation = '{{ operation }}',
+fingerprint = '{{ fingerprint }}',
+manifest = '{{ manifest }}',
+update = '{{ update }}',
+insertTime = '{{ insertTime }}',
+updateTime = '{{ updateTime }}',
+target = '{{ target }}',
+labels = '{{ labels }}',
+selfLink = '{{ selfLink }}'
+WHERE 
+deployment = '{{ deployment }}'
+AND project = '{{ project }}';
+```
+
+## `DELETE` example
+
+Deletes the specified deployment resource.
+
+```sql
+DELETE FROM google.deploymentmanager.deployments
+WHERE deployment = '{{ deployment }}'
+AND project = '{{ project }}';
+```

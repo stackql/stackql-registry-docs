@@ -1,3 +1,4 @@
+
 ---
 title: revisions_api_proxy_revision
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - revisions_api_proxy_revision
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>revisions_api_proxy_revision</code> resource or lists <code>revisions_api_proxy_revision</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="organizations_apis_revisions_update_api_proxy_revision" /> | `EXEC` | <CopyableCode code="apisId, organizationsId, revisionsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_apis_revisions_update_api_proxy_revision" /> | `UPDATE` | <CopyableCode code="apisId, organizationsId, revisionsId" /> | Updates an existing API proxy revision by uploading the API proxy configuration bundle as a zip file from your local machine. You can update only API proxy revisions that have never been deployed. After deployment, an API proxy revision becomes immutable, even if it is undeployed. Set the `Content-Type` header to either `multipart/form-data` or `application/octet-stream`. |
+
+## `UPDATE` example
+
+Updates a revisions_api_proxy_revision only if the necessary resources are available.
+
+```sql
+UPDATE google.apigee.revisions_api_proxy_revision
+SET 
+contentType = '{{ contentType }}',
+extensions = '{{ extensions }}',
+data = '{{ data }}'
+WHERE 
+apisId = '{{ apisId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND revisionsId = '{{ revisionsId }}';
+```

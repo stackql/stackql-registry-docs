@@ -1,3 +1,4 @@
+
 ---
 title: debugsessions_data
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - debugsessions_data
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>debugsessions_datum</code> resource or lists <code>debugsessions_data</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="organizations_environments_apis_revisions_debugsessions_delete_data" /> | `DELETE` | <CopyableCode code="apisId, debugsessionsId, environmentsId, organizationsId, revisionsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_environments_apis_revisions_debugsessions_delete_data" /> | `DELETE` | <CopyableCode code="apisId, debugsessionsId, environmentsId, organizationsId, revisionsId" /> | Deletes the data from a debug session. This does not cancel the debug session or prevent further data from being collected if the session is still active in runtime pods. |
+
+## `DELETE` example
+
+Deletes the specified debugsessions_datum resource.
+
+```sql
+DELETE FROM google.apigee.debugsessions_data
+WHERE apisId = '{{ apisId }}'
+AND debugsessionsId = '{{ debugsessionsId }}'
+AND environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND revisionsId = '{{ revisionsId }}';
+```

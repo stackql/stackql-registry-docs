@@ -1,3 +1,4 @@
+
 ---
 title: customer_nodes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - customer_nodes
   - prod_tt_sasportal
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>customer_node</code> resource or lists <code>customer_nodes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,6 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. Resource name. |
 | <CopyableCode code="displayName" /> | `string` | The node's display name. |
 | <CopyableCode code="sasUserIds" /> | `array` | User ids used by the devices belonging to this node. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -41,5 +44,72 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="customers_nodes_create" /> | `INSERT` | <CopyableCode code="customersId" /> | Creates a new node. |
 | <CopyableCode code="customers_nodes_nodes_create" /> | `INSERT` | <CopyableCode code="customersId, nodesId" /> | Creates a new node. |
 | <CopyableCode code="customers_nodes_delete" /> | `DELETE` | <CopyableCode code="customersId, nodesId" /> | Deletes a node. |
-| <CopyableCode code="_customers_nodes_list" /> | `EXEC` | <CopyableCode code="customersId" /> | Lists nodes. |
-| <CopyableCode code="_customers_nodes_nodes_list" /> | `EXEC` | <CopyableCode code="customersId, nodesId" /> | Lists nodes. |
+
+## `SELECT` examples
+
+Lists nodes.
+
+```sql
+SELECT
+name,
+displayName,
+sasUserIds
+FROM google.prod_tt_sasportal.customer_nodes
+WHERE customersId = '{{ customersId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>customer_nodes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.prod_tt_sasportal.customer_nodes (
+customersId,
+name,
+sasUserIds,
+displayName
+)
+SELECT 
+'{{ customersId }}',
+'{{ name }}',
+'{{ sasUserIds }}',
+'{{ displayName }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: sasUserIds
+        value: '{{ sasUserIds }}'
+      - name: displayName
+        value: '{{ displayName }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified customer_node resource.
+
+```sql
+DELETE FROM google.prod_tt_sasportal.customer_nodes
+WHERE customersId = '{{ customersId }}'
+AND nodesId = '{{ nodesId }}';
+```

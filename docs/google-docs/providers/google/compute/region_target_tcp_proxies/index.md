@@ -1,3 +1,4 @@
+
 ---
 title: region_target_tcp_proxies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_target_tcp_proxies
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_target_tcp_proxy</code> resource or lists <code>region_target_tcp_proxies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the regional TCP proxy resides. This field is not applicable to global TCP proxy. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="service" /> | `string` | URL to the BackendService resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,3 +50,111 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of TargetTcpProxy resources available to the specified project in a given region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a TargetTcpProxy resource in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, targetTcpProxy" /> | Deletes the specified TargetTcpProxy resource. |
+
+## `SELECT` examples
+
+Retrieves a list of TargetTcpProxy resources available to the specified project in a given region.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+kind,
+proxyBind,
+proxyHeader,
+region,
+selfLink,
+service
+FROM google.compute.region_target_tcp_proxies
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>region_target_tcp_proxies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.region_target_tcp_proxies (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+service,
+proxyHeader,
+proxyBind,
+region
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ service }}',
+'{{ proxyHeader }}',
+true|false,
+'{{ region }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: service
+        value: '{{ service }}'
+      - name: proxyHeader
+        value: '{{ proxyHeader }}'
+      - name: proxyBind
+        value: '{{ proxyBind }}'
+      - name: region
+        value: '{{ region }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified region_target_tcp_proxy resource.
+
+```sql
+DELETE FROM google.compute.region_target_tcp_proxies
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND targetTcpProxy = '{{ targetTcpProxy }}';
+```

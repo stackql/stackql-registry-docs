@@ -1,3 +1,4 @@
+
 ---
 title: scans
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - scans
   - spanner
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>scan</code> resource or lists <code>scans</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,8 +37,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="endTime" /> | `string` | The upper bound for when the scan is defined. |
 | <CopyableCode code="scanData" /> | `object` | ScanData contains Cloud Key Visualizer scan data used by the caller to construct a visualization. |
 | <CopyableCode code="startTime" /> | `string` | A range of time (inclusive) for when the scan is defined. The lower bound for when the scan is defined. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="scans_list" /> | `SELECT` |  |
-| <CopyableCode code="_scans_list" /> | `EXEC` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="scans_list" /> | `SELECT` | <CopyableCode code="" /> | Return available scans given a Database-specific resource name. |
+
+## `SELECT` examples
+
+Return available scans given a Database-specific resource name.
+
+```sql
+SELECT
+name,
+details,
+endTime,
+scanData,
+startTime
+FROM google.spanner.scans
+WHERE  = '{{  }}'; 
+```

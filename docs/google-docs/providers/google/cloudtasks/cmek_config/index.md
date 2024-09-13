@@ -1,3 +1,4 @@
+
 ---
 title: cmek_config
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - cmek_config
   - cloudtasks
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>cmek_config</code> resource or lists <code>cmek_config</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,8 +34,36 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Output only. The config resource name which includes the project and location and must end in 'cmekConfig', in the format projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig` |
 | <CopyableCode code="kmsKey" /> | `string` | Resource name of the Cloud KMS key, of the form `projects/PROJECT_ID/locations/LOCATION_ID/keyRings/KEY_RING_ID/cryptoKeys/KEY_ID`, that will be used to encrypt the Queues & Tasks in the region. Setting this as blank will turn off CMEK encryption. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_cmek_config" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Gets the CMEK config. Gets the Customer Managed Encryption Key configured with the Cloud Tasks lcoation. By default there is no kms_key configured. |
-| <CopyableCode code="update_cmek_config" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Creates or Updates a CMEK config. Updates the Customer Managed Encryption Key assotiated with the Cloud Tasks location (Creates if the key does not already exist). All new tasks created in the location will be encrypted at-rest with the KMS-key provided in the config. |
+| <CopyableCode code="update_cmek_config" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId" /> | Creates or Updates a CMEK config. Updates the Customer Managed Encryption Key assotiated with the Cloud Tasks location (Creates if the key does not already exist). All new tasks created in the location will be encrypted at-rest with the KMS-key provided in the config. |
+
+## `SELECT` examples
+
+Gets the CMEK config. Gets the Customer Managed Encryption Key configured with the Cloud Tasks lcoation. By default there is no kms_key configured.
+
+```sql
+SELECT
+name,
+kmsKey
+FROM google.cloudtasks.cmek_config
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a cmek_config only if the necessary resources are available.
+
+```sql
+UPDATE google.cloudtasks.cmek_config
+SET 
+name = '{{ name }}',
+kmsKey = '{{ kmsKey }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

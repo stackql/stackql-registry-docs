@@ -1,3 +1,4 @@
+
 ---
 title: saved_queries
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - saved_queries
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>saved_query</code> resource or lists <code>saved_queries</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,9 +42,43 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="problemType" /> | `string` | Required. Problem type of the SavedQuery. Allowed values: * IMAGE_CLASSIFICATION_SINGLE_LABEL * IMAGE_CLASSIFICATION_MULTI_LABEL * IMAGE_BOUNDING_POLY * IMAGE_BOUNDING_BOX * TEXT_CLASSIFICATION_SINGLE_LABEL * TEXT_CLASSIFICATION_MULTI_LABEL * TEXT_EXTRACTION * TEXT_SENTIMENT * VIDEO_CLASSIFICATION * VIDEO_OBJECT_TRACKING |
 | <CopyableCode code="supportAutomlTraining" /> | `boolean` | Output only. If the Annotations belonging to the SavedQuery can be used for AutoML training. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when SavedQuery was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Lists SavedQueries in a Dataset. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="datasetsId, locationsId, projectsId, savedQueriesId" /> | Deletes a SavedQuery. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Lists SavedQueries in a Dataset. |
+
+## `SELECT` examples
+
+Lists SavedQueries in a Dataset.
+
+```sql
+SELECT
+name,
+annotationFilter,
+annotationSpecCount,
+createTime,
+displayName,
+etag,
+metadata,
+problemType,
+supportAutomlTraining,
+updateTime
+FROM google.aiplatform.saved_queries
+WHERE datasetsId = '{{ datasetsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified saved_query resource.
+
+```sql
+DELETE FROM google.aiplatform.saved_queries
+WHERE datasetsId = '{{ datasetsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND savedQueriesId = '{{ savedQueriesId }}';
+```

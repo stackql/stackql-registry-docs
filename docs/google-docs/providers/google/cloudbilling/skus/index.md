@@ -1,3 +1,4 @@
+
 ---
 title: skus
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - skus
   - cloudbilling
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>skus</code> resource or lists <code>skus</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,8 +40,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="serviceProviderName" /> | `string` | Identifies the service provider. This is 'Google' for first party services in Google Cloud Platform. |
 | <CopyableCode code="serviceRegions" /> | `array` | List of service regions this SKU is offered at. Example: "asia-east1" Service regions can be found at https://cloud.google.com/about/locations/ |
 | <CopyableCode code="skuId" /> | `string` | The identifier for the SKU. Example: "D041-B8A1-6E0B" |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="servicesId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="servicesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="servicesId" /> | Lists all publicly available SKUs for a given cloud service. |
+
+## `SELECT` examples
+
+Lists all publicly available SKUs for a given cloud service.
+
+```sql
+SELECT
+name,
+description,
+category,
+geoTaxonomy,
+pricingInfo,
+serviceProviderName,
+serviceRegions,
+skuId
+FROM google.cloudbilling.skus
+WHERE servicesId = '{{ servicesId }}'; 
+```

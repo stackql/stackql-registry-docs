@@ -1,3 +1,4 @@
+
 ---
 title: applications
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - applications
   - apphub
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>application</code> resource or lists <code>applications</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. The resource name of an Application. Format: "projects/&#123;host-project-id&#125;/locations/&#123;location&#125;/applications/&#123;application-id&#125;" |
+| <CopyableCode code="name" /> | `string` | Identifier. The resource name of an Application. Format: "projects/{host-project-id}/locations/{location}/applications/{application-id}" |
 | <CopyableCode code="description" /> | `string` | Optional. User-defined description of an Application. Can have a maximum length of 2048 characters. |
 | <CopyableCode code="attributes" /> | `object` | Consumer provided attributes. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Create time. |
@@ -39,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. Application state. |
 | <CopyableCode code="uid" /> | `string` | Output only. A universally unique identifier (in UUID4 format) for the `Application`. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Update time. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,4 +50,128 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an Application in a host project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="applicationsId, locationsId, projectsId" /> | Deletes an Application in a host project and location. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="applicationsId, locationsId, projectsId" /> | Updates an Application in a host project and location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Applications in a host project and location. |
+
+## `SELECT` examples
+
+Lists Applications in a host project and location.
+
+```sql
+SELECT
+name,
+description,
+attributes,
+createTime,
+displayName,
+scope,
+state,
+uid,
+updateTime
+FROM google.apphub.applications
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>applications</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apphub.applications (
+locationsId,
+projectsId,
+name,
+displayName,
+description,
+attributes,
+createTime,
+updateTime,
+scope,
+uid,
+state
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ attributes }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ scope }}',
+'{{ uid }}',
+'{{ state }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: attributes
+        value: '{{ attributes }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: scope
+        value: '{{ scope }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: state
+        value: '{{ state }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a application only if the necessary resources are available.
+
+```sql
+UPDATE google.apphub.applications
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+attributes = '{{ attributes }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+scope = '{{ scope }}',
+uid = '{{ uid }}',
+state = '{{ state }}'
+WHERE 
+applicationsId = '{{ applicationsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified application resource.
+
+```sql
+DELETE FROM google.apphub.applications
+WHERE applicationsId = '{{ applicationsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

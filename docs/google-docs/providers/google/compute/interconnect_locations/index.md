@@ -1,3 +1,4 @@
+
 ---
 title: interconnect_locations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - interconnect_locations
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>interconnect_location</code> resource or lists <code>interconnect_locations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -48,8 +50,37 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of this InterconnectLocation, which can take one of the following values: - CLOSED: The InterconnectLocation is closed and is unavailable for provisioning new Interconnects. - AVAILABLE: The InterconnectLocation is available for provisioning new Interconnects.  |
 | <CopyableCode code="supportsPzs" /> | `boolean` | [Output Only] Reserved for future use. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="interconnectLocation, project" /> | Returns the details for the specified interconnect location. Gets a list of available interconnect locations by making a list() request. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of interconnect locations available to the specified project. |
+
+## `SELECT` examples
+
+Retrieves the list of interconnect locations available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+address,
+availabilityZone,
+availableFeatures,
+availableLinkTypes,
+city,
+continent,
+creationTimestamp,
+facilityProvider,
+facilityProviderFacilityId,
+kind,
+peeringdbFacilityId,
+regionInfos,
+selfLink,
+status,
+supportsPzs
+FROM google.compute.interconnect_locations
+WHERE project = '{{ project }}'; 
+```

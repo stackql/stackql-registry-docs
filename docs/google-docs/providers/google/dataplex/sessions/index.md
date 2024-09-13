@@ -1,3 +1,4 @@
+
 ---
 title: sessions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - sessions
   - dataplex
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>session</code> resource or lists <code>sessions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,12 +32,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the content, of the form: projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/environment/&#123;environment_id&#125;/sessions/&#123;session_id&#125; |
+| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the content, of the form: projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}/sessions/{session_id} |
 | <CopyableCode code="createTime" /> | `string` | Output only. Session start time. |
 | <CopyableCode code="state" /> | `string` | Output only. State of Session |
 | <CopyableCode code="userId" /> | `string` | Output only. Email of user running the session. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_lakes_environments_sessions_list" /> | `SELECT` | <CopyableCode code="environmentsId, lakesId, locationsId, projectsId" /> |
-| <CopyableCode code="_projects_locations_lakes_environments_sessions_list" /> | `EXEC` | <CopyableCode code="environmentsId, lakesId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_lakes_environments_sessions_list" /> | `SELECT` | <CopyableCode code="environmentsId, lakesId, locationsId, projectsId" /> | Lists session resources in an environment. |
+
+## `SELECT` examples
+
+Lists session resources in an environment.
+
+```sql
+SELECT
+name,
+createTime,
+state,
+userId
+FROM google.dataplex.sessions
+WHERE environmentsId = '{{ environmentsId }}'
+AND lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

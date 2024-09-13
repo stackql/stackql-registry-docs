@@ -1,3 +1,4 @@
+
 ---
 title: instances_shielded_instance_identity
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances_shielded_instance_identity
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instances_shielded_instance_identity</code> resource or lists <code>instances_shielded_instance_identity</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,7 +35,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="encryptionKey" /> | `object` | A Shielded Instance Identity Entry. |
 | <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#shieldedInstanceIdentity for shielded Instance identity entry. |
 | <CopyableCode code="signingKey" /> | `object` | A Shielded Instance Identity Entry. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_shielded_instance_identity" /> | `SELECT` | <CopyableCode code="instance, project, zone" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_shielded_instance_identity" /> | `SELECT` | <CopyableCode code="instance, project, zone" /> | Returns the Shielded Instance Identity of an instance |
+
+## `SELECT` examples
+
+Returns the Shielded Instance Identity of an instance
+
+```sql
+SELECT
+encryptionKey,
+kind,
+signingKey
+FROM google.compute.instances_shielded_instance_identity
+WHERE instance = '{{ instance }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}'; 
+```

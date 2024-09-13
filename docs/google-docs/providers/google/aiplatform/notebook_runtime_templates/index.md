@@ -1,3 +1,4 @@
+
 ---
 title: notebook_runtime_templates
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - notebook_runtime_templates
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>notebook_runtime_template</code> resource or lists <code>notebook_runtime_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -48,6 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="serviceAccount" /> | `string` | The service account that the runtime workload runs as. You can use any service account within the same project, but you must have the service account user permission to use the instance. If not specified, the [Compute Engine default service account](https://cloud.google.com/compute/docs/access/service-accounts#default_service_account) is used. |
 | <CopyableCode code="shieldedVmConfig" /> | `object` | A set of Shielded Instance options. See [Images using supported Shielded VM features](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm). |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this NotebookRuntimeTemplate was most recently updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -56,4 +59,182 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a NotebookRuntimeTemplate. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, notebookRuntimeTemplatesId, projectsId" /> | Deletes a NotebookRuntimeTemplate. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, notebookRuntimeTemplatesId, projectsId" /> | Updates a NotebookRuntimeTemplate. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists NotebookRuntimeTemplates in a Location. |
+
+## `SELECT` examples
+
+Lists NotebookRuntimeTemplates in a Location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+dataPersistentDiskSpec,
+displayName,
+encryptionSpec,
+etag,
+eucConfig,
+idleShutdownConfig,
+isDefault,
+labels,
+machineSpec,
+networkSpec,
+networkTags,
+notebookRuntimeType,
+serviceAccount,
+shieldedVmConfig,
+updateTime
+FROM google.aiplatform.notebook_runtime_templates
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>notebook_runtime_templates</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.notebook_runtime_templates (
+locationsId,
+projectsId,
+machineSpec,
+notebookRuntimeType,
+shieldedVmConfig,
+name,
+description,
+displayName,
+labels,
+eucConfig,
+encryptionSpec,
+isDefault,
+serviceAccount,
+networkSpec,
+createTime,
+idleShutdownConfig,
+etag,
+dataPersistentDiskSpec,
+updateTime,
+networkTags
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ machineSpec }}',
+'{{ notebookRuntimeType }}',
+'{{ shieldedVmConfig }}',
+'{{ name }}',
+'{{ description }}',
+'{{ displayName }}',
+'{{ labels }}',
+'{{ eucConfig }}',
+'{{ encryptionSpec }}',
+true|false,
+'{{ serviceAccount }}',
+'{{ networkSpec }}',
+'{{ createTime }}',
+'{{ idleShutdownConfig }}',
+'{{ etag }}',
+'{{ dataPersistentDiskSpec }}',
+'{{ updateTime }}',
+'{{ networkTags }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: machineSpec
+        value: '{{ machineSpec }}'
+      - name: notebookRuntimeType
+        value: '{{ notebookRuntimeType }}'
+      - name: shieldedVmConfig
+        value: '{{ shieldedVmConfig }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: eucConfig
+        value: '{{ eucConfig }}'
+      - name: encryptionSpec
+        value: '{{ encryptionSpec }}'
+      - name: isDefault
+        value: '{{ isDefault }}'
+      - name: serviceAccount
+        value: '{{ serviceAccount }}'
+      - name: networkSpec
+        value: '{{ networkSpec }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: idleShutdownConfig
+        value: '{{ idleShutdownConfig }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: dataPersistentDiskSpec
+        value: '{{ dataPersistentDiskSpec }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: networkTags
+        value: '{{ networkTags }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a notebook_runtime_template only if the necessary resources are available.
+
+```sql
+UPDATE google.aiplatform.notebook_runtime_templates
+SET 
+machineSpec = '{{ machineSpec }}',
+notebookRuntimeType = '{{ notebookRuntimeType }}',
+shieldedVmConfig = '{{ shieldedVmConfig }}',
+name = '{{ name }}',
+description = '{{ description }}',
+displayName = '{{ displayName }}',
+labels = '{{ labels }}',
+eucConfig = '{{ eucConfig }}',
+encryptionSpec = '{{ encryptionSpec }}',
+isDefault = true|false,
+serviceAccount = '{{ serviceAccount }}',
+networkSpec = '{{ networkSpec }}',
+createTime = '{{ createTime }}',
+idleShutdownConfig = '{{ idleShutdownConfig }}',
+etag = '{{ etag }}',
+dataPersistentDiskSpec = '{{ dataPersistentDiskSpec }}',
+updateTime = '{{ updateTime }}',
+networkTags = '{{ networkTags }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND notebookRuntimeTemplatesId = '{{ notebookRuntimeTemplatesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified notebook_runtime_template resource.
+
+```sql
+DELETE FROM google.aiplatform.notebook_runtime_templates
+WHERE locationsId = '{{ locationsId }}'
+AND notebookRuntimeTemplatesId = '{{ notebookRuntimeTemplatesId }}'
+AND projectsId = '{{ projectsId }}';
+```

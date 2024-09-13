@@ -1,3 +1,4 @@
+
 ---
 title: network_policies_external_addresses
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - network_policies_external_addresses
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>network_policies_external_address</code> resource or lists <code>network_policies_external_addresses</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="externalAddresses" /> | `array` | A list of external IP addresses assigned to VMware workload VMs within the scope of the given network policy. |
+| <CopyableCode code="nextPageToken" /> | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="fetch_external_addresses" /> | `EXEC` | <CopyableCode code="locationsId, networkPoliciesId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch_external_addresses" /> | `SELECT` | <CopyableCode code="locationsId, networkPoliciesId, projectsId" /> | Lists external IP addresses assigned to VMware workload VMs within the scope of the given network policy. |
+
+## `SELECT` examples
+
+Lists external IP addresses assigned to VMware workload VMs within the scope of the given network policy.
+
+```sql
+SELECT
+externalAddresses,
+nextPageToken
+FROM google.vmwareengine.network_policies_external_addresses
+WHERE locationsId = '{{ locationsId }}'
+AND networkPoliciesId = '{{ networkPoliciesId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

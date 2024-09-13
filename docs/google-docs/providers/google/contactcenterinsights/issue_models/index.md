@@ -1,3 +1,4 @@
+
 ---
 title: issue_models
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - issue_models
   - contactcenterinsights
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>issue_model</code> resource or lists <code>issue_models</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the issue model. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/issueModels/&#123;issue_model&#125; |
+| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the issue model. Format: projects/{project}/locations/{location}/issueModels/{issue_model} |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time at which this issue model was created. |
 | <CopyableCode code="displayName" /> | `string` | The representative name for the issue model. |
 | <CopyableCode code="inputDataConfig" /> | `object` | Configs for the input data used to create the issue model. |
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. State of the model. |
 | <CopyableCode code="trainingStats" /> | `object` | Aggregated statistics about an issue model. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The most recent time at which the issue model was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -53,3 +56,134 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="export" /> | `EXEC` | <CopyableCode code="issueModelsId, locationsId, projectsId" /> | Exports an issue model to the provided destination. |
 | <CopyableCode code="import" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Imports an issue model from a Cloud Storage bucket. |
 | <CopyableCode code="undeploy" /> | `EXEC` | <CopyableCode code="issueModelsId, locationsId, projectsId" /> | Undeploys an issue model. An issue model can not be used in analysis after it has been undeployed. |
+
+## `SELECT` examples
+
+Lists issue models.
+
+```sql
+SELECT
+name,
+createTime,
+displayName,
+inputDataConfig,
+issueCount,
+languageCode,
+modelType,
+state,
+trainingStats,
+updateTime
+FROM google.contactcenterinsights.issue_models
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>issue_models</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.contactcenterinsights.issue_models (
+locationsId,
+projectsId,
+languageCode,
+createTime,
+updateTime,
+inputDataConfig,
+name,
+issueCount,
+state,
+trainingStats,
+modelType,
+displayName
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ languageCode }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ inputDataConfig }}',
+'{{ name }}',
+'{{ issueCount }}',
+'{{ state }}',
+'{{ trainingStats }}',
+'{{ modelType }}',
+'{{ displayName }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: languageCode
+        value: '{{ languageCode }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: inputDataConfig
+        value: '{{ inputDataConfig }}'
+      - name: name
+        value: '{{ name }}'
+      - name: issueCount
+        value: '{{ issueCount }}'
+      - name: state
+        value: '{{ state }}'
+      - name: trainingStats
+        value: '{{ trainingStats }}'
+      - name: modelType
+        value: '{{ modelType }}'
+      - name: displayName
+        value: '{{ displayName }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a issue_model only if the necessary resources are available.
+
+```sql
+UPDATE google.contactcenterinsights.issue_models
+SET 
+languageCode = '{{ languageCode }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+inputDataConfig = '{{ inputDataConfig }}',
+name = '{{ name }}',
+issueCount = '{{ issueCount }}',
+state = '{{ state }}',
+trainingStats = '{{ trainingStats }}',
+modelType = '{{ modelType }}',
+displayName = '{{ displayName }}'
+WHERE 
+issueModelsId = '{{ issueModelsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified issue_model resource.
+
+```sql
+DELETE FROM google.contactcenterinsights.issue_models
+WHERE issueModelsId = '{{ issueModelsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

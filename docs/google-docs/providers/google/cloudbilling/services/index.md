@@ -1,3 +1,4 @@
+
 ---
 title: services
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - services
   - cloudbilling
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>service</code> resource or lists <code>services</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,8 +36,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="businessEntityName" /> | `string` | The business under which the service is offered. Ex. "businessEntities/GCP", "businessEntities/Maps" |
 | <CopyableCode code="displayName" /> | `string` | A human readable display name for this service. |
 | <CopyableCode code="serviceId" /> | `string` | The identifier for the service. Example: "6F81-5844-456A" |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
-| <CopyableCode code="_list" /> | `EXEC` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists all public cloud services. |
+
+## `SELECT` examples
+
+Lists all public cloud services.
+
+```sql
+SELECT
+name,
+businessEntityName,
+displayName,
+serviceId
+FROM google.cloudbilling.services
+WHERE  = '{{  }}'; 
+```

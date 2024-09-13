@@ -1,3 +1,4 @@
+
 ---
 title: versions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - versions
   - artifactregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>version</code> resource or lists <code>versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,11 +38,42 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="metadata" /> | `object` | Output only. Repository-specific Metadata stored against this version. The fields returned are defined by the underlying repository-specific resource. Currently, the resources could be: DockerImage MavenArtifact |
 | <CopyableCode code="relatedTags" /> | `array` | Output only. A list of related tags. Will contain up to 100 tags that reference this version. |
 | <CopyableCode code="updateTime" /> | `string` | The time when the version was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId, versionsId" /> | Gets a version |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Lists versions. |
+| <CopyableCode code="batch_delete" /> | `DELETE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Deletes multiple versions across a repository. The returned operation will complete once the versions have been deleted. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId, versionsId" /> | Deletes a version and all of its content. The returned operation will complete once the version has been deleted. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Lists versions. |
-| <CopyableCode code="batch_delete" /> | `EXEC` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Deletes multiple versions across a repository. The returned operation will complete once the versions have been deleted. |
+
+## `SELECT` examples
+
+Lists versions.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+metadata,
+relatedTags,
+updateTime
+FROM google.artifactregistry.versions
+WHERE locationsId = '{{ locationsId }}'
+AND packagesId = '{{ packagesId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified version resource.
+
+```sql
+DELETE FROM google.artifactregistry.versions
+WHERE locationsId = '{{ locationsId }}'
+AND packagesId = '{{ packagesId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
+```

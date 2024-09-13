@@ -9,44 +9,33 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-The Google Cloud Deployment Manager v2 API provides services for configuring, deploying, and viewing Google Cloud services and APIs via templates which specify deployments of Cloud resources.  
-    
+The deploymentmanager service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>24</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.deploymentmanager</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Cloud Deployment Manager V2 API</td></tr>
-<tr><td><b>Description</b></td><td>The Google Cloud Deployment Manager v2 API provides services for configuring, deploying, and viewing Google Cloud services and APIs via templates which specify deployments of Cloud resources.</td></tr>
-<tr><td><b>Id</b></td><td><code>deploymentmanager:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/deploymentmanager/deployments/">deployments</a><br />
 <a href="/providers/google/deploymentmanager/deployments_iam_policies/">deployments_iam_policies</a><br />
-<a href="/providers/google/deploymentmanager/manifests/">manifests</a><br />
+<a href="/providers/google/deploymentmanager/manifests/">manifests</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/deploymentmanager/operations/">operations</a><br />
 <a href="/providers/google/deploymentmanager/resources/">resources</a><br />
-<a href="/providers/google/deploymentmanager/types/">types</a><br />
+<a href="/providers/google/deploymentmanager/types/">types</a>
 </div>
 </div>

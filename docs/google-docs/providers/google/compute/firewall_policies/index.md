@@ -1,3 +1,4 @@
+
 ---
 title: firewall_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - firewall_policies
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>firewall_policy</code> resource or lists <code>firewall_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -45,14 +47,169 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="selfLinkWithId" /> | `string` | [Output Only] Server-defined URL for this resource with the resource id. |
 | <CopyableCode code="shortName" /> | `string` | User-provided name of the Organization firewall policy. The name should be unique in the organization in which the firewall policy is created. This field is not applicable to network firewall policies. This name must be set on creation and cannot be changed. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="firewallPolicy" /> | Returns the specified firewall policy. |
-| <CopyableCode code="list" /> | `SELECT` |  | Lists all the policies that have been configured for the specified folder or organization. |
-| <CopyableCode code="insert" /> | `INSERT` |  | Creates a new policy in the specified project using the data included in the request. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists all the policies that have been configured for the specified folder or organization. |
+| <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="" /> | Creates a new policy in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="firewallPolicy" /> | Deletes the specified policy. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="firewallPolicy" /> | Patches the specified policy with the data included in the request. |
+| <CopyableCode code="patch_rule" /> | `UPDATE` | <CopyableCode code="firewallPolicy" /> | Patches a rule of the specified priority. |
 | <CopyableCode code="clone_rules" /> | `EXEC` | <CopyableCode code="firewallPolicy" /> | Copies rules to the specified firewall policy. |
 | <CopyableCode code="move" /> | `EXEC` | <CopyableCode code="firewallPolicy" /> | Moves the specified firewall policy. |
-| <CopyableCode code="patch_rule" /> | `EXEC` | <CopyableCode code="firewallPolicy" /> | Patches a rule of the specified priority. |
+
+## `SELECT` examples
+
+Lists all the policies that have been configured for the specified folder or organization.
+
+```sql
+SELECT
+id,
+name,
+description,
+associations,
+creationTimestamp,
+displayName,
+fingerprint,
+kind,
+parent,
+region,
+ruleTupleCount,
+rules,
+selfLink,
+selfLinkWithId,
+shortName
+FROM google.compute.firewall_policies
+WHERE  = '{{  }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>firewall_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.firewall_policies (
+,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+rules,
+fingerprint,
+selfLink,
+selfLinkWithId,
+associations,
+ruleTupleCount,
+shortName,
+displayName,
+parent,
+region
+)
+SELECT 
+'{{  }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ rules }}',
+'{{ fingerprint }}',
+'{{ selfLink }}',
+'{{ selfLinkWithId }}',
+'{{ associations }}',
+'{{ ruleTupleCount }}',
+'{{ shortName }}',
+'{{ displayName }}',
+'{{ parent }}',
+'{{ region }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: rules
+        value: '{{ rules }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: selfLinkWithId
+        value: '{{ selfLinkWithId }}'
+      - name: associations
+        value: '{{ associations }}'
+      - name: ruleTupleCount
+        value: '{{ ruleTupleCount }}'
+      - name: shortName
+        value: '{{ shortName }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: parent
+        value: '{{ parent }}'
+      - name: region
+        value: '{{ region }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a firewall_policy only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.firewall_policies
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+rules = '{{ rules }}',
+fingerprint = '{{ fingerprint }}',
+selfLink = '{{ selfLink }}',
+selfLinkWithId = '{{ selfLinkWithId }}',
+associations = '{{ associations }}',
+ruleTupleCount = '{{ ruleTupleCount }}',
+shortName = '{{ shortName }}',
+displayName = '{{ displayName }}',
+parent = '{{ parent }}',
+region = '{{ region }}'
+WHERE 
+firewallPolicy = '{{ firewallPolicy }}';
+```
+
+## `DELETE` example
+
+Deletes the specified firewall_policy resource.
+
+```sql
+DELETE FROM google.compute.firewall_policies
+WHERE firewallPolicy = '{{ firewallPolicy }}';
+```

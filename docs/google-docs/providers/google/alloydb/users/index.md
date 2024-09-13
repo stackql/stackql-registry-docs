@@ -1,3 +1,4 @@
+
 ---
 title: users
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - users
   - alloydb
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>user</code> resource or lists <code>users</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,10 +32,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. Name of the resource in the form of projects/&#123;project&#125;/locations/&#123;location&#125;/cluster/&#123;cluster&#125;/users/&#123;user&#125;. |
+| <CopyableCode code="name" /> | `string` | Output only. Name of the resource in the form of projects/{project}/locations/{location}/cluster/{cluster}/users/{user}. |
 | <CopyableCode code="databaseRoles" /> | `array` | Optional. List of database roles this user has. The database role strings are subject to the PostgreSQL naming conventions. |
+| <CopyableCode code="keepExtraRoles" /> | `boolean` | Input only. If the user already exists and it has additional roles, keep them granted. |
 | <CopyableCode code="password" /> | `string` | Input only. Password for the user. |
 | <CopyableCode code="userType" /> | `string` | Optional. Type of this user. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,4 +46,109 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Creates a new User in a given project, location, and cluster. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clustersId, locationsId, projectsId, usersId" /> | Deletes a single User. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="clustersId, locationsId, projectsId, usersId" /> | Updates the parameters of a single User. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Lists Users in a given project and location. |
+
+## `SELECT` examples
+
+Lists Users in a given project and location.
+
+```sql
+SELECT
+name,
+databaseRoles,
+keepExtraRoles,
+password,
+userType
+FROM google.alloydb.users
+WHERE clustersId = '{{ clustersId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>users</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.alloydb.users (
+clustersId,
+locationsId,
+projectsId,
+name,
+password,
+databaseRoles,
+userType,
+keepExtraRoles
+)
+SELECT 
+'{{ clustersId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ password }}',
+'{{ databaseRoles }}',
+'{{ userType }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: password
+        value: '{{ password }}'
+      - name: databaseRoles
+        value: '{{ databaseRoles }}'
+      - name: userType
+        value: '{{ userType }}'
+      - name: keepExtraRoles
+        value: '{{ keepExtraRoles }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a user only if the necessary resources are available.
+
+```sql
+UPDATE google.alloydb.users
+SET 
+name = '{{ name }}',
+password = '{{ password }}',
+databaseRoles = '{{ databaseRoles }}',
+userType = '{{ userType }}',
+keepExtraRoles = true|false
+WHERE 
+clustersId = '{{ clustersId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND usersId = '{{ usersId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified user resource.
+
+```sql
+DELETE FROM google.alloydb.users
+WHERE clustersId = '{{ clustersId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND usersId = '{{ usersId }}';
+```

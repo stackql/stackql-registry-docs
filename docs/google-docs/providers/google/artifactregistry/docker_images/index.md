@@ -1,3 +1,4 @@
+
 ---
 title: docker_images
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - docker_images
   - artifactregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>docker_image</code> resource or lists <code>docker_images</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,9 +40,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time when the docker image was last updated. |
 | <CopyableCode code="uploadTime" /> | `string` | Time the image was uploaded. |
 | <CopyableCode code="uri" /> | `string` | Required. URL to access the image. Example: us-west4-docker.pkg.dev/test-project/test-repo/nginx@sha256:e9954c1fc875017be1c3e36eca16be2d9e9bccc4bf072163515467d6a823c7cf |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dockerImagesId, locationsId, projectsId, repositoriesId" /> | Gets a docker image. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists docker images. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists docker images. |
+
+## `SELECT` examples
+
+Lists docker images.
+
+```sql
+SELECT
+name,
+buildTime,
+imageSizeBytes,
+mediaType,
+tags,
+updateTime,
+uploadTime,
+uri
+FROM google.artifactregistry.docker_images
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```

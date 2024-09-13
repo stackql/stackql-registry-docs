@@ -1,3 +1,4 @@
+
 ---
 title: documents
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - documents
   - language
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>document</code> resource or lists <code>documents</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,12 +30,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="analyze_entities" /> | `EXEC` |  | Finds named entities (currently proper names and common nouns) in the text along with entity types, probability, mentions for each entity, and other properties. |
-| <CopyableCode code="analyze_sentiment" /> | `EXEC` |  | Analyzes the sentiment of the provided text. |
-| <CopyableCode code="annotate_text" /> | `EXEC` |  | A convenience method that provides all features in one call. |
-| <CopyableCode code="classify_text" /> | `EXEC` |  | Classifies a document into categories. |
-| <CopyableCode code="moderate_text" /> | `EXEC` |  | Moderates a document for harmful and sensitive categories. |
+| <CopyableCode code="analyze_entities" /> | `EXEC` | <CopyableCode code="" /> | Finds named entities (currently proper names and common nouns) in the text along with entity types, probability, mentions for each entity, and other properties. |
+| <CopyableCode code="analyze_sentiment" /> | `EXEC` | <CopyableCode code="" /> | Analyzes the sentiment of the provided text. |
+| <CopyableCode code="annotate_text" /> | `EXEC` | <CopyableCode code="" /> | A convenience method that provides all features in one call. |
+| <CopyableCode code="classify_text" /> | `EXEC` | <CopyableCode code="" /> | Classifies a document into categories. |
+| <CopyableCode code="moderate_text" /> | `EXEC` | <CopyableCode code="" /> | Moderates a document for harmful and sensitive categories. |

@@ -1,3 +1,4 @@
+
 ---
 title: apiproducts
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - apiproducts
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>apiproduct</code> resource or lists <code>apiproducts</code> in a region
 
 ## Overview
 <table><tbody>
@@ -48,6 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="quotaInterval" /> | `string` | Time interval over which the number of request messages is calculated. |
 | <CopyableCode code="quotaTimeUnit" /> | `string` | Time unit defined for the `quotaInterval`. Valid values include `minute`, `hour`, `day`, or `month`. |
 | <CopyableCode code="scopes" /> | `array` | Comma-separated list of OAuth scopes that are validated at runtime. Apigee validates that the scopes in any access token presented match the scopes defined in the OAuth policy associated with the API product. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -57,5 +60,149 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_apiproducts_delete" /> | `DELETE` | <CopyableCode code="apiproductsId, organizationsId" /> | Deletes an API product from an organization. Deleting an API product causes app requests to the resource URIs defined in the API product to fail. Ensure that you create a new API product to serve existing apps, unless your intention is to disable access to the resources defined in the API product. The API product name required in the request URL is the internal name of the product, not the display name. While they may be the same, it depends on whether the API product was created via the UI or the API. View the list of API products to verify the internal name. |
 | <CopyableCode code="organizations_appgroups_apps_keys_apiproducts_delete" /> | `DELETE` | <CopyableCode code="apiproductsId, appgroupsId, appsId, keysId, organizationsId" /> | Removes an API product from an app's consumer key. After the API product is removed, the app cannot access the API resources defined in that API product. **Note**: The consumer key is not removed, only its association with the API product. |
 | <CopyableCode code="organizations_developers_apps_keys_apiproducts_delete" /> | `DELETE` | <CopyableCode code="apiproductsId, appsId, developersId, keysId, organizationsId" /> | Removes an API product from an app's consumer key. After the API product is removed, the app cannot access the API resources defined in that API product. **Note**: The consumer key is not removed, only its association with the API product. |
-| <CopyableCode code="organizations_apiproducts_update" /> | `UPDATE` | <CopyableCode code="apiproductsId, organizationsId" /> | Updates an existing API product. You must include all required values, whether or not you are updating them, as well as any optional values that you are updating. The API product name required in the request URL is the internal name of the product, not the display name. While they may be the same, it depends on whether the API product was created via UI or API. View the list of API products to identify their internal names. |
 | <CopyableCode code="organizations_apiproducts_attributes" /> | `EXEC` | <CopyableCode code="apiproductsId, organizationsId" /> | Updates or creates API product attributes. This API **replaces** the current list of attributes with the attributes specified in the request body. In this way, you can update existing attributes, add new attributes, or delete existing attributes by omitting them from the request body. **Note**: OAuth access tokens and Key Management Service (KMS) entities (apps, developers, and API products) are cached for 180 seconds (current default). Any custom attributes associated with entities also get cached for at least 180 seconds after entity is accessed during runtime. In this case, the `ExpiresIn` element on the OAuthV2 policy won't be able to expire an access token in less than 180 seconds. |
+| <CopyableCode code="organizations_apiproducts_update" /> | `EXEC` | <CopyableCode code="apiproductsId, organizationsId" /> | Updates an existing API product. You must include all required values, whether or not you are updating them, as well as any optional values that you are updating. The API product name required in the request URL is the internal name of the product, not the display name. While they may be the same, it depends on whether the API product was created via UI or API. View the list of API products to identify their internal names. |
+
+## `SELECT` examples
+
+Lists all API product names for an organization. Filter the list by passing an `attributename` and `attibutevalue`. The maximum number of API products returned is 1000. You can paginate the list of API products returned using the `startKey` and `count` query parameters.
+
+```sql
+SELECT
+name,
+description,
+apiResources,
+approvalType,
+attributes,
+createdAt,
+displayName,
+environments,
+graphqlOperationGroup,
+grpcOperationGroup,
+lastModifiedAt,
+operationGroup,
+proxies,
+quota,
+quotaCounterScope,
+quotaInterval,
+quotaTimeUnit,
+scopes
+FROM google.apigee.apiproducts
+WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>apiproducts</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.apiproducts (
+organizationsId,
+displayName,
+scopes,
+apiResources,
+quotaInterval,
+proxies,
+createdAt,
+approvalType,
+name,
+attributes,
+grpcOperationGroup,
+quotaTimeUnit,
+description,
+quota,
+lastModifiedAt,
+environments,
+graphqlOperationGroup,
+operationGroup,
+quotaCounterScope
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ displayName }}',
+'{{ scopes }}',
+'{{ apiResources }}',
+'{{ quotaInterval }}',
+'{{ proxies }}',
+'{{ createdAt }}',
+'{{ approvalType }}',
+'{{ name }}',
+'{{ attributes }}',
+'{{ grpcOperationGroup }}',
+'{{ quotaTimeUnit }}',
+'{{ description }}',
+'{{ quota }}',
+'{{ lastModifiedAt }}',
+'{{ environments }}',
+'{{ graphqlOperationGroup }}',
+'{{ operationGroup }}',
+'{{ quotaCounterScope }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: scopes
+        value: '{{ scopes }}'
+      - name: apiResources
+        value: '{{ apiResources }}'
+      - name: quotaInterval
+        value: '{{ quotaInterval }}'
+      - name: proxies
+        value: '{{ proxies }}'
+      - name: createdAt
+        value: '{{ createdAt }}'
+      - name: approvalType
+        value: '{{ approvalType }}'
+      - name: name
+        value: '{{ name }}'
+      - name: attributes
+        value: '{{ attributes }}'
+      - name: grpcOperationGroup
+        value: '{{ grpcOperationGroup }}'
+      - name: quotaTimeUnit
+        value: '{{ quotaTimeUnit }}'
+      - name: description
+        value: '{{ description }}'
+      - name: quota
+        value: '{{ quota }}'
+      - name: lastModifiedAt
+        value: '{{ lastModifiedAt }}'
+      - name: environments
+        value: '{{ environments }}'
+      - name: graphqlOperationGroup
+        value: '{{ graphqlOperationGroup }}'
+      - name: operationGroup
+        value: '{{ operationGroup }}'
+      - name: quotaCounterScope
+        value: '{{ quotaCounterScope }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified apiproduct resource.
+
+```sql
+DELETE FROM google.apigee.apiproducts
+WHERE apiproductsId = '{{ apiproductsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

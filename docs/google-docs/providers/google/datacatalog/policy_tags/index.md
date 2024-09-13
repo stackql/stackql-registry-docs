@@ -1,3 +1,4 @@
+
 ---
 title: policy_tags
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - policy_tags
   - datacatalog
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>policy_tag</code> resource or lists <code>policy_tags</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="childPolicyTags" /> | `array` | Output only. Resource names of child policy tags of this policy tag. |
 | <CopyableCode code="displayName" /> | `string` | Required. User-defined name of this policy tag. The name can't start or end with spaces and must be unique within the parent taxonomy, contain only Unicode letters, numbers, underscores, dashes and spaces, and be at most 200 bytes long when encoded in UTF-8. |
 | <CopyableCode code="parentPolicyTag" /> | `string` | Resource name of this policy tag's parent policy tag. If empty, this is a top level tag. If not set, defaults to an empty string. For example, for the "LatLong" policy tag in the example above, this field contains the resource name of the "Geolocation" policy tag, and, for "Geolocation", this field is empty. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,4 +46,109 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_taxonomies_policy_tags_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Creates a policy tag in a taxonomy. |
 | <CopyableCode code="projects_locations_taxonomies_policy_tags_delete" /> | `DELETE` | <CopyableCode code="locationsId, policyTagsId, projectsId, taxonomiesId" /> | Deletes a policy tag together with the following: * All of its descendant policy tags, if any * Policies associated with the policy tag and its descendants * References from BigQuery table schema of the policy tag and its descendants |
 | <CopyableCode code="projects_locations_taxonomies_policy_tags_patch" /> | `UPDATE` | <CopyableCode code="locationsId, policyTagsId, projectsId, taxonomiesId" /> | Updates a policy tag, including its display name, description, and parent policy tag. |
-| <CopyableCode code="_projects_locations_taxonomies_policy_tags_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Lists all policy tags in a taxonomy. |
+
+## `SELECT` examples
+
+Lists all policy tags in a taxonomy.
+
+```sql
+SELECT
+name,
+description,
+childPolicyTags,
+displayName,
+parentPolicyTag
+FROM google.datacatalog.policy_tags
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND taxonomiesId = '{{ taxonomiesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>policy_tags</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.datacatalog.policy_tags (
+locationsId,
+projectsId,
+taxonomiesId,
+name,
+displayName,
+description,
+parentPolicyTag,
+childPolicyTags
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ taxonomiesId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ parentPolicyTag }}',
+'{{ childPolicyTags }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: parentPolicyTag
+        value: '{{ parentPolicyTag }}'
+      - name: childPolicyTags
+        value: '{{ childPolicyTags }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a policy_tag only if the necessary resources are available.
+
+```sql
+UPDATE google.datacatalog.policy_tags
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+parentPolicyTag = '{{ parentPolicyTag }}',
+childPolicyTags = '{{ childPolicyTags }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND policyTagsId = '{{ policyTagsId }}'
+AND projectsId = '{{ projectsId }}'
+AND taxonomiesId = '{{ taxonomiesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified policy_tag resource.
+
+```sql
+DELETE FROM google.datacatalog.policy_tags
+WHERE locationsId = '{{ locationsId }}'
+AND policyTagsId = '{{ policyTagsId }}'
+AND projectsId = '{{ projectsId }}'
+AND taxonomiesId = '{{ taxonomiesId }}';
+```

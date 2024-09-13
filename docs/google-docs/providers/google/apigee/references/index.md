@@ -1,3 +1,4 @@
+
 ---
 title: references
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - references
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>reference</code> resource or lists <code>references</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,10 +36,90 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="description" /> | `string` | Optional. A human-readable description of this reference. |
 | <CopyableCode code="refers" /> | `string` | Required. The id of the resource to which this reference refers. Must be the id of a resource that exists in the parent environment and is of the given resource_type. |
 | <CopyableCode code="resourceType" /> | `string` | The type of resource referred to by this reference. Valid values are 'KeyStore' or 'TrustStore'. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_environments_references_get" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Gets a Reference resource. |
 | <CopyableCode code="organizations_environments_references_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a Reference in the specified environment. |
 | <CopyableCode code="organizations_environments_references_delete" /> | `DELETE` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Deletes a Reference from an environment. Returns the deleted Reference resource. |
-| <CopyableCode code="organizations_environments_references_update" /> | `UPDATE` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Updates an existing Reference. Note that this operation has PUT semantics; it will replace the entirety of the existing Reference with the resource in the request body. |
+| <CopyableCode code="organizations_environments_references_update" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Updates an existing Reference. Note that this operation has PUT semantics; it will replace the entirety of the existing Reference with the resource in the request body. |
+
+## `SELECT` examples
+
+Gets a Reference resource.
+
+```sql
+SELECT
+name,
+description,
+refers,
+resourceType
+FROM google.apigee.references
+WHERE environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND referencesId = '{{ referencesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>references</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.references (
+environmentsId,
+organizationsId,
+name,
+resourceType,
+description,
+refers
+)
+SELECT 
+'{{ environmentsId }}',
+'{{ organizationsId }}',
+'{{ name }}',
+'{{ resourceType }}',
+'{{ description }}',
+'{{ refers }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: resourceType
+        value: '{{ resourceType }}'
+      - name: description
+        value: '{{ description }}'
+      - name: refers
+        value: '{{ refers }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified reference resource.
+
+```sql
+DELETE FROM google.apigee.references
+WHERE environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND referencesId = '{{ referencesId }}';
+```

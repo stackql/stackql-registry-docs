@@ -1,3 +1,4 @@
+
 ---
 title: channels
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - channels
   - eventarc
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>channel</code> resource or lists <code>channels</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,16 +32,17 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. The resource name of the channel. Must be unique within the location on the project and must be in `projects/&#123;project&#125;/locations/&#123;location&#125;/channels/&#123;channel_id&#125;` format. |
+| <CopyableCode code="name" /> | `string` | Required. The resource name of the channel. Must be unique within the location on the project and must be in `projects/{project}/locations/{location}/channels/{channel_id}` format. |
 | <CopyableCode code="activationToken" /> | `string` | Output only. The activation token for the channel. The token must be used by the provider to register the channel for publishing. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation time. |
 | <CopyableCode code="cryptoKeyName" /> | `string` | Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt their event data. It must match the pattern `projects/*/locations/*/keyRings/*/cryptoKeys/*`. |
-| <CopyableCode code="provider" /> | `string` | The name of the event provider (e.g. Eventarc SaaS partner) associated with the channel. This provider will be granted permissions to publish events to the channel. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/providers/&#123;provider_id&#125;`. |
-| <CopyableCode code="pubsubTopic" /> | `string` | Output only. The name of the Pub/Sub topic created and managed by Eventarc system as a transport for the event delivery. Format: `projects/&#123;project&#125;/topics/&#123;topic_id&#125;`. |
+| <CopyableCode code="provider" /> | `string` | The name of the event provider (e.g. Eventarc SaaS partner) associated with the channel. This provider will be granted permissions to publish events to the channel. Format: `projects/{project}/locations/{location}/providers/{provider_id}`. |
+| <CopyableCode code="pubsubTopic" /> | `string` | Output only. The name of the Pub/Sub topic created and managed by Eventarc system as a transport for the event delivery. Format: `projects/{project}/topics/{topic_id}`. |
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Whether or not this Channel satisfies the requirements of physical zone separation |
 | <CopyableCode code="state" /> | `string` | Output only. The state of a Channel. |
 | <CopyableCode code="uid" /> | `string` | Output only. Server assigned unique identifier for the channel. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last-modified time. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,4 +51,134 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a new channel in a particular project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="channelsId, locationsId, projectsId" /> | Delete a single channel. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="channelsId, locationsId, projectsId" /> | Update a single channel. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List channels. |
+
+## `SELECT` examples
+
+List channels.
+
+```sql
+SELECT
+name,
+activationToken,
+createTime,
+cryptoKeyName,
+provider,
+pubsubTopic,
+satisfiesPzs,
+state,
+uid,
+updateTime
+FROM google.eventarc.channels
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>channels</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.eventarc.channels (
+locationsId,
+projectsId,
+name,
+uid,
+createTime,
+updateTime,
+provider,
+pubsubTopic,
+state,
+activationToken,
+cryptoKeyName,
+satisfiesPzs
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ provider }}',
+'{{ pubsubTopic }}',
+'{{ state }}',
+'{{ activationToken }}',
+'{{ cryptoKeyName }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: provider
+        value: '{{ provider }}'
+      - name: pubsubTopic
+        value: '{{ pubsubTopic }}'
+      - name: state
+        value: '{{ state }}'
+      - name: activationToken
+        value: '{{ activationToken }}'
+      - name: cryptoKeyName
+        value: '{{ cryptoKeyName }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a channel only if the necessary resources are available.
+
+```sql
+UPDATE google.eventarc.channels
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+provider = '{{ provider }}',
+pubsubTopic = '{{ pubsubTopic }}',
+state = '{{ state }}',
+activationToken = '{{ activationToken }}',
+cryptoKeyName = '{{ cryptoKeyName }}',
+satisfiesPzs = true|false
+WHERE 
+channelsId = '{{ channelsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified channel resource.
+
+```sql
+DELETE FROM google.eventarc.channels
+WHERE channelsId = '{{ channelsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: databases_scans
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - databases_scans
   - spanner
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>databases_scan</code> resource or lists <code>databases_scans</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,7 +37,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="endTime" /> | `string` | The upper bound for when the scan is defined. |
 | <CopyableCode code="scanData" /> | `object` | ScanData contains Cloud Key Visualizer scan data used by the caller to construct a visualization. |
 | <CopyableCode code="startTime" /> | `string` | A range of time (inclusive) for when the scan is defined. The lower bound for when the scan is defined. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_instances_databases_get_scans" /> | `SELECT` | <CopyableCode code="databasesId, instancesId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_instances_databases_get_scans" /> | `SELECT` | <CopyableCode code="databasesId, instancesId, projectsId" /> | Request a specific scan with Database-specific data for Cloud Key Visualizer. |
+
+## `SELECT` examples
+
+Request a specific scan with Database-specific data for Cloud Key Visualizer.
+
+```sql
+SELECT
+name,
+details,
+endTime,
+scanData,
+startTime
+FROM google.spanner.databases_scans
+WHERE databasesId = '{{ databasesId }}'
+AND instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

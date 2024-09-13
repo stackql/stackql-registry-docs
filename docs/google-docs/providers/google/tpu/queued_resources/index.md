@@ -1,3 +1,4 @@
+
 ---
 title: queued_resources
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - queued_resources
   - tpu
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>queued_resource</code> resource or lists <code>queued_resources</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,10 +36,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. The time when the QueuedResource was created. |
 | <CopyableCode code="guaranteed" /> | `object` | Guaranteed tier definition. |
 | <CopyableCode code="queueingPolicy" /> | `object` | Defines the policy of the QueuedRequest. |
-| <CopyableCode code="reservationName" /> | `string` | Optional. Name of the reservation in which the resource should be provisioned. Format: projects/&#123;project&#125;/locations/&#123;zone&#125;/reservations/&#123;reservation&#125; |
+| <CopyableCode code="reservationName" /> | `string` | Optional. Name of the reservation in which the resource should be provisioned. Format: projects/{project}/locations/{zone}/reservations/{reservation} |
 | <CopyableCode code="spot" /> | `object` | Spot tier definition. |
 | <CopyableCode code="state" /> | `object` | QueuedResourceState defines the details of the QueuedResource request. |
 | <CopyableCode code="tpu" /> | `object` | Details of the TPU resource(s) being requested. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,5 +48,102 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists queued resources. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a QueuedResource TPU instance. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, queuedResourcesId" /> | Deletes a QueuedResource TPU instance. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists queued resources. |
 | <CopyableCode code="reset" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, queuedResourcesId" /> | Resets a QueuedResource TPU instance |
+
+## `SELECT` examples
+
+Lists queued resources.
+
+```sql
+SELECT
+name,
+createTime,
+guaranteed,
+queueingPolicy,
+reservationName,
+spot,
+state,
+tpu
+FROM google.tpu.queued_resources
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>queued_resources</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.tpu.queued_resources (
+locationsId,
+projectsId,
+name,
+createTime,
+tpu,
+spot,
+guaranteed,
+queueingPolicy,
+state,
+reservationName
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ tpu }}',
+'{{ spot }}',
+'{{ guaranteed }}',
+'{{ queueingPolicy }}',
+'{{ state }}',
+'{{ reservationName }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: tpu
+        value: '{{ tpu }}'
+      - name: spot
+        value: '{{ spot }}'
+      - name: guaranteed
+        value: '{{ guaranteed }}'
+      - name: queueingPolicy
+        value: '{{ queueingPolicy }}'
+      - name: state
+        value: '{{ state }}'
+      - name: reservationName
+        value: '{{ reservationName }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified queued_resource resource.
+
+```sql
+DELETE FROM google.tpu.queued_resources
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND queuedResourcesId = '{{ queuedResourcesId }}';
+```

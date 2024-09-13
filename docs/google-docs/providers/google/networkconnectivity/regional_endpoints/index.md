@@ -1,3 +1,4 @@
+
 ---
 title: regional_endpoints
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - regional_endpoints
   - networkconnectivity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>regional_endpoint</code> resource or lists <code>regional_endpoints</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,18 +32,19 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The name of a RegionalEndpoint. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/regionalEndpoints/&#123;regional_endpoint&#125;`. |
+| <CopyableCode code="name" /> | `string` | Output only. The name of a RegionalEndpoint. Format: `projects/{project}/locations/{location}/regionalEndpoints/{regional_endpoint}`. |
 | <CopyableCode code="description" /> | `string` | Optional. A description of this resource. |
 | <CopyableCode code="accessType" /> | `string` | Required. The access type of this regional endpoint. This field is reflected in the PSC Forwarding Rule configuration to enable global access. |
-| <CopyableCode code="address" /> | `string` | Optional. The IP Address of the Regional Endpoint. When no address is provided, an IP from the subnetwork is allocated. Use one of the following formats: * IPv4 address as in `10.0.0.1` * Address resource URI as in `projects/&#123;project&#125;/regions/&#123;region&#125;/addresses/&#123;address_name&#125;` |
+| <CopyableCode code="address" /> | `string` | Optional. The IP Address of the Regional Endpoint. When no address is provided, an IP from the subnetwork is allocated. Use one of the following formats: * IPv4 address as in `10.0.0.1` * Address resource URI as in `projects/{project}/regions/{region}/addresses/{address_name}` |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time when the RegionalEndpoint was created. |
 | <CopyableCode code="ipAddress" /> | `string` | Output only. The literal IP address of the PSC Forwarding Rule created on behalf of the customer. This field is deprecated. Use address instead. |
 | <CopyableCode code="labels" /> | `object` | User-defined labels. |
-| <CopyableCode code="network" /> | `string` | The name of the VPC network for this private regional endpoint. Format: `projects/&#123;project&#125;/global/networks/&#123;network&#125;` |
-| <CopyableCode code="pscForwardingRule" /> | `string` | Output only. The resource reference of the PSC Forwarding Rule created on behalf of the customer. Format: `//compute.googleapis.com/projects/&#123;project&#125;/regions/&#123;region&#125;/forwardingRules/&#123;forwarding_rule_name&#125;` |
-| <CopyableCode code="subnetwork" /> | `string` | The name of the subnetwork from which the IP address will be allocated. Format: `projects/&#123;project&#125;/regions/&#123;region&#125;/subnetworks/&#123;subnetwork&#125;` |
-| <CopyableCode code="targetGoogleApi" /> | `string` | Required. The service endpoint this private regional endpoint connects to. Format: `&#123;apiname&#125;.&#123;region&#125;.p.rep.googleapis.com` Example: "cloudkms.us-central1.p.rep.googleapis.com". |
+| <CopyableCode code="network" /> | `string` | The name of the VPC network for this private regional endpoint. Format: `projects/{project}/global/networks/{network}` |
+| <CopyableCode code="pscForwardingRule" /> | `string` | Output only. The resource reference of the PSC Forwarding Rule created on behalf of the customer. Format: `//compute.googleapis.com/projects/{project}/regions/{region}/forwardingRules/{forwarding_rule_name}` |
+| <CopyableCode code="subnetwork" /> | `string` | The name of the subnetwork from which the IP address will be allocated. Format: `projects/{project}/regions/{region}/subnetworks/{subnetwork}` |
+| <CopyableCode code="targetGoogleApi" /> | `string` | Required. The service endpoint this private regional endpoint connects to. Format: `{apiname}.{region}.p.rep.googleapis.com` Example: "cloudkms.us-central1.p.rep.googleapis.com". |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the RegionalEndpoint was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,4 +52,121 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists RegionalEndpoints in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new RegionalEndpoint in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, regionalEndpointsId" /> | Deletes a single RegionalEndpoint. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists RegionalEndpoints in a given project and location. |
+
+## `SELECT` examples
+
+Lists RegionalEndpoints in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+accessType,
+address,
+createTime,
+ipAddress,
+labels,
+network,
+pscForwardingRule,
+subnetwork,
+targetGoogleApi,
+updateTime
+FROM google.networkconnectivity.regional_endpoints
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>regional_endpoints</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networkconnectivity.regional_endpoints (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+labels,
+description,
+targetGoogleApi,
+network,
+subnetwork,
+accessType,
+pscForwardingRule,
+ipAddress,
+address
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ description }}',
+'{{ targetGoogleApi }}',
+'{{ network }}',
+'{{ subnetwork }}',
+'{{ accessType }}',
+'{{ pscForwardingRule }}',
+'{{ ipAddress }}',
+'{{ address }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: description
+        value: '{{ description }}'
+      - name: targetGoogleApi
+        value: '{{ targetGoogleApi }}'
+      - name: network
+        value: '{{ network }}'
+      - name: subnetwork
+        value: '{{ subnetwork }}'
+      - name: accessType
+        value: '{{ accessType }}'
+      - name: pscForwardingRule
+        value: '{{ pscForwardingRule }}'
+      - name: ipAddress
+        value: '{{ ipAddress }}'
+      - name: address
+        value: '{{ address }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified regional_endpoint resource.
+
+```sql
+DELETE FROM google.networkconnectivity.regional_endpoints
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND regionalEndpointsId = '{{ regionalEndpointsId }}';
+```

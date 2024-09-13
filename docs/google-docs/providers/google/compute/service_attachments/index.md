@@ -1,3 +1,4 @@
+
 ---
 title: service_attachments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - service_attachments
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>service_attachment</code> resource or lists <code>service_attachments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -49,6 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the service attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="targetService" /> | `string` | The URL of a service serving the endpoint identified by this service attachment. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -58,4 +61,187 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a ServiceAttachment in the specified project in the given scope using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, serviceAttachment" /> | Deletes the specified ServiceAttachment in the given scope |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, region, serviceAttachment" /> | Patches the specified ServiceAttachment resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves the list of all ServiceAttachment resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+
+## `SELECT` examples
+
+Retrieves the list of all ServiceAttachment resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+connectedEndpoints,
+connectionPreference,
+consumerAcceptLists,
+consumerRejectLists,
+creationTimestamp,
+domainNames,
+enableProxyProtocol,
+fingerprint,
+kind,
+natSubnets,
+producerForwardingRule,
+pscServiceAttachmentId,
+reconcileConnections,
+region,
+selfLink,
+targetService
+FROM google.compute.service_attachments
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>service_attachments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.service_attachments (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+region,
+producerForwardingRule,
+targetService,
+connectionPreference,
+connectedEndpoints,
+natSubnets,
+enableProxyProtocol,
+consumerRejectLists,
+consumerAcceptLists,
+pscServiceAttachmentId,
+fingerprint,
+domainNames,
+reconcileConnections
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ region }}',
+'{{ producerForwardingRule }}',
+'{{ targetService }}',
+'{{ connectionPreference }}',
+'{{ connectedEndpoints }}',
+'{{ natSubnets }}',
+true|false,
+'{{ consumerRejectLists }}',
+'{{ consumerAcceptLists }}',
+'{{ pscServiceAttachmentId }}',
+'{{ fingerprint }}',
+'{{ domainNames }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: region
+        value: '{{ region }}'
+      - name: producerForwardingRule
+        value: '{{ producerForwardingRule }}'
+      - name: targetService
+        value: '{{ targetService }}'
+      - name: connectionPreference
+        value: '{{ connectionPreference }}'
+      - name: connectedEndpoints
+        value: '{{ connectedEndpoints }}'
+      - name: natSubnets
+        value: '{{ natSubnets }}'
+      - name: enableProxyProtocol
+        value: '{{ enableProxyProtocol }}'
+      - name: consumerRejectLists
+        value: '{{ consumerRejectLists }}'
+      - name: consumerAcceptLists
+        value: '{{ consumerAcceptLists }}'
+      - name: pscServiceAttachmentId
+        value: '{{ pscServiceAttachmentId }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: domainNames
+        value: '{{ domainNames }}'
+      - name: reconcileConnections
+        value: '{{ reconcileConnections }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a service_attachment only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.service_attachments
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+region = '{{ region }}',
+producerForwardingRule = '{{ producerForwardingRule }}',
+targetService = '{{ targetService }}',
+connectionPreference = '{{ connectionPreference }}',
+connectedEndpoints = '{{ connectedEndpoints }}',
+natSubnets = '{{ natSubnets }}',
+enableProxyProtocol = true|false,
+consumerRejectLists = '{{ consumerRejectLists }}',
+consumerAcceptLists = '{{ consumerAcceptLists }}',
+pscServiceAttachmentId = '{{ pscServiceAttachmentId }}',
+fingerprint = '{{ fingerprint }}',
+domainNames = '{{ domainNames }}',
+reconcileConnections = true|false
+WHERE 
+project = '{{ project }}'
+AND region = '{{ region }}'
+AND serviceAttachment = '{{ serviceAttachment }}';
+```
+
+## `DELETE` example
+
+Deletes the specified service_attachment resource.
+
+```sql
+DELETE FROM google.compute.service_attachments
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND serviceAttachment = '{{ serviceAttachment }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: repositories
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - repositories
   - cloudbuild
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>repository</code> resource or lists <code>repositories</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,14 +39,87 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="remoteUri" /> | `string` | Required. Git Clone HTTPS URI. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Server assigned timestamp for when the connection was updated. |
 | <CopyableCode code="webhookId" /> | `string` | Output only. External ID of the webhook created for the repository. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_connections_repositories_get" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId, repositoriesId" /> | Gets details of a single repository. |
 | <CopyableCode code="projects_locations_connections_repositories_list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists Repositories in a given connection. |
+| <CopyableCode code="projects_locations_connections_repositories_batch_create" /> | `INSERT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Creates multiple repositories inside a connection. |
 | <CopyableCode code="projects_locations_connections_repositories_create" /> | `INSERT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Creates a Repository. |
 | <CopyableCode code="projects_locations_connections_repositories_delete" /> | `DELETE` | <CopyableCode code="connectionsId, locationsId, projectsId, repositoriesId" /> | Deletes a single repository. |
-| <CopyableCode code="_projects_locations_connections_repositories_list" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists Repositories in a given connection. |
 | <CopyableCode code="projects_locations_connections_repositories_access_read_token" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId, repositoriesId" /> | Fetches read token of a given repository. |
 | <CopyableCode code="projects_locations_connections_repositories_access_read_write_token" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId, repositoriesId" /> | Fetches read/write token of a given repository. |
-| <CopyableCode code="projects_locations_connections_repositories_batch_create" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Creates multiple repositories inside a connection. |
+
+## `SELECT` examples
+
+Lists Repositories in a given connection.
+
+```sql
+SELECT
+name,
+annotations,
+createTime,
+etag,
+remoteUri,
+updateTime,
+webhookId
+FROM google.cloudbuild.repositories
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>repositories</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.cloudbuild.repositories (
+connectionsId,
+locationsId,
+projectsId,
+requests
+)
+SELECT 
+'{{ connectionsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ requests }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: requests
+        value: '{{ requests }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified repository resource.
+
+```sql
+DELETE FROM google.cloudbuild.repositories
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
+```

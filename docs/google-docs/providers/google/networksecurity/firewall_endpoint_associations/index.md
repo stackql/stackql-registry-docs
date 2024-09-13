@@ -1,3 +1,4 @@
+
 ---
 title: firewall_endpoint_associations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - firewall_endpoint_associations
   - networksecurity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>firewall_endpoint_association</code> resource or lists <code>firewall_endpoint_associations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. Current state of the association. |
 | <CopyableCode code="tlsInspectionPolicy" /> | `string` | Optional. The URL of the TlsInspectionPolicy that is being associated. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Update time stamp |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,4 +51,134 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_firewall_endpoint_associations_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new FirewallEndpointAssociation in a given project and location. |
 | <CopyableCode code="projects_locations_firewall_endpoint_associations_delete" /> | `DELETE` | <CopyableCode code="firewallEndpointAssociationsId, locationsId, projectsId" /> | Deletes a single FirewallEndpointAssociation. |
 | <CopyableCode code="projects_locations_firewall_endpoint_associations_patch" /> | `UPDATE` | <CopyableCode code="firewallEndpointAssociationsId, locationsId, projectsId" /> | Update a single FirewallEndpointAssociation. |
-| <CopyableCode code="_projects_locations_firewall_endpoint_associations_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Associations in a given project and location. |
+
+## `SELECT` examples
+
+Lists Associations in a given project and location.
+
+```sql
+SELECT
+name,
+createTime,
+disabled,
+firewallEndpoint,
+labels,
+network,
+reconciling,
+state,
+tlsInspectionPolicy,
+updateTime
+FROM google.networksecurity.firewall_endpoint_associations
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>firewall_endpoint_associations</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networksecurity.firewall_endpoint_associations (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+labels,
+state,
+network,
+firewallEndpoint,
+tlsInspectionPolicy,
+reconciling,
+disabled
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ state }}',
+'{{ network }}',
+'{{ firewallEndpoint }}',
+'{{ tlsInspectionPolicy }}',
+true|false,
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: state
+        value: '{{ state }}'
+      - name: network
+        value: '{{ network }}'
+      - name: firewallEndpoint
+        value: '{{ firewallEndpoint }}'
+      - name: tlsInspectionPolicy
+        value: '{{ tlsInspectionPolicy }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: disabled
+        value: '{{ disabled }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a firewall_endpoint_association only if the necessary resources are available.
+
+```sql
+UPDATE google.networksecurity.firewall_endpoint_associations
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+state = '{{ state }}',
+network = '{{ network }}',
+firewallEndpoint = '{{ firewallEndpoint }}',
+tlsInspectionPolicy = '{{ tlsInspectionPolicy }}',
+reconciling = true|false,
+disabled = true|false
+WHERE 
+firewallEndpointAssociationsId = '{{ firewallEndpointAssociationsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified firewall_endpoint_association resource.
+
+```sql
+DELETE FROM google.networksecurity.firewall_endpoint_associations
+WHERE firewallEndpointAssociationsId = '{{ firewallEndpointAssociationsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: public_advertised_prefixes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - public_advertised_prefixes
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>public_advertised_prefix</code> resource or lists <code>public_advertised_prefixes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="sharedSecret" /> | `string` | [Output Only] The shared secret to be used for reverse DNS verification. |
 | <CopyableCode code="status" /> | `string` | The status of the public advertised prefix. Possible values include: - `INITIAL`: RPKI validation is complete. - `PTR_CONFIGURED`: User has configured the PTR. - `VALIDATED`: Reverse DNS lookup is successful. - `REVERSE_DNS_LOOKUP_FAILED`: Reverse DNS lookup failed. - `PREFIX_CONFIGURATION_IN_PROGRESS`: The prefix is being configured. - `PREFIX_CONFIGURATION_COMPLETE`: The prefix is fully configured. - `PREFIX_REMOVAL_IN_PROGRESS`: The prefix is being removed.  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,3 +57,153 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
 | <CopyableCode code="announce" /> | `EXEC` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Announces the specified PublicAdvertisedPrefix |
 | <CopyableCode code="withdraw" /> | `EXEC` | <CopyableCode code="project, publicAdvertisedPrefix" /> | Withdraws the specified PublicAdvertisedPrefix |
+
+## `SELECT` examples
+
+Lists the PublicAdvertisedPrefixes for a project.
+
+```sql
+SELECT
+id,
+name,
+description,
+byoipApiVersion,
+creationTimestamp,
+dnsVerificationIp,
+fingerprint,
+ipCidrRange,
+kind,
+pdpScope,
+publicDelegatedPrefixs,
+selfLink,
+sharedSecret,
+status
+FROM google.compute.public_advertised_prefixes
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>public_advertised_prefixes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.public_advertised_prefixes (
+project,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+ipCidrRange,
+dnsVerificationIp,
+sharedSecret,
+status,
+pdpScope,
+publicDelegatedPrefixs,
+fingerprint,
+byoipApiVersion
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ ipCidrRange }}',
+'{{ dnsVerificationIp }}',
+'{{ sharedSecret }}',
+'{{ status }}',
+'{{ pdpScope }}',
+'{{ publicDelegatedPrefixs }}',
+'{{ fingerprint }}',
+'{{ byoipApiVersion }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: ipCidrRange
+        value: '{{ ipCidrRange }}'
+      - name: dnsVerificationIp
+        value: '{{ dnsVerificationIp }}'
+      - name: sharedSecret
+        value: '{{ sharedSecret }}'
+      - name: status
+        value: '{{ status }}'
+      - name: pdpScope
+        value: '{{ pdpScope }}'
+      - name: publicDelegatedPrefixs
+        value: '{{ publicDelegatedPrefixs }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: byoipApiVersion
+        value: '{{ byoipApiVersion }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a public_advertised_prefix only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.public_advertised_prefixes
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+ipCidrRange = '{{ ipCidrRange }}',
+dnsVerificationIp = '{{ dnsVerificationIp }}',
+sharedSecret = '{{ sharedSecret }}',
+status = '{{ status }}',
+pdpScope = '{{ pdpScope }}',
+publicDelegatedPrefixs = '{{ publicDelegatedPrefixs }}',
+fingerprint = '{{ fingerprint }}',
+byoipApiVersion = '{{ byoipApiVersion }}'
+WHERE 
+project = '{{ project }}'
+AND publicAdvertisedPrefix = '{{ publicAdvertisedPrefix }}';
+```
+
+## `DELETE` example
+
+Deletes the specified public_advertised_prefix resource.
+
+```sql
+DELETE FROM google.compute.public_advertised_prefixes
+WHERE project = '{{ project }}'
+AND publicAdvertisedPrefix = '{{ publicAdvertisedPrefix }}';
+```

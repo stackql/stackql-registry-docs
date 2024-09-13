@@ -1,3 +1,4 @@
+
 ---
 title: region_ssl_certificates
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_ssl_certificates
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_ssl_certificate</code> resource or lists <code>region_ssl_certificates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfManaged" /> | `object` | Configuration and status of a self-managed SSL certificate. |
 | <CopyableCode code="subjectAlternativeNames" /> | `array` | [Output Only] Domains associated with the certificate via Subject Alternative Name. |
 | <CopyableCode code="type" /> | `string` | (Optional) Specifies the type of SSL certificate, either "SELF_MANAGED" or "MANAGED". If not specified, the certificate is self-managed and the fields certificate and private_key are used. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,3 +54,131 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves the list of SslCertificate resources available to the specified project in the specified region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a SslCertificate resource in the specified project and region using the data included in the request |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, sslCertificate" /> | Deletes the specified SslCertificate resource in the region. |
+
+## `SELECT` examples
+
+Retrieves the list of SslCertificate resources available to the specified project in the specified region.
+
+```sql
+SELECT
+id,
+name,
+description,
+certificate,
+creationTimestamp,
+expireTime,
+kind,
+managed,
+privateKey,
+region,
+selfLink,
+selfManaged,
+subjectAlternativeNames,
+type
+FROM google.compute.region_ssl_certificates
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>region_ssl_certificates</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.region_ssl_certificates (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+certificate,
+privateKey,
+managed,
+selfManaged,
+type,
+subjectAlternativeNames,
+expireTime,
+region
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ certificate }}',
+'{{ privateKey }}',
+'{{ managed }}',
+'{{ selfManaged }}',
+'{{ type }}',
+'{{ subjectAlternativeNames }}',
+'{{ expireTime }}',
+'{{ region }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: certificate
+        value: '{{ certificate }}'
+      - name: privateKey
+        value: '{{ privateKey }}'
+      - name: managed
+        value: '{{ managed }}'
+      - name: selfManaged
+        value: '{{ selfManaged }}'
+      - name: type
+        value: '{{ type }}'
+      - name: subjectAlternativeNames
+        value: '{{ subjectAlternativeNames }}'
+      - name: expireTime
+        value: '{{ expireTime }}'
+      - name: region
+        value: '{{ region }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified region_ssl_certificate resource.
+
+```sql
+DELETE FROM google.compute.region_ssl_certificates
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND sslCertificate = '{{ sslCertificate }}';
+```

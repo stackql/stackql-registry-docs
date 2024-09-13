@@ -1,3 +1,4 @@
+
 ---
 title: geo_tiff
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - geo_tiff
   - solar
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>geo_tiff</code> resource or lists <code>geo_tiff</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,7 +35,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="contentType" /> | `string` | The HTTP Content-Type header value specifying the content type of the body. |
 | <CopyableCode code="data" /> | `string` | The HTTP request/response body as raw binary. |
 | <CopyableCode code="extensions" /> | `array` | Application specific response metadata. Must be set in the first response for streaming APIs. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="" /> | Returns an image by its ID. |
+
+## `SELECT` examples
+
+Returns an image by its ID.
+
+```sql
+SELECT
+contentType,
+data,
+extensions
+FROM google.solar.geo_tiff
+WHERE  = '{{  }}'; 
+```

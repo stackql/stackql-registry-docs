@@ -1,3 +1,4 @@
+
 ---
 title: folders
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - folders
   - storage
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>folder</code> resource or lists <code>folders</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="pendingRenameInfo" /> | `object` | Only present if the folder is part of an ongoing rename folder operation. Contains information which can be used to query the operation status. |
 | <CopyableCode code="selfLink" /> | `string` | The link to this folder. |
 | <CopyableCode code="updateTime" /> | `string` | The modification time of the folder metadata in RFC 3339 format. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -46,5 +49,105 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="bucket" /> | Retrieves a list of folders matching the criteria. Only applicable to buckets with hierarchical namespace enabled. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="bucket" /> | Creates a new folder. Only applicable to buckets with hierarchical namespace enabled. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bucket, folder" /> | Permanently deletes a folder. Only applicable to buckets with hierarchical namespace enabled. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="bucket" /> | Retrieves a list of folders matching the criteria. Only applicable to buckets with hierarchical namespace enabled. |
 | <CopyableCode code="rename" /> | `EXEC` | <CopyableCode code="bucket, destinationFolder, sourceFolder" /> | Renames a source folder to a destination folder. Only applicable to buckets with hierarchical namespace enabled. |
+
+## `SELECT` examples
+
+Retrieves a list of folders matching the criteria. Only applicable to buckets with hierarchical namespace enabled.
+
+```sql
+SELECT
+id,
+name,
+bucket,
+createTime,
+kind,
+metageneration,
+pendingRenameInfo,
+selfLink,
+updateTime
+FROM google.storage.folders
+WHERE bucket = '{{ bucket }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>folders</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.storage.folders (
+bucket,
+bucket,
+id,
+kind,
+metageneration,
+name,
+selfLink,
+createTime,
+updateTime,
+pendingRenameInfo
+)
+SELECT 
+'{{ bucket }}',
+'{{ bucket }}',
+'{{ id }}',
+'{{ kind }}',
+'{{ metageneration }}',
+'{{ name }}',
+'{{ selfLink }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ pendingRenameInfo }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: bucket
+        value: '{{ bucket }}'
+      - name: id
+        value: '{{ id }}'
+      - name: kind
+        value: '{{ kind }}'
+      - name: metageneration
+        value: '{{ metageneration }}'
+      - name: name
+        value: '{{ name }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: pendingRenameInfo
+        value:
+          - name: operationId
+            value: '{{ operationId }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified folder resource.
+
+```sql
+DELETE FROM google.storage.folders
+WHERE bucket = '{{ bucket }}'
+AND folder = '{{ folder }}';
+```

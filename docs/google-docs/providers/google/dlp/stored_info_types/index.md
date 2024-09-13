@@ -1,3 +1,4 @@
+
 ---
 title: stored_info_types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - stored_info_types
   - dlp
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>stored_info_type</code> resource or lists <code>stored_info_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,6 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Resource name. |
 | <CopyableCode code="currentVersion" /> | `object` | Version of a StoredInfoType, including the configuration used to build it, create timestamp, and current state. |
 | <CopyableCode code="pendingVersions" /> | `array` | Pending versions of the stored info type. Empty if no versions are pending. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -56,7 +59,86 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_stored_info_types_patch" /> | `UPDATE` | <CopyableCode code="organizationsId, storedInfoTypesId" /> | Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. |
 | <CopyableCode code="projects_locations_stored_info_types_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, storedInfoTypesId" /> | Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. |
 | <CopyableCode code="projects_stored_info_types_patch" /> | `UPDATE` | <CopyableCode code="projectsId, storedInfoTypesId" /> | Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. |
-| <CopyableCode code="_organizations_locations_stored_info_types_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. |
-| <CopyableCode code="_organizations_stored_info_types_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. |
-| <CopyableCode code="_projects_locations_stored_info_types_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. |
-| <CopyableCode code="_projects_stored_info_types_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. |
+
+## `SELECT` examples
+
+Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
+
+```sql
+SELECT
+name,
+currentVersion,
+pendingVersions
+FROM google.dlp.stored_info_types
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>stored_info_types</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dlp.stored_info_types (
+projectsId,
+storedInfoTypeId,
+locationId,
+config
+)
+SELECT 
+'{{ projectsId }}',
+'{{ storedInfoTypeId }}',
+'{{ locationId }}',
+'{{ config }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: storedInfoTypeId
+        value: '{{ storedInfoTypeId }}'
+      - name: locationId
+        value: '{{ locationId }}'
+      - name: config
+        value: '{{ config }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a stored_info_type only if the necessary resources are available.
+
+```sql
+UPDATE google.dlp.stored_info_types
+SET 
+updateMask = '{{ updateMask }}',
+config = '{{ config }}'
+WHERE 
+projectsId = '{{ projectsId }}'
+AND storedInfoTypesId = '{{ storedInfoTypesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified stored_info_type resource.
+
+```sql
+DELETE FROM google.dlp.stored_info_types
+WHERE projectsId = '{{ projectsId }}'
+AND storedInfoTypesId = '{{ storedInfoTypesId }}';
+```

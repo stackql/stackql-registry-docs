@@ -1,3 +1,4 @@
+
 ---
 title: jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - jobs
   - transcoder
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>job</code> resource or lists <code>jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the job. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/jobs/&#123;job&#125;` |
+| <CopyableCode code="name" /> | `string` | The resource name of the job. Format: `projects/{project_number}/locations/{location}/jobs/{job}` |
 | <CopyableCode code="batchModePriority" /> | `integer` | The processing priority of a batch job. This field can only be set for batch mode jobs. The default value is 0. This value cannot be negative. Higher values correspond to higher priorities for the job. |
 | <CopyableCode code="config" /> | `object` | Job configuration |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time the job was created. |
@@ -43,8 +45,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="outputUri" /> | `string` | Input only. Specify the `output_uri` to populate an empty `Job.config.output.uri` or `JobTemplate.config.output.uri` when using template. URI for the output file(s). For example, `gs://my-bucket/outputs/`. See [Supported input and output formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats). |
 | <CopyableCode code="startTime" /> | `string` | Output only. The time the transcoding started. |
 | <CopyableCode code="state" /> | `string` | Output only. The current state of the job. |
-| <CopyableCode code="templateId" /> | `string` | Input only. Specify the `template_id` to use for populating `Job.config`. The default is `preset/web-hd`, which is the only supported preset. User defined JobTemplate: `&#123;job_template_id&#125;` |
+| <CopyableCode code="templateId" /> | `string` | Input only. Specify the `template_id` to use for populating `Job.config`. The default is `preset/web-hd`, which is the only supported preset. User defined JobTemplate: `{job_template_id}` |
 | <CopyableCode code="ttlAfterCompletionDays" /> | `integer` | Job time to live value in days, which will be effective after job completion. Job should be deleted automatically after the given TTL. Enter a value between 1 and 90. The default is 30. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,4 +55,136 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists jobs in the specified region. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a job in the specified region. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Deletes a job. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists jobs in the specified region. |
+
+## `SELECT` examples
+
+Lists jobs in the specified region.
+
+```sql
+SELECT
+name,
+batchModePriority,
+config,
+createTime,
+endTime,
+error,
+inputUri,
+labels,
+mode,
+optimization,
+outputUri,
+startTime,
+state,
+templateId,
+ttlAfterCompletionDays
+FROM google.transcoder.jobs
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>jobs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.transcoder.jobs (
+locationsId,
+projectsId,
+name,
+inputUri,
+outputUri,
+templateId,
+config,
+state,
+createTime,
+startTime,
+endTime,
+ttlAfterCompletionDays,
+labels,
+error,
+mode,
+batchModePriority,
+optimization
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ inputUri }}',
+'{{ outputUri }}',
+'{{ templateId }}',
+'{{ config }}',
+'{{ state }}',
+'{{ createTime }}',
+'{{ startTime }}',
+'{{ endTime }}',
+'{{ ttlAfterCompletionDays }}',
+'{{ labels }}',
+'{{ error }}',
+'{{ mode }}',
+'{{ batchModePriority }}',
+'{{ optimization }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: inputUri
+        value: '{{ inputUri }}'
+      - name: outputUri
+        value: '{{ outputUri }}'
+      - name: templateId
+        value: '{{ templateId }}'
+      - name: config
+        value: '{{ config }}'
+      - name: state
+        value: '{{ state }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: ttlAfterCompletionDays
+        value: '{{ ttlAfterCompletionDays }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: error
+        value: '{{ error }}'
+      - name: mode
+        value: '{{ mode }}'
+      - name: batchModePriority
+        value: '{{ batchModePriority }}'
+      - name: optimization
+        value: '{{ optimization }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified job resource.
+
+```sql
+DELETE FROM google.transcoder.jobs
+WHERE jobsId = '{{ jobsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

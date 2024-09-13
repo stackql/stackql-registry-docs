@@ -1,3 +1,4 @@
+
 ---
 title: controls
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - controls
   - retail
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>control</code> resource or lists <code>controls</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="rule" /> | `object` | A rule is a condition-action pair * A condition defines when a rule is to be triggered. * An action specifies what occurs on that trigger. Currently rules only work for controls with SOLUTION_TYPE_SEARCH. |
 | <CopyableCode code="searchSolutionUseCase" /> | `array` | Specifies the use case for the control. Affects what condition fields can be set. Only settable by search controls. Will default to SEARCH_SOLUTION_USE_CASE_SEARCH if not specified. Currently only allow one search_solution_use_case per control. |
 | <CopyableCode code="solutionTypes" /> | `array` | Required. Immutable. The solution types that the control is used for. Currently we support setting only one type of solution at creation time. Only `SOLUTION_TYPE_SEARCH` value is supported at the moment. If no solution type is provided at creation time, will default to SOLUTION_TYPE_SEARCH. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,4 +47,115 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_catalogs_controls_create" /> | `INSERT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Creates a Control. If the Control to create already exists, an ALREADY_EXISTS error is returned. |
 | <CopyableCode code="projects_locations_catalogs_controls_delete" /> | `DELETE` | <CopyableCode code="catalogsId, controlsId, locationsId, projectsId" /> | Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="projects_locations_catalogs_controls_patch" /> | `UPDATE` | <CopyableCode code="catalogsId, controlsId, locationsId, projectsId" /> | Updates a Control. Control cannot be set to a different oneof field, if so an INVALID_ARGUMENT is returned. If the Control to update does not exist, a NOT_FOUND error is returned. |
-| <CopyableCode code="_projects_locations_catalogs_controls_list" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Lists all Controls by their parent Catalog. |
+
+## `SELECT` examples
+
+Lists all Controls by their parent Catalog.
+
+```sql
+SELECT
+name,
+associatedServingConfigIds,
+displayName,
+rule,
+searchSolutionUseCase,
+solutionTypes
+FROM google.retail.controls
+WHERE catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>controls</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.retail.controls (
+catalogsId,
+locationsId,
+projectsId,
+rule,
+name,
+displayName,
+associatedServingConfigIds,
+solutionTypes,
+searchSolutionUseCase
+)
+SELECT 
+'{{ catalogsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ rule }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ associatedServingConfigIds }}',
+'{{ solutionTypes }}',
+'{{ searchSolutionUseCase }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: rule
+        value: '{{ rule }}'
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: associatedServingConfigIds
+        value: '{{ associatedServingConfigIds }}'
+      - name: solutionTypes
+        value: '{{ solutionTypes }}'
+      - name: searchSolutionUseCase
+        value: '{{ searchSolutionUseCase }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a control only if the necessary resources are available.
+
+```sql
+UPDATE google.retail.controls
+SET 
+rule = '{{ rule }}',
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+associatedServingConfigIds = '{{ associatedServingConfigIds }}',
+solutionTypes = '{{ solutionTypes }}',
+searchSolutionUseCase = '{{ searchSolutionUseCase }}'
+WHERE 
+catalogsId = '{{ catalogsId }}'
+AND controlsId = '{{ controlsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified control resource.
+
+```sql
+DELETE FROM google.retail.controls
+WHERE catalogsId = '{{ catalogsId }}'
+AND controlsId = '{{ controlsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

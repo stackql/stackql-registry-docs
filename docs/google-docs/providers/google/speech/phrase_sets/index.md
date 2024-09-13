@@ -1,3 +1,4 @@
+
 ---
 title: phrase_sets
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - phrase_sets
   - speech
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>phrase_set</code> resource or lists <code>phrase_sets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,12 +39,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | Output only. User-settable, human-readable name for the PhraseSet. Must be 63 characters or less. This field is not used. |
 | <CopyableCode code="etag" /> | `string` | Output only. This checksum is computed by the server based on the value of other fields. This may be sent on update, undelete, and delete requests to ensure the client has an up-to-date value before proceeding. This field is not used. |
 | <CopyableCode code="expireTime" /> | `string` | Output only. The time at which this resource will be purged. This field is not used. |
-| <CopyableCode code="kmsKeyName" /> | `string` | Output only. The [KMS key name](https://cloud.google.com/kms/docs/resource-hierarchy#keys) with which the content of the PhraseSet is encrypted. The expected format is `projects/&#123;project&#125;/locations/&#123;location&#125;/keyRings/&#123;key_ring&#125;/cryptoKeys/&#123;crypto_key&#125;`. |
-| <CopyableCode code="kmsKeyVersionName" /> | `string` | Output only. The [KMS key version name](https://cloud.google.com/kms/docs/resource-hierarchy#key_versions) with which content of the PhraseSet is encrypted. The expected format is `projects/&#123;project&#125;/locations/&#123;location&#125;/keyRings/&#123;key_ring&#125;/cryptoKeys/&#123;crypto_key&#125;/cryptoKeyVersions/&#123;crypto_key_version&#125;`. |
+| <CopyableCode code="kmsKeyName" /> | `string` | Output only. The [KMS key name](https://cloud.google.com/kms/docs/resource-hierarchy#keys) with which the content of the PhraseSet is encrypted. The expected format is `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`. |
+| <CopyableCode code="kmsKeyVersionName" /> | `string` | Output only. The [KMS key version name](https://cloud.google.com/kms/docs/resource-hierarchy#key_versions) with which content of the PhraseSet is encrypted. The expected format is `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{crypto_key_version}`. |
 | <CopyableCode code="phrases" /> | `array` | A list of word and phrases. |
 | <CopyableCode code="reconciling" /> | `boolean` | Output only. Whether or not this PhraseSet is in the process of being updated. This field is not used. |
 | <CopyableCode code="state" /> | `string` | Output only. The CustomClass lifecycle state. This field is not used. |
 | <CopyableCode code="uid" /> | `string` | Output only. System-assigned unique identifier for the PhraseSet. This field is not used. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,4 +54,108 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a set of phrase hints. Each item in the set can be a single word or a multi-word phrase. The items in the PhraseSet are favored by the recognition model when you send a call that includes the PhraseSet. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, phraseSetsId, projectsId" /> | Delete a phrase set. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, phraseSetsId, projectsId" /> | Update a phrase set. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List phrase sets. |
+
+## `SELECT` examples
+
+List phrase sets.
+
+```sql
+SELECT
+name,
+annotations,
+boost,
+deleteTime,
+displayName,
+etag,
+expireTime,
+kmsKeyName,
+kmsKeyVersionName,
+phrases,
+reconciling,
+state,
+uid
+FROM google.speech.phrase_sets
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>phrase_sets</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.speech.phrase_sets (
+locationsId,
+projectsId,
+phraseSetId,
+phraseSet
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ phraseSetId }}',
+'{{ phraseSet }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: phraseSetId
+        value: '{{ phraseSetId }}'
+      - name: phraseSet
+        value: '{{ phraseSet }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a phrase_set only if the necessary resources are available.
+
+```sql
+UPDATE google.speech.phrase_sets
+SET 
+name = '{{ name }}',
+phrases = '{{ phrases }}',
+boost = number,
+kmsKeyName = '{{ kmsKeyName }}',
+kmsKeyVersionName = '{{ kmsKeyVersionName }}',
+uid = '{{ uid }}',
+displayName = '{{ displayName }}',
+state = '{{ state }}',
+deleteTime = '{{ deleteTime }}',
+expireTime = '{{ expireTime }}',
+annotations = '{{ annotations }}',
+etag = '{{ etag }}',
+reconciling = true|false
+WHERE 
+locationsId = '{{ locationsId }}'
+AND phraseSetsId = '{{ phraseSetsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified phrase_set resource.
+
+```sql
+DELETE FROM google.speech.phrase_sets
+WHERE locationsId = '{{ locationsId }}'
+AND phraseSetsId = '{{ phraseSetsId }}'
+AND projectsId = '{{ projectsId }}';
+```

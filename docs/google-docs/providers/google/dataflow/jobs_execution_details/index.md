@@ -1,3 +1,4 @@
+
 ---
 title: jobs_execution_details
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - jobs_execution_details
   - dataflow
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>jobs_execution_detail</code> resource or lists <code>jobs_execution_details</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,8 +39,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="startTime" /> | `string` | Start time of this stage. |
 | <CopyableCode code="state" /> | `string` | State of this stage. |
 | <CopyableCode code="stragglerSummary" /> | `object` | Summarized straggler identification details. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_jobs_get_execution_details" /> | `SELECT` | <CopyableCode code="jobId, location, projectId" /> |
-| <CopyableCode code="_projects_locations_jobs_get_execution_details" /> | `EXEC` | <CopyableCode code="jobId, location, projectId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_jobs_get_execution_details" /> | `SELECT` | <CopyableCode code="jobId, location, projectId" /> | Request detailed information about the execution status of the job. EXPERIMENTAL. This API is subject to change or removal without notice. |
+
+## `SELECT` examples
+
+Request detailed information about the execution status of the job. EXPERIMENTAL. This API is subject to change or removal without notice.
+
+```sql
+SELECT
+endTime,
+metrics,
+progress,
+stageId,
+startTime,
+state,
+stragglerSummary
+FROM google.dataflow.jobs_execution_details
+WHERE jobId = '{{ jobId }}'
+AND location = '{{ location }}'
+AND projectId = '{{ projectId }}'; 
+```

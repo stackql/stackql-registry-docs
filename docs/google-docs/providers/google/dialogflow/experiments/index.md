@@ -1,3 +1,4 @@
+
 ---
 title: experiments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - experiments
   - dialogflow
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>experiment</code> resource or lists <code>experiments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The name of the experiment. Format: projects//locations//agents//environments//experiments/.. |
+| <CopyableCode code="name" /> | `string` | The name of the experiment. Format: projects//locations//agents//environments//experiments/. |
 | <CopyableCode code="description" /> | `string` | The human-readable description of the experiment. |
 | <CopyableCode code="createTime" /> | `string` | Creation time of this experiment. |
 | <CopyableCode code="definition" /> | `object` | Definition of the experiment. |
@@ -43,8 +45,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="rolloutFailureReason" /> | `string` | The reason why rollout has failed. Should only be set when state is ROLLOUT_FAILED. |
 | <CopyableCode code="rolloutState" /> | `object` | State of the auto-rollout process. |
 | <CopyableCode code="startTime" /> | `string` | Start time of this experiment. |
-| <CopyableCode code="state" /> | `string` | The current state of the experiment. Transition triggered by Experiments.StartExperiment: DRAFT-&gt;RUNNING. Transition triggered by Experiments.CancelExperiment: DRAFT-&gt;DONE or RUNNING-&gt;DONE. |
+| <CopyableCode code="state" /> | `string` | The current state of the experiment. Transition triggered by Experiments.StartExperiment: DRAFT->RUNNING. Transition triggered by Experiments.CancelExperiment: DRAFT->DONE or RUNNING->DONE. |
 | <CopyableCode code="variantsHistory" /> | `array` | The history of updates to the experiment variants. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -53,6 +56,176 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_environments_experiments_create" /> | `INSERT` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> | Creates an Experiment in the specified Environment. |
 | <CopyableCode code="projects_locations_agents_environments_experiments_delete" /> | `DELETE` | <CopyableCode code="agentsId, environmentsId, experimentsId, locationsId, projectsId" /> | Deletes the specified Experiment. |
 | <CopyableCode code="projects_locations_agents_environments_experiments_patch" /> | `UPDATE` | <CopyableCode code="agentsId, environmentsId, experimentsId, locationsId, projectsId" /> | Updates the specified Experiment. |
-| <CopyableCode code="_projects_locations_agents_environments_experiments_list" /> | `EXEC` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> | Returns the list of all experiments in the specified Environment. |
 | <CopyableCode code="projects_locations_agents_environments_experiments_start" /> | `EXEC` | <CopyableCode code="agentsId, environmentsId, experimentsId, locationsId, projectsId" /> | Starts the specified Experiment. This rpc only changes the state of experiment from PENDING to RUNNING. |
 | <CopyableCode code="projects_locations_agents_environments_experiments_stop" /> | `EXEC` | <CopyableCode code="agentsId, environmentsId, experimentsId, locationsId, projectsId" /> | Stops the specified Experiment. This rpc only changes the state of experiment from RUNNING to DONE. |
+
+## `SELECT` examples
+
+Returns the list of all experiments in the specified Environment.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+definition,
+displayName,
+endTime,
+experimentLength,
+lastUpdateTime,
+result,
+rolloutConfig,
+rolloutFailureReason,
+rolloutState,
+startTime,
+state,
+variantsHistory
+FROM google.dialogflow.experiments
+WHERE agentsId = '{{ agentsId }}'
+AND environmentsId = '{{ environmentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>experiments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dialogflow.experiments (
+agentsId,
+environmentsId,
+locationsId,
+projectsId,
+name,
+displayName,
+description,
+state,
+definition,
+rolloutConfig,
+rolloutState,
+rolloutFailureReason,
+result,
+createTime,
+startTime,
+endTime,
+lastUpdateTime,
+experimentLength,
+variantsHistory
+)
+SELECT 
+'{{ agentsId }}',
+'{{ environmentsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ state }}',
+'{{ definition }}',
+'{{ rolloutConfig }}',
+'{{ rolloutState }}',
+'{{ rolloutFailureReason }}',
+'{{ result }}',
+'{{ createTime }}',
+'{{ startTime }}',
+'{{ endTime }}',
+'{{ lastUpdateTime }}',
+'{{ experimentLength }}',
+'{{ variantsHistory }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: state
+        value: '{{ state }}'
+      - name: definition
+        value: '{{ definition }}'
+      - name: rolloutConfig
+        value: '{{ rolloutConfig }}'
+      - name: rolloutState
+        value: '{{ rolloutState }}'
+      - name: rolloutFailureReason
+        value: '{{ rolloutFailureReason }}'
+      - name: result
+        value: '{{ result }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: lastUpdateTime
+        value: '{{ lastUpdateTime }}'
+      - name: experimentLength
+        value: '{{ experimentLength }}'
+      - name: variantsHistory
+        value: '{{ variantsHistory }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a experiment only if the necessary resources are available.
+
+```sql
+UPDATE google.dialogflow.experiments
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+state = '{{ state }}',
+definition = '{{ definition }}',
+rolloutConfig = '{{ rolloutConfig }}',
+rolloutState = '{{ rolloutState }}',
+rolloutFailureReason = '{{ rolloutFailureReason }}',
+result = '{{ result }}',
+createTime = '{{ createTime }}',
+startTime = '{{ startTime }}',
+endTime = '{{ endTime }}',
+lastUpdateTime = '{{ lastUpdateTime }}',
+experimentLength = '{{ experimentLength }}',
+variantsHistory = '{{ variantsHistory }}'
+WHERE 
+agentsId = '{{ agentsId }}'
+AND environmentsId = '{{ environmentsId }}'
+AND experimentsId = '{{ experimentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified experiment resource.
+
+```sql
+DELETE FROM google.dialogflow.experiments
+WHERE agentsId = '{{ agentsId }}'
+AND environmentsId = '{{ environmentsId }}'
+AND experimentsId = '{{ experimentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

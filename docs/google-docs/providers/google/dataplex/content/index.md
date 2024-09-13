@@ -1,3 +1,4 @@
+
 ---
 title: content
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - content
   - dataplex
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>content</code> resource or lists <code>content</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the content, of the form: projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/content/&#123;content_id&#125; |
+| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the content, of the form: projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id} |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the content. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Content creation time. |
 | <CopyableCode code="dataText" /> | `string` | Required. Content data in string format. |
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sqlScript" /> | `object` | Configuration for the Sql Script content. |
 | <CopyableCode code="uid" /> | `string` | Output only. System generated globally unique ID for the content. This ID will be different if the content is deleted and re-created with the same name. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time when the content was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,4 +51,139 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_lakes_content_create" /> | `INSERT` | <CopyableCode code="lakesId, locationsId, projectsId" /> | Create a content. |
 | <CopyableCode code="projects_locations_lakes_content_delete" /> | `DELETE` | <CopyableCode code="contentId, lakesId, locationsId, projectsId" /> | Delete a content. |
 | <CopyableCode code="projects_locations_lakes_content_patch" /> | `UPDATE` | <CopyableCode code="contentId, lakesId, locationsId, projectsId" /> | Update a content. Only supports full resource update. |
-| <CopyableCode code="_projects_locations_lakes_content_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId" /> | List content. |
+
+## `SELECT` examples
+
+List content.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+dataText,
+labels,
+notebook,
+path,
+sqlScript,
+uid,
+updateTime
+FROM google.dataplex.content
+WHERE lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>content</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataplex.content (
+lakesId,
+locationsId,
+projectsId,
+name,
+uid,
+path,
+createTime,
+updateTime,
+labels,
+description,
+dataText,
+sqlScript,
+notebook
+)
+SELECT 
+'{{ lakesId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ path }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ description }}',
+'{{ dataText }}',
+'{{ sqlScript }}',
+'{{ notebook }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: path
+        value: '{{ path }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: description
+        value: '{{ description }}'
+      - name: dataText
+        value: '{{ dataText }}'
+      - name: sqlScript
+        value: '{{ sqlScript }}'
+      - name: notebook
+        value: '{{ notebook }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a content only if the necessary resources are available.
+
+```sql
+UPDATE google.dataplex.content
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+path = '{{ path }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+description = '{{ description }}',
+dataText = '{{ dataText }}',
+sqlScript = '{{ sqlScript }}',
+notebook = '{{ notebook }}'
+WHERE 
+contentId = '{{ contentId }}'
+AND lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified content resource.
+
+```sql
+DELETE FROM google.dataplex.content
+WHERE contentId = '{{ contentId }}'
+AND lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

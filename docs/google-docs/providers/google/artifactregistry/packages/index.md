@@ -1,3 +1,4 @@
+
 ---
 title: packages
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - packages
   - artifactregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>package</code> resource or lists <code>packages</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | The time when the package was created. |
 | <CopyableCode code="displayName" /> | `string` | The display name of the package. |
 | <CopyableCode code="updateTime" /> | `string` | The time when the package was last updated. This includes publishing a new version of the package. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,4 +45,51 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists packages. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Deletes a package and all of its versions and tags. The returned operation will complete once the package has been deleted. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Updates a package. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists packages. |
+
+## `SELECT` examples
+
+Lists packages.
+
+```sql
+SELECT
+name,
+annotations,
+createTime,
+displayName,
+updateTime
+FROM google.artifactregistry.packages
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a package only if the necessary resources are available.
+
+```sql
+UPDATE google.artifactregistry.packages
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+annotations = '{{ annotations }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND packagesId = '{{ packagesId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified package resource.
+
+```sql
+DELETE FROM google.artifactregistry.packages
+WHERE locationsId = '{{ locationsId }}'
+AND packagesId = '{{ packagesId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
+```

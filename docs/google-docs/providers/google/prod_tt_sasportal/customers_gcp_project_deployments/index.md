@@ -1,3 +1,4 @@
+
 ---
 title: customers_gcp_project_deployments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - customers_gcp_project_deployments
   - prod_tt_sasportal
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>customers_gcp_project_deployment</code> resource or lists <code>customers_gcp_project_deployments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="deployments" /> | `array` | Optional. Deployments associated with the GCP project |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="customers_list_gcp_project_deployments" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="customers_list_gcp_project_deployments" /> | `SELECT` | <CopyableCode code="" /> | Returns a list of SAS deployments associated with current GCP project. Includes whether SAS analytics has been enabled or not. |
+
+## `SELECT` examples
+
+Returns a list of SAS deployments associated with current GCP project. Includes whether SAS analytics has been enabled or not.
+
+```sql
+SELECT
+deployments
+FROM google.prod_tt_sasportal.customers_gcp_project_deployments
+WHERE  = '{{  }}'; 
+```

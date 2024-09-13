@@ -1,3 +1,4 @@
+
 ---
 title: optimized_stats
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - optimized_stats
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>optimized_stat</code> resource or lists <code>optimized_stats</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="Response" /> | `object` | Encapsulates a response format for JavaScript Optimized Scenario. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="organizations_environments_optimized_stats_get" /> | `SELECT` | <CopyableCode code="environmentsId, optimizedStatsId, organizationsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_environments_optimized_stats_get" /> | `SELECT` | <CopyableCode code="environmentsId, optimizedStatsId, organizationsId" /> | Similar to GetStats except that the response is less verbose. |
+
+## `SELECT` examples
+
+Similar to GetStats except that the response is less verbose.
+
+```sql
+SELECT
+Response
+FROM google.apigee.optimized_stats
+WHERE environmentsId = '{{ environmentsId }}'
+AND optimizedStatsId = '{{ optimizedStatsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```

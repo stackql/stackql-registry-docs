@@ -1,3 +1,4 @@
+
 ---
 title: client_states
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - client_states
   - cloudidentity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>client_state</code> resource or lists <code>client_states</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the ClientState in format: `devices/&#123;device&#125;/deviceUsers/&#123;device_user&#125;/clientState/&#123;partner&#125;`, where partner corresponds to the partner storing the data. For partners belonging to the "BeyondCorp Alliance", this is the partner ID specified to you by Google. For all other callers, this is a string of the form: `&#123;customer&#125;-suffix`, where `customer` is your customer ID. The *suffix* is any string the caller specifies. This string will be displayed verbatim in the administration console. This suffix is used in setting up Custom Access Levels in Context-Aware Access. Your organization's customer ID can be obtained from the URL: `GET https://www.googleapis.com/admin/directory/v1/customers/my_customer` The `id` field in the response contains the customer ID starting with the letter 'C'. The customer ID to be used in this API is the string after the letter 'C' (not including 'C') |
+| <CopyableCode code="name" /> | `string` | Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the ClientState in format: `devices/{device}/deviceUsers/{device_user}/clientState/{partner}`, where partner corresponds to the partner storing the data. For partners belonging to the "BeyondCorp Alliance", this is the partner ID specified to you by Google. For all other callers, this is a string of the form: `{customer}-suffix`, where `customer` is your customer ID. The *suffix* is any string the caller specifies. This string will be displayed verbatim in the administration console. This suffix is used in setting up Custom Access Levels in Context-Aware Access. Your organization's customer ID can be obtained from the URL: `GET https://www.googleapis.com/admin/directory/v1/customers/my_customer` The `id` field in the response contains the customer ID starting with the letter 'C'. The customer ID to be used in this API is the string after the letter 'C' (not including 'C') |
 | <CopyableCode code="assetTags" /> | `array` | The caller can specify asset tags for this resource |
 | <CopyableCode code="complianceState" /> | `string` | The compliance state of the resource as specified by the API client. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time the client state data was created. |
@@ -42,10 +44,58 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="managed" /> | `string` | The management state of the resource as specified by the API client. |
 | <CopyableCode code="ownerType" /> | `string` | Output only. The owner of the ClientState |
 | <CopyableCode code="scoreReason" /> | `string` | A descriptive cause of the health score. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clientStatesId, deviceUsersId, devicesId" /> | Gets the client state for the device user |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="deviceUsersId, devicesId" /> | Lists the client states for the given search query. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="clientStatesId, deviceUsersId, devicesId" /> | Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise for Education, and Cloud Identity Premium |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="deviceUsersId, devicesId" /> | Lists the client states for the given search query. |
+
+## `SELECT` examples
+
+Lists the client states for the given search query.
+
+```sql
+SELECT
+name,
+assetTags,
+complianceState,
+createTime,
+customId,
+etag,
+healthScore,
+keyValuePairs,
+lastUpdateTime,
+managed,
+ownerType,
+scoreReason
+FROM google.cloudidentity.client_states
+WHERE deviceUsersId = '{{ deviceUsersId }}'
+AND devicesId = '{{ devicesId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a client_state only if the necessary resources are available.
+
+```sql
+UPDATE google.cloudidentity.client_states
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+lastUpdateTime = '{{ lastUpdateTime }}',
+etag = '{{ etag }}',
+customId = '{{ customId }}',
+assetTags = '{{ assetTags }}',
+healthScore = '{{ healthScore }}',
+scoreReason = '{{ scoreReason }}',
+managed = '{{ managed }}',
+complianceState = '{{ complianceState }}',
+keyValuePairs = '{{ keyValuePairs }}',
+ownerType = '{{ ownerType }}'
+WHERE 
+clientStatesId = '{{ clientStatesId }}'
+AND deviceUsersId = '{{ deviceUsersId }}'
+AND devicesId = '{{ devicesId }}';
+```

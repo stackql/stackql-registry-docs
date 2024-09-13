@@ -1,3 +1,4 @@
+
 ---
 title: storage_pool_types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - storage_pool_types
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>storage_pool_type</code> resource or lists <code>storage_pool_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -47,10 +49,37 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLinkWithId" /> | `string` | [Output Only] Server-defined URL for this resource with the resource id. |
 | <CopyableCode code="supportedDiskTypes" /> | `array` | [Output Only] The list of disk types supported in this storage pool type. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] URL of the zone where the storage pool type resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of storage pool types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project, storagePoolType, zone" /> | Returns the specified storage pool type. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves a list of storage pool types available to the specified project. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of storage pool types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of storage pool types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+deprecated,
+kind,
+maxPoolProvisionedCapacityGb,
+maxPoolProvisionedIops,
+maxPoolProvisionedThroughput,
+minPoolProvisionedCapacityGb,
+minPoolProvisionedIops,
+minPoolProvisionedThroughput,
+minSizeGb,
+selfLink,
+selfLinkWithId,
+supportedDiskTypes,
+zone
+FROM google.compute.storage_pool_types
+WHERE project = '{{ project }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: git_repository_links_git_refs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - git_repository_links_git_refs
   - developerconnect
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>git_repository_links_git_ref</code> resource or lists <code>git_repository_links_git_refs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="nextPageToken" /> | `string` | A token identifying a page of results the server should return. |
+| <CopyableCode code="refNames" /> | `array` | Name of the refs fetched. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="fetch_git_refs" /> | `EXEC` | <CopyableCode code="connectionsId, gitRepositoryLinksId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch_git_refs" /> | `SELECT` | <CopyableCode code="connectionsId, gitRepositoryLinksId, locationsId, projectsId" /> | Fetch the list of branches or tags for a given repository. |
+
+## `SELECT` examples
+
+Fetch the list of branches or tags for a given repository.
+
+```sql
+SELECT
+nextPageToken,
+refNames
+FROM google.developerconnect.git_repository_links_git_refs
+WHERE connectionsId = '{{ connectionsId }}'
+AND gitRepositoryLinksId = '{{ gitRepositoryLinksId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

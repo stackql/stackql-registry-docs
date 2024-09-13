@@ -1,3 +1,4 @@
+
 ---
 title: instances
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instance</code> resource or lists <code>instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Resource ID of the instance. Values must match the regular expression `^a-z&#123;0,30&#125;[a-z\d]$`. |
+| <CopyableCode code="name" /> | `string` | Required. Resource ID of the instance. Values must match the regular expression `^a-z{0,30}[a-z\d]$`. |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the instance. |
 | <CopyableCode code="accessLoggingConfig" /> | `object` | Access logging configuration enables customers to ship the access logs from the tenant projects to their own project's cloud logging. The feature is at the instance level ad disabled by default. It can be enabled during CreateInstance or UpdateInstance. |
 | <CopyableCode code="consumerAcceptList" /> | `array` | Optional. Customer accept list represents the list of projects (id/number) on customer side that can privately connect to the service attachment. It is an optional field which the customers can provide during the instance creation. By default, the customer project associated with the Apigee organization will be included to the list. |
@@ -46,6 +48,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="runtimeVersion" /> | `string` | Output only. Version of the runtime system running in the instance. The runtime system is the set of components that serve the API Proxy traffic in your Environments. |
 | <CopyableCode code="serviceAttachment" /> | `string` | Output only. Resource name of the service attachment created for the instance in the format: `projects/*/regions/*/serviceAttachments/*` Apigee customers can privately forward traffic to this service attachment using the PSC endpoints. |
 | <CopyableCode code="state" /> | `string` | Output only. State of the instance. Values other than `ACTIVE` means the resource is not ready to use. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,5 +57,166 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_instances_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates an Apigee runtime instance. The instance is accessible from the authorized network configured on the organization. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_instances_delete" /> | `DELETE` | <CopyableCode code="instancesId, organizationsId" /> | Deletes an Apigee runtime instance. The instance stops serving requests and the runtime data is deleted. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_instances_patch" /> | `UPDATE` | <CopyableCode code="instancesId, organizationsId" /> | Updates an Apigee runtime instance. You can update the fields described in NodeConfig. No other fields will be updated. **Note:** Not supported for Apigee hybrid. |
-| <CopyableCode code="_organizations_instances_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all Apigee runtime instances for the organization. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_instances_report_status" /> | `EXEC` | <CopyableCode code="instancesId, organizationsId" /> | Reports the latest status for a runtime instance. |
+
+## `SELECT` examples
+
+Lists all Apigee runtime instances for the organization. **Note:** Not supported for Apigee hybrid.
+
+```sql
+SELECT
+name,
+description,
+accessLoggingConfig,
+consumerAcceptList,
+createdAt,
+diskEncryptionKeyName,
+displayName,
+host,
+ipRange,
+lastModifiedAt,
+location,
+peeringCidrRange,
+port,
+runtimeVersion,
+serviceAttachment,
+state
+FROM google.apigee.instances
+WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>instances</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.instances (
+organizationsId,
+serviceAttachment,
+runtimeVersion,
+accessLoggingConfig,
+ipRange,
+host,
+lastModifiedAt,
+name,
+displayName,
+description,
+location,
+peeringCidrRange,
+port,
+diskEncryptionKeyName,
+state,
+consumerAcceptList,
+createdAt
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ serviceAttachment }}',
+'{{ runtimeVersion }}',
+'{{ accessLoggingConfig }}',
+'{{ ipRange }}',
+'{{ host }}',
+'{{ lastModifiedAt }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ location }}',
+'{{ peeringCidrRange }}',
+'{{ port }}',
+'{{ diskEncryptionKeyName }}',
+'{{ state }}',
+'{{ consumerAcceptList }}',
+'{{ createdAt }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: serviceAttachment
+        value: '{{ serviceAttachment }}'
+      - name: runtimeVersion
+        value: '{{ runtimeVersion }}'
+      - name: accessLoggingConfig
+        value: '{{ accessLoggingConfig }}'
+      - name: ipRange
+        value: '{{ ipRange }}'
+      - name: host
+        value: '{{ host }}'
+      - name: lastModifiedAt
+        value: '{{ lastModifiedAt }}'
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: location
+        value: '{{ location }}'
+      - name: peeringCidrRange
+        value: '{{ peeringCidrRange }}'
+      - name: port
+        value: '{{ port }}'
+      - name: diskEncryptionKeyName
+        value: '{{ diskEncryptionKeyName }}'
+      - name: state
+        value: '{{ state }}'
+      - name: consumerAcceptList
+        value: '{{ consumerAcceptList }}'
+      - name: createdAt
+        value: '{{ createdAt }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a instance only if the necessary resources are available.
+
+```sql
+UPDATE google.apigee.instances
+SET 
+serviceAttachment = '{{ serviceAttachment }}',
+runtimeVersion = '{{ runtimeVersion }}',
+accessLoggingConfig = '{{ accessLoggingConfig }}',
+ipRange = '{{ ipRange }}',
+host = '{{ host }}',
+lastModifiedAt = '{{ lastModifiedAt }}',
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+location = '{{ location }}',
+peeringCidrRange = '{{ peeringCidrRange }}',
+port = '{{ port }}',
+diskEncryptionKeyName = '{{ diskEncryptionKeyName }}',
+state = '{{ state }}',
+consumerAcceptList = '{{ consumerAcceptList }}',
+createdAt = '{{ createdAt }}'
+WHERE 
+instancesId = '{{ instancesId }}'
+AND organizationsId = '{{ organizationsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified instance resource.
+
+```sql
+DELETE FROM google.apigee.instances
+WHERE instancesId = '{{ instancesId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

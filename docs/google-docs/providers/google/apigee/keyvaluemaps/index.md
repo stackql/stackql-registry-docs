@@ -1,3 +1,4 @@
+
 ---
 title: keyvaluemaps
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - keyvaluemaps
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>keyvaluemap</code> resource or lists <code>keyvaluemaps</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -38,3 +42,55 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_apis_keyvaluemaps_delete" /> | `DELETE` | <CopyableCode code="apisId, keyvaluemapsId, organizationsId" /> | Deletes a key value map from an API proxy. |
 | <CopyableCode code="organizations_environments_keyvaluemaps_delete" /> | `DELETE` | <CopyableCode code="environmentsId, keyvaluemapsId, organizationsId" /> | Deletes a key value map from an environment. |
 | <CopyableCode code="organizations_keyvaluemaps_delete" /> | `DELETE` | <CopyableCode code="keyvaluemapsId, organizationsId" /> | Deletes a key value map from an organization. |
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>keyvaluemaps</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.keyvaluemaps (
+organizationsId,
+name,
+encrypted
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ name }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: encrypted
+        value: '{{ encrypted }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified keyvaluemap resource.
+
+```sql
+DELETE FROM google.apigee.keyvaluemaps
+WHERE keyvaluemapsId = '{{ keyvaluemapsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

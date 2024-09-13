@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-  
-    
+The integrations service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>19</b></span><br />
-<span>total selectable resources:&nbsp;<b>14</b></span><br />
-<span>total methods:&nbsp;<b>120</b></span><br />
+<span>total resources:&nbsp;<b>20</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.integrations</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Application Integration API</td></tr>
-<tr><td><b>Description</b></td><td></td></tr>
-<tr><td><b>Id</b></td><td><code>integrations:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -49,7 +38,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <a href="/providers/google/integrations/cloud_functions/">cloud_functions</a><br />
 <a href="/providers/google/integrations/connections/">connections</a><br />
 <a href="/providers/google/integrations/connections_connection_schema_metadata/">connections_connection_schema_metadata</a><br />
-<a href="/providers/google/integrations/connector_platform_regions/">connector_platform_regions</a><br />
+<a href="/providers/google/integrations/connector_platform_regions/">connector_platform_regions</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/integrations/executions/">executions</a><br />
@@ -60,6 +49,7 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 <a href="/providers/google/integrations/sfdc_instances/">sfdc_instances</a><br />
 <a href="/providers/google/integrations/skip_this_resource/">skip_this_resource</a><br />
 <a href="/providers/google/integrations/suspensions/">suspensions</a><br />
-<a href="/providers/google/integrations/versions/">versions</a><br />
+<a href="/providers/google/integrations/templates/">templates</a><br />
+<a href="/providers/google/integrations/versions/">versions</a>
 </div>
 </div>

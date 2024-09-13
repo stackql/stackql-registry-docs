@@ -1,3 +1,4 @@
+
 ---
 title: activities
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - activities
   - policyanalyzer
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>activity</code> resource or lists <code>activities</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="activities" /> | `array` | The set of activities that match the filter included in the request. |
+| <CopyableCode code="nextPageToken" /> | `string` | If there might be more results than those appearing in this response, then `nextPageToken` is included. To get the next set of results, call this method again using the value of `nextPageToken` as `pageToken`. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="query" /> | `EXEC` | <CopyableCode code="activityTypesId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="query" /> | `SELECT` | <CopyableCode code="activityTypesId, locationsId, projectsId" /> | Queries policy activities on Google Cloud resources. |
+
+## `SELECT` examples
+
+Queries policy activities on Google Cloud resources.
+
+```sql
+SELECT
+activities,
+nextPageToken
+FROM google.policyanalyzer.activities
+WHERE activityTypesId = '{{ activityTypesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

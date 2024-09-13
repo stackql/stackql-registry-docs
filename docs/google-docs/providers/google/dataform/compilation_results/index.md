@@ -1,3 +1,4 @@
+
 ---
 title: compilation_results
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - compilation_results
   - dataform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>compilation_result</code> resource or lists <code>compilation_results</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,17 +35,118 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. The compilation result's name. |
 | <CopyableCode code="codeCompilationConfig" /> | `object` | Configures various aspects of Dataform code compilation. |
 | <CopyableCode code="compilationErrors" /> | `array` | Output only. Errors encountered during project compilation. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The timestamp of when the compilation result was created. |
 | <CopyableCode code="dataEncryptionState" /> | `object` | Describes encryption state of a resource. |
 | <CopyableCode code="dataformCoreVersion" /> | `string` | Output only. The version of `@dataform/core` that was used for compilation. |
 | <CopyableCode code="gitCommitish" /> | `string` | Immutable. Git commit/tag/branch name at which the repository should be compiled. Must exist in the remote repository. Examples: - a commit SHA: `12ade345` - a tag: `tag1` - a branch name: `branch1` |
 | <CopyableCode code="releaseConfig" /> | `string` | Immutable. The name of the release config to compile. Must be in the format `projects/*/locations/*/repositories/*/releaseConfigs/*`. |
 | <CopyableCode code="resolvedGitCommitSha" /> | `string` | Output only. The fully resolved Git commit SHA of the code that was compiled. Not set for compilation results whose source is a workspace. |
 | <CopyableCode code="workspace" /> | `string` | Immutable. The name of the workspace to compile. Must be in the format `projects/*/locations/*/repositories/*/workspaces/*`. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="compilationResultsId, locationsId, projectsId, repositoriesId" /> | Fetches a single CompilationResult. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists CompilationResults in a given Repository. |
+| <CopyableCode code="query" /> | `SELECT` | <CopyableCode code="compilationResultsId, locationsId, projectsId, repositoriesId" /> | Returns CompilationResultActions in a given CompilationResult. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Creates a new CompilationResult in a given project and location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists CompilationResults in a given Repository. |
-| <CopyableCode code="query" /> | `EXEC` | <CopyableCode code="compilationResultsId, locationsId, projectsId, repositoriesId" /> | Returns CompilationResultActions in a given CompilationResult. |
+
+## `SELECT` examples
+
+Lists CompilationResults in a given Repository.
+
+```sql
+SELECT
+name,
+codeCompilationConfig,
+compilationErrors,
+createTime,
+dataEncryptionState,
+dataformCoreVersion,
+gitCommitish,
+releaseConfig,
+resolvedGitCommitSha,
+workspace
+FROM google.dataform.compilation_results
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>compilation_results</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataform.compilation_results (
+locationsId,
+projectsId,
+repositoriesId,
+gitCommitish,
+workspace,
+releaseConfig,
+name,
+codeCompilationConfig,
+resolvedGitCommitSha,
+dataformCoreVersion,
+compilationErrors,
+dataEncryptionState,
+createTime
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ repositoriesId }}',
+'{{ gitCommitish }}',
+'{{ workspace }}',
+'{{ releaseConfig }}',
+'{{ name }}',
+'{{ codeCompilationConfig }}',
+'{{ resolvedGitCommitSha }}',
+'{{ dataformCoreVersion }}',
+'{{ compilationErrors }}',
+'{{ dataEncryptionState }}',
+'{{ createTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: gitCommitish
+        value: '{{ gitCommitish }}'
+      - name: workspace
+        value: '{{ workspace }}'
+      - name: releaseConfig
+        value: '{{ releaseConfig }}'
+      - name: name
+        value: '{{ name }}'
+      - name: codeCompilationConfig
+        value: '{{ codeCompilationConfig }}'
+      - name: resolvedGitCommitSha
+        value: '{{ resolvedGitCommitSha }}'
+      - name: dataformCoreVersion
+        value: '{{ dataformCoreVersion }}'
+      - name: compilationErrors
+        value: '{{ compilationErrors }}'
+      - name: dataEncryptionState
+        value: '{{ dataEncryptionState }}'
+      - name: createTime
+        value: '{{ createTime }}'
+
+```
+</TabItem>
+</Tabs>

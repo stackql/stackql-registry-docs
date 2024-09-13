@@ -1,3 +1,4 @@
+
 ---
 title: firewall_endpoints
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - firewall_endpoints
   - networksecurity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>firewall_endpoint</code> resource or lists <code>firewall_endpoints</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,7 +34,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Immutable. Identifier. name of resource |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the firewall endpoint. Max length 2048 characters. |
-| <CopyableCode code="associatedNetworks" /> | `array` | Output only. List of networks that are associated with this endpoint in the local zone. This is a projection of the FirewallEndpointAssociations pointing at this endpoint. A network will only appear in this list after traffic routing is fully configured. Format: projects/&#123;project&#125;/global/networks/&#123;name&#125;. |
+| <CopyableCode code="associatedNetworks" /> | `array` | Output only. List of networks that are associated with this endpoint in the local zone. This is a projection of the FirewallEndpointAssociations pointing at this endpoint. A network will only appear in this list after traffic routing is fully configured. Format: projects/{project}/global/networks/{name}. |
 | <CopyableCode code="associations" /> | `array` | Output only. List of FirewallEndpointAssociations that are associated to this endpoint. An association will only appear in this list after traffic routing is fully configured. |
 | <CopyableCode code="billingProjectId" /> | `string` | Required. Project to bill on endpoint uptime usage. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Create time stamp |
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="reconciling" /> | `boolean` | Output only. Whether reconciling is in progress, recommended per https://google.aip.dev/128. |
 | <CopyableCode code="state" /> | `string` | Output only. Current state of the endpoint. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Update time stamp |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,4 +51,134 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_firewall_endpoints_create" /> | `INSERT` | <CopyableCode code="locationsId, organizationsId" /> | Creates a new FirewallEndpoint in a given project and location. |
 | <CopyableCode code="organizations_locations_firewall_endpoints_delete" /> | `DELETE` | <CopyableCode code="firewallEndpointsId, locationsId, organizationsId" /> | Deletes a single Endpoint. |
 | <CopyableCode code="organizations_locations_firewall_endpoints_patch" /> | `UPDATE` | <CopyableCode code="firewallEndpointsId, locationsId, organizationsId" /> | Update a single Endpoint. |
-| <CopyableCode code="_organizations_locations_firewall_endpoints_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists FirewallEndpoints in a given project and location. |
+
+## `SELECT` examples
+
+Lists FirewallEndpoints in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+associatedNetworks,
+associations,
+billingProjectId,
+createTime,
+labels,
+reconciling,
+state,
+updateTime
+FROM google.networksecurity.firewall_endpoints
+WHERE locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>firewall_endpoints</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networksecurity.firewall_endpoints (
+locationsId,
+organizationsId,
+name,
+description,
+createTime,
+updateTime,
+labels,
+state,
+reconciling,
+associatedNetworks,
+associations,
+billingProjectId
+)
+SELECT 
+'{{ locationsId }}',
+'{{ organizationsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ state }}',
+true|false,
+'{{ associatedNetworks }}',
+'{{ associations }}',
+'{{ billingProjectId }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: state
+        value: '{{ state }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: associatedNetworks
+        value: '{{ associatedNetworks }}'
+      - name: associations
+        value: '{{ associations }}'
+      - name: billingProjectId
+        value: '{{ billingProjectId }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a firewall_endpoint only if the necessary resources are available.
+
+```sql
+UPDATE google.networksecurity.firewall_endpoints
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+state = '{{ state }}',
+reconciling = true|false,
+associatedNetworks = '{{ associatedNetworks }}',
+associations = '{{ associations }}',
+billingProjectId = '{{ billingProjectId }}'
+WHERE 
+firewallEndpointsId = '{{ firewallEndpointsId }}'
+AND locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified firewall_endpoint resource.
+
+```sql
+DELETE FROM google.networksecurity.firewall_endpoints
+WHERE firewallEndpointsId = '{{ firewallEndpointsId }}'
+AND locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: instances
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instance</code> resource or lists <code>instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -76,18 +78,17 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="statusMessage" /> | `string` | [Output Only] An optional, human-readable explanation of the status. |
 | <CopyableCode code="tags" /> | `object` | A set of instance tags. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] URL of the zone where the instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instance, project, zone" /> | Returns the specified Instance resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves the list of instances contained within the specified zone. |
+| <CopyableCode code="bulk_insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates multiple instances. Count specifies the number of instances to create. For more information, see About bulk creation of VMs. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates an instance resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instance, project, zone" /> | Deletes the specified Instance resource. For more information, see Deleting an instance. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="instance, project, zone" /> | Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See Updating a running instance for a list of updatable instance properties. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="attach_disk" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Attaches an existing Disk resource to an instance. You must first create the disk before you can attach it. It is not possible to create and attach a disk at the same time. For more information, read Adding a persistent disk to your instance. |
-| <CopyableCode code="bulk_insert" /> | `EXEC` | <CopyableCode code="project, zone" /> | Creates multiple instances. Count specifies the number of instances to create. For more information, see About bulk creation of VMs. |
 | <CopyableCode code="detach_disk" /> | `EXEC` | <CopyableCode code="deviceName, instance, project, zone" /> | Detaches a disk from an instance. |
 | <CopyableCode code="perform_maintenance" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Perform a manual maintenance on the instance. |
 | <CopyableCode code="reset" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Performs a reset on the instance. This is a hard reset. The VM does not do a graceful shutdown. For more information, see Resetting an instance. |
@@ -111,3 +112,135 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="start_with_encryption_key" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Starts an instance that was stopped using the instances().stop method. For more information, see Restart an instance. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur VM usage charges while they are stopped. However, resources that the VM is using, such as persistent disks and static IP addresses, will continue to be charged until they are deleted. For more information, see Stopping an instance. |
 | <CopyableCode code="suspend" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | This method suspends a running instance, saving its state to persistent storage, and allows you to resume the instance at a later time. Suspended instances have no compute costs (cores or RAM), and incur only storage charges for the saved VM memory and localSSD data. Any charged resources the virtual machine was using, such as persistent disks and static IP addresses, will continue to be charged while the instance is suspended. For more information, see Suspending and resuming an instance. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See Updating a running instance for a list of updatable instance properties. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+advancedMachineFeatures,
+canIpForward,
+confidentialInstanceConfig,
+cpuPlatform,
+creationTimestamp,
+deletionProtection,
+disks,
+displayDevice,
+fingerprint,
+guestAccelerators,
+hostname,
+instanceEncryptionKey,
+keyRevocationActionType,
+kind,
+labelFingerprint,
+labels,
+lastStartTimestamp,
+lastStopTimestamp,
+lastSuspendedTimestamp,
+machineType,
+metadata,
+minCpuPlatform,
+networkInterfaces,
+networkPerformanceConfig,
+params,
+privateIpv6GoogleAccess,
+reservationAffinity,
+resourcePolicies,
+resourceStatus,
+satisfiesPzi,
+satisfiesPzs,
+scheduling,
+selfLink,
+serviceAccounts,
+shieldedInstanceConfig,
+shieldedInstanceIntegrityPolicy,
+sourceMachineImage,
+sourceMachineImageEncryptionKey,
+startRestricted,
+status,
+statusMessage,
+tags,
+zone
+FROM google.compute.instances
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>instances</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.instances (
+project,
+zone,
+count,
+minCount,
+namePattern,
+perInstanceProperties,
+sourceInstanceTemplate,
+instanceProperties,
+locationPolicy
+)
+SELECT 
+'{{ project }}',
+'{{ zone }}',
+'{{ count }}',
+'{{ minCount }}',
+'{{ namePattern }}',
+'{{ perInstanceProperties }}',
+'{{ sourceInstanceTemplate }}',
+'{{ instanceProperties }}',
+'{{ locationPolicy }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: count
+        value: '{{ count }}'
+      - name: minCount
+        value: '{{ minCount }}'
+      - name: namePattern
+        value: '{{ namePattern }}'
+      - name: perInstanceProperties
+        value: '{{ perInstanceProperties }}'
+      - name: sourceInstanceTemplate
+        value: '{{ sourceInstanceTemplate }}'
+      - name: instanceProperties
+        value: '{{ instanceProperties }}'
+      - name: locationPolicy
+        value: '{{ locationPolicy }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified instance resource.
+
+```sql
+DELETE FROM google.compute.instances
+WHERE instance = '{{ instance }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```

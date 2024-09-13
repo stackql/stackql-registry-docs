@@ -1,3 +1,4 @@
+
 ---
 title: runtime_entity_schemas
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - runtime_entity_schemas
   - integrations
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>runtime_entity_schema</code> resource or lists <code>runtime_entity_schemas</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,8 +35,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="arrayFieldSchema" /> | `string` | The above schema, but for an array of the associated entity. |
 | <CopyableCode code="entity" /> | `string` | Name of the entity. |
 | <CopyableCode code="fieldSchema" /> | `string` | List of fields in the entity. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_connections_runtime_entity_schemas_list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> |
-| <CopyableCode code="_projects_locations_connections_runtime_entity_schemas_list" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_connections_runtime_entity_schemas_list" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists the JSON schemas for the properties of runtime entities, filtered by entity name. |
+
+## `SELECT` examples
+
+Lists the JSON schemas for the properties of runtime entities, filtered by entity name.
+
+```sql
+SELECT
+arrayFieldSchema,
+entity,
+fieldSchema
+FROM google.integrations.runtime_entity_schemas
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

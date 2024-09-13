@@ -1,3 +1,4 @@
+
 ---
 title: environments_debugmask
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - environments_debugmask
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>environments_debugmask</code> resource or lists <code>environments_debugmask</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,8 +41,50 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="responseJSONPaths" /> | `array` | List of JSON paths that specify the JSON elements to be filtered from JSON response message payloads. |
 | <CopyableCode code="responseXPaths" /> | `array` | List of XPaths that specify the XML elements to be filtered from XML response message payloads. |
 | <CopyableCode code="variables" /> | `array` | List of variables that should be masked from the debug output. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_environments_get_debugmask" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Gets the debug mask singleton resource for an environment. |
-| <CopyableCode code="organizations_environments_update_debugmask" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Updates the debug mask singleton resource for an environment. |
+| <CopyableCode code="organizations_environments_update_debugmask" /> | `UPDATE` | <CopyableCode code="environmentsId, organizationsId" /> | Updates the debug mask singleton resource for an environment. |
+
+## `SELECT` examples
+
+Gets the debug mask singleton resource for an environment.
+
+```sql
+SELECT
+name,
+faultJSONPaths,
+faultXPaths,
+namespaces,
+requestJSONPaths,
+requestXPaths,
+responseJSONPaths,
+responseXPaths,
+variables
+FROM google.apigee.environments_debugmask
+WHERE environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a environments_debugmask only if the necessary resources are available.
+
+```sql
+UPDATE google.apigee.environments_debugmask
+SET 
+faultJSONPaths = '{{ faultJSONPaths }}',
+faultXPaths = '{{ faultXPaths }}',
+requestJSONPaths = '{{ requestJSONPaths }}',
+variables = '{{ variables }}',
+name = '{{ name }}',
+responseJSONPaths = '{{ responseJSONPaths }}',
+requestXPaths = '{{ requestXPaths }}',
+namespaces = '{{ namespaces }}',
+responseXPaths = '{{ responseXPaths }}'
+WHERE 
+environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: networks_peering_routes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - networks_peering_routes
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>networks_peering_route</code> resource or lists <code>networks_peering_routes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,7 +37,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nextHopRegion" /> | `string` | The region of peering route next hop, only applies to dynamic routes. |
 | <CopyableCode code="priority" /> | `integer` | The priority of the peering route. |
 | <CopyableCode code="type" /> | `string` | The type of the peering route. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_peering_routes" /> | `SELECT` | <CopyableCode code="network, project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_peering_routes" /> | `SELECT` | <CopyableCode code="network, project" /> | Lists the peering routes exchanged over peering connection. |
+
+## `SELECT` examples
+
+Lists the peering routes exchanged over peering connection.
+
+```sql
+SELECT
+destRange,
+imported,
+nextHopRegion,
+priority,
+type
+FROM google.compute.networks_peering_routes
+WHERE network = '{{ network }}'
+AND project = '{{ project }}'; 
+```

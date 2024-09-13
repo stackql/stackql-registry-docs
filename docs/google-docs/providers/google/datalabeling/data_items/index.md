@@ -1,3 +1,4 @@
+
 ---
 title: data_items
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - data_items
   - datalabeling
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>data_item</code> resource or lists <code>data_items</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,10 +32,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. Name of the data item, in format of: projects/&#123;project_id&#125;/datasets/&#123;dataset_id&#125;/dataItems/&#123;data_item_id&#125; |
+| <CopyableCode code="name" /> | `string` | Output only. Name of the data item, in format of: projects/{project_id}/datasets/{dataset_id}/dataItems/{data_item_id} |
 | <CopyableCode code="imagePayload" /> | `object` | Container of information about an image. |
 | <CopyableCode code="textPayload" /> | `object` | Container of information about a piece of text. |
 | <CopyableCode code="videoPayload" /> | `object` | Container of information of a video. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -41,5 +44,18 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_datasets_annotated_datasets_data_items_list" /> | `SELECT` | <CopyableCode code="annotatedDatasetsId, datasetsId, projectsId" /> | Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. |
 | <CopyableCode code="projects_datasets_data_items_get" /> | `SELECT` | <CopyableCode code="dataItemsId, datasetsId, projectsId" /> | Gets a data item in a dataset by resource name. This API can be called after data are imported into dataset. |
 | <CopyableCode code="projects_datasets_data_items_list" /> | `SELECT` | <CopyableCode code="datasetsId, projectsId" /> | Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. |
-| <CopyableCode code="_projects_datasets_annotated_datasets_data_items_list" /> | `EXEC` | <CopyableCode code="annotatedDatasetsId, datasetsId, projectsId" /> | Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. |
-| <CopyableCode code="_projects_datasets_data_items_list" /> | `EXEC` | <CopyableCode code="datasetsId, projectsId" /> | Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. |
+
+## `SELECT` examples
+
+Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported.
+
+```sql
+SELECT
+name,
+imagePayload,
+textPayload,
+videoPayload
+FROM google.datalabeling.data_items
+WHERE datasetsId = '{{ datasetsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: routers_nat_ip_info
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - routers_nat_ip_info
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>routers_nat_ip_info</code> resource or lists <code>routers_nat_ip_info</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="result" /> | `array` | [Output Only] A list of NAT IP information. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_nat_ip_info" /> | `SELECT` | <CopyableCode code="project, region, router" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_nat_ip_info" /> | `SELECT` | <CopyableCode code="project, region, router" /> | Retrieves runtime NAT IP information. |
+
+## `SELECT` examples
+
+Retrieves runtime NAT IP information.
+
+```sql
+SELECT
+result
+FROM google.compute.routers_nat_ip_info
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND router = '{{ router }}'; 
+```

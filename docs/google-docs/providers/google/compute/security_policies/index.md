@@ -1,3 +1,4 @@
+
 ---
 title: security_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - security_policies
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>security_policy</code> resource or lists <code>security_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -47,6 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="type" /> | `string` | The type indicates the intended use of the security policy. - CLOUD_ARMOR: Cloud Armor backend security policies can be configured to filter incoming HTTP requests targeting backend services. They filter requests before they hit the origin servers. - CLOUD_ARMOR_EDGE: Cloud Armor edge security policies can be configured to filter incoming HTTP requests targeting backend services (including Cloud CDN-enabled) as well as backend buckets (Cloud Storage). They filter requests before the request is served from Google's cache. - CLOUD_ARMOR_INTERNAL_SERVICE: Cloud Armor internal service policies can be configured to filter HTTP requests targeting services managed by Traffic Director in a service mesh. They filter requests before the request is served from the application. - CLOUD_ARMOR_NETWORK: Cloud Armor network policies can be configured to filter packets targeting network load balancing resources such as backend services, target pools, target instances, and instances with external IPs. They filter requests before the request is served from the application. This field can be set only at resource creation time. |
 | <CopyableCode code="userDefinedFields" /> | `array` | Definitions of user-defined fields for CLOUD_ARMOR_NETWORK policies. A user-defined field consists of up to 4 bytes extracted from a fixed offset in the packet, relative to the IPv4, IPv6, TCP, or UDP header, with an optional mask to select certain bits. Rules may then specify matching values for these fields. Example: userDefinedFields: - name: "ipv4_fragment_offset" base: IPV4 offset: 6 size: 2 mask: "0x1fff" |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -55,5 +58,173 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new policy in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, securityPolicy" /> | Deletes the specified policy. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, securityPolicy" /> | Patches the specified policy with the data included in the request. To clear fields in the policy, leave the fields empty and specify them in the updateMask. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead. |
-| <CopyableCode code="patch_rule" /> | `EXEC` | <CopyableCode code="project, securityPolicy" /> | Patches a rule at the specified priority. To clear fields in the rule, leave the fields empty and specify them in the updateMask. |
+| <CopyableCode code="patch_rule" /> | `UPDATE` | <CopyableCode code="project, securityPolicy" /> | Patches a rule at the specified priority. To clear fields in the rule, leave the fields empty and specify them in the updateMask. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, resource" /> | Sets the labels on a security policy. To learn more about labels, read the Labeling Resources documentation. |
+
+## `SELECT` examples
+
+List all the policies that have been configured for the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+adaptiveProtectionConfig,
+advancedOptionsConfig,
+creationTimestamp,
+ddosProtectionConfig,
+fingerprint,
+kind,
+labelFingerprint,
+labels,
+recaptchaOptionsConfig,
+region,
+rules,
+selfLink,
+type,
+userDefinedFields
+FROM google.compute.security_policies
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>security_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.security_policies (
+project,
+userDefinedFields,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+rules,
+adaptiveProtectionConfig,
+ddosProtectionConfig,
+advancedOptionsConfig,
+recaptchaOptionsConfig,
+fingerprint,
+selfLink,
+type,
+labels,
+labelFingerprint,
+region
+)
+SELECT 
+'{{ project }}',
+'{{ userDefinedFields }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ rules }}',
+'{{ adaptiveProtectionConfig }}',
+'{{ ddosProtectionConfig }}',
+'{{ advancedOptionsConfig }}',
+'{{ recaptchaOptionsConfig }}',
+'{{ fingerprint }}',
+'{{ selfLink }}',
+'{{ type }}',
+'{{ labels }}',
+'{{ labelFingerprint }}',
+'{{ region }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: userDefinedFields
+        value: '{{ userDefinedFields }}'
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: rules
+        value: '{{ rules }}'
+      - name: adaptiveProtectionConfig
+        value: '{{ adaptiveProtectionConfig }}'
+      - name: ddosProtectionConfig
+        value: '{{ ddosProtectionConfig }}'
+      - name: advancedOptionsConfig
+        value: '{{ advancedOptionsConfig }}'
+      - name: recaptchaOptionsConfig
+        value: '{{ recaptchaOptionsConfig }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: type
+        value: '{{ type }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+      - name: region
+        value: '{{ region }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a security_policy only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.security_policies
+SET 
+userDefinedFields = '{{ userDefinedFields }}',
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+rules = '{{ rules }}',
+adaptiveProtectionConfig = '{{ adaptiveProtectionConfig }}',
+ddosProtectionConfig = '{{ ddosProtectionConfig }}',
+advancedOptionsConfig = '{{ advancedOptionsConfig }}',
+recaptchaOptionsConfig = '{{ recaptchaOptionsConfig }}',
+fingerprint = '{{ fingerprint }}',
+selfLink = '{{ selfLink }}',
+type = '{{ type }}',
+labels = '{{ labels }}',
+labelFingerprint = '{{ labelFingerprint }}',
+region = '{{ region }}'
+WHERE 
+project = '{{ project }}'
+AND securityPolicy = '{{ securityPolicy }}';
+```
+
+## `DELETE` example
+
+Deletes the specified security_policy resource.
+
+```sql
+DELETE FROM google.compute.security_policies
+WHERE project = '{{ project }}'
+AND securityPolicy = '{{ securityPolicy }}';
+```

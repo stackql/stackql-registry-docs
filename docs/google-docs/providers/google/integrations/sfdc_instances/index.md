@@ -1,3 +1,4 @@
+
 ---
 title: sfdc_instances
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - sfdc_instances
   - integrations
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>sfdc_instance</code> resource or lists <code>sfdc_instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Resource name of the SFDC instance projects/&#123;project&#125;/locations/&#123;location&#125;/sfdcInstances/&#123;sfdcInstance&#125;. |
+| <CopyableCode code="name" /> | `string` | Resource name of the SFDC instance projects/{project}/locations/{location}/sfdcInstances/{sfdcInstance}. |
 | <CopyableCode code="description" /> | `string` | A description of the sfdc instance. |
 | <CopyableCode code="authConfigId" /> | `array` | A list of AuthConfigs that can be tried to open the channel to SFDC |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time when the instance is created |
@@ -39,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="serviceAuthority" /> | `string` | URL used for API calls after authentication (the login authority is configured within the referenced AuthConfig). |
 | <CopyableCode code="sfdcOrgId" /> | `string` | The SFDC Org Id. This is defined in salesforce. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the instance was last updated |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,5 +55,128 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_sfdc_instances_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, sfdcInstancesId" /> | Deletes an sfdc instance. |
 | <CopyableCode code="projects_locations_products_sfdc_instances_patch" /> | `UPDATE` | <CopyableCode code="locationsId, productsId, projectsId, sfdcInstancesId" /> | Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance. |
 | <CopyableCode code="projects_locations_sfdc_instances_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, sfdcInstancesId" /> | Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance. |
-| <CopyableCode code="_projects_locations_products_sfdc_instances_list" /> | `EXEC` | <CopyableCode code="locationsId, productsId, projectsId" /> | Lists all sfdc instances that match the filter. Restrict to sfdc instances belonging to the current client only. |
-| <CopyableCode code="_projects_locations_sfdc_instances_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all sfdc instances that match the filter. Restrict to sfdc instances belonging to the current client only. |
+
+## `SELECT` examples
+
+Lists all sfdc instances that match the filter. Restrict to sfdc instances belonging to the current client only.
+
+```sql
+SELECT
+name,
+description,
+authConfigId,
+createTime,
+deleteTime,
+displayName,
+serviceAuthority,
+sfdcOrgId,
+updateTime
+FROM google.integrations.sfdc_instances
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>sfdc_instances</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.integrations.sfdc_instances (
+locationsId,
+projectsId,
+authConfigId,
+description,
+serviceAuthority,
+displayName,
+sfdcOrgId,
+deleteTime,
+name,
+createTime,
+updateTime
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ authConfigId }}',
+'{{ description }}',
+'{{ serviceAuthority }}',
+'{{ displayName }}',
+'{{ sfdcOrgId }}',
+'{{ deleteTime }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: authConfigId
+        value: '{{ authConfigId }}'
+      - name: description
+        value: '{{ description }}'
+      - name: serviceAuthority
+        value: '{{ serviceAuthority }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: sfdcOrgId
+        value: '{{ sfdcOrgId }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a sfdc_instance only if the necessary resources are available.
+
+```sql
+UPDATE google.integrations.sfdc_instances
+SET 
+authConfigId = '{{ authConfigId }}',
+description = '{{ description }}',
+serviceAuthority = '{{ serviceAuthority }}',
+displayName = '{{ displayName }}',
+sfdcOrgId = '{{ sfdcOrgId }}',
+deleteTime = '{{ deleteTime }}',
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sfdcInstancesId = '{{ sfdcInstancesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified sfdc_instance resource.
+
+```sql
+DELETE FROM google.integrations.sfdc_instances
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sfdcInstancesId = '{{ sfdcInstancesId }}';
+```

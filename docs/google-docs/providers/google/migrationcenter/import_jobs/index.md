@@ -1,3 +1,4 @@
+
 ---
 title: import_jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - import_jobs
   - migrationcenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>import_job</code> resource or lists <code>import_jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The state of the import job. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the import job was last updated. |
 | <CopyableCode code="validationReport" /> | `object` | A resource that aggregates errors across import job files. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,6 +51,136 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an import job. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | Deletes an import job. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | Updates an import job. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all import jobs. |
 | <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | Runs an import job. |
 | <CopyableCode code="validate" /> | `EXEC` | <CopyableCode code="importJobsId, locationsId, projectsId" /> | Validates an import job. |
+
+## `SELECT` examples
+
+Lists all import jobs.
+
+```sql
+SELECT
+name,
+assetSource,
+completeTime,
+createTime,
+displayName,
+executionReport,
+labels,
+state,
+updateTime,
+validationReport
+FROM google.migrationcenter.import_jobs
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>import_jobs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.migrationcenter.import_jobs (
+locationsId,
+projectsId,
+name,
+displayName,
+createTime,
+updateTime,
+completeTime,
+state,
+labels,
+assetSource,
+validationReport,
+executionReport
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ completeTime }}',
+'{{ state }}',
+'{{ labels }}',
+'{{ assetSource }}',
+'{{ validationReport }}',
+'{{ executionReport }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: completeTime
+        value: '{{ completeTime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: assetSource
+        value: '{{ assetSource }}'
+      - name: validationReport
+        value: '{{ validationReport }}'
+      - name: executionReport
+        value: '{{ executionReport }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a import_job only if the necessary resources are available.
+
+```sql
+UPDATE google.migrationcenter.import_jobs
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+completeTime = '{{ completeTime }}',
+state = '{{ state }}',
+labels = '{{ labels }}',
+assetSource = '{{ assetSource }}',
+validationReport = '{{ validationReport }}',
+executionReport = '{{ executionReport }}'
+WHERE 
+importJobsId = '{{ importJobsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified import_job resource.
+
+```sql
+DELETE FROM google.migrationcenter.import_jobs
+WHERE importJobsId = '{{ importJobsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

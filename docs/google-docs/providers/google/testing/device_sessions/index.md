@@ -1,3 +1,4 @@
+
 ---
 title: device_sessions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - device_sessions
   - testing
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>device_session</code> resource or lists <code>device_sessions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Optional. Name of the DeviceSession, e.g. "projects/&#123;project_id&#125;/deviceSessions/&#123;session_id&#125;" |
+| <CopyableCode code="name" /> | `string` | Optional. Name of the DeviceSession, e.g. "projects/{project_id}/deviceSessions/{session_id}" |
 | <CopyableCode code="activeStartTime" /> | `string` | Output only. The timestamp that the session first became ACTIVE. |
 | <CopyableCode code="androidDevice" /> | `object` | A single Android device. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time that the Session was created. |
@@ -40,12 +42,128 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. Current state of the DeviceSession. |
 | <CopyableCode code="stateHistories" /> | `array` | Output only. The historical state transitions of the session_state message including the current session state. |
 | <CopyableCode code="ttl" /> | `string` | Optional. The amount of time that a device will be initially allocated for. This can eventually be extended with the UpdateDeviceSession RPC. Default: 15 minutes. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deviceSessionsId, projectsId" /> | GET /v1/projects/&#123;project_id&#125;/deviceSessions/&#123;device_session_id&#125; Return a DeviceSession, which documents the allocation status and whether the device is allocated. Clients making requests from this API must poll GetDeviceSession. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | GET /v1/projects/&#123;project_id&#125;/deviceSessions Lists device Sessions owned by the project user. |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | POST /v1/projects/&#123;project_id&#125;/deviceSessions |
-| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="deviceSessionsId, projectsId" /> | PATCH /v1/projects/&#123;projectId&#125;/deviceSessions/deviceSessionId&#125;:updateDeviceSession Updates the current device session to the fields described by the update_mask. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | GET /v1/projects/&#123;project_id&#125;/deviceSessions Lists device Sessions owned by the project user. |
-| <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="deviceSessionsId, projectsId" /> | POST /v1/projects/&#123;project_id&#125;/deviceSessions/&#123;device_session_id&#125;:cancel Changes the DeviceSession to state FINISHED and terminates all connections. Canceled sessions are not deleted and can be retrieved or listed by the user until they expire based on the 28 day deletion policy. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deviceSessionsId, projectsId" /> | GET /v1/projects/{project_id}/deviceSessions/{device_session_id} Return a DeviceSession, which documents the allocation status and whether the device is allocated. Clients making requests from this API must poll GetDeviceSession. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | GET /v1/projects/{project_id}/deviceSessions Lists device Sessions owned by the project user. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | POST /v1/projects/{project_id}/deviceSessions |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="deviceSessionsId, projectsId" /> | PATCH /v1/projects/{projectId}/deviceSessions/deviceSessionId}:updateDeviceSession Updates the current device session to the fields described by the update_mask. |
+| <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="deviceSessionsId, projectsId" /> | POST /v1/projects/{project_id}/deviceSessions/{device_session_id}:cancel Changes the DeviceSession to state FINISHED and terminates all connections. Canceled sessions are not deleted and can be retrieved or listed by the user until they expire based on the 28 day deletion policy. |
+
+## `SELECT` examples
+
+GET /v1/projects/{project_id}/deviceSessions Lists device Sessions owned by the project user.
+
+```sql
+SELECT
+name,
+activeStartTime,
+androidDevice,
+createTime,
+displayName,
+expireTime,
+inactivityTimeout,
+state,
+stateHistories,
+ttl
+FROM google.testing.device_sessions
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>device_sessions</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.testing.device_sessions (
+projectsId,
+name,
+displayName,
+state,
+stateHistories,
+ttl,
+expireTime,
+inactivityTimeout,
+createTime,
+activeStartTime,
+androidDevice
+)
+SELECT 
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ state }}',
+'{{ stateHistories }}',
+'{{ ttl }}',
+'{{ expireTime }}',
+'{{ inactivityTimeout }}',
+'{{ createTime }}',
+'{{ activeStartTime }}',
+'{{ androidDevice }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: state
+        value: '{{ state }}'
+      - name: stateHistories
+        value: '{{ stateHistories }}'
+      - name: ttl
+        value: '{{ ttl }}'
+      - name: expireTime
+        value: '{{ expireTime }}'
+      - name: inactivityTimeout
+        value: '{{ inactivityTimeout }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: activeStartTime
+        value: '{{ activeStartTime }}'
+      - name: androidDevice
+        value: '{{ androidDevice }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a device_session only if the necessary resources are available.
+
+```sql
+UPDATE google.testing.device_sessions
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+state = '{{ state }}',
+stateHistories = '{{ stateHistories }}',
+ttl = '{{ ttl }}',
+expireTime = '{{ expireTime }}',
+inactivityTimeout = '{{ inactivityTimeout }}',
+createTime = '{{ createTime }}',
+activeStartTime = '{{ activeStartTime }}',
+androidDevice = '{{ androidDevice }}'
+WHERE 
+deviceSessionsId = '{{ deviceSessionsId }}'
+AND projectsId = '{{ projectsId }}';
+```

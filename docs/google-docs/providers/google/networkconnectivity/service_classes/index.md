@@ -1,3 +1,4 @@
+
 ---
 title: service_classes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - service_classes
   - networkconnectivity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>service_class</code> resource or lists <code>service_classes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,13 +32,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The name of a ServiceClass resource. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/serviceClasses/&#123;service_class&#125; See: https://google.aip.dev/122#fields-representing-resource-names |
+| <CopyableCode code="name" /> | `string` | Immutable. The name of a ServiceClass resource. Format: projects/{project}/locations/{location}/serviceClasses/{service_class} See: https://google.aip.dev/122#fields-representing-resource-names |
 | <CopyableCode code="description" /> | `string` | A description of this resource. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time when the ServiceClass was created. |
 | <CopyableCode code="etag" /> | `string` | Optional. The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | <CopyableCode code="labels" /> | `object` | User-defined labels. |
 | <CopyableCode code="serviceClass" /> | `string` | Output only. The generated service class name. Use this name to refer to the Service class in Service Connection Maps and Service Connection Policies. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the ServiceClass was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,4 +47,52 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists ServiceClasses in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, serviceClassesId" /> | Deletes a single ServiceClass. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, serviceClassesId" /> | Updates the parameters of a single ServiceClass. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists ServiceClasses in a given project and location. |
+
+## `SELECT` examples
+
+Lists ServiceClasses in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+etag,
+labels,
+serviceClass,
+updateTime
+FROM google.networkconnectivity.service_classes
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a service_class only if the necessary resources are available.
+
+```sql
+UPDATE google.networkconnectivity.service_classes
+SET 
+name = '{{ name }}',
+serviceClass = '{{ serviceClass }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+description = '{{ description }}',
+etag = '{{ etag }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND serviceClassesId = '{{ serviceClassesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified service_class resource.
+
+```sql
+DELETE FROM google.networkconnectivity.service_classes
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND serviceClassesId = '{{ serviceClassesId }}';
+```

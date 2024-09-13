@@ -1,3 +1,4 @@
+
 ---
 title: appgroups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - appgroups
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>appgroup</code> resource or lists <code>appgroups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="lastModifiedAt" /> | `string` | Output only. Modified time as milliseconds since epoch. |
 | <CopyableCode code="organization" /> | `string` | Immutable. the org the app group is created |
 | <CopyableCode code="status" /> | `string` | Valid values are `active` or `inactive`. Note that the status of the AppGroup should be updated via UpdateAppGroupRequest by setting the action as `active` or `inactive`. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,5 +50,108 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_appgroups_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all AppGroups in an organization. A maximum of 1000 AppGroups are returned in the response if PageSize is not specified, or if the PageSize is greater than 1000. |
 | <CopyableCode code="organizations_appgroups_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates an AppGroup. Once created, user can register apps under the AppGroup to obtain secret key and password. At creation time, the AppGroup's state is set as `active`. |
 | <CopyableCode code="organizations_appgroups_delete" /> | `DELETE` | <CopyableCode code="appgroupsId, organizationsId" /> | Deletes an AppGroup. All app and API keys associations with the AppGroup are also removed. **Warning**: This API will permanently delete the AppGroup and related artifacts. **Note**: The delete operation is asynchronous. The AppGroup app is deleted immediately, but its associated resources, such as apps and API keys, may take anywhere from a few seconds to a few minutes to be deleted. |
-| <CopyableCode code="organizations_appgroups_update" /> | `UPDATE` | <CopyableCode code="appgroupsId, organizationsId" /> | Updates an AppGroup. This API replaces the existing AppGroup details with those specified in the request. Include or exclude any existing details that you want to retain or delete, respectively. Note that the state of the AppGroup should be updated using `action`, and not via AppGroup. |
-| <CopyableCode code="_organizations_appgroups_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all AppGroups in an organization. A maximum of 1000 AppGroups are returned in the response if PageSize is not specified, or if the PageSize is greater than 1000. |
+| <CopyableCode code="organizations_appgroups_update" /> | `EXEC` | <CopyableCode code="appgroupsId, organizationsId" /> | Updates an AppGroup. This API replaces the existing AppGroup details with those specified in the request. Include or exclude any existing details that you want to retain or delete, respectively. Note that the state of the AppGroup should be updated using `action`, and not via AppGroup. |
+
+## `SELECT` examples
+
+Lists all AppGroups in an organization. A maximum of 1000 AppGroups are returned in the response if PageSize is not specified, or if the PageSize is greater than 1000.
+
+```sql
+SELECT
+name,
+appGroupId,
+attributes,
+channelId,
+channelUri,
+createdAt,
+displayName,
+lastModifiedAt,
+organization,
+status
+FROM google.apigee.appgroups
+WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>appgroups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.appgroups (
+organizationsId,
+appGroupId,
+organization,
+channelId,
+status,
+attributes,
+name,
+channelUri,
+lastModifiedAt,
+displayName,
+createdAt
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ appGroupId }}',
+'{{ organization }}',
+'{{ channelId }}',
+'{{ status }}',
+'{{ attributes }}',
+'{{ name }}',
+'{{ channelUri }}',
+'{{ lastModifiedAt }}',
+'{{ displayName }}',
+'{{ createdAt }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: appGroupId
+        value: '{{ appGroupId }}'
+      - name: organization
+        value: '{{ organization }}'
+      - name: channelId
+        value: '{{ channelId }}'
+      - name: status
+        value: '{{ status }}'
+      - name: attributes
+        value: '{{ attributes }}'
+      - name: name
+        value: '{{ name }}'
+      - name: channelUri
+        value: '{{ channelUri }}'
+      - name: lastModifiedAt
+        value: '{{ lastModifiedAt }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: createdAt
+        value: '{{ createdAt }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified appgroup resource.
+
+```sql
+DELETE FROM google.apigee.appgroups
+WHERE appgroupsId = '{{ appgroupsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

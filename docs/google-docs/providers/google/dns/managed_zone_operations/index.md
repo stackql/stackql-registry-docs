@@ -1,3 +1,4 @@
+
 ---
 title: managed_zone_operations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - managed_zone_operations
   - dns
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>managed_zone_operation</code> resource or lists <code>managed_zone_operations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,9 +40,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="type" /> | `string` | Type of the operation. Operations include insert, update, and delete (output only). |
 | <CopyableCode code="user" /> | `string` | User who requested the operation, for example: user@example.com. cloud-dns-system for operations automatically done by the system. (output only) |
 | <CopyableCode code="zoneContext" /> | `object` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="managedZone, operation, project" /> | Fetches the representation of an existing Operation. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="managedZone, project" /> | Enumerates Operations for the given ManagedZone. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="managedZone, project" /> | Enumerates Operations for the given ManagedZone. |
+
+## `SELECT` examples
+
+Enumerates Operations for the given ManagedZone.
+
+```sql
+SELECT
+id,
+dnsKeyContext,
+kind,
+startTime,
+status,
+type,
+user,
+zoneContext
+FROM google.dns.managed_zone_operations
+WHERE managedZone = '{{ managedZone }}'
+AND project = '{{ project }}'; 
+```

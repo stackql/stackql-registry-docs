@@ -1,3 +1,4 @@
+
 ---
 title: instances_display_device
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances_display_device
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instances_display_device</code> resource or lists <code>instances_display_device</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="update_display_device" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="update_display_device" /> | `UPDATE` | <CopyableCode code="instance, project, zone" /> | Updates the Display config for a VM instance. You can only use this method on a stopped VM instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+
+## `UPDATE` example
+
+Updates a instances_display_device only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.instances_display_device
+SET 
+enableDisplay = true|false
+WHERE 
+instance = '{{ instance }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```

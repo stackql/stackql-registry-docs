@@ -1,3 +1,4 @@
+
 ---
 title: conversations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - conversations
   - discoveryengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>conversation</code> resource or lists <code>conversations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,12 +32,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. Fully qualified name `projects/&#123;project&#125;/locations/global/collections/&#123;collection&#125;/dataStore/*/conversations/*` or `projects/&#123;project&#125;/locations/global/collections/&#123;collection&#125;/engines/*/conversations/*`. |
+| <CopyableCode code="name" /> | `string` | Immutable. Fully qualified name `projects/{project}/locations/global/collections/{collection}/dataStore/*/conversations/*` or `projects/{project}/locations/global/collections/{collection}/engines/*/conversations/*`. |
 | <CopyableCode code="endTime" /> | `string` | Output only. The time the conversation finished. |
 | <CopyableCode code="messages" /> | `array` | Conversation messages. |
 | <CopyableCode code="startTime" /> | `string` | Output only. The time the conversation started. |
 | <CopyableCode code="state" /> | `string` | The state of the Conversation. |
 | <CopyableCode code="userPseudoId" /> | `string` | A unique identifier for tracking users. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,9 +57,118 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_collections_data_stores_conversations_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, conversationsId, dataStoresId, locationsId, projectsId" /> | Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="projects_locations_collections_engines_conversations_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, conversationsId, enginesId, locationsId, projectsId" /> | Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="projects_locations_data_stores_conversations_patch" /> | `UPDATE` | <CopyableCode code="conversationsId, dataStoresId, locationsId, projectsId" /> | Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. |
-| <CopyableCode code="_projects_locations_collections_data_stores_conversations_list" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Lists all Conversations by their parent DataStore. |
-| <CopyableCode code="_projects_locations_collections_engines_conversations_list" /> | `EXEC` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId" /> | Lists all Conversations by their parent DataStore. |
-| <CopyableCode code="_projects_locations_data_stores_conversations_list" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Lists all Conversations by their parent DataStore. |
 | <CopyableCode code="projects_locations_collections_data_stores_conversations_converse" /> | `EXEC` | <CopyableCode code="collectionsId, conversationsId, dataStoresId, locationsId, projectsId" /> | Converses a conversation. |
 | <CopyableCode code="projects_locations_collections_engines_conversations_converse" /> | `EXEC` | <CopyableCode code="collectionsId, conversationsId, enginesId, locationsId, projectsId" /> | Converses a conversation. |
 | <CopyableCode code="projects_locations_data_stores_conversations_converse" /> | `EXEC` | <CopyableCode code="conversationsId, dataStoresId, locationsId, projectsId" /> | Converses a conversation. |
+
+## `SELECT` examples
+
+Lists all Conversations by their parent DataStore.
+
+```sql
+SELECT
+name,
+endTime,
+messages,
+startTime,
+state,
+userPseudoId
+FROM google.discoveryengine.conversations
+WHERE dataStoresId = '{{ dataStoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>conversations</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.discoveryengine.conversations (
+dataStoresId,
+locationsId,
+projectsId,
+name,
+state,
+userPseudoId,
+messages,
+startTime,
+endTime
+)
+SELECT 
+'{{ dataStoresId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ state }}',
+'{{ userPseudoId }}',
+'{{ messages }}',
+'{{ startTime }}',
+'{{ endTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: state
+        value: '{{ state }}'
+      - name: userPseudoId
+        value: '{{ userPseudoId }}'
+      - name: messages
+        value: '{{ messages }}'
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: endTime
+        value: '{{ endTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a conversation only if the necessary resources are available.
+
+```sql
+UPDATE google.discoveryengine.conversations
+SET 
+name = '{{ name }}',
+state = '{{ state }}',
+userPseudoId = '{{ userPseudoId }}',
+messages = '{{ messages }}',
+startTime = '{{ startTime }}',
+endTime = '{{ endTime }}'
+WHERE 
+conversationsId = '{{ conversationsId }}'
+AND dataStoresId = '{{ dataStoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified conversation resource.
+
+```sql
+DELETE FROM google.discoveryengine.conversations
+WHERE conversationsId = '{{ conversationsId }}'
+AND dataStoresId = '{{ dataStoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

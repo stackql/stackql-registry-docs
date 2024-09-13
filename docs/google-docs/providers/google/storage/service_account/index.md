@@ -1,3 +1,4 @@
+
 ---
 title: service_account
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - service_account
   - storage
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>service_account</code> resource or lists <code>service_account</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,7 +34,20 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="email_address" /> | `string` | The ID of the notification. |
 | <CopyableCode code="kind" /> | `string` | The kind of item this is. For notifications, this is always storage#notification. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="projectId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="projectId" /> | Get the email address of this project's Google Cloud Storage service account. |
+
+## `SELECT` examples
+
+Get the email address of this project's Google Cloud Storage service account.
+
+```sql
+SELECT
+email_address,
+kind
+FROM google.storage.service_account
+WHERE projectId = '{{ projectId }}'; 
+```

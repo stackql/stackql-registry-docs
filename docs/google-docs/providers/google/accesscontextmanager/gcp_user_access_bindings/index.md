@@ -1,3 +1,4 @@
+
 ---
 title: gcp_user_access_bindings
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - gcp_user_access_bindings
   - accesscontextmanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>gcp_user_access_binding</code> resource or lists <code>gcp_user_access_bindings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,7 +36,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="accessLevels" /> | `array` | Optional. Access level that a user must have to be granted access. Only one access level is supported, not multiple. This repeated field must have exactly one element. Example: "accessPolicies/9522/accessLevels/device_trusted" |
 | <CopyableCode code="dryRunAccessLevels" /> | `array` | Optional. Dry run access level that will be evaluated but will not be enforced. The access denial based on dry run policy will be logged. Only one access level is supported, not multiple. This list must have exactly one element. Example: "accessPolicies/9522/accessLevels/device_trusted" |
 | <CopyableCode code="groupKey" /> | `string` | Required. Immutable. Google Group id whose members are subject to this binding's restrictions. See "id" in the [G Suite Directory API's Groups resource] (https://developers.google.com/admin-sdk/directory/v1/reference/groups#resource). If a group's email address/alias is changed, this resource will continue to point at the changed group. This field does not accept group email addresses or aliases. Example: "01d520gv4vjcrht" |
+| <CopyableCode code="reauthSettings" /> | `object` | Stores settings related to Google Cloud Session Length including session duration, the type of challenge (i.e. method) they should face when their session expires, and other related settings. |
 | <CopyableCode code="restrictedClientApplications" /> | `array` | Optional. A list of applications that are subject to this binding's restrictions. If the list is empty, the binding restrictions will universally apply to all applications. |
+| <CopyableCode code="scopedAccessSettings" /> | `array` | Optional. A list of scoped access settings that set this binding's restrictions on a subset of applications. This field cannot be set if restricted_client_applications is set. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,4 +48,111 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a GcpUserAccessBinding. If the client specifies a name, the server ignores it. Fails if a resource already exists with the same group_key. Completion of this long-running operation does not necessarily signify that the new binding is deployed onto all affected users, which may take more time. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="gcpUserAccessBindingsId, organizationsId" /> | Deletes a GcpUserAccessBinding. Completion of this long-running operation does not necessarily signify that the binding deletion is deployed onto all affected users, which may take more time. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="gcpUserAccessBindingsId, organizationsId" /> | Updates a GcpUserAccessBinding. Completion of this long-running operation does not necessarily signify that the changed binding is deployed onto all affected users, which may take more time. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all GcpUserAccessBindings for a Google Cloud organization. |
+
+## `SELECT` examples
+
+Lists all GcpUserAccessBindings for a Google Cloud organization.
+
+```sql
+SELECT
+name,
+accessLevels,
+dryRunAccessLevels,
+groupKey,
+reauthSettings,
+restrictedClientApplications,
+scopedAccessSettings
+FROM google.accesscontextmanager.gcp_user_access_bindings
+WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>gcp_user_access_bindings</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.accesscontextmanager.gcp_user_access_bindings (
+organizationsId,
+name,
+groupKey,
+accessLevels,
+dryRunAccessLevels,
+reauthSettings,
+restrictedClientApplications,
+scopedAccessSettings
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ name }}',
+'{{ groupKey }}',
+'{{ accessLevels }}',
+'{{ dryRunAccessLevels }}',
+'{{ reauthSettings }}',
+'{{ restrictedClientApplications }}',
+'{{ scopedAccessSettings }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: groupKey
+        value: '{{ groupKey }}'
+      - name: accessLevels
+        value: '{{ accessLevels }}'
+      - name: dryRunAccessLevels
+        value: '{{ dryRunAccessLevels }}'
+      - name: reauthSettings
+        value: '{{ reauthSettings }}'
+      - name: restrictedClientApplications
+        value: '{{ restrictedClientApplications }}'
+      - name: scopedAccessSettings
+        value: '{{ scopedAccessSettings }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a gcp_user_access_binding only if the necessary resources are available.
+
+```sql
+UPDATE google.accesscontextmanager.gcp_user_access_bindings
+SET 
+name = '{{ name }}',
+groupKey = '{{ groupKey }}',
+accessLevels = '{{ accessLevels }}',
+dryRunAccessLevels = '{{ dryRunAccessLevels }}',
+reauthSettings = '{{ reauthSettings }}',
+restrictedClientApplications = '{{ restrictedClientApplications }}',
+scopedAccessSettings = '{{ scopedAccessSettings }}'
+WHERE 
+gcpUserAccessBindingsId = '{{ gcpUserAccessBindingsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified gcp_user_access_binding resource.
+
+```sql
+DELETE FROM google.accesscontextmanager.gcp_user_access_bindings
+WHERE gcpUserAccessBindingsId = '{{ gcpUserAccessBindingsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

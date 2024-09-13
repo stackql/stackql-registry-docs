@@ -1,3 +1,4 @@
+
 ---
 title: serving_configs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - serving_configs
   - retail
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>serving_config</code> resource or lists <code>serving_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -50,6 +52,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="replacementControlIds" /> | `array` | Condition replacement specifications. - Applied according to the order in the list. - A previously replaced term can not be re-replaced. - Maximum number of specifications is 100. Can only be set if solution_types is SOLUTION_TYPE_SEARCH. |
 | <CopyableCode code="solutionTypes" /> | `array` | Required. Immutable. Specifies the solution types that a serving config can be associated with. Currently we support setting only one type of solution. |
 | <CopyableCode code="twowaySynonymsControlIds" /> | `array` | Condition synonyms specifications. If multiple syonyms conditions match, all matching synonyms control in the list will execute. Order of controls in the list will not matter. Maximum number of specifications is 100. Can only be set if solution_types is SOLUTION_TYPE_SEARCH. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -58,6 +61,201 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_catalogs_serving_configs_create" /> | `INSERT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Creates a ServingConfig. A maximum of 100 ServingConfigs are allowed in a Catalog, otherwise a FAILED_PRECONDITION error is returned. |
 | <CopyableCode code="projects_locations_catalogs_serving_configs_delete" /> | `DELETE` | <CopyableCode code="catalogsId, locationsId, projectsId, servingConfigsId" /> | Deletes a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. |
 | <CopyableCode code="projects_locations_catalogs_serving_configs_patch" /> | `UPDATE` | <CopyableCode code="catalogsId, locationsId, projectsId, servingConfigsId" /> | Updates a ServingConfig. |
-| <CopyableCode code="_projects_locations_catalogs_serving_configs_list" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Lists all ServingConfigs linked to this catalog. |
 | <CopyableCode code="projects_locations_catalogs_serving_configs_predict" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId, servingConfigsId" /> | Makes a recommendation prediction. |
 | <CopyableCode code="projects_locations_catalogs_serving_configs_search" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId, servingConfigsId" /> | Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. |
+
+## `SELECT` examples
+
+Lists all ServingConfigs linked to this catalog.
+
+```sql
+SELECT
+name,
+boostControlIds,
+displayName,
+diversityLevel,
+diversityType,
+doNotAssociateControlIds,
+dynamicFacetSpec,
+enableCategoryFilterLevel,
+facetControlIds,
+filterControlIds,
+ignoreControlIds,
+ignoreRecsDenylist,
+modelId,
+onewaySynonymsControlIds,
+personalizationSpec,
+priceRerankingLevel,
+redirectControlIds,
+replacementControlIds,
+solutionTypes,
+twowaySynonymsControlIds
+FROM google.retail.serving_configs
+WHERE catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>serving_configs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.retail.serving_configs (
+catalogsId,
+locationsId,
+projectsId,
+name,
+displayName,
+modelId,
+priceRerankingLevel,
+facetControlIds,
+dynamicFacetSpec,
+boostControlIds,
+filterControlIds,
+redirectControlIds,
+twowaySynonymsControlIds,
+onewaySynonymsControlIds,
+doNotAssociateControlIds,
+replacementControlIds,
+ignoreControlIds,
+diversityLevel,
+diversityType,
+enableCategoryFilterLevel,
+ignoreRecsDenylist,
+personalizationSpec,
+solutionTypes
+)
+SELECT 
+'{{ catalogsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ modelId }}',
+'{{ priceRerankingLevel }}',
+'{{ facetControlIds }}',
+'{{ dynamicFacetSpec }}',
+'{{ boostControlIds }}',
+'{{ filterControlIds }}',
+'{{ redirectControlIds }}',
+'{{ twowaySynonymsControlIds }}',
+'{{ onewaySynonymsControlIds }}',
+'{{ doNotAssociateControlIds }}',
+'{{ replacementControlIds }}',
+'{{ ignoreControlIds }}',
+'{{ diversityLevel }}',
+'{{ diversityType }}',
+'{{ enableCategoryFilterLevel }}',
+true|false,
+'{{ personalizationSpec }}',
+'{{ solutionTypes }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: modelId
+        value: '{{ modelId }}'
+      - name: priceRerankingLevel
+        value: '{{ priceRerankingLevel }}'
+      - name: facetControlIds
+        value: '{{ facetControlIds }}'
+      - name: dynamicFacetSpec
+        value: '{{ dynamicFacetSpec }}'
+      - name: boostControlIds
+        value: '{{ boostControlIds }}'
+      - name: filterControlIds
+        value: '{{ filterControlIds }}'
+      - name: redirectControlIds
+        value: '{{ redirectControlIds }}'
+      - name: twowaySynonymsControlIds
+        value: '{{ twowaySynonymsControlIds }}'
+      - name: onewaySynonymsControlIds
+        value: '{{ onewaySynonymsControlIds }}'
+      - name: doNotAssociateControlIds
+        value: '{{ doNotAssociateControlIds }}'
+      - name: replacementControlIds
+        value: '{{ replacementControlIds }}'
+      - name: ignoreControlIds
+        value: '{{ ignoreControlIds }}'
+      - name: diversityLevel
+        value: '{{ diversityLevel }}'
+      - name: diversityType
+        value: '{{ diversityType }}'
+      - name: enableCategoryFilterLevel
+        value: '{{ enableCategoryFilterLevel }}'
+      - name: ignoreRecsDenylist
+        value: '{{ ignoreRecsDenylist }}'
+      - name: personalizationSpec
+        value: '{{ personalizationSpec }}'
+      - name: solutionTypes
+        value: '{{ solutionTypes }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a serving_config only if the necessary resources are available.
+
+```sql
+UPDATE google.retail.serving_configs
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+modelId = '{{ modelId }}',
+priceRerankingLevel = '{{ priceRerankingLevel }}',
+facetControlIds = '{{ facetControlIds }}',
+dynamicFacetSpec = '{{ dynamicFacetSpec }}',
+boostControlIds = '{{ boostControlIds }}',
+filterControlIds = '{{ filterControlIds }}',
+redirectControlIds = '{{ redirectControlIds }}',
+twowaySynonymsControlIds = '{{ twowaySynonymsControlIds }}',
+onewaySynonymsControlIds = '{{ onewaySynonymsControlIds }}',
+doNotAssociateControlIds = '{{ doNotAssociateControlIds }}',
+replacementControlIds = '{{ replacementControlIds }}',
+ignoreControlIds = '{{ ignoreControlIds }}',
+diversityLevel = '{{ diversityLevel }}',
+diversityType = '{{ diversityType }}',
+enableCategoryFilterLevel = '{{ enableCategoryFilterLevel }}',
+ignoreRecsDenylist = true|false,
+personalizationSpec = '{{ personalizationSpec }}',
+solutionTypes = '{{ solutionTypes }}'
+WHERE 
+catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND servingConfigsId = '{{ servingConfigsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified serving_config resource.
+
+```sql
+DELETE FROM google.retail.serving_configs
+WHERE catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND servingConfigsId = '{{ servingConfigsId }}';
+```

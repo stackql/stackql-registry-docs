@@ -1,3 +1,4 @@
+
 ---
 title: workstation_clusters
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - workstation_clusters
   - workstations
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>workstation_cluster</code> resource or lists <code>workstation_clusters</code> in a region
 
 ## Overview
 <table><tbody>
@@ -47,6 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="subnetwork" /> | `string` | Immutable. Name of the Compute Engine subnetwork in which instances associated with this workstation cluster will be created. Must be part of the subnetwork specified for this workstation cluster. |
 | <CopyableCode code="uid" /> | `string` | Output only. A system-assigned unique identifier for this workstation cluster. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when this workstation cluster was most recently updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -55,4 +58,176 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new workstation cluster. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, workstationClustersId" /> | Deletes the specified workstation cluster. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, workstationClustersId" /> | Updates an existing workstation cluster. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns all workstation clusters in the specified location. |
+
+## `SELECT` examples
+
+Returns all workstation clusters in the specified location.
+
+```sql
+SELECT
+name,
+annotations,
+conditions,
+controlPlaneIp,
+createTime,
+degraded,
+deleteTime,
+displayName,
+domainConfig,
+etag,
+labels,
+network,
+privateClusterConfig,
+reconciling,
+subnetwork,
+uid,
+updateTime
+FROM google.workstations.workstation_clusters
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>workstation_clusters</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.workstations.workstation_clusters (
+locationsId,
+projectsId,
+name,
+displayName,
+uid,
+reconciling,
+annotations,
+labels,
+createTime,
+updateTime,
+deleteTime,
+etag,
+network,
+subnetwork,
+controlPlaneIp,
+privateClusterConfig,
+domainConfig,
+degraded,
+conditions
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ uid }}',
+true|false,
+'{{ annotations }}',
+'{{ labels }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ deleteTime }}',
+'{{ etag }}',
+'{{ network }}',
+'{{ subnetwork }}',
+'{{ controlPlaneIp }}',
+'{{ privateClusterConfig }}',
+'{{ domainConfig }}',
+true|false,
+'{{ conditions }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: network
+        value: '{{ network }}'
+      - name: subnetwork
+        value: '{{ subnetwork }}'
+      - name: controlPlaneIp
+        value: '{{ controlPlaneIp }}'
+      - name: privateClusterConfig
+        value: '{{ privateClusterConfig }}'
+      - name: domainConfig
+        value: '{{ domainConfig }}'
+      - name: degraded
+        value: '{{ degraded }}'
+      - name: conditions
+        value: '{{ conditions }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a workstation_cluster only if the necessary resources are available.
+
+```sql
+UPDATE google.workstations.workstation_clusters
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+uid = '{{ uid }}',
+reconciling = true|false,
+annotations = '{{ annotations }}',
+labels = '{{ labels }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+deleteTime = '{{ deleteTime }}',
+etag = '{{ etag }}',
+network = '{{ network }}',
+subnetwork = '{{ subnetwork }}',
+controlPlaneIp = '{{ controlPlaneIp }}',
+privateClusterConfig = '{{ privateClusterConfig }}',
+domainConfig = '{{ domainConfig }}',
+degraded = true|false,
+conditions = '{{ conditions }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND workstationClustersId = '{{ workstationClustersId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified workstation_cluster resource.
+
+```sql
+DELETE FROM google.workstations.workstation_clusters
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND workstationClustersId = '{{ workstationClustersId }}';
+```

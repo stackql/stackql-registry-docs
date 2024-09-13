@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Use the Migrate to Virtual Machines API to programmatically migrate workloads.   
-    
+The vmmigration service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>15</b></span><br />
-<span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>72</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.vmmigration</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>VM Migration API</td></tr>
-<tr><td><b>Description</b></td><td>Use the Migrate to Virtual Machines API to programmatically migrate workloads. </td></tr>
-<tr><td><b>Id</b></td><td><code>vmmigration:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -47,7 +36,7 @@ Use the Migrate to Virtual Machines API to programmatically migrate workloads.
 <a href="/providers/google/vmmigration/groups_group_migration/">groups_group_migration</a><br />
 <a href="/providers/google/vmmigration/image_import_jobs/">image_import_jobs</a><br />
 <a href="/providers/google/vmmigration/image_imports/">image_imports</a><br />
-<a href="/providers/google/vmmigration/locations/">locations</a><br />
+<a href="/providers/google/vmmigration/locations/">locations</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/vmmigration/migrating_vms/">migrating_vms</a><br />
@@ -56,6 +45,6 @@ Use the Migrate to Virtual Machines API to programmatically migrate workloads.
 <a href="/providers/google/vmmigration/sources/">sources</a><br />
 <a href="/providers/google/vmmigration/sources_inventory/">sources_inventory</a><br />
 <a href="/providers/google/vmmigration/target_projects/">target_projects</a><br />
-<a href="/providers/google/vmmigration/utilization_reports/">utilization_reports</a><br />
+<a href="/providers/google/vmmigration/utilization_reports/">utilization_reports</a>
 </div>
 </div>

@@ -1,3 +1,4 @@
+
 ---
 title: npm_packages
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - npm_packages
   - artifactregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>npm_package</code> resource or lists <code>npm_packages</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,9 +38,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="tags" /> | `array` | Tags attached to this package. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time the package was updated. |
 | <CopyableCode code="version" /> | `string` | Version of this package. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, npmPackagesId, projectsId, repositoriesId" /> | Gets a npm package. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists npm packages. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists npm packages. |
+
+## `SELECT` examples
+
+Lists npm packages.
+
+```sql
+SELECT
+name,
+createTime,
+packageName,
+tags,
+updateTime,
+version
+FROM google.artifactregistry.npm_packages
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```

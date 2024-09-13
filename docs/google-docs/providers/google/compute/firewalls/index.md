@@ -1,3 +1,4 @@
+
 ---
 title: firewalls
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - firewalls
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>firewall</code> resource or lists <code>firewalls</code> in a region
 
 ## Overview
 <table><tbody>
@@ -49,6 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sourceTags" /> | `array` | If source tags are specified, the firewall rule applies only to traffic with source IPs that match the primary network interfaces of VM instances that have the tag and are in the same VPC network. Source tags cannot be used to control traffic to an instance's external IP address, it only applies to traffic between instances in the same virtual network. Because tags are associated with instances, not IP addresses. One or both of sourceRanges and sourceTags may be set. If both fields are set, the firewall applies to traffic that has a source IP address within sourceRanges OR a source IP from a resource with a matching tag listed in the sourceTags field. The connection does not need to match both fields for the firewall to apply. |
 | <CopyableCode code="targetServiceAccounts" /> | `array` | A list of service accounts indicating sets of instances located in the network that may make network connections as specified in allowed[]. targetServiceAccounts cannot be used at the same time as targetTags or sourceTags. If neither targetServiceAccounts nor targetTags are specified, the firewall rule applies to all instances on the specified network. |
 | <CopyableCode code="targetTags" /> | `array` | A list of tags that controls which instances the firewall rule applies to. If targetTags are specified, then the firewall rule applies only to instances in the VPC network that have one of those tags. If no targetTags are specified, the firewall rule applies to all instances on the specified network. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -57,4 +60,192 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a firewall rule in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="firewall, project" /> | Deletes the specified firewall. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="firewall, project" /> | Updates the specified firewall rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="firewall, project" /> | Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not specified. To update individual fields, please use PATCH instead. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="firewall, project" /> | Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not specified. To update individual fields, please use PATCH instead. |
+
+## `SELECT` examples
+
+Retrieves the list of firewall rules available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+allowed,
+creationTimestamp,
+denied,
+destinationRanges,
+direction,
+disabled,
+kind,
+logConfig,
+network,
+priority,
+selfLink,
+sourceRanges,
+sourceServiceAccounts,
+sourceTags,
+targetServiceAccounts,
+targetTags
+FROM google.compute.firewalls
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>firewalls</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.firewalls (
+project,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+network,
+priority,
+sourceRanges,
+destinationRanges,
+sourceTags,
+targetTags,
+sourceServiceAccounts,
+targetServiceAccounts,
+allowed,
+denied,
+direction,
+logConfig,
+disabled,
+selfLink
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ network }}',
+'{{ priority }}',
+'{{ sourceRanges }}',
+'{{ destinationRanges }}',
+'{{ sourceTags }}',
+'{{ targetTags }}',
+'{{ sourceServiceAccounts }}',
+'{{ targetServiceAccounts }}',
+'{{ allowed }}',
+'{{ denied }}',
+'{{ direction }}',
+'{{ logConfig }}',
+true|false,
+'{{ selfLink }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: network
+        value: '{{ network }}'
+      - name: priority
+        value: '{{ priority }}'
+      - name: sourceRanges
+        value: '{{ sourceRanges }}'
+      - name: destinationRanges
+        value: '{{ destinationRanges }}'
+      - name: sourceTags
+        value: '{{ sourceTags }}'
+      - name: targetTags
+        value: '{{ targetTags }}'
+      - name: sourceServiceAccounts
+        value: '{{ sourceServiceAccounts }}'
+      - name: targetServiceAccounts
+        value: '{{ targetServiceAccounts }}'
+      - name: allowed
+        value:
+          - - name: IPProtocol
+              value: '{{ IPProtocol }}'
+            - name: ports
+              value: '{{ ports }}'
+      - name: denied
+        value:
+          - - name: IPProtocol
+              value: '{{ IPProtocol }}'
+            - name: ports
+              value: '{{ ports }}'
+      - name: direction
+        value: '{{ direction }}'
+      - name: logConfig
+        value: '{{ logConfig }}'
+      - name: disabled
+        value: '{{ disabled }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a firewall only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.firewalls
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+network = '{{ network }}',
+priority = '{{ priority }}',
+sourceRanges = '{{ sourceRanges }}',
+destinationRanges = '{{ destinationRanges }}',
+sourceTags = '{{ sourceTags }}',
+targetTags = '{{ targetTags }}',
+sourceServiceAccounts = '{{ sourceServiceAccounts }}',
+targetServiceAccounts = '{{ targetServiceAccounts }}',
+allowed = '{{ allowed }}',
+denied = '{{ denied }}',
+direction = '{{ direction }}',
+logConfig = '{{ logConfig }}',
+disabled = true|false,
+selfLink = '{{ selfLink }}'
+WHERE 
+firewall = '{{ firewall }}'
+AND project = '{{ project }}';
+```
+
+## `DELETE` example
+
+Deletes the specified firewall resource.
+
+```sql
+DELETE FROM google.compute.firewalls
+WHERE firewall = '{{ firewall }}'
+AND project = '{{ project }}';
+```

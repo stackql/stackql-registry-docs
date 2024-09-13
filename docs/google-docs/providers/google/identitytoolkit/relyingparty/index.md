@@ -1,3 +1,4 @@
+
 ---
 title: relyingparty
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - relyingparty
   - identitytoolkit
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>relyingparty</code> resource or lists <code>relyingparty</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,20 +30,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="download_account" /> | `EXEC` |  | Batch download user accounts. |
-| <CopyableCode code="email_link_signin" /> | `EXEC` |  | Reset password for a user. |
-| <CopyableCode code="reset_password" /> | `EXEC` |  | Reset password for a user. |
-| <CopyableCode code="send_verification_code" /> | `EXEC` |  | Send SMS verification code. |
-| <CopyableCode code="set_account_info" /> | `EXEC` |  | Set account info for a user. |
-| <CopyableCode code="set_project_config" /> | `EXEC` |  | Set project configuration. |
-| <CopyableCode code="sign_out_user" /> | `EXEC` |  | Sign out user. |
-| <CopyableCode code="signup_new_user" /> | `EXEC` |  | Signup new user. |
-| <CopyableCode code="upload_account" /> | `EXEC` |  | Batch upload existing user accounts. |
-| <CopyableCode code="verify_assertion" /> | `EXEC` |  | Verifies the assertion returned by the IdP. |
-| <CopyableCode code="verify_custom_token" /> | `EXEC` |  | Verifies the developer asserted ID token. |
-| <CopyableCode code="verify_password" /> | `EXEC` |  | Verifies the user entered password. |
-| <CopyableCode code="verify_phone_number" /> | `EXEC` |  | Verifies ownership of a phone number and creates/updates the user account accordingly. |
+| <CopyableCode code="download_account" /> | `EXEC` | <CopyableCode code="" /> | Batch download user accounts. |
+| <CopyableCode code="email_link_signin" /> | `EXEC` | <CopyableCode code="" /> | Reset password for a user. |
+| <CopyableCode code="reset_password" /> | `EXEC` | <CopyableCode code="" /> | Reset password for a user. |
+| <CopyableCode code="send_verification_code" /> | `EXEC` | <CopyableCode code="" /> | Send SMS verification code. |
+| <CopyableCode code="set_account_info" /> | `EXEC` | <CopyableCode code="" /> | Set account info for a user. |
+| <CopyableCode code="set_project_config" /> | `EXEC` | <CopyableCode code="" /> | Set project configuration. |
+| <CopyableCode code="sign_out_user" /> | `EXEC` | <CopyableCode code="" /> | Sign out user. |
+| <CopyableCode code="signup_new_user" /> | `EXEC` | <CopyableCode code="" /> | Signup new user. |
+| <CopyableCode code="upload_account" /> | `EXEC` | <CopyableCode code="" /> | Batch upload existing user accounts. |
+| <CopyableCode code="verify_assertion" /> | `EXEC` | <CopyableCode code="" /> | Verifies the assertion returned by the IdP. |
+| <CopyableCode code="verify_custom_token" /> | `EXEC` | <CopyableCode code="" /> | Verifies the developer asserted ID token. |
+| <CopyableCode code="verify_password" /> | `EXEC` | <CopyableCode code="" /> | Verifies the user entered password. |
+| <CopyableCode code="verify_phone_number" /> | `EXEC` | <CopyableCode code="" /> | Verifies ownership of a phone number and creates/updates the user account accordingly. |

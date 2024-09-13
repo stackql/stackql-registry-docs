@@ -1,3 +1,4 @@
+
 ---
 title: utilization_reports
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - utilization_reports
   - vmmigration
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>utilization_report</code> resource or lists <code>utilization_reports</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="timeFrame" /> | `string` | Time frame of the report. |
 | <CopyableCode code="vmCount" /> | `integer` | Output only. Total number of VMs included in the report. |
 | <CopyableCode code="vms" /> | `array` | List of utilization information per VM. When sent as part of the request, the "vm_id" field is used in order to specify which VMs to include in the report. In that case all other fields are ignored. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,4 +50,115 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Lists Utilization Reports of the given Source. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Creates a new UtilizationReport. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, sourcesId, utilizationReportsId" /> | Deletes a single Utilization Report. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Lists Utilization Reports of the given Source. |
+
+## `SELECT` examples
+
+Lists Utilization Reports of the given Source.
+
+```sql
+SELECT
+name,
+createTime,
+displayName,
+error,
+frameEndTime,
+state,
+stateTime,
+timeFrame,
+vmCount,
+vms
+FROM google.vmmigration.utilization_reports
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>utilization_reports</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.vmmigration.utilization_reports (
+locationsId,
+projectsId,
+sourcesId,
+name,
+displayName,
+state,
+stateTime,
+error,
+createTime,
+timeFrame,
+frameEndTime,
+vmCount,
+vms
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ sourcesId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ state }}',
+'{{ stateTime }}',
+'{{ error }}',
+'{{ createTime }}',
+'{{ timeFrame }}',
+'{{ frameEndTime }}',
+'{{ vmCount }}',
+'{{ vms }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: state
+        value: '{{ state }}'
+      - name: stateTime
+        value: '{{ stateTime }}'
+      - name: error
+        value: '{{ error }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: timeFrame
+        value: '{{ timeFrame }}'
+      - name: frameEndTime
+        value: '{{ frameEndTime }}'
+      - name: vmCount
+        value: '{{ vmCount }}'
+      - name: vms
+        value: '{{ vms }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified utilization_report resource.
+
+```sql
+DELETE FROM google.vmmigration.utilization_reports
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}'
+AND utilizationReportsId = '{{ utilizationReportsId }}';
+```

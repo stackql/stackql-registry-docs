@@ -1,3 +1,4 @@
+
 ---
 title: response_policy_rules
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - response_policy_rules
   - dns
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>response_policy_rule</code> resource or lists <code>response_policy_rules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` |  |
 | <CopyableCode code="localData" /> | `object` |  |
 | <CopyableCode code="ruleName" /> | `string` | An identifier for this rule. Must be unique with the ResponsePolicy. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,5 +46,105 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="project, responsePolicy" /> | Creates a new Response Policy Rule. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, responsePolicy, responsePolicyRule" /> | Deletes a previously created Response Policy Rule. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, responsePolicy, responsePolicyRule" /> | Applies a partial update to an existing Response Policy Rule. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="project, responsePolicy, responsePolicyRule" /> | Updates an existing Response Policy Rule. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project, responsePolicy" /> | Enumerates all Response Policy Rules associated with a project. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, responsePolicy, responsePolicyRule" /> | Updates an existing Response Policy Rule. |
+
+## `SELECT` examples
+
+Enumerates all Response Policy Rules associated with a project.
+
+```sql
+SELECT
+behavior,
+dnsName,
+kind,
+localData,
+ruleName
+FROM google.dns.response_policy_rules
+WHERE project = '{{ project }}'
+AND responsePolicy = '{{ responsePolicy }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>response_policy_rules</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dns.response_policy_rules (
+project,
+responsePolicy,
+ruleName,
+dnsName,
+localData,
+behavior,
+kind
+)
+SELECT 
+'{{ project }}',
+'{{ responsePolicy }}',
+'{{ ruleName }}',
+'{{ dnsName }}',
+'{{ localData }}',
+'{{ behavior }}',
+'{{ kind }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: ruleName
+        value: '{{ ruleName }}'
+      - name: dnsName
+        value: '{{ dnsName }}'
+      - name: localData
+        value: '{{ localData }}'
+      - name: behavior
+        value: '{{ behavior }}'
+      - name: kind
+        value: '{{ kind }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a response_policy_rule only if the necessary resources are available.
+
+```sql
+UPDATE google.dns.response_policy_rules
+SET 
+ruleName = '{{ ruleName }}',
+dnsName = '{{ dnsName }}',
+localData = '{{ localData }}',
+behavior = '{{ behavior }}',
+kind = '{{ kind }}'
+WHERE 
+project = '{{ project }}'
+AND responsePolicy = '{{ responsePolicy }}'
+AND responsePolicyRule = '{{ responsePolicyRule }}';
+```
+
+## `DELETE` example
+
+Deletes the specified response_policy_rule resource.
+
+```sql
+DELETE FROM google.dns.response_policy_rules
+WHERE project = '{{ project }}'
+AND responsePolicy = '{{ responsePolicy }}'
+AND responsePolicyRule = '{{ responsePolicyRule }}';
+```

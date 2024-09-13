@@ -1,3 +1,4 @@
+
 ---
 title: snapshot_settings
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - snapshot_settings
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>snapshot_setting</code> resource or lists <code>snapshot_settings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,35 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="storageLocation" /> | `object` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project" /> | Get snapshot settings. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project" /> | Patch snapshot settings. |
+
+## `SELECT` examples
+
+Get snapshot settings.
+
+```sql
+SELECT
+storageLocation
+FROM google.compute.snapshot_settings
+WHERE project = '{{ project }}'; 
+```
+
+## `UPDATE` example
+
+Updates a snapshot_setting only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.snapshot_settings
+SET 
+storageLocation = '{{ storageLocation }}'
+WHERE 
+project = '{{ project }}';
+```

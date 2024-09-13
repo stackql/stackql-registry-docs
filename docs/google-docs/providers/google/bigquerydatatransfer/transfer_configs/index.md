@@ -1,3 +1,4 @@
+
 ---
 title: transfer_configs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - transfer_configs
   - bigquerydatatransfer
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>transfer_config</code> resource or lists <code>transfer_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. The resource name of the transfer config. Transfer config names have the form either `projects/&#123;project_id&#125;/locations/&#123;region&#125;/transferConfigs/&#123;config_id&#125;` or `projects/&#123;project_id&#125;/transferConfigs/&#123;config_id&#125;`, where `config_id` is usually a UUID, even though it is not guaranteed or required. The name is ignored when creating a transfer config. |
+| <CopyableCode code="name" /> | `string` | Identifier. The resource name of the transfer config. Transfer config names have the form either `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or `projects/{project_id}/transferConfigs/{config_id}`, where `config_id` is usually a UUID, even though it is not guaranteed or required. The name is ignored when creating a transfer config. |
 | <CopyableCode code="dataRefreshWindowDays" /> | `integer` | The number of days to look back to automatically refresh the data. For example, if `data_refresh_window_days = 10`, then every day BigQuery reingests data for [today-10, today-1], rather than ingesting data for just [today-1]. Only valid if the data source supports the feature. Set the value to 0 to use the default value. |
 | <CopyableCode code="dataSourceId" /> | `string` | Data source ID. This cannot be changed once data transfer is created. The full list of available data source IDs can be returned through an API call: https://cloud.google.com/bigquery-transfer/docs/reference/datatransfer/rest/v1/projects.locations.dataSources/list |
 | <CopyableCode code="datasetRegion" /> | `string` | Output only. Region in which BigQuery dataset is located. |
@@ -40,7 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="emailPreferences" /> | `object` | Represents preferences for sending email notifications for transfer run events. |
 | <CopyableCode code="encryptionConfiguration" /> | `object` | Represents the encryption configuration for a transfer. |
 | <CopyableCode code="nextRunTime" /> | `string` | Output only. Next time when data transfer will run. |
-| <CopyableCode code="notificationPubsubTopic" /> | `string` | Pub/Sub topic where notifications will be sent after transfer runs associated with this transfer config finish. The format for specifying a pubsub topic is: `projects/&#123;project_id&#125;/topics/&#123;topic_id&#125;` |
+| <CopyableCode code="notificationPubsubTopic" /> | `string` | Pub/Sub topic where notifications will be sent after transfer runs associated with this transfer config finish. The format for specifying a pubsub topic is: `projects/{project_id}/topics/{topic_id}` |
 | <CopyableCode code="ownerInfo" /> | `object` | Information about a user. |
 | <CopyableCode code="params" /> | `object` | Parameters specific to each data source. For more information see the bq tab in the 'Setting up a data transfer' section for each data source. For example the parameters for Cloud Storage transfers are listed here: https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq |
 | <CopyableCode code="schedule" /> | `string` | Data transfer schedule. If the data source does not support a custom schedule, this should be empty. If it is empty, the default value for the data source will be used. The specified times are in UTC. Examples of valid format: `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`, and `first sunday of quarter 00:00`. See more explanation about the format here: https://cloud.google.com/appengine/docs/flexible/python/scheduling-jobs-with-cron-yaml#the_schedule_format NOTE: The minimum interval time between recurring transfers depends on the data source; refer to the documentation for your data source. |
@@ -48,6 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. State of the most recently updated transfer run. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Data transfer modification time. Ignored by server on input. |
 | <CopyableCode code="userId" /> | `string` | Deprecated. Unique ID of the user on whose behalf transfer is done. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -61,9 +64,181 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_transfer_configs_delete" /> | `DELETE` | <CopyableCode code="projectsId, transferConfigsId" /> | Deletes a data transfer configuration, including any associated transfer runs and logs. |
 | <CopyableCode code="projects_locations_transfer_configs_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, transferConfigsId" /> | Updates a data transfer configuration. All fields must be set, even if they are not updated. |
 | <CopyableCode code="projects_transfer_configs_patch" /> | `UPDATE` | <CopyableCode code="projectsId, transferConfigsId" /> | Updates a data transfer configuration. All fields must be set, even if they are not updated. |
-| <CopyableCode code="_projects_locations_transfer_configs_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns information about all transfer configs owned by a project in the specified location. |
-| <CopyableCode code="_projects_transfer_configs_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Returns information about all transfer configs owned by a project in the specified location. |
 | <CopyableCode code="projects_locations_transfer_configs_schedule_runs" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, transferConfigsId" /> | Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one transfer run is created. Note that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead. |
 | <CopyableCode code="projects_locations_transfer_configs_start_manual_runs" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, transferConfigsId" /> | Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the run_time is between start_time (inclusive) and end_time (exclusive), or for a specific run_time. |
 | <CopyableCode code="projects_transfer_configs_schedule_runs" /> | `EXEC` | <CopyableCode code="projectsId, transferConfigsId" /> | Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one transfer run is created. Note that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead. |
 | <CopyableCode code="projects_transfer_configs_start_manual_runs" /> | `EXEC` | <CopyableCode code="projectsId, transferConfigsId" /> | Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the run_time is between start_time (inclusive) and end_time (exclusive), or for a specific run_time. |
+
+## `SELECT` examples
+
+Returns information about all transfer configs owned by a project in the specified location.
+
+```sql
+SELECT
+name,
+dataRefreshWindowDays,
+dataSourceId,
+datasetRegion,
+destinationDatasetId,
+disabled,
+displayName,
+emailPreferences,
+encryptionConfiguration,
+nextRunTime,
+notificationPubsubTopic,
+ownerInfo,
+params,
+schedule,
+scheduleOptions,
+state,
+updateTime,
+userId
+FROM google.bigquerydatatransfer.transfer_configs
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>transfer_configs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.bigquerydatatransfer.transfer_configs (
+projectsId,
+name,
+destinationDatasetId,
+displayName,
+dataSourceId,
+params,
+schedule,
+scheduleOptions,
+dataRefreshWindowDays,
+disabled,
+updateTime,
+nextRunTime,
+state,
+userId,
+datasetRegion,
+notificationPubsubTopic,
+emailPreferences,
+ownerInfo,
+encryptionConfiguration
+)
+SELECT 
+'{{ projectsId }}',
+'{{ name }}',
+'{{ destinationDatasetId }}',
+'{{ displayName }}',
+'{{ dataSourceId }}',
+'{{ params }}',
+'{{ schedule }}',
+'{{ scheduleOptions }}',
+'{{ dataRefreshWindowDays }}',
+true|false,
+'{{ updateTime }}',
+'{{ nextRunTime }}',
+'{{ state }}',
+'{{ userId }}',
+'{{ datasetRegion }}',
+'{{ notificationPubsubTopic }}',
+'{{ emailPreferences }}',
+'{{ ownerInfo }}',
+'{{ encryptionConfiguration }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: destinationDatasetId
+        value: '{{ destinationDatasetId }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: dataSourceId
+        value: '{{ dataSourceId }}'
+      - name: params
+        value: '{{ params }}'
+      - name: schedule
+        value: '{{ schedule }}'
+      - name: scheduleOptions
+        value: '{{ scheduleOptions }}'
+      - name: dataRefreshWindowDays
+        value: '{{ dataRefreshWindowDays }}'
+      - name: disabled
+        value: '{{ disabled }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: nextRunTime
+        value: '{{ nextRunTime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: userId
+        value: '{{ userId }}'
+      - name: datasetRegion
+        value: '{{ datasetRegion }}'
+      - name: notificationPubsubTopic
+        value: '{{ notificationPubsubTopic }}'
+      - name: emailPreferences
+        value: '{{ emailPreferences }}'
+      - name: ownerInfo
+        value: '{{ ownerInfo }}'
+      - name: encryptionConfiguration
+        value: '{{ encryptionConfiguration }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a transfer_config only if the necessary resources are available.
+
+```sql
+UPDATE google.bigquerydatatransfer.transfer_configs
+SET 
+name = '{{ name }}',
+destinationDatasetId = '{{ destinationDatasetId }}',
+displayName = '{{ displayName }}',
+dataSourceId = '{{ dataSourceId }}',
+params = '{{ params }}',
+schedule = '{{ schedule }}',
+scheduleOptions = '{{ scheduleOptions }}',
+dataRefreshWindowDays = '{{ dataRefreshWindowDays }}',
+disabled = true|false,
+updateTime = '{{ updateTime }}',
+nextRunTime = '{{ nextRunTime }}',
+state = '{{ state }}',
+userId = '{{ userId }}',
+datasetRegion = '{{ datasetRegion }}',
+notificationPubsubTopic = '{{ notificationPubsubTopic }}',
+emailPreferences = '{{ emailPreferences }}',
+ownerInfo = '{{ ownerInfo }}',
+encryptionConfiguration = '{{ encryptionConfiguration }}'
+WHERE 
+projectsId = '{{ projectsId }}'
+AND transferConfigsId = '{{ transferConfigsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified transfer_config resource.
+
+```sql
+DELETE FROM google.bigquerydatatransfer.transfer_configs
+WHERE projectsId = '{{ projectsId }}'
+AND transferConfigsId = '{{ transferConfigsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: routes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - routes
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>route</code> resource or lists <code>routes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,7 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="network" /> | `string` | Fully-qualified URL of the network that this route applies to. |
 | <CopyableCode code="nextHopGateway" /> | `string` | The URL to a gateway that should handle matching packets. You can only specify the internet gateway using a full or partial valid URL: projects/ project/global/gateways/default-internet-gateway |
 | <CopyableCode code="nextHopHub" /> | `string` | [Output Only] The full resource name of the Network Connectivity Center hub that will handle matching packets. |
-| <CopyableCode code="nextHopIlb" /> | `string` | The URL to a forwarding rule of type loadBalancingScheme=INTERNAL that should handle matching packets or the IP address of the forwarding Rule. For example, the following are all valid URLs: - 10.128.0.56 - https://www.googleapis.com/compute/v1/projects/project/regions/region /forwardingRules/forwardingRule - regions/region/forwardingRules/forwardingRule  |
+| <CopyableCode code="nextHopIlb" /> | `string` | The URL to a forwarding rule of type loadBalancingScheme=INTERNAL that should handle matching packets or the IP address of the forwarding Rule. For example, the following are all valid URLs: - https://www.googleapis.com/compute/v1/projects/project/regions/region /forwardingRules/forwardingRule - regions/region/forwardingRules/forwardingRule If an IP address is provided, must specify an IPv4 address in dot-decimal notation or an IPv6 address in RFC 4291 format. For example, the following are all valid IP addresses: - 10.128.0.56 - 2001:db8::2d9:51:0:0 - 2001:db8:0:0:2d9:51:0:0 IPv6 addresses will be displayed using RFC 5952 compressed format (e.g. 2001:db8::2d9:51:0:0). Should never be an IPv4-mapped IPv6 address. |
 | <CopyableCode code="nextHopInstance" /> | `string` | The URL to an instance that should handle matching packets. You can specify this as a full or partial URL. For example: https://www.googleapis.com/compute/v1/projects/project/zones/zone/instances/ |
 | <CopyableCode code="nextHopIp" /> | `string` | The network IP address of an instance that should handle matching packets. Both IPv6 address and IPv4 addresses are supported. Must specify an IPv4 address in dot-decimal notation (e.g. 192.0.2.99) or an IPv6 address in RFC 4291 format (e.g. 2001:db8::2d9:51:0:0 or 2001:db8:0:0:2d9:51:0:0). IPv6 addresses will be displayed using RFC 5952 compressed format (e.g. 2001:db8::2d9:51:0:0). Should never be an IPv4-mapped IPv6 address. |
 | <CopyableCode code="nextHopNetwork" /> | `string` | The URL of the local network if it should handle matching packets. |
@@ -52,6 +54,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined fully-qualified URL for this resource. |
 | <CopyableCode code="tags" /> | `array` | A list of instance tags to which this route applies. |
 | <CopyableCode code="warnings" /> | `array` | [Output Only] If potential misconfigurations are detected for this route, this field will be populated with warning messages. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -59,3 +62,177 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of Route resources available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a Route resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, route" /> | Deletes the specified Route resource. |
+
+## `SELECT` examples
+
+Retrieves the list of Route resources available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+asPaths,
+creationTimestamp,
+destRange,
+kind,
+network,
+nextHopGateway,
+nextHopHub,
+nextHopIlb,
+nextHopInstance,
+nextHopIp,
+nextHopNetwork,
+nextHopPeering,
+nextHopVpnTunnel,
+priority,
+routeStatus,
+routeType,
+selfLink,
+tags,
+warnings
+FROM google.compute.routes
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>routes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.routes (
+project,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+network,
+tags,
+destRange,
+priority,
+nextHopInstance,
+nextHopIp,
+nextHopNetwork,
+nextHopGateway,
+nextHopPeering,
+nextHopIlb,
+warnings,
+nextHopVpnTunnel,
+nextHopHub,
+selfLink,
+routeType,
+asPaths,
+routeStatus
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ network }}',
+'{{ tags }}',
+'{{ destRange }}',
+'{{ priority }}',
+'{{ nextHopInstance }}',
+'{{ nextHopIp }}',
+'{{ nextHopNetwork }}',
+'{{ nextHopGateway }}',
+'{{ nextHopPeering }}',
+'{{ nextHopIlb }}',
+'{{ warnings }}',
+'{{ nextHopVpnTunnel }}',
+'{{ nextHopHub }}',
+'{{ selfLink }}',
+'{{ routeType }}',
+'{{ asPaths }}',
+'{{ routeStatus }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: network
+        value: '{{ network }}'
+      - name: tags
+        value: '{{ tags }}'
+      - name: destRange
+        value: '{{ destRange }}'
+      - name: priority
+        value: '{{ priority }}'
+      - name: nextHopInstance
+        value: '{{ nextHopInstance }}'
+      - name: nextHopIp
+        value: '{{ nextHopIp }}'
+      - name: nextHopNetwork
+        value: '{{ nextHopNetwork }}'
+      - name: nextHopGateway
+        value: '{{ nextHopGateway }}'
+      - name: nextHopPeering
+        value: '{{ nextHopPeering }}'
+      - name: nextHopIlb
+        value: '{{ nextHopIlb }}'
+      - name: warnings
+        value:
+          - - name: code
+              value: '{{ code }}'
+            - name: message
+              value: '{{ message }}'
+            - name: data
+              value:
+                - - name: key
+                    value: '{{ key }}'
+                  - name: value
+                    value: '{{ value }}'
+      - name: nextHopVpnTunnel
+        value: '{{ nextHopVpnTunnel }}'
+      - name: nextHopHub
+        value: '{{ nextHopHub }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: routeType
+        value: '{{ routeType }}'
+      - name: asPaths
+        value: '{{ asPaths }}'
+      - name: routeStatus
+        value: '{{ routeStatus }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified route resource.
+
+```sql
+DELETE FROM google.compute.routes
+WHERE project = '{{ project }}'
+AND route = '{{ route }}';
+```

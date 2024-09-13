@@ -1,3 +1,4 @@
+
 ---
 title: storage_pools_disks
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - storage_pools_disks
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>storage_pools_disk</code> resource or lists <code>storage_pools_disks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,7 +43,31 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `string` | [Output Only] The disk status. |
 | <CopyableCode code="type" /> | `string` | [Output Only] The disk type. |
 | <CopyableCode code="usedBytes" /> | `string` | [Output Only] Amount of disk space used. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_disks" /> | `SELECT` | <CopyableCode code="project, storagePool, zone" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_disks" /> | `SELECT` | <CopyableCode code="project, storagePool, zone" /> | Lists the disks in a specified storage pool. |
+
+## `SELECT` examples
+
+Lists the disks in a specified storage pool.
+
+```sql
+SELECT
+name,
+attachedInstances,
+creationTimestamp,
+disk,
+provisionedIops,
+provisionedThroughput,
+resourcePolicies,
+sizeGb,
+status,
+type,
+usedBytes
+FROM google.compute.storage_pools_disks
+WHERE project = '{{ project }}'
+AND storagePool = '{{ storagePool }}'
+AND zone = '{{ zone }}'; 
+```

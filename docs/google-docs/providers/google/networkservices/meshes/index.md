@@ -1,3 +1,4 @@
+
 ---
 title: meshes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - meshes
   - networkservices
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>mesh</code> resource or lists <code>meshes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Name of the Mesh resource. It matches pattern `projects/*/locations/global/meshes/`. |
+| <CopyableCode code="name" /> | `string` | Identifier. Name of the Mesh resource. It matches pattern `projects/*/locations/global/meshes/`. |
 | <CopyableCode code="description" /> | `string` | Optional. A free-text description of the resource. Max length 1024 characters. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when the resource was created. |
 | <CopyableCode code="envoyHeaders" /> | `string` | Optional. Determines if envoy will insert internal debug headers into upstream requests. Other Envoy headers may still be injected. By default, envoy will not insert any debug headers. |
@@ -38,6 +40,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Optional. Set of label tags associated with the Mesh resource. |
 | <CopyableCode code="selfLink" /> | `string` | Output only. Server-defined URL of this resource |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the resource was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -46,4 +49,122 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Mesh in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, meshesId, projectsId" /> | Deletes a single Mesh. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, meshesId, projectsId" /> | Updates the parameters of a single Mesh. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Meshes in a given project and location. |
+
+## `SELECT` examples
+
+Lists Meshes in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+envoyHeaders,
+interceptionPort,
+labels,
+selfLink,
+updateTime
+FROM google.networkservices.meshes
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>meshes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networkservices.meshes (
+locationsId,
+projectsId,
+name,
+selfLink,
+createTime,
+updateTime,
+labels,
+description,
+interceptionPort,
+envoyHeaders
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ selfLink }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ description }}',
+'{{ interceptionPort }}',
+'{{ envoyHeaders }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: description
+        value: '{{ description }}'
+      - name: interceptionPort
+        value: '{{ interceptionPort }}'
+      - name: envoyHeaders
+        value: '{{ envoyHeaders }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a mesh only if the necessary resources are available.
+
+```sql
+UPDATE google.networkservices.meshes
+SET 
+name = '{{ name }}',
+selfLink = '{{ selfLink }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+description = '{{ description }}',
+interceptionPort = '{{ interceptionPort }}',
+envoyHeaders = '{{ envoyHeaders }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND meshesId = '{{ meshesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified mesh resource.
+
+```sql
+DELETE FROM google.networkservices.meshes
+WHERE locationsId = '{{ locationsId }}'
+AND meshesId = '{{ meshesId }}'
+AND projectsId = '{{ projectsId }}';
+```

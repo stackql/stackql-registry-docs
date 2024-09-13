@@ -1,3 +1,4 @@
+
 ---
 title: services
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - services
   - monitoring
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>service</code> resource or lists <code>services</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,13 +43,135 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="gkeNamespace" /> | `object` | GKE Namespace. The field names correspond to the resource metadata labels on monitored resources that fall under a namespace (for example, k8s_container or k8s_pod). |
 | <CopyableCode code="gkeService" /> | `object` | GKE Service. The "service" here represents a Kubernetes service object (https://kubernetes.io/docs/concepts/services-networking/service). The field names correspond to the resource labels on k8s_service monitored resources (https://cloud.google.com/monitoring/api/resources#tag_k8s_service). |
 | <CopyableCode code="gkeWorkload" /> | `object` | A GKE Workload (Deployment, StatefulSet, etc). The field names correspond to the metadata labels on monitored resources that fall under a workload (for example, k8s_container or k8s_pod). |
-| <CopyableCode code="istioCanonicalService" /> | `object` | Canonical service scoped to an Istio mesh. Anthos clusters running ASM &gt;= 1.6.8 will have their services ingested as this type. |
-| <CopyableCode code="meshIstio" /> | `object` | Istio service scoped to an Istio mesh. Anthos clusters running ASM &lt; 1.6.8 will have their services ingested as this type. |
+| <CopyableCode code="istioCanonicalService" /> | `object` | Canonical service scoped to an Istio mesh. Anthos clusters running ASM >= 1.6.8 will have their services ingested as this type. |
+| <CopyableCode code="meshIstio" /> | `object` | Istio service scoped to an Istio mesh. Anthos clusters running ASM < 1.6.8 will have their services ingested as this type. |
 | <CopyableCode code="telemetry" /> | `object` | Configuration for how to query telemetry on a Service. |
 | <CopyableCode code="userLabels" /> | `object` | Labels which have been used to annotate the service. Label keys must start with a letter. Label keys and values may contain lowercase letters, numbers, underscores, and dashes. Label keys and values have a maximum length of 63 characters, and must be less than 128 bytes in size. Up to 64 label entries may be stored. For labels which do not have a semantic value, the empty string may be supplied for the label value. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="services_list" /> | `SELECT` | <CopyableCode code="parent, parentType" /> | List Services for this Metrics Scope. |
 | <CopyableCode code="services_create" /> | `INSERT` | <CopyableCode code="parent, parentType" /> | Create a Service. |
-| <CopyableCode code="_services_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | List Services for this Metrics Scope. |
+
+## `SELECT` examples
+
+List Services for this Metrics Scope.
+
+```sql
+SELECT
+name,
+appEngine,
+basicService,
+cloudEndpoints,
+cloudRun,
+clusterIstio,
+custom,
+displayName,
+gkeNamespace,
+gkeService,
+gkeWorkload,
+istioCanonicalService,
+meshIstio,
+telemetry,
+userLabels
+FROM google.monitoring.services
+WHERE parent = '{{ parent }}'
+AND parentType = '{{ parentType }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>services</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.monitoring.services (
+parent,
+parentType,
+name,
+displayName,
+custom,
+appEngine,
+cloudEndpoints,
+clusterIstio,
+meshIstio,
+istioCanonicalService,
+cloudRun,
+gkeNamespace,
+gkeWorkload,
+gkeService,
+basicService,
+telemetry,
+userLabels
+)
+SELECT 
+'{{ parent }}',
+'{{ parentType }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ custom }}',
+'{{ appEngine }}',
+'{{ cloudEndpoints }}',
+'{{ clusterIstio }}',
+'{{ meshIstio }}',
+'{{ istioCanonicalService }}',
+'{{ cloudRun }}',
+'{{ gkeNamespace }}',
+'{{ gkeWorkload }}',
+'{{ gkeService }}',
+'{{ basicService }}',
+'{{ telemetry }}',
+'{{ userLabels }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: custom
+        value: '{{ custom }}'
+      - name: appEngine
+        value: '{{ appEngine }}'
+      - name: cloudEndpoints
+        value: '{{ cloudEndpoints }}'
+      - name: clusterIstio
+        value: '{{ clusterIstio }}'
+      - name: meshIstio
+        value: '{{ meshIstio }}'
+      - name: istioCanonicalService
+        value: '{{ istioCanonicalService }}'
+      - name: cloudRun
+        value: '{{ cloudRun }}'
+      - name: gkeNamespace
+        value: '{{ gkeNamespace }}'
+      - name: gkeWorkload
+        value: '{{ gkeWorkload }}'
+      - name: gkeService
+        value: '{{ gkeService }}'
+      - name: basicService
+        value: '{{ basicService }}'
+      - name: telemetry
+        value: '{{ telemetry }}'
+      - name: userLabels
+        value: '{{ userLabels }}'
+
+```
+</TabItem>
+</Tabs>

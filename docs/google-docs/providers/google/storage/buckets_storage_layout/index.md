@@ -1,3 +1,4 @@
+
 ---
 title: buckets_storage_layout
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - buckets_storage_layout
   - storage
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>buckets_storage_layout</code> resource or lists <code>buckets_storage_layout</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,7 +38,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | The kind of item this is. For storage layout, this is always storage#storageLayout. |
 | <CopyableCode code="location" /> | `string` | The location of the bucket. |
 | <CopyableCode code="locationType" /> | `string` | The type of the bucket location. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_storage_layout" /> | `SELECT` | <CopyableCode code="bucket" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_storage_layout" /> | `SELECT` | <CopyableCode code="bucket" /> | Returns the storage layout configuration for the specified bucket. Note that this operation requires storage.objects.list permission. |
+
+## `SELECT` examples
+
+Returns the storage layout configuration for the specified bucket. Note that this operation requires storage.objects.list permission.
+
+```sql
+SELECT
+bucket,
+customPlacementConfig,
+hierarchicalNamespace,
+kind,
+location,
+locationType
+FROM google.storage.buckets_storage_layout
+WHERE bucket = '{{ bucket }}'; 
+```

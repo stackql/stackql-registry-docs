@@ -1,3 +1,4 @@
+
 ---
 title: migrating_vms
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - migrating_vms
   - vmmigration
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>migrating_vm</code> resource or lists <code>migrating_vms</code> in a region
 
 ## Overview
 <table><tbody>
@@ -53,6 +55,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="stateTime" /> | `string` | Output only. The last time the migrating VM state was updated. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last time the migrating VM resource was updated. |
 | <CopyableCode code="vmwareSourceVmDetails" /> | `object` | Represent the source Vmware VM details. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -61,8 +64,221 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Creates a new MigratingVm in a given Source. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Deletes a single MigratingVm. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Updates the parameters of a single MigratingVm. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Lists MigratingVms in a given Source. |
 | <CopyableCode code="finalize_migration" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Marks a migration as completed, deleting migration resources that are no longer being used. Only applicable after cutover is done. |
 | <CopyableCode code="pause_migration" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Pauses a migration for a VM. If cycle tasks are running they will be cancelled, preserving source task data. Further replication cycles will not be triggered while the VM is paused. |
 | <CopyableCode code="resume_migration" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Resumes a migration for a VM. When called on a paused migration, will start the process of uploading data and creating snapshots; when called on a completed cut-over migration, will update the migration to active state and start the process of uploading data and creating snapshots. |
 | <CopyableCode code="start_migration" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Starts migration for a VM. Starts the process of uploading data and creating snapshots, in replication cycles scheduled by the policy. |
+
+## `SELECT` examples
+
+Lists MigratingVms in a given Source.
+
+```sql
+SELECT
+name,
+description,
+awsSourceVmDetails,
+azureSourceVmDetails,
+computeEngineDisksTargetDefaults,
+computeEngineTargetDefaults,
+createTime,
+currentSyncInfo,
+cutoverForecast,
+displayName,
+error,
+group,
+labels,
+lastReplicationCycle,
+lastSync,
+policy,
+recentCloneJobs,
+recentCutoverJobs,
+sourceVmId,
+state,
+stateTime,
+updateTime,
+vmwareSourceVmDetails
+FROM google.vmmigration.migrating_vms
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>migrating_vms</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.vmmigration.migrating_vms (
+locationsId,
+projectsId,
+sourcesId,
+computeEngineTargetDefaults,
+computeEngineDisksTargetDefaults,
+vmwareSourceVmDetails,
+awsSourceVmDetails,
+azureSourceVmDetails,
+name,
+sourceVmId,
+displayName,
+description,
+policy,
+createTime,
+updateTime,
+lastSync,
+state,
+stateTime,
+currentSyncInfo,
+lastReplicationCycle,
+group,
+labels,
+recentCloneJobs,
+error,
+recentCutoverJobs,
+cutoverForecast
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ sourcesId }}',
+'{{ computeEngineTargetDefaults }}',
+'{{ computeEngineDisksTargetDefaults }}',
+'{{ vmwareSourceVmDetails }}',
+'{{ awsSourceVmDetails }}',
+'{{ azureSourceVmDetails }}',
+'{{ name }}',
+'{{ sourceVmId }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ policy }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ lastSync }}',
+'{{ state }}',
+'{{ stateTime }}',
+'{{ currentSyncInfo }}',
+'{{ lastReplicationCycle }}',
+'{{ group }}',
+'{{ labels }}',
+'{{ recentCloneJobs }}',
+'{{ error }}',
+'{{ recentCutoverJobs }}',
+'{{ cutoverForecast }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: computeEngineTargetDefaults
+        value: '{{ computeEngineTargetDefaults }}'
+      - name: computeEngineDisksTargetDefaults
+        value: '{{ computeEngineDisksTargetDefaults }}'
+      - name: vmwareSourceVmDetails
+        value: '{{ vmwareSourceVmDetails }}'
+      - name: awsSourceVmDetails
+        value: '{{ awsSourceVmDetails }}'
+      - name: azureSourceVmDetails
+        value: '{{ azureSourceVmDetails }}'
+      - name: name
+        value: '{{ name }}'
+      - name: sourceVmId
+        value: '{{ sourceVmId }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: policy
+        value: '{{ policy }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: lastSync
+        value: '{{ lastSync }}'
+      - name: state
+        value: '{{ state }}'
+      - name: stateTime
+        value: '{{ stateTime }}'
+      - name: currentSyncInfo
+        value: '{{ currentSyncInfo }}'
+      - name: lastReplicationCycle
+        value: '{{ lastReplicationCycle }}'
+      - name: group
+        value: '{{ group }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: recentCloneJobs
+        value: '{{ recentCloneJobs }}'
+      - name: error
+        value: '{{ error }}'
+      - name: recentCutoverJobs
+        value: '{{ recentCutoverJobs }}'
+      - name: cutoverForecast
+        value: '{{ cutoverForecast }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a migrating_vm only if the necessary resources are available.
+
+```sql
+UPDATE google.vmmigration.migrating_vms
+SET 
+computeEngineTargetDefaults = '{{ computeEngineTargetDefaults }}',
+computeEngineDisksTargetDefaults = '{{ computeEngineDisksTargetDefaults }}',
+vmwareSourceVmDetails = '{{ vmwareSourceVmDetails }}',
+awsSourceVmDetails = '{{ awsSourceVmDetails }}',
+azureSourceVmDetails = '{{ azureSourceVmDetails }}',
+name = '{{ name }}',
+sourceVmId = '{{ sourceVmId }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+policy = '{{ policy }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+lastSync = '{{ lastSync }}',
+state = '{{ state }}',
+stateTime = '{{ stateTime }}',
+currentSyncInfo = '{{ currentSyncInfo }}',
+lastReplicationCycle = '{{ lastReplicationCycle }}',
+group = '{{ group }}',
+labels = '{{ labels }}',
+recentCloneJobs = '{{ recentCloneJobs }}',
+error = '{{ error }}',
+recentCutoverJobs = '{{ recentCutoverJobs }}',
+cutoverForecast = '{{ cutoverForecast }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND migratingVmsId = '{{ migratingVmsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified migrating_vm resource.
+
+```sql
+DELETE FROM google.vmmigration.migrating_vms
+WHERE locationsId = '{{ locationsId }}'
+AND migratingVmsId = '{{ migratingVmsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: instances
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances
   - appengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instance</code> resource or lists <code>instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -47,11 +49,52 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="vmName" /> | `string` | Output only. Name of the virtual machine where this instance lives. Only applicable for instances in App Engine flexible environment. |
 | <CopyableCode code="vmStatus" /> | `string` | Output only. Status of the virtual machine where this instance lives. Only applicable for instances in App Engine flexible environment. |
 | <CopyableCode code="vmZoneName" /> | `string` | Output only. Zone where the virtual machine is located. Only applicable for instances in App Engine flexible environment. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="appsId, instancesId, servicesId, versionsId" /> | Gets instance information. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="appsId, servicesId, versionsId" /> | Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list). |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appsId, instancesId, servicesId, versionsId" /> | Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) \| flexible environment (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="appsId, servicesId, versionsId" /> | Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list). |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appsId, instancesId, servicesId, versionsId" /> | Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method. |
 | <CopyableCode code="debug" /> | `EXEC` | <CopyableCode code="appsId, instancesId, servicesId, versionsId" /> | Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over and determine if another instance should be started.Only applicable for instances in App Engine flexible environment. |
+
+## `SELECT` examples
+
+Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+
+```sql
+SELECT
+id,
+name,
+appEngineRelease,
+availability,
+averageLatency,
+errors,
+memoryUsage,
+qps,
+requests,
+startTime,
+vmDebugEnabled,
+vmId,
+vmIp,
+vmLiveness,
+vmName,
+vmStatus,
+vmZoneName
+FROM google.appengine.instances
+WHERE appsId = '{{ appsId }}'
+AND servicesId = '{{ servicesId }}'
+AND versionsId = '{{ versionsId }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified instance resource.
+
+```sql
+DELETE FROM google.appengine.instances
+WHERE appsId = '{{ appsId }}'
+AND instancesId = '{{ instancesId }}'
+AND servicesId = '{{ servicesId }}'
+AND versionsId = '{{ versionsId }}';
+```

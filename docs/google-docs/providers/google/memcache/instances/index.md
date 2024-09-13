@@ -1,3 +1,4 @@
+
 ---
 title: instances
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances
   - memcache
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instance</code> resource or lists <code>instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Unique name of the resource in this scope including project and location using the form: `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/instances/&#123;instance_id&#125;` Note: Memcached instances are managed and addressed at the regional level so `location_id` here refers to a Google Cloud region; however, users may choose which zones Memcached nodes should be provisioned in within an instance. Refer to zones field for more details. |
+| <CopyableCode code="name" /> | `string` | Required. Unique name of the resource in this scope including project and location using the form: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` Note: Memcached instances are managed and addressed at the regional level so `location_id` here refers to a Google Cloud region; however, users may choose which zones Memcached nodes should be provisioned in within an instance. Refer to zones field for more details. |
 | <CopyableCode code="authorizedNetwork" /> | `string` | The full name of the Google Compute Engine [network](/compute/docs/networks-and-firewalls#networks) to which the instance is connected. If left unspecified, the `default` network will be used. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time the instance was created. |
 | <CopyableCode code="discoveryEndpoint" /> | `string` | Output only. Endpoint for the Discovery API. |
@@ -46,9 +48,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nodeCount" /> | `integer` | Required. Number of nodes in the Memcached instance. |
 | <CopyableCode code="parameters" /> | `object` |  |
 | <CopyableCode code="reservedIpRangeId" /> | `array` | Optional. Contains the id of allocated IP address ranges associated with the private service access connection for example, "test-default" associated with IP range 10.0.0.0/29. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Optional. Output only. Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Optional. Output only. Reserved for future use. |
 | <CopyableCode code="state" /> | `string` | Output only. The state of this Memcached instance. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time the instance was updated. |
 | <CopyableCode code="zones" /> | `array` | Zones in which Memcached nodes should be provisioned. Memcached nodes will be equally distributed across these zones. If not provided, the service will by default create nodes in all zones in the region for the instance. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -57,7 +62,203 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Instance in a given location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Deletes a single Instance. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Updates an existing Instance in a given project and location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Instances in a given location. |
 | <CopyableCode code="apply_parameters" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | `ApplyParameters` restarts the set of specified nodes in order to update them to the current set of parameters for the Memcached Instance. |
 | <CopyableCode code="reschedule_maintenance" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Reschedules upcoming maintenance event. |
 | <CopyableCode code="upgrade" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Upgrades the Memcache instance to a newer memcached engine version specified in the request. |
+
+## `SELECT` examples
+
+Lists Instances in a given location.
+
+```sql
+SELECT
+name,
+authorizedNetwork,
+createTime,
+discoveryEndpoint,
+displayName,
+instanceMessages,
+labels,
+maintenancePolicy,
+maintenanceSchedule,
+memcacheFullVersion,
+memcacheNodes,
+memcacheVersion,
+nodeConfig,
+nodeCount,
+parameters,
+reservedIpRangeId,
+satisfiesPzi,
+satisfiesPzs,
+state,
+updateTime,
+zones
+FROM google.memcache.instances
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>instances</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.memcache.instances (
+locationsId,
+projectsId,
+name,
+displayName,
+labels,
+authorizedNetwork,
+zones,
+nodeCount,
+nodeConfig,
+memcacheVersion,
+parameters,
+memcacheNodes,
+createTime,
+updateTime,
+state,
+memcacheFullVersion,
+instanceMessages,
+discoveryEndpoint,
+maintenancePolicy,
+maintenanceSchedule,
+reservedIpRangeId,
+satisfiesPzs,
+satisfiesPzi
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ labels }}',
+'{{ authorizedNetwork }}',
+'{{ zones }}',
+'{{ nodeCount }}',
+'{{ nodeConfig }}',
+'{{ memcacheVersion }}',
+'{{ parameters }}',
+'{{ memcacheNodes }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ state }}',
+'{{ memcacheFullVersion }}',
+'{{ instanceMessages }}',
+'{{ discoveryEndpoint }}',
+'{{ maintenancePolicy }}',
+'{{ maintenanceSchedule }}',
+'{{ reservedIpRangeId }}',
+true|false,
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: authorizedNetwork
+        value: '{{ authorizedNetwork }}'
+      - name: zones
+        value: '{{ zones }}'
+      - name: nodeCount
+        value: '{{ nodeCount }}'
+      - name: nodeConfig
+        value: '{{ nodeConfig }}'
+      - name: memcacheVersion
+        value: '{{ memcacheVersion }}'
+      - name: parameters
+        value: '{{ parameters }}'
+      - name: memcacheNodes
+        value: '{{ memcacheNodes }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: memcacheFullVersion
+        value: '{{ memcacheFullVersion }}'
+      - name: instanceMessages
+        value: '{{ instanceMessages }}'
+      - name: discoveryEndpoint
+        value: '{{ discoveryEndpoint }}'
+      - name: maintenancePolicy
+        value: '{{ maintenancePolicy }}'
+      - name: maintenanceSchedule
+        value: '{{ maintenanceSchedule }}'
+      - name: reservedIpRangeId
+        value: '{{ reservedIpRangeId }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a instance only if the necessary resources are available.
+
+```sql
+UPDATE google.memcache.instances
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+labels = '{{ labels }}',
+authorizedNetwork = '{{ authorizedNetwork }}',
+zones = '{{ zones }}',
+nodeCount = '{{ nodeCount }}',
+nodeConfig = '{{ nodeConfig }}',
+memcacheVersion = '{{ memcacheVersion }}',
+parameters = '{{ parameters }}',
+memcacheNodes = '{{ memcacheNodes }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+state = '{{ state }}',
+memcacheFullVersion = '{{ memcacheFullVersion }}',
+instanceMessages = '{{ instanceMessages }}',
+discoveryEndpoint = '{{ discoveryEndpoint }}',
+maintenancePolicy = '{{ maintenancePolicy }}',
+maintenanceSchedule = '{{ maintenanceSchedule }}',
+reservedIpRangeId = '{{ reservedIpRangeId }}',
+satisfiesPzs = true|false,
+satisfiesPzi = true|false
+WHERE 
+instancesId = '{{ instancesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified instance resource.
+
+```sql
+DELETE FROM google.memcache.instances
+WHERE instancesId = '{{ instancesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

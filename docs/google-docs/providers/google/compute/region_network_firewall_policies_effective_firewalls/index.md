@@ -1,3 +1,4 @@
+
 ---
 title: region_network_firewall_policies_effective_firewalls
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_network_firewall_policies_effective_firewalls
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_network_firewall_policies_effective_firewall</code> resource or lists <code>region_network_firewall_policies_effective_firewalls</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,7 +34,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="firewallPolicys" /> | `array` | Effective firewalls from firewall policy. |
 | <CopyableCode code="firewalls" /> | `array` | Effective firewalls on the network. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_effective_firewalls" /> | `SELECT` | <CopyableCode code="network, project, region" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_effective_firewalls" /> | `SELECT` | <CopyableCode code="network, project, region" /> | Returns the effective firewalls on a given network. |
+
+## `SELECT` examples
+
+Returns the effective firewalls on a given network.
+
+```sql
+SELECT
+firewallPolicys,
+firewalls
+FROM google.compute.region_network_firewall_policies_effective_firewalls
+WHERE network = '{{ network }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}'; 
+```

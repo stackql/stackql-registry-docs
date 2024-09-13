@@ -1,3 +1,4 @@
+
 ---
 title: workflow_configs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - workflow_configs
   - dataform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>workflow_config</code> resource or lists <code>workflow_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +33,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Identifier. The workflow config's name. |
+| <CopyableCode code="createTime" /> | `string` | Output only. The timestamp of when the WorkflowConfig was created. |
 | <CopyableCode code="cronSchedule" /> | `string` | Optional. Optional schedule (in cron format) for automatic execution of this workflow config. |
 | <CopyableCode code="invocationConfig" /> | `object` | Includes various configuration options for a workflow invocation. If both `included_targets` and `included_tags` are unset, all actions will be included. |
 | <CopyableCode code="recentScheduledExecutionRecords" /> | `array` | Output only. Records of the 10 most recent scheduled execution attempts, ordered in in descending order of `execution_time`. Updated whenever automatic creation of a workflow invocation is triggered by cron_schedule. |
 | <CopyableCode code="releaseConfig" /> | `string` | Required. The name of the release config whose release_compilation_result should be executed. Must be in the format `projects/*/locations/*/repositories/*/releaseConfigs/*`. |
 | <CopyableCode code="timeZone" /> | `string` | Optional. Specifies the time zone to be used when interpreting cron_schedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left unspecified, the default is UTC. |
+| <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp of when the WorkflowConfig was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,4 +49,127 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Creates a new WorkflowConfig in a given Repository. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, repositoriesId, workflowConfigsId" /> | Deletes a single WorkflowConfig. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, repositoriesId, workflowConfigsId" /> | Updates a single WorkflowConfig. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists WorkflowConfigs in a given Repository. |
+
+## `SELECT` examples
+
+Lists WorkflowConfigs in a given Repository.
+
+```sql
+SELECT
+name,
+createTime,
+cronSchedule,
+invocationConfig,
+recentScheduledExecutionRecords,
+releaseConfig,
+timeZone,
+updateTime
+FROM google.dataform.workflow_configs
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>workflow_configs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataform.workflow_configs (
+locationsId,
+projectsId,
+repositoriesId,
+name,
+releaseConfig,
+invocationConfig,
+cronSchedule,
+timeZone,
+recentScheduledExecutionRecords,
+createTime,
+updateTime
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ repositoriesId }}',
+'{{ name }}',
+'{{ releaseConfig }}',
+'{{ invocationConfig }}',
+'{{ cronSchedule }}',
+'{{ timeZone }}',
+'{{ recentScheduledExecutionRecords }}',
+'{{ createTime }}',
+'{{ updateTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: releaseConfig
+        value: '{{ releaseConfig }}'
+      - name: invocationConfig
+        value: '{{ invocationConfig }}'
+      - name: cronSchedule
+        value: '{{ cronSchedule }}'
+      - name: timeZone
+        value: '{{ timeZone }}'
+      - name: recentScheduledExecutionRecords
+        value: '{{ recentScheduledExecutionRecords }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a workflow_config only if the necessary resources are available.
+
+```sql
+UPDATE google.dataform.workflow_configs
+SET 
+name = '{{ name }}',
+releaseConfig = '{{ releaseConfig }}',
+invocationConfig = '{{ invocationConfig }}',
+cronSchedule = '{{ cronSchedule }}',
+timeZone = '{{ timeZone }}',
+recentScheduledExecutionRecords = '{{ recentScheduledExecutionRecords }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'
+AND workflowConfigsId = '{{ workflowConfigsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified workflow_config resource.
+
+```sql
+DELETE FROM google.dataform.workflow_configs
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'
+AND workflowConfigsId = '{{ workflowConfigsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: memberships
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - memberships
   - recaptchaenterprise
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>membership</code> resource or lists <code>memberships</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,11 +32,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Identifier. The resource name for this membership in the format `projects/&#123;project&#125;/relatedaccountgroups/&#123;relatedaccountgroup&#125;/memberships/&#123;membership&#125;`. |
+| <CopyableCode code="name" /> | `string` | Required. Identifier. The resource name for this membership in the format `projects/{project}/relatedaccountgroups/{relatedaccountgroup}/memberships/{membership}`. |
 | <CopyableCode code="accountId" /> | `string` | The unique stable account identifier of the member. The identifier corresponds to an `account_id` provided in a previous `CreateAssessment` or `AnnotateAssessment` call. |
 | <CopyableCode code="hashedAccountId" /> | `string` | Deprecated: use `account_id` instead. The unique stable hashed account identifier of the member. The identifier corresponds to a `hashed_account_id` provided in a previous `CreateAssessment` or `AnnotateAssessment` call. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId, relatedaccountgroupsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId, relatedaccountgroupsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId, relatedaccountgroupsId" /> | Get memberships in a group of related accounts. |
+
+## `SELECT` examples
+
+Get memberships in a group of related accounts.
+
+```sql
+SELECT
+name,
+accountId,
+hashedAccountId
+FROM google.recaptchaenterprise.memberships
+WHERE projectsId = '{{ projectsId }}'
+AND relatedaccountgroupsId = '{{ relatedaccountgroupsId }}'; 
+```

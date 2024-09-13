@@ -1,3 +1,4 @@
+
 ---
 title: deployments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - deployments
   - dialogflow
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>deployment</code> resource or lists <code>deployments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,9 +38,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="result" /> | `object` | Result of the deployment. |
 | <CopyableCode code="startTime" /> | `string` | Start time of this deployment. |
 | <CopyableCode code="state" /> | `string` | The current state of the deployment. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_agents_environments_deployments_get" /> | `SELECT` | <CopyableCode code="agentsId, deploymentsId, environmentsId, locationsId, projectsId" /> | Retrieves the specified Deployment. |
 | <CopyableCode code="projects_locations_agents_environments_deployments_list" /> | `SELECT` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> | Returns the list of all deployments in the specified Environment. |
-| <CopyableCode code="_projects_locations_agents_environments_deployments_list" /> | `EXEC` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> | Returns the list of all deployments in the specified Environment. |
+
+## `SELECT` examples
+
+Returns the list of all deployments in the specified Environment.
+
+```sql
+SELECT
+name,
+endTime,
+flowVersion,
+result,
+startTime,
+state
+FROM google.dialogflow.deployments
+WHERE agentsId = '{{ agentsId }}'
+AND environmentsId = '{{ environmentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

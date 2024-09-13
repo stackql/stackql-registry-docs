@@ -1,3 +1,4 @@
+
 ---
 title: networks
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - networks
   - servicenetworking
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>network</code> resource or lists <code>networks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,11 +41,37 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="producerExportSubnetRoutesWithPublicIp" /> | `boolean` | Export subnet routes with public ip flag value for peering from producer to consumer. |
 | <CopyableCode code="producerImportCustomRoutes" /> | `boolean` | Import custom routes flag value for peering from producer to consumer. |
 | <CopyableCode code="producerImportSubnetRoutesWithPublicIp" /> | `boolean` | Import subnet routes with public ip flag value for peering from producer to consumer. |
-| <CopyableCode code="producerNetwork" /> | `string` | Output only. The VPC host network that is used to host managed service instances. In the format, projects/&#123;project&#125;/global/networks/&#123;network&#125; where &#123;project&#125; is the project number e.g. '12345' and &#123;network&#125; is the network name. |
+| <CopyableCode code="producerNetwork" /> | `string` | Output only. The VPC host network that is used to host managed service instances. In the format, projects/{project}/global/networks/{network} where {project} is the project number e.g. '12345' and {network} is the network name. |
 | <CopyableCode code="reservedRanges" /> | `array` | Output only. The reserved ranges associated with this private service access connection. |
 | <CopyableCode code="usedIpRanges" /> | `array` | Output only. The IP ranges already in use by consumer or producer |
 | <CopyableCode code="vpcScReferenceArchitectureEnabled" /> | `boolean` | Output only. Indicates whether the VPC Service Controls reference architecture is configured for the producer VPC host network. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networksId, projectsId, servicesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="networksId, projectsId, servicesId" /> | Service producers use this method to get the configuration of their connection including the import/export of custom routes and subnetwork routes with public IP. |
+
+## `SELECT` examples
+
+Service producers use this method to get the configuration of their connection including the import/export of custom routes and subnetwork routes with public IP.
+
+```sql
+SELECT
+cloudsqlConfigs,
+consumerExportCustomRoutes,
+consumerExportSubnetRoutesWithPublicIp,
+consumerImportCustomRoutes,
+consumerImportSubnetRoutesWithPublicIp,
+producerExportCustomRoutes,
+producerExportSubnetRoutesWithPublicIp,
+producerImportCustomRoutes,
+producerImportSubnetRoutesWithPublicIp,
+producerNetwork,
+reservedRanges,
+usedIpRanges,
+vpcScReferenceArchitectureEnabled
+FROM google.servicenetworking.networks
+WHERE networksId = '{{ networksId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}'; 
+```

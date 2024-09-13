@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Provides ways to manage Bare Metal Solution hardware installed in a regional extension located near a Google Cloud data center.  
-    
+The baremetalsolution service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>13</b></span><br />
-<span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>62</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.baremetalsolution</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Bare Metal Solution API</td></tr>
-<tr><td><b>Description</b></td><td>Provides ways to manage Bare Metal Solution hardware installed in a regional extension located near a Google Cloud data center.</td></tr>
-<tr><td><b>Id</b></td><td><code>baremetalsolution:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -46,7 +35,7 @@ Provides ways to manage Bare Metal Solution hardware installed in a regional ext
 <a href="/providers/google/baremetalsolution/networks/">networks</a><br />
 <a href="/providers/google/baremetalsolution/networks_network_usage/">networks_network_usage</a><br />
 <a href="/providers/google/baremetalsolution/nfs_shares/">nfs_shares</a><br />
-<a href="/providers/google/baremetalsolution/operations/">operations</a><br />
+<a href="/providers/google/baremetalsolution/operations/">operations</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/baremetalsolution/os_images/">os_images</a><br />
@@ -54,6 +43,6 @@ Provides ways to manage Bare Metal Solution hardware installed in a regional ext
 <a href="/providers/google/baremetalsolution/provisioning_quotas/">provisioning_quotas</a><br />
 <a href="/providers/google/baremetalsolution/snapshots/">snapshots</a><br />
 <a href="/providers/google/baremetalsolution/ssh_keys/">ssh_keys</a><br />
-<a href="/providers/google/baremetalsolution/volumes/">volumes</a><br />
+<a href="/providers/google/baremetalsolution/volumes/">volumes</a>
 </div>
 </div>

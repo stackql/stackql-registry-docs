@@ -1,3 +1,4 @@
+
 ---
 title: repositories_history
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - repositories_history
   - dataform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>repositories_history</code> resource or lists <code>repositories_history</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="commits" /> | `array` | A list of commit logs, ordered by 'git log' default order. |
+| <CopyableCode code="nextPageToken" /> | `string` | A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="fetch_history" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch_history" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Fetches a Repository's history of commits. The Repository must not have a value for `git_remote_settings.url`. |
+
+## `SELECT` examples
+
+Fetches a Repository's history of commits. The Repository must not have a value for `git_remote_settings.url`.
+
+```sql
+SELECT
+commits,
+nextPageToken
+FROM google.dataform.repositories_history
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```

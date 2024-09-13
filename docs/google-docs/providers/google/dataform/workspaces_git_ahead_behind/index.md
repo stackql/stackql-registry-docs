@@ -1,3 +1,4 @@
+
 ---
 title: workspaces_git_ahead_behind
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - workspaces_git_ahead_behind
   - dataform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>workspaces_git_ahead_behind</code> resource or lists <code>workspaces_git_ahead_behind</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="commitsAhead" /> | `integer` | The number of commits in the remote branch that are not in the workspace. |
+| <CopyableCode code="commitsBehind" /> | `integer` | The number of commits in the workspace that are not in the remote branch. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="fetch_git_ahead_behind" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId, workspacesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch_git_ahead_behind" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId, workspacesId" /> | Fetches Git ahead/behind against a remote branch. |
+
+## `SELECT` examples
+
+Fetches Git ahead/behind against a remote branch.
+
+```sql
+SELECT
+commitsAhead,
+commitsBehind
+FROM google.dataform.workspaces_git_ahead_behind
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'
+AND workspacesId = '{{ workspacesId }}'; 
+```

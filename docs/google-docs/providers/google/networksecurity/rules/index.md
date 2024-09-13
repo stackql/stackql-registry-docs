@@ -1,3 +1,4 @@
+
 ---
 title: rules
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - rules
   - networksecurity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>rule</code> resource or lists <code>rules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Immutable. Name of the resource. ame is the full resource name so projects/&#123;project&#125;/locations/&#123;location&#125;/gatewaySecurityPolicies/&#123;gateway_security_policy&#125;/rules/&#123;rule&#125; rule should match the pattern: (^[a-z]([a-z0-9-]&#123;0,61&#125;[a-z0-9])?$). |
+| <CopyableCode code="name" /> | `string` | Required. Immutable. Name of the resource. ame is the full resource name so projects/{project}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy}/rules/{rule} rule should match the pattern: (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$). |
 | <CopyableCode code="description" /> | `string` | Optional. Free-text description of the resource. |
 | <CopyableCode code="applicationMatcher" /> | `string` | Optional. CEL expression for matching on L7/application level criteria. |
 | <CopyableCode code="basicProfile" /> | `string` | Required. Profile which tells what the primitive action should be. |
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sessionMatcher" /> | `string` | Required. CEL expression for matching on session criteria. |
 | <CopyableCode code="tlsInspectionEnabled" /> | `boolean` | Optional. Flag to enable TLS inspection of traffic matching on , can only be true if the parent GatewaySecurityPolicy references a TLSInspectionConfig. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the rule was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,4 +51,139 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_gateway_security_policies_rules_create" /> | `INSERT` | <CopyableCode code="gatewaySecurityPoliciesId, locationsId, projectsId" /> | Creates a new GatewaySecurityPolicy in a given project and location. |
 | <CopyableCode code="projects_locations_gateway_security_policies_rules_delete" /> | `DELETE` | <CopyableCode code="gatewaySecurityPoliciesId, locationsId, projectsId, rulesId" /> | Deletes a single GatewaySecurityPolicyRule. |
 | <CopyableCode code="projects_locations_gateway_security_policies_rules_patch" /> | `UPDATE` | <CopyableCode code="gatewaySecurityPoliciesId, locationsId, projectsId, rulesId" /> | Updates the parameters of a single GatewaySecurityPolicyRule. |
-| <CopyableCode code="_projects_locations_gateway_security_policies_rules_list" /> | `EXEC` | <CopyableCode code="gatewaySecurityPoliciesId, locationsId, projectsId" /> | Lists GatewaySecurityPolicyRules in a given project and location. |
+
+## `SELECT` examples
+
+Lists GatewaySecurityPolicyRules in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+applicationMatcher,
+basicProfile,
+createTime,
+enabled,
+priority,
+sessionMatcher,
+tlsInspectionEnabled,
+updateTime
+FROM google.networksecurity.rules
+WHERE gatewaySecurityPoliciesId = '{{ gatewaySecurityPoliciesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>rules</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networksecurity.rules (
+gatewaySecurityPoliciesId,
+locationsId,
+projectsId,
+basicProfile,
+name,
+createTime,
+updateTime,
+enabled,
+priority,
+description,
+sessionMatcher,
+applicationMatcher,
+tlsInspectionEnabled
+)
+SELECT 
+'{{ gatewaySecurityPoliciesId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ basicProfile }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+true|false,
+'{{ priority }}',
+'{{ description }}',
+'{{ sessionMatcher }}',
+'{{ applicationMatcher }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: basicProfile
+        value: '{{ basicProfile }}'
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: enabled
+        value: '{{ enabled }}'
+      - name: priority
+        value: '{{ priority }}'
+      - name: description
+        value: '{{ description }}'
+      - name: sessionMatcher
+        value: '{{ sessionMatcher }}'
+      - name: applicationMatcher
+        value: '{{ applicationMatcher }}'
+      - name: tlsInspectionEnabled
+        value: '{{ tlsInspectionEnabled }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a rule only if the necessary resources are available.
+
+```sql
+UPDATE google.networksecurity.rules
+SET 
+basicProfile = '{{ basicProfile }}',
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+enabled = true|false,
+priority = '{{ priority }}',
+description = '{{ description }}',
+sessionMatcher = '{{ sessionMatcher }}',
+applicationMatcher = '{{ applicationMatcher }}',
+tlsInspectionEnabled = true|false
+WHERE 
+gatewaySecurityPoliciesId = '{{ gatewaySecurityPoliciesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND rulesId = '{{ rulesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified rule resource.
+
+```sql
+DELETE FROM google.networksecurity.rules
+WHERE gatewaySecurityPoliciesId = '{{ gatewaySecurityPoliciesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND rulesId = '{{ rulesId }}';
+```

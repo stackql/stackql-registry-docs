@@ -1,3 +1,4 @@
+
 ---
 title: repositories_git_refs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - repositories_git_refs
   - cloudbuild
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>repositories_git_ref</code> resource or lists <code>repositories_git_refs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="nextPageToken" /> | `string` | A token identifying a page of results the server should return. |
+| <CopyableCode code="refNames" /> | `array` | Name of the refs fetched. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_connections_repositories_fetch_git_refs" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId, repositoriesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_connections_repositories_fetch_git_refs" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId, repositoriesId" /> | Fetch the list of branches or tags for a given repository. |
+
+## `SELECT` examples
+
+Fetch the list of branches or tags for a given repository.
+
+```sql
+SELECT
+nextPageToken,
+refNames
+FROM google.cloudbuild.repositories_git_refs
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```

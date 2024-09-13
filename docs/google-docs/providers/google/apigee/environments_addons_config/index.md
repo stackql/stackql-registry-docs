@@ -1,3 +1,4 @@
+
 ---
 title: environments_addons_config
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - environments_addons_config
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>environments_addons_config</code> resource or lists <code>environments_addons_config</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,7 +38,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="connectorsPlatformConfig" /> | `object` | Configuration for the Connectors Platform add-on. |
 | <CopyableCode code="integrationConfig" /> | `object` | Configuration for the Integration add-on. |
 | <CopyableCode code="monetizationConfig" /> | `object` | Configuration for the Monetization add-on. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="organizations_environments_get_addons_config" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_environments_get_addons_config" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Gets the add-ons config of an environment. |
+
+## `SELECT` examples
+
+Gets the add-ons config of an environment.
+
+```sql
+SELECT
+advancedApiOpsConfig,
+analyticsConfig,
+apiSecurityConfig,
+connectorsPlatformConfig,
+integrationConfig,
+monetizationConfig
+FROM google.apigee.environments_addons_config
+WHERE environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```

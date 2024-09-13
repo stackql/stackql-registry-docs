@@ -1,3 +1,4 @@
+
 ---
 title: deployments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - deployments
   - prod_tt_sasportal
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>deployment</code> resource or lists <code>deployments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,6 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | The deployment's display name. |
 | <CopyableCode code="frns" /> | `array` | Output only. The FCC Registration Numbers (FRNs) copied from its direct parent. |
 | <CopyableCode code="sasUserIds" /> | `array` | User ID used by the devices belonging to this deployment. Each deployment should be associated with one unique user ID. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,9 +54,95 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nodes_deployments_delete" /> | `DELETE` | <CopyableCode code="deploymentsId, nodesId" /> | Deletes a deployment. |
 | <CopyableCode code="customers_deployments_patch" /> | `UPDATE` | <CopyableCode code="customersId, deploymentsId" /> | Updates an existing deployment. |
 | <CopyableCode code="nodes_deployments_patch" /> | `UPDATE` | <CopyableCode code="deploymentsId, nodesId" /> | Updates an existing deployment. |
-| <CopyableCode code="_customers_deployments_list" /> | `EXEC` | <CopyableCode code="customersId" /> | Lists deployments. |
-| <CopyableCode code="_customers_nodes_deployments_list" /> | `EXEC` | <CopyableCode code="customersId, nodesId" /> | Lists deployments. |
-| <CopyableCode code="_nodes_deployments_list" /> | `EXEC` | <CopyableCode code="nodesId" /> | Lists deployments. |
-| <CopyableCode code="_nodes_nodes_deployments_list" /> | `EXEC` | <CopyableCode code="nodesId, nodesId1" /> | Lists deployments. |
 | <CopyableCode code="customers_deployments_move" /> | `EXEC` | <CopyableCode code="customersId, deploymentsId" /> | Moves a deployment under another node or customer. |
 | <CopyableCode code="nodes_deployments_move" /> | `EXEC` | <CopyableCode code="deploymentsId, nodesId" /> | Moves a deployment under another node or customer. |
+
+## `SELECT` examples
+
+Lists deployments.
+
+```sql
+SELECT
+name,
+displayName,
+frns,
+sasUserIds
+FROM google.prod_tt_sasportal.deployments
+WHERE nodesId = '{{ nodesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>deployments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.prod_tt_sasportal.deployments (
+customersId,
+sasUserIds,
+displayName,
+frns,
+name
+)
+SELECT 
+'{{ customersId }}',
+'{{ sasUserIds }}',
+'{{ displayName }}',
+'{{ frns }}',
+'{{ name }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: sasUserIds
+        value: '{{ sasUserIds }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: frns
+        value: '{{ frns }}'
+      - name: name
+        value: '{{ name }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a deployment only if the necessary resources are available.
+
+```sql
+UPDATE google.prod_tt_sasportal.deployments
+SET 
+sasUserIds = '{{ sasUserIds }}',
+displayName = '{{ displayName }}',
+frns = '{{ frns }}',
+name = '{{ name }}'
+WHERE 
+deploymentsId = '{{ deploymentsId }}'
+AND nodesId = '{{ nodesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified deployment resource.
+
+```sql
+DELETE FROM google.prod_tt_sasportal.deployments
+WHERE deploymentsId = '{{ deploymentsId }}'
+AND nodesId = '{{ nodesId }}';
+```

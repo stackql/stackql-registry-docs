@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Creates and runs virtual machines on Google Cloud Platform.   
-    
+The compute service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>206</b></span><br />
-<span>total selectable resources:&nbsp;<b>170</b></span><br />
-<span>total methods:&nbsp;<b>849</b></span><br />
+<span>total resources:&nbsp;<b>207</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.compute</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Compute Engine API</td></tr>
-<tr><td><b>Description</b></td><td>Creates and runs virtual machines on Google Cloud Platform. </td></tr>
-<tr><td><b>Id</b></td><td><code>compute:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -66,6 +55,7 @@ Creates and runs virtual machines on Google Cloud Platform.
 <a href="/providers/google/compute/firewall_policies_rule/">firewall_policies_rule</a><br />
 <a href="/providers/google/compute/firewalls/">firewalls</a><br />
 <a href="/providers/google/compute/forwarding_rules/">forwarding_rules</a><br />
+<a href="/providers/google/compute/future_reservations/">future_reservations</a><br />
 <a href="/providers/google/compute/global_addresses/">global_addresses</a><br />
 <a href="/providers/google/compute/global_forwarding_rules/">global_forwarding_rules</a><br />
 <a href="/providers/google/compute/global_network_endpoint_groups/">global_network_endpoint_groups</a><br />
@@ -142,7 +132,7 @@ Creates and runs virtual machines on Google Cloud Platform.
 <a href="/providers/google/compute/node_templates/">node_templates</a><br />
 <a href="/providers/google/compute/node_templates_iam_policies/">node_templates_iam_policies</a><br />
 <a href="/providers/google/compute/node_types/">node_types</a><br />
-<a href="/providers/google/compute/packet_mirrorings/">packet_mirrorings</a><br />
+<a href="/providers/google/compute/packet_mirrorings/">packet_mirrorings</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/compute/packet_mirrorings_iam_policies/">packet_mirrorings_iam_policies</a><br />
@@ -247,6 +237,6 @@ Creates and runs virtual machines on Google Cloud Platform.
 <a href="/providers/google/compute/xpn_hosts/">xpn_hosts</a><br />
 <a href="/providers/google/compute/xpn_resources/">xpn_resources</a><br />
 <a href="/providers/google/compute/zone_operations/">zone_operations</a><br />
-<a href="/providers/google/compute/zones/">zones</a><br />
+<a href="/providers/google/compute/zones/">zones</a>
 </div>
 </div>

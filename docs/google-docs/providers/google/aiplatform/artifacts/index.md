@@ -1,3 +1,4 @@
+
 ---
 title: artifacts
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - artifacts
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>artifact</code> resource or lists <code>artifacts</code> in a region
 
 ## Overview
 <table><tbody>
@@ -42,14 +44,162 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | The state of this Artifact. This is a property of the Artifact, and does not imply or capture any ongoing process. This property is managed by clients (such as Vertex AI Pipelines), and the system does not prescribe or check the validity of state transitions. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this Artifact was last updated. |
 | <CopyableCode code="uri" /> | `string` | The uniform resource identifier of the artifact file. May be empty if there is no actual artifact file. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="artifactsId, locationsId, metadataStoresId, projectsId" /> | Retrieves a specific Artifact. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Lists Artifacts in the MetadataStore. |
+| <CopyableCode code="query_artifact_lineage_subgraph" /> | `SELECT` | <CopyableCode code="artifactsId, locationsId, metadataStoresId, projectsId" /> | Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Creates an Artifact associated with a MetadataStore. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="artifactsId, locationsId, metadataStoresId, projectsId" /> | Deletes an Artifact. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="artifactsId, locationsId, metadataStoresId, projectsId" /> | Updates a stored Artifact. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Lists Artifacts in the MetadataStore. |
 | <CopyableCode code="purge" /> | `EXEC` | <CopyableCode code="locationsId, metadataStoresId, projectsId" /> | Purges Artifacts. |
-| <CopyableCode code="query_artifact_lineage_subgraph" /> | `EXEC` | <CopyableCode code="artifactsId, locationsId, metadataStoresId, projectsId" /> | Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph. |
+
+## `SELECT` examples
+
+Lists Artifacts in the MetadataStore.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+displayName,
+etag,
+labels,
+metadata,
+schemaTitle,
+schemaVersion,
+state,
+updateTime,
+uri
+FROM google.aiplatform.artifacts
+WHERE locationsId = '{{ locationsId }}'
+AND metadataStoresId = '{{ metadataStoresId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>artifacts</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.artifacts (
+locationsId,
+metadataStoresId,
+projectsId,
+etag,
+schemaTitle,
+name,
+metadata,
+updateTime,
+labels,
+schemaVersion,
+state,
+displayName,
+description,
+uri,
+createTime
+)
+SELECT 
+'{{ locationsId }}',
+'{{ metadataStoresId }}',
+'{{ projectsId }}',
+'{{ etag }}',
+'{{ schemaTitle }}',
+'{{ name }}',
+'{{ metadata }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ schemaVersion }}',
+'{{ state }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ uri }}',
+'{{ createTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: etag
+        value: '{{ etag }}'
+      - name: schemaTitle
+        value: '{{ schemaTitle }}'
+      - name: name
+        value: '{{ name }}'
+      - name: metadata
+        value: '{{ metadata }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: schemaVersion
+        value: '{{ schemaVersion }}'
+      - name: state
+        value: '{{ state }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: uri
+        value: '{{ uri }}'
+      - name: createTime
+        value: '{{ createTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a artifact only if the necessary resources are available.
+
+```sql
+UPDATE google.aiplatform.artifacts
+SET 
+etag = '{{ etag }}',
+schemaTitle = '{{ schemaTitle }}',
+name = '{{ name }}',
+metadata = '{{ metadata }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+schemaVersion = '{{ schemaVersion }}',
+state = '{{ state }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+uri = '{{ uri }}',
+createTime = '{{ createTime }}'
+WHERE 
+artifactsId = '{{ artifactsId }}'
+AND locationsId = '{{ locationsId }}'
+AND metadataStoresId = '{{ metadataStoresId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified artifact resource.
+
+```sql
+DELETE FROM google.aiplatform.artifacts
+WHERE artifactsId = '{{ artifactsId }}'
+AND locationsId = '{{ locationsId }}'
+AND metadataStoresId = '{{ metadataStoresId }}'
+AND projectsId = '{{ projectsId }}';
+```

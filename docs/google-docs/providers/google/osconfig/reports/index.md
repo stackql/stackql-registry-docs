@@ -1,3 +1,4 @@
+
 ---
 title: reports
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - reports
   - osconfig
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>report</code> resource or lists <code>reports</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,14 +32,33 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The `OSPolicyAssignmentReport` API resource name. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/instances/&#123;instance_id&#125;/osPolicyAssignments/&#123;os_policy_assignment_id&#125;/report` |
+| <CopyableCode code="name" /> | `string` | The `OSPolicyAssignmentReport` API resource name. Format: `projects/{project_number}/locations/{location}/instances/{instance_id}/osPolicyAssignments/{os_policy_assignment_id}/report` |
 | <CopyableCode code="instance" /> | `string` | The Compute Engine VM instance name. |
 | <CopyableCode code="lastRunId" /> | `string` | Unique identifier of the last attempted run to apply the OS policies associated with this assignment on the VM. This ID is logged by the OS Config agent while applying the OS policies associated with this assignment on the VM. NOTE: If the service is unable to successfully connect to the agent for this run, then this id will not be available in the agent logs. |
-| <CopyableCode code="osPolicyAssignment" /> | `string` | Reference to the `OSPolicyAssignment` API resource that the `OSPolicy` belongs to. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/osPolicyAssignments/&#123;os_policy_assignment_id@revision_id&#125;` |
+| <CopyableCode code="osPolicyAssignment" /> | `string` | Reference to the `OSPolicyAssignment` API resource that the `OSPolicy` belongs to. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}` |
 | <CopyableCode code="osPolicyCompliances" /> | `array` | Compliance data for each `OSPolicy` that is applied to the VM. |
 | <CopyableCode code="updateTime" /> | `string` | Timestamp for when the report was last generated. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instancesId, locationsId, osPolicyAssignmentsId, projectsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, osPolicyAssignmentsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instancesId, locationsId, osPolicyAssignmentsId, projectsId" /> | List OS policy assignment reports for all Compute Engine VM instances in the specified zone. |
+
+## `SELECT` examples
+
+List OS policy assignment reports for all Compute Engine VM instances in the specified zone.
+
+```sql
+SELECT
+name,
+instance,
+lastRunId,
+osPolicyAssignment,
+osPolicyCompliances,
+updateTime
+FROM google.osconfig.reports
+WHERE instancesId = '{{ instancesId }}'
+AND locationsId = '{{ locationsId }}'
+AND osPolicyAssignmentsId = '{{ osPolicyAssignmentsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

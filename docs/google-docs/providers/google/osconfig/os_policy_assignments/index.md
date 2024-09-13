@@ -1,3 +1,4 @@
+
 ---
 title: os_policy_assignments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - os_policy_assignments
   - osconfig
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>os_policy_assignment</code> resource or lists <code>os_policy_assignments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Resource name. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/osPolicyAssignments/&#123;os_policy_assignment_id&#125;` This field is ignored when you create an OS policy assignment. |
+| <CopyableCode code="name" /> | `string` | Resource name. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id}` This field is ignored when you create an OS policy assignment. |
 | <CopyableCode code="description" /> | `string` | OS policy assignment description. Length of the description is limited to 1024 characters. |
 | <CopyableCode code="baseline" /> | `boolean` | Output only. Indicates that this revision has been successfully rolled out in this zone and new VMs will be assigned OS policies from this revision. For a given OS policy assignment, there is only one revision with a value of `true` for this field. |
 | <CopyableCode code="deleted" /> | `boolean` | Output only. Indicates that this revision deletes the OS policy assignment. |
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="rollout" /> | `object` | Message to configure the rollout at the zonal level for the OS policy assignment. |
 | <CopyableCode code="rolloutState" /> | `string` | Output only. OS policy assignment rollout state |
 | <CopyableCode code="uid" /> | `string` | Output only. Server generated unique id for the OS policy assignment resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,4 +54,152 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create an OS policy assignment. This method also creates the first revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel). |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, osPolicyAssignmentsId, projectsId" /> | Delete the OS policy assignment. This method creates a new revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. If the LRO completes and is not cancelled, all revisions associated with the OS policy assignment are deleted. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel). |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, osPolicyAssignmentsId, projectsId" /> | Update an existing OS policy assignment. This method creates a new revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel). |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List the OS policy assignments under the parent resource. For each OS policy assignment, the latest revision is returned. |
+
+## `SELECT` examples
+
+List the OS policy assignments under the parent resource. For each OS policy assignment, the latest revision is returned.
+
+```sql
+SELECT
+name,
+description,
+baseline,
+deleted,
+etag,
+instanceFilter,
+osPolicies,
+reconciling,
+revisionCreateTime,
+revisionId,
+rollout,
+rolloutState,
+uid
+FROM google.osconfig.os_policy_assignments
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>os_policy_assignments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.osconfig.os_policy_assignments (
+locationsId,
+projectsId,
+name,
+description,
+osPolicies,
+instanceFilter,
+rollout,
+revisionId,
+revisionCreateTime,
+etag,
+rolloutState,
+baseline,
+deleted,
+reconciling,
+uid
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ osPolicies }}',
+'{{ instanceFilter }}',
+'{{ rollout }}',
+'{{ revisionId }}',
+'{{ revisionCreateTime }}',
+'{{ etag }}',
+'{{ rolloutState }}',
+true|false,
+true|false,
+true|false,
+'{{ uid }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: osPolicies
+        value: '{{ osPolicies }}'
+      - name: instanceFilter
+        value: '{{ instanceFilter }}'
+      - name: rollout
+        value: '{{ rollout }}'
+      - name: revisionId
+        value: '{{ revisionId }}'
+      - name: revisionCreateTime
+        value: '{{ revisionCreateTime }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: rolloutState
+        value: '{{ rolloutState }}'
+      - name: baseline
+        value: '{{ baseline }}'
+      - name: deleted
+        value: '{{ deleted }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: uid
+        value: '{{ uid }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a os_policy_assignment only if the necessary resources are available.
+
+```sql
+UPDATE google.osconfig.os_policy_assignments
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+osPolicies = '{{ osPolicies }}',
+instanceFilter = '{{ instanceFilter }}',
+rollout = '{{ rollout }}',
+revisionId = '{{ revisionId }}',
+revisionCreateTime = '{{ revisionCreateTime }}',
+etag = '{{ etag }}',
+rolloutState = '{{ rolloutState }}',
+baseline = true|false,
+deleted = true|false,
+reconciling = true|false,
+uid = '{{ uid }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND osPolicyAssignmentsId = '{{ osPolicyAssignmentsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified os_policy_assignment resource.
+
+```sql
+DELETE FROM google.osconfig.os_policy_assignments
+WHERE locationsId = '{{ locationsId }}'
+AND osPolicyAssignmentsId = '{{ osPolicyAssignmentsId }}'
+AND projectsId = '{{ projectsId }}';
+```

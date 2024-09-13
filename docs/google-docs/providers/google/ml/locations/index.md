@@ -1,3 +1,4 @@
+
 ---
 title: locations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - locations
   - ml
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>location</code> resource or lists <code>locations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,9 +34,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` |  |
 | <CopyableCode code="capabilities" /> | `array` | Capabilities available in the location. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Get the complete list of CMLE capabilities in a location, along with their location-specific properties. |
 | <CopyableCode code="projects_locations_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | List all locations that provides at least one type of CMLE capability. |
-| <CopyableCode code="_projects_locations_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | List all locations that provides at least one type of CMLE capability. |
+
+## `SELECT` examples
+
+List all locations that provides at least one type of CMLE capability.
+
+```sql
+SELECT
+name,
+capabilities
+FROM google.ml.locations
+WHERE projectsId = '{{ projectsId }}'; 
+```

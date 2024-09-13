@@ -1,3 +1,4 @@
+
 ---
 title: peering_routes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - peering_routes
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>peering_route</code> resource or lists <code>peering_routes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,8 +38,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nextHopRegion" /> | `string` | Output only. Region containing the next hop of the peering route. This field only applies to dynamic routes in the peer VPC network. |
 | <CopyableCode code="priority" /> | `string` | Output only. The priority of the peering route. |
 | <CopyableCode code="type" /> | `string` | Output only. Type of the route in the peer VPC network. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, privateConnectionsId, projectsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, privateConnectionsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, privateConnectionsId, projectsId" /> | Lists the private connection routes exchanged over a peering connection. |
+
+## `SELECT` examples
+
+Lists the private connection routes exchanged over a peering connection.
+
+```sql
+SELECT
+destRange,
+direction,
+imported,
+nextHopRegion,
+priority,
+type
+FROM google.vmwareengine.peering_routes
+WHERE locationsId = '{{ locationsId }}'
+AND privateConnectionsId = '{{ privateConnectionsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

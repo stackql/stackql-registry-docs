@@ -1,3 +1,4 @@
+
 ---
 title: connections
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - connections
   - dlp
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>connection</code> resource or lists <code>connections</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,18 +32,104 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. Name of the connection: `projects/&#123;project&#125;/locations/&#123;location&#125;/connections/&#123;name&#125;`. |
+| <CopyableCode code="name" /> | `string` | Output only. Name of the connection: `projects/{project}/locations/{location}/connections/{name}`. |
 | <CopyableCode code="cloudSql" /> | `object` | Cloud SQL connection properties. |
 | <CopyableCode code="errors" /> | `array` | Output only. Set if status == ERROR, to provide additional details. Will store the last 10 errors sorted with the most recent first. |
 | <CopyableCode code="state" /> | `string` | Required. The connection's state in its lifecycle. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_locations_connections_get" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, organizationsId" /> | Get a Connection by name. |
+| <CopyableCode code="organizations_locations_connections_list" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId" /> | Lists Connections in a parent. Use SearchConnections to see all connections within an organization. |
 | <CopyableCode code="projects_locations_connections_get" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Get a Connection by name. |
-| <CopyableCode code="projects_locations_connections_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Connections in a parent. |
+| <CopyableCode code="projects_locations_connections_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Connections in a parent. Use SearchConnections to see all connections within an organization. |
+| <CopyableCode code="organizations_locations_connections_create" /> | `INSERT` | <CopyableCode code="locationsId, organizationsId" /> | Create a Connection to an external data source. |
 | <CopyableCode code="projects_locations_connections_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a Connection to an external data source. |
+| <CopyableCode code="organizations_locations_connections_delete" /> | `DELETE` | <CopyableCode code="connectionsId, locationsId, organizationsId" /> | Delete a Connection. |
 | <CopyableCode code="projects_locations_connections_delete" /> | `DELETE` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Delete a Connection. |
+| <CopyableCode code="organizations_locations_connections_patch" /> | `UPDATE` | <CopyableCode code="connectionsId, locationsId, organizationsId" /> | Update a Connection. |
 | <CopyableCode code="projects_locations_connections_patch" /> | `UPDATE` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Update a Connection. |
-| <CopyableCode code="_projects_locations_connections_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Connections in a parent. |
 | <CopyableCode code="organizations_locations_connections_search" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Searches for Connections in a parent. |
 | <CopyableCode code="projects_locations_connections_search" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Searches for Connections in a parent. |
+
+## `SELECT` examples
+
+Lists Connections in a parent. Use SearchConnections to see all connections within an organization.
+
+```sql
+SELECT
+name,
+cloudSql,
+errors,
+state
+FROM google.dlp.connections
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>connections</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dlp.connections (
+locationsId,
+projectsId,
+connection
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ connection }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: connection
+        value: '{{ connection }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a connection only if the necessary resources are available.
+
+```sql
+UPDATE google.dlp.connections
+SET 
+updateMask = '{{ updateMask }}',
+connection = '{{ connection }}'
+WHERE 
+connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified connection resource.
+
+```sql
+DELETE FROM google.dlp.connections
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - jobs
   - run
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>job</code> resource or lists <code>jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The fully qualified name of this Job. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/jobs/&#123;job&#125; |
+| <CopyableCode code="name" /> | `string` | The fully qualified name of this Job. Format: projects/{project}/locations/{location}/jobs/{job} |
 | <CopyableCode code="annotations" /> | `object` | Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. Cloud Run API v2 does not support annotations with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected on new resources. All system annotations in v1 now have a corresponding field in v2 Job. This field follows Kubernetes annotations' namespacing, limits, and rules. |
 | <CopyableCode code="binaryAuthorization" /> | `object` | Settings for Binary Authorization feature. |
 | <CopyableCode code="client" /> | `string` | Arbitrary identifier for the API client. |
@@ -38,7 +40,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="conditions" /> | `array` | Output only. The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Job does not reach its desired state. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation time. |
 | <CopyableCode code="creator" /> | `string` | Output only. Email address of the authenticated creator. |
-| <CopyableCode code="deleteTime" /> | `string` | Output only. The deletion time. |
+| <CopyableCode code="deleteTime" /> | `string` | Output only. The deletion time. It is only populated as a response to a Delete request. |
 | <CopyableCode code="etag" /> | `string` | Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. |
 | <CopyableCode code="executionCount" /> | `integer` | Output only. Number of executions created for this job. |
 | <CopyableCode code="expireTime" /> | `string` | Output only. For a deleted resource, the time after which it will be permamently deleted. |
@@ -56,6 +58,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="terminalCondition" /> | `object` | Defines a status condition for a resource. |
 | <CopyableCode code="uid" /> | `string` | Output only. Server assigned unique identifier for the Execution. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last-modified time. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -64,5 +67,231 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Job. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Deletes a Job. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Updates a Job. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Jobs. Results are sorted by creation time, descending. |
 | <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="jobsId, locationsId, projectsId" /> | Triggers creation of a new Execution of this Job. |
+
+## `SELECT` examples
+
+Lists Jobs. Results are sorted by creation time, descending.
+
+```sql
+SELECT
+name,
+annotations,
+binaryAuthorization,
+client,
+clientVersion,
+conditions,
+createTime,
+creator,
+deleteTime,
+etag,
+executionCount,
+expireTime,
+generation,
+labels,
+lastModifier,
+latestCreatedExecution,
+launchStage,
+observedGeneration,
+reconciling,
+runExecutionToken,
+satisfiesPzs,
+startExecutionToken,
+template,
+terminalCondition,
+uid,
+updateTime
+FROM google.run.jobs
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>jobs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.run.jobs (
+locationsId,
+projectsId,
+name,
+uid,
+generation,
+labels,
+annotations,
+createTime,
+updateTime,
+deleteTime,
+expireTime,
+creator,
+lastModifier,
+client,
+clientVersion,
+launchStage,
+binaryAuthorization,
+template,
+observedGeneration,
+terminalCondition,
+conditions,
+executionCount,
+latestCreatedExecution,
+reconciling,
+satisfiesPzs,
+startExecutionToken,
+runExecutionToken,
+etag
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ generation }}',
+'{{ labels }}',
+'{{ annotations }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ deleteTime }}',
+'{{ expireTime }}',
+'{{ creator }}',
+'{{ lastModifier }}',
+'{{ client }}',
+'{{ clientVersion }}',
+'{{ launchStage }}',
+'{{ binaryAuthorization }}',
+'{{ template }}',
+'{{ observedGeneration }}',
+'{{ terminalCondition }}',
+'{{ conditions }}',
+'{{ executionCount }}',
+'{{ latestCreatedExecution }}',
+true|false,
+true|false,
+'{{ startExecutionToken }}',
+'{{ runExecutionToken }}',
+'{{ etag }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: generation
+        value: '{{ generation }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: expireTime
+        value: '{{ expireTime }}'
+      - name: creator
+        value: '{{ creator }}'
+      - name: lastModifier
+        value: '{{ lastModifier }}'
+      - name: client
+        value: '{{ client }}'
+      - name: clientVersion
+        value: '{{ clientVersion }}'
+      - name: launchStage
+        value: '{{ launchStage }}'
+      - name: binaryAuthorization
+        value: '{{ binaryAuthorization }}'
+      - name: template
+        value: '{{ template }}'
+      - name: observedGeneration
+        value: '{{ observedGeneration }}'
+      - name: terminalCondition
+        value: '{{ terminalCondition }}'
+      - name: conditions
+        value: '{{ conditions }}'
+      - name: executionCount
+        value: '{{ executionCount }}'
+      - name: latestCreatedExecution
+        value: '{{ latestCreatedExecution }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: startExecutionToken
+        value: '{{ startExecutionToken }}'
+      - name: runExecutionToken
+        value: '{{ runExecutionToken }}'
+      - name: etag
+        value: '{{ etag }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a job only if the necessary resources are available.
+
+```sql
+UPDATE google.run.jobs
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+generation = '{{ generation }}',
+labels = '{{ labels }}',
+annotations = '{{ annotations }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+deleteTime = '{{ deleteTime }}',
+expireTime = '{{ expireTime }}',
+creator = '{{ creator }}',
+lastModifier = '{{ lastModifier }}',
+client = '{{ client }}',
+clientVersion = '{{ clientVersion }}',
+launchStage = '{{ launchStage }}',
+binaryAuthorization = '{{ binaryAuthorization }}',
+template = '{{ template }}',
+observedGeneration = '{{ observedGeneration }}',
+terminalCondition = '{{ terminalCondition }}',
+conditions = '{{ conditions }}',
+executionCount = '{{ executionCount }}',
+latestCreatedExecution = '{{ latestCreatedExecution }}',
+reconciling = true|false,
+satisfiesPzs = true|false,
+startExecutionToken = '{{ startExecutionToken }}',
+runExecutionToken = '{{ runExecutionToken }}',
+etag = '{{ etag }}'
+WHERE 
+jobsId = '{{ jobsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified job resource.
+
+```sql
+DELETE FROM google.run.jobs
+WHERE jobsId = '{{ jobsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: ssl_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - ssl_policies
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>ssl_policy</code> resource or lists <code>ssl_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the regional SSL policy resides. This field is not applicable to global SSL policies. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="warnings" /> | `array` | [Output Only] If potential misconfigurations are detected for this SSL policy, this field will be populated with warning messages. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,3 +54,157 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Returns the specified SSL policy resource. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, sslPolicy" /> | Deletes the specified SSL policy. The SSL policy resource can be deleted only if it is not in use by any TargetHttpsProxy or TargetSslProxy resources. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, sslPolicy" /> | Patches the specified SSL policy with the data included in the request. |
+
+## `SELECT` examples
+
+Lists all the SSL policies that have been configured for the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+customFeatures,
+enabledFeatures,
+fingerprint,
+kind,
+minTlsVersion,
+profile,
+region,
+selfLink,
+warnings
+FROM google.compute.ssl_policies
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>ssl_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.ssl_policies (
+project,
+kind,
+id,
+creationTimestamp,
+selfLink,
+name,
+description,
+profile,
+minTlsVersion,
+enabledFeatures,
+customFeatures,
+fingerprint,
+warnings,
+region
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ selfLink }}',
+'{{ name }}',
+'{{ description }}',
+'{{ profile }}',
+'{{ minTlsVersion }}',
+'{{ enabledFeatures }}',
+'{{ customFeatures }}',
+'{{ fingerprint }}',
+'{{ warnings }}',
+'{{ region }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: profile
+        value: '{{ profile }}'
+      - name: minTlsVersion
+        value: '{{ minTlsVersion }}'
+      - name: enabledFeatures
+        value: '{{ enabledFeatures }}'
+      - name: customFeatures
+        value: '{{ customFeatures }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: warnings
+        value:
+          - - name: code
+              value: '{{ code }}'
+            - name: message
+              value: '{{ message }}'
+            - name: data
+              value:
+                - - name: key
+                    value: '{{ key }}'
+                  - name: value
+                    value: '{{ value }}'
+      - name: region
+        value: '{{ region }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a ssl_policy only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.ssl_policies
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+selfLink = '{{ selfLink }}',
+name = '{{ name }}',
+description = '{{ description }}',
+profile = '{{ profile }}',
+minTlsVersion = '{{ minTlsVersion }}',
+enabledFeatures = '{{ enabledFeatures }}',
+customFeatures = '{{ customFeatures }}',
+fingerprint = '{{ fingerprint }}',
+warnings = '{{ warnings }}',
+region = '{{ region }}'
+WHERE 
+project = '{{ project }}'
+AND sslPolicy = '{{ sslPolicy }}';
+```
+
+## `DELETE` example
+
+Deletes the specified ssl_policy resource.
+
+```sql
+DELETE FROM google.compute.ssl_policies
+WHERE project = '{{ project }}'
+AND sslPolicy = '{{ sslPolicy }}';
+```

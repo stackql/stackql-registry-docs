@@ -1,3 +1,4 @@
+
 ---
 title: security_profile_groups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - security_profile_groups
   - networksecurity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>security_profile_group</code> resource or lists <code>security_profile_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,13 +32,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. Identifier. Name of the SecurityProfileGroup resource. It matches pattern `projects\|organizations/*/locations/&#123;location&#125;/securityProfileGroups/&#123;security_profile_group&#125;`. |
+| <CopyableCode code="name" /> | `string` | Immutable. Identifier. Name of the SecurityProfileGroup resource. It matches pattern `projects|organizations/*/locations/{location}/securityProfileGroups/{security_profile_group}`. |
 | <CopyableCode code="description" /> | `string` | Optional. An optional description of the profile group. Max length 2048 characters. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Resource creation timestamp. |
 | <CopyableCode code="etag" /> | `string` | Output only. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | <CopyableCode code="labels" /> | `object` | Optional. Labels as key value pairs. |
-| <CopyableCode code="threatPreventionProfile" /> | `string` | Optional. Reference to a SecurityProfile with the threat prevention configuration for the SecurityProfileGroup. |
+| <CopyableCode code="threatPreventionProfile" /> | `string` | Optional. Reference to a SecurityProfile with the ThreatPrevention configuration. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Last resource update timestamp. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,4 +48,116 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_security_profile_groups_create" /> | `INSERT` | <CopyableCode code="locationsId, organizationsId" /> | Creates a new SecurityProfileGroup in a given organization and location. |
 | <CopyableCode code="organizations_locations_security_profile_groups_delete" /> | `DELETE` | <CopyableCode code="locationsId, organizationsId, securityProfileGroupsId" /> | Deletes a single SecurityProfileGroup. |
 | <CopyableCode code="organizations_locations_security_profile_groups_patch" /> | `UPDATE` | <CopyableCode code="locationsId, organizationsId, securityProfileGroupsId" /> | Updates the parameters of a single SecurityProfileGroup. |
-| <CopyableCode code="_organizations_locations_security_profile_groups_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists SecurityProfileGroups in a given organization and location. |
+
+## `SELECT` examples
+
+Lists SecurityProfileGroups in a given organization and location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+etag,
+labels,
+threatPreventionProfile,
+updateTime
+FROM google.networksecurity.security_profile_groups
+WHERE locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>security_profile_groups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networksecurity.security_profile_groups (
+locationsId,
+organizationsId,
+name,
+description,
+createTime,
+updateTime,
+etag,
+labels,
+threatPreventionProfile
+)
+SELECT 
+'{{ locationsId }}',
+'{{ organizationsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ etag }}',
+'{{ labels }}',
+'{{ threatPreventionProfile }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: threatPreventionProfile
+        value: '{{ threatPreventionProfile }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a security_profile_group only if the necessary resources are available.
+
+```sql
+UPDATE google.networksecurity.security_profile_groups
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+etag = '{{ etag }}',
+labels = '{{ labels }}',
+threatPreventionProfile = '{{ threatPreventionProfile }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND securityProfileGroupsId = '{{ securityProfileGroupsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified security_profile_group resource.
+
+```sql
+DELETE FROM google.networksecurity.security_profile_groups
+WHERE locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND securityProfileGroupsId = '{{ securityProfileGroupsId }}';
+```

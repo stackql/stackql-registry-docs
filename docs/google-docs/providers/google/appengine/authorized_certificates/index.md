@@ -1,3 +1,4 @@
+
 ---
 title: authorized_certificates
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - authorized_certificates
   - appengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>authorized_certificate</code> resource or lists <code>authorized_certificates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="expireTime" /> | `string` | The time when this certificate expires. To update the renewal time on this certificate, upload an SSL certificate with a different expiration time using AuthorizedCertificates.UpdateAuthorizedCertificate.@OutputOnly |
 | <CopyableCode code="managedCertificate" /> | `object` | A certificate managed by App Engine. |
 | <CopyableCode code="visibleDomainMappings" /> | `array` | The full paths to user visible Domain Mapping resources that have this certificate mapped. Example: apps/myapp/domainMappings/example.com.This may not represent the full list of mapped domain mappings if the user does not have VIEWER permissions on all of the applications that have this certificate mapped. See domain_mappings_count for a complete count.Only returned by GET or LIST requests when specifically requested by the view=FULL_CERTIFICATE option.@OutputOnly |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,4 +50,123 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="appsId" /> | Uploads the specified SSL certificate. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appsId, authorizedCertificatesId" /> | Deletes the specified SSL certificate. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="appsId, authorizedCertificatesId" /> | Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="appsId" /> | Lists all SSL certificates the user is authorized to administer. |
+
+## `SELECT` examples
+
+Lists all SSL certificates the user is authorized to administer.
+
+```sql
+SELECT
+id,
+name,
+certificateRawData,
+displayName,
+domainMappingsCount,
+domainNames,
+expireTime,
+managedCertificate,
+visibleDomainMappings
+FROM google.appengine.authorized_certificates
+WHERE appsId = '{{ appsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>authorized_certificates</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.appengine.authorized_certificates (
+appsId,
+name,
+id,
+displayName,
+domainNames,
+expireTime,
+certificateRawData,
+managedCertificate,
+visibleDomainMappings,
+domainMappingsCount
+)
+SELECT 
+'{{ appsId }}',
+'{{ name }}',
+'{{ id }}',
+'{{ displayName }}',
+'{{ domainNames }}',
+'{{ expireTime }}',
+'{{ certificateRawData }}',
+'{{ managedCertificate }}',
+'{{ visibleDomainMappings }}',
+'{{ domainMappingsCount }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: id
+        value: '{{ id }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: domainNames
+        value: '{{ domainNames }}'
+      - name: expireTime
+        value: '{{ expireTime }}'
+      - name: certificateRawData
+        value: '{{ certificateRawData }}'
+      - name: managedCertificate
+        value: '{{ managedCertificate }}'
+      - name: visibleDomainMappings
+        value: '{{ visibleDomainMappings }}'
+      - name: domainMappingsCount
+        value: '{{ domainMappingsCount }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a authorized_certificate only if the necessary resources are available.
+
+```sql
+UPDATE google.appengine.authorized_certificates
+SET 
+name = '{{ name }}',
+id = '{{ id }}',
+displayName = '{{ displayName }}',
+domainNames = '{{ domainNames }}',
+expireTime = '{{ expireTime }}',
+certificateRawData = '{{ certificateRawData }}',
+managedCertificate = '{{ managedCertificate }}',
+visibleDomainMappings = '{{ visibleDomainMappings }}',
+domainMappingsCount = '{{ domainMappingsCount }}'
+WHERE 
+appsId = '{{ appsId }}'
+AND authorizedCertificatesId = '{{ authorizedCertificatesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified authorized_certificate resource.
+
+```sql
+DELETE FROM google.appengine.authorized_certificates
+WHERE appsId = '{{ appsId }}'
+AND authorizedCertificatesId = '{{ authorizedCertificatesId }}';
+```
