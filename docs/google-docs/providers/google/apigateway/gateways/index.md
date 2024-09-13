@@ -1,4 +1,3 @@
-
 ---
 title: gateways
 hide_title: false

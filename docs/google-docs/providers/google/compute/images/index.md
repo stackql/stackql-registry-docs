@@ -1,4 +1,3 @@
-
 ---
 title: images
 hide_title: false

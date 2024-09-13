@@ -1,4 +1,3 @@
-
 ---
 title: node_types
 hide_title: false

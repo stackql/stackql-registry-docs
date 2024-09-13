@@ -1,4 +1,3 @@
-
 ---
 title: nodes
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: consent_stores
 hide_title: false

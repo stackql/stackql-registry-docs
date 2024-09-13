@@ -1,4 +1,3 @@
-
 ---
 title: disk_types
 hide_title: false

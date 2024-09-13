@@ -1,4 +1,3 @@
-
 ---
 title: environments_database_properties
 hide_title: false

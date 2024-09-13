@@ -1,4 +1,3 @@
-
 ---
 title: approval_requests
 hide_title: false

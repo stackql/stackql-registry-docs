@@ -1,4 +1,3 @@
-
 ---
 title: attributes_developer_attribute
 hide_title: false

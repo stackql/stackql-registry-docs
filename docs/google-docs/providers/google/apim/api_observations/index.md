@@ -1,4 +1,3 @@
-
 ---
 title: api_observations
 hide_title: false

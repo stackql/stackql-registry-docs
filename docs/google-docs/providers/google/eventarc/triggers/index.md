@@ -1,4 +1,3 @@
-
 ---
 title: triggers
 hide_title: false

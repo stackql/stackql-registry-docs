@@ -1,4 +1,3 @@
-
 ---
 title: series
 hide_title: false

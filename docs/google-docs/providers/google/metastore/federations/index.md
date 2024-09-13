@@ -1,4 +1,3 @@
-
 ---
 title: federations
 hide_title: false

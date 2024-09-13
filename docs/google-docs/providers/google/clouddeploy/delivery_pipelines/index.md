@@ -1,4 +1,3 @@
-
 ---
 title: delivery_pipelines
 hide_title: false

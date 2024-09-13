@@ -1,4 +1,3 @@
-
 ---
 title: connector_platform_regions
 hide_title: false

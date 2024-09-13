@@ -1,4 +1,3 @@
-
 ---
 title: test_environment_catalog
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: global_operations
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: building_insights
 hide_title: false

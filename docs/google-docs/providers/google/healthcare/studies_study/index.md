@@ -1,4 +1,3 @@
-
 ---
 title: studies_study
 hide_title: false

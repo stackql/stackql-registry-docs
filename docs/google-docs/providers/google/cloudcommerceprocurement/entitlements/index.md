@@ -1,4 +1,3 @@
-
 ---
 title: entitlements
 hide_title: false

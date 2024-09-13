@@ -1,4 +1,3 @@
-
 ---
 title: tenants
 hide_title: false

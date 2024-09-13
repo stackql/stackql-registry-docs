@@ -1,4 +1,3 @@
-
 ---
 title: observation_sources
 hide_title: false

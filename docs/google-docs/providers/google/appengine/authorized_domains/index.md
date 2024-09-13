@@ -1,4 +1,3 @@
-
 ---
 title: authorized_domains
 hide_title: false

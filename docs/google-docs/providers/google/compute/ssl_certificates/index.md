@@ -1,4 +1,3 @@
-
 ---
 title: ssl_certificates
 hide_title: false

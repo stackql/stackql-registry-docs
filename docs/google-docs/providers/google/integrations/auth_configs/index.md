@@ -1,4 +1,3 @@
-
 ---
 title: auth_configs
 hide_title: false

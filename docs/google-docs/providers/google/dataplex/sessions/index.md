@@ -1,4 +1,3 @@
-
 ---
 title: sessions
 hide_title: false

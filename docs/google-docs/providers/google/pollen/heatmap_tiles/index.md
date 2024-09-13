@@ -1,4 +1,3 @@
-
 ---
 title: heatmap_tiles
 hide_title: false

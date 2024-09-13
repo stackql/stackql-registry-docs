@@ -1,4 +1,3 @@
-
 ---
 title: deidentify_templates
 hide_title: false

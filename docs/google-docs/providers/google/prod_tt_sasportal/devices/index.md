@@ -1,4 +1,3 @@
-
 ---
 title: devices
 hide_title: false

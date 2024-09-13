@@ -1,4 +1,3 @@
-
 ---
 title: data_attribute_bindings
 hide_title: false

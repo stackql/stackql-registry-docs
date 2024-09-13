@@ -1,4 +1,3 @@
-
 ---
 title: artifacts_contents
 hide_title: false

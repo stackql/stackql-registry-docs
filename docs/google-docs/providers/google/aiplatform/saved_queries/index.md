@@ -1,4 +1,3 @@
-
 ---
 title: saved_queries
 hide_title: false

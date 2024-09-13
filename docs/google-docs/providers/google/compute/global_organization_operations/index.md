@@ -1,4 +1,3 @@
-
 ---
 title: global_organization_operations
 hide_title: false

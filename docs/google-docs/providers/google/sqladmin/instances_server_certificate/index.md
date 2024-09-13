@@ -1,4 +1,3 @@
-
 ---
 title: instances_server_certificate
 hide_title: false

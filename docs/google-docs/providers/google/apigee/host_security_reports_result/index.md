@@ -1,4 +1,3 @@
-
 ---
 title: host_security_reports_result
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: discovery_configs
 hide_title: false

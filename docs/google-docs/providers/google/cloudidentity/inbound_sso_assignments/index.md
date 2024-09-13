@@ -1,4 +1,3 @@
-
 ---
 title: inbound_sso_assignments
 hide_title: false

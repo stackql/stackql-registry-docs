@@ -1,4 +1,3 @@
-
 ---
 title: dns_bind_permission
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: route_tables
 hide_title: false

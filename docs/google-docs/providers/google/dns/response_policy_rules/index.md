@@ -1,4 +1,3 @@
-
 ---
 title: response_policy_rules
 hide_title: false

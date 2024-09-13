@@ -1,4 +1,3 @@
-
 ---
 title: bare_metal_node_pools
 hide_title: false

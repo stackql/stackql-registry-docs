@@ -1,4 +1,3 @@
-
 ---
 title: key_rings
 hide_title: false

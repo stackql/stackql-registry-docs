@@ -1,4 +1,3 @@
-
 ---
 title: workstation_configs
 hide_title: false

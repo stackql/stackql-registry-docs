@@ -1,4 +1,3 @@
-
 ---
 title: https_health_checks
 hide_title: false

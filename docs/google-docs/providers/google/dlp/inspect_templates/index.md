@@ -1,4 +1,3 @@
-
 ---
 title: inspect_templates
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: adaptive_mt_sentences
 hide_title: false

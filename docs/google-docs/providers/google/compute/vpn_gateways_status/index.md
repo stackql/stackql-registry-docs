@@ -1,4 +1,3 @@
-
 ---
 title: vpn_gateways_status
 hide_title: false

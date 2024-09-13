@@ -1,4 +1,3 @@
-
 ---
 title: access_approval_settings
 hide_title: false

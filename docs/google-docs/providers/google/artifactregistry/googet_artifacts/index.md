@@ -1,4 +1,3 @@
-
 ---
 title: googet_artifacts
 hide_title: false

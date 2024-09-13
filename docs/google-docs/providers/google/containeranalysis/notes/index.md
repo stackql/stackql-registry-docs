@@ -1,4 +1,3 @@
-
 ---
 title: notes
 hide_title: false

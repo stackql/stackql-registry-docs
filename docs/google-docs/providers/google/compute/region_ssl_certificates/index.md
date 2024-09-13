@@ -1,4 +1,3 @@
-
 ---
 title: region_ssl_certificates
 hide_title: false

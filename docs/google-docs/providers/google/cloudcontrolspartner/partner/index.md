@@ -1,4 +1,3 @@
-
 ---
 title: partner
 hide_title: false

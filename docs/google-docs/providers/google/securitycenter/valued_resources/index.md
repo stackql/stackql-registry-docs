@@ -1,4 +1,3 @@
-
 ---
 title: valued_resources
 hide_title: false

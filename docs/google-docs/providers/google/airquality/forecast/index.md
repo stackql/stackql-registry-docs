@@ -1,4 +1,3 @@
-
 ---
 title: forecast
 hide_title: false

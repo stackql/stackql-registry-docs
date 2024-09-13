@@ -1,4 +1,3 @@
-
 ---
 title: discovery_clients
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: entry_groups
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: notification_channels_verification_code
 hide_title: false

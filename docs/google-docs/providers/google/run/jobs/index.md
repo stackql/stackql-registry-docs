@@ -1,4 +1,3 @@
-
 ---
 title: jobs
 hide_title: false

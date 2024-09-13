@@ -1,4 +1,3 @@
-
 ---
 title: catalogs_completion_config
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: environments_trace_config
 hide_title: false

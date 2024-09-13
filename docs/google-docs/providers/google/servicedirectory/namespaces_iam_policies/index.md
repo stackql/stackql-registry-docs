@@ -1,4 +1,3 @@
-
 ---
 title: namespaces_iam_policies
 hide_title: false

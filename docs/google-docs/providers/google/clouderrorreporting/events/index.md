@@ -1,4 +1,3 @@
-
 ---
 title: events
 hide_title: false

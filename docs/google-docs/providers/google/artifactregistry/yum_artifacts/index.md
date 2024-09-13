@@ -1,4 +1,3 @@
-
 ---
 title: yum_artifacts
 hide_title: false

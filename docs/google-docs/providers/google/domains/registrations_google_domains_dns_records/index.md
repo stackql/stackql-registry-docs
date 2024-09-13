@@ -1,4 +1,3 @@
-
 ---
 title: registrations_google_domains_dns_records
 hide_title: false

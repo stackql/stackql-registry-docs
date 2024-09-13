@@ -1,4 +1,3 @@
-
 ---
 title: default_object_access_controls
 hide_title: false

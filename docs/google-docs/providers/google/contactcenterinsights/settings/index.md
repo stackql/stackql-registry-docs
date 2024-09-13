@@ -1,4 +1,3 @@
-
 ---
 title: settings
 hide_title: false

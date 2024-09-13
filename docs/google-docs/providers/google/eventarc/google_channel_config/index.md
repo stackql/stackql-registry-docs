@@ -1,4 +1,3 @@
-
 ---
 title: google_channel_config
 hide_title: false

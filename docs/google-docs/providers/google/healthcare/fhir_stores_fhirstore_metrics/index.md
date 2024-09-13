@@ -1,4 +1,3 @@
-
 ---
 title: fhir_stores_fhirstore_metrics
 hide_title: false

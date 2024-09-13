@@ -1,4 +1,3 @@
-
 ---
 title: certificate_authorities
 hide_title: false

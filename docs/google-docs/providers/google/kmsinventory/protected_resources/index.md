@@ -1,4 +1,3 @@
-
 ---
 title: protected_resources
 hide_title: false

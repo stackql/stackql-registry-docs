@@ -1,4 +1,3 @@
-
 ---
 title: global_operations_aggregated
 hide_title: false

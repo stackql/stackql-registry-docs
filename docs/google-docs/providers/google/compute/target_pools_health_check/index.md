@@ -1,4 +1,3 @@
-
 ---
 title: target_pools_health_check
 hide_title: false

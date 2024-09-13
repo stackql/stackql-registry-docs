@@ -1,4 +1,3 @@
-
 ---
 title: jobs_metrics
 hide_title: false

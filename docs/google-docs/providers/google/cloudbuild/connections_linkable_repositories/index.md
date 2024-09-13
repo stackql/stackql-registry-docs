@@ -1,4 +1,3 @@
-
 ---
 title: connections_linkable_repositories
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: region_notification_endpoints
 hide_title: false

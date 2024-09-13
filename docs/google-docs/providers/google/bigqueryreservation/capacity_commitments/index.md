@@ -1,4 +1,3 @@
-
 ---
 title: capacity_commitments
 hide_title: false

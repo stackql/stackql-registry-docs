@@ -1,4 +1,3 @@
-
 ---
 title: buckets_storage_layout
 hide_title: false

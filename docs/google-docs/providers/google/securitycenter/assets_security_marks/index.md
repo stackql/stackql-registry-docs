@@ -1,4 +1,3 @@
-
 ---
 title: assets_security_marks
 hide_title: false

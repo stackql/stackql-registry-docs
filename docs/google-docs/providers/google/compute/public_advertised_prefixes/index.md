@@ -1,4 +1,3 @@
-
 ---
 title: public_advertised_prefixes
 hide_title: false

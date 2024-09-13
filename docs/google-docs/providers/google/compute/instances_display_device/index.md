@@ -1,4 +1,3 @@
-
 ---
 title: instances_display_device
 hide_title: false

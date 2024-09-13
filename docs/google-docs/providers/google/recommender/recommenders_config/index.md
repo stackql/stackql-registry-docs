@@ -1,4 +1,3 @@
-
 ---
 title: recommenders_config
 hide_title: false

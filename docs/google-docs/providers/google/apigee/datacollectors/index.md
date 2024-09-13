@@ -1,4 +1,3 @@
-
 ---
 title: datacollectors
 hide_title: false

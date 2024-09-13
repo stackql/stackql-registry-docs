@@ -1,4 +1,3 @@
-
 ---
 title: schemas
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: catalogs_attributes_config
 hide_title: false

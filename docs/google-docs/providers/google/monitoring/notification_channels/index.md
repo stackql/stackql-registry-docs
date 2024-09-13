@@ -1,4 +1,3 @@
-
 ---
 title: notification_channels
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: metric_descriptors
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: mute_configs
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: functions
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: security_reports_result
 hide_title: false

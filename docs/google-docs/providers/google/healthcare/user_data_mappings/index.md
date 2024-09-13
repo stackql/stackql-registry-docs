@@ -1,4 +1,3 @@
-
 ---
 title: user_data_mappings
 hide_title: false

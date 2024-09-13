@@ -1,4 +1,3 @@
-
 ---
 title: continuous_test_results
 hide_title: false

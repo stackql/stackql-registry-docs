@@ -1,4 +1,3 @@
-
 ---
 title: instances_connection_info
 hide_title: false

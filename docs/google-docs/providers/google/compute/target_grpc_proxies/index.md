@@ -1,4 +1,3 @@
-
 ---
 title: target_grpc_proxies
 hide_title: false

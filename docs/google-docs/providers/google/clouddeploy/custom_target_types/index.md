@@ -1,4 +1,3 @@
-
 ---
 title: custom_target_types
 hide_title: false

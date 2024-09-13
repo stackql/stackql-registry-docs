@@ -1,4 +1,3 @@
-
 ---
 title: issue_models
 hide_title: false

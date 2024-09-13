@@ -1,4 +1,3 @@
-
 ---
 title: feature_groups
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: instance_partitions
 hide_title: false

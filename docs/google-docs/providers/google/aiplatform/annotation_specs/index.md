@@ -1,4 +1,3 @@
-
 ---
 title: annotation_specs
 hide_title: false

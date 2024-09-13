@@ -1,4 +1,3 @@
-
 ---
 title: sources_inventory
 hide_title: false

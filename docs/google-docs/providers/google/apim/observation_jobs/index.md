@@ -1,4 +1,3 @@
-
 ---
 title: observation_jobs
 hide_title: false

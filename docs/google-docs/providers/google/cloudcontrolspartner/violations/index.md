@@ -1,4 +1,3 @@
-
 ---
 title: violations
 hide_title: false

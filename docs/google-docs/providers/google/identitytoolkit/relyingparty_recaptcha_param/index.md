@@ -1,4 +1,3 @@
-
 ---
 title: relyingparty_recaptcha_param
 hide_title: false

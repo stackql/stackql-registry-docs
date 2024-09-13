@@ -1,4 +1,3 @@
-
 ---
 title: ca_pools_ca_certs
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: instances_disk_shrink_config
 hide_title: false

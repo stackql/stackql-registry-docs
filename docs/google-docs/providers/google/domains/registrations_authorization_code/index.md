@@ -1,4 +1,3 @@
-
 ---
 title: registrations_authorization_code
 hide_title: false

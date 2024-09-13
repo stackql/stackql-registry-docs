@@ -1,4 +1,3 @@
-
 ---
 title: application_detail_service_apk_details
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: security_actions
 hide_title: false

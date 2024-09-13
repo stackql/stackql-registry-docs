@@ -1,4 +1,3 @@
-
 ---
 title: channel_connections
 hide_title: false

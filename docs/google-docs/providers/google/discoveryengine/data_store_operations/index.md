@@ -1,4 +1,3 @@
-
 ---
 title: data_store_operations
 hide_title: false

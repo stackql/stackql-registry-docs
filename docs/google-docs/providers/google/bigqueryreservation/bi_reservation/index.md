@@ -1,4 +1,3 @@
-
 ---
 title: bi_reservation
 hide_title: false

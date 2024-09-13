@@ -1,4 +1,3 @@
-
 ---
 title: state
 hide_title: false

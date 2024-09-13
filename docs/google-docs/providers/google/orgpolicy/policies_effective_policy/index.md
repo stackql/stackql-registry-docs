@@ -1,4 +1,3 @@
-
 ---
 title: policies_effective_policy
 hide_title: false

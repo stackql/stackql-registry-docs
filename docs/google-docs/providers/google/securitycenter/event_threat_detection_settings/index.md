@@ -1,4 +1,3 @@
-
 ---
 title: event_threat_detection_settings
 hide_title: false

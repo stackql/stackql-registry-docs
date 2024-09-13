@@ -1,4 +1,3 @@
-
 ---
 title: templates
 hide_title: false

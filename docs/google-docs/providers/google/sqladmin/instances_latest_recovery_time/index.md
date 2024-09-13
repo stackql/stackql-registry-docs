@@ -1,4 +1,3 @@
-
 ---
 title: instances_latest_recovery_time
 hide_title: false

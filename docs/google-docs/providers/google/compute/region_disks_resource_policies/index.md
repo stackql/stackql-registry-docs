@@ -1,4 +1,3 @@
-
 ---
 title: region_disks_resource_policies
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: region_instance_groups_instances
 hide_title: false

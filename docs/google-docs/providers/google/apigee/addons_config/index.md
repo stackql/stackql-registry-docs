@@ -1,4 +1,3 @@
-
 ---
 title: addons_config
 hide_title: false

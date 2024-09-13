@@ -1,4 +1,3 @@
-
 ---
 title: results
 hide_title: false

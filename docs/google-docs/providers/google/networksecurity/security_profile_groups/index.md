@@ -1,4 +1,3 @@
-
 ---
 title: security_profile_groups
 hide_title: false

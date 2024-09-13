@@ -1,4 +1,3 @@
-
 ---
 title: manifests
 hide_title: false

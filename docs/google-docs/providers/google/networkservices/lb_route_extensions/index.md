@@ -1,4 +1,3 @@
-
 ---
 title: lb_route_extensions
 hide_title: false

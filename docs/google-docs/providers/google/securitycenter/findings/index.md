@@ -1,4 +1,3 @@
-
 ---
 title: findings
 hide_title: false

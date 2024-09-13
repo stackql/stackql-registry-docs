@@ -1,4 +1,3 @@
-
 ---
 title: migrating_vms
 hide_title: false

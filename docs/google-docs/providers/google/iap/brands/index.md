@@ -1,4 +1,3 @@
-
 ---
 title: brands
 hide_title: false

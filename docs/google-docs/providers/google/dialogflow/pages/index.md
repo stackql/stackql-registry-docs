@@ -1,4 +1,3 @@
-
 ---
 title: pages
 hide_title: false

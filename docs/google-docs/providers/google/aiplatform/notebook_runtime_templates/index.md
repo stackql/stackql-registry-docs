@@ -1,4 +1,3 @@
-
 ---
 title: notebook_runtime_templates
 hide_title: false

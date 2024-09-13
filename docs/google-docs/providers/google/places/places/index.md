@@ -1,4 +1,3 @@
-
 ---
 title: places
 hide_title: false

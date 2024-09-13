@@ -1,4 +1,3 @@
-
 ---
 title: tag_bindings
 hide_title: false

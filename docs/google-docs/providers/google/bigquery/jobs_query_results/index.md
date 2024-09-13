@@ -1,4 +1,3 @@
-
 ---
 title: jobs_query_results
 hide_title: false

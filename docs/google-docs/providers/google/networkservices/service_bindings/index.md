@@ -1,4 +1,3 @@
-
 ---
 title: service_bindings
 hide_title: false

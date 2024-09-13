@@ -1,4 +1,3 @@
-
 ---
 title: database_operations
 hide_title: false

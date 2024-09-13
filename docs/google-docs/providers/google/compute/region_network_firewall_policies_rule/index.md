@@ -1,4 +1,3 @@
-
 ---
 title: region_network_firewall_policies_rule
 hide_title: false

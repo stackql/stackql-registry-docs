@@ -1,4 +1,3 @@
-
 ---
 title: projects
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: clusters_certificate_authority
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: queues
 hide_title: false

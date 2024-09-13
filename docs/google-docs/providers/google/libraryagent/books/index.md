@@ -1,4 +1,3 @@
-
 ---
 title: books
 hide_title: false

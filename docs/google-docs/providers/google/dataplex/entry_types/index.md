@@ -1,4 +1,3 @@
-
 ---
 title: entry_types
 hide_title: false

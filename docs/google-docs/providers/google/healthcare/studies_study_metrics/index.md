@@ -1,4 +1,3 @@
-
 ---
 title: studies_study_metrics
 hide_title: false

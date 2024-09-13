@@ -1,4 +1,3 @@
-
 ---
 title: attributes_developer_app_attribute
 hide_title: false

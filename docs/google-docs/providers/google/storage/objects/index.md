@@ -1,4 +1,3 @@
-
 ---
 title: objects
 hide_title: false

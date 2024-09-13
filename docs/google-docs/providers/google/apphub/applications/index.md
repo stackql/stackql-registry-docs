@@ -1,4 +1,3 @@
-
 ---
 title: applications
 hide_title: false

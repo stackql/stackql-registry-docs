@@ -1,4 +1,3 @@
-
 ---
 title: billing_info
 hide_title: false

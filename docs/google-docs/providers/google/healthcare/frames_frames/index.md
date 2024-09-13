@@ -1,4 +1,3 @@
-
 ---
 title: frames_frames
 hide_title: false

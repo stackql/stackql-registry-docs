@@ -1,4 +1,3 @@
-
 ---
 title: target_vpn_gateways
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: hot_tablets
 hide_title: false

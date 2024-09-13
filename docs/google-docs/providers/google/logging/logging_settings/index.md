@@ -1,4 +1,3 @@
-
 ---
 title: logging_settings
 hide_title: false

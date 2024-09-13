@@ -1,4 +1,3 @@
-
 ---
 title: rules
 hide_title: false

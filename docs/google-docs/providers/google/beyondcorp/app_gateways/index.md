@@ -1,4 +1,3 @@
-
 ---
 title: app_gateways
 hide_title: false

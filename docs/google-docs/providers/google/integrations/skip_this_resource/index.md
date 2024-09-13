@@ -1,4 +1,3 @@
-
 ---
 title: skip_this_resource
 hide_title: false

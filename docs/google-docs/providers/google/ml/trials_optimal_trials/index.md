@@ -1,4 +1,3 @@
-
 ---
 title: trials_optimal_trials
 hide_title: false

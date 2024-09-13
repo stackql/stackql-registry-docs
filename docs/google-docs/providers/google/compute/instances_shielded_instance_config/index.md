@@ -1,4 +1,3 @@
-
 ---
 title: instances_shielded_instance_config
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: future_reservations
 hide_title: false

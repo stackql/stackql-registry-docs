@@ -1,4 +1,3 @@
-
 ---
 title: storage_pool_types
 hide_title: false

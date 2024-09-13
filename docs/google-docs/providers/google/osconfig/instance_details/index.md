@@ -1,4 +1,3 @@
-
 ---
 title: instance_details
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: machine_types
 hide_title: false

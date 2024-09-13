@@ -1,4 +1,3 @@
-
 ---
 title: snapshots
 hide_title: false

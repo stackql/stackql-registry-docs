@@ -1,4 +1,3 @@
-
 ---
 title: memberships
 hide_title: false

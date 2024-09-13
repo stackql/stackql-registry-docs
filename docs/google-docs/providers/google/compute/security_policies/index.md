@@ -1,4 +1,3 @@
-
 ---
 title: security_policies
 hide_title: false

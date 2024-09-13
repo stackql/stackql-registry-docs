@@ -1,4 +1,3 @@
-
 ---
 title: encryption_spec
 hide_title: false

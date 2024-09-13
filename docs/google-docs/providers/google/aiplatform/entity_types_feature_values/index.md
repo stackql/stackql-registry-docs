@@ -1,4 +1,3 @@
-
 ---
 title: entity_types_feature_values
 hide_title: false

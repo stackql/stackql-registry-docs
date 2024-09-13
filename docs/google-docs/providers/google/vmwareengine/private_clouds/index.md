@@ -1,4 +1,3 @@
-
 ---
 title: private_clouds
 hide_title: false

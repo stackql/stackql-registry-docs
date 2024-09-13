@@ -1,4 +1,3 @@
-
 ---
 title: secrets_version
 hide_title: false

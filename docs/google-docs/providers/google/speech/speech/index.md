@@ -1,4 +1,3 @@
-
 ---
 title: speech
 hide_title: false

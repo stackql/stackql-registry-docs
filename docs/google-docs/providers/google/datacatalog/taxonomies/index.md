@@ -1,4 +1,3 @@
-
 ---
 title: taxonomies
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: workstations
 hide_title: false

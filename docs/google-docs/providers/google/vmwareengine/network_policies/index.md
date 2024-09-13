@@ -1,4 +1,3 @@
-
 ---
 title: network_policies
 hide_title: false

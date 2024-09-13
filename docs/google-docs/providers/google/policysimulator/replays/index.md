@@ -1,4 +1,3 @@
-
 ---
 title: replays
 hide_title: false

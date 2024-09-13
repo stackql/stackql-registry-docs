@@ -1,4 +1,3 @@
-
 ---
 title: reference_images
 hide_title: false

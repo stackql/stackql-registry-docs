@@ -1,4 +1,3 @@
-
 ---
 title: deployment_resource_pools
 hide_title: false

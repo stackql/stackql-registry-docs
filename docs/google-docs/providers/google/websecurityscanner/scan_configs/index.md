@@ -1,4 +1,3 @@
-
 ---
 title: scan_configs
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: trust_configs
 hide_title: false

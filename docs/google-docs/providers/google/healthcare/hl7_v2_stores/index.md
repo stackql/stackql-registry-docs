@@ -1,4 +1,3 @@
-
 ---
 title: hl7_v2_stores
 hide_title: false

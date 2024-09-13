@@ -1,4 +1,3 @@
-
 ---
 title: logs
 hide_title: false

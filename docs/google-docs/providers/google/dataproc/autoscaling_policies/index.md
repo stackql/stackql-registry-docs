@@ -1,4 +1,3 @@
-
 ---
 title: autoscaling_policies
 hide_title: false

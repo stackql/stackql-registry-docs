@@ -1,4 +1,3 @@
-
 ---
 title: feature_online_stores
 hide_title: false

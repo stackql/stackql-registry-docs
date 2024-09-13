@@ -1,4 +1,3 @@
-
 ---
 title: authorized_orgs_descs
 hide_title: false

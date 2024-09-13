@@ -1,4 +1,3 @@
-
 ---
 title: hl7_v2_stores_hl7v2_store_metrics
 hide_title: false

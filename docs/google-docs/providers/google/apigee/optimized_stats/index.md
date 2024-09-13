@@ -1,4 +1,3 @@
-
 ---
 title: optimized_stats
 hide_title: false

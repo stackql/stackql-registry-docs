@@ -1,4 +1,3 @@
-
 ---
 title: instance_group_managers_errors
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: big_query_exports
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: managed_folders
 hide_title: false

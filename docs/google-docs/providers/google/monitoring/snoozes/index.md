@@ -1,4 +1,3 @@
-
 ---
 title: snoozes
 hide_title: false

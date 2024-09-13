@@ -1,4 +1,3 @@
-
 ---
 title: external_vpn_gateways
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: instance_templates
 hide_title: false

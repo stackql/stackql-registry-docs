@@ -1,4 +1,3 @@
-
 ---
 title: security_assessment_results
 hide_title: false

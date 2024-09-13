@@ -1,4 +1,3 @@
-
 ---
 title: key_handles
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: buckets
 hide_title: false

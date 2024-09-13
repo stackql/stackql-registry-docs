@@ -1,4 +1,3 @@
-
 ---
 title: effective_tags
 hide_title: false

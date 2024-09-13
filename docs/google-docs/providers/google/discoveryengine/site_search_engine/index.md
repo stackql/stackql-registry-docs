@@ -1,4 +1,3 @@
-
 ---
 title: site_search_engine
 hide_title: false

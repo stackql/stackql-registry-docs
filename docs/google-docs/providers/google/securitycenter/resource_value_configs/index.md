@@ -1,4 +1,3 @@
-
 ---
 title: resource_value_configs
 hide_title: false

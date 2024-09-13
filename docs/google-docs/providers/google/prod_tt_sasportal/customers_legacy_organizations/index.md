@@ -1,4 +1,3 @@
-
 ---
 title: customers_legacy_organizations
 hide_title: false

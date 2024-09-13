@@ -1,4 +1,3 @@
-
 ---
 title: disks_snapshot
 hide_title: false

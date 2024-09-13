@@ -1,4 +1,3 @@
-
 ---
 title: document_schemas
 hide_title: false

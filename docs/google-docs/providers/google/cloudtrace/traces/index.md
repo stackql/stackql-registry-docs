@@ -1,4 +1,3 @@
-
 ---
 title: traces
 hide_title: false

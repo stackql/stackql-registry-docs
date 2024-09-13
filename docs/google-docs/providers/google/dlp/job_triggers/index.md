@@ -1,4 +1,3 @@
-
 ---
 title: job_triggers
 hide_title: false

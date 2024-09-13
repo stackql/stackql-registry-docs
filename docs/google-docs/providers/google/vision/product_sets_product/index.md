@@ -1,4 +1,3 @@
-
 ---
 title: product_sets_product
 hide_title: false

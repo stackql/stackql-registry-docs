@@ -1,4 +1,3 @@
-
 ---
 title: external_systems
 hide_title: false

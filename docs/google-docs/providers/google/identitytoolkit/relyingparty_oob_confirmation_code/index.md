@@ -1,4 +1,3 @@
-
 ---
 title: relyingparty_oob_confirmation_code
 hide_title: false

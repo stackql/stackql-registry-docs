@@ -1,4 +1,3 @@
-
 ---
 title: artifacts_iam_policies
 hide_title: false

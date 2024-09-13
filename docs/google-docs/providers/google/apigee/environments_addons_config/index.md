@@ -1,4 +1,3 @@
-
 ---
 title: environments_addons_config
 hide_title: false

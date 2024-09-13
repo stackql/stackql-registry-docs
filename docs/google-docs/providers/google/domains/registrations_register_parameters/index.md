@@ -1,4 +1,3 @@
-
 ---
 title: registrations_register_parameters
 hide_title: false

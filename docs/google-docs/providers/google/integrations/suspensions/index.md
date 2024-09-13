@@ -1,4 +1,3 @@
-
 ---
 title: suspensions
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: licenses
 hide_title: false

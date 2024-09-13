@@ -1,4 +1,3 @@
-
 ---
 title: firewall_endpoints
 hide_title: false

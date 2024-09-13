@@ -1,4 +1,3 @@
-
 ---
 title: entries
 hide_title: false

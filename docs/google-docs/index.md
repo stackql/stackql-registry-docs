@@ -26,7 +26,7 @@ Cloud services from Google.
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>167</b></span><br />
-<span>total resources:&nbsp;<b>0</b></span><br />
+<span>total resources:&nbsp;<b>1926</b></span><br />
 </div>
 </div>
 

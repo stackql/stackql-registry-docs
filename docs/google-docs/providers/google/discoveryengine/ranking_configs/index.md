@@ -1,4 +1,3 @@
-
 ---
 title: ranking_configs
 hide_title: false

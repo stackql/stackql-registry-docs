@@ -1,4 +1,3 @@
-
 ---
 title: relyingparty_public_keys
 hide_title: false

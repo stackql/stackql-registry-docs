@@ -1,4 +1,3 @@
-
 ---
 title: suggestion_deny_list_entries
 hide_title: false

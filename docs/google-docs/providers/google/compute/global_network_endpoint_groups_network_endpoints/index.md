@@ -1,4 +1,3 @@
-
 ---
 title: global_network_endpoint_groups_network_endpoints
 hide_title: false

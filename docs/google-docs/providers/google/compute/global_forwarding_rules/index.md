@@ -1,4 +1,3 @@
-
 ---
 title: global_forwarding_rules
 hide_title: false

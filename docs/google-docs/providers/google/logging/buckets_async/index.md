@@ -1,4 +1,3 @@
-
 ---
 title: buckets_async
 hide_title: false

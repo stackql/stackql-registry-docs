@@ -1,4 +1,3 @@
-
 ---
 title: workspaces_file_diff
 hide_title: false

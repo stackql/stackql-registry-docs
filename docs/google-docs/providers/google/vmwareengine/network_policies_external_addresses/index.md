@@ -1,4 +1,3 @@
-
 ---
 title: network_policies_external_addresses
 hide_title: false

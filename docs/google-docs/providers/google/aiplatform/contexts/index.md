@@ -1,4 +1,3 @@
-
 ---
 title: contexts
 hide_title: false

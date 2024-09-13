@@ -1,4 +1,3 @@
-
 ---
 title: consent_artifacts
 hide_title: false

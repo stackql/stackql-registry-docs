@@ -1,4 +1,3 @@
-
 ---
 title: aspect_types_iam_policies
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: nas_trial_details
 hide_title: false

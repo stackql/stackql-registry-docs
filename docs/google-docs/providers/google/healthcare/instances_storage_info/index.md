@@ -1,4 +1,3 @@
-
 ---
 title: instances_storage_info
 hide_title: false

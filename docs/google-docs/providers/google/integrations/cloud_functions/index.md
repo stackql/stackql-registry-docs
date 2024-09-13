@@ -1,4 +1,3 @@
-
 ---
 title: cloud_functions
 hide_title: false

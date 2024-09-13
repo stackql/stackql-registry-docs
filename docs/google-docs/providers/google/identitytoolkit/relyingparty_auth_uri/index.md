@@ -1,4 +1,3 @@
-
 ---
 title: relyingparty_auth_uri
 hide_title: false

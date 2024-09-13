@@ -1,4 +1,3 @@
-
 ---
 title: connections
 hide_title: false

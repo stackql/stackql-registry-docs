@@ -1,4 +1,3 @@
-
 ---
 title: certificate_revocation_lists
 hide_title: false

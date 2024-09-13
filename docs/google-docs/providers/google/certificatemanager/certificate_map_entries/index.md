@@ -1,4 +1,3 @@
-
 ---
 title: certificate_map_entries
 hide_title: false

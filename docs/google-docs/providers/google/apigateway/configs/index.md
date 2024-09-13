@@ -1,4 +1,3 @@
-
 ---
 title: configs
 hide_title: false

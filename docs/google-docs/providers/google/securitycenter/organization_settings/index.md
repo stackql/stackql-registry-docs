@@ -1,4 +1,3 @@
-
 ---
 title: organization_settings
 hide_title: false

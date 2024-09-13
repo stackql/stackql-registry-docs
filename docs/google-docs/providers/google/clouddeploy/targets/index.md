@@ -1,4 +1,3 @@
-
 ---
 title: targets
 hide_title: false

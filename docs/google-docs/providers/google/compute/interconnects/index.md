@@ -1,4 +1,3 @@
-
 ---
 title: interconnects
 hide_title: false

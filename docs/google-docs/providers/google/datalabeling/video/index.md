@@ -1,4 +1,3 @@
-
 ---
 title: video
 hide_title: false

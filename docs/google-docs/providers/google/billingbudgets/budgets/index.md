@@ -1,4 +1,3 @@
-
 ---
 title: budgets
 hide_title: false

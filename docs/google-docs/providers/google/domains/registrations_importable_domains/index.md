@@ -1,4 +1,3 @@
-
 ---
 title: registrations_importable_domains
 hide_title: false

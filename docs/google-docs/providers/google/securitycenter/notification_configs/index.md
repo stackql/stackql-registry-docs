@@ -1,4 +1,3 @@
-
 ---
 title: notification_configs
 hide_title: false

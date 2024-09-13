@@ -1,4 +1,3 @@
-
 ---
 title: nat_addresses
 hide_title: false

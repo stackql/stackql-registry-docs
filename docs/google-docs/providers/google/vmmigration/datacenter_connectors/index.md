@@ -1,4 +1,3 @@
-
 ---
 title: datacenter_connectors
 hide_title: false

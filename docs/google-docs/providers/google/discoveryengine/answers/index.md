@@ -1,4 +1,3 @@
-
 ---
 title: answers
 hide_title: false

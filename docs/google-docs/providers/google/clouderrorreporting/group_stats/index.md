@@ -1,4 +1,3 @@
-
 ---
 title: group_stats
 hide_title: false

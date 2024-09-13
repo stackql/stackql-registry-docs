@@ -1,4 +1,3 @@
-
 ---
 title: history
 hide_title: false

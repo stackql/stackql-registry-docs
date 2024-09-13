@@ -1,4 +1,3 @@
-
 ---
 title: finding_type_stats
 hide_title: false
