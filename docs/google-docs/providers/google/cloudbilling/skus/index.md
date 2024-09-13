@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>skus</code> resource or lists <code>skus</code> in a region
+Creates, updates, deletes, gets or lists a <code>skus</code> resource.
 
 ## Overview
 <table><tbody>

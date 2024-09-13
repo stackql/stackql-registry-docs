@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>collector</code> resource or lists <code>collectors</code> in a region
+Creates, updates, deletes, gets or lists a <code>collectors</code> resource.
 
 ## Overview
 <table><tbody>
@@ -183,9 +183,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a collector only if the necessary resources are available.
+Updates a <code>collectors</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.rapidmigrationassessment.collectors
 SET 
 name = '{{ name }}',
@@ -211,9 +212,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified collector resource.
+Deletes the specified <code>collectors</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.rapidmigrationassessment.collectors
 WHERE collectorsId = '{{ collectorsId }}'
 AND locationsId = '{{ locationsId }}'

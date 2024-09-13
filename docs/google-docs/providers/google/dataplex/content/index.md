@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>content</code> resource or lists <code>content</code> in a region
+Creates, updates, deletes, gets or lists a <code>content</code> resource.
 
 ## Overview
 <table><tbody>
@@ -153,9 +153,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a content only if the necessary resources are available.
+Updates a <code>content</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataplex.content
 SET 
 name = '{{ name }}',
@@ -177,9 +178,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified content resource.
+Deletes the specified <code>content</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataplex.content
 WHERE contentId = '{{ contentId }}'
 AND lakesId = '{{ lakesId }}'

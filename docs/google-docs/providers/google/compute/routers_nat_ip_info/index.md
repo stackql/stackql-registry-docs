@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>routers_nat_ip_info</code> resource or lists <code>routers_nat_ip_info</code> in a region
+Creates, updates, deletes, gets or lists a <code>routers_nat_ip_info</code> resource.
 
 ## Overview
 <table><tbody>

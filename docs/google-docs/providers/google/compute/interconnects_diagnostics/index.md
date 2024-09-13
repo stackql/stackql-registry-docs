@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>interconnects_diagnostic</code> resource or lists <code>interconnects_diagnostics</code> in a region
+Creates, updates, deletes, gets or lists a <code>interconnects_diagnostics</code> resource.
 
 ## Overview
 <table><tbody>

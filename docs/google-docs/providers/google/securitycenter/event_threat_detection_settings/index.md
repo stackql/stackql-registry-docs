@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>event_threat_detection_setting</code> resource or lists <code>event_threat_detection_settings</code> in a region
+Creates, updates, deletes, gets or lists a <code>event_threat_detection_settings</code> resource.
 
 ## Overview
 <table><tbody>

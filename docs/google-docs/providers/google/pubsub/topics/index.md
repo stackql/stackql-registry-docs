@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>topic</code> resource or lists <code>topics</code> in a region
+Creates, updates, deletes, gets or lists a <code>topics</code> resource.
 
 ## Overview
 <table><tbody>
@@ -72,9 +72,10 @@ WHERE projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a topic only if the necessary resources are available.
+Updates a <code>topics</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.pubsub.topics
 SET 
 topic = '{{ topic }}',
@@ -86,9 +87,10 @@ AND topicsId = '{{ topicsId }}';
 
 ## `DELETE` example
 
-Deletes the specified topic resource.
+Deletes the specified <code>topics</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.pubsub.topics
 WHERE projectsId = '{{ projectsId }}'
 AND topicsId = '{{ topicsId }}';

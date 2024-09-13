@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>service_connection_policy</code> resource or lists <code>service_connection_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>service_connection_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -156,9 +156,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a service_connection_policy only if the necessary resources are available.
+Updates a <code>service_connection_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkconnectivity.service_connection_policies
 SET 
 name = '{{ name }}',
@@ -180,9 +181,10 @@ AND serviceConnectionPoliciesId = '{{ serviceConnectionPoliciesId }}';
 
 ## `DELETE` example
 
-Deletes the specified service_connection_policy resource.
+Deletes the specified <code>service_connection_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkconnectivity.service_connection_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>connection</code> resource or lists <code>connections</code> in a region
+Creates, updates, deletes, gets or lists a <code>connections</code> resource.
 
 ## Overview
 <table><tbody>
@@ -109,9 +109,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a connection only if the necessary resources are available.
+Updates a <code>connections</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dlp.connections
 SET 
 updateMask = '{{ updateMask }}',
@@ -124,9 +125,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified connection resource.
+Deletes the specified <code>connections</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dlp.connections
 WHERE connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'

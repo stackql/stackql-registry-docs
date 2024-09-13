@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>nat_address</code> resource or lists <code>nat_addresses</code> in a region
+Creates, updates, deletes, gets or lists a <code>nat_addresses</code> resource.
 
 ## Overview
 <table><tbody>
@@ -108,9 +108,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified nat_address resource.
+Deletes the specified <code>nat_addresses</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.nat_addresses
 WHERE instancesId = '{{ instancesId }}'
 AND natAddressesId = '{{ natAddressesId }}'

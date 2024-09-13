@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>resourcefiles_environment_resource</code> resource or lists <code>resourcefiles_environment_resources</code> in a region
+Creates, updates, deletes, gets or lists a <code>resourcefiles_environment_resources</code> resource.
 
 ## Overview
 <table><tbody>

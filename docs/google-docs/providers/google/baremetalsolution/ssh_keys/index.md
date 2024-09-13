@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>ssh_key</code> resource or lists <code>ssh_keys</code> in a region
+Creates, updates, deletes, gets or lists a <code>ssh_keys</code> resource.
 
 ## Overview
 <table><tbody>
@@ -100,9 +100,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified ssh_key resource.
+Deletes the specified <code>ssh_keys</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.baremetalsolution.ssh_keys
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

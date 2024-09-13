@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>target_project</code> resource or lists <code>target_projects</code> in a region
+Creates, updates, deletes, gets or lists a <code>target_projects</code> resource.
 
 ## Overview
 <table><tbody>
@@ -120,9 +120,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a target_project only if the necessary resources are available.
+Updates a <code>target_projects</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vmmigration.target_projects
 SET 
 name = '{{ name }}',
@@ -138,9 +139,10 @@ AND targetProjectsId = '{{ targetProjectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified target_project resource.
+Deletes the specified <code>target_projects</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmmigration.target_projects
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

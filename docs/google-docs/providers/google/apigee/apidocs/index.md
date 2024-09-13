@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>apidoc</code> resource or lists <code>apidocs</code> in a region
+Creates, updates, deletes, gets or lists a <code>apidocs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -168,9 +168,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified apidoc resource.
+Deletes the specified <code>apidocs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.apidocs
 WHERE apidocsId = '{{ apidocsId }}'
 AND organizationsId = '{{ organizationsId }}'

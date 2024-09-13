@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>migration_job</code> resource or lists <code>migration_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>migration_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -255,9 +255,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a migration_job only if the necessary resources are available.
+Updates a <code>migration_jobs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.datamigration.migration_jobs
 SET 
 name = '{{ name }}',
@@ -294,9 +295,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified migration_job resource.
+Deletes the specified <code>migration_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datamigration.migration_jobs
 WHERE locationsId = '{{ locationsId }}'
 AND migrationJobsId = '{{ migrationJobsId }}'

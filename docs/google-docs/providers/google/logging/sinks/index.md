@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>sink</code> resource or lists <code>sinks</code> in a region
+Creates, updates, deletes, gets or lists a <code>sinks</code> resource.
 
 ## Overview
 <table><tbody>
@@ -195,9 +195,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a sink only if the necessary resources are available.
+Updates a <code>sinks</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.logging.sinks
 SET 
 name = '{{ name }}',
@@ -221,9 +222,10 @@ AND sinksId = '{{ sinksId }}';
 
 ## `DELETE` example
 
-Deletes the specified sink resource.
+Deletes the specified <code>sinks</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.logging.sinks
 WHERE sinkName = '{{ sinkName }}';
 ```

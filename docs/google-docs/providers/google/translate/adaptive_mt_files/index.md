@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>adaptive_mt_file</code> resource or lists <code>adaptive_mt_files</code> in a region
+Creates, updates, deletes, gets or lists a <code>adaptive_mt_files</code> resource.
 
 ## Overview
 <table><tbody>
@@ -63,9 +63,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified adaptive_mt_file resource.
+Deletes the specified <code>adaptive_mt_files</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.translate.adaptive_mt_files
 WHERE adaptiveMtDatasetsId = '{{ adaptiveMtDatasetsId }}'
 AND adaptiveMtFilesId = '{{ adaptiveMtFilesId }}'

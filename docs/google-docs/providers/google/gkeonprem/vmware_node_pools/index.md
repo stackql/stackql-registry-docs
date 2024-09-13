@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>vmware_node_pool</code> resource or lists <code>vmware_node_pools</code> in a region
+Creates, updates, deletes, gets or lists a <code>vmware_node_pools</code> resource.
 
 ## Overview
 <table><tbody>
@@ -179,9 +179,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a vmware_node_pool only if the necessary resources are available.
+Updates a <code>vmware_node_pools</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.gkeonprem.vmware_node_pools
 SET 
 name = '{{ name }}',
@@ -207,9 +208,10 @@ AND vmwareNodePoolsId = '{{ vmwareNodePoolsId }}';
 
 ## `DELETE` example
 
-Deletes the specified vmware_node_pool resource.
+Deletes the specified <code>vmware_node_pools</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.gkeonprem.vmware_node_pools
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

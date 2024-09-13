@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>entitlement</code> resource or lists <code>entitlements</code> in a region
+Creates, updates, deletes, gets or lists a <code>entitlements</code> resource.
 
 ## Overview
 <table><tbody>
@@ -108,9 +108,10 @@ WHERE providersId = '{{ providersId }}';
 
 ## `UPDATE` example
 
-Updates a entitlement only if the necessary resources are available.
+Updates a <code>entitlements</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudcommerceprocurement.entitlements
 SET 
 provider = '{{ provider }}',

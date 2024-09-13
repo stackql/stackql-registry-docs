@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>place</code> resource or lists <code>places</code> in a region
+Creates, updates, deletes, gets or lists a <code>places</code> resource.
 
 ## Overview
 <table><tbody>

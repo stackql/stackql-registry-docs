@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_notification_endpoint</code> resource or lists <code>region_notification_endpoints</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_notification_endpoints</code> resource.
 
 ## Overview
 <table><tbody>
@@ -137,9 +137,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified region_notification_endpoint resource.
+Deletes the specified <code>region_notification_endpoints</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.region_notification_endpoints
 WHERE notificationEndpoint = '{{ notificationEndpoint }}'
 AND project = '{{ project }}'

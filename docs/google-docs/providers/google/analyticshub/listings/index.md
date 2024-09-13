@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>listing</code> resource or lists <code>listings</code> in a region
+Creates, updates, deletes, gets or lists a <code>listings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -190,9 +190,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a listing only if the necessary resources are available.
+Updates a <code>listings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.analyticshub.listings
 SET 
 bigqueryDataset = '{{ bigqueryDataset }}',
@@ -220,9 +221,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified listing resource.
+Deletes the specified <code>listings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.analyticshub.listings
 WHERE dataExchangesId = '{{ dataExchangesId }}'
 AND listingsId = '{{ listingsId }}'

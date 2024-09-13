@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>environment</code> resource or lists <code>environments</code> in a region
+Creates, updates, deletes, gets or lists a <code>environments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -171,9 +171,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified environment resource.
+Deletes the specified <code>environments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.environments
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}';

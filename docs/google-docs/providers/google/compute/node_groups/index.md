@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>node_group</code> resource or lists <code>node_groups</code> in a region
+Creates, updates, deletes, gets or lists a <code>node_groups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -197,9 +197,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a node_group only if the necessary resources are available.
+Updates a <code>node_groups</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.node_groups
 SET 
 kind = '{{ kind }}',
@@ -227,9 +228,10 @@ AND zone = '{{ zone }}';
 
 ## `DELETE` example
 
-Deletes the specified node_group resource.
+Deletes the specified <code>node_groups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.node_groups
 WHERE nodeGroup = '{{ nodeGroup }}'
 AND project = '{{ project }}'

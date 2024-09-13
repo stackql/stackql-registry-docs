@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>target_vpn_gateway</code> resource or lists <code>target_vpn_gateways</code> in a region
+Creates, updates, deletes, gets or lists a <code>target_vpn_gateways</code> resource.
 
 ## Overview
 <table><tbody>
@@ -168,9 +168,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified target_vpn_gateway resource.
+Deletes the specified <code>target_vpn_gateways</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.target_vpn_gateways
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dlp_job</code> resource or lists <code>dlp_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>dlp_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -135,9 +135,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified dlp_job resource.
+Deletes the specified <code>dlp_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dlp.dlp_jobs
 WHERE dlpJobsId = '{{ dlpJobsId }}'
 AND projectsId = '{{ projectsId }}';

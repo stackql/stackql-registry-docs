@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>entity_type</code> resource or lists <code>entity_types</code> in a region
+Creates, updates, deletes, gets or lists a <code>entity_types</code> resource.
 
 ## Overview
 <table><tbody>
@@ -143,9 +143,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a entity_type only if the necessary resources are available.
+Updates a <code>entity_types</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dialogflow.entity_types
 SET 
 name = '{{ name }}',
@@ -165,9 +166,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified entity_type resource.
+Deletes the specified <code>entity_types</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dialogflow.entity_types
 WHERE agentsId = '{{ agentsId }}'
 AND entityTypesId = '{{ entityTypesId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instance</code> resource or lists <code>instances</code> in a region
+Creates, updates, deletes, gets or lists a <code>instances</code> resource.
 
 ## Overview
 <table><tbody>
@@ -88,9 +88,10 @@ AND versionsId = '{{ versionsId }}';
 
 ## `DELETE` example
 
-Deletes the specified instance resource.
+Deletes the specified <code>instances</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.appengine.instances
 WHERE appsId = '{{ appsId }}'
 AND instancesId = '{{ instancesId }}'

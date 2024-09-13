@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>supported_database_flag</code> resource or lists <code>supported_database_flags</code> in a region
+Creates, updates, deletes, gets or lists a <code>supported_database_flags</code> resource.
 
 ## Overview
 <table><tbody>

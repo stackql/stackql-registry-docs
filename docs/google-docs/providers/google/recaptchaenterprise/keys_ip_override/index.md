@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>keys_ip_override</code> resource or lists <code>keys_ip_override</code> in a region
+Creates, updates, deletes, gets or lists a <code>keys_ip_override</code> resource.
 
 ## Overview
 <table><tbody>
@@ -80,9 +80,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified keys_ip_override resource.
+Deletes the specified <code>keys_ip_override</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.recaptchaenterprise.keys_ip_override
 WHERE keysId = '{{ keysId }}'
 AND projectsId = '{{ projectsId }}';

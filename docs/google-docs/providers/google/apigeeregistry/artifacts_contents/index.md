@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>artifacts_content</code> resource or lists <code>artifacts_contents</code> in a region
+Creates, updates, deletes, gets or lists a <code>artifacts_contents</code> resource.
 
 ## Overview
 <table><tbody>

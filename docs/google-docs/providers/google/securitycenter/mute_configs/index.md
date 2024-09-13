@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>mute_config</code> resource or lists <code>mute_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>mute_configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -166,9 +166,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a mute_config only if the necessary resources are available.
+Updates a <code>mute_configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.securitycenter.mute_configs
 SET 
 name = '{{ name }}',
@@ -187,9 +188,10 @@ AND muteConfigsId = '{{ muteConfigsId }}';
 
 ## `DELETE` example
 
-Deletes the specified mute_config resource.
+Deletes the specified <code>mute_configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.securitycenter.mute_configs
 WHERE foldersId = '{{ foldersId }}'
 AND muteConfigsId = '{{ muteConfigsId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>feedback_message</code> resource or lists <code>feedback_messages</code> in a region
+Creates, updates, deletes, gets or lists a <code>feedback_messages</code> resource.
 
 ## Overview
 <table><tbody>
@@ -131,9 +131,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified feedback_message resource.
+Deletes the specified <code>feedback_messages</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datalabeling.feedback_messages
 WHERE annotatedDatasetsId = '{{ annotatedDatasetsId }}'
 AND datasetsId = '{{ datasetsId }}'

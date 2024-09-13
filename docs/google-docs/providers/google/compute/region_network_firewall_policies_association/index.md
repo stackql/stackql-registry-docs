@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_network_firewall_policies_association</code> resource or lists <code>region_network_firewall_policies_association</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_network_firewall_policies_association</code> resource.
 
 ## Overview
 <table><tbody>
@@ -121,9 +121,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified region_network_firewall_policies_association resource.
+Deletes the specified <code>region_network_firewall_policies_association</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.region_network_firewall_policies_association
 WHERE firewallPolicy = '{{ firewallPolicy }}'
 AND project = '{{ project }}'

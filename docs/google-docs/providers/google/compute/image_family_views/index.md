@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>image_family_view</code> resource or lists <code>image_family_views</code> in a region
+Creates, updates, deletes, gets or lists a <code>image_family_views</code> resource.
 
 ## Overview
 <table><tbody>

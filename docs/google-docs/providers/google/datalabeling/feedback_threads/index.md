@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>feedback_thread</code> resource or lists <code>feedback_threads</code> in a region
+Creates, updates, deletes, gets or lists a <code>feedback_threads</code> resource.
 
 ## Overview
 <table><tbody>
@@ -57,9 +57,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified feedback_thread resource.
+Deletes the specified <code>feedback_threads</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datalabeling.feedback_threads
 WHERE annotatedDatasetsId = '{{ annotatedDatasetsId }}'
 AND datasetsId = '{{ datasetsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dataset</code> resource or lists <code>datasets</code> in a region
+Creates, updates, deletes, gets or lists a <code>datasets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -291,9 +291,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a dataset only if the necessary resources are available.
+Updates a <code>datasets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.bigquery.datasets
 SET 
 access = '{{ access }}',
@@ -333,9 +334,10 @@ AND projectId = '{{ projectId }}';
 
 ## `DELETE` example
 
-Deletes the specified dataset resource.
+Deletes the specified <code>datasets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.bigquery.datasets
 WHERE +datasetId = '{{ +datasetId }}'
 AND projectId = '{{ projectId }}';

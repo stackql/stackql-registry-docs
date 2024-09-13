@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>event_threat_detection_module</code> resource or lists <code>event_threat_detection_modules</code> in a region
+Creates, updates, deletes, gets or lists a <code>event_threat_detection_modules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -145,9 +145,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified event_threat_detection_module resource.
+Deletes the specified <code>event_threat_detection_modules</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.securitycenter.event_threat_detection_modules
 WHERE customModulesId = '{{ customModulesId }}'
 AND foldersId = '{{ foldersId }}';

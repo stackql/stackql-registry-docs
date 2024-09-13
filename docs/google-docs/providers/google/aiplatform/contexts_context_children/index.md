@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>contexts_context_child</code> resource or lists <code>contexts_context_children</code> in a region
+Creates, updates, deletes, gets or lists a <code>contexts_context_children</code> resource.
 
 ## Overview
 <table><tbody>
@@ -84,9 +84,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified contexts_context_child resource.
+Deletes the specified <code>contexts_context_children</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.contexts_context_children
 WHERE contextsId = '{{ contextsId }}'
 AND locationsId = '{{ locationsId }}'

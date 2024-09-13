@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>saved_query</code> resource or lists <code>saved_queries</code> in a region
+Creates, updates, deletes, gets or lists a <code>saved_queries</code> resource.
 
 ## Overview
 <table><tbody>
@@ -72,9 +72,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified saved_query resource.
+Deletes the specified <code>saved_queries</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.saved_queries
 WHERE datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'

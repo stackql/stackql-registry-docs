@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>registrations_importable_domain</code> resource or lists <code>registrations_importable_domains</code> in a region
+Creates, updates, deletes, gets or lists a <code>registrations_importable_domains</code> resource.
 
 ## Overview
 <table><tbody>

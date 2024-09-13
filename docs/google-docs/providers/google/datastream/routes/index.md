@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>route</code> resource or lists <code>routes</code> in a region
+Creates, updates, deletes, gets or lists a <code>routes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -134,9 +134,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified route resource.
+Deletes the specified <code>routes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datastream.routes
 WHERE locationsId = '{{ locationsId }}'
 AND privateConnectionsId = '{{ privateConnectionsId }}'

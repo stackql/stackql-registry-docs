@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>queue</code> resource or lists <code>queues</code> in a region
+Creates, updates, deletes, gets or lists a <code>queues</code> resource.
 
 ## Overview
 <table><tbody>
@@ -141,9 +141,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a queue only if the necessary resources are available.
+Updates a <code>queues</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudtasks.queues
 SET 
 name = '{{ name }}',
@@ -162,9 +163,10 @@ AND queuesId = '{{ queuesId }}';
 
 ## `DELETE` example
 
-Deletes the specified queue resource.
+Deletes the specified <code>queues</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudtasks.queues
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

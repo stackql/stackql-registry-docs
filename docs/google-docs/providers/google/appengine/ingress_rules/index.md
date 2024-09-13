@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>ingress_rule</code> resource or lists <code>ingress_rules</code> in a region
+Creates, updates, deletes, gets or lists a <code>ingress_rules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -112,9 +112,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a ingress_rule only if the necessary resources are available.
+Updates a <code>ingress_rules</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.appengine.ingress_rules
 SET 
 ingressRules = '{{ ingressRules }}'
@@ -124,9 +125,10 @@ appsId = '{{ appsId }}';
 
 ## `DELETE` example
 
-Deletes the specified ingress_rule resource.
+Deletes the specified <code>ingress_rules</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.appengine.ingress_rules
 WHERE appsId = '{{ appsId }}'
 AND ingressRulesId = '{{ ingressRulesId }}';

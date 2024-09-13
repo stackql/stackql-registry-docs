@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>federation</code> resource or lists <code>federations</code> in a region
+Creates, updates, deletes, gets or lists a <code>federations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -150,9 +150,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a federation only if the necessary resources are available.
+Updates a <code>federations</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.metastore.federations
 SET 
 name = '{{ name }}',
@@ -173,9 +174,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified federation resource.
+Deletes the specified <code>federations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.metastore.federations
 WHERE federationsId = '{{ federationsId }}'
 AND locationsId = '{{ locationsId }}'

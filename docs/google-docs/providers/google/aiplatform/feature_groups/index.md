@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>feature_group</code> resource or lists <code>feature_groups</code> in a region
+Creates, updates, deletes, gets or lists a <code>feature_groups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -132,9 +132,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a feature_group only if the necessary resources are available.
+Updates a <code>feature_groups</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.feature_groups
 SET 
 bigQuery = '{{ bigQuery }}',
@@ -152,9 +153,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified feature_group resource.
+Deletes the specified <code>feature_groups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.feature_groups
 WHERE featureGroupsId = '{{ featureGroupsId }}'
 AND locationsId = '{{ locationsId }}'

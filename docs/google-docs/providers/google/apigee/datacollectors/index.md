@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>datacollector</code> resource or lists <code>datacollectors</code> in a region
+Creates, updates, deletes, gets or lists a <code>datacollectors</code> resource.
 
 ## Overview
 <table><tbody>
@@ -117,9 +117,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a datacollector only if the necessary resources are available.
+Updates a <code>datacollectors</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.datacollectors
 SET 
 type = '{{ type }}',
@@ -134,9 +135,10 @@ AND organizationsId = '{{ organizationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified datacollector resource.
+Deletes the specified <code>datacollectors</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.datacollectors
 WHERE datacollectorsId = '{{ datacollectorsId }}'
 AND organizationsId = '{{ organizationsId }}';

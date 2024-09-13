@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>lien</code> resource or lists <code>liens</code> in a region
+Creates, updates, deletes, gets or lists a <code>liens</code> resource.
 
 ## Overview
 <table><tbody>
@@ -122,9 +122,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified lien resource.
+Deletes the specified <code>liens</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudresourcemanager.liens
 WHERE liensId = '{{ liensId }}';
 ```

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>note</code> resource or lists <code>notes</code> in a region
+Creates, updates, deletes, gets or lists a <code>notes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -140,9 +140,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a note only if the necessary resources are available.
+Updates a <code>notes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.containeranalysis.notes
 SET 
 longDescription = '{{ longDescription }}',
@@ -173,9 +174,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified note resource.
+Deletes the specified <code>notes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.containeranalysis.notes
 WHERE notesId = '{{ notesId }}'
 AND projectsId = '{{ projectsId }}';

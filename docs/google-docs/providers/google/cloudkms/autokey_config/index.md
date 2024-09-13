@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>autokey_config</code> resource or lists <code>autokey_config</code> in a region
+Creates, updates, deletes, gets or lists a <code>autokey_config</code> resource.
 
 ## Overview
 <table><tbody>
@@ -56,9 +56,10 @@ WHERE foldersId = '{{ foldersId }}';
 
 ## `UPDATE` example
 
-Updates a autokey_config only if the necessary resources are available.
+Updates a <code>autokey_config</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudkms.autokey_config
 SET 
 name = '{{ name }}',

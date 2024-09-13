@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>revisions_api_proxy_revision</code> resource or lists <code>revisions_api_proxy_revision</code> in a region
+Creates, updates, deletes, gets or lists a <code>revisions_api_proxy_revision</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>revisions_api_proxy_revision</code> r
 
 ## `UPDATE` example
 
-Updates a revisions_api_proxy_revision only if the necessary resources are available.
+Updates a <code>revisions_api_proxy_revision</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.revisions_api_proxy_revision
 SET 
 contentType = '{{ contentType }}',

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>report</code> resource or lists <code>reports</code> in a region
+Creates, updates, deletes, gets or lists a <code>reports</code> resource.
 
 ## Overview
 <table><tbody>
@@ -219,9 +219,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified report resource.
+Deletes the specified <code>reports</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.reports
 WHERE organizationsId = '{{ organizationsId }}'
 AND reportsId = '{{ reportsId }}';

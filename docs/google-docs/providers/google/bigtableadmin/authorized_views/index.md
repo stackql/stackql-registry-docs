@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>authorized_view</code> resource or lists <code>authorized_views</code> in a region
+Creates, updates, deletes, gets or lists a <code>authorized_views</code> resource.
 
 ## Overview
 <table><tbody>
@@ -117,9 +117,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a authorized_view only if the necessary resources are available.
+Updates a <code>authorized_views</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.bigtableadmin.authorized_views
 SET 
 name = '{{ name }}',
@@ -135,9 +136,10 @@ AND tablesId = '{{ tablesId }}';
 
 ## `DELETE` example
 
-Deletes the specified authorized_view resource.
+Deletes the specified <code>authorized_views</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.bigtableadmin.authorized_views
 WHERE authorizedViewsId = '{{ authorizedViewsId }}'
 AND instancesId = '{{ instancesId }}'

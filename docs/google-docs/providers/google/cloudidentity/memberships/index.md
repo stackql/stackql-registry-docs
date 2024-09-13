@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>membership</code> resource or lists <code>memberships</code> in a region
+Creates, updates, deletes, gets or lists a <code>memberships</code> resource.
 
 ## Overview
 <table><tbody>
@@ -134,9 +134,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified membership resource.
+Deletes the specified <code>memberships</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudidentity.memberships
 WHERE groupsId = '{{ groupsId }}'
 AND membershipsId = '{{ membershipsId }}';

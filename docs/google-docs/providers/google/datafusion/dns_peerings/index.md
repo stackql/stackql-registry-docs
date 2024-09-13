@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dns_peering</code> resource or lists <code>dns_peerings</code> in a region
+Creates, updates, deletes, gets or lists a <code>dns_peerings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -121,9 +121,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified dns_peering resource.
+Deletes the specified <code>dns_peerings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datafusion.dns_peerings
 WHERE dnsPeeringsId = '{{ dnsPeeringsId }}'
 AND instancesId = '{{ instancesId }}'

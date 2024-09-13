@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>bare_metal_node_pool</code> resource or lists <code>bare_metal_node_pools</code> in a region
+Creates, updates, deletes, gets or lists a <code>bare_metal_node_pools</code> resource.
 
 ## Overview
 <table><tbody>
@@ -173,9 +173,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a bare_metal_node_pool only if the necessary resources are available.
+Updates a <code>bare_metal_node_pools</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.gkeonprem.bare_metal_node_pools
 SET 
 name = '{{ name }}',
@@ -200,9 +201,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified bare_metal_node_pool resource.
+Deletes the specified <code>bare_metal_node_pools</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.gkeonprem.bare_metal_node_pools
 WHERE bareMetalClustersId = '{{ bareMetalClustersId }}'
 AND bareMetalNodePoolsId = '{{ bareMetalNodePoolsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>notebook_runtime</code> resource or lists <code>notebook_runtimes</code> in a region
+Creates, updates, deletes, gets or lists a <code>notebook_runtimes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -97,9 +97,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified notebook_runtime resource.
+Deletes the specified <code>notebook_runtimes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.notebook_runtimes
 WHERE locationsId = '{{ locationsId }}'
 AND notebookRuntimesId = '{{ notebookRuntimesId }}'

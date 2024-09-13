@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>network_policies_external_address</code> resource or lists <code>network_policies_external_addresses</code> in a region
+Creates, updates, deletes, gets or lists a <code>network_policies_external_addresses</code> resource.
 
 ## Overview
 <table><tbody>

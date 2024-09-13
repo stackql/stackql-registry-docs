@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>patch_deployment</code> resource or lists <code>patch_deployments</code> in a region
+Creates, updates, deletes, gets or lists a <code>patch_deployments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -161,9 +161,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a patch_deployment only if the necessary resources are available.
+Updates a <code>patch_deployments</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.osconfig.patch_deployments
 SET 
 name = '{{ name }}',
@@ -185,9 +186,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified patch_deployment resource.
+Deletes the specified <code>patch_deployments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.osconfig.patch_deployments
 WHERE patchDeploymentsId = '{{ patchDeploymentsId }}'
 AND projectsId = '{{ projectsId }}';

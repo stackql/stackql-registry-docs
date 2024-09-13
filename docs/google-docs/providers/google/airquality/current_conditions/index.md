@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>current_condition</code> resource or lists <code>current_conditions</code> in a region
+Creates, updates, deletes, gets or lists a <code>current_conditions</code> resource.
 
 ## Overview
 <table><tbody>

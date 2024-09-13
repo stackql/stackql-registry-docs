@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>threat_list</code> resource or lists <code>threat_lists</code> in a region
+Creates, updates, deletes, gets or lists a <code>threat_lists</code> resource.
 
 ## Overview
 <table><tbody>

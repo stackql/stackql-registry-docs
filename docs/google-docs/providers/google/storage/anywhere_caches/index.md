@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>anywhere_cach</code> resource or lists <code>anywhere_caches</code> in a region
+Creates, updates, deletes, gets or lists a <code>anywhere_caches</code> resource.
 
 ## Overview
 <table><tbody>
@@ -161,9 +161,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a anywhere_cach only if the necessary resources are available.
+Updates a <code>anywhere_caches</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.storage.anywhere_caches
 SET 
 kind = '{{ kind }}',

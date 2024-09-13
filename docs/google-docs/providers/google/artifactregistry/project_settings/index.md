@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>project_setting</code> resource or lists <code>project_settings</code> in a region
+Creates, updates, deletes, gets or lists a <code>project_settings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -56,9 +56,10 @@ WHERE projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a project_setting only if the necessary resources are available.
+Updates a <code>project_settings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.artifactregistry.project_settings
 SET 
 name = '{{ name }}',

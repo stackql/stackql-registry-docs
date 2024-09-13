@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>observation_source</code> resource or lists <code>observation_sources</code> in a region
+Creates, updates, deletes, gets or lists a <code>observation_sources</code> resource.
 
 ## Overview
 <table><tbody>
@@ -119,9 +119,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified observation_source resource.
+Deletes the specified <code>observation_sources</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apim.observation_sources
 WHERE locationsId = '{{ locationsId }}'
 AND observationSourcesId = '{{ observationSourcesId }}'

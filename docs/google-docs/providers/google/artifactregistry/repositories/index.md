@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>repository</code> resource or lists <code>repositories</code> in a region
+Creates, updates, deletes, gets or lists a <code>repositories</code> resource.
 
 ## Overview
 <table><tbody>
@@ -198,9 +198,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a repository only if the necessary resources are available.
+Updates a <code>repositories</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.artifactregistry.repositories
 SET 
 mavenConfig = '{{ mavenConfig }}',
@@ -229,9 +230,10 @@ AND repositoriesId = '{{ repositoriesId }}';
 
 ## `DELETE` example
 
-Deletes the specified repository resource.
+Deletes the specified <code>repositories</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.artifactregistry.repositories
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

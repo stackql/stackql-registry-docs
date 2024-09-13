@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>trigger</code> resource or lists <code>triggers</code> in a region
+Creates, updates, deletes, gets or lists a <code>triggers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -174,9 +174,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a trigger only if the necessary resources are available.
+Updates a <code>triggers</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.eventarc.triggers
 SET 
 name = '{{ name }}',
@@ -201,9 +202,10 @@ AND triggersId = '{{ triggersId }}';
 
 ## `DELETE` example
 
-Deletes the specified trigger resource.
+Deletes the specified <code>triggers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.eventarc.triggers
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

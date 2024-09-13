@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>tag_hold</code> resource or lists <code>tag_holds</code> in a region
+Creates, updates, deletes, gets or lists a <code>tag_holds</code> resource.
 
 ## Overview
 <table><tbody>
@@ -115,9 +115,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified tag_hold resource.
+Deletes the specified <code>tag_holds</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudresourcemanager.tag_holds
 WHERE tagHoldsId = '{{ tagHoldsId }}'
 AND tagValuesId = '{{ tagValuesId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>cmek_setting</code> resource or lists <code>cmek_settings</code> in a region
+Creates, updates, deletes, gets or lists a <code>cmek_settings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -60,9 +60,10 @@ WHERE foldersId = '{{ foldersId }}';
 
 ## `UPDATE` example
 
-Updates a cmek_setting only if the necessary resources are available.
+Updates a <code>cmek_settings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.logging.cmek_settings
 SET 
 name = '{{ name }}',

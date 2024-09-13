@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>address_group</code> resource or lists <code>address_groups</code> in a region
+Creates, updates, deletes, gets or lists a <code>address_groups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -139,9 +139,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a address_group only if the necessary resources are available.
+Updates a <code>address_groups</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networksecurity.address_groups
 SET 
 name = '{{ name }}',
@@ -162,9 +163,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified address_group resource.
+Deletes the specified <code>address_groups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networksecurity.address_groups
 WHERE addressGroupsId = '{{ addressGroupsId }}'
 AND locationsId = '{{ locationsId }}'

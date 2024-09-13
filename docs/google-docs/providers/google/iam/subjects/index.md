@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>subject</code> resource or lists <code>subjects</code> in a region
+Creates, updates, deletes, gets or lists a <code>subjects</code> resource.
 
 ## Overview
 <table><tbody>
@@ -40,9 +40,10 @@ Creates, updates, deletes or gets an <code>subject</code> resource or lists <cod
 
 ## `DELETE` example
 
-Deletes the specified subject resource.
+Deletes the specified <code>subjects</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.iam.subjects
 WHERE locationsId = '{{ locationsId }}'
 AND subjectsId = '{{ subjectsId }}'

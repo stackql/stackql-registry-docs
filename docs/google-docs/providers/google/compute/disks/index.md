@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>disk</code> resource or lists <code>disks</code> in a region
+Creates, updates, deletes, gets or lists a <code>disks</code> resource.
 
 ## Overview
 <table><tbody>
@@ -200,9 +200,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a disk only if the necessary resources are available.
+Updates a <code>disks</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.disks
 SET 
 kind = '{{ kind }}',
@@ -263,9 +264,10 @@ AND zone = '{{ zone }}';
 
 ## `DELETE` example
 
-Deletes the specified disk resource.
+Deletes the specified <code>disks</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.disks
 WHERE disk = '{{ disk }}'
 AND project = '{{ project }}'

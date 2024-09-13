@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>authorized_orgs_desc</code> resource or lists <code>authorized_orgs_descs</code> in a region
+Creates, updates, deletes, gets or lists a <code>authorized_orgs_descs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -117,9 +117,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a authorized_orgs_desc only if the necessary resources are available.
+Updates a <code>authorized_orgs_descs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.accesscontextmanager.authorized_orgs_descs
 SET 
 name = '{{ name }}',
@@ -134,9 +135,10 @@ AND authorizedOrgsDescsId = '{{ authorizedOrgsDescsId }}';
 
 ## `DELETE` example
 
-Deletes the specified authorized_orgs_desc resource.
+Deletes the specified <code>authorized_orgs_descs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.accesscontextmanager.authorized_orgs_descs
 WHERE accessPoliciesId = '{{ accessPoliciesId }}'
 AND authorizedOrgsDescsId = '{{ authorizedOrgsDescsId }}';

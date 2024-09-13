@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>workload_identity_pool</code> resource or lists <code>workload_identity_pools</code> in a region
+Creates, updates, deletes, gets or lists a <code>workload_identity_pools</code> resource.
 
 ## Overview
 <table><tbody>
@@ -127,9 +127,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a workload_identity_pool only if the necessary resources are available.
+Updates a <code>workload_identity_pools</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.iam.workload_identity_pools
 SET 
 name = '{{ name }}',
@@ -146,9 +147,10 @@ AND workloadIdentityPoolsId = '{{ workloadIdentityPoolsId }}';
 
 ## `DELETE` example
 
-Deletes the specified workload_identity_pool resource.
+Deletes the specified <code>workload_identity_pools</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.iam.workload_identity_pools
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

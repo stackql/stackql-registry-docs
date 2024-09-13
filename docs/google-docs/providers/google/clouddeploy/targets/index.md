@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>target</code> resource or lists <code>targets</code> in a region
+Creates, updates, deletes, gets or lists a <code>targets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -192,9 +192,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a target only if the necessary resources are available.
+Updates a <code>targets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.clouddeploy.targets
 SET 
 name = '{{ name }}',
@@ -222,9 +223,10 @@ AND targetsId = '{{ targetsId }}';
 
 ## `DELETE` example
 
-Deletes the specified target resource.
+Deletes the specified <code>targets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.clouddeploy.targets
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

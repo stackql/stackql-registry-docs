@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>attribute</code> resource or lists <code>attributes</code> in a region
+Creates, updates, deletes, gets or lists a <code>attributes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -165,9 +165,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a attribute only if the necessary resources are available.
+Updates a <code>attributes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataplex.attributes
 SET 
 name = '{{ name }}',
@@ -191,9 +192,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified attribute resource.
+Deletes the specified <code>attributes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataplex.attributes
 WHERE attributesId = '{{ attributesId }}'
 AND dataTaxonomiesId = '{{ dataTaxonomiesId }}'

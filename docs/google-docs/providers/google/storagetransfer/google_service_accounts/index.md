@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>google_service_account</code> resource or lists <code>google_service_accounts</code> in a region
+Creates, updates, deletes, gets or lists a <code>google_service_accounts</code> resource.
 
 ## Overview
 <table><tbody>

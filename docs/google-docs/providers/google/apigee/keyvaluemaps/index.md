@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>keyvaluemap</code> resource or lists <code>keyvaluemaps</code> in a region
+Creates, updates, deletes, gets or lists a <code>keyvaluemaps</code> resource.
 
 ## Overview
 <table><tbody>
@@ -86,9 +86,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified keyvaluemap resource.
+Deletes the specified <code>keyvaluemaps</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.keyvaluemaps
 WHERE keyvaluemapsId = '{{ keyvaluemapsId }}'
 AND organizationsId = '{{ organizationsId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>clusters_certificate_authority</code> resource or lists <code>clusters_certificate_authority</code> in a region
+Creates, updates, deletes, gets or lists a <code>clusters_certificate_authority</code> resource.
 
 ## Overview
 <table><tbody>

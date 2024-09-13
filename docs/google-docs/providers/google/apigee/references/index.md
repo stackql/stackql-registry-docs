@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>reference</code> resource or lists <code>references</code> in a region
+Creates, updates, deletes, gets or lists a <code>references</code> resource.
 
 ## Overview
 <table><tbody>
@@ -114,9 +114,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified reference resource.
+Deletes the specified <code>references</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.references
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'

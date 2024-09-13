@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>evaluation_job</code> resource or lists <code>evaluation_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>evaluation_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -113,9 +113,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a evaluation_job only if the necessary resources are available.
+Updates a <code>evaluation_jobs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.datalabeling.evaluation_jobs
 SET 
 name = '{{ name }}',
@@ -135,9 +136,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified evaluation_job resource.
+Deletes the specified <code>evaluation_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datalabeling.evaluation_jobs
 WHERE evaluationJobsId = '{{ evaluationJobsId }}'
 AND projectsId = '{{ projectsId }}';

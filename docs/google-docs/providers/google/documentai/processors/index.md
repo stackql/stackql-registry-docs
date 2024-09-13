@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>processor</code> resource or lists <code>processors</code> in a region
+Creates, updates, deletes, gets or lists a <code>processors</code> resource.
 
 ## Overview
 <table><tbody>
@@ -160,9 +160,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified processor resource.
+Deletes the specified <code>processors</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.documentai.processors
 WHERE locationsId = '{{ locationsId }}'
 AND processorsId = '{{ processorsId }}'

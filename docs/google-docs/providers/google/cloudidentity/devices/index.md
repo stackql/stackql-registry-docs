@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>device</code> resource or lists <code>devices</code> in a region
+Creates, updates, deletes, gets or lists a <code>devices</code> resource.
 
 ## Overview
 <table><tbody>
@@ -280,9 +280,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified device resource.
+Deletes the specified <code>devices</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudidentity.devices
 WHERE devicesId = '{{ devicesId }}';
 ```

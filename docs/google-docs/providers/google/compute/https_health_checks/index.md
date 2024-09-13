@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>https_health_check</code> resource or lists <code>https_health_checks</code> in a region
+Creates, updates, deletes, gets or lists a <code>https_health_checks</code> resource.
 
 ## Overview
 <table><tbody>
@@ -166,9 +166,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a https_health_check only if the necessary resources are available.
+Updates a <code>https_health_checks</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.https_health_checks
 SET 
 kind = '{{ kind }}',
@@ -191,9 +192,10 @@ AND project = '{{ project }}';
 
 ## `DELETE` example
 
-Deletes the specified https_health_check resource.
+Deletes the specified <code>https_health_checks</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.https_health_checks
 WHERE httpsHealthCheck = '{{ httpsHealthCheck }}'
 AND project = '{{ project }}';

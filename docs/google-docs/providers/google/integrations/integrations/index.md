@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>integration</code> resource or lists <code>integrations</code> in a region
+Creates, updates, deletes, gets or lists a <code>integrations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -72,9 +72,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified integration resource.
+Deletes the specified <code>integrations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.integrations.integrations
 WHERE integrationsId = '{{ integrationsId }}'
 AND locationsId = '{{ locationsId }}'

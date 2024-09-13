@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_disks_resource_policy</code> resource or lists <code>region_disks_resource_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_disks_resource_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -82,9 +82,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified region_disks_resource_policy resource.
+Deletes the specified <code>region_disks_resource_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.region_disks_resource_policies
 WHERE disk = '{{ disk }}'
 AND project = '{{ project }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_instance_group_manager</code> resource or lists <code>region_instance_group_managers</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_instance_group_managers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -259,9 +259,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a region_instance_group_manager only if the necessary resources are available.
+Updates a <code>region_instance_group_managers</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.region_instance_group_managers
 SET 
 kind = '{{ kind }}',
@@ -299,9 +300,10 @@ AND region = '{{ region }}';
 
 ## `DELETE` example
 
-Deletes the specified region_instance_group_manager resource.
+Deletes the specified <code>region_instance_group_managers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.region_instance_group_managers
 WHERE instanceGroupManager = '{{ instanceGroupManager }}'
 AND project = '{{ project }}'

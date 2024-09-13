@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>firewall</code> resource or lists <code>firewalls</code> in a region
+Creates, updates, deletes, gets or lists a <code>firewalls</code> resource.
 
 ## Overview
 <table><tbody>
@@ -210,9 +210,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a firewall only if the necessary resources are available.
+Updates a <code>firewalls</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.firewalls
 SET 
 kind = '{{ kind }}',
@@ -241,9 +242,10 @@ AND project = '{{ project }}';
 
 ## `DELETE` example
 
-Deletes the specified firewall resource.
+Deletes the specified <code>firewalls</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.firewalls
 WHERE firewall = '{{ firewall }}'
 AND project = '{{ project }}';

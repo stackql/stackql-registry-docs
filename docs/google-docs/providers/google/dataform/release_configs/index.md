@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>release_config</code> resource or lists <code>release_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>release_configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -141,9 +141,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a release_config only if the necessary resources are available.
+Updates a <code>release_configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataform.release_configs
 SET 
 name = '{{ name }}',
@@ -163,9 +164,10 @@ AND repositoriesId = '{{ repositoriesId }}';
 
 ## `DELETE` example
 
-Deletes the specified release_config resource.
+Deletes the specified <code>release_configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataform.release_configs
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

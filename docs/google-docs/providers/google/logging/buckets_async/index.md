@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>buckets_async</code> resource or lists <code>buckets_async</code> in a region
+Creates, updates, deletes, gets or lists a <code>buckets_async</code> resource.
 
 ## Overview
 <table><tbody>
@@ -126,9 +126,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a buckets_async only if the necessary resources are available.
+Updates a <code>buckets_async</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.logging.buckets_async
 SET 
 name = '{{ name }}',

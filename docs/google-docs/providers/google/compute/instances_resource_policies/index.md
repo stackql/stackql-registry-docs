@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instances_resource_policy</code> resource or lists <code>instances_resource_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>instances_resource_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -82,9 +82,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified instances_resource_policy resource.
+Deletes the specified <code>instances_resource_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.instances_resource_policies
 WHERE instance = '{{ instance }}'
 AND project = '{{ project }}'

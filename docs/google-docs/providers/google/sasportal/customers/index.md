@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>customer</code> resource or lists <code>customers</code> in a region
+Creates, updates, deletes, gets or lists a <code>customers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -60,9 +60,10 @@ WHERE  = '{{  }}';
 
 ## `UPDATE` example
 
-Updates a customer only if the necessary resources are available.
+Updates a <code>customers</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.sasportal.customers
 SET 
 displayName = '{{ displayName }}',

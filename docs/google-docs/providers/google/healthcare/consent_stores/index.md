@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>consent_store</code> resource or lists <code>consent_stores</code> in a region
+Creates, updates, deletes, gets or lists a <code>consent_stores</code> resource.
 
 ## Overview
 <table><tbody>
@@ -120,9 +120,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a consent_store only if the necessary resources are available.
+Updates a <code>consent_stores</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.healthcare.consent_stores
 SET 
 name = '{{ name }}',
@@ -138,9 +139,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified consent_store resource.
+Deletes the specified <code>consent_stores</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.consent_stores
 WHERE consentStoresId = '{{ consentStoresId }}'
 AND datasetsId = '{{ datasetsId }}'

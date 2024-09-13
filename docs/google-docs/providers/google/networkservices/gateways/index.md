@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>gateway</code> resource or lists <code>gateways</code> in a region
+Creates, updates, deletes, gets or lists a <code>gateways</code> resource.
 
 ## Overview
 <table><tbody>
@@ -198,9 +198,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a gateway only if the necessary resources are available.
+Updates a <code>gateways</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkservices.gateways
 SET 
 name = '{{ name }}',
@@ -229,9 +230,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified gateway resource.
+Deletes the specified <code>gateways</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkservices.gateways
 WHERE gatewaysId = '{{ gatewaysId }}'
 AND locationsId = '{{ locationsId }}'

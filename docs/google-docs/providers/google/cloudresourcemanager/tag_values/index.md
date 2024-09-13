@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>tag_value</code> resource or lists <code>tag_values</code> in a region
+Creates, updates, deletes, gets or lists a <code>tag_values</code> resource.
 
 ## Overview
 <table><tbody>
@@ -135,9 +135,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a tag_value only if the necessary resources are available.
+Updates a <code>tag_values</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudresourcemanager.tag_values
 SET 
 name = '{{ name }}',
@@ -154,9 +155,10 @@ tagValuesId = '{{ tagValuesId }}';
 
 ## `DELETE` example
 
-Deletes the specified tag_value resource.
+Deletes the specified <code>tag_values</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudresourcemanager.tag_values
 WHERE tagValuesId = '{{ tagValuesId }}';
 ```

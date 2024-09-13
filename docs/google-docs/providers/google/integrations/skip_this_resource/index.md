@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>skip_this_resource</code> resource or lists <code>skip_this_resource</code> in a region
+Creates, updates, deletes, gets or lists a <code>skip_this_resource</code> resource.
 
 ## Overview
 <table><tbody>

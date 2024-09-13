@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>session</code> resource or lists <code>sessions</code> in a region
+Creates, updates, deletes, gets or lists a <code>sessions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -139,9 +139,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a session only if the necessary resources are available.
+Updates a <code>sessions</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.discoveryengine.sessions
 SET 
 name = '{{ name }}',
@@ -159,9 +160,10 @@ AND sessionsId = '{{ sessionsId }}';
 
 ## `DELETE` example
 
-Deletes the specified session resource.
+Deletes the specified <code>sessions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.discoveryengine.sessions
 WHERE dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'

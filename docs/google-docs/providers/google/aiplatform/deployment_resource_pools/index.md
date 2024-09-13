@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>deployment_resource_pool</code> resource or lists <code>deployment_resource_pools</code> in a region
+Creates, updates, deletes, gets or lists a <code>deployment_resource_pools</code> resource.
 
 ## Overview
 <table><tbody>
@@ -115,9 +115,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a deployment_resource_pool only if the necessary resources are available.
+Updates a <code>deployment_resource_pools</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.deployment_resource_pools
 SET 
 serviceAccount = '{{ serviceAccount }}',
@@ -136,9 +137,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified deployment_resource_pool resource.
+Deletes the specified <code>deployment_resource_pools</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.deployment_resource_pools
 WHERE deploymentResourcePoolsId = '{{ deploymentResourcePoolsId }}'
 AND locationsId = '{{ locationsId }}'

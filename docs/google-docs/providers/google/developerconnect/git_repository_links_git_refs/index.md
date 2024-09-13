@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>git_repository_links_git_ref</code> resource or lists <code>git_repository_links_git_refs</code> in a region
+Creates, updates, deletes, gets or lists a <code>git_repository_links_git_refs</code> resource.
 
 ## Overview
 <table><tbody>

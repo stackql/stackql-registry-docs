@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>devices_signed</code> resource or lists <code>devices_signed</code> in a region
+Creates, updates, deletes, gets or lists a <code>devices_signed</code> resource.
 
 ## Overview
 <table><tbody>
@@ -89,9 +89,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a devices_signed only if the necessary resources are available.
+Updates a <code>devices_signed</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.sasportal.devices_signed
 SET 
 encodedDevice = '{{ encodedDevice }}',

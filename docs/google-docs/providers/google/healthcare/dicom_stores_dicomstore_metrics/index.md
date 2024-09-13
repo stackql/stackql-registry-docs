@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dicom_stores_dicomstore_metric</code> resource or lists <code>dicom_stores_dicomstore_metrics</code> in a region
+Creates, updates, deletes, gets or lists a <code>dicom_stores_dicomstore_metrics</code> resource.
 
 ## Overview
 <table><tbody>

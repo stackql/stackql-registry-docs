@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>ssl_cert</code> resource or lists <code>ssl_certs</code> in a region
+Creates, updates, deletes, gets or lists a <code>ssl_certs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -111,9 +111,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified ssl_cert resource.
+Deletes the specified <code>ssl_certs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.sqladmin.ssl_certs
 WHERE instance = '{{ instance }}'
 AND project = '{{ project }}'

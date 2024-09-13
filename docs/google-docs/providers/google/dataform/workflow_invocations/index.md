@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>workflow_invocation</code> resource or lists <code>workflow_invocations</code> in a region
+Creates, updates, deletes, gets or lists a <code>workflow_invocations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -142,9 +142,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified workflow_invocation resource.
+Deletes the specified <code>workflow_invocations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataform.workflow_invocations
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

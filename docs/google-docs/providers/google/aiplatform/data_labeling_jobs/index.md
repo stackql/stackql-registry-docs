@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>data_labeling_job</code> resource or lists <code>data_labeling_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>data_labeling_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -198,9 +198,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified data_labeling_job resource.
+Deletes the specified <code>data_labeling_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.data_labeling_jobs
 WHERE dataLabelingJobsId = '{{ dataLabelingJobsId }}'
 AND locationsId = '{{ locationsId }}'

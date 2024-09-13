@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>object</code> resource or lists <code>objects</code> in a region
+Creates, updates, deletes, gets or lists a <code>objects</code> resource.
 
 ## Overview
 <table><tbody>
@@ -316,9 +316,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a object only if the necessary resources are available.
+Updates a <code>objects</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.storage.objects
 SET 
 acl = '{{ acl }}',
@@ -363,9 +364,10 @@ AND object = '{{ object }}';
 
 ## `DELETE` example
 
-Deletes the specified object resource.
+Deletes the specified <code>objects</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.storage.objects
 WHERE bucket = '{{ bucket }}'
 AND object = '{{ object }}';

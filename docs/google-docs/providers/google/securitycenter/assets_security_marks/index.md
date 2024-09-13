@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>assets_security_mark</code> resource or lists <code>assets_security_marks</code> in a region
+Creates, updates, deletes, gets or lists a <code>assets_security_marks</code> resource.
 
 ## Overview
 <table><tbody>
@@ -41,9 +41,10 @@ Creates, updates, deletes or gets an <code>assets_security_mark</code> resource 
 
 ## `UPDATE` example
 
-Updates a assets_security_mark only if the necessary resources are available.
+Updates a <code>assets_security_marks</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.securitycenter.assets_security_marks
 SET 
 name = '{{ name }}',

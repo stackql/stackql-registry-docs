@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>workflow</code> resource or lists <code>workflows</code> in a region
+Creates, updates, deletes, gets or lists a <code>workflows</code> resource.
 
 ## Overview
 <table><tbody>

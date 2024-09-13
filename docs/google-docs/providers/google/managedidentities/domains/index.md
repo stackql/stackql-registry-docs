@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>domain</code> resource or lists <code>domains</code> in a region
+Creates, updates, deletes, gets or lists a <code>domains</code> resource.
 
 ## Overview
 <table><tbody>
@@ -176,9 +176,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a domain only if the necessary resources are available.
+Updates a <code>domains</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.managedidentities.domains
 SET 
 name = '{{ name }}',
@@ -201,9 +202,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified domain resource.
+Deletes the specified <code>domains</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.managedidentities.domains
 WHERE domainsId = '{{ domainsId }}'
 AND projectsId = '{{ projectsId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>license_code</code> resource or lists <code>license_codes</code> in a region
+Creates, updates, deletes, gets or lists a <code>license_codes</code> resource.
 
 ## Overview
 <table><tbody>

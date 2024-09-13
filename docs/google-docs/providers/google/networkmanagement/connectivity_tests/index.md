@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>connectivity_test</code> resource or lists <code>connectivity_tests</code> in a region
+Creates, updates, deletes, gets or lists a <code>connectivity_tests</code> resource.
 
 ## Overview
 <table><tbody>
@@ -166,9 +166,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a connectivity_test only if the necessary resources are available.
+Updates a <code>connectivity_tests</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkmanagement.connectivity_tests
 SET 
 name = '{{ name }}',
@@ -191,9 +192,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified connectivity_test resource.
+Deletes the specified <code>connectivity_tests</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkmanagement.connectivity_tests
 WHERE connectivityTestsId = '{{ connectivityTestsId }}'
 AND projectsId = '{{ projectsId }}';

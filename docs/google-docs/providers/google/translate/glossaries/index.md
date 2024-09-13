@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>glossary</code> resource or lists <code>glossaries</code> in a region
+Creates, updates, deletes, gets or lists a <code>glossaries</code> resource.
 
 ## Overview
 <table><tbody>
@@ -138,9 +138,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a glossary only if the necessary resources are available.
+Updates a <code>glossaries</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.translate.glossaries
 SET 
 name = '{{ name }}',
@@ -159,9 +160,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified glossary resource.
+Deletes the specified <code>glossaries</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.translate.glossaries
 WHERE glossariesId = '{{ glossariesId }}'
 AND locationsId = '{{ locationsId }}'

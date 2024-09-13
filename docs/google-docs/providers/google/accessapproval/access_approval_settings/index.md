@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>access_approval_setting</code> resource or lists <code>access_approval_settings</code> in a region
+Creates, updates, deletes, gets or lists a <code>access_approval_settings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -81,9 +81,10 @@ WHERE foldersId = '{{ foldersId }}';
 
 ## `UPDATE` example
 
-Updates a access_approval_setting only if the necessary resources are available.
+Updates a <code>access_approval_settings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.accessapproval.access_approval_settings
 SET 
 name = '{{ name }}',
@@ -104,9 +105,10 @@ foldersId = '{{ foldersId }}';
 
 ## `DELETE` example
 
-Deletes the specified access_approval_setting resource.
+Deletes the specified <code>access_approval_settings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.accessapproval.access_approval_settings
 WHERE foldersId = '{{ foldersId }}';
 ```

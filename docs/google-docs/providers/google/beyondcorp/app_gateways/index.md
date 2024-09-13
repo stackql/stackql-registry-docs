@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>app_gateway</code> resource or lists <code>app_gateways</code> in a region
+Creates, updates, deletes, gets or lists a <code>app_gateways</code> resource.
 
 ## Overview
 <table><tbody>
@@ -168,9 +168,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified app_gateway resource.
+Deletes the specified <code>app_gateways</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.beyondcorp.app_gateways
 WHERE appGatewaysId = '{{ appGatewaysId }}'
 AND locationsId = '{{ locationsId }}'

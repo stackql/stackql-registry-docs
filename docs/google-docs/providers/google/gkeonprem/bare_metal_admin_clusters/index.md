@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>bare_metal_admin_cluster</code> resource or lists <code>bare_metal_admin_clusters</code> in a region
+Creates, updates, deletes, gets or lists a <code>bare_metal_admin_clusters</code> resource.
 
 ## Overview
 <table><tbody>
@@ -266,9 +266,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a bare_metal_admin_cluster only if the necessary resources are available.
+Updates a <code>bare_metal_admin_clusters</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.gkeonprem.bare_metal_admin_clusters
 SET 
 name = '{{ name }}',

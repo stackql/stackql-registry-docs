@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>registration</code> resource or lists <code>registrations</code> in a region
+Creates, updates, deletes, gets or lists a <code>registrations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -94,9 +94,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a registration only if the necessary resources are available.
+Updates a <code>registrations</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.domains.registrations
 SET 
 name = '{{ name }}',
@@ -122,9 +123,10 @@ AND registrationsId = '{{ registrationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified registration resource.
+Deletes the specified <code>registrations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.domains.registrations
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>environments_debugmask</code> resource or lists <code>environments_debugmask</code> in a region
+Creates, updates, deletes, gets or lists a <code>environments_debugmask</code> resource.
 
 ## Overview
 <table><tbody>
@@ -69,9 +69,10 @@ AND organizationsId = '{{ organizationsId }}';
 
 ## `UPDATE` example
 
-Updates a environments_debugmask only if the necessary resources are available.
+Updates a <code>environments_debugmask</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.environments_debugmask
 SET 
 faultJSONPaths = '{{ faultJSONPaths }}',

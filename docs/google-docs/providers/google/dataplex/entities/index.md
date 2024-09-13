@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>entity</code> resource or lists <code>entities</code> in a region
+Creates, updates, deletes, gets or lists a <code>entities</code> resource.
 
 ## Overview
 <table><tbody>
@@ -204,9 +204,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified entity resource.
+Deletes the specified <code>entities</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataplex.entities
 WHERE entitiesId = '{{ entitiesId }}'
 AND lakesId = '{{ lakesId }}'

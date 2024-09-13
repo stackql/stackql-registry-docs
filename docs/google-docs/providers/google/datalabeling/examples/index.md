@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>example</code> resource or lists <code>examples</code> in a region
+Creates, updates, deletes, gets or lists a <code>examples</code> resource.
 
 ## Overview
 <table><tbody>

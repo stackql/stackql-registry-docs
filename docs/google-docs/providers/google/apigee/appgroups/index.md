@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>appgroup</code> resource or lists <code>appgroups</code> in a region
+Creates, updates, deletes, gets or lists a <code>appgroups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -147,9 +147,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified appgroup resource.
+Deletes the specified <code>appgroups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.appgroups
 WHERE appgroupsId = '{{ appgroupsId }}'
 AND organizationsId = '{{ organizationsId }}';

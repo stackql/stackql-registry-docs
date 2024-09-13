@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>transfer_operation</code> resource or lists <code>transfer_operations</code> in a region
+Creates, updates, deletes, gets or lists a <code>transfer_operations</code> resource.
 
 ## Overview
 <table><tbody>

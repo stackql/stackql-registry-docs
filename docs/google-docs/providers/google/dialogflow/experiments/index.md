@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>experiment</code> resource or lists <code>experiments</code> in a region
+Creates, updates, deletes, gets or lists a <code>experiments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -188,9 +188,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a experiment only if the necessary resources are available.
+Updates a <code>experiments</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dialogflow.experiments
 SET 
 name = '{{ name }}',
@@ -218,9 +219,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified experiment resource.
+Deletes the specified <code>experiments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dialogflow.experiments
 WHERE agentsId = '{{ agentsId }}'
 AND environmentsId = '{{ environmentsId }}'

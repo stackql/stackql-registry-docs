@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>rule_set</code> resource or lists <code>rule_sets</code> in a region
+Creates, updates, deletes, gets or lists a <code>rule_sets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -114,9 +114,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a rule_set only if the necessary resources are available.
+Updates a <code>rule_sets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.contentwarehouse.rule_sets
 SET 
 ruleSet = '{{ ruleSet }}'
@@ -128,9 +129,10 @@ AND ruleSetsId = '{{ ruleSetsId }}';
 
 ## `DELETE` example
 
-Deletes the specified rule_set resource.
+Deletes the specified <code>rule_sets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.contentwarehouse.rule_sets
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

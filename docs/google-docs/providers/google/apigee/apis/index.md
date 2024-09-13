@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>api</code> resource or lists <code>apis</code> in a region
+Creates, updates, deletes, gets or lists a <code>apis</code> resource.
 
 ## Overview
 <table><tbody>
@@ -113,9 +113,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a api only if the necessary resources are available.
+Updates a <code>apis</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.apis
 SET 
 labels = '{{ labels }}',
@@ -132,9 +133,10 @@ AND organizationsId = '{{ organizationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified api resource.
+Deletes the specified <code>apis</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.apis
 WHERE apisId = '{{ apisId }}'
 AND organizationsId = '{{ organizationsId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>featurestore</code> resource or lists <code>featurestores</code> in a region
+Creates, updates, deletes, gets or lists a <code>featurestores</code> resource.
 
 ## Overview
 <table><tbody>
@@ -158,9 +158,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a featurestore only if the necessary resources are available.
+Updates a <code>featurestores</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.featurestores
 SET 
 onlineStorageTtlDays = '{{ onlineStorageTtlDays }}',
@@ -182,9 +183,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified featurestore resource.
+Deletes the specified <code>featurestores</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.featurestores
 WHERE featurestoresId = '{{ featurestoresId }}'
 AND locationsId = '{{ locationsId }}'

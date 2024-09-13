@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>batch</code> resource or lists <code>batches</code> in a region
+Creates, updates, deletes, gets or lists a <code>batches</code> resource.
 
 ## Overview
 <table><tbody>
@@ -192,9 +192,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified batch resource.
+Deletes the specified <code>batches</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataproc.batches
 WHERE batchesId = '{{ batchesId }}'
 AND locationsId = '{{ locationsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>fhir</code> resource or lists <code>fhir</code> in a region
+Creates, updates, deletes, gets or lists a <code>fhir</code> resource.
 
 ## Overview
 <table><tbody>
@@ -113,9 +113,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a fhir only if the necessary resources are available.
+Updates a <code>fhir</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.healthcare.fhir
 SET 
 contentType = '{{ contentType }}',
@@ -132,9 +133,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified fhir resource.
+Deletes the specified <code>fhir</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.fhir
 WHERE datasetsId = '{{ datasetsId }}'
 AND fhirId = '{{ fhirId }}'

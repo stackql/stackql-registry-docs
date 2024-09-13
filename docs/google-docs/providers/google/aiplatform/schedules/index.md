@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>schedule</code> resource or lists <code>schedules</code> in a region
+Creates, updates, deletes, gets or lists a <code>schedules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -206,9 +206,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a schedule only if the necessary resources are available.
+Updates a <code>schedules</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.schedules
 SET 
 lastPauseTime = '{{ lastPauseTime }}',
@@ -238,9 +239,10 @@ AND schedulesId = '{{ schedulesId }}';
 
 ## `DELETE` example
 
-Deletes the specified schedule resource.
+Deletes the specified <code>schedules</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.schedules
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

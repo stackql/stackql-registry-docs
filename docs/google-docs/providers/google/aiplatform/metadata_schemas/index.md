@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>metadata_schema</code> resource or lists <code>metadata_schemas</code> in a region
+Creates, updates, deletes, gets or lists a <code>metadata_schemas</code> resource.
 
 ## Overview
 <table><tbody>

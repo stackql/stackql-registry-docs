@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>connector</code> resource or lists <code>connectors</code> in a region
+Creates, updates, deletes, gets or lists a <code>connectors</code> resource.
 
 ## Overview
 <table><tbody>
@@ -156,9 +156,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a connector only if the necessary resources are available.
+Updates a <code>connectors</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vpcaccess.connectors
 SET 
 name = '{{ name }}',
@@ -180,9 +181,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified connector resource.
+Deletes the specified <code>connectors</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vpcaccess.connectors
 WHERE connectorsId = '{{ connectorsId }}'
 AND locationsId = '{{ locationsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>network_policy</code> resource or lists <code>network_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>network_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -150,9 +150,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a network_policy only if the necessary resources are available.
+Updates a <code>network_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vmwareengine.network_policies
 SET 
 name = '{{ name }}',
@@ -173,9 +174,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified network_policy resource.
+Deletes the specified <code>network_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmwareengine.network_policies
 WHERE locationsId = '{{ locationsId }}'
 AND networkPoliciesId = '{{ networkPoliciesId }}'

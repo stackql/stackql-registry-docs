@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>model_deployment_monitoring_job</code> resource or lists <code>model_deployment_monitoring_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>model_deployment_monitoring_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -243,9 +243,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a model_deployment_monitoring_job only if the necessary resources are available.
+Updates a <code>model_deployment_monitoring_jobs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.model_deployment_monitoring_jobs
 SET 
 displayName = '{{ displayName }}',
@@ -281,9 +282,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified model_deployment_monitoring_job resource.
+Deletes the specified <code>model_deployment_monitoring_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.model_deployment_monitoring_jobs
 WHERE locationsId = '{{ locationsId }}'
 AND modelDeploymentMonitoringJobsId = '{{ modelDeploymentMonitoringJobsId }}'

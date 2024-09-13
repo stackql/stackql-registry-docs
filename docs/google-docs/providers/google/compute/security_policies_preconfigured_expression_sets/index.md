@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>security_policies_preconfigured_expression_set</code> resource or lists <code>security_policies_preconfigured_expression_sets</code> in a region
+Creates, updates, deletes, gets or lists a <code>security_policies_preconfigured_expression_sets</code> resource.
 
 ## Overview
 <table><tbody>

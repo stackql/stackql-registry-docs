@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>scan_config</code> resource or lists <code>scan_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>scan_configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -166,9 +166,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a scan_config only if the necessary resources are available.
+Updates a <code>scan_configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.websecurityscanner.scan_configs
 SET 
 staticIpScan = true|false,
@@ -191,9 +192,10 @@ AND scanConfigsId = '{{ scanConfigsId }}';
 
 ## `DELETE` example
 
-Deletes the specified scan_config resource.
+Deletes the specified <code>scan_configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.websecurityscanner.scan_configs
 WHERE projectsId = '{{ projectsId }}'
 AND scanConfigsId = '{{ scanConfigsId }}';

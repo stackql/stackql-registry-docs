@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>hyperparameter_tuning_job</code> resource or lists <code>hyperparameter_tuning_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>hyperparameter_tuning_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -198,9 +198,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified hyperparameter_tuning_job resource.
+Deletes the specified <code>hyperparameter_tuning_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.hyperparameter_tuning_jobs
 WHERE hyperparameterTuningJobsId = '{{ hyperparameterTuningJobsId }}'
 AND locationsId = '{{ locationsId }}'

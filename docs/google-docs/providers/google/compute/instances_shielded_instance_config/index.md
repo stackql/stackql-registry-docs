@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instances_shielded_instance_config</code> resource or lists <code>instances_shielded_instance_config</code> in a region
+Creates, updates, deletes, gets or lists a <code>instances_shielded_instance_config</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>instances_shielded_instance_config</c
 
 ## `UPDATE` example
 
-Updates a instances_shielded_instance_config only if the necessary resources are available.
+Updates a <code>instances_shielded_instance_config</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.instances_shielded_instance_config
 SET 
 enableSecureBoot = true|false,

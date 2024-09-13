@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>networks_peering_route</code> resource or lists <code>networks_peering_routes</code> in a region
+Creates, updates, deletes, gets or lists a <code>networks_peering_routes</code> resource.
 
 ## Overview
 <table><tbody>

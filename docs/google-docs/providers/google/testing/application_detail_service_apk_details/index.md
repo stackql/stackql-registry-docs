@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>application_detail_service_apk_detail</code> resource or lists <code>application_detail_service_apk_details</code> in a region
+Creates, updates, deletes, gets or lists a <code>application_detail_service_apk_details</code> resource.
 
 ## Overview
 <table><tbody>

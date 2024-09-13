@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>clusters_master</code> resource or lists <code>clusters_master</code> in a region
+Creates, updates, deletes, gets or lists a <code>clusters_master</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>clusters_master</code> resource or li
 
 ## `UPDATE` example
 
-Updates a clusters_master only if the necessary resources are available.
+Updates a <code>clusters_master</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.container.clusters_master
 SET 
 projectId = '{{ projectId }}',

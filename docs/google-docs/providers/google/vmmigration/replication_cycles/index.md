@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>replication_cycle</code> resource or lists <code>replication_cycles</code> in a region
+Creates, updates, deletes, gets or lists a <code>replication_cycles</code> resource.
 
 ## Overview
 <table><tbody>

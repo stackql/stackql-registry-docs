@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>persistent_resource</code> resource or lists <code>persistent_resources</code> in a region
+Creates, updates, deletes, gets or lists a <code>persistent_resources</code> resource.
 
 ## Overview
 <table><tbody>
@@ -187,9 +187,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a persistent_resource only if the necessary resources are available.
+Updates a <code>persistent_resources</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.persistent_resources
 SET 
 updateTime = '{{ updateTime }}',
@@ -216,9 +217,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified persistent_resource resource.
+Deletes the specified <code>persistent_resources</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.persistent_resources
 WHERE locationsId = '{{ locationsId }}'
 AND persistentResourcesId = '{{ persistentResourcesId }}'

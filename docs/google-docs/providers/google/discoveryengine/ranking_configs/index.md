@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>ranking_config</code> resource or lists <code>ranking_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>ranking_configs</code> resource.
 
 ## Overview
 <table><tbody>

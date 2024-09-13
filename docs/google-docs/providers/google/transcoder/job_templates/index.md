@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>job_template</code> resource or lists <code>job_templates</code> in a region
+Creates, updates, deletes, gets or lists a <code>job_templates</code> resource.
 
 ## Overview
 <table><tbody>
@@ -107,9 +107,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified job_template resource.
+Deletes the specified <code>job_templates</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.transcoder.job_templates
 WHERE jobTemplatesId = '{{ jobTemplatesId }}'
 AND locationsId = '{{ locationsId }}'

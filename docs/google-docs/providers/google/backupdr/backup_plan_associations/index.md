@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>backup_plan_association</code> resource or lists <code>backup_plan_associations</code> in a region
+Creates, updates, deletes, gets or lists a <code>backup_plan_associations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -144,9 +144,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified backup_plan_association resource.
+Deletes the specified <code>backup_plan_associations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.backupdr.backup_plan_associations
 WHERE backupPlanAssociationsId = '{{ backupPlanAssociationsId }}'
 AND locationsId = '{{ locationsId }}'

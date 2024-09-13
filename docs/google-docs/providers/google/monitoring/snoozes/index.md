@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>snooze</code> resource or lists <code>snoozes</code> in a region
+Creates, updates, deletes, gets or lists a <code>snoozes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -110,9 +110,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a snooze only if the necessary resources are available.
+Updates a <code>snoozes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.monitoring.snoozes
 SET 
 name = '{{ name }}',

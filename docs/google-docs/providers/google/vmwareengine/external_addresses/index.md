@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>external_address</code> resource or lists <code>external_addresses</code> in a region
+Creates, updates, deletes, gets or lists a <code>external_addresses</code> resource.
 
 ## Overview
 <table><tbody>
@@ -141,9 +141,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a external_address only if the necessary resources are available.
+Updates a <code>external_addresses</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vmwareengine.external_addresses
 SET 
 name = '{{ name }}',
@@ -163,9 +164,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified external_address resource.
+Deletes the specified <code>external_addresses</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmwareengine.external_addresses
 WHERE externalAddressesId = '{{ externalAddressesId }}'
 AND locationsId = '{{ locationsId }}'

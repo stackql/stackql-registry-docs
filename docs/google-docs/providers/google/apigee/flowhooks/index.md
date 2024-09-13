@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>flowhook</code> resource or lists <code>flowhooks</code> in a region
+Creates, updates, deletes, gets or lists a <code>flowhooks</code> resource.
 
 ## Overview
 <table><tbody>

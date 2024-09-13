@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>network</code> resource or lists <code>networks</code> in a region
+Creates, updates, deletes, gets or lists a <code>networks</code> resource.
 
 ## Overview
 <table><tbody>
@@ -196,9 +196,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a network only if the necessary resources are available.
+Updates a <code>networks</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.networks
 SET 
 kind = '{{ kind }}',
@@ -226,9 +227,10 @@ AND project = '{{ project }}';
 
 ## `DELETE` example
 
-Deletes the specified network resource.
+Deletes the specified <code>networks</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.networks
 WHERE network = '{{ network }}'
 AND project = '{{ project }}';

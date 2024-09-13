@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>rule</code> resource or lists <code>rules</code> in a region
+Creates, updates, deletes, gets or lists a <code>rules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -153,9 +153,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a rule only if the necessary resources are available.
+Updates a <code>rules</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networksecurity.rules
 SET 
 basicProfile = '{{ basicProfile }}',
@@ -177,9 +178,10 @@ AND rulesId = '{{ rulesId }}';
 
 ## `DELETE` example
 
-Deletes the specified rule resource.
+Deletes the specified <code>rules</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networksecurity.rules
 WHERE gatewaySecurityPoliciesId = '{{ gatewaySecurityPoliciesId }}'
 AND locationsId = '{{ locationsId }}'

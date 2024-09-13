@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>service_connection_token</code> resource or lists <code>service_connection_tokens</code> in a region
+Creates, updates, deletes, gets or lists a <code>service_connection_tokens</code> resource.
 
 ## Overview
 <table><tbody>
@@ -143,9 +143,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified service_connection_token resource.
+Deletes the specified <code>service_connection_tokens</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkconnectivity.service_connection_tokens
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

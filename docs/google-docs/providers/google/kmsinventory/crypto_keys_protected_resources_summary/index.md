@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>crypto_keys_protected_resources_summary</code> resource or lists <code>crypto_keys_protected_resources_summary</code> in a region
+Creates, updates, deletes, gets or lists a <code>crypto_keys_protected_resources_summary</code> resource.
 
 ## Overview
 <table><tbody>

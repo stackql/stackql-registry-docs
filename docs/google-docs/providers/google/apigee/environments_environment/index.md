@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>environments_environment</code> resource or lists <code>environments_environment</code> in a region
+Creates, updates, deletes, gets or lists a <code>environments_environment</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>environments_environment</code> resou
 
 ## `UPDATE` example
 
-Updates a environments_environment only if the necessary resources are available.
+Updates a <code>environments_environment</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.environments_environment
 SET 
 deploymentType = '{{ deploymentType }}',

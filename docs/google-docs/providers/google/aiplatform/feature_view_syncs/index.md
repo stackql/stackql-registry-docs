@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>feature_view_sync</code> resource or lists <code>feature_view_syncs</code> in a region
+Creates, updates, deletes, gets or lists a <code>feature_view_syncs</code> resource.
 
 ## Overview
 <table><tbody>

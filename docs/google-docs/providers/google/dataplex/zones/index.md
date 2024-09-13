@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>zone</code> resource or lists <code>zones</code> in a region
+Creates, updates, deletes, gets or lists a <code>zones</code> resource.
 
 ## Overview
 <table><tbody>
@@ -165,9 +165,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a zone only if the necessary resources are available.
+Updates a <code>zones</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataplex.zones
 SET 
 name = '{{ name }}',
@@ -191,9 +192,10 @@ AND zonesId = '{{ zonesId }}';
 
 ## `DELETE` example
 
-Deletes the specified zone resource.
+Deletes the specified <code>zones</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataplex.zones
 WHERE lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'

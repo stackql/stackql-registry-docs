@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>annotated_dataset</code> resource or lists <code>annotated_datasets</code> in a region
+Creates, updates, deletes, gets or lists a <code>annotated_datasets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -74,9 +74,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified annotated_dataset resource.
+Deletes the specified <code>annotated_datasets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datalabeling.annotated_datasets
 WHERE annotatedDatasetsId = '{{ annotatedDatasetsId }}'
 AND datasetsId = '{{ datasetsId }}'

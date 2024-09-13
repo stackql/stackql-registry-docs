@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>run</code> resource or lists <code>runs</code> in a region
+Creates, updates, deletes, gets or lists a <code>runs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -85,9 +85,10 @@ AND transferConfigsId = '{{ transferConfigsId }}';
 
 ## `DELETE` example
 
-Deletes the specified run resource.
+Deletes the specified <code>runs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.bigquerydatatransfer.runs
 WHERE projectsId = '{{ projectsId }}'
 AND runsId = '{{ runsId }}'

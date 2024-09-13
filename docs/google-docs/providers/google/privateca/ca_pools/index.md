@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>ca_pool</code> resource or lists <code>ca_pools</code> in a region
+Creates, updates, deletes, gets or lists a <code>ca_pools</code> resource.
 
 ## Overview
 <table><tbody>
@@ -120,9 +120,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a ca_pool only if the necessary resources are available.
+Updates a <code>ca_pools</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.privateca.ca_pools
 SET 
 name = '{{ name }}',
@@ -138,9 +139,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified ca_pool resource.
+Deletes the specified <code>ca_pools</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.privateca.ca_pools
 WHERE caPoolsId = '{{ caPoolsId }}'
 AND locationsId = '{{ locationsId }}'

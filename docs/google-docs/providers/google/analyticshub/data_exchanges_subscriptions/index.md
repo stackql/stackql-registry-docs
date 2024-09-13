@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>data_exchanges_subscription</code> resource or lists <code>data_exchanges_subscriptions</code> in a region
+Creates, updates, deletes, gets or lists a <code>data_exchanges_subscriptions</code> resource.
 
 ## Overview
 <table><tbody>

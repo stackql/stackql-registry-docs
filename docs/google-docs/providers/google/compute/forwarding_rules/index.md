@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>forwarding_rule</code> resource or lists <code>forwarding_rules</code> in a region
+Creates, updates, deletes, gets or lists a <code>forwarding_rules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -302,9 +302,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a forwarding_rule only if the necessary resources are available.
+Updates a <code>forwarding_rules</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.forwarding_rules
 SET 
 kind = '{{ kind }}',
@@ -350,9 +351,10 @@ AND region = '{{ region }}';
 
 ## `DELETE` example
 
-Deletes the specified forwarding_rule resource.
+Deletes the specified <code>forwarding_rules</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.forwarding_rules
 WHERE forwardingRule = '{{ forwardingRule }}'
 AND project = '{{ project }}'

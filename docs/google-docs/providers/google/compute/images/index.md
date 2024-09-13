@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>image</code> resource or lists <code>images</code> in a region
+Creates, updates, deletes, gets or lists a <code>images</code> resource.
 
 ## Overview
 <table><tbody>
@@ -299,9 +299,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a image only if the necessary resources are available.
+Updates a <code>images</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.images
 SET 
 kind = '{{ kind }}',
@@ -345,9 +346,10 @@ AND project = '{{ project }}';
 
 ## `DELETE` example
 
-Deletes the specified image resource.
+Deletes the specified <code>images</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.images
 WHERE image = '{{ image }}'
 AND project = '{{ project }}';

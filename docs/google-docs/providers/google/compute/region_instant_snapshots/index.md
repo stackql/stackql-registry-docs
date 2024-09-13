@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_instant_snapshot</code> resource or lists <code>region_instant_snapshots</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_instant_snapshots</code> resource.
 
 ## Overview
 <table><tbody>
@@ -204,9 +204,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified region_instant_snapshot resource.
+Deletes the specified <code>region_instant_snapshots</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.region_instant_snapshots
 WHERE instantSnapshot = '{{ instantSnapshot }}'
 AND project = '{{ project }}'

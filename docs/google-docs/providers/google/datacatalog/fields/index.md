@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>field</code> resource or lists <code>fields</code> in a region
+Creates, updates, deletes, gets or lists a <code>fields</code> resource.
 
 ## Overview
 <table><tbody>
@@ -104,9 +104,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a field only if the necessary resources are available.
+Updates a <code>fields</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.datacatalog.fields
 SET 
 name = '{{ name }}',
@@ -124,9 +125,10 @@ AND tagTemplatesId = '{{ tagTemplatesId }}';
 
 ## `DELETE` example
 
-Deletes the specified field resource.
+Deletes the specified <code>fields</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datacatalog.fields
 WHERE fieldsId = '{{ fieldsId }}'
 AND locationsId = '{{ locationsId }}'

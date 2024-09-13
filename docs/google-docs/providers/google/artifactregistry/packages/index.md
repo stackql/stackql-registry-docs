@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>package</code> resource or lists <code>packages</code> in a region
+Creates, updates, deletes, gets or lists a <code>packages</code> resource.
 
 ## Overview
 <table><tbody>
@@ -64,9 +64,10 @@ AND repositoriesId = '{{ repositoriesId }}';
 
 ## `UPDATE` example
 
-Updates a package only if the necessary resources are available.
+Updates a <code>packages</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.artifactregistry.packages
 SET 
 name = '{{ name }}',
@@ -83,9 +84,10 @@ AND repositoriesId = '{{ repositoriesId }}';
 
 ## `DELETE` example
 
-Deletes the specified package resource.
+Deletes the specified <code>packages</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.artifactregistry.packages
 WHERE locationsId = '{{ locationsId }}'
 AND packagesId = '{{ packagesId }}'

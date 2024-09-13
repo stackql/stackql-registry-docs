@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>workloads_ekm_connection</code> resource or lists <code>workloads_ekm_connections</code> in a region
+Creates, updates, deletes, gets or lists a <code>workloads_ekm_connections</code> resource.
 
 ## Overview
 <table><tbody>

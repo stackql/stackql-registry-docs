@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>suggestion_deny_list_entry</code> resource or lists <code>suggestion_deny_list_entries</code> in a region
+Creates, updates, deletes, gets or lists a <code>suggestion_deny_list_entries</code> resource.
 
 ## Overview
 <table><tbody>

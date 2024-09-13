@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>target_https_proxy</code> resource or lists <code>target_https_proxies</code> in a region
+Creates, updates, deletes, gets or lists a <code>target_https_proxies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -200,9 +200,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a target_https_proxy only if the necessary resources are available.
+Updates a <code>target_https_proxies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.target_https_proxies
 SET 
 kind = '{{ kind }}',
@@ -230,9 +231,10 @@ AND targetHttpsProxy = '{{ targetHttpsProxy }}';
 
 ## `DELETE` example
 
-Deletes the specified target_https_proxy resource.
+Deletes the specified <code>target_https_proxies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.target_https_proxies
 WHERE project = '{{ project }}'
 AND targetHttpsProxy = '{{ targetHttpsProxy }}';

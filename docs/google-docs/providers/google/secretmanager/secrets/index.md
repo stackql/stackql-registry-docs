@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>secret</code> resource or lists <code>secrets</code> in a region
+Creates, updates, deletes, gets or lists a <code>secrets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -165,9 +165,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a secret only if the necessary resources are available.
+Updates a <code>secrets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.secretmanager.secrets
 SET 
 name = '{{ name }}',
@@ -190,9 +191,10 @@ AND secretsId = '{{ secretsId }}';
 
 ## `DELETE` example
 
-Deletes the specified secret resource.
+Deletes the specified <code>secrets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.secretmanager.secrets
 WHERE projectsId = '{{ projectsId }}'
 AND secretsId = '{{ secretsId }}';

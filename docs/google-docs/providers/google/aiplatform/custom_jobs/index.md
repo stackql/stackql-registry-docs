@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>custom_job</code> resource or lists <code>custom_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>custom_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -174,9 +174,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified custom_job resource.
+Deletes the specified <code>custom_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.custom_jobs
 WHERE customJobsId = '{{ customJobsId }}'
 AND locationsId = '{{ locationsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>mapping_rule</code> resource or lists <code>mapping_rules</code> in a region
+Creates, updates, deletes, gets or lists a <code>mapping_rules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -207,9 +207,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified mapping_rule resource.
+Deletes the specified <code>mapping_rules</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datamigration.mapping_rules
 WHERE conversionWorkspacesId = '{{ conversionWorkspacesId }}'
 AND locationsId = '{{ locationsId }}'

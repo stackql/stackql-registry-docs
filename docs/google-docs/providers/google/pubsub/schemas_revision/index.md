@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>schemas_revision</code> resource or lists <code>schemas_revision</code> in a region
+Creates, updates, deletes, gets or lists a <code>schemas_revision</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>schemas_revision</code> resource or l
 
 ## `DELETE` example
 
-Deletes the specified schemas_revision resource.
+Deletes the specified <code>schemas_revision</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.pubsub.schemas_revision
 WHERE projectsId = '{{ projectsId }}'
 AND schemasId = '{{ schemasId }}';

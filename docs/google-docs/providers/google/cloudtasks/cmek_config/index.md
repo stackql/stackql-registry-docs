@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>cmek_config</code> resource or lists <code>cmek_config</code> in a region
+Creates, updates, deletes, gets or lists a <code>cmek_config</code> resource.
 
 ## Overview
 <table><tbody>
@@ -55,9 +55,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a cmek_config only if the necessary resources are available.
+Updates a <code>cmek_config</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudtasks.cmek_config
 SET 
 name = '{{ name }}',

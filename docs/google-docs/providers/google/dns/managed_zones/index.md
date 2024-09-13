@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>managed_zone</code> resource or lists <code>managed_zones</code> in a region
+Creates, updates, deletes, gets or lists a <code>managed_zones</code> resource.
 
 ## Overview
 <table><tbody>
@@ -190,9 +190,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a managed_zone only if the necessary resources are available.
+Updates a <code>managed_zones</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dns.managed_zones
 SET 
 name = '{{ name }}',
@@ -219,9 +220,10 @@ AND project = '{{ project }}';
 
 ## `DELETE` example
 
-Deletes the specified managed_zone resource.
+Deletes the specified <code>managed_zones</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dns.managed_zones
 WHERE managedZone = '{{ managedZone }}'
 AND project = '{{ project }}';

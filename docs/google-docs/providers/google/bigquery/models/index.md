@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>model</code> resource or lists <code>models</code> in a region
+Creates, updates, deletes, gets or lists a <code>models</code> resource.
 
 ## Overview
 <table><tbody>
@@ -95,9 +95,10 @@ AND projectId = '{{ projectId }}';
 
 ## `UPDATE` example
 
-Updates a model only if the necessary resources are available.
+Updates a <code>models</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.bigquery.models
 SET 
 bestTrialId = '{{ bestTrialId }}',
@@ -129,9 +130,10 @@ AND projectId = '{{ projectId }}';
 
 ## `DELETE` example
 
-Deletes the specified model resource.
+Deletes the specified <code>models</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.bigquery.models
 WHERE +datasetId = '{{ +datasetId }}'
 AND +modelId = '{{ +modelId }}'

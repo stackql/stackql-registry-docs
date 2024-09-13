@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>pipeline</code> resource or lists <code>pipelines</code> in a region
+Creates, updates, deletes, gets or lists a <code>pipelines</code> resource.
 
 ## Overview
 <table><tbody>
@@ -158,9 +158,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a pipeline only if the necessary resources are available.
+Updates a <code>pipelines</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.datapipelines.pipelines
 SET 
 pipelineSources = '{{ pipelineSources }}',
@@ -182,9 +183,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified pipeline resource.
+Deletes the specified <code>pipelines</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datapipelines.pipelines
 WHERE locationsId = '{{ locationsId }}'
 AND pipelinesId = '{{ pipelinesId }}'

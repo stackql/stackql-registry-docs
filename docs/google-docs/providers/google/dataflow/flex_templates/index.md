@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>flex_template</code> resource or lists <code>flex_templates</code> in a region
+Creates, updates, deletes, gets or lists a <code>flex_templates</code> resource.
 
 ## Overview
 <table><tbody>

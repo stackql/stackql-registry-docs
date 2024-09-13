@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>node_group</code> resource or lists <code>node_groups</code> in a region
+Creates, updates, deletes, gets or lists a <code>node_groups</code> resource.
 
 ## Overview
 <table><tbody>

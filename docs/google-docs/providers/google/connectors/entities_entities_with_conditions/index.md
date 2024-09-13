@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>entities_entities_with_condition</code> resource or lists <code>entities_entities_with_conditions</code> in a region
+Creates, updates, deletes, gets or lists a <code>entities_entities_with_conditions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -40,9 +40,10 @@ Creates, updates, deletes or gets an <code>entities_entities_with_condition</cod
 
 ## `UPDATE` example
 
-Updates a entities_entities_with_condition only if the necessary resources are available.
+Updates a <code>entities_entities_with_conditions</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.connectors.entities_entities_with_conditions
 SET 
 name = '{{ name }}',
@@ -56,9 +57,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified entities_entities_with_condition resource.
+Deletes the specified <code>entities_entities_with_conditions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.connectors.entities_entities_with_conditions
 WHERE connectionsId = '{{ connectionsId }}'
 AND entityTypesId = '{{ entityTypesId }}'

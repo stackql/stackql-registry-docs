@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>security_policy</code> resource or lists <code>security_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>security_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -191,9 +191,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a security_policy only if the necessary resources are available.
+Updates a <code>security_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.security_policies
 SET 
 userDefinedFields = '{{ userDefinedFields }}',
@@ -220,9 +221,10 @@ AND securityPolicy = '{{ securityPolicy }}';
 
 ## `DELETE` example
 
-Deletes the specified security_policy resource.
+Deletes the specified <code>security_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.security_policies
 WHERE project = '{{ project }}'
 AND securityPolicy = '{{ securityPolicy }}';

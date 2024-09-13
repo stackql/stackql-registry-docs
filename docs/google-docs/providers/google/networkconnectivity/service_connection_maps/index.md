@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>service_connection_map</code> resource or lists <code>service_connection_maps</code> in a region
+Creates, updates, deletes, gets or lists a <code>service_connection_maps</code> resource.
 
 ## Overview
 <table><tbody>
@@ -168,9 +168,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a service_connection_map only if the necessary resources are available.
+Updates a <code>service_connection_maps</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkconnectivity.service_connection_maps
 SET 
 name = '{{ name }}',
@@ -194,9 +195,10 @@ AND serviceConnectionMapsId = '{{ serviceConnectionMapsId }}';
 
 ## `DELETE` example
 
-Deletes the specified service_connection_map resource.
+Deletes the specified <code>service_connection_maps</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkconnectivity.service_connection_maps
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

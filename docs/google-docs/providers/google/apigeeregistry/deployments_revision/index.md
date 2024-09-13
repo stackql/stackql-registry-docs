@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>deployments_revision</code> resource or lists <code>deployments_revision</code> in a region
+Creates, updates, deletes, gets or lists a <code>deployments_revision</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>deployments_revision</code> resource 
 
 ## `DELETE` example
 
-Deletes the specified deployments_revision resource.
+Deletes the specified <code>deployments_revision</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigeeregistry.deployments_revision
 WHERE apisId = '{{ apisId }}'
 AND deploymentsId = '{{ deploymentsId }}'

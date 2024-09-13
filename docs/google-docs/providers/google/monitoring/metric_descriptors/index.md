@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>metric_descriptor</code> resource or lists <code>metric_descriptors</code> in a region
+Creates, updates, deletes, gets or lists a <code>metric_descriptors</code> resource.
 
 ## Overview
 <table><tbody>
@@ -152,9 +152,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified metric_descriptor resource.
+Deletes the specified <code>metric_descriptors</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.monitoring.metric_descriptors
 WHERE metricDescriptorsId = '{{ metricDescriptorsId }}'
 AND projectsId = '{{ projectsId }}';

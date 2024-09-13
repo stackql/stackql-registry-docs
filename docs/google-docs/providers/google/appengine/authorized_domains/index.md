@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>authorized_domain</code> resource or lists <code>authorized_domains</code> in a region
+Creates, updates, deletes, gets or lists a <code>authorized_domains</code> resource.
 
 ## Overview
 <table><tbody>

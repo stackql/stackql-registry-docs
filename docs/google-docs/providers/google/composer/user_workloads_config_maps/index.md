@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>user_workloads_config_map</code> resource or lists <code>user_workloads_config_maps</code> in a region
+Creates, updates, deletes, gets or lists a <code>user_workloads_config_maps</code> resource.
 
 ## Overview
 <table><tbody>
@@ -105,9 +105,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified user_workloads_config_map resource.
+Deletes the specified <code>user_workloads_config_maps</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.composer.user_workloads_config_maps
 WHERE environmentsId = '{{ environmentsId }}'
 AND locationsId = '{{ locationsId }}'

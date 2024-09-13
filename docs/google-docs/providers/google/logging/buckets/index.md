@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>bucket</code> resource or lists <code>buckets</code> in a region
+Creates, updates, deletes, gets or lists a <code>buckets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -178,9 +178,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a bucket only if the necessary resources are available.
+Updates a <code>buckets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.logging.buckets
 SET 
 name = '{{ name }}',
@@ -202,9 +203,10 @@ AND locationsId = '{{ locationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified bucket resource.
+Deletes the specified <code>buckets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.logging.buckets
 WHERE bucketsId = '{{ bucketsId }}'
 AND foldersId = '{{ foldersId }}'

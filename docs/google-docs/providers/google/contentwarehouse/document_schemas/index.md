@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>document_schema</code> resource or lists <code>document_schemas</code> in a region
+Creates, updates, deletes, gets or lists a <code>document_schemas</code> resource.
 
 ## Overview
 <table><tbody>
@@ -132,9 +132,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a document_schema only if the necessary resources are available.
+Updates a <code>document_schemas</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.contentwarehouse.document_schemas
 SET 
 documentSchema = '{{ documentSchema }}'
@@ -146,9 +147,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified document_schema resource.
+Deletes the specified <code>document_schemas</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.contentwarehouse.document_schemas
 WHERE documentSchemasId = '{{ documentSchemasId }}'
 AND locationsId = '{{ locationsId }}'

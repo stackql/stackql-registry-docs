@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>customers_gcp_project_deployment</code> resource or lists <code>customers_gcp_project_deployments</code> in a region
+Creates, updates, deletes, gets or lists a <code>customers_gcp_project_deployments</code> resource.
 
 ## Overview
 <table><tbody>

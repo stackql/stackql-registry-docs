@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>user</code> resource or lists <code>users</code> in a region
+Creates, updates, deletes, gets or lists a <code>users</code> resource.
 
 ## Overview
 <table><tbody>
@@ -123,9 +123,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a user only if the necessary resources are available.
+Updates a <code>users</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.alloydb.users
 SET 
 name = '{{ name }}',
@@ -142,9 +143,10 @@ AND usersId = '{{ usersId }}';
 
 ## `DELETE` example
 
-Deletes the specified user resource.
+Deletes the specified <code>users</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.alloydb.users
 WHERE clustersId = '{{ clustersId }}'
 AND locationsId = '{{ locationsId }}'

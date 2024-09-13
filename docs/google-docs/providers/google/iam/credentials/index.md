@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>credential</code> resource or lists <code>credentials</code> in a region
+Creates, updates, deletes, gets or lists a <code>credentials</code> resource.
 
 ## Overview
 <table><tbody>
@@ -117,9 +117,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a credential only if the necessary resources are available.
+Updates a <code>credentials</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.iam.credentials
 SET 
 name = '{{ name }}',
@@ -135,9 +136,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified credential resource.
+Deletes the specified <code>credentials</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.iam.credentials
 WHERE credentialsId = '{{ credentialsId }}'
 AND locationsId = '{{ locationsId }}'

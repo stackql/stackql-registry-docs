@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>crypto_keys_primary_version</code> resource or lists <code>crypto_keys_primary_version</code> in a region
+Creates, updates, deletes, gets or lists a <code>crypto_keys_primary_version</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>crypto_keys_primary_version</code> re
 
 ## `UPDATE` example
 
-Updates a crypto_keys_primary_version only if the necessary resources are available.
+Updates a <code>crypto_keys_primary_version</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudkms.crypto_keys_primary_version
 SET 
 cryptoKeyVersionId = '{{ cryptoKeyVersionId }}'

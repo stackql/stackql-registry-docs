@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>apiproduct</code> resource or lists <code>apiproducts</code> in a region
+Creates, updates, deletes, gets or lists a <code>apiproducts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -198,9 +198,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified apiproduct resource.
+Deletes the specified <code>apiproducts</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.apiproducts
 WHERE apiproductsId = '{{ apiproductsId }}'
 AND organizationsId = '{{ organizationsId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>deidentify_template</code> resource or lists <code>deidentify_templates</code> in a region
+Creates, updates, deletes, gets or lists a <code>deidentify_templates</code> resource.
 
 ## Overview
 <table><tbody>
@@ -126,9 +126,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a deidentify_template only if the necessary resources are available.
+Updates a <code>deidentify_templates</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dlp.deidentify_templates
 SET 
 deidentifyTemplate = '{{ deidentifyTemplate }}',
@@ -140,9 +141,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified deidentify_template resource.
+Deletes the specified <code>deidentify_templates</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dlp.deidentify_templates
 WHERE deidentifyTemplatesId = '{{ deidentifyTemplatesId }}'
 AND projectsId = '{{ projectsId }}';

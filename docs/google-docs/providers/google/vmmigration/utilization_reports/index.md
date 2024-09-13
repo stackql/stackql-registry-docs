@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>utilization_report</code> resource or lists <code>utilization_reports</code> in a region
+Creates, updates, deletes, gets or lists a <code>utilization_reports</code> resource.
 
 ## Overview
 <table><tbody>
@@ -152,9 +152,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified utilization_report resource.
+Deletes the specified <code>utilization_reports</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmmigration.utilization_reports
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

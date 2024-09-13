@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>tag_binding</code> resource or lists <code>tag_bindings</code> in a region
+Creates, updates, deletes, gets or lists a <code>tag_bindings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -109,9 +109,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified tag_binding resource.
+Deletes the specified <code>tag_bindings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudresourcemanager.tag_bindings
 WHERE tagBindingsId = '{{ tagBindingsId }}';
 ```

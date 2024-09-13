@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>inbound_saml_sso_profile</code> resource or lists <code>inbound_saml_sso_profiles</code> in a region
+Creates, updates, deletes, gets or lists a <code>inbound_saml_sso_profiles</code> resource.
 
 ## Overview
 <table><tbody>
@@ -117,9 +117,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a inbound_saml_sso_profile only if the necessary resources are available.
+Updates a <code>inbound_saml_sso_profiles</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudidentity.inbound_saml_sso_profiles
 SET 
 name = '{{ name }}',
@@ -133,9 +134,10 @@ inboundSamlSsoProfilesId = '{{ inboundSamlSsoProfilesId }}';
 
 ## `DELETE` example
 
-Deletes the specified inbound_saml_sso_profile resource.
+Deletes the specified <code>inbound_saml_sso_profiles</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudidentity.inbound_saml_sso_profiles
 WHERE inboundSamlSsoProfilesId = '{{ inboundSamlSsoProfilesId }}';
 ```

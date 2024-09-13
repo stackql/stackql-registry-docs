@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>long_running_operation</code> resource or lists <code>long_running_operations</code> in a region
+Creates, updates, deletes, gets or lists a <code>long_running_operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -63,9 +63,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified long_running_operation resource.
+Deletes the specified <code>long_running_operations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.videointelligence.long_running_operations
 WHERE locationsId = '{{ locationsId }}'
 AND operationsId = '{{ operationsId }}'

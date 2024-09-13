@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>findings_security_mark</code> resource or lists <code>findings_security_marks</code> in a region
+Creates, updates, deletes, gets or lists a <code>findings_security_marks</code> resource.
 
 ## Overview
 <table><tbody>
@@ -41,9 +41,10 @@ Creates, updates, deletes or gets an <code>findings_security_mark</code> resourc
 
 ## `UPDATE` example
 
-Updates a findings_security_mark only if the necessary resources are available.
+Updates a <code>findings_security_marks</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.securitycenter.findings_security_marks
 SET 
 name = '{{ name }}',

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>backups_backup_index_download_url</code> resource or lists <code>backups_backup_index_download_url</code> in a region
+Creates, updates, deletes, gets or lists a <code>backups_backup_index_download_url</code> resource.
 
 ## Overview
 <table><tbody>

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>vmware_engine_network</code> resource or lists <code>vmware_engine_networks</code> in a region
+Creates, updates, deletes, gets or lists a <code>vmware_engine_networks</code> resource.
 
 ## Overview
 <table><tbody>
@@ -144,9 +144,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a vmware_engine_network only if the necessary resources are available.
+Updates a <code>vmware_engine_networks</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vmwareengine.vmware_engine_networks
 SET 
 name = '{{ name }}',
@@ -166,9 +167,10 @@ AND vmwareEngineNetworksId = '{{ vmwareEngineNetworksId }}';
 
 ## `DELETE` example
 
-Deletes the specified vmware_engine_network resource.
+Deletes the specified <code>vmware_engine_networks</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmwareengine.vmware_engine_networks
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

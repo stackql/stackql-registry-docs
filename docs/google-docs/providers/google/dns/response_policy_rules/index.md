@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>response_policy_rule</code> resource or lists <code>response_policy_rules</code> in a region
+Creates, updates, deletes, gets or lists a <code>response_policy_rules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -121,9 +121,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a response_policy_rule only if the necessary resources are available.
+Updates a <code>response_policy_rules</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dns.response_policy_rules
 SET 
 ruleName = '{{ ruleName }}',
@@ -139,9 +140,10 @@ AND responsePolicyRule = '{{ responsePolicyRule }}';
 
 ## `DELETE` example
 
-Deletes the specified response_policy_rule resource.
+Deletes the specified <code>response_policy_rules</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dns.response_policy_rules
 WHERE project = '{{ project }}'
 AND responsePolicy = '{{ responsePolicy }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>zone_operation</code> resource or lists <code>zone_operations</code> in a region
+Creates, updates, deletes, gets or lists a <code>zone_operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -105,9 +105,10 @@ AND zone = '{{ zone }}';
 
 ## `DELETE` example
 
-Deletes the specified zone_operation resource.
+Deletes the specified <code>zone_operations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.zone_operations
 WHERE operation = '{{ operation }}'
 AND project = '{{ project }}'

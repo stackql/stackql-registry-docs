@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>collectd_time_sery</code> resource or lists <code>collectd_time_series</code> in a region
+Creates, updates, deletes, gets or lists a <code>collectd_time_series</code> resource.
 
 ## Overview
 <table><tbody>

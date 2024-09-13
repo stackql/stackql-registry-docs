@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>notebook_execution_job</code> resource or lists <code>notebook_execution_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>notebook_execution_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -191,9 +191,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified notebook_execution_job resource.
+Deletes the specified <code>notebook_execution_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.notebook_execution_jobs
 WHERE locationsId = '{{ locationsId }}'
 AND notebookExecutionJobsId = '{{ notebookExecutionJobsId }}'

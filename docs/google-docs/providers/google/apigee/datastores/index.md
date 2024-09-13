@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>datastore</code> resource or lists <code>datastores</code> in a region
+Creates, updates, deletes, gets or lists a <code>datastores</code> resource.
 
 ## Overview
 <table><tbody>
@@ -130,9 +130,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified datastore resource.
+Deletes the specified <code>datastores</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.datastores
 WHERE datastoresId = '{{ datastoresId }}'
 AND organizationsId = '{{ organizationsId }}';

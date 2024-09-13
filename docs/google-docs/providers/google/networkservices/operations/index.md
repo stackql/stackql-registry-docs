@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>operation</code> resource or lists <code>operations</code> in a region
+Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -63,9 +63,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified operation resource.
+Deletes the specified <code>operations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkservices.operations
 WHERE locationsId = '{{ locationsId }}'
 AND operationsId = '{{ operationsId }}'

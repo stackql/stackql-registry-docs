@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>monitored_resource_descriptor</code> resource or lists <code>monitored_resource_descriptors</code> in a region
+Creates, updates, deletes, gets or lists a <code>monitored_resource_descriptors</code> resource.
 
 ## Overview
 <table><tbody>

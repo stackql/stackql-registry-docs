@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>endpoint_attachment</code> resource or lists <code>endpoint_attachments</code> in a region
+Creates, updates, deletes, gets or lists a <code>endpoint_attachments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -122,9 +122,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified endpoint_attachment resource.
+Deletes the specified <code>endpoint_attachments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.endpoint_attachments
 WHERE endpointAttachmentsId = '{{ endpointAttachmentsId }}'
 AND organizationsId = '{{ organizationsId }}';

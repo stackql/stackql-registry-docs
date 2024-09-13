@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>issue_model</code> resource or lists <code>issue_models</code> in a region
+Creates, updates, deletes, gets or lists a <code>issue_models</code> resource.
 
 ## Overview
 <table><tbody>
@@ -155,9 +155,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a issue_model only if the necessary resources are available.
+Updates a <code>issue_models</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.contactcenterinsights.issue_models
 SET 
 languageCode = '{{ languageCode }}',
@@ -178,9 +179,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified issue_model resource.
+Deletes the specified <code>issue_models</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.contactcenterinsights.issue_models
 WHERE issueModelsId = '{{ issueModelsId }}'
 AND locationsId = '{{ locationsId }}'

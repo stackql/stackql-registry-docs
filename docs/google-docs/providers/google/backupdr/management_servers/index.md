@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>management_server</code> resource or lists <code>management_servers</code> in a region
+Creates, updates, deletes, gets or lists a <code>management_servers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -185,9 +185,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified management_server resource.
+Deletes the specified <code>management_servers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.backupdr.management_servers
 WHERE locationsId = '{{ locationsId }}'
 AND managementServersId = '{{ managementServersId }}'

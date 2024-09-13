@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>logging_server</code> resource or lists <code>logging_servers</code> in a region
+Creates, updates, deletes, gets or lists a <code>logging_servers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -141,9 +141,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a logging_server only if the necessary resources are available.
+Updates a <code>logging_servers</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vmwareengine.logging_servers
 SET 
 name = '{{ name }}',
@@ -163,9 +164,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified logging_server resource.
+Deletes the specified <code>logging_servers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmwareengine.logging_servers
 WHERE locationsId = '{{ locationsId }}'
 AND loggingServersId = '{{ loggingServersId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instance</code> resource or lists <code>instances</code> in a region
+Creates, updates, deletes, gets or lists a <code>instances</code> resource.
 
 ## Overview
 <table><tbody>
@@ -184,9 +184,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a instance only if the necessary resources are available.
+Updates a <code>instances</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.instances
 SET 
 serviceAttachment = '{{ serviceAttachment }}',
@@ -212,9 +213,10 @@ AND organizationsId = '{{ organizationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified instance resource.
+Deletes the specified <code>instances</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.instances
 WHERE instancesId = '{{ instancesId }}'
 AND organizationsId = '{{ organizationsId }}';

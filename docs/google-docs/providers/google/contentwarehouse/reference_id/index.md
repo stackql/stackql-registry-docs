@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>reference_id</code> resource or lists <code>reference_id</code> in a region
+Creates, updates, deletes, gets or lists a <code>reference_id</code> resource.
 
 ## Overview
 <table><tbody>
@@ -95,9 +95,10 @@ AND referenceIdId = '{{ referenceIdId }}';
 
 ## `UPDATE` example
 
-Updates a reference_id only if the necessary resources are available.
+Updates a <code>reference_id</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.contentwarehouse.reference_id
 SET 
 updateOptions = '{{ updateOptions }}',
@@ -112,9 +113,10 @@ AND referenceIdId = '{{ referenceIdId }}';
 
 ## `DELETE` example
 
-Deletes the specified reference_id resource.
+Deletes the specified <code>reference_id</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.contentwarehouse.reference_id
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

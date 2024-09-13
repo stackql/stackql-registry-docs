@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>data_exchange</code> resource or lists <code>data_exchanges</code> in a region
+Creates, updates, deletes, gets or lists a <code>data_exchanges</code> resource.
 
 ## Overview
 <table><tbody>
@@ -146,9 +146,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a data_exchange only if the necessary resources are available.
+Updates a <code>data_exchanges</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.analyticshub.data_exchanges
 SET 
 name = '{{ name }}',
@@ -168,9 +169,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified data_exchange resource.
+Deletes the specified <code>data_exchanges</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.analyticshub.data_exchanges
 WHERE dataExchangesId = '{{ dataExchangesId }}'
 AND locationsId = '{{ locationsId }}'

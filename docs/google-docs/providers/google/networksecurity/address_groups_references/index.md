@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>address_groups_reference</code> resource or lists <code>address_groups_references</code> in a region
+Creates, updates, deletes, gets or lists a <code>address_groups_references</code> resource.
 
 ## Overview
 <table><tbody>

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>apiproducts_app_group_app_key_api_product</code> resource or lists <code>apiproducts_app_group_app_key_api_product</code> in a region
+Creates, updates, deletes, gets or lists a <code>apiproducts_app_group_app_key_api_product</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>apiproducts_app_group_app_key_api_pro
 
 ## `UPDATE` example
 
-Updates a apiproducts_app_group_app_key_api_product only if the necessary resources are available.
+Updates a <code>apiproducts_app_group_app_key_api_product</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.apiproducts_app_group_app_key_api_product
 SET 
 

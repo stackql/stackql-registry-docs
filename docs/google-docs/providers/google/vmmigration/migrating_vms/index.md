@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>migrating_vm</code> resource or lists <code>migrating_vms</code> in a region
+Creates, updates, deletes, gets or lists a <code>migrating_vms</code> resource.
 
 ## Overview
 <table><tbody>
@@ -235,9 +235,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a migrating_vm only if the necessary resources are available.
+Updates a <code>migrating_vms</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vmmigration.migrating_vms
 SET 
 computeEngineTargetDefaults = '{{ computeEngineTargetDefaults }}',
@@ -272,9 +273,10 @@ AND sourcesId = '{{ sourcesId }}';
 
 ## `DELETE` example
 
-Deletes the specified migrating_vm resource.
+Deletes the specified <code>migrating_vms</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmmigration.migrating_vms
 WHERE locationsId = '{{ locationsId }}'
 AND migratingVmsId = '{{ migratingVmsId }}'

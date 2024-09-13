@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>networks_consumer_config</code> resource or lists <code>networks_consumer_config</code> in a region
+Creates, updates, deletes, gets or lists a <code>networks_consumer_config</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>networks_consumer_config</code> resou
 
 ## `UPDATE` example
 
-Updates a networks_consumer_config only if the necessary resources are available.
+Updates a <code>networks_consumer_config</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.servicenetworking.networks_consumer_config
 SET 
 consumerConfig = '{{ consumerConfig }}'

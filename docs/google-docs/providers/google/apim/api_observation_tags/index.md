@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>api_observation_tag</code> resource or lists <code>api_observation_tags</code> in a region
+Creates, updates, deletes, gets or lists a <code>api_observation_tags</code> resource.
 
 ## Overview
 <table><tbody>

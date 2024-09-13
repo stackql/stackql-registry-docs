@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>attribute_definition</code> resource or lists <code>attribute_definitions</code> in a region
+Creates, updates, deletes, gets or lists a <code>attribute_definitions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -132,9 +132,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a attribute_definition only if the necessary resources are available.
+Updates a <code>attribute_definitions</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.healthcare.attribute_definitions
 SET 
 name = '{{ name }}',
@@ -153,9 +154,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified attribute_definition resource.
+Deletes the specified <code>attribute_definitions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.attribute_definitions
 WHERE attributeDefinitionsId = '{{ attributeDefinitionsId }}'
 AND consentStoresId = '{{ consentStoresId }}'

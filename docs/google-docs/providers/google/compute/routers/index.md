@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>router</code> resource or lists <code>routers</code> in a region
+Creates, updates, deletes, gets or lists a <code>routers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -176,9 +176,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a router only if the necessary resources are available.
+Updates a <code>routers</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.routers
 SET 
 kind = '{{ kind }}',
@@ -203,9 +204,10 @@ AND router = '{{ router }}';
 
 ## `DELETE` example
 
-Deletes the specified router resource.
+Deletes the specified <code>routers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.routers
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'

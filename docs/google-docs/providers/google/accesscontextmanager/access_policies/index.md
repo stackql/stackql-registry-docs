@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>access_policy</code> resource or lists <code>access_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>access_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -117,9 +117,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a access_policy only if the necessary resources are available.
+Updates a <code>access_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.accesscontextmanager.access_policies
 SET 
 name = '{{ name }}',
@@ -133,9 +134,10 @@ accessPoliciesId = '{{ accessPoliciesId }}';
 
 ## `DELETE` example
 
-Deletes the specified access_policy resource.
+Deletes the specified <code>access_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.accesscontextmanager.access_policies
 WHERE accessPoliciesId = '{{ accessPoliciesId }}';
 ```

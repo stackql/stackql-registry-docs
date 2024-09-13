@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>gcp_user_access_binding</code> resource or lists <code>gcp_user_access_bindings</code> in a region
+Creates, updates, deletes, gets or lists a <code>gcp_user_access_bindings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -129,9 +129,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a gcp_user_access_binding only if the necessary resources are available.
+Updates a <code>gcp_user_access_bindings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.accesscontextmanager.gcp_user_access_bindings
 SET 
 name = '{{ name }}',
@@ -148,9 +149,10 @@ AND organizationsId = '{{ organizationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified gcp_user_access_binding resource.
+Deletes the specified <code>gcp_user_access_bindings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.accesscontextmanager.gcp_user_access_bindings
 WHERE gcpUserAccessBindingsId = '{{ gcpUserAccessBindingsId }}'
 AND organizationsId = '{{ organizationsId }}';

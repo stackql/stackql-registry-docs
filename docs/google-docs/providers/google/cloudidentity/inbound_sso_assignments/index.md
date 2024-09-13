@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>inbound_sso_assignment</code> resource or lists <code>inbound_sso_assignments</code> in a region
+Creates, updates, deletes, gets or lists a <code>inbound_sso_assignments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -135,9 +135,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a inbound_sso_assignment only if the necessary resources are available.
+Updates a <code>inbound_sso_assignments</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudidentity.inbound_sso_assignments
 SET 
 targetGroup = '{{ targetGroup }}',
@@ -154,9 +155,10 @@ inboundSsoAssignmentsId = '{{ inboundSsoAssignmentsId }}';
 
 ## `DELETE` example
 
-Deletes the specified inbound_sso_assignment resource.
+Deletes the specified <code>inbound_sso_assignments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudidentity.inbound_sso_assignments
 WHERE inboundSsoAssignmentsId = '{{ inboundSsoAssignmentsId }}';
 ```

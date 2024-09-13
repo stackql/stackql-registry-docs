@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>file</code> resource or lists <code>files</code> in a region
+Creates, updates, deletes, gets or lists a <code>files</code> resource.
 
 ## Overview
 <table><tbody>
@@ -68,9 +68,10 @@ AND repositoriesId = '{{ repositoriesId }}';
 
 ## `DELETE` example
 
-Deletes the specified file resource.
+Deletes the specified <code>files</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.artifactregistry.files
 WHERE filesId = '{{ filesId }}'
 AND locationsId = '{{ locationsId }}'

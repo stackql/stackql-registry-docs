@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>hot_tablet</code> resource or lists <code>hot_tablets</code> in a region
+Creates, updates, deletes, gets or lists a <code>hot_tablets</code> resource.
 
 ## Overview
 <table><tbody>

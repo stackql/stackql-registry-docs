@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>private_cloud</code> resource or lists <code>private_clouds</code> in a region
+Creates, updates, deletes, gets or lists a <code>private_clouds</code> resource.
 
 ## Overview
 <table><tbody>
@@ -179,9 +179,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a private_cloud only if the necessary resources are available.
+Updates a <code>private_clouds</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vmwareengine.private_clouds
 SET 
 name = '{{ name }}',
@@ -206,9 +207,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified private_cloud resource.
+Deletes the specified <code>private_clouds</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmwareengine.private_clouds
 WHERE locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'

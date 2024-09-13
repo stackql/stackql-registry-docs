@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>go_module</code> resource or lists <code>go_modules</code> in a region
+Creates, updates, deletes, gets or lists a <code>go_modules</code> resource.
 
 ## Overview
 <table><tbody>

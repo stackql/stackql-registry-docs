@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>artifact</code> resource or lists <code>artifacts</code> in a region
+Creates, updates, deletes, gets or lists a <code>artifacts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -167,9 +167,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a artifact only if the necessary resources are available.
+Updates a <code>artifacts</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.artifacts
 SET 
 etag = '{{ etag }}',
@@ -193,9 +194,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified artifact resource.
+Deletes the specified <code>artifacts</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.artifacts
 WHERE artifactsId = '{{ artifactsId }}'
 AND locationsId = '{{ locationsId }}'

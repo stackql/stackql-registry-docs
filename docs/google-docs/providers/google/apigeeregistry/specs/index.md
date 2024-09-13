@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>spec</code> resource or lists <code>specs</code> in a region
+Creates, updates, deletes, gets or lists a <code>specs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -182,9 +182,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a spec only if the necessary resources are available.
+Updates a <code>specs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigeeregistry.specs
 SET 
 name = '{{ name }}',
@@ -211,9 +212,10 @@ AND versionsId = '{{ versionsId }}';
 
 ## `DELETE` example
 
-Deletes the specified spec resource.
+Deletes the specified <code>specs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigeeregistry.specs
 WHERE apisId = '{{ apisId }}'
 AND locationsId = '{{ locationsId }}'

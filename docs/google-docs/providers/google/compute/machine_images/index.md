@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>machine_image</code> resource or lists <code>machine_images</code> in a region
+Creates, updates, deletes, gets or lists a <code>machine_images</code> resource.
 
 ## Overview
 <table><tbody>
@@ -194,9 +194,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified machine_image resource.
+Deletes the specified <code>machine_images</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.machine_images
 WHERE machineImage = '{{ machineImage }}'
 AND project = '{{ project }}';

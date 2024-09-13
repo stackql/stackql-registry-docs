@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>case</code> resource or lists <code>cases</code> in a region
+Creates, updates, deletes, gets or lists a <code>cases</code> resource.
 
 ## Overview
 <table><tbody>
@@ -179,9 +179,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a case only if the necessary resources are available.
+Updates a <code>cases</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudsupport.cases
 SET 
 timeZone = '{{ timeZone }}',

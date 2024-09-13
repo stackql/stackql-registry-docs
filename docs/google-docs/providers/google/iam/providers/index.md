@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>provider</code> resource or lists <code>providers</code> in a region
+Creates, updates, deletes, gets or lists a <code>providers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -157,9 +157,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a provider only if the necessary resources are available.
+Updates a <code>providers</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.iam.providers
 SET 
 name = '{{ name }}',
@@ -181,9 +182,10 @@ AND workforcePoolsId = '{{ workforcePoolsId }}';
 
 ## `DELETE` example
 
-Deletes the specified provider resource.
+Deletes the specified <code>providers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.iam.providers
 WHERE locationsId = '{{ locationsId }}'
 AND providersId = '{{ providersId }}'

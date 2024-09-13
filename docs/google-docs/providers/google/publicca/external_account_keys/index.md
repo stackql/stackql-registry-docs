@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>external_account_key</code> resource or lists <code>external_account_keys</code> in a region
+Creates, updates, deletes, gets or lists a <code>external_account_keys</code> resource.
 
 ## Overview
 <table><tbody>

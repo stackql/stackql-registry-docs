@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>interconnect</code> resource or lists <code>interconnects</code> in a region
+Creates, updates, deletes, gets or lists a <code>interconnects</code> resource.
 
 ## Overview
 <table><tbody>
@@ -268,9 +268,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a interconnect only if the necessary resources are available.
+Updates a <code>interconnects</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.interconnects
 SET 
 kind = '{{ kind }}',
@@ -310,9 +311,10 @@ AND project = '{{ project }}';
 
 ## `DELETE` example
 
-Deletes the specified interconnect resource.
+Deletes the specified <code>interconnects</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.interconnects
 WHERE interconnect = '{{ interconnect }}'
 AND project = '{{ project }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>link</code> resource or lists <code>links</code> in a region
+Creates, updates, deletes, gets or lists a <code>links</code> resource.
 
 ## Overview
 <table><tbody>
@@ -133,9 +133,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified link resource.
+Deletes the specified <code>links</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.logging.links
 WHERE bucketsId = '{{ bucketsId }}'
 AND foldersId = '{{ foldersId }}'

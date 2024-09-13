@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>os_policy_assignment</code> resource or lists <code>os_policy_assignments</code> in a region
+Creates, updates, deletes, gets or lists a <code>os_policy_assignments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -168,9 +168,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a os_policy_assignment only if the necessary resources are available.
+Updates a <code>os_policy_assignments</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.osconfig.os_policy_assignments
 SET 
 name = '{{ name }}',
@@ -194,9 +195,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified os_policy_assignment resource.
+Deletes the specified <code>os_policy_assignments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.osconfig.os_policy_assignments
 WHERE locationsId = '{{ locationsId }}'
 AND osPolicyAssignmentsId = '{{ osPolicyAssignmentsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>attributes_developer_app_attribute</code> resource or lists <code>attributes_developer_app_attribute</code> in a region
+Creates, updates, deletes, gets or lists a <code>attributes_developer_app_attribute</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>attributes_developer_app_attribute</c
 
 ## `UPDATE` example
 
-Updates a attributes_developer_app_attribute only if the necessary resources are available.
+Updates a <code>attributes_developer_app_attribute</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.attributes_developer_app_attribute
 SET 
 value = '{{ value }}',

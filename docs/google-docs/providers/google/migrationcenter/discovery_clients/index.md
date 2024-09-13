@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>discovery_client</code> resource or lists <code>discovery_clients</code> in a region
+Creates, updates, deletes, gets or lists a <code>discovery_clients</code> resource.
 
 ## Overview
 <table><tbody>
@@ -181,9 +181,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a discovery_client only if the necessary resources are available.
+Updates a <code>discovery_clients</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.migrationcenter.discovery_clients
 SET 
 name = '{{ name }}',
@@ -209,9 +210,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified discovery_client resource.
+Deletes the specified <code>discovery_clients</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.migrationcenter.discovery_clients
 WHERE discoveryClientsId = '{{ discoveryClientsId }}'
 AND locationsId = '{{ locationsId }}'

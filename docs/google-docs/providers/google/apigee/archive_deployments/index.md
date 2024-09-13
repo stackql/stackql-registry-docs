@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>archive_deployment</code> resource or lists <code>archive_deployments</code> in a region
+Creates, updates, deletes, gets or lists a <code>archive_deployments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -128,9 +128,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a archive_deployment only if the necessary resources are available.
+Updates a <code>archive_deployments</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.archive_deployments
 SET 
 createdAt = '{{ createdAt }}',
@@ -147,9 +148,10 @@ AND organizationsId = '{{ organizationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified archive_deployment resource.
+Deletes the specified <code>archive_deployments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.archive_deployments
 WHERE archiveDeploymentsId = '{{ archiveDeploymentsId }}'
 AND environmentsId = '{{ environmentsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>global_project_feature_setting</code> resource or lists <code>global_project_feature_settings</code> in a region
+Creates, updates, deletes, gets or lists a <code>global_project_feature_settings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -54,9 +54,10 @@ WHERE projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a global_project_feature_setting only if the necessary resources are available.
+Updates a <code>global_project_feature_settings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.osconfig.global_project_feature_settings
 SET 
 name = '{{ name }}',

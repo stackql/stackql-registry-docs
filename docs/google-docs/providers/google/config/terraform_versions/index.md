@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>terraform_version</code> resource or lists <code>terraform_versions</code> in a region
+Creates, updates, deletes, gets or lists a <code>terraform_versions</code> resource.
 
 ## Overview
 <table><tbody>

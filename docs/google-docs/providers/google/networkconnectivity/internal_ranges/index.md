@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>internal_range</code> resource or lists <code>internal_ranges</code> in a region
+Creates, updates, deletes, gets or lists a <code>internal_ranges</code> resource.
 
 ## Overview
 <table><tbody>
@@ -168,9 +168,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a internal_range only if the necessary resources are available.
+Updates a <code>internal_ranges</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkconnectivity.internal_ranges
 SET 
 name = '{{ name }}',
@@ -194,9 +195,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified internal_range resource.
+Deletes the specified <code>internal_ranges</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkconnectivity.internal_ranges
 WHERE internalRangesId = '{{ internalRangesId }}'
 AND locationsId = '{{ locationsId }}'

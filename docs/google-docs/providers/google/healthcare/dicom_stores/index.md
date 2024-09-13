@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dicom_store</code> resource or lists <code>dicom_stores</code> in a region
+Creates, updates, deletes, gets or lists a <code>dicom_stores</code> resource.
 
 ## Overview
 <table><tbody>
@@ -125,9 +125,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a dicom_store only if the necessary resources are available.
+Updates a <code>dicom_stores</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.healthcare.dicom_stores
 SET 
 name = '{{ name }}',
@@ -143,9 +144,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified dicom_store resource.
+Deletes the specified <code>dicom_stores</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.dicom_stores
 WHERE datasetsId = '{{ datasetsId }}'
 AND dicomStoresId = '{{ dicomStoresId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>device</code> resource or lists <code>devices</code> in a region
+Creates, updates, deletes, gets or lists a <code>devices</code> resource.
 
 ## Overview
 <table><tbody>
@@ -175,9 +175,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a device only if the necessary resources are available.
+Updates a <code>devices</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.prod_tt_sasportal.devices
 SET 
 displayName = '{{ displayName }}',
@@ -198,9 +199,10 @@ AND nodesId = '{{ nodesId }}';
 
 ## `DELETE` example
 
-Deletes the specified device resource.
+Deletes the specified <code>devices</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.prod_tt_sasportal.devices
 WHERE devicesId = '{{ devicesId }}'
 AND nodesId = '{{ nodesId }}';

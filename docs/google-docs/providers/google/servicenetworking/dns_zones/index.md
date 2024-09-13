@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dns_zone</code> resource or lists <code>dns_zones</code> in a region
+Creates, updates, deletes, gets or lists a <code>dns_zones</code> resource.
 
 ## Overview
 <table><tbody>
@@ -104,9 +104,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified dns_zone resource.
+Deletes the specified <code>dns_zones</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.servicenetworking.dns_zones
 WHERE servicesId = '{{ servicesId }}';
 ```

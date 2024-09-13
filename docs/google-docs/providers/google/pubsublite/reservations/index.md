@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>reservation</code> resource or lists <code>reservations</code> in a region
+Creates, updates, deletes, gets or lists a <code>reservations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -102,9 +102,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a reservation only if the necessary resources are available.
+Updates a <code>reservations</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.pubsublite.reservations
 SET 
 name = '{{ name }}',
@@ -117,9 +118,10 @@ AND reservationsId = '{{ reservationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified reservation resource.
+Deletes the specified <code>reservations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.pubsublite.reservations
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

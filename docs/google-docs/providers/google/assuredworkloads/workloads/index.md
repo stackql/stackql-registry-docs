@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>workload</code> resource or lists <code>workloads</code> in a region
+Creates, updates, deletes, gets or lists a <code>workloads</code> resource.
 
 ## Overview
 <table><tbody>
@@ -226,9 +226,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a workload only if the necessary resources are available.
+Updates a <code>workloads</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.assuredworkloads.workloads
 SET 
 saaEnrollmentResponse = '{{ saaEnrollmentResponse }}',
@@ -261,9 +262,10 @@ AND workloadsId = '{{ workloadsId }}';
 
 ## `DELETE` example
 
-Deletes the specified workload resource.
+Deletes the specified <code>workloads</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.assuredworkloads.workloads
 WHERE locationsId = '{{ locationsId }}'
 AND organizationsId = '{{ organizationsId }}'

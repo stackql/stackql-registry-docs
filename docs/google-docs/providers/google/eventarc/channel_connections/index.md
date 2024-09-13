@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>channel_connection</code> resource or lists <code>channel_connections</code> in a region
+Creates, updates, deletes, gets or lists a <code>channel_connections</code> resource.
 
 ## Overview
 <table><tbody>
@@ -125,9 +125,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified channel_connection resource.
+Deletes the specified <code>channel_connections</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.eventarc.channel_connections
 WHERE channelConnectionsId = '{{ channelConnectionsId }}'
 AND locationsId = '{{ locationsId }}'

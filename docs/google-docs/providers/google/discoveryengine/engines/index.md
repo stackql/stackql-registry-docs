@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>engine</code> resource or lists <code>engines</code> in a region
+Creates, updates, deletes, gets or lists a <code>engines</code> resource.
 
 ## Overview
 <table><tbody>
@@ -159,9 +159,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a engine only if the necessary resources are available.
+Updates a <code>engines</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.discoveryengine.engines
 SET 
 chatEngineConfig = '{{ chatEngineConfig }}',
@@ -184,9 +185,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified engine resource.
+Deletes the specified <code>engines</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.discoveryengine.engines
 WHERE collectionsId = '{{ collectionsId }}'
 AND enginesId = '{{ enginesId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>global_operation</code> resource or lists <code>global_operations</code> in a region
+Creates, updates, deletes, gets or lists a <code>global_operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -104,9 +104,10 @@ WHERE project = '{{ project }}';
 
 ## `DELETE` example
 
-Deletes the specified global_operation resource.
+Deletes the specified <code>global_operations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.global_operations
 WHERE operation = '{{ operation }}'
 AND project = '{{ project }}';

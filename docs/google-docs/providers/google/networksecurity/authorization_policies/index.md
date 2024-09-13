@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>authorization_policy</code> resource or lists <code>authorization_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>authorization_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -132,9 +132,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a authorization_policy only if the necessary resources are available.
+Updates a <code>authorization_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networksecurity.authorization_policies
 SET 
 name = '{{ name }}',
@@ -152,9 +153,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified authorization_policy resource.
+Deletes the specified <code>authorization_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networksecurity.authorization_policies
 WHERE authorizationPoliciesId = '{{ authorizationPoliciesId }}'
 AND locationsId = '{{ locationsId }}'

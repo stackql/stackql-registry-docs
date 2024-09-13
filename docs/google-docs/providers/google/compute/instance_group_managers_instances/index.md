@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instance_group_managers_instance</code> resource or lists <code>instance_group_managers_instances</code> in a region
+Creates, updates, deletes, gets or lists a <code>instance_group_managers_instances</code> resource.
 
 ## Overview
 <table><tbody>
@@ -82,9 +82,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified instance_group_managers_instance resource.
+Deletes the specified <code>instance_group_managers_instances</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.instance_group_managers_instances
 WHERE instanceGroupManager = '{{ instanceGroupManager }}'
 AND project = '{{ project }}'

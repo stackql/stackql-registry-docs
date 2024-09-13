@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>host_security_report</code> resource or lists <code>host_security_reports</code> in a region
+Creates, updates, deletes, gets or lists a <code>host_security_reports</code> resource.
 
 ## Overview
 <table><tbody>

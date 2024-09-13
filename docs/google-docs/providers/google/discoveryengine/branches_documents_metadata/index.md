@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>branches_documents_metadatum</code> resource or lists <code>branches_documents_metadata</code> in a region
+Creates, updates, deletes, gets or lists a <code>branches_documents_metadata</code> resource.
 
 ## Overview
 <table><tbody>

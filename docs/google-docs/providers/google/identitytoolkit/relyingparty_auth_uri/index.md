@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>relyingparty_auth_uri</code> resource or lists <code>relyingparty_auth_uri</code> in a region
+Creates, updates, deletes, gets or lists a <code>relyingparty_auth_uri</code> resource.
 
 ## Overview
 <table><tbody>

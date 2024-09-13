@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>app_profile</code> resource or lists <code>app_profiles</code> in a region
+Creates, updates, deletes, gets or lists a <code>app_profiles</code> resource.
 
 ## Overview
 <table><tbody>
@@ -138,9 +138,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a app_profile only if the necessary resources are available.
+Updates a <code>app_profiles</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.bigtableadmin.app_profiles
 SET 
 name = '{{ name }}',
@@ -159,9 +160,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified app_profile resource.
+Deletes the specified <code>app_profiles</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.bigtableadmin.app_profiles
 WHERE appProfilesId = '{{ appProfilesId }}'
 AND instancesId = '{{ instancesId }}'

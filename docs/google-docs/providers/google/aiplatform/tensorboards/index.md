@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>tensorboard</code> resource or lists <code>tensorboards</code> in a region
+Creates, updates, deletes, gets or lists a <code>tensorboards</code> resource.
 
 ## Overview
 <table><tbody>
@@ -171,9 +171,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a tensorboard only if the necessary resources are available.
+Updates a <code>tensorboards</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.tensorboards
 SET 
 runCount = '{{ runCount }}',
@@ -197,9 +198,10 @@ AND tensorboardsId = '{{ tensorboardsId }}';
 
 ## `DELETE` example
 
-Deletes the specified tensorboard resource.
+Deletes the specified <code>tensorboards</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.tensorboards
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

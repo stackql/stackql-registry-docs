@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>models_version</code> resource or lists <code>models_version</code> in a region
+Creates, updates, deletes, gets or lists a <code>models_version</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>models_version</code> resource or lis
 
 ## `DELETE` example
 
-Deletes the specified models_version resource.
+Deletes the specified <code>models_version</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.models_version
 WHERE locationsId = '{{ locationsId }}'
 AND modelsId = '{{ modelsId }}'

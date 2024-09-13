@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>nas_job</code> resource or lists <code>nas_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>nas_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -180,9 +180,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified nas_job resource.
+Deletes the specified <code>nas_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.nas_jobs
 WHERE locationsId = '{{ locationsId }}'
 AND nasJobsId = '{{ nasJobsId }}'

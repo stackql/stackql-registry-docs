@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>artifacts_iam_policy</code> resource or lists <code>artifacts_iam_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>artifacts_iam_policies</code> resource.
 
 ## Overview
 <table><tbody>

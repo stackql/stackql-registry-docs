@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>training_pipeline</code> resource or lists <code>training_pipelines</code> in a region
+Creates, updates, deletes, gets or lists a <code>training_pipelines</code> resource.
 
 ## Overview
 <table><tbody>
@@ -192,9 +192,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified training_pipeline resource.
+Deletes the specified <code>training_pipelines</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.training_pipelines
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

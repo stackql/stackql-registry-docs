@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>migration_execution</code> resource or lists <code>migration_executions</code> in a region
+Creates, updates, deletes, gets or lists a <code>migration_executions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -67,9 +67,10 @@ AND servicesId = '{{ servicesId }}';
 
 ## `DELETE` example
 
-Deletes the specified migration_execution resource.
+Deletes the specified <code>migration_executions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.metastore.migration_executions
 WHERE locationsId = '{{ locationsId }}'
 AND migrationExecutionsId = '{{ migrationExecutionsId }}'

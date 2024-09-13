@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>backup_run</code> resource or lists <code>backup_runs</code> in a region
+Creates, updates, deletes, gets or lists a <code>backup_runs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -197,9 +197,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified backup_run resource.
+Deletes the specified <code>backup_runs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.sqladmin.backup_runs
 WHERE id = '{{ id }}'
 AND instance = '{{ instance }}'

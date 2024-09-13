@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>evaluation</code> resource or lists <code>evaluations</code> in a region
+Creates, updates, deletes, gets or lists a <code>evaluations</code> resource.
 
 ## Overview
 <table><tbody>

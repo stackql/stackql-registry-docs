@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>capacity_commitment</code> resource or lists <code>capacity_commitments</code> in a region
+Creates, updates, deletes, gets or lists a <code>capacity_commitments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -158,9 +158,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a capacity_commitment only if the necessary resources are available.
+Updates a <code>capacity_commitments</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.bigqueryreservation.capacity_commitments
 SET 
 name = '{{ name }}',
@@ -182,9 +183,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified capacity_commitment resource.
+Deletes the specified <code>capacity_commitments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.bigqueryreservation.capacity_commitments
 WHERE capacityCommitmentsId = '{{ capacityCommitmentsId }}'
 AND locationsId = '{{ locationsId }}'

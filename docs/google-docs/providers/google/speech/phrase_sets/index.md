@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>phrase_set</code> resource or lists <code>phrase_sets</code> in a region
+Creates, updates, deletes, gets or lists a <code>phrase_sets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -124,9 +124,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a phrase_set only if the necessary resources are available.
+Updates a <code>phrase_sets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.speech.phrase_sets
 SET 
 name = '{{ name }}',
@@ -150,9 +151,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified phrase_set resource.
+Deletes the specified <code>phrase_sets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.speech.phrase_sets
 WHERE locationsId = '{{ locationsId }}'
 AND phraseSetsId = '{{ phraseSetsId }}'

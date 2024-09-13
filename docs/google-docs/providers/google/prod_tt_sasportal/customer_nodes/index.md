@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>customer_node</code> resource or lists <code>customer_nodes</code> in a region
+Creates, updates, deletes, gets or lists a <code>customer_nodes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -105,9 +105,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified customer_node resource.
+Deletes the specified <code>customer_nodes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.prod_tt_sasportal.customer_nodes
 WHERE customersId = '{{ customersId }}'
 AND nodesId = '{{ nodesId }}';
