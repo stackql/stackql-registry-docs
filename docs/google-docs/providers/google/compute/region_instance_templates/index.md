@@ -1,4 +1,3 @@
-
 ---
 title: region_instance_templates
 hide_title: false

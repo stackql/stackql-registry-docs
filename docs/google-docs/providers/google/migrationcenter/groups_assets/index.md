@@ -1,4 +1,3 @@
-
 ---
 title: groups_assets
 hide_title: false

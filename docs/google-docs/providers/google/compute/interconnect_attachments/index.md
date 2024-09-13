@@ -1,4 +1,3 @@
-
 ---
 title: interconnect_attachments
 hide_title: false

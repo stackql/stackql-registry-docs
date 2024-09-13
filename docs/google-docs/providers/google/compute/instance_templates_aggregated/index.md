@@ -1,4 +1,3 @@
-
 ---
 title: instance_templates_aggregated
 hide_title: false

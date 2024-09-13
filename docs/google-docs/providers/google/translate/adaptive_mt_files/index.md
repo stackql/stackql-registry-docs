@@ -1,4 +1,3 @@
-
 ---
 title: adaptive_mt_files
 hide_title: false

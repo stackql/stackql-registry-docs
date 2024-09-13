@@ -1,4 +1,3 @@
-
 ---
 title: debug
 hide_title: false

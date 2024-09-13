@@ -1,4 +1,3 @@
-
 ---
 title: resource_policies
 hide_title: false

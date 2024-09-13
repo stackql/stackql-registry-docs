@@ -1,4 +1,3 @@
-
 ---
 title: companies
 hide_title: false

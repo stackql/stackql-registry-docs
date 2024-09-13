@@ -1,4 +1,3 @@
-
 ---
 title: subscriptions
 hide_title: false

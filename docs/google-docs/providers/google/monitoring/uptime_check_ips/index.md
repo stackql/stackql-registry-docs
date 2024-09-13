@@ -1,4 +1,3 @@
-
 ---
 title: uptime_check_ips
 hide_title: false

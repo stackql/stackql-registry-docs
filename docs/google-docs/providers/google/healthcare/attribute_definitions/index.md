@@ -1,4 +1,3 @@
-
 ---
 title: attribute_definitions
 hide_title: false

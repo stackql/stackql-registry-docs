@@ -1,4 +1,3 @@
-
 ---
 title: inbound_saml_sso_profiles
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: content
 hide_title: false

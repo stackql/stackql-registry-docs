@@ -1,4 +1,3 @@
-
 ---
 title: enum_values
 hide_title: false

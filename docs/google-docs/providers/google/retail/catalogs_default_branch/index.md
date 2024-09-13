@@ -1,4 +1,3 @@
-
 ---
 title: catalogs_default_branch
 hide_title: false

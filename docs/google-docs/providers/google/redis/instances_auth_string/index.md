@@ -1,4 +1,3 @@
-
 ---
 title: instances_auth_string
 hide_title: false

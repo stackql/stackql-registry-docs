@@ -1,4 +1,3 @@
-
 ---
 title: aspect_types
 hide_title: false

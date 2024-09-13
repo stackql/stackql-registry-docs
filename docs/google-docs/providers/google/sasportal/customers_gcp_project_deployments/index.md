@@ -1,4 +1,3 @@
-
 ---
 title: customers_gcp_project_deployments
 hide_title: false

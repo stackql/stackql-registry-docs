@@ -1,4 +1,3 @@
-
 ---
 title: autokey_config
 hide_title: false

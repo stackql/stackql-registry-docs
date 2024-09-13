@@ -1,4 +1,3 @@
-
 ---
 title: relyingparty_account_info
 hide_title: false

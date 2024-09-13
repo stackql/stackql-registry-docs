@@ -1,4 +1,3 @@
-
 ---
 title: adaptive_mt_datasets
 hide_title: false

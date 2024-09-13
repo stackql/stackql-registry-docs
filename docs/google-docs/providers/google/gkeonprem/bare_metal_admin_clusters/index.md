@@ -1,4 +1,3 @@
-
 ---
 title: bare_metal_admin_clusters
 hide_title: false

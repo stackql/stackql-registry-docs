@@ -1,4 +1,3 @@
-
 ---
 title: workload_identity_pools
 hide_title: false

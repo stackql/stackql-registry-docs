@@ -1,4 +1,3 @@
-
 ---
 title: queries_resulturl
 hide_title: false

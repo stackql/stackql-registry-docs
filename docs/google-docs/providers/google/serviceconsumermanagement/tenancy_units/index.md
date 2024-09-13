@@ -1,4 +1,3 @@
-
 ---
 title: tenancy_units
 hide_title: false

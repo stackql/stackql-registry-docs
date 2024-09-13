@@ -1,4 +1,3 @@
-
 ---
 title: endpoints
 hide_title: false

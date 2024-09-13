@@ -1,4 +1,3 @@
-
 ---
 title: attributes_api_product_attribute
 hide_title: false

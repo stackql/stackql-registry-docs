@@ -1,4 +1,3 @@
-
 ---
 title: data_scans
 hide_title: false

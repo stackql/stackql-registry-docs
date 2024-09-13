@@ -1,4 +1,3 @@
-
 ---
 title: assets
 hide_title: false

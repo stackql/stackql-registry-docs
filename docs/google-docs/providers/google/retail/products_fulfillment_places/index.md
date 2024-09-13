@@ -1,4 +1,3 @@
-
 ---
 title: products_fulfillment_places
 hide_title: false

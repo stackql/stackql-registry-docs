@@ -1,4 +1,3 @@
-
 ---
 title: app_connectors
 hide_title: false

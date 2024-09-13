@@ -1,4 +1,3 @@
-
 ---
 title: insightsdata
 hide_title: false

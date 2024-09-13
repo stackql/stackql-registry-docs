@@ -1,4 +1,3 @@
-
 ---
 title: developers_monetization_config
 hide_title: false

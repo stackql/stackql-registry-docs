@@ -1,4 +1,3 @@
-
 ---
 title: training_pipelines
 hide_title: false

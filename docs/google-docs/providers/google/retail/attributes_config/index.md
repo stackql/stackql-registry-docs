@@ -1,4 +1,3 @@
-
 ---
 title: attributes_config
 hide_title: false

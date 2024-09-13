@@ -1,4 +1,3 @@
-
 ---
 title: registrations
 hide_title: false

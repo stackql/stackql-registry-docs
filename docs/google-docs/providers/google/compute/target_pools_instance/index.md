@@ -1,4 +1,3 @@
-
 ---
 title: target_pools_instance
 hide_title: false

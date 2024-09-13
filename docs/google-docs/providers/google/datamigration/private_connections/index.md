@@ -1,4 +1,3 @@
-
 ---
 title: private_connections
 hide_title: false

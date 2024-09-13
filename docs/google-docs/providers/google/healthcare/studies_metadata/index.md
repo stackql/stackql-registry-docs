@@ -1,4 +1,3 @@
-
 ---
 title: studies_metadata
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: trials
 hide_title: false

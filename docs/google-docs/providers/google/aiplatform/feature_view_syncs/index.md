@@ -1,4 +1,3 @@
-
 ---
 title: feature_view_syncs
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: data
 hide_title: false

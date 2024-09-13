@@ -1,4 +1,3 @@
-
 ---
 title: indexes_datapoints
 hide_title: false

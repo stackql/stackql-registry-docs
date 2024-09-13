@@ -1,4 +1,3 @@
-
 ---
 title: cloudasset_assets_history
 hide_title: false

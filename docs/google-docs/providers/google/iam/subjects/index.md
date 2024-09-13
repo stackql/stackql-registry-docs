@@ -1,4 +1,3 @@
-
 ---
 title: subjects
 hide_title: false

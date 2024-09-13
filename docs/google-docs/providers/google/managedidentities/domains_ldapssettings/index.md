@@ -1,4 +1,3 @@
-
 ---
 title: domains_ldapssettings
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: xpn_resources
 hide_title: false

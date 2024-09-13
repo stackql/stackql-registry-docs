@@ -1,4 +1,3 @@
-
 ---
 title: deployed_ingress_config
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: runtime_entity_schemas
 hide_title: false

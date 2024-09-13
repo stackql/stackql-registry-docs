@@ -1,4 +1,3 @@
-
 ---
 title: examples
 hide_title: false

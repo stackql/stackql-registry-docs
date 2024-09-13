@@ -1,4 +1,3 @@
-
 ---
 title: products
 hide_title: false

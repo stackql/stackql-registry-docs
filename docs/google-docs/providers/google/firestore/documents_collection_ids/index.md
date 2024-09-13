@@ -1,4 +1,3 @@
-
 ---
 title: documents_collection_ids
 hide_title: false

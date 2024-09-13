@@ -1,4 +1,3 @@
-
 ---
 title: vulnerabilities
 hide_title: false

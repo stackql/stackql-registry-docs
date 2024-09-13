@@ -1,4 +1,3 @@
-
 ---
 title: queued_resources
 hide_title: false

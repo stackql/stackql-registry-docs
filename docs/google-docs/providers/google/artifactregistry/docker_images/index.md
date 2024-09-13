@@ -1,4 +1,3 @@
-
 ---
 title: docker_images
 hide_title: false

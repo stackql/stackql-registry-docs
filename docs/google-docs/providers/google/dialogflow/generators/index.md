@@ -1,4 +1,3 @@
-
 ---
 title: generators
 hide_title: false

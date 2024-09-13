@@ -1,4 +1,3 @@
-
 ---
 title: region_security_policies_rule
 hide_title: false

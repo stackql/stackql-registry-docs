@@ -1,4 +1,3 @@
-
 ---
 title: log_scopes
 hide_title: false

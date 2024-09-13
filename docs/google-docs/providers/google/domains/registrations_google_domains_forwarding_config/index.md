@@ -1,4 +1,3 @@
-
 ---
 title: registrations_google_domains_forwarding_config
 hide_title: false

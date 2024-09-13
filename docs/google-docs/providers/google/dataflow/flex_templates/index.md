@@ -1,4 +1,3 @@
-
 ---
 title: flex_templates
 hide_title: false

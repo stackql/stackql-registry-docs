@@ -1,4 +1,3 @@
-
 ---
 title: device_users
 hide_title: false

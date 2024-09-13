@@ -1,4 +1,3 @@
-
 ---
 title: installer
 hide_title: false

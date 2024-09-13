@@ -1,4 +1,3 @@
-
 ---
 title: trials_measurement
 hide_title: false

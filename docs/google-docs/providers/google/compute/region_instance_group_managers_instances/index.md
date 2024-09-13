@@ -1,4 +1,3 @@
-
 ---
 title: region_instance_group_managers_instances
 hide_title: false

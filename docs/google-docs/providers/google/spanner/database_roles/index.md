@@ -1,4 +1,3 @@
-
 ---
 title: database_roles
 hide_title: false

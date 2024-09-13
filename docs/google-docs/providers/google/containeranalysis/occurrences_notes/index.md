@@ -1,4 +1,3 @@
-
 ---
 title: occurrences_notes
 hide_title: false

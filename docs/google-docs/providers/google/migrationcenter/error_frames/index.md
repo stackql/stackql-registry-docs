@@ -1,4 +1,3 @@
-
 ---
 title: error_frames
 hide_title: false

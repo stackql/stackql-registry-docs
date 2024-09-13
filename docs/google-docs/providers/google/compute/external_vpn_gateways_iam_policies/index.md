@@ -1,4 +1,3 @@
-
 ---
 title: external_vpn_gateways_iam_policies
 hide_title: false

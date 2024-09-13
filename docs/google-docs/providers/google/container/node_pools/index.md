@@ -1,4 +1,3 @@
-
 ---
 title: node_pools
 hide_title: false

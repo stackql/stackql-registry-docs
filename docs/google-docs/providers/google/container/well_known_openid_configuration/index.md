@@ -1,4 +1,3 @@
-
 ---
 title: well_known_openid_configuration
 hide_title: false

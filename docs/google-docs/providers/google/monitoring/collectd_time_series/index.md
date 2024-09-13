@@ -1,4 +1,3 @@
-
 ---
 title: collectd_time_series
 hide_title: false

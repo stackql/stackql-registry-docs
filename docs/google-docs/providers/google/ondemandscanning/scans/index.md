@@ -1,4 +1,3 @@
-
 ---
 title: scans
 hide_title: false

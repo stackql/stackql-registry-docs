@@ -1,4 +1,3 @@
-
 ---
 title: batches
 hide_title: false

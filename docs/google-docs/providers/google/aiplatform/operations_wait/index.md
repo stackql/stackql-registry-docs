@@ -1,4 +1,3 @@
-
 ---
 title: operations_wait
 hide_title: false

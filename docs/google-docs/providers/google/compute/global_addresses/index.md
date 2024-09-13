@@ -1,4 +1,3 @@
-
 ---
 title: global_addresses
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: data_labeling_jobs
 hide_title: false

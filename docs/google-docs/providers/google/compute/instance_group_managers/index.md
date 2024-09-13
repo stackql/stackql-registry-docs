@@ -1,4 +1,3 @@
-
 ---
 title: instance_group_managers
 hide_title: false

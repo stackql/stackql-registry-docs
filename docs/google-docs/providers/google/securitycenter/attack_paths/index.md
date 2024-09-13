@@ -1,4 +1,3 @@
-
 ---
 title: attack_paths
 hide_title: false

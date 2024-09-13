@@ -1,4 +1,3 @@
-
 ---
 title: apt_artifacts
 hide_title: false

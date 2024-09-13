@@ -1,4 +1,3 @@
-
 ---
 title: glossary_entries
 hide_title: false

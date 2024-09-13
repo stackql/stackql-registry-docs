@@ -1,4 +1,3 @@
-
 ---
 title: user_events
 hide_title: false

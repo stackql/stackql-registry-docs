@@ -1,4 +1,3 @@
-
 ---
 title: specs
 hide_title: false

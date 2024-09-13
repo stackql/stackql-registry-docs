@@ -1,4 +1,3 @@
-
 ---
 title: insight_types_config
 hide_title: false

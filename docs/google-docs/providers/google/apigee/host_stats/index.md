@@ -1,4 +1,3 @@
-
 ---
 title: host_stats
 hide_title: false

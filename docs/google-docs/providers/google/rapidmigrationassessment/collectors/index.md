@@ -1,4 +1,3 @@
-
 ---
 title: collectors
 hide_title: false

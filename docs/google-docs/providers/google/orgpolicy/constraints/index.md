@@ -1,4 +1,3 @@
-
 ---
 title: constraints
 hide_title: false

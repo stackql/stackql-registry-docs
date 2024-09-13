@@ -1,4 +1,3 @@
-
 ---
 title: domain_mappings
 hide_title: false

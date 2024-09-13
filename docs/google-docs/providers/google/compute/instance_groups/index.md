@@ -1,4 +1,3 @@
-
 ---
 title: instance_groups
 hide_title: false

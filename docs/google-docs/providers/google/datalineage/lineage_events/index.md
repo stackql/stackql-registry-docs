@@ -1,4 +1,3 @@
-
 ---
 title: lineage_events
 hide_title: false

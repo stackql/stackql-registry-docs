@@ -1,4 +1,3 @@
-
 ---
 title: fhir_stores
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: specs_revisions
 hide_title: false

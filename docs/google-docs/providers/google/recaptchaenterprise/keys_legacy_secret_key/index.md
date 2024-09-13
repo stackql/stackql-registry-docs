@@ -1,4 +1,3 @@
-
 ---
 title: keys_legacy_secret_key
 hide_title: false

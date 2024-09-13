@@ -1,4 +1,3 @@
-
 ---
 title: instances_shielded_instance_identity
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: current_conditions
 hide_title: false

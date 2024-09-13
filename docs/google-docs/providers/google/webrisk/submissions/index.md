@@ -1,4 +1,3 @@
-
 ---
 title: submissions
 hide_title: false

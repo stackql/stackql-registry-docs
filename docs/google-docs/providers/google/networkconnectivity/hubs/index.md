@@ -1,4 +1,3 @@
-
 ---
 title: hubs
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: autoscalers
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: ssl_certificates_aggregated
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: reservations
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: region_disks_snapshot
 hide_title: false

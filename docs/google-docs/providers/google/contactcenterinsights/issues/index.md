@@ -1,4 +1,3 @@
-
 ---
 title: issues
 hide_title: false

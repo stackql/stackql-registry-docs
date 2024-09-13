@@ -1,4 +1,3 @@
-
 ---
 title: authorized_certificates
 hide_title: false

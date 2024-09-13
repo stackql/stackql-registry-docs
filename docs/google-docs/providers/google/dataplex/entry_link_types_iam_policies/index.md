@@ -1,4 +1,3 @@
-
 ---
 title: entry_link_types_iam_policies
 hide_title: false

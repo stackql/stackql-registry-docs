@@ -1,4 +1,3 @@
-
 ---
 title: databases_scans
 hide_title: false

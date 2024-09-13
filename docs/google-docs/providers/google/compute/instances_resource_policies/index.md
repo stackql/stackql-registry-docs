@@ -1,4 +1,3 @@
-
 ---
 title: instances_resource_policies
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: time_series_service
 hide_title: false

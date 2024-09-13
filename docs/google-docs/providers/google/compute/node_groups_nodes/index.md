@@ -1,4 +1,3 @@
-
 ---
 title: node_groups_nodes
 hide_title: false

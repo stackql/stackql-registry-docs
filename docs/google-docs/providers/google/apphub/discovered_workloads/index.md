@@ -1,4 +1,3 @@
-
 ---
 title: discovered_workloads
 hide_title: false

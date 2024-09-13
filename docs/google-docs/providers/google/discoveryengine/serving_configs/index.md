@@ -1,4 +1,3 @@
-
 ---
 title: serving_configs
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: workloads_ekm_connections
 hide_title: false

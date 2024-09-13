@@ -1,4 +1,3 @@
-
 ---
 title: discovery
 hide_title: false

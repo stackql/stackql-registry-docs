@@ -1,4 +1,3 @@
-
 ---
 title: assignments
 hide_title: false

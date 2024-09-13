@@ -1,4 +1,3 @@
-
 ---
 title: schemas_revisions
 hide_title: false

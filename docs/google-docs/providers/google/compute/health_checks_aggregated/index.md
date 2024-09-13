@@ -1,4 +1,3 @@
-
 ---
 title: health_checks_aggregated
 hide_title: false

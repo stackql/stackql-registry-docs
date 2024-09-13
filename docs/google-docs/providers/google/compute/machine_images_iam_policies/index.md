@@ -1,4 +1,3 @@
-
 ---
 title: machine_images_iam_policies
 hide_title: false

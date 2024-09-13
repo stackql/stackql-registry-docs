@@ -1,4 +1,3 @@
-
 ---
 title: completion_data
 hide_title: false

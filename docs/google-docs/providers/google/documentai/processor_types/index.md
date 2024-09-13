@@ -1,4 +1,3 @@
-
 ---
 title: processor_types
 hide_title: false

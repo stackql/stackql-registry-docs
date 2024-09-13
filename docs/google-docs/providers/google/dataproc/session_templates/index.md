@@ -1,4 +1,3 @@
-
 ---
 title: session_templates
 hide_title: false

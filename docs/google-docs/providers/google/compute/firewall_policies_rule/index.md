@@ -1,4 +1,3 @@
-
 ---
 title: firewall_policies_rule
 hide_title: false

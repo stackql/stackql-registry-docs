@@ -1,4 +1,3 @@
-
 ---
 title: endpoint_policies
 hide_title: false

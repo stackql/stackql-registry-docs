@@ -1,4 +1,3 @@
-
 ---
 title: data_stores_site_search_engine
 hide_title: false

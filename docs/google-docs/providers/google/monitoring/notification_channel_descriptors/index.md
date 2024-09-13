@@ -1,4 +1,3 @@
-
 ---
 title: notification_channel_descriptors
 hide_title: false

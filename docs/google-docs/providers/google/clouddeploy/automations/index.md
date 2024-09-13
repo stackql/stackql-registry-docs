@@ -1,4 +1,3 @@
-
 ---
 title: automations
 hide_title: false

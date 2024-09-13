@@ -1,4 +1,3 @@
-
 ---
 title: cases
 hide_title: false

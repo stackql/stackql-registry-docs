@@ -1,4 +1,3 @@
-
 ---
 title: ca_pools
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: gateway_security_policies
 hide_title: false

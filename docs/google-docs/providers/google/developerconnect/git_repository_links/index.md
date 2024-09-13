@@ -1,4 +1,3 @@
-
 ---
 title: git_repository_links
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: example_comparisons
 hide_title: false

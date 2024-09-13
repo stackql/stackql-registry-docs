@@ -1,4 +1,3 @@
-
 ---
 title: instance_group_managers_managed_instances
 hide_title: false

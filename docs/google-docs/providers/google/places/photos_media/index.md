@@ -1,4 +1,3 @@
-
 ---
 title: photos_media
 hide_title: false

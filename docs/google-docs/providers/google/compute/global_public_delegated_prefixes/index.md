@@ -1,4 +1,3 @@
-
 ---
 title: global_public_delegated_prefixes
 hide_title: false

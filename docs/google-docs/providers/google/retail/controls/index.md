@@ -1,4 +1,3 @@
-
 ---
 title: controls
 hide_title: false

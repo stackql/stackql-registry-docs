@@ -1,4 +1,3 @@
-
 ---
 title: environments_security_actions_config
 hide_title: false

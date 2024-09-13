@@ -1,4 +1,3 @@
-
 ---
 title: views
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: stored_info_types
 hide_title: false

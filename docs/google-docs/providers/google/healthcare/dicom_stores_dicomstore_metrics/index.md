@@ -1,4 +1,3 @@
-
 ---
 title: dicom_stores_dicomstore_metrics
 hide_title: false

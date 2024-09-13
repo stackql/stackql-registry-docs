@@ -1,4 +1,3 @@
-
 ---
 title: resources
 hide_title: false

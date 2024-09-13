@@ -1,4 +1,3 @@
-
 ---
 title: batch_prediction_jobs
 hide_title: false

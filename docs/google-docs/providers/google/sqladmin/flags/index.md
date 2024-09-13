@@ -1,4 +1,3 @@
-
 ---
 title: flags
 hide_title: false

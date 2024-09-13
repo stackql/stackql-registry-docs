@@ -1,4 +1,3 @@
-
 ---
 title: certificate_templates
 hide_title: false

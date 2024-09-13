@@ -1,4 +1,3 @@
-
 ---
 title: resourcefiles_environment_resources
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: synonym_sets
 hide_title: false

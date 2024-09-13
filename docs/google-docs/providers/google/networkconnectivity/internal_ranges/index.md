@@ -1,4 +1,3 @@
-
 ---
 title: internal_ranges
 hide_title: false

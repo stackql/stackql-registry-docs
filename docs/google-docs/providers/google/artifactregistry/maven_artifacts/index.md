@@ -1,4 +1,3 @@
-
 ---
 title: maven_artifacts
 hide_title: false

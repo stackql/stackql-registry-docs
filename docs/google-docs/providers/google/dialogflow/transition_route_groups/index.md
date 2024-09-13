@@ -1,4 +1,3 @@
-
 ---
 title: transition_route_groups
 hide_title: false

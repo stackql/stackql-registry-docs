@@ -1,4 +1,3 @@
-
 ---
 title: snapshot_settings
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: debug_config
 hide_title: false

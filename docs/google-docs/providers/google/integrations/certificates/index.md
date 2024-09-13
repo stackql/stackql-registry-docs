@@ -1,4 +1,3 @@
-
 ---
 title: certificates
 hide_title: false

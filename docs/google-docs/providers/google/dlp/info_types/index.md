@@ -1,4 +1,3 @@
-
 ---
 title: info_types
 hide_title: false

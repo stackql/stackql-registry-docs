@@ -1,4 +1,3 @@
-
 ---
 title: interconnects_diagnostics
 hide_title: false

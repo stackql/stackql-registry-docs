@@ -1,4 +1,3 @@
-
 ---
 title: sql_integrations
 hide_title: false

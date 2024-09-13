@@ -1,4 +1,3 @@
-
 ---
 title: series_series_metrics
 hide_title: false

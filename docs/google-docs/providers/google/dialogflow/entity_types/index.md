@@ -1,4 +1,3 @@
-
 ---
 title: entity_types
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: region_health_checks
 hide_title: false

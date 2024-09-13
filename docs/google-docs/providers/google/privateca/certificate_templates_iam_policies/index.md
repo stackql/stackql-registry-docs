@@ -1,4 +1,3 @@
-
 ---
 title: certificate_templates_iam_policies
 hide_title: false

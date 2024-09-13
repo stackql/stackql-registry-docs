@@ -1,4 +1,3 @@
-
 ---
 title: ssl_certs_ephemeral
 hide_title: false

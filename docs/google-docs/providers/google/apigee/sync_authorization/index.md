@@ -1,4 +1,3 @@
-
 ---
 title: sync_authorization
 hide_title: false

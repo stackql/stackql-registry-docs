@@ -1,4 +1,3 @@
-
 ---
 title: workflow_templates
 hide_title: false

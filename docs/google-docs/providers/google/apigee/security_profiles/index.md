@@ -1,4 +1,3 @@
-
 ---
 title: security_profiles
 hide_title: false

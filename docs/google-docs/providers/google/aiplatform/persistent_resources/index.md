@@ -1,4 +1,3 @@
-
 ---
 title: persistent_resources
 hide_title: false

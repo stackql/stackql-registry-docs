@@ -1,4 +1,3 @@
-
 ---
 title: index_endpoints
 hide_title: false

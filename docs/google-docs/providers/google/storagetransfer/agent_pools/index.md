@@ -1,4 +1,3 @@
-
 ---
 title: agent_pools
 hide_title: false

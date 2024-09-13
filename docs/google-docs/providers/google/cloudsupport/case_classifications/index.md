@@ -1,4 +1,3 @@
-
 ---
 title: case_classifications
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: device_sessions
 hide_title: false

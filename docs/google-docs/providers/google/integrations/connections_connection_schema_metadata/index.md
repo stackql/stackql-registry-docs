@@ -1,4 +1,3 @@
-
 ---
 title: connections_connection_schema_metadata
 hide_title: false

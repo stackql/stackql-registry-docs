@@ -1,4 +1,3 @@
-
 ---
 title: listings
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: instance_configs
 hide_title: false

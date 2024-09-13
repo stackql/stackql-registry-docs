@@ -1,4 +1,3 @@
-
 ---
 title: completion_suggestions
 hide_title: false

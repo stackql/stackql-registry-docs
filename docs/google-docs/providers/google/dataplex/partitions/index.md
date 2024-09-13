@@ -1,4 +1,3 @@
-
 ---
 title: partitions
 hide_title: false

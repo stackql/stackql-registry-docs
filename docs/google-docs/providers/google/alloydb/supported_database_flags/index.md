@@ -1,4 +1,3 @@
-
 ---
 title: supported_database_flags
 hide_title: false

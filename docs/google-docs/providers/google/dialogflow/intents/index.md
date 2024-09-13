@@ -1,4 +1,3 @@
-
 ---
 title: intents
 hide_title: false

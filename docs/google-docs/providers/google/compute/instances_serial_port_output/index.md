@@ -1,4 +1,3 @@
-
 ---
 title: instances_serial_port_output
 hide_title: false

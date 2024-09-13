@@ -1,4 +1,3 @@
-
 ---
 title: relyingparty_project_config
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: catalog
 hide_title: false

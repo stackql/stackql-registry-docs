@@ -1,4 +1,3 @@
-
 ---
 title: health_checks
 hide_title: false

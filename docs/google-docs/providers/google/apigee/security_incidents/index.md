@@ -1,4 +1,3 @@
-
 ---
 title: security_incidents
 hide_title: false

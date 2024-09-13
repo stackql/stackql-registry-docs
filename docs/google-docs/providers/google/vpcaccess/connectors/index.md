@@ -1,4 +1,3 @@
-
 ---
 title: connectors
 hide_title: false

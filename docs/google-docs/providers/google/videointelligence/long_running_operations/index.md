@@ -1,4 +1,3 @@
-
 ---
 title: long_running_operations
 hide_title: false

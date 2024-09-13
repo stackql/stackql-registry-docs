@@ -1,4 +1,3 @@
-
 ---
 title: connect
 hide_title: false

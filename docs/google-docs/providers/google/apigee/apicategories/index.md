@@ -1,4 +1,3 @@
-
 ---
 title: apicategories
 hide_title: false

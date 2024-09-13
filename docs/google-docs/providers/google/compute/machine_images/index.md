@@ -1,4 +1,3 @@
-
 ---
 title: machine_images
 hide_title: false

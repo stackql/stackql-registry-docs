@@ -1,4 +1,3 @@
-
 ---
 title: ingress_rules
 hide_title: false

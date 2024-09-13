@@ -1,4 +1,3 @@
-
 ---
 title: groups
 hide_title: false

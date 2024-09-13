@@ -1,4 +1,3 @@
-
 ---
 title: repositories_remote_branches
 hide_title: false

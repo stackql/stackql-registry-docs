@@ -1,4 +1,3 @@
-
 ---
 title: billing_accounts
 hide_title: false

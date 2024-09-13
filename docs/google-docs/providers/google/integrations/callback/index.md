@@ -1,4 +1,3 @@
-
 ---
 title: callback
 hide_title: false

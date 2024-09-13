@@ -1,4 +1,3 @@
-
 ---
 title: storage_pools_disks
 hide_title: false

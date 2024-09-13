@@ -1,4 +1,3 @@
-
 ---
 title: databases_ddl
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: recent_queries
 hide_title: false

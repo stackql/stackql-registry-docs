@@ -1,4 +1,3 @@
-
 ---
 title: vmware_admin_clusters
 hide_title: false

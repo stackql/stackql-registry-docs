@@ -1,4 +1,3 @@
-
 ---
 title: metadata_stores
 hide_title: false

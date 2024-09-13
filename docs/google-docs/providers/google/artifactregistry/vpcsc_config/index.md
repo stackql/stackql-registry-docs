@@ -1,4 +1,3 @@
-
 ---
 title: vpcsc_config
 hide_title: false

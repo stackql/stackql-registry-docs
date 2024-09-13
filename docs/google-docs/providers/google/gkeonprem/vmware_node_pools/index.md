@@ -1,4 +1,3 @@
-
 ---
 title: vmware_node_pools
 hide_title: false

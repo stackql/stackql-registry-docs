@@ -1,4 +1,3 @@
-
 ---
 title: monitored_resource_descriptors
 hide_title: false

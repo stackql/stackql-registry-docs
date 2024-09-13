@@ -1,4 +1,3 @@
-
 ---
 title: namespaces
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: workforce_pools
 hide_title: false

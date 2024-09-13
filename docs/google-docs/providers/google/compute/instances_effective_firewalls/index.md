@@ -1,4 +1,3 @@
-
 ---
 title: instances_effective_firewalls
 hide_title: false

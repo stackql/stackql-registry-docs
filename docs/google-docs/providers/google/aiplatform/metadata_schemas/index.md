@@ -1,4 +1,3 @@
-
 ---
 title: metadata_schemas
 hide_title: false

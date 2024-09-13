@@ -1,4 +1,3 @@
-
 ---
 title: host_queries_result_view
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: certificate_issuance_configs
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: crypto_keys_protected_resources_summary
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: image_imports
 hide_title: false

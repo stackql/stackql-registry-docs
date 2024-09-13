@@ -1,4 +1,3 @@
-
 ---
 title: region_network_firewall_policies_effective_firewalls
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: crypto_keys_primary_version
 hide_title: false

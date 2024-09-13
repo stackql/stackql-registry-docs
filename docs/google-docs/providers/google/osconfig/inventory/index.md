@@ -1,4 +1,3 @@
-
 ---
 title: inventory
 hide_title: false

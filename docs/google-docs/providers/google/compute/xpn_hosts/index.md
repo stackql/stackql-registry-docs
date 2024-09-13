@@ -1,4 +1,3 @@
-
 ---
 title: xpn_hosts
 hide_title: false

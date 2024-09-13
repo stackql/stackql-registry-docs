@@ -1,4 +1,3 @@
-
 ---
 title: authorized_views
 hide_title: false

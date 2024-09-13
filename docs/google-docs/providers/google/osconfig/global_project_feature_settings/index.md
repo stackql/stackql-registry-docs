@@ -1,4 +1,3 @@
-
 ---
 title: global_project_feature_settings
 hide_title: false

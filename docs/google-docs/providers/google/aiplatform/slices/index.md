@@ -1,4 +1,3 @@
-
 ---
 title: slices
 hide_title: false

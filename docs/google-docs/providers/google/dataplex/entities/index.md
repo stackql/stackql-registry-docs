@@ -1,4 +1,3 @@
-
 ---
 title: entities
 hide_title: false

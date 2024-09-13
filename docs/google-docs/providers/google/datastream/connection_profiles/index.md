@@ -1,4 +1,3 @@
-
 ---
 title: connection_profiles
 hide_title: false

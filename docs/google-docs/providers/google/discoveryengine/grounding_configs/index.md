@@ -1,4 +1,3 @@
-
 ---
 title: grounding_configs
 hide_title: false

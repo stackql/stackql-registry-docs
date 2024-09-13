@@ -1,4 +1,3 @@
-
 ---
 title: products_local_inventories
 hide_title: false

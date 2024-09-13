@@ -1,4 +1,3 @@
-
 ---
 title: activities
 hide_title: false

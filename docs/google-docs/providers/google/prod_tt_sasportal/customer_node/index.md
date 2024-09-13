@@ -1,4 +1,3 @@
-
 ---
 title: customer_node
 hide_title: false

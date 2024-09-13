@@ -1,4 +1,3 @@
-
 ---
 title: placements
 hide_title: false

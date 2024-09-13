@@ -1,4 +1,3 @@
-
 ---
 title: transfer_logs
 hide_title: false

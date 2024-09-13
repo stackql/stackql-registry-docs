@@ -1,4 +1,3 @@
-
 ---
 title: organizations
 hide_title: false

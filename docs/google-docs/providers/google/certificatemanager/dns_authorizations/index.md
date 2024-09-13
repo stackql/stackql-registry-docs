@@ -1,4 +1,3 @@
-
 ---
 title: dns_authorizations
 hide_title: false

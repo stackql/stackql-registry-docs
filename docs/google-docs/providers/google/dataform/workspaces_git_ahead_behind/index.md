@@ -1,4 +1,3 @@
-
 ---
 title: workspaces_git_ahead_behind
 hide_title: false

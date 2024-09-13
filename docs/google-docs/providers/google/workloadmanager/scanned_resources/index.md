@@ -1,4 +1,3 @@
-
 ---
 title: scanned_resources
 hide_title: false

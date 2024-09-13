@@ -1,4 +1,3 @@
-
 ---
 title: instances_guest_attributes
 hide_title: false

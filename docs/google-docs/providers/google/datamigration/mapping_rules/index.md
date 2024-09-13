@@ -1,4 +1,3 @@
-
 ---
 title: mapping_rules
 hide_title: false

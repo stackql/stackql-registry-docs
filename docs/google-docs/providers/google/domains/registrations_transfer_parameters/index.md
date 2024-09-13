@@ -1,4 +1,3 @@
-
 ---
 title: registrations_transfer_parameters
 hide_title: false

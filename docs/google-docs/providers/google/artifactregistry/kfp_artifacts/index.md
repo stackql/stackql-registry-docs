@@ -1,4 +1,3 @@
-
 ---
 title: kfp_artifacts
 hide_title: false

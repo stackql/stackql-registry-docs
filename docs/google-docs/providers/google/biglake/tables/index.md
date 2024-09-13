@@ -1,4 +1,3 @@
-
 ---
 title: tables
 hide_title: false

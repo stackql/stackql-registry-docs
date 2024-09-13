@@ -1,4 +1,3 @@
-
 ---
 title: external_access_rules
 hide_title: false

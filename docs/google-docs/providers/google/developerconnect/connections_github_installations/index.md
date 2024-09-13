@@ -1,4 +1,3 @@
-
 ---
 title: connections_github_installations
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: locations
 hide_title: false

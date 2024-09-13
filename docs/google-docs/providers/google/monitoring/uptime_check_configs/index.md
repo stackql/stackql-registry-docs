@@ -1,4 +1,3 @@
-
 ---
 title: uptime_check_configs
 hide_title: false

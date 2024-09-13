@@ -1,4 +1,3 @@
-
 ---
 title: topics_partitions
 hide_title: false

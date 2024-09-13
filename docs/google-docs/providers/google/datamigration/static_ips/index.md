@@ -1,4 +1,3 @@
-
 ---
 title: static_ips
 hide_title: false

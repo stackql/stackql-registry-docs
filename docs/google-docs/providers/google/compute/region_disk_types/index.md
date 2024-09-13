@@ -1,4 +1,3 @@
-
 ---
 title: region_disk_types
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: databases
 hide_title: false

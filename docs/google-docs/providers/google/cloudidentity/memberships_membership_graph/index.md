@@ -1,4 +1,3 @@
-
 ---
 title: memberships_membership_graph
 hide_title: false

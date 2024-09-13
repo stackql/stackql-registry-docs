@@ -1,4 +1,3 @@
-
 ---
 title: server_config
 hide_title: false

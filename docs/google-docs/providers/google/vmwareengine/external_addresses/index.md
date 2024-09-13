@@ -1,4 +1,3 @@
-
 ---
 title: external_addresses
 hide_title: false

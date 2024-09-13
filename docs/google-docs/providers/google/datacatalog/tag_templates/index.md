@@ -1,4 +1,3 @@
-
 ---
 title: tag_templates
 hide_title: false

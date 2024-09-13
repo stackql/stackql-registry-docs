@@ -1,4 +1,3 @@
-
 ---
 title: instant_snapshots
 hide_title: false

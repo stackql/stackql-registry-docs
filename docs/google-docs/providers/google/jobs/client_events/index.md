@@ -1,4 +1,3 @@
-
 ---
 title: client_events
 hide_title: false

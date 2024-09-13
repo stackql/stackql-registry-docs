@@ -1,4 +1,3 @@
-
 ---
 title: jobs_execution_details
 hide_title: false

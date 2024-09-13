@@ -1,4 +1,3 @@
-
 ---
 title: images_from_family
 hide_title: false

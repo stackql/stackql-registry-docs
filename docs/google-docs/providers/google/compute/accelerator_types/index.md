@@ -1,4 +1,3 @@
-
 ---
 title: accelerator_types
 hide_title: false

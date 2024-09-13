@@ -1,4 +1,3 @@
-
 ---
 title: dicom_stores
 hide_title: false

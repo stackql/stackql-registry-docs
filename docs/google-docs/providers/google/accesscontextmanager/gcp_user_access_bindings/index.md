@@ -1,4 +1,3 @@
-
 ---
 title: gcp_user_access_bindings
 hide_title: false

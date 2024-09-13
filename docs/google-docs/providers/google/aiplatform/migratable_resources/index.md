@@ -1,4 +1,3 @@
-
 ---
 title: migratable_resources
 hide_title: false

@@ -1,4 +1,3 @@
-
 ---
 title: job_templates
 hide_title: false

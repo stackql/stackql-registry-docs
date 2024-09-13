@@ -1,4 +1,3 @@
-
 ---
 title: column_data_profiles
 hide_title: false

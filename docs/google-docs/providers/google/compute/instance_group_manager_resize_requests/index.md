@@ -1,4 +1,3 @@
-
 ---
 title: instance_group_manager_resize_requests
 hide_title: false

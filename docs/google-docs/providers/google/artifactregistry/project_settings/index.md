@@ -1,4 +1,3 @@
-
 ---
 title: project_settings
 hide_title: false
