@@ -1,3 +1,4 @@
+
 ---
 title: os_images
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - os_images
   - baremetalsolution
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>os_image</code> resource or lists <code>os_images</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,9 +37,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="applicableInstanceTypes" /> | `array` | Instance types this image is applicable to. [Available types](https://cloud.google.com/bare-metal/docs/bms-planning#server_configurations) |
 | <CopyableCode code="code" /> | `string` | OS Image code. |
 | <CopyableCode code="supportedNetworkTemplates" /> | `array` | Network templates that can be used with this OS Image. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, osImagesId, projectsId" /> | Get details of a single OS image. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Retrieves the list of OS images which are currently approved. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Retrieves the list of OS images which are currently approved. |
+
+## `SELECT` examples
+
+Retrieves the list of OS images which are currently approved.
+
+```sql
+SELECT
+name,
+description,
+applicableInstanceTypes,
+code,
+supportedNetworkTemplates
+FROM google.baremetalsolution.os_images
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

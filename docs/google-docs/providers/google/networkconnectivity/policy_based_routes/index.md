@@ -1,3 +1,4 @@
+
 ---
 title: policy_based_routes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - policy_based_routes
   - networkconnectivity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>policy_based_route</code> resource or lists <code>policy_based_routes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. A unique name of the resource in the form of `projects/&#123;project_number&#125;/locations/global/PolicyBasedRoutes/&#123;policy_based_route_id&#125;` |
+| <CopyableCode code="name" /> | `string` | Immutable. A unique name of the resource in the form of `projects/{project_number}/locations/global/PolicyBasedRoutes/{policy_based_route_id}` |
 | <CopyableCode code="description" /> | `string` | Optional. An optional description of this resource. Provide this field when you create the resource. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time when the policy-based route was created. |
 | <CopyableCode code="filter" /> | `object` | Filter matches L4 traffic. |
@@ -45,6 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the policy-based route was updated. |
 | <CopyableCode code="virtualMachine" /> | `object` | VM instances that this policy-based route applies to. |
 | <CopyableCode code="warnings" /> | `array` | Output only. If potential misconfigurations are detected for this route, this field will be populated with warning messages. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,4 +55,132 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists policy-based routes in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new policy-based route in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="policyBasedRoutesId, projectsId" /> | Deletes a single policy-based route. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists policy-based routes in a given project and location. |
+
+## `SELECT` examples
+
+Lists policy-based routes in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+filter,
+interconnectAttachment,
+kind,
+labels,
+network,
+nextHopIlbIp,
+nextHopOtherRoutes,
+priority,
+selfLink,
+updateTime,
+virtualMachine,
+warnings
+FROM google.networkconnectivity.policy_based_routes
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>policy_based_routes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networkconnectivity.policy_based_routes (
+projectsId,
+virtualMachine,
+interconnectAttachment,
+nextHopIlbIp,
+nextHopOtherRoutes,
+name,
+createTime,
+updateTime,
+labels,
+description,
+network,
+filter,
+priority,
+warnings,
+selfLink,
+kind
+)
+SELECT 
+'{{ projectsId }}',
+'{{ virtualMachine }}',
+'{{ interconnectAttachment }}',
+'{{ nextHopIlbIp }}',
+'{{ nextHopOtherRoutes }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ description }}',
+'{{ network }}',
+'{{ filter }}',
+'{{ priority }}',
+'{{ warnings }}',
+'{{ selfLink }}',
+'{{ kind }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: virtualMachine
+        value: '{{ virtualMachine }}'
+      - name: interconnectAttachment
+        value: '{{ interconnectAttachment }}'
+      - name: nextHopIlbIp
+        value: '{{ nextHopIlbIp }}'
+      - name: nextHopOtherRoutes
+        value: '{{ nextHopOtherRoutes }}'
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: description
+        value: '{{ description }}'
+      - name: network
+        value: '{{ network }}'
+      - name: filter
+        value: '{{ filter }}'
+      - name: priority
+        value: '{{ priority }}'
+      - name: warnings
+        value: '{{ warnings }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: kind
+        value: '{{ kind }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified policy_based_route resource.
+
+```sql
+DELETE FROM google.networkconnectivity.policy_based_routes
+WHERE policyBasedRoutesId = '{{ policyBasedRoutesId }}'
+AND projectsId = '{{ projectsId }}';
+```

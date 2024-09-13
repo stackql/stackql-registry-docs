@@ -1,3 +1,4 @@
+
 ---
 title: iam
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - iam
   - policytroubleshooter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>iam</code> resource or lists <code>iam</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="troubleshoot" /> | `EXEC` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="troubleshoot" /> | `EXEC` | <CopyableCode code="" /> | Checks whether a principal has a specific permission for a specific resource, and explains why the principal does or does not have that permission. |

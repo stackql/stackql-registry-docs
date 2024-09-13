@@ -1,3 +1,4 @@
+
 ---
 title: security_health_analytics_modules
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - security_health_analytics_modules
   - securitycenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>security_health_analytics_module</code> resource or lists <code>security_health_analytics_modules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,13 +32,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the custom module. Its format is "organizations/&#123;organization&#125;/securityHealthAnalyticsSettings/customModules/&#123;customModule&#125;", or "folders/&#123;folder&#125;/securityHealthAnalyticsSettings/customModules/&#123;customModule&#125;", or "projects/&#123;project&#125;/securityHealthAnalyticsSettings/customModules/&#123;customModule&#125;" The id &#123;customModule&#125; is server-generated and is not user settable. It will be a numeric id containing 1-20 digits. |
+| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the custom module. Its format is "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}", or "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}", or "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}" The id {customModule} is server-generated and is not user settable. It will be a numeric id containing 1-20 digits. |
 | <CopyableCode code="ancestorModule" /> | `string` | Output only. If empty, indicates that the custom module was created in the organization, folder, or project in which you are viewing the custom module. Otherwise, `ancestor_module` specifies the organization or folder from which the custom module is inherited. |
 | <CopyableCode code="customConfig" /> | `object` | Defines the properties in a custom module configuration for Security Health Analytics. Use the custom module configuration to create custom detectors that generate custom findings for resources that you specify. |
 | <CopyableCode code="displayName" /> | `string` | The display name of the Security Health Analytics custom module. This display name becomes the finding category for all findings that are returned by this custom module. The display name must be between 1 and 128 characters, start with a lowercase letter, and contain alphanumeric characters or underscores only. |
 | <CopyableCode code="enablementState" /> | `string` | The enablement state of the custom module. |
 | <CopyableCode code="lastEditor" /> | `string` | Output only. The editor that last updated the custom module. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time at which the custom module was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,6 +55,92 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_security_health_analytics_settings_custom_modules_delete" /> | `DELETE` | <CopyableCode code="customModulesId, foldersId" /> | Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. |
 | <CopyableCode code="organizations_security_health_analytics_settings_custom_modules_delete" /> | `DELETE` | <CopyableCode code="customModulesId, organizationsId" /> | Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. |
 | <CopyableCode code="projects_security_health_analytics_settings_custom_modules_delete" /> | `DELETE` | <CopyableCode code="customModulesId, projectsId" /> | Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. |
-| <CopyableCode code="_folders_security_health_analytics_settings_custom_modules_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors. |
-| <CopyableCode code="_organizations_security_health_analytics_settings_custom_modules_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors. |
-| <CopyableCode code="_projects_security_health_analytics_settings_custom_modules_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors. |
+
+## `SELECT` examples
+
+Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors.
+
+```sql
+SELECT
+name,
+ancestorModule,
+customConfig,
+displayName,
+enablementState,
+lastEditor,
+updateTime
+FROM google.securitycenter.security_health_analytics_modules
+WHERE foldersId = '{{ foldersId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>security_health_analytics_modules</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.securitycenter.security_health_analytics_modules (
+foldersId,
+name,
+displayName,
+enablementState,
+updateTime,
+lastEditor,
+ancestorModule,
+customConfig
+)
+SELECT 
+'{{ foldersId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ enablementState }}',
+'{{ updateTime }}',
+'{{ lastEditor }}',
+'{{ ancestorModule }}',
+'{{ customConfig }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: enablementState
+        value: '{{ enablementState }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: lastEditor
+        value: '{{ lastEditor }}'
+      - name: ancestorModule
+        value: '{{ ancestorModule }}'
+      - name: customConfig
+        value: '{{ customConfig }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified security_health_analytics_module resource.
+
+```sql
+DELETE FROM google.securitycenter.security_health_analytics_modules
+WHERE customModulesId = '{{ customModulesId }}'
+AND foldersId = '{{ foldersId }}';
+```

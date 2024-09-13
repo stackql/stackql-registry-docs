@@ -1,3 +1,4 @@
+
 ---
 title: ekm_config
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - ekm_config
   - cloudkms
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>ekm_config</code> resource or lists <code>ekm_config</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,8 +34,36 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Output only. The resource name for the EkmConfig in the format `projects/*/locations/*/ekmConfig`. |
 | <CopyableCode code="defaultEkmConnection" /> | `string` | Optional. Resource name of the default EkmConnection. Setting this field to the empty string removes the default. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_ekm_config" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Returns the EkmConfig singleton resource for a given project and location. |
-| <CopyableCode code="update_ekm_config" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Updates the EkmConfig singleton resource for a given project and location. |
+| <CopyableCode code="update_ekm_config" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId" /> | Updates the EkmConfig singleton resource for a given project and location. |
+
+## `SELECT` examples
+
+Returns the EkmConfig singleton resource for a given project and location.
+
+```sql
+SELECT
+name,
+defaultEkmConnection
+FROM google.cloudkms.ekm_config
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a ekm_config only if the necessary resources are available.
+
+```sql
+UPDATE google.cloudkms.ekm_config
+SET 
+name = '{{ name }}',
+defaultEkmConnection = '{{ defaultEkmConnection }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

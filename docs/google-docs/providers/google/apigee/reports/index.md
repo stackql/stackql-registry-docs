@@ -1,3 +1,4 @@
+
 ---
 title: reports
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - reports
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>report</code> resource or lists <code>reports</code> in a region
 
 ## Overview
 <table><tbody>
@@ -52,6 +54,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="timeUnit" /> | `string` | This field contains the time unit of aggregation for the report |
 | <CopyableCode code="toTime" /> | `string` | Legacy field: not used. Contains the end time for the report |
 | <CopyableCode code="topk" /> | `string` | Legacy field: not used. This field contains the top k parameter value for restricting the result |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -59,4 +62,168 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_reports_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Return a list of Custom Reports |
 | <CopyableCode code="organizations_reports_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a Custom Report for an Organization. A Custom Report provides Apigee Customers to create custom dashboards in addition to the standard dashboards which are provided. The Custom Report in its simplest form contains specifications about metrics, dimensions and filters. It is important to note that the custom report by itself does not provide an executable entity. The Edge UI converts the custom report definition into an analytics query and displays the result in a chart. |
 | <CopyableCode code="organizations_reports_delete" /> | `DELETE` | <CopyableCode code="organizationsId, reportsId" /> | Deletes an existing custom report definition |
-| <CopyableCode code="organizations_reports_update" /> | `UPDATE` | <CopyableCode code="organizationsId, reportsId" /> | Update an existing custom report definition |
+| <CopyableCode code="organizations_reports_update" /> | `EXEC` | <CopyableCode code="organizationsId, reportsId" /> | Update an existing custom report definition |
+
+## `SELECT` examples
+
+Return a list of Custom Reports
+
+```sql
+SELECT
+name,
+chartType,
+comments,
+createdAt,
+dimensions,
+displayName,
+environment,
+filter,
+fromTime,
+lastModifiedAt,
+lastViewedAt,
+limit,
+metrics,
+offset,
+organization,
+properties,
+sortByCols,
+sortOrder,
+tags,
+timeUnit,
+toTime,
+topk
+FROM google.apigee.reports
+WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>reports</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.reports (
+organizationsId,
+fromTime,
+sortByCols,
+offset,
+environment,
+sortOrder,
+topk,
+name,
+timeUnit,
+chartType,
+lastModifiedAt,
+metrics,
+filter,
+createdAt,
+properties,
+toTime,
+displayName,
+organization,
+comments,
+tags,
+lastViewedAt,
+dimensions,
+limit
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ fromTime }}',
+'{{ sortByCols }}',
+'{{ offset }}',
+'{{ environment }}',
+'{{ sortOrder }}',
+'{{ topk }}',
+'{{ name }}',
+'{{ timeUnit }}',
+'{{ chartType }}',
+'{{ lastModifiedAt }}',
+'{{ metrics }}',
+'{{ filter }}',
+'{{ createdAt }}',
+'{{ properties }}',
+'{{ toTime }}',
+'{{ displayName }}',
+'{{ organization }}',
+'{{ comments }}',
+'{{ tags }}',
+'{{ lastViewedAt }}',
+'{{ dimensions }}',
+'{{ limit }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: fromTime
+        value: '{{ fromTime }}'
+      - name: sortByCols
+        value: '{{ sortByCols }}'
+      - name: offset
+        value: '{{ offset }}'
+      - name: environment
+        value: '{{ environment }}'
+      - name: sortOrder
+        value: '{{ sortOrder }}'
+      - name: topk
+        value: '{{ topk }}'
+      - name: name
+        value: '{{ name }}'
+      - name: timeUnit
+        value: '{{ timeUnit }}'
+      - name: chartType
+        value: '{{ chartType }}'
+      - name: lastModifiedAt
+        value: '{{ lastModifiedAt }}'
+      - name: metrics
+        value: '{{ metrics }}'
+      - name: filter
+        value: '{{ filter }}'
+      - name: createdAt
+        value: '{{ createdAt }}'
+      - name: properties
+        value: '{{ properties }}'
+      - name: toTime
+        value: '{{ toTime }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: organization
+        value: '{{ organization }}'
+      - name: comments
+        value: '{{ comments }}'
+      - name: tags
+        value: '{{ tags }}'
+      - name: lastViewedAt
+        value: '{{ lastViewedAt }}'
+      - name: dimensions
+        value: '{{ dimensions }}'
+      - name: limit
+        value: '{{ limit }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified report resource.
+
+```sql
+DELETE FROM google.apigee.reports
+WHERE organizationsId = '{{ organizationsId }}'
+AND reportsId = '{{ reportsId }}';
+```

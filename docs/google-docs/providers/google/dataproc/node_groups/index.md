@@ -1,3 +1,4 @@
+
 ---
 title: node_groups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - node_groups
   - dataproc
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>node_group</code> resource or lists <code>node_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,6 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Optional. Node group labels. Label keys must consist of from 1 to 63 characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values can be empty. If specified, they must consist of from 1 to 63 characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). The node group must have no more than 32 labelsn. |
 | <CopyableCode code="nodeGroupConfig" /> | `object` | The config settings for Compute Engine resources in an instance group, such as a master or worker group. |
 | <CopyableCode code="roles" /> | `array` | Required. Node group roles. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -41,3 +44,74 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_regions_clusters_node_groups_create" /> | `INSERT` | <CopyableCode code="clustersId, projectsId, regionsId" /> | Creates a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata). |
 | <CopyableCode code="projects_regions_clusters_node_groups_repair" /> | `EXEC` | <CopyableCode code="clustersId, nodeGroupsId, projectsId, regionsId" /> | Repair nodes in a node group. |
 | <CopyableCode code="projects_regions_clusters_node_groups_resize" /> | `EXEC` | <CopyableCode code="clustersId, nodeGroupsId, projectsId, regionsId" /> | Resizes a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata). |
+
+## `SELECT` examples
+
+Gets the resource representation for a node group in a cluster.
+
+```sql
+SELECT
+name,
+labels,
+nodeGroupConfig,
+roles
+FROM google.dataproc.node_groups
+WHERE clustersId = '{{ clustersId }}'
+AND nodeGroupsId = '{{ nodeGroupsId }}'
+AND projectsId = '{{ projectsId }}'
+AND regionsId = '{{ regionsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>node_groups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataproc.node_groups (
+clustersId,
+projectsId,
+regionsId,
+name,
+roles,
+nodeGroupConfig,
+labels
+)
+SELECT 
+'{{ clustersId }}',
+'{{ projectsId }}',
+'{{ regionsId }}',
+'{{ name }}',
+'{{ roles }}',
+'{{ nodeGroupConfig }}',
+'{{ labels }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: roles
+        value: '{{ roles }}'
+      - name: nodeGroupConfig
+        value: '{{ nodeGroupConfig }}'
+      - name: labels
+        value: '{{ labels }}'
+
+```
+</TabItem>
+</Tabs>

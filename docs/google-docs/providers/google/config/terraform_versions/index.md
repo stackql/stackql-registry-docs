@@ -1,3 +1,4 @@
+
 ---
 title: terraform_versions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - terraform_versions
   - config
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>terraform_version</code> resource or lists <code>terraform_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,14 +32,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. The version name is in the format: 'projects/&#123;project_id&#125;/locations/&#123;location&#125;/terraformVersions/&#123;terraform_version&#125;'. |
+| <CopyableCode code="name" /> | `string` | Identifier. The version name is in the format: 'projects/{project_id}/locations/{location}/terraformVersions/{terraform_version}'. |
 | <CopyableCode code="deprecateTime" /> | `string` | Output only. When the version is deprecated. |
 | <CopyableCode code="obsoleteTime" /> | `string` | Output only. When the version is obsolete. |
 | <CopyableCode code="state" /> | `string` | Output only. The state of the version, ACTIVE, DEPRECATED or OBSOLETE. |
 | <CopyableCode code="supportTime" /> | `string` | Output only. When the version is supported. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, terraformVersionsId" /> | Gets details about a TerraformVersion. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists TerraformVersions in a given project and location. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists TerraformVersions in a given project and location. |
+
+## `SELECT` examples
+
+Lists TerraformVersions in a given project and location.
+
+```sql
+SELECT
+name,
+deprecateTime,
+obsoleteTime,
+state,
+supportTime
+FROM google.config.terraform_versions
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

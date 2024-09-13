@@ -1,3 +1,4 @@
+
 ---
 title: host_security_reports
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - host_security_reports
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>host_security_report</code> resource or lists <code>host_security_reports</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,10 +45,111 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="self" /> | `string` | Self link of the query. Example: `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` or following format if query is running at host level: `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd` |
 | <CopyableCode code="state" /> | `string` | Query state could be "enqueued", "running", "completed", "expired" and "failed". |
 | <CopyableCode code="updated" /> | `string` | Output only. Last updated timestamp for the query. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_host_security_reports_get" /> | `SELECT` | <CopyableCode code="hostSecurityReportsId, organizationsId" /> | Get status of a query submitted at host level. If the query is still in progress, the `state` is set to "running" After the query has completed successfully, `state` is set to "completed" |
 | <CopyableCode code="organizations_host_security_reports_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Return a list of Security Reports at host level. |
 | <CopyableCode code="organizations_host_security_reports_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Submit a query at host level to be processed in the background. If the submission of the query succeeds, the API returns a 201 status and an ID that refer to the query. In addition to the HTTP status 201, the `state` of "enqueued" means that the request succeeded. |
-| <CopyableCode code="_organizations_host_security_reports_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Return a list of Security Reports at host level. |
+
+## `SELECT` examples
+
+Return a list of Security Reports at host level.
+
+```sql
+SELECT
+created,
+displayName,
+envgroupHostname,
+error,
+executionTime,
+queryParams,
+reportDefinitionId,
+result,
+resultFileSize,
+resultRows,
+self,
+state,
+updated
+FROM google.apigee.host_security_reports
+WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>host_security_reports</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.host_security_reports (
+organizationsId,
+reportDefinitionId,
+envgroupHostname,
+limit,
+metrics,
+dimensions,
+groupByTimeUnit,
+mimeType,
+timeRange,
+csvDelimiter,
+filter,
+displayName
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ reportDefinitionId }}',
+'{{ envgroupHostname }}',
+'{{ limit }}',
+'{{ metrics }}',
+'{{ dimensions }}',
+'{{ groupByTimeUnit }}',
+'{{ mimeType }}',
+'{{ timeRange }}',
+'{{ csvDelimiter }}',
+'{{ filter }}',
+'{{ displayName }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: reportDefinitionId
+        value: '{{ reportDefinitionId }}'
+      - name: envgroupHostname
+        value: '{{ envgroupHostname }}'
+      - name: limit
+        value: '{{ limit }}'
+      - name: metrics
+        value: '{{ metrics }}'
+      - name: dimensions
+        value: '{{ dimensions }}'
+      - name: groupByTimeUnit
+        value: '{{ groupByTimeUnit }}'
+      - name: mimeType
+        value: '{{ mimeType }}'
+      - name: timeRange
+        value: '{{ timeRange }}'
+      - name: csvDelimiter
+        value: '{{ csvDelimiter }}'
+      - name: filter
+        value: '{{ filter }}'
+      - name: displayName
+        value: '{{ displayName }}'
+
+```
+</TabItem>
+</Tabs>

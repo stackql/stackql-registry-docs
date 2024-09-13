@@ -1,3 +1,4 @@
+
 ---
 title: logs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - logs
   - logging
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>log</code> resource or lists <code>logs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,6 +30,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="column_anon" /> | `string` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,12 +51,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="logs_delete" /> | `DELETE` | <CopyableCode code="logName" /> | Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. |
 | <CopyableCode code="organizations_logs_delete" /> | `DELETE` | <CopyableCode code="logsId, organizationsId" /> | Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. |
 | <CopyableCode code="projects_logs_delete" /> | `DELETE` | <CopyableCode code="logsId, projectsId" /> | Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. |
-| <CopyableCode code="_billing_accounts_locations_buckets_views_logs_list" /> | `EXEC` | <CopyableCode code="billingAccountsId, bucketsId, locationsId, viewsId" /> | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
-| <CopyableCode code="_billing_accounts_logs_list" /> | `EXEC` | <CopyableCode code="billingAccountsId" /> | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
-| <CopyableCode code="_folders_locations_buckets_views_logs_list" /> | `EXEC` | <CopyableCode code="bucketsId, foldersId, locationsId, viewsId" /> | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
-| <CopyableCode code="_folders_logs_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
-| <CopyableCode code="_logs_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
-| <CopyableCode code="_organizations_locations_buckets_views_logs_list" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId, viewsId" /> | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
-| <CopyableCode code="_organizations_logs_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
-| <CopyableCode code="_projects_locations_buckets_views_logs_list" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId, viewsId" /> | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
-| <CopyableCode code="_projects_logs_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. |
+
+## `SELECT` examples
+
+Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed.
+
+```sql
+SELECT
+column_anon
+FROM google.logging.logs
+WHERE foldersId = '{{ foldersId }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified log resource.
+
+```sql
+DELETE FROM google.logging.logs
+WHERE logName = '{{ logName }}';
+```

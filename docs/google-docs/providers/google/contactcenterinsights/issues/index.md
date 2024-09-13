@@ -1,3 +1,4 @@
+
 ---
 title: issues
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - issues
   - contactcenterinsights
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>issue</code> resource or lists <code>issues</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,11 +32,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the issue. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/issueModels/&#123;issue_model&#125;/issues/&#123;issue&#125; |
+| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the issue. Format: projects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue} |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time at which this issue was created. |
+| <CopyableCode code="displayDescription" /> | `string` | Representative description of the issue. |
 | <CopyableCode code="displayName" /> | `string` | The representative name for the issue. |
 | <CopyableCode code="sampleUtterances" /> | `array` | Output only. Resource names of the sample representative utterances that match to this issue. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The most recent time that this issue was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,3 +46,53 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="issueModelsId, locationsId, projectsId" /> | Lists issues. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="issueModelsId, issuesId, locationsId, projectsId" /> | Deletes an issue. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="issueModelsId, issuesId, locationsId, projectsId" /> | Updates an issue. |
+
+## `SELECT` examples
+
+Lists issues.
+
+```sql
+SELECT
+name,
+createTime,
+displayDescription,
+displayName,
+sampleUtterances,
+updateTime
+FROM google.contactcenterinsights.issues
+WHERE issueModelsId = '{{ issueModelsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a issue only if the necessary resources are available.
+
+```sql
+UPDATE google.contactcenterinsights.issues
+SET 
+updateTime = '{{ updateTime }}',
+createTime = '{{ createTime }}',
+sampleUtterances = '{{ sampleUtterances }}',
+displayDescription = '{{ displayDescription }}',
+name = '{{ name }}',
+displayName = '{{ displayName }}'
+WHERE 
+issueModelsId = '{{ issueModelsId }}'
+AND issuesId = '{{ issuesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified issue resource.
+
+```sql
+DELETE FROM google.contactcenterinsights.issues
+WHERE issueModelsId = '{{ issueModelsId }}'
+AND issuesId = '{{ issuesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

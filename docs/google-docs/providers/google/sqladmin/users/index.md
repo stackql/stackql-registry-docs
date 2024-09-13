@@ -1,3 +1,4 @@
+
 ---
 title: users
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - users
   - sqladmin
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>user</code> resource or lists <code>users</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,6 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="project" /> | `string` | The project ID of the project containing the Cloud SQL database. The Google apps domain is prefixed if applicable. Can be omitted for `update` because it is already specified on the URL. |
 | <CopyableCode code="sqlserverUserDetails" /> | `object` | Represents a Sql Server user on the Cloud SQL instance. |
 | <CopyableCode code="type" /> | `string` | The user type. It determines the method to authenticate the user during login. The default is the database's built-in user type. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,5 +51,116 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instance, project" /> | Lists users in the specified Cloud SQL instance. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="instance, project" /> | Creates a new user in a Cloud SQL instance. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instance, project" /> | Deletes a user from a Cloud SQL instance. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="instance, project" /> | Updates an existing user in a Cloud SQL instance. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="instance, project" /> | Lists users in the specified Cloud SQL instance. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instance, project" /> | Updates an existing user in a Cloud SQL instance. |
+
+## `SELECT` examples
+
+Lists users in the specified Cloud SQL instance.
+
+```sql
+SELECT
+name,
+dualPasswordType,
+etag,
+host,
+instance,
+kind,
+password,
+passwordPolicy,
+project,
+sqlserverUserDetails,
+type
+FROM google.sqladmin.users
+WHERE instance = '{{ instance }}'
+AND project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>users</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.sqladmin.users (
+instance,
+project,
+kind,
+password,
+etag,
+name,
+host,
+instance,
+project,
+type,
+sqlserverUserDetails,
+passwordPolicy,
+dualPasswordType
+)
+SELECT 
+'{{ instance }}',
+'{{ project }}',
+'{{ kind }}',
+'{{ password }}',
+'{{ etag }}',
+'{{ name }}',
+'{{ host }}',
+'{{ instance }}',
+'{{ project }}',
+'{{ type }}',
+'{{ sqlserverUserDetails }}',
+'{{ passwordPolicy }}',
+'{{ dualPasswordType }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: password
+        value: '{{ password }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: name
+        value: '{{ name }}'
+      - name: host
+        value: '{{ host }}'
+      - name: instance
+        value: '{{ instance }}'
+      - name: project
+        value: '{{ project }}'
+      - name: type
+        value: '{{ type }}'
+      - name: sqlserverUserDetails
+        value: '{{ sqlserverUserDetails }}'
+      - name: passwordPolicy
+        value: '{{ passwordPolicy }}'
+      - name: dualPasswordType
+        value: '{{ dualPasswordType }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified user resource.
+
+```sql
+DELETE FROM google.sqladmin.users
+WHERE instance = '{{ instance }}'
+AND project = '{{ project }}';
+```

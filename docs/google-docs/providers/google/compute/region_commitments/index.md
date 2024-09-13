@@ -1,3 +1,4 @@
+
 ---
 title: region_commitments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_commitments
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_commitment</code> resource or lists <code>region_commitments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -51,6 +53,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `string` | [Output Only] Status of the commitment with regards to eventual expiration (each commitment has an end date defined). One of the following values: NOT_YET_ACTIVE, ACTIVE, EXPIRED. |
 | <CopyableCode code="statusMessage" /> | `string` | [Output Only] An optional, human-readable explanation of the status. |
 | <CopyableCode code="type" /> | `string` | The type of commitment, which affects the discount rate and the eligible resources. Type MEMORY_OPTIMIZED specifies a commitment that will only apply to memory optimized machines. Type ACCELERATOR_OPTIMIZED specifies a commitment that will only apply to accelerator optimized machines. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -59,4 +62,188 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of commitments contained within the specified region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a commitment in the specified project using the data included in the request. |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="commitment, project, region" /> | Updates the specified commitment with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: auto_renew. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of commitments by region. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of commitments by region. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+autoRenew,
+category,
+creationTimestamp,
+endTimestamp,
+existingReservations,
+kind,
+licenseResource,
+mergeSourceCommitments,
+plan,
+region,
+reservations,
+resources,
+selfLink,
+splitSourceCommitment,
+startTimestamp,
+status,
+statusMessage,
+type
+FROM google.compute.region_commitments
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>region_commitments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.region_commitments (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+region,
+selfLink,
+status,
+statusMessage,
+plan,
+startTimestamp,
+endTimestamp,
+resources,
+type,
+reservations,
+category,
+licenseResource,
+autoRenew,
+mergeSourceCommitments,
+splitSourceCommitment,
+existingReservations
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ region }}',
+'{{ selfLink }}',
+'{{ status }}',
+'{{ statusMessage }}',
+'{{ plan }}',
+'{{ startTimestamp }}',
+'{{ endTimestamp }}',
+'{{ resources }}',
+'{{ type }}',
+'{{ reservations }}',
+'{{ category }}',
+'{{ licenseResource }}',
+true|false,
+'{{ mergeSourceCommitments }}',
+'{{ splitSourceCommitment }}',
+'{{ existingReservations }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: region
+        value: '{{ region }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: status
+        value: '{{ status }}'
+      - name: statusMessage
+        value: '{{ statusMessage }}'
+      - name: plan
+        value: '{{ plan }}'
+      - name: startTimestamp
+        value: '{{ startTimestamp }}'
+      - name: endTimestamp
+        value: '{{ endTimestamp }}'
+      - name: resources
+        value: '{{ resources }}'
+      - name: type
+        value: '{{ type }}'
+      - name: reservations
+        value: '{{ reservations }}'
+      - name: category
+        value: '{{ category }}'
+      - name: licenseResource
+        value: '{{ licenseResource }}'
+      - name: autoRenew
+        value: '{{ autoRenew }}'
+      - name: mergeSourceCommitments
+        value: '{{ mergeSourceCommitments }}'
+      - name: splitSourceCommitment
+        value: '{{ splitSourceCommitment }}'
+      - name: existingReservations
+        value: '{{ existingReservations }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a region_commitment only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.region_commitments
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+region = '{{ region }}',
+selfLink = '{{ selfLink }}',
+status = '{{ status }}',
+statusMessage = '{{ statusMessage }}',
+plan = '{{ plan }}',
+startTimestamp = '{{ startTimestamp }}',
+endTimestamp = '{{ endTimestamp }}',
+resources = '{{ resources }}',
+type = '{{ type }}',
+reservations = '{{ reservations }}',
+category = '{{ category }}',
+licenseResource = '{{ licenseResource }}',
+autoRenew = true|false,
+mergeSourceCommitments = '{{ mergeSourceCommitments }}',
+splitSourceCommitment = '{{ splitSourceCommitment }}',
+existingReservations = '{{ existingReservations }}'
+WHERE 
+commitment = '{{ commitment }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: backups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - backups
   - gkebackup
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>backup</code> resource or lists <code>backups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -48,16 +50,17 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="permissiveMode" /> | `boolean` | Output only. If false, Backup will fail when Backup for GKE detects Kubernetes configuration that is non-standard or requires additional setup to restore. Inherited from the parent BackupPlan's permissive_mode value. |
 | <CopyableCode code="podCount" /> | `integer` | Output only. The total number of Kubernetes Pods contained in the Backup. |
 | <CopyableCode code="resourceCount" /> | `integer` | Output only. The total number of Kubernetes resources included in the Backup. |
-| <CopyableCode code="retainDays" /> | `integer` | Optional. The age (in days) after which this Backup will be automatically deleted. Must be an integer value &gt;= 0: - If 0, no automatic deletion will occur for this Backup. - If not 0, this must be &gt;= delete_lock_days and &lt;= 365. Once a Backup is created, this value may only be increased. Defaults to the parent BackupPlan's backup_retain_days value. |
+| <CopyableCode code="retainDays" /> | `integer` | Optional. The age (in days) after which this Backup will be automatically deleted. Must be an integer value >= 0: - If 0, no automatic deletion will occur for this Backup. - If not 0, this must be >= delete_lock_days and <= 365. Once a Backup is created, this value may only be increased. Defaults to the parent BackupPlan's backup_retain_days value. |
 | <CopyableCode code="retainExpireTime" /> | `string` | Output only. The time at which this Backup will be automatically deleted (calculated from create_time + retain_days). |
 | <CopyableCode code="selectedApplications" /> | `object` | A list of namespaced Kubernetes resources. |
-| <CopyableCode code="selectedNamespaces" /> | `object` | A list of Kubernetes Namespaces |
+| <CopyableCode code="selectedNamespaces" /> | `object` | A list of Kubernetes Namespaces. |
 | <CopyableCode code="sizeBytes" /> | `string` | Output only. The total size of the Backup in bytes = config backup size + sum(volume backup sizes) |
 | <CopyableCode code="state" /> | `string` | Output only. Current state of the Backup |
 | <CopyableCode code="stateReason" /> | `string` | Output only. Human-readable description of why the backup is in the current `state`. |
 | <CopyableCode code="uid" /> | `string` | Output only. Server generated global unique identifier of [UUID4](https://en.wikipedia.org/wiki/Universally_unique_identifier) |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when this Backup resource was last updated. |
 | <CopyableCode code="volumeCount" /> | `integer` | Output only. The total number of volume backups contained in the Backup. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -66,4 +69,247 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="backupPlansId, locationsId, projectsId" /> | Creates a Backup for the given BackupPlan. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backupPlansId, backupsId, locationsId, projectsId" /> | Deletes an existing Backup. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backupPlansId, backupsId, locationsId, projectsId" /> | Update a Backup. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="backupPlansId, locationsId, projectsId" /> | Lists the Backups for a given BackupPlan. |
+
+## `SELECT` examples
+
+Lists the Backups for a given BackupPlan.
+
+```sql
+SELECT
+name,
+description,
+allNamespaces,
+clusterMetadata,
+completeTime,
+configBackupSizeBytes,
+containsSecrets,
+containsVolumeData,
+createTime,
+deleteLockDays,
+deleteLockExpireTime,
+encryptionKey,
+etag,
+labels,
+manual,
+permissiveMode,
+podCount,
+resourceCount,
+retainDays,
+retainExpireTime,
+selectedApplications,
+selectedNamespaces,
+sizeBytes,
+state,
+stateReason,
+uid,
+updateTime,
+volumeCount
+FROM google.gkebackup.backups
+WHERE backupPlansId = '{{ backupPlansId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>backups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.gkebackup.backups (
+backupPlansId,
+locationsId,
+projectsId,
+name,
+uid,
+createTime,
+updateTime,
+manual,
+labels,
+deleteLockDays,
+deleteLockExpireTime,
+retainDays,
+retainExpireTime,
+encryptionKey,
+allNamespaces,
+selectedNamespaces,
+selectedApplications,
+containsVolumeData,
+containsSecrets,
+clusterMetadata,
+state,
+stateReason,
+completeTime,
+resourceCount,
+volumeCount,
+sizeBytes,
+etag,
+description,
+podCount,
+configBackupSizeBytes,
+permissiveMode
+)
+SELECT 
+'{{ backupPlansId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+true|false,
+'{{ labels }}',
+'{{ deleteLockDays }}',
+'{{ deleteLockExpireTime }}',
+'{{ retainDays }}',
+'{{ retainExpireTime }}',
+'{{ encryptionKey }}',
+true|false,
+'{{ selectedNamespaces }}',
+'{{ selectedApplications }}',
+true|false,
+true|false,
+'{{ clusterMetadata }}',
+'{{ state }}',
+'{{ stateReason }}',
+'{{ completeTime }}',
+'{{ resourceCount }}',
+'{{ volumeCount }}',
+'{{ sizeBytes }}',
+'{{ etag }}',
+'{{ description }}',
+'{{ podCount }}',
+'{{ configBackupSizeBytes }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: manual
+        value: '{{ manual }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: deleteLockDays
+        value: '{{ deleteLockDays }}'
+      - name: deleteLockExpireTime
+        value: '{{ deleteLockExpireTime }}'
+      - name: retainDays
+        value: '{{ retainDays }}'
+      - name: retainExpireTime
+        value: '{{ retainExpireTime }}'
+      - name: encryptionKey
+        value: '{{ encryptionKey }}'
+      - name: allNamespaces
+        value: '{{ allNamespaces }}'
+      - name: selectedNamespaces
+        value: '{{ selectedNamespaces }}'
+      - name: selectedApplications
+        value: '{{ selectedApplications }}'
+      - name: containsVolumeData
+        value: '{{ containsVolumeData }}'
+      - name: containsSecrets
+        value: '{{ containsSecrets }}'
+      - name: clusterMetadata
+        value: '{{ clusterMetadata }}'
+      - name: state
+        value: '{{ state }}'
+      - name: stateReason
+        value: '{{ stateReason }}'
+      - name: completeTime
+        value: '{{ completeTime }}'
+      - name: resourceCount
+        value: '{{ resourceCount }}'
+      - name: volumeCount
+        value: '{{ volumeCount }}'
+      - name: sizeBytes
+        value: '{{ sizeBytes }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: description
+        value: '{{ description }}'
+      - name: podCount
+        value: '{{ podCount }}'
+      - name: configBackupSizeBytes
+        value: '{{ configBackupSizeBytes }}'
+      - name: permissiveMode
+        value: '{{ permissiveMode }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a backup only if the necessary resources are available.
+
+```sql
+UPDATE google.gkebackup.backups
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+manual = true|false,
+labels = '{{ labels }}',
+deleteLockDays = '{{ deleteLockDays }}',
+deleteLockExpireTime = '{{ deleteLockExpireTime }}',
+retainDays = '{{ retainDays }}',
+retainExpireTime = '{{ retainExpireTime }}',
+encryptionKey = '{{ encryptionKey }}',
+allNamespaces = true|false,
+selectedNamespaces = '{{ selectedNamespaces }}',
+selectedApplications = '{{ selectedApplications }}',
+containsVolumeData = true|false,
+containsSecrets = true|false,
+clusterMetadata = '{{ clusterMetadata }}',
+state = '{{ state }}',
+stateReason = '{{ stateReason }}',
+completeTime = '{{ completeTime }}',
+resourceCount = '{{ resourceCount }}',
+volumeCount = '{{ volumeCount }}',
+sizeBytes = '{{ sizeBytes }}',
+etag = '{{ etag }}',
+description = '{{ description }}',
+podCount = '{{ podCount }}',
+configBackupSizeBytes = '{{ configBackupSizeBytes }}',
+permissiveMode = true|false
+WHERE 
+backupPlansId = '{{ backupPlansId }}'
+AND backupsId = '{{ backupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified backup resource.
+
+```sql
+DELETE FROM google.gkebackup.backups
+WHERE backupPlansId = '{{ backupPlansId }}'
+AND backupsId = '{{ backupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

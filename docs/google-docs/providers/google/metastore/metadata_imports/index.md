@@ -1,3 +1,4 @@
+
 ---
 title: metadata_imports
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - metadata_imports
   - metastore
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>metadata_import</code> resource or lists <code>metadata_imports</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,13 +32,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The relative resource name of the metadata import, of the form:projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/services/&#123;service_id&#125;/metadataImports/&#123;metadata_import_id&#125;. |
+| <CopyableCode code="name" /> | `string` | Immutable. The relative resource name of the metadata import, of the form:projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports/{metadata_import_id}. |
 | <CopyableCode code="description" /> | `string` | The description of the metadata import. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time when the metadata import was started. |
 | <CopyableCode code="databaseDump" /> | `object` | A specification of the location of and metadata about a database dump from a relational database management system. |
 | <CopyableCode code="endTime" /> | `string` | Output only. The time when the metadata import finished. |
 | <CopyableCode code="state" /> | `string` | Output only. The current state of the metadata import. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time when the metadata import was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,4 +47,109 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Lists imports in a service. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Creates a new MetadataImport in a given project and location. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, metadataImportsId, projectsId, servicesId" /> | Updates a single import. Only the description field of MetadataImport is supported to be updated. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Lists imports in a service. |
+
+## `SELECT` examples
+
+Lists imports in a service.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+databaseDump,
+endTime,
+state,
+updateTime
+FROM google.metastore.metadata_imports
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>metadata_imports</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.metastore.metadata_imports (
+locationsId,
+projectsId,
+servicesId,
+databaseDump,
+name,
+description,
+createTime,
+updateTime,
+endTime,
+state
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ servicesId }}',
+'{{ databaseDump }}',
+'{{ name }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ endTime }}',
+'{{ state }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: databaseDump
+        value: '{{ databaseDump }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: state
+        value: '{{ state }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a metadata_import only if the necessary resources are available.
+
+```sql
+UPDATE google.metastore.metadata_imports
+SET 
+databaseDump = '{{ databaseDump }}',
+name = '{{ name }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+endTime = '{{ endTime }}',
+state = '{{ state }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND metadataImportsId = '{{ metadataImportsId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}';
+```

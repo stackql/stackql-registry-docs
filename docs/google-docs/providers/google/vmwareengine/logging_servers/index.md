@@ -1,3 +1,4 @@
+
 ---
 title: logging_servers
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - logging_servers
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>logging_server</code> resource or lists <code>logging_servers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,6 +40,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sourceType" /> | `string` | Required. The type of component that produces logs that will be forwarded to this logging server. |
 | <CopyableCode code="uid" /> | `string` | Output only. System-generated unique identifier for the resource. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Last update time of this resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -46,4 +49,127 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Create a new logging server for a given private cloud. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, loggingServersId, privateCloudsId, projectsId" /> | Deletes a single logging server. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, loggingServersId, privateCloudsId, projectsId" /> | Updates the parameters of a single logging server. Only fields specified in `update_mask` are applied. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists logging servers configured for a given private cloud. |
+
+## `SELECT` examples
+
+Lists logging servers configured for a given private cloud.
+
+```sql
+SELECT
+name,
+createTime,
+hostname,
+port,
+protocol,
+sourceType,
+uid,
+updateTime
+FROM google.vmwareengine.logging_servers
+WHERE locationsId = '{{ locationsId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>logging_servers</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.vmwareengine.logging_servers (
+locationsId,
+privateCloudsId,
+projectsId,
+name,
+createTime,
+updateTime,
+hostname,
+port,
+protocol,
+sourceType,
+uid
+)
+SELECT 
+'{{ locationsId }}',
+'{{ privateCloudsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ hostname }}',
+'{{ port }}',
+'{{ protocol }}',
+'{{ sourceType }}',
+'{{ uid }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: hostname
+        value: '{{ hostname }}'
+      - name: port
+        value: '{{ port }}'
+      - name: protocol
+        value: '{{ protocol }}'
+      - name: sourceType
+        value: '{{ sourceType }}'
+      - name: uid
+        value: '{{ uid }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a logging_server only if the necessary resources are available.
+
+```sql
+UPDATE google.vmwareengine.logging_servers
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+hostname = '{{ hostname }}',
+port = '{{ port }}',
+protocol = '{{ protocol }}',
+sourceType = '{{ sourceType }}',
+uid = '{{ uid }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND loggingServersId = '{{ loggingServersId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified logging_server resource.
+
+```sql
+DELETE FROM google.vmwareengine.logging_servers
+WHERE locationsId = '{{ locationsId }}'
+AND loggingServersId = '{{ loggingServersId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: tag_values
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - tag_values
   - cloudresourcemanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>tag_value</code> resource or lists <code>tag_values</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,16 +36,128 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="description" /> | `string` | Optional. User-assigned description of the TagValue. Must not exceed 256 characters. Read-write. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Creation time. |
 | <CopyableCode code="etag" /> | `string` | Optional. Entity tag which users can pass to prevent race conditions. This field is always set in server responses. See UpdateTagValueRequest for details. |
-| <CopyableCode code="namespacedName" /> | `string` | Output only. The namespaced name of the TagValue. Can be in the form `&#123;organization_id&#125;/&#123;tag_key_short_name&#125;/&#123;tag_value_short_name&#125;` or `&#123;project_id&#125;/&#123;tag_key_short_name&#125;/&#123;tag_value_short_name&#125;` or `&#123;project_number&#125;/&#123;tag_key_short_name&#125;/&#123;tag_value_short_name&#125;`. |
-| <CopyableCode code="parent" /> | `string` | Immutable. The resource name of the new TagValue's parent TagKey. Must be of the form `tagKeys/&#123;tag_key_id&#125;`. |
+| <CopyableCode code="namespacedName" /> | `string` | Output only. The namespaced name of the TagValue. Can be in the form `{organization_id}/{tag_key_short_name}/{tag_value_short_name}` or `{project_id}/{tag_key_short_name}/{tag_value_short_name}` or `{project_number}/{tag_key_short_name}/{tag_value_short_name}`. |
+| <CopyableCode code="parent" /> | `string` | Immutable. The resource name of the new TagValue's parent TagKey. Must be of the form `tagKeys/{tag_key_id}`. |
 | <CopyableCode code="shortName" /> | `string` | Required. Immutable. User-assigned short name for TagValue. The short name should be unique for TagValues within the same parent TagKey. The short name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Update time. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="tagValuesId" /> | Retrieves a TagValue. This method will return `PERMISSION_DENIED` if the value does not exist or the user does not have permission to view it. |
-| <CopyableCode code="list" /> | `SELECT` |  | Lists all TagValues for a specific TagKey. |
-| <CopyableCode code="create" /> | `INSERT` |  | Creates a TagValue as a child of the specified TagKey. If a another request with the same parameters is sent while the original request is in process the second request will receive an error. A maximum of 1000 TagValues can exist under a TagKey at any given time. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists all TagValues for a specific TagKey. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="" /> | Creates a TagValue as a child of the specified TagKey. If a another request with the same parameters is sent while the original request is in process the second request will receive an error. A maximum of 1000 TagValues can exist under a TagKey at any given time. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="tagValuesId" /> | Deletes a TagValue. The TagValue cannot have any bindings when it is deleted. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="tagValuesId" /> | Updates the attributes of the TagValue resource. |
-| <CopyableCode code="_list" /> | `EXEC` |  | Lists all TagValues for a specific TagKey. |
+
+## `SELECT` examples
+
+Lists all TagValues for a specific TagKey.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+etag,
+namespacedName,
+parent,
+shortName,
+updateTime
+FROM google.cloudresourcemanager.tag_values
+WHERE  = '{{  }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>tag_values</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.cloudresourcemanager.tag_values (
+,
+name,
+parent,
+shortName,
+namespacedName,
+description,
+createTime,
+updateTime,
+etag
+)
+SELECT 
+'{{  }}',
+'{{ name }}',
+'{{ parent }}',
+'{{ shortName }}',
+'{{ namespacedName }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ etag }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: parent
+        value: '{{ parent }}'
+      - name: shortName
+        value: '{{ shortName }}'
+      - name: namespacedName
+        value: '{{ namespacedName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: etag
+        value: '{{ etag }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a tag_value only if the necessary resources are available.
+
+```sql
+UPDATE google.cloudresourcemanager.tag_values
+SET 
+name = '{{ name }}',
+parent = '{{ parent }}',
+shortName = '{{ shortName }}',
+namespacedName = '{{ namespacedName }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+etag = '{{ etag }}'
+WHERE 
+tagValuesId = '{{ tagValuesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified tag_value resource.
+
+```sql
+DELETE FROM google.cloudresourcemanager.tag_values
+WHERE tagValuesId = '{{ tagValuesId }}';
+```

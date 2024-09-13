@@ -1,3 +1,4 @@
+
 ---
 title: inventory
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - inventory
   - osconfig
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>inventory</code> resource or lists <code>inventory</code> in a region
 
 ## Overview
 <table><tbody>
@@ -27,7 +29,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 <tr><td><b>Id</b></td><td><CopyableCode code="google.osconfig.inventory" /></td></tr>
 </tbody></table>
 
+## Fields
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instancesId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Get inventory data for the specified VM instance. If the VM has no associated inventory, the message `NOT_FOUND` is returned. |
+
+## `SELECT` examples
+
+Get inventory data for the specified VM instance. If the VM has no associated inventory, the message `NOT_FOUND` is returned.
+
+```sql
+SELECT
+
+FROM google.osconfig.inventory
+WHERE instancesId = '{{ instancesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

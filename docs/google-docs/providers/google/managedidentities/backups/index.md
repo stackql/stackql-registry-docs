@@ -1,3 +1,4 @@
+
 ---
 title: backups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - backups
   - managedidentities
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>backup</code> resource or lists <code>backups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,13 +32,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The unique name of the Backup in the form of `projects/&#123;project_id&#125;/locations/global/domains/&#123;domain_name&#125;/backups/&#123;name&#125;` |
+| <CopyableCode code="name" /> | `string` | Output only. The unique name of the Backup in the form of `projects/{project_id}/locations/global/domains/{domain_name}/backups/{name}` |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time the backups was created. |
 | <CopyableCode code="labels" /> | `object` | Optional. Resource labels to represent user provided metadata. |
 | <CopyableCode code="state" /> | `string` | Output only. The current state of the backup. |
 | <CopyableCode code="statusMessage" /> | `string` | Output only. Additional information about the current status of this backup, if available. |
 | <CopyableCode code="type" /> | `string` | Output only. Indicates whether it’s an on-demand backup or scheduled. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Last update time. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,4 +48,116 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="domainsId, projectsId" /> | Creates a Backup for a domain. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backupsId, domainsId, projectsId" /> | Deletes identified Backup. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backupsId, domainsId, projectsId" /> | Updates the labels for specified Backup. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Lists Backup in a given project. |
+
+## `SELECT` examples
+
+Lists Backup in a given project.
+
+```sql
+SELECT
+name,
+createTime,
+labels,
+state,
+statusMessage,
+type,
+updateTime
+FROM google.managedidentities.backups
+WHERE domainsId = '{{ domainsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>backups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.managedidentities.backups (
+domainsId,
+projectsId,
+name,
+labels,
+createTime,
+updateTime,
+type,
+state,
+statusMessage
+)
+SELECT 
+'{{ domainsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ labels }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ type }}',
+'{{ state }}',
+'{{ statusMessage }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: type
+        value: '{{ type }}'
+      - name: state
+        value: '{{ state }}'
+      - name: statusMessage
+        value: '{{ statusMessage }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a backup only if the necessary resources are available.
+
+```sql
+UPDATE google.managedidentities.backups
+SET 
+name = '{{ name }}',
+labels = '{{ labels }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+type = '{{ type }}',
+state = '{{ state }}',
+statusMessage = '{{ statusMessage }}'
+WHERE 
+backupsId = '{{ backupsId }}'
+AND domainsId = '{{ domainsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified backup resource.
+
+```sql
+DELETE FROM google.managedidentities.backups
+WHERE backupsId = '{{ backupsId }}'
+AND domainsId = '{{ domainsId }}'
+AND projectsId = '{{ projectsId }}';
+```

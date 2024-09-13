@@ -9,43 +9,32 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-An API to manage the running of Batch resources on Google Cloud Platform.  
-    
+The batch service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>5</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>17</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.batch</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Batch API</td></tr>
-<tr><td><b>Description</b></td><td>An API to manage the running of Batch resources on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>batch:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/google/batch/jobs/">jobs</a><br />
 <a href="/providers/google/batch/locations/">locations</a><br />
-<a href="/providers/google/batch/operations/">operations</a><br />
+<a href="/providers/google/batch/operations/">operations</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/batch/state/">state</a><br />
-<a href="/providers/google/batch/tasks/">tasks</a><br />
+<a href="/providers/google/batch/tasks/">tasks</a>
 </div>
 </div>

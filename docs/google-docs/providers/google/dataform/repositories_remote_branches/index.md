@@ -1,3 +1,4 @@
+
 ---
 title: repositories_remote_branches
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - repositories_remote_branches
   - dataform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>repositories_remote_branch</code> resource or lists <code>repositories_remote_branches</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="branches" /> | `array` | The remote repository's branch names. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="fetch_remote_branches" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch_remote_branches" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Fetches a Repository's remote branches. |
+
+## `SELECT` examples
+
+Fetches a Repository's remote branches.
+
+```sql
+SELECT
+branches
+FROM google.dataform.repositories_remote_branches
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```

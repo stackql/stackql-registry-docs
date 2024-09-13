@@ -1,3 +1,4 @@
+
 ---
 title: interconnects_macsec_config
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - interconnects_macsec_config
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>interconnects_macsec_config</code> resource or lists <code>interconnects_macsec_config</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,7 +34,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="etag" /> | `string` | end_interface: MixerGetResponseWithEtagBuilder |
 | <CopyableCode code="result" /> | `object` | MACsec configuration information for the Interconnect connection. Contains the generated Connectivity Association Key Name (CKN) and the key (CAK) for this Interconnect connection. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_macsec_config" /> | `SELECT` | <CopyableCode code="interconnect, project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_macsec_config" /> | `SELECT` | <CopyableCode code="interconnect, project" /> | Returns the interconnectMacsecConfig for the specified Interconnect. |
+
+## `SELECT` examples
+
+Returns the interconnectMacsecConfig for the specified Interconnect.
+
+```sql
+SELECT
+etag,
+result
+FROM google.compute.interconnects_macsec_config
+WHERE interconnect = '{{ interconnect }}'
+AND project = '{{ project }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: config
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - config
   - clouddeploy
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>config</code> resource or lists <code>config</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,7 +35,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Name of the configuration. |
 | <CopyableCode code="defaultSkaffoldVersion" /> | `string` | Default Skaffold version that is assigned when a Release is created without specifying a Skaffold version. |
 | <CopyableCode code="supportedVersions" /> | `array` | All supported versions of Skaffold. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_config" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_config" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Gets the configuration for a location. |
+
+## `SELECT` examples
+
+Gets the configuration for a location.
+
+```sql
+SELECT
+name,
+defaultSkaffoldVersion,
+supportedVersions
+FROM google.clouddeploy.config
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

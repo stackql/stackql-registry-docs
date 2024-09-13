@@ -1,3 +1,4 @@
+
 ---
 title: versions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - versions
   - appengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>version</code> resource or lists <code>versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,7 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | Relative name of the version within the service. Example: v1. Version names can contain only lowercase letters, numbers, or hyphens. Reserved names: "default", "latest", and any name with the prefix "ah-". |
-| <CopyableCode code="name" /> | `string` | Full path to the Version resource in the API. Example: apps/myapp/services/default/versions/v1.@OutputOnly |
+| <CopyableCode code="name" /> | `string` | Output only. Full path to the Version resource in the API. Example: apps/myapp/services/default/versions/v1.@OutputOnly |
 | <CopyableCode code="apiConfig" /> | `object` | Google Cloud Endpoints (https://cloud.google.com/endpoints) configuration for API handlers. |
 | <CopyableCode code="appEngineApis" /> | `boolean` | Allows App Engine second generation runtimes to access the legacy bundled services. |
 | <CopyableCode code="automaticScaling" /> | `object` | Automatic scaling is based on request rate, response latencies, and other application metrics. |
@@ -39,10 +41,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="betaSettings" /> | `object` | Metadata settings that are supplied to this version to enable beta runtime features. |
 | <CopyableCode code="buildEnvVariables" /> | `object` | Environment variables available to the build environment.Only returned in GET requests if view=FULL is set. |
 | <CopyableCode code="createTime" /> | `string` | Time that this version was created.@OutputOnly |
-| <CopyableCode code="createdBy" /> | `string` | Email address of the user who created this version.@OutputOnly |
+| <CopyableCode code="createdBy" /> | `string` | Output only. Email address of the user who created this version.@OutputOnly |
 | <CopyableCode code="defaultExpiration" /> | `string` | Duration that static files should be cached by web proxies and browsers. Only applicable if the corresponding StaticFilesHandler (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StaticFilesHandler) does not specify its own expiration time.Only returned in GET requests if view=FULL is set. |
 | <CopyableCode code="deployment" /> | `object` | Code and application artifacts used to deploy a version to App Engine. |
-| <CopyableCode code="diskUsageBytes" /> | `string` | Total size in bytes of all the files that are included in this version and currently hosted on the App Engine disk.@OutputOnly |
+| <CopyableCode code="diskUsageBytes" /> | `string` | Output only. Total size in bytes of all the files that are included in this version and currently hosted on the App Engine disk.@OutputOnly |
 | <CopyableCode code="endpointsApiService" /> | `object` | Google Cloud Endpoints (https://cloud.google.com/endpoints) configuration. The Endpoints API Service provides tooling for serving Open API and gRPC endpoints via an NGINX proxy. Only valid for App Engine Flexible environment deployments.The fields here refer to the name and configuration ID of a "service" resource in the Service Management API (https://cloud.google.com/service-management/overview). |
 | <CopyableCode code="entrypoint" /> | `object` | The entrypoint for the application. |
 | <CopyableCode code="env" /> | `string` | App Engine execution environment for this version.Defaults to standard. |
@@ -68,10 +70,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="serviceAccount" /> | `string` | The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as default if this field is neither provided in app.yaml file nor through CLI flag. |
 | <CopyableCode code="servingStatus" /> | `string` | Current serving status of this version. Only the versions with a SERVING status create instances and can be billed.SERVING_STATUS_UNSPECIFIED is an invalid value. Defaults to SERVING. |
 | <CopyableCode code="threadsafe" /> | `boolean` | Whether multiple requests can be dispatched to this version at once. |
-| <CopyableCode code="versionUrl" /> | `string` | Serving URL for this version. Example: "https://myversion-dot-myservice-dot-myapp.appspot.com"@OutputOnly |
+| <CopyableCode code="versionUrl" /> | `string` | Output only. Serving URL for this version. Example: "https://myversion-dot-myservice-dot-myapp.appspot.com"@OutputOnly |
 | <CopyableCode code="vm" /> | `boolean` | Whether to deploy this version in a container on a virtual machine. |
 | <CopyableCode code="vpcAccessConnector" /> | `object` | VPC access connector specification. |
 | <CopyableCode code="zones" /> | `array` | The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -80,4 +83,326 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="appsId, servicesId" /> | Deploys code and resource files to a new version. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appsId, servicesId, versionsId" /> | Deletes an existing Version resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="appsId, servicesId, versionsId" /> | Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:Standard environment instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic scaling in the standard environment: automatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automaticScaling.standard_scheduler_settings.max_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.min_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.target_cpu_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.target_throughput_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling in the standard environment: serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status) manual_scaling.instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)Flexible environment serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic scaling in the flexible environment: automatic_scaling.min_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.max_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.cool_down_period_sec (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.cpu_utilization.target_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)manual scaling in the flexible environment: manual_scaling.instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling) |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="appsId, servicesId" /> | Lists the versions of a service. |
+
+## `SELECT` examples
+
+Lists the versions of a service.
+
+```sql
+SELECT
+id,
+name,
+apiConfig,
+appEngineApis,
+automaticScaling,
+basicScaling,
+betaSettings,
+buildEnvVariables,
+createTime,
+createdBy,
+defaultExpiration,
+deployment,
+diskUsageBytes,
+endpointsApiService,
+entrypoint,
+env,
+envVariables,
+errorHandlers,
+flexibleRuntimeSettings,
+generatedCustomerMetadata,
+handlers,
+healthCheck,
+inboundServices,
+instanceClass,
+libraries,
+livenessCheck,
+manualScaling,
+network,
+nobuildFilesRegex,
+readinessCheck,
+resources,
+runtime,
+runtimeApiVersion,
+runtimeChannel,
+runtimeMainExecutablePath,
+serviceAccount,
+servingStatus,
+threadsafe,
+versionUrl,
+vm,
+vpcAccessConnector,
+zones
+FROM google.appengine.versions
+WHERE appsId = '{{ appsId }}'
+AND servicesId = '{{ servicesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>versions</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.appengine.versions (
+appsId,
+servicesId,
+name,
+id,
+automaticScaling,
+basicScaling,
+manualScaling,
+inboundServices,
+instanceClass,
+network,
+zones,
+resources,
+runtime,
+runtimeChannel,
+threadsafe,
+vm,
+flexibleRuntimeSettings,
+appEngineApis,
+betaSettings,
+env,
+servingStatus,
+createdBy,
+createTime,
+diskUsageBytes,
+runtimeApiVersion,
+runtimeMainExecutablePath,
+serviceAccount,
+handlers,
+errorHandlers,
+libraries,
+apiConfig,
+envVariables,
+buildEnvVariables,
+defaultExpiration,
+healthCheck,
+readinessCheck,
+livenessCheck,
+nobuildFilesRegex,
+deployment,
+versionUrl,
+endpointsApiService,
+entrypoint,
+vpcAccessConnector,
+generatedCustomerMetadata
+)
+SELECT 
+'{{ appsId }}',
+'{{ servicesId }}',
+'{{ name }}',
+'{{ id }}',
+'{{ automaticScaling }}',
+'{{ basicScaling }}',
+'{{ manualScaling }}',
+'{{ inboundServices }}',
+'{{ instanceClass }}',
+'{{ network }}',
+'{{ zones }}',
+'{{ resources }}',
+'{{ runtime }}',
+'{{ runtimeChannel }}',
+true|false,
+true|false,
+'{{ flexibleRuntimeSettings }}',
+true|false,
+'{{ betaSettings }}',
+'{{ env }}',
+'{{ servingStatus }}',
+'{{ createdBy }}',
+'{{ createTime }}',
+'{{ diskUsageBytes }}',
+'{{ runtimeApiVersion }}',
+'{{ runtimeMainExecutablePath }}',
+'{{ serviceAccount }}',
+'{{ handlers }}',
+'{{ errorHandlers }}',
+'{{ libraries }}',
+'{{ apiConfig }}',
+'{{ envVariables }}',
+'{{ buildEnvVariables }}',
+'{{ defaultExpiration }}',
+'{{ healthCheck }}',
+'{{ readinessCheck }}',
+'{{ livenessCheck }}',
+'{{ nobuildFilesRegex }}',
+'{{ deployment }}',
+'{{ versionUrl }}',
+'{{ endpointsApiService }}',
+'{{ entrypoint }}',
+'{{ vpcAccessConnector }}',
+'{{ generatedCustomerMetadata }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: id
+        value: '{{ id }}'
+      - name: automaticScaling
+        value: '{{ automaticScaling }}'
+      - name: basicScaling
+        value: '{{ basicScaling }}'
+      - name: manualScaling
+        value: '{{ manualScaling }}'
+      - name: inboundServices
+        value: '{{ inboundServices }}'
+      - name: instanceClass
+        value: '{{ instanceClass }}'
+      - name: network
+        value: '{{ network }}'
+      - name: zones
+        value: '{{ zones }}'
+      - name: resources
+        value: '{{ resources }}'
+      - name: runtime
+        value: '{{ runtime }}'
+      - name: runtimeChannel
+        value: '{{ runtimeChannel }}'
+      - name: threadsafe
+        value: '{{ threadsafe }}'
+      - name: vm
+        value: '{{ vm }}'
+      - name: flexibleRuntimeSettings
+        value: '{{ flexibleRuntimeSettings }}'
+      - name: appEngineApis
+        value: '{{ appEngineApis }}'
+      - name: betaSettings
+        value: '{{ betaSettings }}'
+      - name: env
+        value: '{{ env }}'
+      - name: servingStatus
+        value: '{{ servingStatus }}'
+      - name: createdBy
+        value: '{{ createdBy }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: diskUsageBytes
+        value: '{{ diskUsageBytes }}'
+      - name: runtimeApiVersion
+        value: '{{ runtimeApiVersion }}'
+      - name: runtimeMainExecutablePath
+        value: '{{ runtimeMainExecutablePath }}'
+      - name: serviceAccount
+        value: '{{ serviceAccount }}'
+      - name: handlers
+        value: '{{ handlers }}'
+      - name: errorHandlers
+        value: '{{ errorHandlers }}'
+      - name: libraries
+        value: '{{ libraries }}'
+      - name: apiConfig
+        value: '{{ apiConfig }}'
+      - name: envVariables
+        value: '{{ envVariables }}'
+      - name: buildEnvVariables
+        value: '{{ buildEnvVariables }}'
+      - name: defaultExpiration
+        value: '{{ defaultExpiration }}'
+      - name: healthCheck
+        value: '{{ healthCheck }}'
+      - name: readinessCheck
+        value: '{{ readinessCheck }}'
+      - name: livenessCheck
+        value: '{{ livenessCheck }}'
+      - name: nobuildFilesRegex
+        value: '{{ nobuildFilesRegex }}'
+      - name: deployment
+        value: '{{ deployment }}'
+      - name: versionUrl
+        value: '{{ versionUrl }}'
+      - name: endpointsApiService
+        value: '{{ endpointsApiService }}'
+      - name: entrypoint
+        value: '{{ entrypoint }}'
+      - name: vpcAccessConnector
+        value: '{{ vpcAccessConnector }}'
+      - name: generatedCustomerMetadata
+        value: '{{ generatedCustomerMetadata }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a version only if the necessary resources are available.
+
+```sql
+UPDATE google.appengine.versions
+SET 
+name = '{{ name }}',
+id = '{{ id }}',
+automaticScaling = '{{ automaticScaling }}',
+basicScaling = '{{ basicScaling }}',
+manualScaling = '{{ manualScaling }}',
+inboundServices = '{{ inboundServices }}',
+instanceClass = '{{ instanceClass }}',
+network = '{{ network }}',
+zones = '{{ zones }}',
+resources = '{{ resources }}',
+runtime = '{{ runtime }}',
+runtimeChannel = '{{ runtimeChannel }}',
+threadsafe = true|false,
+vm = true|false,
+flexibleRuntimeSettings = '{{ flexibleRuntimeSettings }}',
+appEngineApis = true|false,
+betaSettings = '{{ betaSettings }}',
+env = '{{ env }}',
+servingStatus = '{{ servingStatus }}',
+createdBy = '{{ createdBy }}',
+createTime = '{{ createTime }}',
+diskUsageBytes = '{{ diskUsageBytes }}',
+runtimeApiVersion = '{{ runtimeApiVersion }}',
+runtimeMainExecutablePath = '{{ runtimeMainExecutablePath }}',
+serviceAccount = '{{ serviceAccount }}',
+handlers = '{{ handlers }}',
+errorHandlers = '{{ errorHandlers }}',
+libraries = '{{ libraries }}',
+apiConfig = '{{ apiConfig }}',
+envVariables = '{{ envVariables }}',
+buildEnvVariables = '{{ buildEnvVariables }}',
+defaultExpiration = '{{ defaultExpiration }}',
+healthCheck = '{{ healthCheck }}',
+readinessCheck = '{{ readinessCheck }}',
+livenessCheck = '{{ livenessCheck }}',
+nobuildFilesRegex = '{{ nobuildFilesRegex }}',
+deployment = '{{ deployment }}',
+versionUrl = '{{ versionUrl }}',
+endpointsApiService = '{{ endpointsApiService }}',
+entrypoint = '{{ entrypoint }}',
+vpcAccessConnector = '{{ vpcAccessConnector }}',
+generatedCustomerMetadata = '{{ generatedCustomerMetadata }}'
+WHERE 
+appsId = '{{ appsId }}'
+AND servicesId = '{{ servicesId }}'
+AND versionsId = '{{ versionsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified version resource.
+
+```sql
+DELETE FROM google.appengine.versions
+WHERE appsId = '{{ appsId }}'
+AND servicesId = '{{ servicesId }}'
+AND versionsId = '{{ versionsId }}';
+```

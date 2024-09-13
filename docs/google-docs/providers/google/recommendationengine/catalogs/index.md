@@ -1,3 +1,4 @@
+
 ---
 title: catalogs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - catalogs
   - recommendationengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>catalog</code> resource or lists <code>catalogs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,9 +36,41 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="catalogItemLevelConfig" /> | `object` | Configures the catalog level that users send events to, and the level at which predictions are made. |
 | <CopyableCode code="defaultEventStoreId" /> | `string` | Required. The ID of the default event store. |
 | <CopyableCode code="displayName" /> | `string` | Required. The catalog display name. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_catalogs_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all the catalog configurations associated with the project. |
 | <CopyableCode code="projects_locations_catalogs_patch" /> | `UPDATE` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Updates the catalog configuration. |
-| <CopyableCode code="_projects_locations_catalogs_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all the catalog configurations associated with the project. |
+
+## `SELECT` examples
+
+Lists all the catalog configurations associated with the project.
+
+```sql
+SELECT
+name,
+catalogItemLevelConfig,
+defaultEventStoreId,
+displayName
+FROM google.recommendationengine.catalogs
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a catalog only if the necessary resources are available.
+
+```sql
+UPDATE google.recommendationengine.catalogs
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+defaultEventStoreId = '{{ defaultEventStoreId }}',
+catalogItemLevelConfig = '{{ catalogItemLevelConfig }}'
+WHERE 
+catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: assets
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - assets
   - migrationcenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>asset</code> resource or lists <code>assets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,15 +42,59 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="performanceData" /> | `object` | Performance data for an asset. |
 | <CopyableCode code="sources" /> | `array` | Output only. The list of sources contributing to the asset. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the asset was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="assetsId, locationsId, projectsId" /> | Gets the details of an asset. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all the assets in a given project and location. |
+| <CopyableCode code="batch_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId" /> | Deletes list of Assets. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="assetsId, locationsId, projectsId" /> | Deletes an asset. |
+| <CopyableCode code="batch_update" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId" /> | Updates the parameters of a list of assets. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="assetsId, locationsId, projectsId" /> | Updates the parameters of an asset. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all the assets in a given project and location. |
 | <CopyableCode code="aggregate_values" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Aggregates the requested fields based on provided function. |
-| <CopyableCode code="batch_delete" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Deletes list of Assets. |
-| <CopyableCode code="batch_update" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Updates the parameters of a list of assets. |
 | <CopyableCode code="report_asset_frames" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Reports a set of frames. |
+
+## `SELECT` examples
+
+Lists all the assets in a given project and location.
+
+```sql
+SELECT
+name,
+assignedGroups,
+attributes,
+createTime,
+insightList,
+labels,
+machineDetails,
+performanceData,
+sources,
+updateTime
+FROM google.migrationcenter.assets
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a asset only if the necessary resources are available.
+
+```sql
+UPDATE google.migrationcenter.assets
+SET 
+requests = '{{ requests }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified asset resource.
+
+```sql
+DELETE FROM google.migrationcenter.assets
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

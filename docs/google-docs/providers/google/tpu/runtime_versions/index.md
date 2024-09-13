@@ -1,3 +1,4 @@
+
 ---
 title: runtime_versions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - runtime_versions
   - tpu
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>runtime_version</code> resource or lists <code>runtime_versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,9 +34,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | The resource name. |
 | <CopyableCode code="version" /> | `string` | The runtime version. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, runtimeVersionsId" /> | Gets a runtime version. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists runtime versions supported by this API. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists runtime versions supported by this API. |
+
+## `SELECT` examples
+
+Lists runtime versions supported by this API.
+
+```sql
+SELECT
+name,
+version
+FROM google.tpu.runtime_versions
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

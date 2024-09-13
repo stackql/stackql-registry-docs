@@ -1,3 +1,4 @@
+
 ---
 title: versions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - versions
   - ml
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>version</code> resource or lists <code>versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -56,13 +58,240 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="runtimeVersion" /> | `string` | Required. The AI Platform runtime version to use for this deployment. For more information, see the [runtime version list](/ml-engine/docs/runtime-version-list) and [how to manage runtime versions](/ml-engine/docs/versioning). |
 | <CopyableCode code="serviceAccount" /> | `string` | Optional. Specifies the service account for resource access control. If you specify this field, then you must also specify either the `containerSpec` or the `predictionClass` field. Learn more about [using a custom service account](/ai-platform/prediction/docs/custom-service-account). |
 | <CopyableCode code="state" /> | `string` | Output only. The state of a version. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_models_versions_get" /> | `SELECT` | <CopyableCode code="modelsId, projectsId, versionsId" /> | Gets information about a model version. Models can have multiple versions. You can call projects.models.versions.list to get the same information that this method returns for all of the versions of a model. |
-| <CopyableCode code="projects_models_versions_list" /> | `SELECT` | <CopyableCode code="modelsId, projectsId" /> | Gets basic information about all the versions of a model. If you expect that a model has many versions, or if you need to handle only a limited number of results at a time, you can request that the list be retrieved in batches (called pages). If there are no versions that match the request parameters, the list request returns an empty response body: &#123;&#125;. |
+| <CopyableCode code="projects_models_versions_list" /> | `SELECT` | <CopyableCode code="modelsId, projectsId" /> | Gets basic information about all the versions of a model. If you expect that a model has many versions, or if you need to handle only a limited number of results at a time, you can request that the list be retrieved in batches (called pages). If there are no versions that match the request parameters, the list request returns an empty response body: {}. |
 | <CopyableCode code="projects_models_versions_create" /> | `INSERT` | <CopyableCode code="modelsId, projectsId" /> | Creates a new version of a model from a trained TensorFlow model. If the version created in the cloud by this call is the first deployed version of the specified model, it will be made the default version of the model. When you add a version to a model that already has one or more versions, the default version does not automatically change. If you want a new version to be the default, you must call projects.models.versions.setDefault. |
 | <CopyableCode code="projects_models_versions_delete" /> | `DELETE` | <CopyableCode code="modelsId, projectsId, versionsId" /> | Deletes a model version. Each model can have multiple versions deployed and in use at any given time. Use this method to remove a single version. Note: You cannot delete the version that is set as the default version of the model unless it is the only remaining version. |
 | <CopyableCode code="projects_models_versions_patch" /> | `UPDATE` | <CopyableCode code="modelsId, projectsId, versionsId" /> | Updates the specified Version resource. Currently the only update-able fields are `description`, `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`. |
-| <CopyableCode code="_projects_models_versions_list" /> | `EXEC` | <CopyableCode code="modelsId, projectsId" /> | Gets basic information about all the versions of a model. If you expect that a model has many versions, or if you need to handle only a limited number of results at a time, you can request that the list be retrieved in batches (called pages). If there are no versions that match the request parameters, the list request returns an empty response body: &#123;&#125;. |
 | <CopyableCode code="projects_models_versions_set_default" /> | `EXEC` | <CopyableCode code="modelsId, projectsId, versionsId" /> | Designates a version to be the default for the model. The default version is used for prediction requests made against the model that don't specify a version. The first version to be created for a model is automatically set as the default. You must make any subsequent changes to the default version setting manually using this method. |
+
+## `SELECT` examples
+
+Gets basic information about all the versions of a model. If you expect that a model has many versions, or if you need to handle only a limited number of results at a time, you can request that the list be retrieved in batches (called pages). If there are no versions that match the request parameters, the list request returns an empty response body: {}.
+
+```sql
+SELECT
+name,
+description,
+acceleratorConfig,
+autoScaling,
+container,
+createTime,
+deploymentUri,
+errorMessage,
+etag,
+explanationConfig,
+framework,
+isDefault,
+labels,
+lastMigrationModelId,
+lastMigrationTime,
+lastUseTime,
+machineType,
+manualScaling,
+packageUris,
+predictionClass,
+pythonVersion,
+requestLoggingConfig,
+routes,
+runtimeVersion,
+serviceAccount,
+state
+FROM google.ml.versions
+WHERE modelsId = '{{ modelsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>versions</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.ml.versions (
+modelsId,
+projectsId,
+name,
+description,
+isDefault,
+deploymentUri,
+createTime,
+lastUseTime,
+runtimeVersion,
+machineType,
+autoScaling,
+manualScaling,
+state,
+errorMessage,
+predictionClass,
+packageUris,
+labels,
+etag,
+framework,
+pythonVersion,
+acceleratorConfig,
+serviceAccount,
+requestLoggingConfig,
+explanationConfig,
+container,
+routes,
+lastMigrationTime,
+lastMigrationModelId
+)
+SELECT 
+'{{ modelsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+true|false,
+'{{ deploymentUri }}',
+'{{ createTime }}',
+'{{ lastUseTime }}',
+'{{ runtimeVersion }}',
+'{{ machineType }}',
+'{{ autoScaling }}',
+'{{ manualScaling }}',
+'{{ state }}',
+'{{ errorMessage }}',
+'{{ predictionClass }}',
+'{{ packageUris }}',
+'{{ labels }}',
+'{{ etag }}',
+'{{ framework }}',
+'{{ pythonVersion }}',
+'{{ acceleratorConfig }}',
+'{{ serviceAccount }}',
+'{{ requestLoggingConfig }}',
+'{{ explanationConfig }}',
+'{{ container }}',
+'{{ routes }}',
+'{{ lastMigrationTime }}',
+'{{ lastMigrationModelId }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: isDefault
+        value: '{{ isDefault }}'
+      - name: deploymentUri
+        value: '{{ deploymentUri }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: lastUseTime
+        value: '{{ lastUseTime }}'
+      - name: runtimeVersion
+        value: '{{ runtimeVersion }}'
+      - name: machineType
+        value: '{{ machineType }}'
+      - name: autoScaling
+        value: '{{ autoScaling }}'
+      - name: manualScaling
+        value: '{{ manualScaling }}'
+      - name: state
+        value: '{{ state }}'
+      - name: errorMessage
+        value: '{{ errorMessage }}'
+      - name: predictionClass
+        value: '{{ predictionClass }}'
+      - name: packageUris
+        value: '{{ packageUris }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: framework
+        value: '{{ framework }}'
+      - name: pythonVersion
+        value: '{{ pythonVersion }}'
+      - name: acceleratorConfig
+        value: '{{ acceleratorConfig }}'
+      - name: serviceAccount
+        value: '{{ serviceAccount }}'
+      - name: requestLoggingConfig
+        value: '{{ requestLoggingConfig }}'
+      - name: explanationConfig
+        value: '{{ explanationConfig }}'
+      - name: container
+        value: '{{ container }}'
+      - name: routes
+        value: '{{ routes }}'
+      - name: lastMigrationTime
+        value: '{{ lastMigrationTime }}'
+      - name: lastMigrationModelId
+        value: '{{ lastMigrationModelId }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a version only if the necessary resources are available.
+
+```sql
+UPDATE google.ml.versions
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+isDefault = true|false,
+deploymentUri = '{{ deploymentUri }}',
+createTime = '{{ createTime }}',
+lastUseTime = '{{ lastUseTime }}',
+runtimeVersion = '{{ runtimeVersion }}',
+machineType = '{{ machineType }}',
+autoScaling = '{{ autoScaling }}',
+manualScaling = '{{ manualScaling }}',
+state = '{{ state }}',
+errorMessage = '{{ errorMessage }}',
+predictionClass = '{{ predictionClass }}',
+packageUris = '{{ packageUris }}',
+labels = '{{ labels }}',
+etag = '{{ etag }}',
+framework = '{{ framework }}',
+pythonVersion = '{{ pythonVersion }}',
+acceleratorConfig = '{{ acceleratorConfig }}',
+serviceAccount = '{{ serviceAccount }}',
+requestLoggingConfig = '{{ requestLoggingConfig }}',
+explanationConfig = '{{ explanationConfig }}',
+container = '{{ container }}',
+routes = '{{ routes }}',
+lastMigrationTime = '{{ lastMigrationTime }}',
+lastMigrationModelId = '{{ lastMigrationModelId }}'
+WHERE 
+modelsId = '{{ modelsId }}'
+AND projectsId = '{{ projectsId }}'
+AND versionsId = '{{ versionsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified version resource.
+
+```sql
+DELETE FROM google.ml.versions
+WHERE modelsId = '{{ modelsId }}'
+AND projectsId = '{{ projectsId }}'
+AND versionsId = '{{ versionsId }}';
+```

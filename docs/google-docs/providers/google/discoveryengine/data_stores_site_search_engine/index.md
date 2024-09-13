@@ -1,3 +1,4 @@
+
 ---
 title: data_stores_site_search_engine
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - data_stores_site_search_engine
   - discoveryengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>data_stores_site_search_engine</code> resource or lists <code>data_stores_site_search_engine</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | The fully qualified resource name of the site search engine. Format: `projects/*/locations/*/dataStores/*/siteSearchEngine` |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_collections_data_stores_get_site_search_engine" /> | `SELECT` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> |
-| <CopyableCode code="projects_locations_data_stores_get_site_search_engine" /> | `SELECT` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_collections_data_stores_get_site_search_engine" /> | `SELECT` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Gets the SiteSearchEngine. |
+| <CopyableCode code="projects_locations_data_stores_get_site_search_engine" /> | `SELECT` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Gets the SiteSearchEngine. |
+
+## `SELECT` examples
+
+Gets the SiteSearchEngine.
+
+```sql
+SELECT
+name
+FROM google.discoveryengine.data_stores_site_search_engine
+WHERE dataStoresId = '{{ dataStoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

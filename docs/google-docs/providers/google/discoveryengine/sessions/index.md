@@ -1,3 +1,4 @@
+
 ---
 title: sessions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - sessions
   - discoveryengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>session</code> resource or lists <code>sessions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,12 +32,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. Fully qualified name `projects/&#123;project&#125;/locations/global/collections/&#123;collection&#125;/engines/&#123;engine&#125;/sessions/*` |
+| <CopyableCode code="name" /> | `string` | Immutable. Fully qualified name `projects/{project}/locations/global/collections/{collection}/engines/{engine}/sessions/*` |
 | <CopyableCode code="endTime" /> | `string` | Output only. The time the session finished. |
 | <CopyableCode code="startTime" /> | `string` | Output only. The time the session started. |
 | <CopyableCode code="state" /> | `string` | The state of the session. |
 | <CopyableCode code="turns" /> | `array` | Turns. |
 | <CopyableCode code="userPseudoId" /> | `string` | A unique identifier for tracking users. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,6 +57,115 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_collections_data_stores_sessions_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId, sessionsId" /> | Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="projects_locations_collections_engines_sessions_patch" /> | `UPDATE` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId, sessionsId" /> | Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. |
 | <CopyableCode code="projects_locations_data_stores_sessions_patch" /> | `UPDATE` | <CopyableCode code="dataStoresId, locationsId, projectsId, sessionsId" /> | Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. |
-| <CopyableCode code="_projects_locations_collections_data_stores_sessions_list" /> | `EXEC` | <CopyableCode code="collectionsId, dataStoresId, locationsId, projectsId" /> | Lists all Sessions by their parent DataStore. |
-| <CopyableCode code="_projects_locations_collections_engines_sessions_list" /> | `EXEC` | <CopyableCode code="collectionsId, enginesId, locationsId, projectsId" /> | Lists all Sessions by their parent DataStore. |
-| <CopyableCode code="_projects_locations_data_stores_sessions_list" /> | `EXEC` | <CopyableCode code="dataStoresId, locationsId, projectsId" /> | Lists all Sessions by their parent DataStore. |
+
+## `SELECT` examples
+
+Lists all Sessions by their parent DataStore.
+
+```sql
+SELECT
+name,
+endTime,
+startTime,
+state,
+turns,
+userPseudoId
+FROM google.discoveryengine.sessions
+WHERE dataStoresId = '{{ dataStoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>sessions</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.discoveryengine.sessions (
+dataStoresId,
+locationsId,
+projectsId,
+name,
+state,
+userPseudoId,
+turns,
+startTime,
+endTime
+)
+SELECT 
+'{{ dataStoresId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ state }}',
+'{{ userPseudoId }}',
+'{{ turns }}',
+'{{ startTime }}',
+'{{ endTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: state
+        value: '{{ state }}'
+      - name: userPseudoId
+        value: '{{ userPseudoId }}'
+      - name: turns
+        value: '{{ turns }}'
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: endTime
+        value: '{{ endTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a session only if the necessary resources are available.
+
+```sql
+UPDATE google.discoveryengine.sessions
+SET 
+name = '{{ name }}',
+state = '{{ state }}',
+userPseudoId = '{{ userPseudoId }}',
+turns = '{{ turns }}',
+startTime = '{{ startTime }}',
+endTime = '{{ endTime }}'
+WHERE 
+dataStoresId = '{{ dataStoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sessionsId = '{{ sessionsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified session resource.
+
+```sql
+DELETE FROM google.discoveryengine.sessions
+WHERE dataStoresId = '{{ dataStoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sessionsId = '{{ sessionsId }}';
+```

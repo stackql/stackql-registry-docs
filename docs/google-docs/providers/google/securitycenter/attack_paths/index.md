@@ -1,3 +1,4 @@
+
 ---
 title: attack_paths
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - attack_paths
   - securitycenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>attack_path</code> resource or lists <code>attack_paths</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,12 +35,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | The attack path name, for example, `organizations/12/simulation/34/valuedResources/56/attackPaths/78` |
 | <CopyableCode code="edges" /> | `array` | A list of the edges between nodes in this attack path. |
 | <CopyableCode code="pathNodes" /> | `array` | A list of nodes that exist in this attack path. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="organizations_simulations_attack_exposure_results_attack_paths_list" /> | `SELECT` | <CopyableCode code="attackExposureResultsId, organizationsId, simulationsId" /> |
-| <CopyableCode code="organizations_simulations_attack_paths_list" /> | `SELECT` | <CopyableCode code="organizationsId, simulationsId" /> |
-| <CopyableCode code="organizations_simulations_valued_resources_attack_paths_list" /> | `SELECT` | <CopyableCode code="organizationsId, simulationsId, valuedResourcesId" /> |
-| <CopyableCode code="_organizations_simulations_attack_exposure_results_attack_paths_list" /> | `EXEC` | <CopyableCode code="attackExposureResultsId, organizationsId, simulationsId" /> |
-| <CopyableCode code="_organizations_simulations_attack_paths_list" /> | `EXEC` | <CopyableCode code="organizationsId, simulationsId" /> |
-| <CopyableCode code="_organizations_simulations_valued_resources_attack_paths_list" /> | `EXEC` | <CopyableCode code="organizationsId, simulationsId, valuedResourcesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_simulations_attack_exposure_results_attack_paths_list" /> | `SELECT` | <CopyableCode code="attackExposureResultsId, organizationsId, simulationsId" /> | Lists the attack paths for a set of simulation results or valued resources and filter. |
+| <CopyableCode code="organizations_simulations_attack_paths_list" /> | `SELECT` | <CopyableCode code="organizationsId, simulationsId" /> | Lists the attack paths for a set of simulation results or valued resources and filter. |
+| <CopyableCode code="organizations_simulations_valued_resources_attack_paths_list" /> | `SELECT` | <CopyableCode code="organizationsId, simulationsId, valuedResourcesId" /> | Lists the attack paths for a set of simulation results or valued resources and filter. |
+
+## `SELECT` examples
+
+Lists the attack paths for a set of simulation results or valued resources and filter.
+
+```sql
+SELECT
+name,
+edges,
+pathNodes
+FROM google.securitycenter.attack_paths
+WHERE organizationsId = '{{ organizationsId }}'
+AND simulationsId = '{{ simulationsId }}'; 
+```

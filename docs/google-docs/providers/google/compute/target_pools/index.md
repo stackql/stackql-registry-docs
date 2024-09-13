@@ -1,3 +1,4 @@
+
 ---
 title: target_pools
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - target_pools
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>target_pool</code> resource or lists <code>target_pools</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="securityPolicy" /> | `string` | [Output Only] The resource URL for the security policy associated with this target pool. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="sessionAffinity" /> | `string` | Session affinity option, must be one of the following values: NONE: Connections from the same client IP may go to any instance in the pool. CLIENT_IP: Connections from the same client IP will go to the same instance in the pool while that instance remains healthy. CLIENT_IP_PROTO: Connections from the same client IP with the same IP protocol will go to the same instance in the pool while that instance remains healthy. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,6 +54,127 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of target pools available to the specified project and region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a target pool in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, targetPool" /> | Deletes the specified target pool. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of target pools. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="set_backup" /> | `EXEC` | <CopyableCode code="project, region, targetPool" /> | Changes a backup target pool's configurations. |
 | <CopyableCode code="set_security_policy" /> | `EXEC` | <CopyableCode code="project, region, targetPool" /> | Sets the Google Cloud Armor security policy for the specified target pool. For more information, see Google Cloud Armor Overview |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of target pools. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+backupPool,
+creationTimestamp,
+failoverRatio,
+healthChecks,
+instances,
+kind,
+region,
+securityPolicy,
+selfLink,
+sessionAffinity
+FROM google.compute.target_pools
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>target_pools</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.target_pools (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+region,
+healthChecks,
+instances,
+sessionAffinity,
+failoverRatio,
+backupPool,
+selfLink,
+securityPolicy
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ region }}',
+'{{ healthChecks }}',
+'{{ instances }}',
+'{{ sessionAffinity }}',
+number,
+'{{ backupPool }}',
+'{{ selfLink }}',
+'{{ securityPolicy }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: region
+        value: '{{ region }}'
+      - name: healthChecks
+        value: '{{ healthChecks }}'
+      - name: instances
+        value: '{{ instances }}'
+      - name: sessionAffinity
+        value: '{{ sessionAffinity }}'
+      - name: failoverRatio
+        value: '{{ failoverRatio }}'
+      - name: backupPool
+        value: '{{ backupPool }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: securityPolicy
+        value: '{{ securityPolicy }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified target_pool resource.
+
+```sql
+DELETE FROM google.compute.target_pools
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND targetPool = '{{ targetPool }}';
+```

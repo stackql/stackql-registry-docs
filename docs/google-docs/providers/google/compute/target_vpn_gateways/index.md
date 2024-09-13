@@ -1,3 +1,4 @@
+
 ---
 title: target_vpn_gateways
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - target_vpn_gateways
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>target_vpn_gateway</code> resource or lists <code>target_vpn_gateways</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of the VPN gateway, which can be one of the following: CREATING, READY, FAILED, or DELETING. |
 | <CopyableCode code="tunnels" /> | `array` | [Output Only] A list of URLs to VpnTunnel resources. VpnTunnels are created using the compute.vpntunnels.insert method and associated with a VPN gateway. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,5 +54,126 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of target VPN gateways available to the specified project and region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a target VPN gateway in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, targetVpnGateway" /> | Deletes the specified target VPN gateway. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of target VPN gateways. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Sets the labels on a TargetVpnGateway. To learn more about labels, read the Labeling Resources documentation. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of target VPN gateways. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+forwardingRules,
+kind,
+labelFingerprint,
+labels,
+network,
+region,
+selfLink,
+status,
+tunnels
+FROM google.compute.target_vpn_gateways
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>target_vpn_gateways</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.target_vpn_gateways (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+region,
+network,
+tunnels,
+status,
+selfLink,
+forwardingRules,
+labels,
+labelFingerprint
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ region }}',
+'{{ network }}',
+'{{ tunnels }}',
+'{{ status }}',
+'{{ selfLink }}',
+'{{ forwardingRules }}',
+'{{ labels }}',
+'{{ labelFingerprint }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: region
+        value: '{{ region }}'
+      - name: network
+        value: '{{ network }}'
+      - name: tunnels
+        value: '{{ tunnels }}'
+      - name: status
+        value: '{{ status }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: forwardingRules
+        value: '{{ forwardingRules }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified target_vpn_gateway resource.
+
+```sql
+DELETE FROM google.compute.target_vpn_gateways
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND targetVpnGateway = '{{ targetVpnGateway }}';
+```

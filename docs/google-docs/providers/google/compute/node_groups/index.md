@@ -1,3 +1,4 @@
+
 ---
 title: node_groups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - node_groups
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>node_group</code> resource or lists <code>node_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -47,6 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="size" /> | `integer` | [Output Only] The total number of nodes in the node group. |
 | <CopyableCode code="status" /> | `string` |  |
 | <CopyableCode code="zone" /> | `string` | [Output Only] The name of the zone where the node group resides, such as us-central1-a. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -56,7 +59,180 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="initialNodeCount, project, zone" /> | Creates a NodeGroup resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="nodeGroup, project, zone" /> | Deletes the specified NodeGroup resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="nodeGroup, project, zone" /> | Updates the specified node group. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes for more details about each group. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="perform_maintenance" /> | `EXEC` | <CopyableCode code="nodeGroup, project, zone" /> | Perform maintenance on a subset of nodes in the node group. |
 | <CopyableCode code="set_node_template" /> | `EXEC` | <CopyableCode code="nodeGroup, project, zone" /> | Updates the node template of the node group. |
 | <CopyableCode code="simulate_maintenance_event" /> | `EXEC` | <CopyableCode code="nodeGroup, project, zone" /> | Simulates maintenance event on specified nodes from the node group. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes for more details about each group. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+autoscalingPolicy,
+creationTimestamp,
+fingerprint,
+kind,
+locationHint,
+maintenanceInterval,
+maintenancePolicy,
+maintenanceWindow,
+nodeTemplate,
+selfLink,
+shareSettings,
+size,
+status,
+zone
+FROM google.compute.node_groups
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>node_groups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.node_groups (
+initialNodeCount,
+project,
+zone,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+nodeTemplate,
+zone,
+selfLink,
+status,
+size,
+autoscalingPolicy,
+maintenancePolicy,
+locationHint,
+fingerprint,
+maintenanceWindow,
+shareSettings,
+maintenanceInterval
+)
+SELECT 
+'{{ initialNodeCount }}',
+'{{ project }}',
+'{{ zone }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ nodeTemplate }}',
+'{{ zone }}',
+'{{ selfLink }}',
+'{{ status }}',
+'{{ size }}',
+'{{ autoscalingPolicy }}',
+'{{ maintenancePolicy }}',
+'{{ locationHint }}',
+'{{ fingerprint }}',
+'{{ maintenanceWindow }}',
+'{{ shareSettings }}',
+'{{ maintenanceInterval }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: nodeTemplate
+        value: '{{ nodeTemplate }}'
+      - name: zone
+        value: '{{ zone }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: status
+        value: '{{ status }}'
+      - name: size
+        value: '{{ size }}'
+      - name: autoscalingPolicy
+        value: '{{ autoscalingPolicy }}'
+      - name: maintenancePolicy
+        value: '{{ maintenancePolicy }}'
+      - name: locationHint
+        value: '{{ locationHint }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: maintenanceWindow
+        value: '{{ maintenanceWindow }}'
+      - name: shareSettings
+        value: '{{ shareSettings }}'
+      - name: maintenanceInterval
+        value: '{{ maintenanceInterval }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a node_group only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.node_groups
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+nodeTemplate = '{{ nodeTemplate }}',
+zone = '{{ zone }}',
+selfLink = '{{ selfLink }}',
+status = '{{ status }}',
+size = '{{ size }}',
+autoscalingPolicy = '{{ autoscalingPolicy }}',
+maintenancePolicy = '{{ maintenancePolicy }}',
+locationHint = '{{ locationHint }}',
+fingerprint = '{{ fingerprint }}',
+maintenanceWindow = '{{ maintenanceWindow }}',
+shareSettings = '{{ shareSettings }}',
+maintenanceInterval = '{{ maintenanceInterval }}'
+WHERE 
+nodeGroup = '{{ nodeGroup }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```
+
+## `DELETE` example
+
+Deletes the specified node_group resource.
+
+```sql
+DELETE FROM google.compute.node_groups
+WHERE nodeGroup = '{{ nodeGroup }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```

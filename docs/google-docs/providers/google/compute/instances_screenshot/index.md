@@ -1,3 +1,4 @@
+
 ---
 title: instances_screenshot
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances_screenshot
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instances_screenshot</code> resource or lists <code>instances_screenshot</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,7 +34,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="contents" /> | `string` | [Output Only] The Base64-encoded screenshot data. |
 | <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#screenshot for the screenshots. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_screenshot" /> | `SELECT` | <CopyableCode code="instance, project, zone" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_screenshot" /> | `SELECT` | <CopyableCode code="instance, project, zone" /> | Returns the screenshot from the specified instance. |
+
+## `SELECT` examples
+
+Returns the screenshot from the specified instance.
+
+```sql
+SELECT
+contents,
+kind
+FROM google.compute.instances_screenshot
+WHERE instance = '{{ instance }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}'; 
+```

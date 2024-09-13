@@ -1,3 +1,4 @@
+
 ---
 title: schemas_revision
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - schemas_revision
   - pubsub
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>schemas_revision</code> resource or lists <code>schemas_revision</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,20 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_schemas_delete_revision" /> | `DELETE` | <CopyableCode code="projectsId, schemasId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_schemas_delete_revision" /> | `DELETE` | <CopyableCode code="projectsId, schemasId" /> | Deletes a specific schema revision. |
+
+## `DELETE` example
+
+Deletes the specified schemas_revision resource.
+
+```sql
+DELETE FROM google.pubsub.schemas_revision
+WHERE projectsId = '{{ projectsId }}'
+AND schemasId = '{{ schemasId }}';
+```

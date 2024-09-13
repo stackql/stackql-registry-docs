@@ -1,3 +1,4 @@
+
 ---
 title: revisions_deployments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - revisions_deployments
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>revisions_deployment</code> resource or lists <code>revisions_deployments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,10 +41,35 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="proxyDeploymentType" /> | `string` | Output only. The type of the deployment (standard or extensible) Deployed proxy revision will be marked as extensible in following 2 cases. 1. The deployed proxy revision uses extensible policies. 2. If a environment supports flowhooks and flow hook is configured. |
 | <CopyableCode code="revision" /> | `string` | API proxy revision. |
 | <CopyableCode code="routeConflicts" /> | `array` | Conflicts in the desired state routing configuration. The presence of conflicts does not cause the state to be `ERROR`, but it will mean that some of the deployment's base paths are not routed to its environment. If the conflicts change, the state will transition to `PROGRESSING` until the latest configuration is rolled out to all instances. **Note**: This field is displayed only when viewing deployment status. |
-| <CopyableCode code="serviceAccount" /> | `string` | The full resource name of Cloud IAM Service Account that this deployment is using, eg, `projects/-/serviceAccounts/&#123;email&#125;`. |
+| <CopyableCode code="serviceAccount" /> | `string` | The full resource name of Cloud IAM Service Account that this deployment is using, eg, `projects/-/serviceAccounts/{email}`. |
 | <CopyableCode code="state" /> | `string` | Current state of the deployment. **Note**: This field is displayed only when viewing deployment status. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_environments_apis_revisions_get_deployments" /> | `SELECT` | <CopyableCode code="apisId, environmentsId, organizationsId, revisionsId" /> | Gets the deployment of an API proxy revision and actual state reported by runtime pods. |
 | <CopyableCode code="organizations_environments_sharedflows_revisions_get_deployments" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId, revisionsId, sharedflowsId" /> | Gets the deployment of a shared flow revision and actual state reported by runtime pods. |
+
+## `SELECT` examples
+
+Gets the deployment of an API proxy revision and actual state reported by runtime pods.
+
+```sql
+SELECT
+apiProxy,
+deployStartTime,
+environment,
+errors,
+instances,
+pods,
+proxyDeploymentType,
+revision,
+routeConflicts,
+serviceAccount,
+state
+FROM google.apigee.revisions_deployments
+WHERE apisId = '{{ apisId }}'
+AND environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND revisionsId = '{{ revisionsId }}'; 
+```

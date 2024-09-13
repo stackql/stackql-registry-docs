@@ -1,3 +1,4 @@
+
 ---
 title: previews
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - previews
   - config
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>preview</code> resource or lists <code>previews</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,26 +32,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. Resource name of the preview. Resource name can be user provided or server generated ID if unspecified. Format: `projects/&#123;project&#125;/locations/&#123;location&#125;/previews/&#123;preview&#125;` |
+| <CopyableCode code="name" /> | `string` | Identifier. Resource name of the preview. Resource name can be user provided or server generated ID if unspecified. Format: `projects/{project}/locations/{location}/previews/{preview}` |
 | <CopyableCode code="annotations" /> | `object` | Optional. Arbitrary key-value metadata storage e.g. to help client tools identifiy preview during automation. See https://google.aip.dev/148#annotations for details on format and size limitations. |
-| <CopyableCode code="artifactsGcsBucket" /> | `string` | Optional. User-defined location of Cloud Build logs, artifacts, and in Google Cloud Storage. Format: `gs://&#123;bucket&#125;/&#123;folder&#125;` A default bucket will be bootstrapped if the field is not set or empty Default Bucket Format: `gs://--blueprint-config` Constraints: - The bucket needs to be in the same project as the deployment - The path cannot be within the path of `gcs_source` If omitted and deployment resource ref provided has artifacts_gcs_bucket defined, that artifact bucket is used. |
+| <CopyableCode code="artifactsGcsBucket" /> | `string` | Optional. User-defined location of Cloud Build logs, artifacts, and in Google Cloud Storage. Format: `gs://{bucket}/{folder}` A default bucket will be bootstrapped if the field is not set or empty Default Bucket Format: `gs://--blueprint-config` Constraints: - The bucket needs to be in the same project as the deployment - The path cannot be within the path of `gcs_source` If omitted and deployment resource ref provided has artifacts_gcs_bucket defined, that artifact bucket is used. |
 | <CopyableCode code="build" /> | `string` | Output only. Cloud Build instance UUID associated with this preview. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time the preview was created. |
 | <CopyableCode code="deployment" /> | `string` | Optional. Optional deployment reference. If specified, the preview will be performed using the provided deployment's current state and use any relevant fields from the deployment unless explicitly specified in the preview create request. |
 | <CopyableCode code="errorCode" /> | `string` | Output only. Code describing any errors that may have occurred. |
-| <CopyableCode code="errorLogs" /> | `string` | Output only. Link to tf-error.ndjson file, which contains the full list of the errors encountered during a Terraform preview. Format: `gs://&#123;bucket&#125;/&#123;object&#125;`. |
+| <CopyableCode code="errorLogs" /> | `string` | Output only. Link to tf-error.ndjson file, which contains the full list of the errors encountered during a Terraform preview. Format: `gs://{bucket}/{object}`. |
 | <CopyableCode code="errorStatus" /> | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
 | <CopyableCode code="labels" /> | `object` | Optional. User-defined labels for the preview. |
-| <CopyableCode code="logs" /> | `string` | Output only. Location of preview logs in `gs://&#123;bucket&#125;/&#123;object&#125;` format. |
+| <CopyableCode code="logs" /> | `string` | Output only. Location of preview logs in `gs://{bucket}/{object}` format. |
 | <CopyableCode code="previewArtifacts" /> | `object` | Artifacts created by preview. |
 | <CopyableCode code="previewMode" /> | `string` | Optional. Current mode of preview. |
-| <CopyableCode code="serviceAccount" /> | `string` | Optional. User-specified Service Account (SA) credentials to be used when previewing resources. Format: `projects/&#123;projectID&#125;/serviceAccounts/&#123;serviceAccount&#125;` |
+| <CopyableCode code="serviceAccount" /> | `string` | Optional. User-specified Service Account (SA) credentials to be used when previewing resources. Format: `projects/{projectID}/serviceAccounts/{serviceAccount}` |
 | <CopyableCode code="state" /> | `string` | Output only. Current state of the preview. |
 | <CopyableCode code="terraformBlueprint" /> | `object` | TerraformBlueprint describes the source of a Terraform root module which describes the resources and configs to be deployed. |
 | <CopyableCode code="tfErrors" /> | `array` | Output only. Summary of errors encountered during Terraform preview. It has a size limit of 10, i.e. only top 10 errors will be summarized here. |
 | <CopyableCode code="tfVersion" /> | `string` | Output only. The current Terraform version set on the preview. It is in the format of "Major.Minor.Patch", for example, "1.3.10". |
 | <CopyableCode code="tfVersionConstraint" /> | `string` | Optional. The user-specified Terraform version constraint. Example: "=1.3.10". |
-| <CopyableCode code="workerPool" /> | `string` | Optional. The user-specified Worker Pool resource in which the Cloud Build job will execute. Format projects/&#123;project&#125;/locations/&#123;location&#125;/workerPools/&#123;workerPoolId&#125; If this field is unspecified, the default Cloud Build worker pool will be used. If omitted and deployment resource ref provided has worker_pool defined, that worker pool is used. |
+| <CopyableCode code="workerPool" /> | `string` | Optional. The user-specified Worker Pool resource in which the Cloud Build job will execute. Format projects/{project}/locations/{location}/workerPools/{workerPoolId} If this field is unspecified, the default Cloud Build worker pool will be used. If omitted and deployment resource ref provided has worker_pool defined, that worker pool is used. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -57,5 +60,162 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Previews in a given project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Preview. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, previewsId, projectsId" /> | Deletes a Preview. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Previews in a given project and location. |
 | <CopyableCode code="export" /> | `EXEC` | <CopyableCode code="locationsId, previewsId, projectsId" /> | Export Preview results. |
+
+## `SELECT` examples
+
+Lists Previews in a given project and location.
+
+```sql
+SELECT
+name,
+annotations,
+artifactsGcsBucket,
+build,
+createTime,
+deployment,
+errorCode,
+errorLogs,
+errorStatus,
+labels,
+logs,
+previewArtifacts,
+previewMode,
+serviceAccount,
+state,
+terraformBlueprint,
+tfErrors,
+tfVersion,
+tfVersionConstraint,
+workerPool
+FROM google.config.previews
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>previews</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.config.previews (
+locationsId,
+projectsId,
+terraformBlueprint,
+name,
+createTime,
+labels,
+state,
+deployment,
+previewMode,
+serviceAccount,
+artifactsGcsBucket,
+workerPool,
+errorCode,
+errorStatus,
+build,
+tfErrors,
+errorLogs,
+previewArtifacts,
+logs,
+tfVersion,
+tfVersionConstraint,
+annotations
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ terraformBlueprint }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ labels }}',
+'{{ state }}',
+'{{ deployment }}',
+'{{ previewMode }}',
+'{{ serviceAccount }}',
+'{{ artifactsGcsBucket }}',
+'{{ workerPool }}',
+'{{ errorCode }}',
+'{{ errorStatus }}',
+'{{ build }}',
+'{{ tfErrors }}',
+'{{ errorLogs }}',
+'{{ previewArtifacts }}',
+'{{ logs }}',
+'{{ tfVersion }}',
+'{{ tfVersionConstraint }}',
+'{{ annotations }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: terraformBlueprint
+        value: '{{ terraformBlueprint }}'
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: state
+        value: '{{ state }}'
+      - name: deployment
+        value: '{{ deployment }}'
+      - name: previewMode
+        value: '{{ previewMode }}'
+      - name: serviceAccount
+        value: '{{ serviceAccount }}'
+      - name: artifactsGcsBucket
+        value: '{{ artifactsGcsBucket }}'
+      - name: workerPool
+        value: '{{ workerPool }}'
+      - name: errorCode
+        value: '{{ errorCode }}'
+      - name: errorStatus
+        value: '{{ errorStatus }}'
+      - name: build
+        value: '{{ build }}'
+      - name: tfErrors
+        value: '{{ tfErrors }}'
+      - name: errorLogs
+        value: '{{ errorLogs }}'
+      - name: previewArtifacts
+        value: '{{ previewArtifacts }}'
+      - name: logs
+        value: '{{ logs }}'
+      - name: tfVersion
+        value: '{{ tfVersion }}'
+      - name: tfVersionConstraint
+        value: '{{ tfVersionConstraint }}'
+      - name: annotations
+        value: '{{ annotations }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified preview resource.
+
+```sql
+DELETE FROM google.config.previews
+WHERE locationsId = '{{ locationsId }}'
+AND previewsId = '{{ previewsId }}'
+AND projectsId = '{{ projectsId }}';
+```

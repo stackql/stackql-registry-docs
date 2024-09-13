@@ -1,3 +1,4 @@
+
 ---
 title: notifications
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - notifications
   - advisorynotifications
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>notification</code> resource or lists <code>notifications</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,14 +32,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the notification. Format: organizations/&#123;organization&#125;/locations/&#123;location&#125;/notifications/&#123;notification&#125; or projects/&#123;project&#125;/locations/&#123;location&#125;/notifications/&#123;notification&#125;. |
+| <CopyableCode code="name" /> | `string` | The resource name of the notification. Format: organizations/{organization}/locations/{location}/notifications/{notification} or projects/{project}/locations/{location}/notifications/{notification}. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time the notification was created. |
 | <CopyableCode code="messages" /> | `array` | A list of messages in the notification. |
 | <CopyableCode code="notificationType" /> | `string` | Type of notification |
 | <CopyableCode code="subject" /> | `object` | A subject line of a notification. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, notificationsId, organizationsId" /> | Gets a notification. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId" /> | Lists notifications under a given parent. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists notifications under a given parent. |
+
+## `SELECT` examples
+
+Lists notifications under a given parent.
+
+```sql
+SELECT
+name,
+createTime,
+messages,
+notificationType,
+subject
+FROM google.advisorynotifications.notifications
+WHERE locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```

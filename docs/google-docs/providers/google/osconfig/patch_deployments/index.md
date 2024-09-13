@@ -1,3 +1,4 @@
+
 ---
 title: patch_deployments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - patch_deployments
   - osconfig
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>patch_deployment</code> resource or lists <code>patch_deployments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Unique name for the patch deployment resource in a project. The patch deployment name is in the form: `projects/&#123;project_id&#125;/patchDeployments/&#123;patch_deployment_id&#125;`. This field is ignored when you create a new patch deployment. |
+| <CopyableCode code="name" /> | `string` | Unique name for the patch deployment resource in a project. The patch deployment name is in the form: `projects/{project_id}/patchDeployments/{patch_deployment_id}`. This field is ignored when you create a new patch deployment. |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the patch deployment. Length of the description is limited to 1024 characters. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time the patch deployment was created. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. |
 | <CopyableCode code="duration" /> | `string` | Optional. Duration of the patch. After the duration ends, the patch times out. |
@@ -42,6 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="rollout" /> | `object` | Patch rollout configuration specifications. Contains details on the concurrency control when applying patch(es) to all targeted VMs. |
 | <CopyableCode code="state" /> | `string` | Output only. Current state of the patch deployment. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time the patch deployment was last updated. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -50,6 +53,143 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Create an OS Config patch deployment. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="patchDeploymentsId, projectsId" /> | Delete an OS Config patch deployment. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="patchDeploymentsId, projectsId" /> | Update an OS Config patch deployment. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Get a page of OS Config patch deployments. |
 | <CopyableCode code="pause" /> | `EXEC` | <CopyableCode code="patchDeploymentsId, projectsId" /> | Change state of patch deployment to "PAUSED". Patch deployment in paused state doesn't generate patch jobs. |
 | <CopyableCode code="resume" /> | `EXEC` | <CopyableCode code="patchDeploymentsId, projectsId" /> | Change state of patch deployment back to "ACTIVE". Patch deployment in active state continues to generate patch jobs. |
+
+## `SELECT` examples
+
+Get a page of OS Config patch deployments.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+duration,
+instanceFilter,
+lastExecuteTime,
+oneTimeSchedule,
+patchConfig,
+recurringSchedule,
+rollout,
+state,
+updateTime
+FROM google.osconfig.patch_deployments
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>patch_deployments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.osconfig.patch_deployments (
+projectsId,
+name,
+description,
+instanceFilter,
+patchConfig,
+duration,
+oneTimeSchedule,
+recurringSchedule,
+createTime,
+updateTime,
+lastExecuteTime,
+rollout,
+state
+)
+SELECT 
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ instanceFilter }}',
+'{{ patchConfig }}',
+'{{ duration }}',
+'{{ oneTimeSchedule }}',
+'{{ recurringSchedule }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ lastExecuteTime }}',
+'{{ rollout }}',
+'{{ state }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: instanceFilter
+        value: '{{ instanceFilter }}'
+      - name: patchConfig
+        value: '{{ patchConfig }}'
+      - name: duration
+        value: '{{ duration }}'
+      - name: oneTimeSchedule
+        value: '{{ oneTimeSchedule }}'
+      - name: recurringSchedule
+        value: '{{ recurringSchedule }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: lastExecuteTime
+        value: '{{ lastExecuteTime }}'
+      - name: rollout
+        value: '{{ rollout }}'
+      - name: state
+        value: '{{ state }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a patch_deployment only if the necessary resources are available.
+
+```sql
+UPDATE google.osconfig.patch_deployments
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+instanceFilter = '{{ instanceFilter }}',
+patchConfig = '{{ patchConfig }}',
+duration = '{{ duration }}',
+oneTimeSchedule = '{{ oneTimeSchedule }}',
+recurringSchedule = '{{ recurringSchedule }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+lastExecuteTime = '{{ lastExecuteTime }}',
+rollout = '{{ rollout }}',
+state = '{{ state }}'
+WHERE 
+patchDeploymentsId = '{{ patchDeploymentsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified patch_deployment resource.
+
+```sql
+DELETE FROM google.osconfig.patch_deployments
+WHERE patchDeploymentsId = '{{ patchDeploymentsId }}'
+AND projectsId = '{{ projectsId }}';
+```

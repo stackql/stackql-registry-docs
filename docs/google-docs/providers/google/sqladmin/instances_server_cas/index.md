@@ -1,3 +1,4 @@
+
 ---
 title: instances_server_cas
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances_server_cas
   - sqladmin
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instances_server_ca</code> resource or lists <code>instances_server_cas</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,7 +35,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="activeVersion" /> | `string` |  |
 | <CopyableCode code="certs" /> | `array` | List of server CA certificates for the instance. |
 | <CopyableCode code="kind" /> | `string` | This is always `sql#instancesListServerCas`. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_server_cas" /> | `SELECT` | <CopyableCode code="instance, project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_server_cas" /> | `SELECT` | <CopyableCode code="instance, project" /> | Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign the certificate that is currently in use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has previously rotated out. |
+
+## `SELECT` examples
+
+Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign the certificate that is currently in use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has previously rotated out.
+
+```sql
+SELECT
+activeVersion,
+certs,
+kind
+FROM google.sqladmin.instances_server_cas
+WHERE instance = '{{ instance }}'
+AND project = '{{ project }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: places
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - places
   - places
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>place</code> resource or lists <code>places</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,7 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | The unique identifier of a place. |
-| <CopyableCode code="name" /> | `string` | This Place's resource name, in `places/&#123;place_id&#125;` format. Can be used to look up the Place. |
+| <CopyableCode code="name" /> | `string` | This Place's resource name, in `places/{place_id}` format. Can be used to look up the Place. |
 | <CopyableCode code="accessibilityOptions" /> | `object` | Information about the accessibility options a place offers. |
 | <CopyableCode code="addressComponents" /> | `array` | Repeated components for each locality level. Note the following facts about the address_components[] array: - The array of address components may contain more components than the formatted_address. - The array does not necessarily include all the political entities that contain an address, apart from those included in the formatted_address. To retrieve all the political entities that contain a specific address, you should use reverse geocoding, passing the latitude/longitude of the address as a parameter to the request. - The format of the response is not guaranteed to remain the same between requests. In particular, the number of address_components varies based on the address requested and can change over time for the same address. A component can change position in the array. The type of the component can change. A particular component may be missing in a later response. |
 | <CopyableCode code="adrFormatAddress" /> | `string` | The place's address in adr microformat: http://microformats.org/wiki/adr. |
@@ -91,12 +93,86 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="types" /> | `array` | A set of type tags for this result. For example, "political" and "locality". For the complete list of possible values, see Table A and Table B at https://developers.google.com/maps/documentation/places/web-service/place-types |
 | <CopyableCode code="userRatingCount" /> | `integer` | The total number of reviews (with or without text) for this place. |
 | <CopyableCode code="utcOffsetMinutes" /> | `integer` | Number of minutes this place's timezone is currently offset from UTC. This is expressed in minutes to support timezones that are offset by fractions of an hour, e.g. X hours and 15 minutes. |
-| <CopyableCode code="viewport" /> | `object` | A latitude-longitude viewport, represented as two diagonally opposite `low` and `high` points. A viewport is considered a closed region, i.e. it includes its boundary. The latitude bounds must range between -90 to 90 degrees inclusive, and the longitude bounds must range between -180 to 180 degrees inclusive. Various cases include: - If `low` = `high`, the viewport consists of that single point. - If `low.longitude` &gt; `high.longitude`, the longitude range is inverted (the viewport crosses the 180 degree longitude line). - If `low.longitude` = -180 degrees and `high.longitude` = 180 degrees, the viewport includes all longitudes. - If `low.longitude` = 180 degrees and `high.longitude` = -180 degrees, the longitude range is empty. - If `low.latitude` &gt; `high.latitude`, the latitude range is empty. Both `low` and `high` must be populated, and the represented box cannot be empty (as specified by the definitions above). An empty viewport will result in an error. For example, this viewport fully encloses New York City: &#123; "low": &#123; "latitude": 40.477398, "longitude": -74.259087 &#125;, "high": &#123; "latitude": 40.91618, "longitude": -73.70018 &#125; &#125; |
+| <CopyableCode code="viewport" /> | `object` | A latitude-longitude viewport, represented as two diagonally opposite `low` and `high` points. A viewport is considered a closed region, i.e. it includes its boundary. The latitude bounds must range between -90 to 90 degrees inclusive, and the longitude bounds must range between -180 to 180 degrees inclusive. Various cases include: - If `low` = `high`, the viewport consists of that single point. - If `low.longitude` > `high.longitude`, the longitude range is inverted (the viewport crosses the 180 degree longitude line). - If `low.longitude` = -180 degrees and `high.longitude` = 180 degrees, the viewport includes all longitudes. - If `low.longitude` = 180 degrees and `high.longitude` = -180 degrees, the longitude range is empty. - If `low.latitude` > `high.latitude`, the latitude range is empty. Both `low` and `high` must be populated, and the represented box cannot be empty (as specified by the definitions above). An empty viewport will result in an error. For example, this viewport fully encloses New York City: { "low": { "latitude": 40.477398, "longitude": -74.259087 }, "high": { "latitude": 40.91618, "longitude": -73.70018 } } |
 | <CopyableCode code="websiteUri" /> | `string` | The authoritative website for this place, e.g. a business' homepage. Note that for places that are part of a chain (e.g. an IKEA store), this will usually be the website for the individual store, not the overall chain. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="placesId" /> | Get the details of a place based on its resource name, which is a string in the `places/&#123;place_id&#125;` format. |
-| <CopyableCode code="autocomplete" /> | `EXEC` |  | Returns predictions for the given input. |
-| <CopyableCode code="search_nearby" /> | `EXEC` |  | Search for places near locations. |
-| <CopyableCode code="search_text" /> | `EXEC` |  | Text query based place search. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="placesId" /> | Get the details of a place based on its resource name, which is a string in the `places/{place_id}` format. |
+| <CopyableCode code="autocomplete" /> | `EXEC` | <CopyableCode code="" /> | Returns predictions for the given input. |
+| <CopyableCode code="search_nearby" /> | `EXEC` | <CopyableCode code="" /> | Search for places near locations. |
+| <CopyableCode code="search_text" /> | `EXEC` | <CopyableCode code="" /> | Text query based place search. |
+
+## `SELECT` examples
+
+Get the details of a place based on its resource name, which is a string in the `places/{place_id}` format.
+
+```sql
+SELECT
+id,
+name,
+accessibilityOptions,
+addressComponents,
+adrFormatAddress,
+allowsDogs,
+areaSummary,
+attributions,
+businessStatus,
+curbsidePickup,
+currentOpeningHours,
+currentSecondaryOpeningHours,
+delivery,
+dineIn,
+displayName,
+editorialSummary,
+evChargeOptions,
+formattedAddress,
+fuelOptions,
+generativeSummary,
+goodForChildren,
+goodForGroups,
+goodForWatchingSports,
+googleMapsUri,
+iconBackgroundColor,
+iconMaskBaseUri,
+internationalPhoneNumber,
+liveMusic,
+location,
+menuForChildren,
+nationalPhoneNumber,
+outdoorSeating,
+parkingOptions,
+paymentOptions,
+photos,
+plusCode,
+priceLevel,
+primaryType,
+primaryTypeDisplayName,
+rating,
+regularOpeningHours,
+regularSecondaryOpeningHours,
+reservable,
+restroom,
+reviews,
+servesBeer,
+servesBreakfast,
+servesBrunch,
+servesCocktails,
+servesCoffee,
+servesDessert,
+servesDinner,
+servesLunch,
+servesVegetarianFood,
+servesWine,
+shortFormattedAddress,
+subDestinations,
+takeout,
+types,
+userRatingCount,
+utcOffsetMinutes,
+viewport,
+websiteUri
+FROM google.places.places
+WHERE placesId = '{{ placesId }}'; 
+```

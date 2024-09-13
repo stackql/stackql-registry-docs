@@ -1,3 +1,4 @@
+
 ---
 title: vmware_admin_clusters
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - vmware_admin_clusters
   - gkeonprem
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>vmware_admin_cluster</code> resource or lists <code>vmware_admin_clusters</code> in a region
 
 ## Overview
 <table><tbody>
@@ -55,13 +57,92 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
 | <CopyableCode code="uid" /> | `string` | Output only. The unique identifier of the VMware admin cluster. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time at which VMware admin cluster was last updated. |
+| <CopyableCode code="validationCheck" /> | `object` | ValidationCheck represents the result of preflight check. |
 | <CopyableCode code="vcenter" /> | `object` | VmwareAdminVCenterConfig contains VCenter configuration for VMware admin cluster. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_vmware_admin_clusters_get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, vmwareAdminClustersId" /> | Gets details of a single VMware admin cluster. |
 | <CopyableCode code="projects_locations_vmware_admin_clusters_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists VMware admin clusters in a given project and location. |
 | <CopyableCode code="projects_locations_vmware_admin_clusters_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, vmwareAdminClustersId" /> | Updates the parameters of a single VMware admin cluster. |
-| <CopyableCode code="_projects_locations_vmware_admin_clusters_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists VMware admin clusters in a given project and location. |
 | <CopyableCode code="projects_locations_vmware_admin_clusters_enroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Enrolls an existing VMware admin cluster to the Anthos On-Prem API within a given project and location. Through enrollment, an existing admin cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster will be expected to be performed through the API. |
 | <CopyableCode code="projects_locations_vmware_admin_clusters_unenroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareAdminClustersId" /> | Unenrolls an existing VMware admin cluster from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. |
+
+## `SELECT` examples
+
+Lists VMware admin clusters in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+addonNode,
+annotations,
+antiAffinityGroups,
+authorization,
+autoRepairConfig,
+bootstrapClusterMembership,
+controlPlaneNode,
+createTime,
+endpoint,
+etag,
+fleet,
+imageType,
+loadBalancer,
+localName,
+networkConfig,
+onPremVersion,
+platformConfig,
+preparedSecrets,
+reconciling,
+state,
+status,
+uid,
+updateTime,
+validationCheck,
+vcenter
+FROM google.gkeonprem.vmware_admin_clusters
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a vmware_admin_cluster only if the necessary resources are available.
+
+```sql
+UPDATE google.gkeonprem.vmware_admin_clusters
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+uid = '{{ uid }}',
+etag = '{{ etag }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+annotations = '{{ annotations }}',
+state = '{{ state }}',
+endpoint = '{{ endpoint }}',
+reconciling = true|false,
+localName = '{{ localName }}',
+bootstrapClusterMembership = '{{ bootstrapClusterMembership }}',
+onPremVersion = '{{ onPremVersion }}',
+fleet = '{{ fleet }}',
+imageType = '{{ imageType }}',
+vcenter = '{{ vcenter }}',
+networkConfig = '{{ networkConfig }}',
+loadBalancer = '{{ loadBalancer }}',
+controlPlaneNode = '{{ controlPlaneNode }}',
+addonNode = '{{ addonNode }}',
+antiAffinityGroups = '{{ antiAffinityGroups }}',
+autoRepairConfig = '{{ autoRepairConfig }}',
+status = '{{ status }}',
+platformConfig = '{{ platformConfig }}',
+preparedSecrets = '{{ preparedSecrets }}',
+authorization = '{{ authorization }}',
+validationCheck = '{{ validationCheck }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND vmwareAdminClustersId = '{{ vmwareAdminClustersId }}';
+```

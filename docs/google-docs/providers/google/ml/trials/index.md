@@ -1,3 +1,4 @@
+
 ---
 title: trials
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - trials
   - ml
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>trial</code> resource or lists <code>trials</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="startTime" /> | `string` | Output only. Time at which the trial was started. |
 | <CopyableCode code="state" /> | `string` | The detailed state of a trial. |
 | <CopyableCode code="trialInfeasible" /> | `boolean` | Output only. If true, the parameters in this trial are not attempted again. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,3 +54,115 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_studies_trials_complete" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, studiesId, trialsId" /> | Marks a trial as complete. |
 | <CopyableCode code="projects_locations_studies_trials_stop" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, studiesId, trialsId" /> | Stops a trial. |
 | <CopyableCode code="projects_locations_studies_trials_suggest" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, studiesId" /> | Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When this long-running operation succeeds, it will contain a SuggestTrialsResponse. |
+
+## `SELECT` examples
+
+Lists the trials associated with a study.
+
+```sql
+SELECT
+name,
+clientId,
+endTime,
+finalMeasurement,
+infeasibleReason,
+measurements,
+parameters,
+startTime,
+state,
+trialInfeasible
+FROM google.ml.trials
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND studiesId = '{{ studiesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>trials</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.ml.trials (
+locationsId,
+projectsId,
+studiesId,
+name,
+state,
+parameters,
+finalMeasurement,
+measurements,
+startTime,
+endTime,
+clientId,
+trialInfeasible,
+infeasibleReason
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ studiesId }}',
+'{{ name }}',
+'{{ state }}',
+'{{ parameters }}',
+'{{ finalMeasurement }}',
+'{{ measurements }}',
+'{{ startTime }}',
+'{{ endTime }}',
+'{{ clientId }}',
+true|false,
+'{{ infeasibleReason }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: state
+        value: '{{ state }}'
+      - name: parameters
+        value: '{{ parameters }}'
+      - name: finalMeasurement
+        value: '{{ finalMeasurement }}'
+      - name: measurements
+        value: '{{ measurements }}'
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: clientId
+        value: '{{ clientId }}'
+      - name: trialInfeasible
+        value: '{{ trialInfeasible }}'
+      - name: infeasibleReason
+        value: '{{ infeasibleReason }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified trial resource.
+
+```sql
+DELETE FROM google.ml.trials
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND studiesId = '{{ studiesId }}'
+AND trialsId = '{{ trialsId }}';
+```

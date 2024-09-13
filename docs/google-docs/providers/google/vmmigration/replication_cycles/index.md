@@ -1,3 +1,4 @@
+
 ---
 title: replication_cycles
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - replication_cycles
   - vmmigration
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>replication_cycle</code> resource or lists <code>replication_cycles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,9 +42,32 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="steps" /> | `array` | The cycle's steps list representing its progress. |
 | <CopyableCode code="totalPauseDuration" /> | `string` | The accumulated duration the replication cycle was paused. |
 | <CopyableCode code="warnings" /> | `array` | Output only. Warnings that occurred during the cycle. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, migratingVmsId, projectsId, replicationCyclesId, sourcesId" /> | Gets details of a single ReplicationCycle. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists ReplicationCycles in a given MigratingVM. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists ReplicationCycles in a given MigratingVM. |
+
+## `SELECT` examples
+
+Lists ReplicationCycles in a given MigratingVM.
+
+```sql
+SELECT
+name,
+cycleNumber,
+endTime,
+error,
+progressPercent,
+startTime,
+state,
+steps,
+totalPauseDuration,
+warnings
+FROM google.vmmigration.replication_cycles
+WHERE locationsId = '{{ locationsId }}'
+AND migratingVmsId = '{{ migratingVmsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}'; 
+```

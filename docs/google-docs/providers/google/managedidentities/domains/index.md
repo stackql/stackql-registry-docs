@@ -1,3 +1,4 @@
+
 ---
 title: domains
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - domains
   - managedidentities
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>domain</code> resource or lists <code>domains</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,19 +32,20 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. The unique name of the domain using the form: `projects/&#123;project_id&#125;/locations/global/domains/&#123;domain_name&#125;`. |
+| <CopyableCode code="name" /> | `string` | Required. The unique name of the domain using the form: `projects/{project_id}/locations/global/domains/{domain_name}`. |
 | <CopyableCode code="admin" /> | `string` | Optional. The name of delegated administrator account used to perform Active Directory operations. If not specified, `setupadmin` will be used. |
 | <CopyableCode code="auditLogsEnabled" /> | `boolean` | Optional. Configuration for audit logs. True if audit logs are enabled, else false. Default is audit logs disabled. |
 | <CopyableCode code="authorizedNetworks" /> | `array` | Optional. The full names of the Google Compute Engine [networks](/compute/docs/networks-and-firewalls#networks) the domain instance is connected to. Networks can be added using UpdateDomain. The domain is only available on networks listed in `authorized_networks`. If CIDR subnets overlap between networks, domain creation will fail. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time the instance was created. |
 | <CopyableCode code="fqdn" /> | `string` | Output only. The fully-qualified domain name of the exposed domain used by clients to connect to the service. Similar to what would be chosen for an Active Directory set up on an internal network. |
 | <CopyableCode code="labels" /> | `object` | Optional. Resource labels that can contain user-provided metadata. |
-| <CopyableCode code="locations" /> | `array` | Required. Locations where domain needs to be provisioned. regions e.g. us-west1 or us-east4 Service supports up to 4 locations at once. Each location will use a /26 block. |
+| <CopyableCode code="locations" /> | `array` | Required. Locations where domain needs to be provisioned. The locations can be specified according to https://cloud.google.com/compute/docs/regions-zones, such as `us-west1` or `us-east4`. Each domain supports up to 4 locations, separated by commas. Each location will use a /26 block. |
 | <CopyableCode code="reservedIpRange" /> | `string` | Required. The CIDR range of internal addresses that are reserved for this domain. Reserved networks must be /24 or larger. Ranges must be unique and non-overlapping with existing subnets in [Domain].[authorized_networks]. |
 | <CopyableCode code="state" /> | `string` | Output only. The current state of this domain. |
 | <CopyableCode code="statusMessage" /> | `string` | Output only. Additional information about the current status of this domain, if available. |
 | <CopyableCode code="trusts" /> | `array` | Output only. The current trusts associated with the domain. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update time. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,7 +54,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a Microsoft AD domain. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="domainsId, projectsId" /> | Deletes a domain. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="domainsId, projectsId" /> | Updates the metadata and configuration of a domain. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists domains in a project. |
 | <CopyableCode code="attach_trust" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Adds an AD trust to a domain. |
 | <CopyableCode code="check_migration_permission" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | CheckMigrationPermission API gets the current state of DomainMigration |
 | <CopyableCode code="detach_trust" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Removes an AD trust. |
@@ -63,3 +65,147 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="reset_admin_password" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Resets a domain's administrator password. |
 | <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | RestoreDomain restores domain backup mentioned in the RestoreDomainRequest |
 | <CopyableCode code="validate_trust" /> | `EXEC` | <CopyableCode code="domainsId, projectsId" /> | Validates a trust state, that the target domain is reachable, and that the target domain is able to accept incoming trust requests. |
+
+## `SELECT` examples
+
+Lists domains in a project.
+
+```sql
+SELECT
+name,
+admin,
+auditLogsEnabled,
+authorizedNetworks,
+createTime,
+fqdn,
+labels,
+locations,
+reservedIpRange,
+state,
+statusMessage,
+trusts,
+updateTime
+FROM google.managedidentities.domains
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>domains</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.managedidentities.domains (
+projectsId,
+name,
+labels,
+authorizedNetworks,
+reservedIpRange,
+locations,
+admin,
+fqdn,
+createTime,
+updateTime,
+state,
+statusMessage,
+trusts,
+auditLogsEnabled
+)
+SELECT 
+'{{ projectsId }}',
+'{{ name }}',
+'{{ labels }}',
+'{{ authorizedNetworks }}',
+'{{ reservedIpRange }}',
+'{{ locations }}',
+'{{ admin }}',
+'{{ fqdn }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ state }}',
+'{{ statusMessage }}',
+'{{ trusts }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: authorizedNetworks
+        value: '{{ authorizedNetworks }}'
+      - name: reservedIpRange
+        value: '{{ reservedIpRange }}'
+      - name: locations
+        value: '{{ locations }}'
+      - name: admin
+        value: '{{ admin }}'
+      - name: fqdn
+        value: '{{ fqdn }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: statusMessage
+        value: '{{ statusMessage }}'
+      - name: trusts
+        value: '{{ trusts }}'
+      - name: auditLogsEnabled
+        value: '{{ auditLogsEnabled }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a domain only if the necessary resources are available.
+
+```sql
+UPDATE google.managedidentities.domains
+SET 
+name = '{{ name }}',
+labels = '{{ labels }}',
+authorizedNetworks = '{{ authorizedNetworks }}',
+reservedIpRange = '{{ reservedIpRange }}',
+locations = '{{ locations }}',
+admin = '{{ admin }}',
+fqdn = '{{ fqdn }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+state = '{{ state }}',
+statusMessage = '{{ statusMessage }}',
+trusts = '{{ trusts }}',
+auditLogsEnabled = true|false
+WHERE 
+domainsId = '{{ domainsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified domain resource.
+
+```sql
+DELETE FROM google.managedidentities.domains
+WHERE domainsId = '{{ domainsId }}'
+AND projectsId = '{{ projectsId }}';
+```

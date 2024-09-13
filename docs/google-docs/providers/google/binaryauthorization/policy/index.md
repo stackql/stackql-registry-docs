@@ -1,3 +1,4 @@
+
 ---
 title: policy
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - policy
   - binaryauthorization
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>policy</code> resource or lists <code>policy</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,8 +43,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kubernetesNamespaceAdmissionRules" /> | `object` | Optional. Per-kubernetes-namespace admission rules. K8s namespace spec format: `[a-z.-]+`, e.g. `some-namespace` |
 | <CopyableCode code="kubernetesServiceAccountAdmissionRules" /> | `object` | Optional. Per-kubernetes-service-account admission rules. Service account spec format: `namespace:serviceaccount`. e.g. `test-ns:default` |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the policy was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_policy" /> | `SELECT` | <CopyableCode code="projectsId" /> | A policy specifies the attestors that must attest to a container image, before the project is allowed to deploy that image. There is at most one policy per project. All image admission requests are permitted if a project has no policy. Gets the policy for this project. Returns a default policy if the project does not have one. |
 | <CopyableCode code="update_policy" /> | `EXEC` | <CopyableCode code="projectsId" /> | Creates or updates a project's policy, and returns a copy of the new policy. A policy is always updated as a whole, to avoid race conditions with concurrent policy enforcement (or management!) requests. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed. |
+
+## `SELECT` examples
+
+A policy specifies the attestors that must attest to a container image, before the project is allowed to deploy that image. There is at most one policy per project. All image admission requests are permitted if a project has no policy. Gets the policy for this project. Returns a default policy if the project does not have one.
+
+```sql
+SELECT
+name,
+description,
+admissionWhitelistPatterns,
+clusterAdmissionRules,
+defaultAdmissionRule,
+etag,
+globalPolicyEvaluationMode,
+istioServiceIdentityAdmissionRules,
+kubernetesNamespaceAdmissionRules,
+kubernetesServiceAccountAdmissionRules,
+updateTime
+FROM google.binaryauthorization.policy
+WHERE projectsId = '{{ projectsId }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: database_roles
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - database_roles
   - spanner
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>database_role</code> resource or lists <code>database_roles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | Required. The name of the database role. Values are of the form `projects//instances//databases//databaseRoles/` where `` is as specified in the `CREATE ROLE` DDL statement. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_instances_databases_database_roles_list" /> | `SELECT` | <CopyableCode code="databasesId, instancesId, projectsId" /> |
-| <CopyableCode code="_projects_instances_databases_database_roles_list" /> | `EXEC` | <CopyableCode code="databasesId, instancesId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_instances_databases_database_roles_list" /> | `SELECT` | <CopyableCode code="databasesId, instancesId, projectsId" /> | Lists Cloud Spanner database roles. |
+
+## `SELECT` examples
+
+Lists Cloud Spanner database roles.
+
+```sql
+SELECT
+name
+FROM google.spanner.database_roles
+WHERE databasesId = '{{ databasesId }}'
+AND instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

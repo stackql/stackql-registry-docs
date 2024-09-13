@@ -1,3 +1,4 @@
+
 ---
 title: routes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - routes
   - datastream
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>route</code> resource or lists <code>routes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,6 +39,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | Required. Display name. |
 | <CopyableCode code="labels" /> | `object` | Labels. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The update time of the resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,4 +47,100 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, privateConnectionsId, projectsId" /> | Use this method to list routes created for a private connectivity configuration in a project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, privateConnectionsId, projectsId" /> | Use this method to create a route for a private connectivity configuration in a project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, privateConnectionsId, projectsId, routesId" /> | Use this method to delete a route. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, privateConnectionsId, projectsId" /> | Use this method to list routes created for a private connectivity configuration in a project and location. |
+
+## `SELECT` examples
+
+Use this method to list routes created for a private connectivity configuration in a project and location.
+
+```sql
+SELECT
+name,
+createTime,
+destinationAddress,
+destinationPort,
+displayName,
+labels,
+updateTime
+FROM google.datastream.routes
+WHERE locationsId = '{{ locationsId }}'
+AND privateConnectionsId = '{{ privateConnectionsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>routes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.datastream.routes (
+locationsId,
+privateConnectionsId,
+projectsId,
+name,
+createTime,
+updateTime,
+labels,
+displayName,
+destinationAddress,
+destinationPort
+)
+SELECT 
+'{{ locationsId }}',
+'{{ privateConnectionsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ displayName }}',
+'{{ destinationAddress }}',
+'{{ destinationPort }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: destinationAddress
+        value: '{{ destinationAddress }}'
+      - name: destinationPort
+        value: '{{ destinationPort }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified route resource.
+
+```sql
+DELETE FROM google.datastream.routes
+WHERE locationsId = '{{ locationsId }}'
+AND privateConnectionsId = '{{ privateConnectionsId }}'
+AND projectsId = '{{ projectsId }}'
+AND routesId = '{{ routesId }}';
+```

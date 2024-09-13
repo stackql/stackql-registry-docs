@@ -1,3 +1,4 @@
+
 ---
 title: data_exchanges
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - data_exchanges
   - analyticshub
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>data_exchange</code> resource or lists <code>data_exchanges</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,12 +34,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Output only. The resource name of the data exchange. e.g. `projects/myproject/locations/US/dataExchanges/123`. |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the data exchange. The description must not contain Unicode non-characters as well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF). Default value is an empty string. Max length: 2000 bytes. |
+| <CopyableCode code="discoveryType" /> | `string` | Optional. Type of discovery on the discovery page for all the listings under this exchange. Updating this field also updates (overwrites) the discovery_type field for all the listings under this exchange. |
 | <CopyableCode code="displayName" /> | `string` | Required. Human-readable display name of the data exchange. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), ampersands (&) and must not start or end with spaces. Default value is an empty string. Max length: 63 bytes. |
 | <CopyableCode code="documentation" /> | `string` | Optional. Documentation describing the data exchange. |
 | <CopyableCode code="icon" /> | `string` | Optional. Base64 encoded image representing the data exchange. Max Size: 3.0MiB Expected image dimensions are 512x512 pixels, however the API only performs validation on size of the encoded data. Note: For byte fields, the content of the fields are base64-encoded (which increases the size of the data by 33-36%) when using JSON on the wire. |
 | <CopyableCode code="listingCount" /> | `integer` | Output only. Number of listings contained in the data exchange. |
 | <CopyableCode code="primaryContact" /> | `string` | Optional. Email or URL of the primary point of contact of the data exchange. Max Length: 1000 bytes. |
 | <CopyableCode code="sharingEnvironmentConfig" /> | `object` | Sharing environment is a behavior model for sharing data within a data exchange. This option is configurable for a data exchange. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,6 +51,129 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_exchanges_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new data exchange. |
 | <CopyableCode code="projects_locations_data_exchanges_delete" /> | `DELETE` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Deletes an existing data exchange. |
 | <CopyableCode code="projects_locations_data_exchanges_patch" /> | `UPDATE` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Updates an existing data exchange. |
-| <CopyableCode code="_organizations_locations_data_exchanges_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists all data exchanges from projects in a given organization and location. |
-| <CopyableCode code="_projects_locations_data_exchanges_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all data exchanges in a given project and location. |
-| <CopyableCode code="projects_locations_data_exchanges_subscribe" /> | `EXEC` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Creates a Subscription to a Data Exchange. This is a long-running operation as it will create one or more linked datasets. |
+| <CopyableCode code="projects_locations_data_exchanges_subscribe" /> | `EXEC` | <CopyableCode code="dataExchangesId, locationsId, projectsId" /> | Creates a Subscription to a Data Clean Room. This is a long-running operation as it will create one or more linked datasets. |
+
+## `SELECT` examples
+
+Lists all data exchanges in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+discoveryType,
+displayName,
+documentation,
+icon,
+listingCount,
+primaryContact,
+sharingEnvironmentConfig
+FROM google.analyticshub.data_exchanges
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>data_exchanges</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.analyticshub.data_exchanges (
+locationsId,
+projectsId,
+name,
+displayName,
+description,
+primaryContact,
+documentation,
+listingCount,
+icon,
+sharingEnvironmentConfig,
+discoveryType
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ primaryContact }}',
+'{{ documentation }}',
+'{{ listingCount }}',
+'{{ icon }}',
+'{{ sharingEnvironmentConfig }}',
+'{{ discoveryType }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: primaryContact
+        value: '{{ primaryContact }}'
+      - name: documentation
+        value: '{{ documentation }}'
+      - name: listingCount
+        value: '{{ listingCount }}'
+      - name: icon
+        value: '{{ icon }}'
+      - name: sharingEnvironmentConfig
+        value: '{{ sharingEnvironmentConfig }}'
+      - name: discoveryType
+        value: '{{ discoveryType }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a data_exchange only if the necessary resources are available.
+
+```sql
+UPDATE google.analyticshub.data_exchanges
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+primaryContact = '{{ primaryContact }}',
+documentation = '{{ documentation }}',
+listingCount = '{{ listingCount }}',
+icon = '{{ icon }}',
+sharingEnvironmentConfig = '{{ sharingEnvironmentConfig }}',
+discoveryType = '{{ discoveryType }}'
+WHERE 
+dataExchangesId = '{{ dataExchangesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified data_exchange resource.
+
+```sql
+DELETE FROM google.analyticshub.data_exchanges
+WHERE dataExchangesId = '{{ dataExchangesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

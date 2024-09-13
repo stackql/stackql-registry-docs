@@ -1,3 +1,4 @@
+
 ---
 title: recommendations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - recommendations
   - recommender
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>recommendation</code> resource or lists <code>recommendations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="stateInfo" /> | `object` | Information for state. Contains state and metadata. |
 | <CopyableCode code="targetResources" /> | `array` | Fully qualified resource names that this recommendation is targeting. |
 | <CopyableCode code="xorGroupId" /> | `string` | Corresponds to a mutually exclusive group ID within a recommender. A non-empty ID indicates that the recommendation belongs to a mutually exclusive group. This means that only one recommendation within the group is suggested to be applied. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,10 +57,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_recommenders_recommendations_list" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId, recommendersId" /> | Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender. |
 | <CopyableCode code="projects_locations_recommenders_recommendations_get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, recommendationsId, recommendersId" /> | Gets the requested recommendation. Requires the recommender.*.get IAM permission for the specified recommender. |
 | <CopyableCode code="projects_locations_recommenders_recommendations_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, recommendersId" /> | Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender. |
-| <CopyableCode code="_billing_accounts_locations_recommenders_recommendations_list" /> | `EXEC` | <CopyableCode code="billingAccountsId, locationsId, recommendersId" /> | Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender. |
-| <CopyableCode code="_folders_locations_recommenders_recommendations_list" /> | `EXEC` | <CopyableCode code="foldersId, locationsId, recommendersId" /> | Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender. |
-| <CopyableCode code="_organizations_locations_recommenders_recommendations_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId, recommendersId" /> | Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender. |
-| <CopyableCode code="_projects_locations_recommenders_recommendations_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, recommendersId" /> | Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender. |
 | <CopyableCode code="billing_accounts_locations_recommenders_recommendations_mark_claimed" /> | `EXEC` | <CopyableCode code="billingAccountsId, locationsId, recommendationsId, recommendersId" /> | Marks the Recommendation State as Claimed. Users can use this method to indicate to the Recommender API that they are starting to apply the recommendation themselves. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationClaimed can be applied to recommendations in CLAIMED, SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. |
 | <CopyableCode code="billing_accounts_locations_recommenders_recommendations_mark_dismissed" /> | `EXEC` | <CopyableCode code="billingAccountsId, locationsId, recommendationsId, recommendersId" /> | Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. |
 | <CopyableCode code="billing_accounts_locations_recommenders_recommendations_mark_failed" /> | `EXEC` | <CopyableCode code="billingAccountsId, locationsId, recommendationsId, recommendersId" /> | Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. |
@@ -74,3 +73,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_recommenders_recommendations_mark_dismissed" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, recommendationsId, recommendersId" /> | Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender. |
 | <CopyableCode code="projects_locations_recommenders_recommendations_mark_failed" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, recommendationsId, recommendersId" /> | Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. |
 | <CopyableCode code="projects_locations_recommenders_recommendations_mark_succeeded" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, recommendationsId, recommendersId" /> | Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender. |
+
+## `SELECT` examples
+
+Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender.
+
+```sql
+SELECT
+name,
+description,
+additionalImpact,
+associatedInsights,
+content,
+etag,
+lastRefreshTime,
+primaryImpact,
+priority,
+recommenderSubtype,
+stateInfo,
+targetResources,
+xorGroupId
+FROM google.recommender.recommendations
+WHERE foldersId = '{{ foldersId }}'
+AND locationsId = '{{ locationsId }}'
+AND recommendersId = '{{ recommendersId }}'; 
+```

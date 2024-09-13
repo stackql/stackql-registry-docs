@@ -1,3 +1,4 @@
+
 ---
 title: column_data_profiles
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - column_data_profiles
   - dlp
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>column_data_profile</code> resource or lists <code>column_data_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -50,6 +52,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="tableDataProfile" /> | `string` | The resource name of the table data profile. |
 | <CopyableCode code="tableFullResource" /> | `string` | The resource name of the resource this column is within. |
 | <CopyableCode code="tableId" /> | `string` | The BigQuery table ID. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -57,5 +60,34 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_column_data_profiles_list" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId" /> | Lists column data profiles for an organization. |
 | <CopyableCode code="projects_locations_column_data_profiles_get" /> | `SELECT` | <CopyableCode code="columnDataProfilesId, locationsId, projectsId" /> | Gets a column data profile. |
 | <CopyableCode code="projects_locations_column_data_profiles_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists column data profiles for an organization. |
-| <CopyableCode code="_organizations_locations_column_data_profiles_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists column data profiles for an organization. |
-| <CopyableCode code="_projects_locations_column_data_profiles_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists column data profiles for an organization. |
+
+## `SELECT` examples
+
+Lists column data profiles for an organization.
+
+```sql
+SELECT
+name,
+column,
+columnInfoType,
+columnType,
+dataRiskLevel,
+datasetId,
+datasetLocation,
+datasetProjectId,
+estimatedNullPercentage,
+estimatedUniquenessScore,
+freeTextScore,
+otherMatches,
+policyState,
+profileLastGenerated,
+profileStatus,
+sensitivityScore,
+state,
+tableDataProfile,
+tableFullResource,
+tableId
+FROM google.dlp.column_data_profiles
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: job_templates
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - job_templates
   - transcoder
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>job_template</code> resource or lists <code>job_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,9 +32,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the job template. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/jobTemplates/&#123;job_template&#125;` |
+| <CopyableCode code="name" /> | `string` | The resource name of the job template. Format: `projects/{project_number}/locations/{location}/jobTemplates/{job_template}` |
 | <CopyableCode code="config" /> | `object` | Job configuration |
 | <CopyableCode code="labels" /> | `object` | The labels associated with this job template. You can use these to organize and group your job templates. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -40,4 +43,76 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists job templates in the specified region. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a job template in the specified region. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="jobTemplatesId, locationsId, projectsId" /> | Deletes a job template. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists job templates in the specified region. |
+
+## `SELECT` examples
+
+Lists job templates in the specified region.
+
+```sql
+SELECT
+name,
+config,
+labels
+FROM google.transcoder.job_templates
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>job_templates</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.transcoder.job_templates (
+locationsId,
+projectsId,
+name,
+config,
+labels
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ config }}',
+'{{ labels }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: config
+        value: '{{ config }}'
+      - name: labels
+        value: '{{ labels }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified job_template resource.
+
+```sql
+DELETE FROM google.transcoder.job_templates
+WHERE jobTemplatesId = '{{ jobTemplatesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

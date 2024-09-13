@@ -1,3 +1,4 @@
+
 ---
 title: canaryevaluations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - canaryevaluations
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>canaryevaluation</code> resource or lists <code>canaryevaluations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,8 +41,102 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The current state of the canary evaluation. |
 | <CopyableCode code="treatment" /> | `string` | Required. The newer version that is serving requests. |
 | <CopyableCode code="verdict" /> | `string` | Output only. The resulting verdict of the canary evaluations: NONE, PASS, or FAIL. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_instances_canaryevaluations_get" /> | `SELECT` | <CopyableCode code="canaryevaluationsId, instancesId, organizationsId" /> | Gets a CanaryEvaluation for an organization. |
 | <CopyableCode code="organizations_instances_canaryevaluations_create" /> | `INSERT` | <CopyableCode code="instancesId, organizationsId" /> | Creates a new canary evaluation for an organization. |
+
+## `SELECT` examples
+
+Gets a CanaryEvaluation for an organization.
+
+```sql
+SELECT
+name,
+control,
+createTime,
+endTime,
+metricLabels,
+startTime,
+state,
+treatment,
+verdict
+FROM google.apigee.canaryevaluations
+WHERE canaryevaluationsId = '{{ canaryevaluationsId }}'
+AND instancesId = '{{ instancesId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>canaryevaluations</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.canaryevaluations (
+instancesId,
+organizationsId,
+startTime,
+endTime,
+control,
+metricLabels,
+createTime,
+treatment,
+name,
+verdict,
+state
+)
+SELECT 
+'{{ instancesId }}',
+'{{ organizationsId }}',
+'{{ startTime }}',
+'{{ endTime }}',
+'{{ control }}',
+'{{ metricLabels }}',
+'{{ createTime }}',
+'{{ treatment }}',
+'{{ name }}',
+'{{ verdict }}',
+'{{ state }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: control
+        value: '{{ control }}'
+      - name: metricLabels
+        value: '{{ metricLabels }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: treatment
+        value: '{{ treatment }}'
+      - name: name
+        value: '{{ name }}'
+      - name: verdict
+        value: '{{ verdict }}'
+      - name: state
+        value: '{{ state }}'
+
+```
+</TabItem>
+</Tabs>

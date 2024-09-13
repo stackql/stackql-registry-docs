@@ -1,3 +1,4 @@
+
 ---
 title: patch_jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - patch_jobs
   - osconfig
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>patch_job</code> resource or lists <code>patch_jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -45,11 +47,36 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="rollout" /> | `object` | Patch rollout configuration specifications. Contains details on the concurrency control when applying patch(es) to all targeted VMs. |
 | <CopyableCode code="state" /> | `string` | The current state of the PatchJob. |
 | <CopyableCode code="updateTime" /> | `string` | Last time this patch job was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="patchJobsId, projectsId" /> | Get the patch job. This can be used to track the progress of an ongoing patch job or review the details of completed jobs. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Get a list of patch jobs. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Get a list of patch jobs. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="patchJobsId, projectsId" /> | Cancel a patch job. The patch job must be active. Canceled patch jobs cannot be restarted. |
 | <CopyableCode code="execute" /> | `EXEC` | <CopyableCode code="projectsId" /> | Patch VM instances by creating and running a patch job. |
+
+## `SELECT` examples
+
+Get a list of patch jobs.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+displayName,
+dryRun,
+duration,
+errorMessage,
+instanceDetailsSummary,
+instanceFilter,
+patchConfig,
+patchDeployment,
+percentComplete,
+rollout,
+state,
+updateTime
+FROM google.osconfig.patch_jobs
+WHERE projectsId = '{{ projectsId }}'; 
+```

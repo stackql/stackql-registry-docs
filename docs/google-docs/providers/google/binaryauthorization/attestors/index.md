@@ -1,3 +1,4 @@
+
 ---
 title: attestors
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - attestors
   - binaryauthorization
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>attestor</code> resource or lists <code>attestors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="etag" /> | `string` | Optional. A checksum, returned by the server, that can be sent on update requests to ensure the attestor has an up-to-date value before attempting to update it. See https://google.aip.dev/154. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the attestor was last updated. |
 | <CopyableCode code="userOwnedGrafeasNote" /> | `object` | An user owned Grafeas note references a Grafeas Attestation.Authority Note created by the user. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,6 +45,84 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists attestors. Returns `INVALID_ARGUMENT` if the project does not exist. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates an attestor, and returns a copy of the new attestor. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed, `ALREADY_EXISTS` if the attestor already exists. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="attestorsId, projectsId" /> | Deletes an attestor. Returns `NOT_FOUND` if the attestor does not exist. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="attestorsId, projectsId" /> | Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists attestors. Returns `INVALID_ARGUMENT` if the project does not exist. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="attestorsId, projectsId" /> | Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist. |
 | <CopyableCode code="validate_attestation_occurrence" /> | `EXEC` | <CopyableCode code="attestorsId, projectsId" /> | Returns whether the given `Attestation` for the given image URI was signed by the given `Attestor` |
+
+## `SELECT` examples
+
+Lists attestors. Returns `INVALID_ARGUMENT` if the project does not exist.
+
+```sql
+SELECT
+name,
+description,
+etag,
+updateTime,
+userOwnedGrafeasNote
+FROM google.binaryauthorization.attestors
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>attestors</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.binaryauthorization.attestors (
+projectsId,
+name,
+description,
+userOwnedGrafeasNote,
+updateTime,
+etag
+)
+SELECT 
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ userOwnedGrafeasNote }}',
+'{{ updateTime }}',
+'{{ etag }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: userOwnedGrafeasNote
+        value: '{{ userOwnedGrafeasNote }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: etag
+        value: '{{ etag }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified attestor resource.
+
+```sql
+DELETE FROM google.binaryauthorization.attestors
+WHERE attestorsId = '{{ attestorsId }}'
+AND projectsId = '{{ projectsId }}';
+```

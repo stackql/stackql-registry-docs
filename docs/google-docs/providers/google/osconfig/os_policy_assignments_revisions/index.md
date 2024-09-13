@@ -1,3 +1,4 @@
+
 ---
 title: os_policy_assignments_revisions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - os_policy_assignments_revisions
   - osconfig
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>os_policy_assignments_revision</code> resource or lists <code>os_policy_assignments_revisions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Resource name. Format: `projects/&#123;project_number&#125;/locations/&#123;location&#125;/osPolicyAssignments/&#123;os_policy_assignment_id&#125;` This field is ignored when you create an OS policy assignment. |
+| <CopyableCode code="name" /> | `string` | Resource name. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id}` This field is ignored when you create an OS policy assignment. |
 | <CopyableCode code="description" /> | `string` | OS policy assignment description. Length of the description is limited to 1024 characters. |
 | <CopyableCode code="baseline" /> | `boolean` | Output only. Indicates that this revision has been successfully rolled out in this zone and new VMs will be assigned OS policies from this revision. For a given OS policy assignment, there is only one revision with a value of `true` for this field. |
 | <CopyableCode code="deleted" /> | `boolean` | Output only. Indicates that this revision deletes the OS policy assignment. |
@@ -43,8 +45,33 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="rollout" /> | `object` | Message to configure the rollout at the zonal level for the OS policy assignment. |
 | <CopyableCode code="rolloutState" /> | `string` | Output only. OS policy assignment rollout state |
 | <CopyableCode code="uid" /> | `string` | Output only. Server generated unique id for the OS policy assignment resource. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_revisions" /> | `SELECT` | <CopyableCode code="locationsId, osPolicyAssignmentsId, projectsId" /> |
-| <CopyableCode code="_list_revisions" /> | `EXEC` | <CopyableCode code="locationsId, osPolicyAssignmentsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_revisions" /> | `SELECT` | <CopyableCode code="locationsId, osPolicyAssignmentsId, projectsId" /> | List the OS policy assignment revisions for a given OS policy assignment. |
+
+## `SELECT` examples
+
+List the OS policy assignment revisions for a given OS policy assignment.
+
+```sql
+SELECT
+name,
+description,
+baseline,
+deleted,
+etag,
+instanceFilter,
+osPolicies,
+reconciling,
+revisionCreateTime,
+revisionId,
+rollout,
+rolloutState,
+uid
+FROM google.osconfig.os_policy_assignments_revisions
+WHERE locationsId = '{{ locationsId }}'
+AND osPolicyAssignmentsId = '{{ osPolicyAssignmentsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

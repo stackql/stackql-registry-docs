@@ -1,3 +1,4 @@
+
 ---
 title: keys
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - keys
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>key</code> resource or lists <code>keys</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,15 +32,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="apiProducts" /> | `array` | List of API products for which the credential can be used. **Note**: Do not specify the list of API products when creating a consumer key and secret for a developer app. Instead, use the UpdateDeveloperAppKey API to make the association after the consumer key and secret are created. |
+| <CopyableCode code="apiProducts" /> | `array` | Output only. List of API products and its status for which the credential can be used. **Note**: Use UpdateAppGroupAppKeyApiProductRequest API to make the association after the consumer key and secret are created. |
 | <CopyableCode code="attributes" /> | `array` | List of attributes associated with the credential. |
-| <CopyableCode code="consumerKey" /> | `string` | Consumer key. |
+| <CopyableCode code="consumerKey" /> | `string` | Immutable. Consumer key. |
 | <CopyableCode code="consumerSecret" /> | `string` | Secret key. |
-| <CopyableCode code="expiresAt" /> | `string` | Time the developer app expires in milliseconds since epoch. |
-| <CopyableCode code="expiresInSeconds" /> | `string` | Input only. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
-| <CopyableCode code="issuedAt" /> | `string` | Time the developer app was created in milliseconds since epoch. |
+| <CopyableCode code="expiresAt" /> | `string` | Output only. Time the AppGroup app expires in milliseconds since epoch. |
+| <CopyableCode code="expiresInSeconds" /> | `string` | Immutable. Expiration time, in seconds, for the consumer key. If not set or left to the default value of `-1`, the API key never expires. The expiration time can't be updated after it is set. |
+| <CopyableCode code="issuedAt" /> | `string` | Output only. Time the AppGroup app was created in milliseconds since epoch. |
 | <CopyableCode code="scopes" /> | `array` | Scopes to apply to the app. The specified scope names must already be defined for the API product that you associate with the app. |
 | <CopyableCode code="status" /> | `string` | Status of the credential. Valid values include `approved` or `revoked`. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,3 +52,111 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_appgroups_apps_keys_delete" /> | `DELETE` | <CopyableCode code="appgroupsId, appsId, keysId, organizationsId" /> | Deletes an app's consumer key and removes all API products associated with the app. After the consumer key is deleted, it cannot be used to access any APIs. |
 | <CopyableCode code="organizations_developers_apps_keys_delete" /> | `DELETE` | <CopyableCode code="appsId, developersId, keysId, organizationsId" /> | Deletes an app's consumer key and removes all API products associated with the app. After the consumer key is deleted, it cannot be used to access any APIs. **Note**: After you delete a consumer key, you may want to: 1. Create a new consumer key and secret for the developer app using the CreateDeveloperAppKey API, and subsequently add an API product to the key using the UpdateDeveloperAppKey API. 2. Delete the developer app, if it is no longer required. |
 | <CopyableCode code="organizations_developers_apps_keys_replace_developer_app_key" /> | `EXEC` | <CopyableCode code="appsId, developersId, keysId, organizationsId" /> | Updates the scope of an app. This API replaces the existing scopes with those specified in the request. Include or exclude any existing scopes that you want to retain or delete, respectively. The specified scopes must already be defined for the API products associated with the app. This API sets the `scopes` element under the `apiProducts` element in the attributes of the app. |
+
+## `SELECT` examples
+
+Gets details for a consumer key for a AppGroup app, including the key and secret value, associated API products, and other information.
+
+```sql
+SELECT
+apiProducts,
+attributes,
+consumerKey,
+consumerSecret,
+expiresAt,
+expiresInSeconds,
+issuedAt,
+scopes,
+status
+FROM google.apigee.keys
+WHERE appgroupsId = '{{ appgroupsId }}'
+AND appsId = '{{ appsId }}'
+AND keysId = '{{ keysId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>keys</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.keys (
+appgroupsId,
+appsId,
+organizationsId,
+attributes,
+expiresInSeconds,
+issuedAt,
+consumerKey,
+expiresAt,
+apiProducts,
+consumerSecret,
+status,
+scopes
+)
+SELECT 
+'{{ appgroupsId }}',
+'{{ appsId }}',
+'{{ organizationsId }}',
+'{{ attributes }}',
+'{{ expiresInSeconds }}',
+'{{ issuedAt }}',
+'{{ consumerKey }}',
+'{{ expiresAt }}',
+'{{ apiProducts }}',
+'{{ consumerSecret }}',
+'{{ status }}',
+'{{ scopes }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: attributes
+        value: '{{ attributes }}'
+      - name: expiresInSeconds
+        value: '{{ expiresInSeconds }}'
+      - name: issuedAt
+        value: '{{ issuedAt }}'
+      - name: consumerKey
+        value: '{{ consumerKey }}'
+      - name: expiresAt
+        value: '{{ expiresAt }}'
+      - name: apiProducts
+        value: '{{ apiProducts }}'
+      - name: consumerSecret
+        value: '{{ consumerSecret }}'
+      - name: status
+        value: '{{ status }}'
+      - name: scopes
+        value: '{{ scopes }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified key resource.
+
+```sql
+DELETE FROM google.apigee.keys
+WHERE appgroupsId = '{{ appgroupsId }}'
+AND appsId = '{{ appsId }}'
+AND keysId = '{{ keysId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: links
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - links
   - logging
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>link</code> resource or lists <code>links</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="bigqueryDataset" /> | `object` | Describes a BigQuery dataset that was created by a link. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation timestamp of the link. |
 | <CopyableCode code="lifecycleState" /> | `string` | Output only. The resource lifecycle state. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -56,8 +59,87 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_locations_buckets_links_delete" /> | `DELETE` | <CopyableCode code="bucketsId, foldersId, linksId, locationsId" /> | Deletes a link. This will also delete the corresponding BigQuery linked dataset. |
 | <CopyableCode code="organizations_locations_buckets_links_delete" /> | `DELETE` | <CopyableCode code="bucketsId, linksId, locationsId, organizationsId" /> | Deletes a link. This will also delete the corresponding BigQuery linked dataset. |
 | <CopyableCode code="projects_locations_buckets_links_delete" /> | `DELETE` | <CopyableCode code="bucketsId, linksId, locationsId, projectsId" /> | Deletes a link. This will also delete the corresponding BigQuery linked dataset. |
-| <CopyableCode code="_billing_accounts_locations_buckets_links_list" /> | `EXEC` | <CopyableCode code="billingAccountsId, bucketsId, locationsId" /> | Lists links. |
-| <CopyableCode code="_folders_locations_buckets_links_list" /> | `EXEC` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Lists links. |
-| <CopyableCode code="_locations_buckets_links_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Lists links. |
-| <CopyableCode code="_organizations_locations_buckets_links_list" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Lists links. |
-| <CopyableCode code="_projects_locations_buckets_links_list" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Lists links. |
+
+## `SELECT` examples
+
+Lists links.
+
+```sql
+SELECT
+name,
+description,
+bigqueryDataset,
+createTime,
+lifecycleState
+FROM google.logging.links
+WHERE parent = '{{ parent }}'
+AND parentType = '{{ parentType }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>links</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.logging.links (
+parent,
+parentType,
+name,
+description,
+createTime,
+lifecycleState,
+bigqueryDataset
+)
+SELECT 
+'{{ parent }}',
+'{{ parentType }}',
+'{{ name }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ lifecycleState }}',
+'{{ bigqueryDataset }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: lifecycleState
+        value: '{{ lifecycleState }}'
+      - name: bigqueryDataset
+        value: '{{ bigqueryDataset }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified link resource.
+
+```sql
+DELETE FROM google.logging.links
+WHERE bucketsId = '{{ bucketsId }}'
+AND foldersId = '{{ foldersId }}'
+AND linksId = '{{ linksId }}'
+AND locationsId = '{{ locationsId }}';
+```

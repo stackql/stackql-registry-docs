@@ -1,3 +1,4 @@
+
 ---
 title: external_account_keys
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - external_account_keys
   - publicca
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>external_account_key</code> resource or lists <code>external_account_keys</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,58 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new ExternalAccountKey bound to the project. |
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>external_account_keys</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.publicca.external_account_keys (
+locationsId,
+projectsId,
+name,
+keyId,
+b64MacKey
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ keyId }}',
+'{{ b64MacKey }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: keyId
+        value: '{{ keyId }}'
+      - name: b64MacKey
+        value: '{{ b64MacKey }}'
+
+```
+</TabItem>
+</Tabs>

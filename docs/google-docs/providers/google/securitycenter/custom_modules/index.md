@@ -1,3 +1,4 @@
+
 ---
 title: custom_modules
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - custom_modules
   - securitycenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>custom_module</code> resource or lists <code>custom_modules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the Event Threat Detection custom module. Its format is: * "organizations/&#123;organization&#125;/eventThreatDetectionSettings/customModules/&#123;module&#125;". * "folders/&#123;folder&#125;/eventThreatDetectionSettings/customModules/&#123;module&#125;". * "projects/&#123;project&#125;/eventThreatDetectionSettings/customModules/&#123;module&#125;". |
+| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the Event Threat Detection custom module. Its format is: * `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`. * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. * `projects/{project}/eventThreatDetectionSettings/customModules/{module}`. |
 | <CopyableCode code="description" /> | `string` | The description for the module. |
 | <CopyableCode code="ancestorModule" /> | `string` | Output only. The closest ancestor module that this module inherits the enablement state from. The format is the same as the EventThreatDetectionCustomModule resource name. |
 | <CopyableCode code="config" /> | `object` | Config for the module. For the resident module, its config value is defined at this level. For the inherited module, its config value is inherited from the ancestor module. |
@@ -39,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="lastEditor" /> | `string` | Output only. The editor the module was last updated by. |
 | <CopyableCode code="type" /> | `string` | Type for the module. e.g. CONFIGURABLE_BAD_IP. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time the module was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,3 +57,44 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_security_health_analytics_settings_custom_modules_simulate" /> | `EXEC` | <CopyableCode code="foldersId" /> | Simulates a given SecurityHealthAnalyticsCustomModule and Resource. |
 | <CopyableCode code="organizations_security_health_analytics_settings_custom_modules_simulate" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Simulates a given SecurityHealthAnalyticsCustomModule and Resource. |
 | <CopyableCode code="projects_security_health_analytics_settings_custom_modules_simulate" /> | `EXEC` | <CopyableCode code="projectsId" /> | Simulates a given SecurityHealthAnalyticsCustomModule and Resource. |
+
+## `SELECT` examples
+
+Gets an Event Threat Detection custom module.
+
+```sql
+SELECT
+name,
+description,
+ancestorModule,
+config,
+displayName,
+enablementState,
+lastEditor,
+type,
+updateTime
+FROM google.securitycenter.custom_modules
+WHERE customModulesId = '{{ customModulesId }}'
+AND foldersId = '{{ foldersId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a custom_module only if the necessary resources are available.
+
+```sql
+UPDATE google.securitycenter.custom_modules
+SET 
+name = '{{ name }}',
+config = '{{ config }}',
+ancestorModule = '{{ ancestorModule }}',
+enablementState = '{{ enablementState }}',
+type = '{{ type }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+updateTime = '{{ updateTime }}',
+lastEditor = '{{ lastEditor }}'
+WHERE 
+customModulesId = '{{ customModulesId }}'
+AND foldersId = '{{ foldersId }}';
+```

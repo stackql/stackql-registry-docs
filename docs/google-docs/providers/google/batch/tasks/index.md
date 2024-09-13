@@ -1,3 +1,4 @@
+
 ---
 title: tasks
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - tasks
   - batch
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>task</code> resource or lists <code>tasks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,10 +33,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Task name. The name is generated from the parent TaskGroup name and 'id' field. For example: "projects/123456/locations/us-west1/jobs/job01/taskGroups/group01/tasks/task01". |
-| <CopyableCode code="status" /> | `object` | Status of a task |
+| <CopyableCode code="status" /> | `object` | Status of a task. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="jobsId, locationsId, projectsId, taskGroupsId, tasksId" /> | Return a single Task. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="jobsId, locationsId, projectsId, taskGroupsId" /> | List Tasks associated with a job. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="jobsId, locationsId, projectsId, taskGroupsId" /> | List Tasks associated with a job. |
+
+## `SELECT` examples
+
+List Tasks associated with a job.
+
+```sql
+SELECT
+name,
+status
+FROM google.batch.tasks
+WHERE jobsId = '{{ jobsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND taskGroupsId = '{{ taskGroupsId }}'; 
+```

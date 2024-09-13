@@ -1,3 +1,4 @@
+
 ---
 title: subnetworks_usable
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - subnetworks_usable
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>subnetworks_usable</code> resource or lists <code>subnetworks_usable</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,7 +42,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="secondaryIpRanges" /> | `array` | Secondary IP ranges. |
 | <CopyableCode code="stackType" /> | `string` | The stack type for the subnet. If set to IPV4_ONLY, new VMs in the subnet are assigned IPv4 addresses only. If set to IPV4_IPV6, new VMs in the subnet can be assigned both IPv4 and IPv6 addresses. If not specified, IPV4_ONLY is used. This field can be both set at resource creation time and updated using patch. |
 | <CopyableCode code="subnetwork" /> | `string` | Subnetwork URL. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_usable" /> | `SELECT` | <CopyableCode code="project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_usable" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of all usable subnetworks in the project. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of all usable subnetworks in the project.
+
+```sql
+SELECT
+externalIpv6Prefix,
+internalIpv6Prefix,
+ipCidrRange,
+ipv6AccessType,
+network,
+purpose,
+role,
+secondaryIpRanges,
+stackType,
+subnetwork
+FROM google.compute.subnetworks_usable
+WHERE project = '{{ project }}'; 
+```

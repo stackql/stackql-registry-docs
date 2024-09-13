@@ -1,3 +1,4 @@
+
 ---
 title: versions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - versions
   - apigeeregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>version</code> resource or lists <code>versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,9 +38,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. Creation timestamp. |
 | <CopyableCode code="displayName" /> | `string` | Human-meaningful name. |
 | <CopyableCode code="labels" /> | `object` | Labels attach identifying metadata to resources. Identifying metadata can be used to filter list operations. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one resource (System labels are excluded). See https://goo.gl/xmQnxf for more information and examples of labels. System reserved label keys are prefixed with `apigeeregistry.googleapis.com/` and cannot be changed. |
-| <CopyableCode code="primarySpec" /> | `string` | The primary spec for this version. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/apis/&#123;api&#125;/versions/&#123;version&#125;/specs/&#123;spec&#125; |
+| <CopyableCode code="primarySpec" /> | `string` | The primary spec for this version. Format: projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec} |
 | <CopyableCode code="state" /> | `string` | A user-definable description of the lifecycle phase of this API version. Format: free-form, but we expect single words that describe API maturity, e.g., "CONCEPT", "DESIGN", "DEVELOPMENT", "STAGING", "PRODUCTION", "DEPRECATED", "RETIRED". |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Last update timestamp. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,4 +50,133 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_apis_versions_create" /> | `INSERT` | <CopyableCode code="apisId, locationsId, projectsId" /> | Creates a specified version. |
 | <CopyableCode code="projects_locations_apis_versions_delete" /> | `DELETE` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Removes a specified version and all of the resources that it owns. |
 | <CopyableCode code="projects_locations_apis_versions_patch" /> | `UPDATE` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Used to modify a specified version. |
-| <CopyableCode code="_projects_locations_apis_versions_list" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId" /> | Returns matching versions. |
+
+## `SELECT` examples
+
+Returns matching versions.
+
+```sql
+SELECT
+name,
+description,
+annotations,
+createTime,
+displayName,
+labels,
+primarySpec,
+state,
+updateTime
+FROM google.apigeeregistry.versions
+WHERE apisId = '{{ apisId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>versions</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigeeregistry.versions (
+apisId,
+locationsId,
+projectsId,
+name,
+displayName,
+description,
+createTime,
+updateTime,
+state,
+labels,
+annotations,
+primarySpec
+)
+SELECT 
+'{{ apisId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ state }}',
+'{{ labels }}',
+'{{ annotations }}',
+'{{ primarySpec }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: primarySpec
+        value: '{{ primarySpec }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a version only if the necessary resources are available.
+
+```sql
+UPDATE google.apigeeregistry.versions
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+state = '{{ state }}',
+labels = '{{ labels }}',
+annotations = '{{ annotations }}',
+primarySpec = '{{ primarySpec }}'
+WHERE 
+apisId = '{{ apisId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND versionsId = '{{ versionsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified version resource.
+
+```sql
+DELETE FROM google.apigeeregistry.versions
+WHERE apisId = '{{ apisId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND versionsId = '{{ versionsId }}';
+```

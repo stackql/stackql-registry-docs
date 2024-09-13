@@ -1,3 +1,4 @@
+
 ---
 title: endpoints
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - endpoints
   - ids
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>endpoint</code> resource or lists <code>endpoints</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="threatExceptions" /> | `array` | List of threat IDs to be excepted from generating alerts. |
 | <CopyableCode code="trafficLogs" /> | `boolean` | Whether the endpoint should report traffic logs in addition to threat logs. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The update time timestamp. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,4 +55,158 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Endpoint in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Deletes a single Endpoint. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Updates the parameters of a single Endpoint. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Endpoints in a given project and location. |
+
+## `SELECT` examples
+
+Lists Endpoints in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+endpointForwardingRule,
+endpointIp,
+labels,
+network,
+satisfiesPzi,
+satisfiesPzs,
+severity,
+state,
+threatExceptions,
+trafficLogs,
+updateTime
+FROM google.ids.endpoints
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>endpoints</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.ids.endpoints (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+labels,
+network,
+endpointForwardingRule,
+endpointIp,
+description,
+severity,
+threatExceptions,
+state,
+trafficLogs,
+satisfiesPzs,
+satisfiesPzi
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ network }}',
+'{{ endpointForwardingRule }}',
+'{{ endpointIp }}',
+'{{ description }}',
+'{{ severity }}',
+'{{ threatExceptions }}',
+'{{ state }}',
+true|false,
+true|false,
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: network
+        value: '{{ network }}'
+      - name: endpointForwardingRule
+        value: '{{ endpointForwardingRule }}'
+      - name: endpointIp
+        value: '{{ endpointIp }}'
+      - name: description
+        value: '{{ description }}'
+      - name: severity
+        value: '{{ severity }}'
+      - name: threatExceptions
+        value: '{{ threatExceptions }}'
+      - name: state
+        value: '{{ state }}'
+      - name: trafficLogs
+        value: '{{ trafficLogs }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a endpoint only if the necessary resources are available.
+
+```sql
+UPDATE google.ids.endpoints
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+network = '{{ network }}',
+endpointForwardingRule = '{{ endpointForwardingRule }}',
+endpointIp = '{{ endpointIp }}',
+description = '{{ description }}',
+severity = '{{ severity }}',
+threatExceptions = '{{ threatExceptions }}',
+state = '{{ state }}',
+trafficLogs = true|false,
+satisfiesPzs = true|false,
+satisfiesPzi = true|false
+WHERE 
+endpointsId = '{{ endpointsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified endpoint resource.
+
+```sql
+DELETE FROM google.ids.endpoints
+WHERE endpointsId = '{{ endpointsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

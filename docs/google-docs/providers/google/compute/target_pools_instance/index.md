@@ -1,3 +1,4 @@
+
 ---
 title: target_pools_instance
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - target_pools_instance
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>target_pools_instance</code> resource or lists <code>target_pools_instance</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,9 +30,64 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="add_instance" /> | `EXEC` | <CopyableCode code="project, region, targetPool" /> | Adds an instance to a target pool. |
-| <CopyableCode code="remove_instance" /> | `EXEC` | <CopyableCode code="project, region, targetPool" /> | Removes instance URL from a target pool. |
+| <CopyableCode code="add_instance" /> | `INSERT` | <CopyableCode code="project, region, targetPool" /> | Adds an instance to a target pool. |
+| <CopyableCode code="remove_instance" /> | `DELETE` | <CopyableCode code="project, region, targetPool" /> | Removes instance URL from a target pool. |
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>target_pools_instance</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.target_pools_instance (
+project,
+region,
+targetPool,
+instances
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ targetPool }}',
+'{{ instances }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: instances
+        value: '{{ instances }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified target_pools_instance resource.
+
+```sql
+DELETE FROM google.compute.target_pools_instance
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND targetPool = '{{ targetPool }}';
+```

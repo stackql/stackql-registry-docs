@@ -1,3 +1,4 @@
+
 ---
 title: region_instance_group_managers_errors
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_instance_group_managers_errors
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_instance_group_managers_error</code> resource or lists <code>region_instance_group_managers_errors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,7 +35,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="error" /> | `object` |  |
 | <CopyableCode code="instanceActionDetails" /> | `object` |  |
 | <CopyableCode code="timestamp" /> | `string` | [Output Only] The time that this error occurred. This value is in RFC3339 text format. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_errors" /> | `SELECT` | <CopyableCode code="instanceGroupManager, project, region" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_errors" /> | `SELECT` | <CopyableCode code="instanceGroupManager, project, region" /> | Lists all errors thrown by actions on instances for a given regional managed instance group. The filter and orderBy query parameters are not supported. |
+
+## `SELECT` examples
+
+Lists all errors thrown by actions on instances for a given regional managed instance group. The filter and orderBy query parameters are not supported.
+
+```sql
+SELECT
+error,
+instanceActionDetails,
+timestamp
+FROM google.compute.region_instance_group_managers_errors
+WHERE instanceGroupManager = '{{ instanceGroupManager }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: artifacts
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - artifacts
   - apigeeregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>artifact</code> resource or lists <code>artifacts</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="mimeType" /> | `string` | A content type specifier for the artifact. Content type specifiers are Media Types (https://en.wikipedia.org/wiki/Media_type) with a possible "schema" parameter that specifies a schema for the stored information. Content types can specify compression. Currently only GZip compression is supported (indicated with "+gzip"). |
 | <CopyableCode code="sizeBytes" /> | `integer` | Output only. The size of the artifact in bytes. If the artifact is gzipped, this is the size of the uncompressed artifact. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Last update timestamp. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -62,13 +65,111 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_apis_versions_artifacts_delete" /> | `DELETE` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> | Removes a specified artifact. |
 | <CopyableCode code="projects_locations_apis_versions_specs_artifacts_delete" /> | `DELETE` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> | Removes a specified artifact. |
 | <CopyableCode code="projects_locations_artifacts_delete" /> | `DELETE` | <CopyableCode code="artifactsId, locationsId, projectsId" /> | Removes a specified artifact. |
-| <CopyableCode code="_projects_locations_apis_artifacts_list" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId" /> | Returns matching artifacts. |
-| <CopyableCode code="_projects_locations_apis_deployments_artifacts_list" /> | `EXEC` | <CopyableCode code="apisId, deploymentsId, locationsId, projectsId" /> | Returns matching artifacts. |
-| <CopyableCode code="_projects_locations_apis_versions_artifacts_list" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Returns matching artifacts. |
-| <CopyableCode code="_projects_locations_apis_versions_specs_artifacts_list" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Returns matching artifacts. |
-| <CopyableCode code="_projects_locations_artifacts_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns matching artifacts. |
 | <CopyableCode code="projects_locations_apis_artifacts_replace_artifact" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId" /> | Used to replace a specified artifact. |
 | <CopyableCode code="projects_locations_apis_deployments_artifacts_replace_artifact" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, deploymentsId, locationsId, projectsId" /> | Used to replace a specified artifact. |
 | <CopyableCode code="projects_locations_apis_versions_artifacts_replace_artifact" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> | Used to replace a specified artifact. |
 | <CopyableCode code="projects_locations_apis_versions_specs_artifacts_replace_artifact" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> | Used to replace a specified artifact. |
 | <CopyableCode code="projects_locations_artifacts_replace_artifact" /> | `EXEC` | <CopyableCode code="artifactsId, locationsId, projectsId" /> | Used to replace a specified artifact. |
+
+## `SELECT` examples
+
+Returns matching artifacts.
+
+```sql
+SELECT
+name,
+annotations,
+contents,
+createTime,
+hash,
+labels,
+mimeType,
+sizeBytes,
+updateTime
+FROM google.apigeeregistry.artifacts
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>artifacts</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigeeregistry.artifacts (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+mimeType,
+sizeBytes,
+hash,
+contents,
+labels,
+annotations
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ mimeType }}',
+'{{ sizeBytes }}',
+'{{ hash }}',
+'{{ contents }}',
+'{{ labels }}',
+'{{ annotations }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: mimeType
+        value: '{{ mimeType }}'
+      - name: sizeBytes
+        value: '{{ sizeBytes }}'
+      - name: hash
+        value: '{{ hash }}'
+      - name: contents
+        value: '{{ contents }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: annotations
+        value: '{{ annotations }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified artifact resource.
+
+```sql
+DELETE FROM google.apigeeregistry.artifacts
+WHERE artifactsId = '{{ artifactsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

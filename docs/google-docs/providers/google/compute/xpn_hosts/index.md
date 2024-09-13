@@ -1,3 +1,4 @@
+
 ---
 title: xpn_hosts
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - xpn_hosts
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>xpn_host</code> resource or lists <code>xpn_hosts</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,50 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | [Output Only] The unique identifier for the resource. This identifier is defined by the server. This is *not* the project ID, and is just a unique ID used by Compute Engine to identify resources. |
+| <CopyableCode code="name" /> | `string` | The project ID. For example: my-example-project. Use the project ID to make requests to Compute Engine. |
+| <CopyableCode code="description" /> | `string` | An optional textual description of the resource. |
+| <CopyableCode code="cloudArmorTier" /> | `string` | [Output Only] The Cloud Armor tier for this project. It can be one of the following values: CA_STANDARD, CA_ENTERPRISE_PAYGO. If this field is not specified, it is assumed to be CA_STANDARD. |
+| <CopyableCode code="commonInstanceMetadata" /> | `object` | A metadata key/value entry. |
+| <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
+| <CopyableCode code="defaultNetworkTier" /> | `string` | This signifies the default network tier used for configuring resources of the project and can only take the following values: PREMIUM, STANDARD. Initially the default network tier is PREMIUM. |
+| <CopyableCode code="defaultServiceAccount" /> | `string` | [Output Only] Default service account used by VMs running in this project. |
+| <CopyableCode code="enabledFeatures" /> | `array` | Restricted features enabled for use on this project. |
+| <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#project for projects. |
+| <CopyableCode code="quotas" /> | `array` | [Output Only] Quotas assigned to this project. |
+| <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
+| <CopyableCode code="usageExportLocation" /> | `object` | The location in Cloud Storage and naming method of the daily usage report. Contains bucket_name and report_name prefix. |
+| <CopyableCode code="vmDnsSetting" /> | `string` | [Output Only] Default internal DNS setting used by VMs running in this project. |
+| <CopyableCode code="xpnProjectStatus" /> | `string` | [Output Only] The role this project has in a shared VPC configuration. Currently, only projects with the host role, which is specified by the value HOST, are differentiated. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_xpn_hosts" /> | `EXEC` | <CopyableCode code="project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_xpn_hosts" /> | `SELECT` | <CopyableCode code="project" /> | Lists all shared VPC host projects visible to the user in an organization. |
+
+## `SELECT` examples
+
+Lists all shared VPC host projects visible to the user in an organization.
+
+```sql
+SELECT
+id,
+name,
+description,
+cloudArmorTier,
+commonInstanceMetadata,
+creationTimestamp,
+defaultNetworkTier,
+defaultServiceAccount,
+enabledFeatures,
+kind,
+quotas,
+selfLink,
+usageExportLocation,
+vmDnsSetting,
+xpnProjectStatus
+FROM google.compute.xpn_hosts
+WHERE project = '{{ project }}'; 
+```

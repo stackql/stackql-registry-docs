@@ -1,3 +1,4 @@
+
 ---
 title: vmware_engine_networks
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - vmware_engine_networks
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>vmware_engine_network</code> resource or lists <code>vmware_engine_networks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="uid" /> | `string` | Output only. System-generated unique identifier for the resource. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Last update time of this resource. |
 | <CopyableCode code="vpcNetworks" /> | `array` | Output only. VMware Engine service VPC networks that provide connectivity from a private cloud to customer projects, the internet, and other Google Cloud services. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,4 +50,128 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new VMware Engine network that can be used by a private cloud. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, vmwareEngineNetworksId" /> | Deletes a `VmwareEngineNetwork` resource. You can only delete a VMware Engine network after all resources that refer to it are deleted. For example, a private cloud, a network peering, and a network policy can all refer to the same VMware Engine network. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, vmwareEngineNetworksId" /> | Modifies a VMware Engine network resource. Only the following fields can be updated: `description`. Only fields specified in `updateMask` are applied. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists `VmwareEngineNetwork` resources in a given project and location. |
+
+## `SELECT` examples
+
+Lists `VmwareEngineNetwork` resources in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+etag,
+state,
+type,
+uid,
+updateTime,
+vpcNetworks
+FROM google.vmwareengine.vmware_engine_networks
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>vmware_engine_networks</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.vmwareengine.vmware_engine_networks (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+description,
+vpcNetworks,
+state,
+type,
+uid,
+etag
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ description }}',
+'{{ vpcNetworks }}',
+'{{ state }}',
+'{{ type }}',
+'{{ uid }}',
+'{{ etag }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: description
+        value: '{{ description }}'
+      - name: vpcNetworks
+        value: '{{ vpcNetworks }}'
+      - name: state
+        value: '{{ state }}'
+      - name: type
+        value: '{{ type }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: etag
+        value: '{{ etag }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a vmware_engine_network only if the necessary resources are available.
+
+```sql
+UPDATE google.vmwareengine.vmware_engine_networks
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+description = '{{ description }}',
+vpcNetworks = '{{ vpcNetworks }}',
+state = '{{ state }}',
+type = '{{ type }}',
+uid = '{{ uid }}',
+etag = '{{ etag }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND vmwareEngineNetworksId = '{{ vmwareEngineNetworksId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified vmware_engine_network resource.
+
+```sql
+DELETE FROM google.vmwareengine.vmware_engine_networks
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND vmwareEngineNetworksId = '{{ vmwareEngineNetworksId }}';
+```

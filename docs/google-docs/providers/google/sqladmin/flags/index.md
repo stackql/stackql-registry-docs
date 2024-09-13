@@ -1,3 +1,4 @@
+
 ---
 title: flags
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - flags
   - sqladmin
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>flag</code> resource or lists <code>flags</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,7 +42,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="minValue" /> | `string` | For `INTEGER` flags, the minimum allowed value. |
 | <CopyableCode code="requiresRestart" /> | `boolean` | Indicates whether changing this flag will trigger a database restart. Only applicable to Second Generation instances. |
 | <CopyableCode code="type" /> | `string` | The type of the flag. Flags are typed to being `BOOLEAN`, `STRING`, `INTEGER` or `NONE`. `NONE` is used for flags that do not take a value, such as `skip_grant_tables`. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists all available database flags for Cloud SQL instances. |
+
+## `SELECT` examples
+
+Lists all available database flags for Cloud SQL instances.
+
+```sql
+SELECT
+name,
+allowedIntValues,
+allowedStringValues,
+appliesTo,
+inBeta,
+kind,
+maxValue,
+minValue,
+requiresRestart,
+type
+FROM google.sqladmin.flags
+WHERE  = '{{  }}'; 
+```

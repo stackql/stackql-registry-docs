@@ -1,3 +1,4 @@
+
 ---
 title: targets
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - targets
   - clouddeploy
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>target</code> resource or lists <code>targets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Optional. Name of the `Target`. Format is `projects/&#123;project&#125;/locations/&#123;location&#125;/targets/&#123;target&#125;`. The `target` component must match `[a-z]([a-z0-9-]&#123;0,61&#125;[a-z0-9])?` |
+| <CopyableCode code="name" /> | `string` | Optional. Name of the `Target`. Format is `projects/{project}/locations/{location}/targets/{target}`. The `target` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?` |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the `Target`. Max length is 255 characters. |
 | <CopyableCode code="annotations" /> | `object` | Optional. User annotations. These attributes can only be set and used by the user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations for more details such as format and size limitations. |
 | <CopyableCode code="anthosCluster" /> | `object` | Information specifying an Anthos Cluster. |
@@ -40,13 +42,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="etag" /> | `string` | Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | <CopyableCode code="executionConfigs" /> | `array` | Configurations for all execution that relates to this `Target`. Each `ExecutionEnvironmentUsage` value may only be used in a single configuration; using the same value multiple times is an error. When one or more configurations are specified, they must include the `RENDER` and `DEPLOY` `ExecutionEnvironmentUsage` values. When no configurations are specified, execution will use the default specified in `DefaultPool`. |
 | <CopyableCode code="gke" /> | `object` | Information specifying a GKE Cluster. |
-| <CopyableCode code="labels" /> | `object` | Optional. Labels are attributes that can be set and used by both the user and by Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be &lt;= 128 bytes. |
+| <CopyableCode code="labels" /> | `object` | Optional. Labels are attributes that can be set and used by both the user and by Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be <= 128 bytes. |
 | <CopyableCode code="multiTarget" /> | `object` | Information specifying a multiTarget. |
 | <CopyableCode code="requireApproval" /> | `boolean` | Optional. Whether or not the `Target` requires approval. |
 | <CopyableCode code="run" /> | `object` | Information specifying where to deploy a Cloud Run Service. |
 | <CopyableCode code="targetId" /> | `string` | Output only. Resource id of the `Target`. |
 | <CopyableCode code="uid" /> | `string` | Output only. Unique identifier of the `Target`. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Most recent time at which the `Target` was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -55,4 +58,176 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Target in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, targetsId" /> | Deletes a single Target. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, targetsId" /> | Updates the parameters of a single Target. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Targets in a given project and location. |
+
+## `SELECT` examples
+
+Lists Targets in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+annotations,
+anthosCluster,
+createTime,
+customTarget,
+deployParameters,
+etag,
+executionConfigs,
+gke,
+labels,
+multiTarget,
+requireApproval,
+run,
+targetId,
+uid,
+updateTime
+FROM google.clouddeploy.targets
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>targets</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.clouddeploy.targets (
+locationsId,
+projectsId,
+name,
+targetId,
+uid,
+description,
+annotations,
+labels,
+requireApproval,
+createTime,
+updateTime,
+gke,
+anthosCluster,
+run,
+multiTarget,
+customTarget,
+etag,
+executionConfigs,
+deployParameters
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ targetId }}',
+'{{ uid }}',
+'{{ description }}',
+'{{ annotations }}',
+'{{ labels }}',
+true|false,
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ gke }}',
+'{{ anthosCluster }}',
+'{{ run }}',
+'{{ multiTarget }}',
+'{{ customTarget }}',
+'{{ etag }}',
+'{{ executionConfigs }}',
+'{{ deployParameters }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: targetId
+        value: '{{ targetId }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: description
+        value: '{{ description }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: requireApproval
+        value: '{{ requireApproval }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: gke
+        value: '{{ gke }}'
+      - name: anthosCluster
+        value: '{{ anthosCluster }}'
+      - name: run
+        value: '{{ run }}'
+      - name: multiTarget
+        value: '{{ multiTarget }}'
+      - name: customTarget
+        value: '{{ customTarget }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: executionConfigs
+        value: '{{ executionConfigs }}'
+      - name: deployParameters
+        value: '{{ deployParameters }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a target only if the necessary resources are available.
+
+```sql
+UPDATE google.clouddeploy.targets
+SET 
+name = '{{ name }}',
+targetId = '{{ targetId }}',
+uid = '{{ uid }}',
+description = '{{ description }}',
+annotations = '{{ annotations }}',
+labels = '{{ labels }}',
+requireApproval = true|false,
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+gke = '{{ gke }}',
+anthosCluster = '{{ anthosCluster }}',
+run = '{{ run }}',
+multiTarget = '{{ multiTarget }}',
+customTarget = '{{ customTarget }}',
+etag = '{{ etag }}',
+executionConfigs = '{{ executionConfigs }}',
+deployParameters = '{{ deployParameters }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND targetsId = '{{ targetsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified target resource.
+
+```sql
+DELETE FROM google.clouddeploy.targets
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND targetsId = '{{ targetsId }}';
+```

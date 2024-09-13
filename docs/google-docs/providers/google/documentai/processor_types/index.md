@@ -1,3 +1,4 @@
+
 ---
 title: processor_types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - processor_types
   - documentai
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>processor_type</code> resource or lists <code>processor_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,17 +32,35 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the processor type. Format: `projects/&#123;project&#125;/processorTypes/&#123;processor_type&#125;` |
+| <CopyableCode code="name" /> | `string` | The resource name of the processor type. Format: `projects/{project}/processorTypes/{processor_type}` |
 | <CopyableCode code="allowCreation" /> | `boolean` | Whether the processor type allows creation. If true, users can create a processor of this processor type. Otherwise, users need to request access. |
 | <CopyableCode code="availableLocations" /> | `array` | The locations in which this processor is available. |
 | <CopyableCode code="category" /> | `string` | The processor category, used by UI to group processor types. |
 | <CopyableCode code="launchStage" /> | `string` | Launch stage of the processor type |
 | <CopyableCode code="sampleDocumentUris" /> | `array` | A set of Cloud Storage URIs of sample documents for this processor. |
 | <CopyableCode code="type" /> | `string` | The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_fetch_processor_types" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Fetches processor types. Note that we don't use ListProcessorTypes here, because it isn't paginated. |
 | <CopyableCode code="projects_locations_processor_types_get" /> | `SELECT` | <CopyableCode code="locationsId, processorTypesId, projectsId" /> | Gets a processor type detail. |
 | <CopyableCode code="projects_locations_processor_types_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists the processor types that exist. |
-| <CopyableCode code="_projects_locations_processor_types_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists the processor types that exist. |
-| <CopyableCode code="projects_locations_fetch_processor_types" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Fetches processor types. Note that we don't use ListProcessorTypes here, because it isn't paginated. |
+
+## `SELECT` examples
+
+Fetches processor types. Note that we don't use ListProcessorTypes here, because it isn't paginated.
+
+```sql
+SELECT
+name,
+allowCreation,
+availableLocations,
+category,
+launchStage,
+sampleDocumentUris,
+type
+FROM google.documentai.processor_types
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

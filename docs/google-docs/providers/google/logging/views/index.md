@@ -1,3 +1,4 @@
+
 ---
 title: views
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - views
   - logging
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>view</code> resource or lists <code>views</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation timestamp of the view. |
 | <CopyableCode code="filter" /> | `string` | Optional. Filter that restricts which log entries in a bucket are visible in this view.Filters must be logical conjunctions that use the AND operator, and they can use any of the following qualifiers: SOURCE(), which specifies a project, folder, organization, or billing account of origin. resource.type, which specifies the resource type. LOG_ID(), which identifies the log.They can also use the negations of these qualifiers with the NOT operator.For example:SOURCE("projects/myproject") AND resource.type = "gce_instance" AND NOT LOG_ID("stdout") |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of the view. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -60,8 +63,106 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_locations_buckets_views_patch" /> | `UPDATE` | <CopyableCode code="bucketsId, foldersId, locationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the value of the filter field from the existing view with the corresponding value from the new view. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
 | <CopyableCode code="organizations_locations_buckets_views_patch" /> | `UPDATE` | <CopyableCode code="bucketsId, locationsId, organizationsId, viewsId" /> | Updates a view on a log bucket. This method replaces the value of the filter field from the existing view with the corresponding value from the new view. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
 | <CopyableCode code="projects_locations_buckets_views_patch" /> | `UPDATE` | <CopyableCode code="bucketsId, locationsId, projectsId, viewsId" /> | Updates a view on a log bucket. This method replaces the value of the filter field from the existing view with the corresponding value from the new view. If an UNAVAILABLE error is returned, this indicates that system is not in a state where it can update the view. If this occurs, please try again in a few minutes. |
-| <CopyableCode code="_billing_accounts_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="billingAccountsId, bucketsId, locationsId" /> | Lists views on a log bucket. |
-| <CopyableCode code="_folders_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Lists views on a log bucket. |
-| <CopyableCode code="_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Lists views on a log bucket. |
-| <CopyableCode code="_organizations_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Lists views on a log bucket. |
-| <CopyableCode code="_projects_locations_buckets_views_list" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Lists views on a log bucket. |
+
+## `SELECT` examples
+
+Lists views on a log bucket.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+filter,
+updateTime
+FROM google.logging.views
+WHERE parent = '{{ parent }}'
+AND parentType = '{{ parentType }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>views</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.logging.views (
+parent,
+parentType,
+name,
+description,
+createTime,
+updateTime,
+filter
+)
+SELECT 
+'{{ parent }}',
+'{{ parentType }}',
+'{{ name }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ filter }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: filter
+        value: '{{ filter }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a view only if the necessary resources are available.
+
+```sql
+UPDATE google.logging.views
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+filter = '{{ filter }}'
+WHERE 
+bucketsId = '{{ bucketsId }}'
+AND foldersId = '{{ foldersId }}'
+AND locationsId = '{{ locationsId }}'
+AND viewsId = '{{ viewsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified view resource.
+
+```sql
+DELETE FROM google.logging.views
+WHERE bucketsId = '{{ bucketsId }}'
+AND foldersId = '{{ foldersId }}'
+AND locationsId = '{{ locationsId }}'
+AND viewsId = '{{ viewsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: apicategories
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - apicategories
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>apicategory</code> resource or lists <code>apicategories</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="message" /> | `string` | Description of the operation. |
 | <CopyableCode code="requestId" /> | `string` | Unique ID of the request. |
 | <CopyableCode code="status" /> | `string` | Status of the operation. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,3 +46,99 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_sites_apicategories_create" /> | `INSERT` | <CopyableCode code="organizationsId, sitesId" /> | Creates a new API category. |
 | <CopyableCode code="organizations_sites_apicategories_delete" /> | `DELETE` | <CopyableCode code="apicategoriesId, organizationsId, sitesId" /> | Deletes an API category. |
 | <CopyableCode code="organizations_sites_apicategories_patch" /> | `UPDATE` | <CopyableCode code="apicategoriesId, organizationsId, sitesId" /> | Updates an API category. |
+
+## `SELECT` examples
+
+Returns the API categories associated with a portal.
+
+```sql
+SELECT
+data,
+errorCode,
+message,
+requestId,
+status
+FROM google.apigee.apicategories
+WHERE organizationsId = '{{ organizationsId }}'
+AND sitesId = '{{ sitesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>apicategories</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.apicategories (
+organizationsId,
+sitesId,
+siteId,
+id,
+name,
+updateTime
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ sitesId }}',
+'{{ siteId }}',
+'{{ id }}',
+'{{ name }}',
+'{{ updateTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: siteId
+        value: '{{ siteId }}'
+      - name: id
+        value: '{{ id }}'
+      - name: name
+        value: '{{ name }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a apicategory only if the necessary resources are available.
+
+```sql
+UPDATE google.apigee.apicategories
+SET 
+siteId = '{{ siteId }}',
+id = '{{ id }}',
+name = '{{ name }}',
+updateTime = '{{ updateTime }}'
+WHERE 
+apicategoriesId = '{{ apicategoriesId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND sitesId = '{{ sitesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified apicategory resource.
+
+```sql
+DELETE FROM google.apigee.apicategories
+WHERE apicategoriesId = '{{ apicategoriesId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND sitesId = '{{ sitesId }}';
+```

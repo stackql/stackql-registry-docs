@@ -1,3 +1,4 @@
+
 ---
 title: target_tcp_proxies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - target_tcp_proxies
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>target_tcp_proxy</code> resource or lists <code>target_tcp_proxies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the regional TCP proxy resides. This field is not applicable to global TCP proxy. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="service" /> | `string` | URL to the BackendService resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,3 +52,107 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, targetTcpProxy" /> | Deletes the specified TargetTcpProxy resource. |
 | <CopyableCode code="set_backend_service" /> | `EXEC` | <CopyableCode code="project, targetTcpProxy" /> | Changes the BackendService for TargetTcpProxy. |
 | <CopyableCode code="set_proxy_header" /> | `EXEC` | <CopyableCode code="project, targetTcpProxy" /> | Changes the ProxyHeaderType for TargetTcpProxy. |
+
+## `SELECT` examples
+
+Retrieves the list of TargetTcpProxy resources available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+kind,
+proxyBind,
+proxyHeader,
+region,
+selfLink,
+service
+FROM google.compute.target_tcp_proxies
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>target_tcp_proxies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.target_tcp_proxies (
+project,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+service,
+proxyHeader,
+proxyBind,
+region
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ service }}',
+'{{ proxyHeader }}',
+true|false,
+'{{ region }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: service
+        value: '{{ service }}'
+      - name: proxyHeader
+        value: '{{ proxyHeader }}'
+      - name: proxyBind
+        value: '{{ proxyBind }}'
+      - name: region
+        value: '{{ region }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified target_tcp_proxy resource.
+
+```sql
+DELETE FROM google.compute.target_tcp_proxies
+WHERE project = '{{ project }}'
+AND targetTcpProxy = '{{ targetTcpProxy }}';
+```

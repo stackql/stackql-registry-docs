@@ -1,3 +1,4 @@
+
 ---
 title: service_account
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - service_account
   - accessapproval
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>service_account</code> resource or lists <code>service_account</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,11 +32,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the Access Approval service account. Format is one of: * "projects/&#123;project&#125;/serviceAccount" * "folders/&#123;folder&#125;/serviceAccount" * "organizations/&#123;organization&#125;/serviceAccount" |
+| <CopyableCode code="name" /> | `string` | The resource name of the Access Approval service account. Format is one of: * "projects/{project}/serviceAccount" * "folders/{folder}/serviceAccount" * "organizations/{organization}/serviceAccount" |
 | <CopyableCode code="accountEmail" /> | `string` | Email address of the service account. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="folders_get_service_account" /> | `SELECT` | <CopyableCode code="foldersId" /> |
-| <CopyableCode code="organizations_get_service_account" /> | `SELECT` | <CopyableCode code="organizationsId" /> |
-| <CopyableCode code="projects_get_service_account" /> | `SELECT` | <CopyableCode code="projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="folders_get_service_account" /> | `SELECT` | <CopyableCode code="foldersId" /> | Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests. |
+| <CopyableCode code="organizations_get_service_account" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests. |
+| <CopyableCode code="projects_get_service_account" /> | `SELECT` | <CopyableCode code="projectsId" /> | Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests. |
+
+## `SELECT` examples
+
+Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests.
+
+```sql
+SELECT
+name,
+accountEmail
+FROM google.accessapproval.service_account
+WHERE foldersId = '{{ foldersId }}'; 
+```

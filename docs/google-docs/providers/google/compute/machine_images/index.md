@@ -1,3 +1,4 @@
+
 ---
 title: machine_images
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - machine_images
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>machine_image</code> resource or lists <code>machine_images</code> in a region
 
 ## Overview
 <table><tbody>
@@ -48,6 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of the machine image. One of the following values: INVALID, CREATING, READY, DELETING, and UPLOADING. |
 | <CopyableCode code="storageLocations" /> | `array` | The regional or multi-regional Cloud Storage bucket location where the machine image is stored. |
 | <CopyableCode code="totalStorageBytes" /> | `string` | [Output Only] Total size of the storage used by the machine image. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -55,3 +58,147 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves a list of machine images that are contained within the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a machine image in the specified project using the data that is included in the request. If you are creating a new machine image to update an existing instance, your new machine image should use the same network or, if applicable, the same subnetwork as the original instance. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="machineImage, project" /> | Deletes the specified machine image. Deleting a machine image is permanent and cannot be undone. |
+
+## `SELECT` examples
+
+Retrieves a list of machine images that are contained within the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+guestFlush,
+instanceProperties,
+kind,
+machineImageEncryptionKey,
+satisfiesPzi,
+satisfiesPzs,
+savedDisks,
+selfLink,
+sourceDiskEncryptionKeys,
+sourceInstance,
+sourceInstanceProperties,
+status,
+storageLocations,
+totalStorageBytes
+FROM google.compute.machine_images
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>machine_images</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.machine_images (
+project,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+sourceInstance,
+status,
+sourceInstanceProperties,
+instanceProperties,
+savedDisks,
+storageLocations,
+machineImageEncryptionKey,
+guestFlush,
+sourceDiskEncryptionKeys,
+totalStorageBytes,
+satisfiesPzs,
+satisfiesPzi
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ sourceInstance }}',
+'{{ status }}',
+'{{ sourceInstanceProperties }}',
+'{{ instanceProperties }}',
+'{{ savedDisks }}',
+'{{ storageLocations }}',
+'{{ machineImageEncryptionKey }}',
+true|false,
+'{{ sourceDiskEncryptionKeys }}',
+'{{ totalStorageBytes }}',
+true|false,
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: sourceInstance
+        value: '{{ sourceInstance }}'
+      - name: status
+        value: '{{ status }}'
+      - name: sourceInstanceProperties
+        value: '{{ sourceInstanceProperties }}'
+      - name: instanceProperties
+        value: '{{ instanceProperties }}'
+      - name: savedDisks
+        value: '{{ savedDisks }}'
+      - name: storageLocations
+        value: '{{ storageLocations }}'
+      - name: machineImageEncryptionKey
+        value: '{{ machineImageEncryptionKey }}'
+      - name: guestFlush
+        value: '{{ guestFlush }}'
+      - name: sourceDiskEncryptionKeys
+        value: '{{ sourceDiskEncryptionKeys }}'
+      - name: totalStorageBytes
+        value: '{{ totalStorageBytes }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified machine_image resource.
+
+```sql
+DELETE FROM google.compute.machine_images
+WHERE machineImage = '{{ machineImage }}'
+AND project = '{{ project }}';
+```

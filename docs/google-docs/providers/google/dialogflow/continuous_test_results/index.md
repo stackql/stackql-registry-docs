@@ -1,3 +1,4 @@
+
 ---
 title: continuous_test_results
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - continuous_test_results
   - dialogflow
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>continuous_test_result</code> resource or lists <code>continuous_test_results</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,8 +36,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="result" /> | `string` | The result of this continuous test run, i.e. whether all the tests in this continuous test run pass or not. |
 | <CopyableCode code="runTime" /> | `string` | Time when the continuous testing run starts. |
 | <CopyableCode code="testCaseResults" /> | `array` | A list of individual test case results names in this continuous test run. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_agents_environments_continuous_test_results_list" /> | `SELECT` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> |
-| <CopyableCode code="_projects_locations_agents_environments_continuous_test_results_list" /> | `EXEC` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_agents_environments_continuous_test_results_list" /> | `SELECT` | <CopyableCode code="agentsId, environmentsId, locationsId, projectsId" /> | Fetches a list of continuous test results for a given environment. |
+
+## `SELECT` examples
+
+Fetches a list of continuous test results for a given environment.
+
+```sql
+SELECT
+name,
+result,
+runTime,
+testCaseResults
+FROM google.dialogflow.continuous_test_results
+WHERE agentsId = '{{ agentsId }}'
+AND environmentsId = '{{ environmentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

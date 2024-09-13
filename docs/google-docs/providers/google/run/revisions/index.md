@@ -1,3 +1,4 @@
+
 ---
 title: revisions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - revisions
   - run
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>revision</code> resource or lists <code>revisions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -55,17 +57,74 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="scalingStatus" /> | `object` | Effective settings for the current revision |
 | <CopyableCode code="service" /> | `string` | Output only. The name of the parent service. |
 | <CopyableCode code="serviceAccount" /> | `string` | Email address of the IAM service account associated with the revision of the service. The service account represents the identity of the running revision, and determines what permissions the revision has. |
+| <CopyableCode code="serviceMesh" /> | `object` | Settings for Cloud Service Mesh. For more information see https://cloud.google.com/service-mesh/docs/overview. |
 | <CopyableCode code="sessionAffinity" /> | `boolean` | Enable session affinity. |
 | <CopyableCode code="timeout" /> | `string` | Max allowed time for an instance to respond to a request. |
 | <CopyableCode code="uid" /> | `string` | Output only. Server assigned unique identifier for the Revision. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last-modified time. |
 | <CopyableCode code="volumes" /> | `array` | A list of Volumes to make available to containers. |
 | <CopyableCode code="vpcAccess" /> | `object` | VPC Access settings. For more information on sending traffic to a VPC network, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, revisionsId, servicesId" /> | Gets information about a Revision. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Lists Revisions from a given Service, or from a given location. Results are sorted by creation time, descending. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, revisionsId, servicesId" /> | Deletes a Revision. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Lists Revisions from a given Service, or from a given location. Results are sorted by creation time, descending. |
 | <CopyableCode code="export_status" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, revisionsId, revisionsId1, servicesId" /> | Read the status of an image export operation. |
+
+## `SELECT` examples
+
+Lists Revisions from a given Service, or from a given location. Results are sorted by creation time, descending.
+
+```sql
+SELECT
+name,
+annotations,
+conditions,
+containers,
+createTime,
+deleteTime,
+encryptionKey,
+encryptionKeyRevocationAction,
+encryptionKeyShutdownDuration,
+etag,
+executionEnvironment,
+expireTime,
+generation,
+labels,
+launchStage,
+logUri,
+maxInstanceRequestConcurrency,
+nodeSelector,
+observedGeneration,
+reconciling,
+satisfiesPzs,
+scaling,
+scalingStatus,
+service,
+serviceAccount,
+serviceMesh,
+sessionAffinity,
+timeout,
+uid,
+updateTime,
+volumes,
+vpcAccess
+FROM google.run.revisions
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified revision resource.
+
+```sql
+DELETE FROM google.run.revisions
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND revisionsId = '{{ revisionsId }}'
+AND servicesId = '{{ servicesId }}';
+```

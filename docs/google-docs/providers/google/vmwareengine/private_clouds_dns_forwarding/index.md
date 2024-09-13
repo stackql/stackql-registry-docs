@@ -1,3 +1,4 @@
+
 ---
 title: private_clouds_dns_forwarding
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - private_clouds_dns_forwarding
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>private_clouds_dns_forwarding</code> resource or lists <code>private_clouds_dns_forwarding</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,8 +36,42 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. Creation time of this resource. |
 | <CopyableCode code="forwardingRules" /> | `array` | Required. List of domain mappings to configure |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Last update time of this resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_dns_forwarding" /> | `SELECT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Gets details of the `DnsForwarding` config. |
-| <CopyableCode code="update_dns_forwarding" /> | `EXEC` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Updates the parameters of the `DnsForwarding` config, like associated domains. Only fields specified in `update_mask` are applied. |
+| <CopyableCode code="update_dns_forwarding" /> | `UPDATE` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Updates the parameters of the `DnsForwarding` config, like associated domains. Only fields specified in `update_mask` are applied. |
+
+## `SELECT` examples
+
+Gets details of the `DnsForwarding` config.
+
+```sql
+SELECT
+name,
+createTime,
+forwardingRules,
+updateTime
+FROM google.vmwareengine.private_clouds_dns_forwarding
+WHERE locationsId = '{{ locationsId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a private_clouds_dns_forwarding only if the necessary resources are available.
+
+```sql
+UPDATE google.vmwareengine.private_clouds_dns_forwarding
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+forwardingRules = '{{ forwardingRules }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}';
+```

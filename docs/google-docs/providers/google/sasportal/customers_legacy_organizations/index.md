@@ -1,3 +1,4 @@
+
 ---
 title: customers_legacy_organizations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - customers_legacy_organizations
   - sasportal
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>customers_legacy_organization</code> resource or lists <code>customers_legacy_organizations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="organizations" /> | `array` | Optional. Legacy SAS organizations. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="customers_list_legacy_organizations" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="customers_list_legacy_organizations" /> | `SELECT` | <CopyableCode code="" /> | Returns a list of legacy organizations. |
+
+## `SELECT` examples
+
+Returns a list of legacy organizations.
+
+```sql
+SELECT
+organizations
+FROM google.sasportal.customers_legacy_organizations
+WHERE  = '{{  }}'; 
+```

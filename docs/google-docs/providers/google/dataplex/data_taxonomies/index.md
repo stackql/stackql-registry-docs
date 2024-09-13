@@ -1,3 +1,4 @@
+
 ---
 title: data_taxonomies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - data_taxonomies
   - dataplex
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>data_taxonomy</code> resource or lists <code>data_taxonomies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the DataTaxonomy, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/dataTaxonomies/&#123;data_taxonomy_id&#125;. |
+| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the DataTaxonomy, of the form: projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}. |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the DataTaxonomy. |
 | <CopyableCode code="attributeCount" /> | `integer` | Output only. The number of attributes in the DataTaxonomy. |
 | <CopyableCode code="classCount" /> | `integer` | Output only. The number of classes in the DataTaxonomy. |
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Optional. User-defined labels for the DataTaxonomy. |
 | <CopyableCode code="uid" /> | `string` | Output only. System generated globally unique ID for the dataTaxonomy. This ID will be different if the DataTaxonomy is deleted and re-created with the same name. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time when the DataTaxonomy was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,4 +51,134 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_data_taxonomies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a DataTaxonomy resource. |
 | <CopyableCode code="projects_locations_data_taxonomies_delete" /> | `DELETE` | <CopyableCode code="dataTaxonomiesId, locationsId, projectsId" /> | Deletes a DataTaxonomy resource. All attributes within the DataTaxonomy must be deleted before the DataTaxonomy can be deleted. |
 | <CopyableCode code="projects_locations_data_taxonomies_patch" /> | `UPDATE` | <CopyableCode code="dataTaxonomiesId, locationsId, projectsId" /> | Updates a DataTaxonomy resource. |
-| <CopyableCode code="_projects_locations_data_taxonomies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists DataTaxonomy resources in a project and location. |
+
+## `SELECT` examples
+
+Lists DataTaxonomy resources in a project and location.
+
+```sql
+SELECT
+name,
+description,
+attributeCount,
+classCount,
+createTime,
+displayName,
+etag,
+labels,
+uid,
+updateTime
+FROM google.dataplex.data_taxonomies
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>data_taxonomies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataplex.data_taxonomies (
+locationsId,
+projectsId,
+name,
+uid,
+createTime,
+updateTime,
+description,
+displayName,
+labels,
+attributeCount,
+etag,
+classCount
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ description }}',
+'{{ displayName }}',
+'{{ labels }}',
+'{{ attributeCount }}',
+'{{ etag }}',
+'{{ classCount }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: description
+        value: '{{ description }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: attributeCount
+        value: '{{ attributeCount }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: classCount
+        value: '{{ classCount }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a data_taxonomy only if the necessary resources are available.
+
+```sql
+UPDATE google.dataplex.data_taxonomies
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+description = '{{ description }}',
+displayName = '{{ displayName }}',
+labels = '{{ labels }}',
+attributeCount = '{{ attributeCount }}',
+etag = '{{ etag }}',
+classCount = '{{ classCount }}'
+WHERE 
+dataTaxonomiesId = '{{ dataTaxonomiesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified data_taxonomy resource.
+
+```sql
+DELETE FROM google.dataplex.data_taxonomies
+WHERE dataTaxonomiesId = '{{ dataTaxonomiesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

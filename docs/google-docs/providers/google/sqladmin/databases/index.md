@@ -1,3 +1,4 @@
+
 ---
 title: databases
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - databases
   - sqladmin
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>database</code> resource or lists <code>databases</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,6 +41,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="project" /> | `string` | The project ID of the project containing the Cloud SQL database. The Google apps domain is prefixed if applicable. |
 | <CopyableCode code="selfLink" /> | `string` | The URI of this resource. |
 | <CopyableCode code="sqlserverDatabaseDetails" /> | `object` | Represents a Sql Server database on the Cloud SQL instance. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,4 +50,129 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="instance, project" /> | Inserts a resource containing information about a database inside a Cloud SQL instance. **Note:** You can't modify the default character set and collation. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="database, instance, project" /> | Deletes a database from a Cloud SQL instance. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="database, instance, project" /> | Partially updates a resource containing information about a database inside a Cloud SQL instance. This method supports patch semantics. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="database, instance, project" /> | Updates a resource containing information about a database inside a Cloud SQL instance. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="database, instance, project" /> | Updates a resource containing information about a database inside a Cloud SQL instance. |
+
+## `SELECT` examples
+
+Lists databases in the specified Cloud SQL instance.
+
+```sql
+SELECT
+name,
+charset,
+collation,
+etag,
+instance,
+kind,
+project,
+selfLink,
+sqlserverDatabaseDetails
+FROM google.sqladmin.databases
+WHERE instance = '{{ instance }}'
+AND project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>databases</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.sqladmin.databases (
+instance,
+project,
+kind,
+charset,
+collation,
+etag,
+name,
+instance,
+selfLink,
+project,
+sqlserverDatabaseDetails
+)
+SELECT 
+'{{ instance }}',
+'{{ project }}',
+'{{ kind }}',
+'{{ charset }}',
+'{{ collation }}',
+'{{ etag }}',
+'{{ name }}',
+'{{ instance }}',
+'{{ selfLink }}',
+'{{ project }}',
+'{{ sqlserverDatabaseDetails }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: charset
+        value: '{{ charset }}'
+      - name: collation
+        value: '{{ collation }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: name
+        value: '{{ name }}'
+      - name: instance
+        value: '{{ instance }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: project
+        value: '{{ project }}'
+      - name: sqlserverDatabaseDetails
+        value: '{{ sqlserverDatabaseDetails }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a database only if the necessary resources are available.
+
+```sql
+UPDATE google.sqladmin.databases
+SET 
+kind = '{{ kind }}',
+charset = '{{ charset }}',
+collation = '{{ collation }}',
+etag = '{{ etag }}',
+name = '{{ name }}',
+instance = '{{ instance }}',
+selfLink = '{{ selfLink }}',
+project = '{{ project }}',
+sqlserverDatabaseDetails = '{{ sqlserverDatabaseDetails }}'
+WHERE 
+database = '{{ database }}'
+AND instance = '{{ instance }}'
+AND project = '{{ project }}';
+```
+
+## `DELETE` example
+
+Deletes the specified database resource.
+
+```sql
+DELETE FROM google.sqladmin.databases
+WHERE database = '{{ database }}'
+AND instance = '{{ instance }}'
+AND project = '{{ project }}';
+```

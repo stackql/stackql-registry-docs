@@ -1,3 +1,4 @@
+
 ---
 title: ca_pools
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - ca_pools
   - privateca
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>ca_pool</code> resource or lists <code>ca_pools</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="labels" /> | `object` | Optional. Labels with user-defined metadata. |
 | <CopyableCode code="publishingOptions" /> | `object` | Options relating to the publication of each CertificateAuthority's CA certificate and CRLs and their inclusion as extensions in issued Certificates. The options set here apply to certificates issued by any CertificateAuthority in the CaPool. |
 | <CopyableCode code="tier" /> | `string` | Required. Immutable. The Tier of this CaPool. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,4 +46,104 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a CaPool. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="caPoolsId, locationsId, projectsId" /> | Delete a CaPool. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="caPoolsId, locationsId, projectsId" /> | Update a CaPool. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists CaPools. |
+
+## `SELECT` examples
+
+Lists CaPools.
+
+```sql
+SELECT
+name,
+issuancePolicy,
+labels,
+publishingOptions,
+tier
+FROM google.privateca.ca_pools
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>ca_pools</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.privateca.ca_pools (
+locationsId,
+projectsId,
+name,
+tier,
+issuancePolicy,
+publishingOptions,
+labels
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ tier }}',
+'{{ issuancePolicy }}',
+'{{ publishingOptions }}',
+'{{ labels }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: tier
+        value: '{{ tier }}'
+      - name: issuancePolicy
+        value: '{{ issuancePolicy }}'
+      - name: publishingOptions
+        value: '{{ publishingOptions }}'
+      - name: labels
+        value: '{{ labels }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a ca_pool only if the necessary resources are available.
+
+```sql
+UPDATE google.privateca.ca_pools
+SET 
+name = '{{ name }}',
+tier = '{{ tier }}',
+issuancePolicy = '{{ issuancePolicy }}',
+publishingOptions = '{{ publishingOptions }}',
+labels = '{{ labels }}'
+WHERE 
+caPoolsId = '{{ caPoolsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified ca_pool resource.
+
+```sql
+DELETE FROM google.privateca.ca_pools
+WHERE caPoolsId = '{{ caPoolsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

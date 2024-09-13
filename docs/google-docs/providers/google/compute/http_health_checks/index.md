@@ -1,3 +1,4 @@
+
 ---
 title: http_health_checks
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - http_health_checks
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>http_health_check</code> resource or lists <code>http_health_checks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="timeoutSec" /> | `integer` | How long (in seconds) to wait before claiming failure. The default value is 5 seconds. It is invalid for timeoutSec to have greater value than checkIntervalSec. |
 | <CopyableCode code="unhealthyThreshold" /> | `integer` | A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,4 +54,148 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a HttpHealthCheck resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="httpHealthCheck, project" /> | Deletes the specified HttpHealthCheck resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="httpHealthCheck, project" /> | Updates a HttpHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="httpHealthCheck, project" /> | Updates a HttpHealthCheck resource in the specified project using the data included in the request. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="httpHealthCheck, project" /> | Updates a HttpHealthCheck resource in the specified project using the data included in the request. |
+
+## `SELECT` examples
+
+Retrieves the list of HttpHealthCheck resources available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+checkIntervalSec,
+creationTimestamp,
+healthyThreshold,
+host,
+kind,
+port,
+requestPath,
+selfLink,
+timeoutSec,
+unhealthyThreshold
+FROM google.compute.http_health_checks
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>http_health_checks</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.http_health_checks (
+project,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+host,
+requestPath,
+port,
+checkIntervalSec,
+timeoutSec,
+unhealthyThreshold,
+healthyThreshold,
+selfLink
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ host }}',
+'{{ requestPath }}',
+'{{ port }}',
+'{{ checkIntervalSec }}',
+'{{ timeoutSec }}',
+'{{ unhealthyThreshold }}',
+'{{ healthyThreshold }}',
+'{{ selfLink }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: host
+        value: '{{ host }}'
+      - name: requestPath
+        value: '{{ requestPath }}'
+      - name: port
+        value: '{{ port }}'
+      - name: checkIntervalSec
+        value: '{{ checkIntervalSec }}'
+      - name: timeoutSec
+        value: '{{ timeoutSec }}'
+      - name: unhealthyThreshold
+        value: '{{ unhealthyThreshold }}'
+      - name: healthyThreshold
+        value: '{{ healthyThreshold }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a http_health_check only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.http_health_checks
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+host = '{{ host }}',
+requestPath = '{{ requestPath }}',
+port = '{{ port }}',
+checkIntervalSec = '{{ checkIntervalSec }}',
+timeoutSec = '{{ timeoutSec }}',
+unhealthyThreshold = '{{ unhealthyThreshold }}',
+healthyThreshold = '{{ healthyThreshold }}',
+selfLink = '{{ selfLink }}'
+WHERE 
+httpHealthCheck = '{{ httpHealthCheck }}'
+AND project = '{{ project }}';
+```
+
+## `DELETE` example
+
+Deletes the specified http_health_check resource.
+
+```sql
+DELETE FROM google.compute.http_health_checks
+WHERE httpHealthCheck = '{{ httpHealthCheck }}'
+AND project = '{{ project }}';
+```

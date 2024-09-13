@@ -1,3 +1,4 @@
+
 ---
 title: manifests
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - manifests
   - deploymentmanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>manifest</code> resource or lists <code>manifests</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,9 +42,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="manifestSizeBytes" /> | `string` | Output only. The computed size of the fully expanded manifest. |
 | <CopyableCode code="manifestSizeLimitBytes" /> | `string` | Output only. The size limit for expanded manifests in the project. |
 | <CopyableCode code="selfLink" /> | `string` | Output only. Self link for the manifest. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="deployment, manifest, project" /> | Gets information about a specific manifest. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="deployment, project" /> | Lists all manifests for a given deployment. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Lists all manifests for a given deployment. |
+
+## `SELECT` examples
+
+Lists all manifests for a given deployment.
+
+```sql
+SELECT
+id,
+name,
+config,
+expandedConfig,
+imports,
+insertTime,
+layout,
+manifestSizeBytes,
+manifestSizeLimitBytes,
+selfLink
+FROM google.deploymentmanager.manifests
+WHERE deployment = '{{ deployment }}'
+AND project = '{{ project }}'; 
+```

@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Manages Hadoop-based clusters and jobs on Google Cloud Platform.  
-    
+The dataproc service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>14</b></span><br />
-<span>total selectable resources:&nbsp;<b>14</b></span><br />
-<span>total methods:&nbsp;<b>107</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.dataproc</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Cloud Dataproc API</td></tr>
-<tr><td><b>Description</b></td><td>Manages Hadoop-based clusters and jobs on Google Cloud Platform.</td></tr>
-<tr><td><b>Id</b></td><td><code>dataproc:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -46,7 +35,7 @@ Manages Hadoop-based clusters and jobs on Google Cloud Platform.
 <a href="/providers/google/dataproc/clusters/">clusters</a><br />
 <a href="/providers/google/dataproc/clusters_iam_policies/">clusters_iam_policies</a><br />
 <a href="/providers/google/dataproc/jobs/">jobs</a><br />
-<a href="/providers/google/dataproc/jobs_iam_policies/">jobs_iam_policies</a><br />
+<a href="/providers/google/dataproc/jobs_iam_policies/">jobs_iam_policies</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/dataproc/node_groups/">node_groups</a><br />
@@ -55,6 +44,6 @@ Manages Hadoop-based clusters and jobs on Google Cloud Platform.
 <a href="/providers/google/dataproc/session_templates/">session_templates</a><br />
 <a href="/providers/google/dataproc/sessions/">sessions</a><br />
 <a href="/providers/google/dataproc/workflow_templates/">workflow_templates</a><br />
-<a href="/providers/google/dataproc/workflow_templates_iam_policies/">workflow_templates_iam_policies</a><br />
+<a href="/providers/google/dataproc/workflow_templates_iam_policies/">workflow_templates_iam_policies</a>
 </div>
 </div>

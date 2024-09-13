@@ -1,3 +1,4 @@
+
 ---
 title: training_pipelines
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - training_pipelines
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>training_pipeline</code> resource or lists <code>training_pipelines</code> in a region
 
 ## Overview
 <table><tbody>
@@ -47,6 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="trainingTaskInputs" /> | `any` | Required. The training task's parameter(s), as specified in the training_task_definition's `inputs`. |
 | <CopyableCode code="trainingTaskMetadata" /> | `any` | Output only. The metadata information as specified in the training_task_definition's `metadata`. This metadata is an auxiliary runtime and final information about the training task. While the pipeline is running this information is populated only at a best effort basis. Only present if the pipeline's training_task_definition contains `metadata` object. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the TrainingPipeline was most recently updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,5 +57,147 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists TrainingPipelines in a Location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a TrainingPipeline. A created TrainingPipeline right away will be attempted to be run. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, trainingPipelinesId" /> | Deletes a TrainingPipeline. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists TrainingPipelines in a Location. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, trainingPipelinesId" /> | Cancels a TrainingPipeline. Starts asynchronous cancellation on the TrainingPipeline. The server makes a best effort to cancel the pipeline, but success is not guaranteed. Clients can use PipelineService.GetTrainingPipeline or other methods to check whether the cancellation succeeded or whether the pipeline completed despite cancellation. On successful cancellation, the TrainingPipeline is not deleted; instead it becomes a pipeline with a TrainingPipeline.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and TrainingPipeline.state is set to `CANCELLED`. |
+
+## `SELECT` examples
+
+Lists TrainingPipelines in a Location.
+
+```sql
+SELECT
+name,
+createTime,
+displayName,
+encryptionSpec,
+endTime,
+error,
+inputDataConfig,
+labels,
+modelId,
+modelToUpload,
+parentModel,
+startTime,
+state,
+trainingTaskDefinition,
+trainingTaskInputs,
+trainingTaskMetadata,
+updateTime
+FROM google.aiplatform.training_pipelines
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>training_pipelines</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.training_pipelines (
+locationsId,
+projectsId,
+createTime,
+startTime,
+trainingTaskDefinition,
+inputDataConfig,
+trainingTaskMetadata,
+parentModel,
+endTime,
+modelToUpload,
+updateTime,
+labels,
+modelId,
+state,
+encryptionSpec,
+trainingTaskInputs,
+displayName,
+name,
+error
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ createTime }}',
+'{{ startTime }}',
+'{{ trainingTaskDefinition }}',
+'{{ inputDataConfig }}',
+'{{ trainingTaskMetadata }}',
+'{{ parentModel }}',
+'{{ endTime }}',
+'{{ modelToUpload }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ modelId }}',
+'{{ state }}',
+'{{ encryptionSpec }}',
+'{{ trainingTaskInputs }}',
+'{{ displayName }}',
+'{{ name }}',
+'{{ error }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: trainingTaskDefinition
+        value: '{{ trainingTaskDefinition }}'
+      - name: inputDataConfig
+        value: '{{ inputDataConfig }}'
+      - name: trainingTaskMetadata
+        value: '{{ trainingTaskMetadata }}'
+      - name: parentModel
+        value: '{{ parentModel }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: modelToUpload
+        value: '{{ modelToUpload }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: modelId
+        value: '{{ modelId }}'
+      - name: state
+        value: '{{ state }}'
+      - name: encryptionSpec
+        value: '{{ encryptionSpec }}'
+      - name: trainingTaskInputs
+        value: '{{ trainingTaskInputs }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: name
+        value: '{{ name }}'
+      - name: error
+        value: '{{ error }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified training_pipeline resource.
+
+```sql
+DELETE FROM google.aiplatform.training_pipelines
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND trainingPipelinesId = '{{ trainingPipelinesId }}';
+```

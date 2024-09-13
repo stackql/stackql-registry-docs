@@ -1,3 +1,4 @@
+
 ---
 title: assets
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - assets
   - dataplex
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>asset</code> resource or lists <code>assets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the asset, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;/assets/&#123;asset_id&#125;. |
+| <CopyableCode code="name" /> | `string` | Output only. The relative resource name of the asset, of the form: projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/assets/{asset_id}. |
 | <CopyableCode code="description" /> | `string` | Optional. Description of the asset. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time when the asset was created. |
 | <CopyableCode code="discoverySpec" /> | `object` | Settings to manage the metadata discovery and publishing for an asset. |
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. Current state of the asset. |
 | <CopyableCode code="uid" /> | `string` | Output only. System generated globally unique ID for the asset. This ID will be different if the asset is deleted and re-created with the same name. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time when the asset was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,4 +54,162 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_lakes_zones_assets_create" /> | `INSERT` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Creates an asset resource. |
 | <CopyableCode code="projects_locations_lakes_zones_assets_delete" /> | `DELETE` | <CopyableCode code="assetsId, lakesId, locationsId, projectsId, zonesId" /> | Deletes an asset resource. The referenced storage resource is detached (default) or deleted based on the associated Lifecycle policy. |
 | <CopyableCode code="projects_locations_lakes_zones_assets_patch" /> | `UPDATE` | <CopyableCode code="assetsId, lakesId, locationsId, projectsId, zonesId" /> | Updates an asset resource. |
-| <CopyableCode code="_projects_locations_lakes_zones_assets_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Lists asset resources in a zone. |
+
+## `SELECT` examples
+
+Lists asset resources in a zone.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+discoverySpec,
+discoveryStatus,
+displayName,
+labels,
+resourceSpec,
+resourceStatus,
+securityStatus,
+state,
+uid,
+updateTime
+FROM google.dataplex.assets
+WHERE lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND zonesId = '{{ zonesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>assets</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataplex.assets (
+lakesId,
+locationsId,
+projectsId,
+zonesId,
+name,
+displayName,
+uid,
+createTime,
+updateTime,
+labels,
+description,
+state,
+resourceSpec,
+resourceStatus,
+securityStatus,
+discoverySpec,
+discoveryStatus
+)
+SELECT 
+'{{ lakesId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ zonesId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ uid }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ description }}',
+'{{ state }}',
+'{{ resourceSpec }}',
+'{{ resourceStatus }}',
+'{{ securityStatus }}',
+'{{ discoverySpec }}',
+'{{ discoveryStatus }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: description
+        value: '{{ description }}'
+      - name: state
+        value: '{{ state }}'
+      - name: resourceSpec
+        value: '{{ resourceSpec }}'
+      - name: resourceStatus
+        value: '{{ resourceStatus }}'
+      - name: securityStatus
+        value: '{{ securityStatus }}'
+      - name: discoverySpec
+        value: '{{ discoverySpec }}'
+      - name: discoveryStatus
+        value: '{{ discoveryStatus }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a asset only if the necessary resources are available.
+
+```sql
+UPDATE google.dataplex.assets
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+uid = '{{ uid }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+description = '{{ description }}',
+state = '{{ state }}',
+resourceSpec = '{{ resourceSpec }}',
+resourceStatus = '{{ resourceStatus }}',
+securityStatus = '{{ securityStatus }}',
+discoverySpec = '{{ discoverySpec }}',
+discoveryStatus = '{{ discoveryStatus }}'
+WHERE 
+assetsId = '{{ assetsId }}'
+AND lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND zonesId = '{{ zonesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified asset resource.
+
+```sql
+DELETE FROM google.dataplex.assets
+WHERE assetsId = '{{ assetsId }}'
+AND lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND zonesId = '{{ zonesId }}';
+```

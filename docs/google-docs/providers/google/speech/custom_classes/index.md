@@ -1,3 +1,4 @@
+
 ---
 title: custom_classes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - custom_classes
   - speech
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>custom_class</code> resource or lists <code>custom_classes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,6 +30,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="value" /> | `string` | The class item's value. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -36,4 +42,96 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a custom class. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="customClassesId, locationsId, projectsId" /> | Delete a custom class. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="customClassesId, locationsId, projectsId" /> | Update a custom class. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List custom classes. |
+
+## `SELECT` examples
+
+List custom classes.
+
+```sql
+SELECT
+value
+FROM google.speech.custom_classes
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>custom_classes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.speech.custom_classes (
+locationsId,
+projectsId,
+customClassId,
+customClass
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ customClassId }}',
+'{{ customClass }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: customClassId
+        value: '{{ customClassId }}'
+      - name: customClass
+        value: '{{ customClass }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a custom_class only if the necessary resources are available.
+
+```sql
+UPDATE google.speech.custom_classes
+SET 
+name = '{{ name }}',
+customClassId = '{{ customClassId }}',
+items = '{{ items }}',
+kmsKeyName = '{{ kmsKeyName }}',
+kmsKeyVersionName = '{{ kmsKeyVersionName }}',
+uid = '{{ uid }}',
+displayName = '{{ displayName }}',
+state = '{{ state }}',
+deleteTime = '{{ deleteTime }}',
+expireTime = '{{ expireTime }}',
+annotations = '{{ annotations }}',
+etag = '{{ etag }}',
+reconciling = true|false
+WHERE 
+customClassesId = '{{ customClassesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified custom_class resource.
+
+```sql
+DELETE FROM google.speech.custom_classes
+WHERE customClassesId = '{{ customClassesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

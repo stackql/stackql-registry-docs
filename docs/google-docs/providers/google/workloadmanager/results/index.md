@@ -1,3 +1,4 @@
+
 ---
 title: results
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - results
   - workloadmanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>result</code> resource or lists <code>results</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,14 +32,35 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="documentationUrl" /> | `string` | the document url of the rule |
+| <CopyableCode code="commands" /> | `array` | The commands to remediate the violation. |
+| <CopyableCode code="documentationUrl" /> | `string` | The URL for the documentation of the rule. |
 | <CopyableCode code="resource" /> | `object` | Message represent resource in execution result |
-| <CopyableCode code="rule" /> | `string` | the rule which violate in execution |
-| <CopyableCode code="severity" /> | `string` | severity of violation |
-| <CopyableCode code="violationDetails" /> | `object` | Message describing the violdation in execution result |
-| <CopyableCode code="violationMessage" /> | `string` | the violation message of an execution |
+| <CopyableCode code="rule" /> | `string` | The rule that is violated in an evaluation. |
+| <CopyableCode code="severity" /> | `string` | The severity of violation. |
+| <CopyableCode code="violationDetails" /> | `object` | Message describing the violation in an evaluation result. |
+| <CopyableCode code="violationMessage" /> | `string` | The violation message of an execution. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="evaluationsId, executionsId, locationsId, projectsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="evaluationsId, executionsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="evaluationsId, executionsId, locationsId, projectsId" /> | Lists the result of a single evaluation. |
+
+## `SELECT` examples
+
+Lists the result of a single evaluation.
+
+```sql
+SELECT
+commands,
+documentationUrl,
+resource,
+rule,
+severity,
+violationDetails,
+violationMessage
+FROM google.workloadmanager.results
+WHERE evaluationsId = '{{ evaluationsId }}'
+AND executionsId = '{{ executionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

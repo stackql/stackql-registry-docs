@@ -1,3 +1,4 @@
+
 ---
 title: relyingparty_auth_uri
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - relyingparty_auth_uri
   - identitytoolkit
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>relyingparty_auth_uri</code> resource or lists <code>relyingparty_auth_uri</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,108 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="create_auth_uri" /> | `INSERT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="create_auth_uri" /> | `INSERT` | <CopyableCode code="" /> | Creates the URI used by the IdP to authenticate the user. |
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>relyingparty_auth_uri</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.identitytoolkit.relyingparty_auth_uri (
+,
+appId,
+authFlowType,
+clientId,
+context,
+continueUri,
+customParameter,
+hostedDomain,
+identifier,
+oauthConsumerKey,
+oauthScope,
+openidRealm,
+otaApp,
+providerId,
+sessionId,
+tenantId,
+tenantProjectNumber
+)
+SELECT 
+'{{  }}',
+'{{ appId }}',
+'{{ authFlowType }}',
+'{{ clientId }}',
+'{{ context }}',
+'{{ continueUri }}',
+'{{ customParameter }}',
+'{{ hostedDomain }}',
+'{{ identifier }}',
+'{{ oauthConsumerKey }}',
+'{{ oauthScope }}',
+'{{ openidRealm }}',
+'{{ otaApp }}',
+'{{ providerId }}',
+'{{ sessionId }}',
+'{{ tenantId }}',
+'{{ tenantProjectNumber }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: appId
+        value: '{{ appId }}'
+      - name: authFlowType
+        value: '{{ authFlowType }}'
+      - name: clientId
+        value: '{{ clientId }}'
+      - name: context
+        value: '{{ context }}'
+      - name: continueUri
+        value: '{{ continueUri }}'
+      - name: customParameter
+        value: '{{ customParameter }}'
+      - name: hostedDomain
+        value: '{{ hostedDomain }}'
+      - name: identifier
+        value: '{{ identifier }}'
+      - name: oauthConsumerKey
+        value: '{{ oauthConsumerKey }}'
+      - name: oauthScope
+        value: '{{ oauthScope }}'
+      - name: openidRealm
+        value: '{{ openidRealm }}'
+      - name: otaApp
+        value: '{{ otaApp }}'
+      - name: providerId
+        value: '{{ providerId }}'
+      - name: sessionId
+        value: '{{ sessionId }}'
+      - name: tenantId
+        value: '{{ tenantId }}'
+      - name: tenantProjectNumber
+        value: '{{ tenantProjectNumber }}'
+
+```
+</TabItem>
+</Tabs>

@@ -1,3 +1,4 @@
+
 ---
 title: static_ips
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - static_ips
   - datamigration
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>static_ip</code> resource or lists <code>static_ips</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="nextPageToken" /> | `string` | A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. |
+| <CopyableCode code="staticIps" /> | `array` | List of static IPs. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="fetch_static_ips" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch_static_ips" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Fetches a set of static IP addresses that need to be allowlisted by the customer when using the static-IP connectivity method. |
+
+## `SELECT` examples
+
+Fetches a set of static IP addresses that need to be allowlisted by the customer when using the static-IP connectivity method.
+
+```sql
+SELECT
+nextPageToken,
+staticIps
+FROM google.datamigration.static_ips
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

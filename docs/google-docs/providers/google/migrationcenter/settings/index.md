@@ -1,3 +1,4 @@
+
 ---
 title: settings
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - settings
   - migrationcenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>setting</code> resource or lists <code>settings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,8 +35,38 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. The name of the resource. |
 | <CopyableCode code="disableCloudLogging" /> | `boolean` | Disable Cloud Logging for the Migration Center API. Users are billed for the logs. |
 | <CopyableCode code="preferenceSet" /> | `string` | The preference set used by default for a project. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_settings" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Gets the details of regional settings. |
-| <CopyableCode code="update_settings" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Updates the regional-level project settings. |
+| <CopyableCode code="update_settings" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId" /> | Updates the regional-level project settings. |
+
+## `SELECT` examples
+
+Gets the details of regional settings.
+
+```sql
+SELECT
+name,
+disableCloudLogging,
+preferenceSet
+FROM google.migrationcenter.settings
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a setting only if the necessary resources are available.
+
+```sql
+UPDATE google.migrationcenter.settings
+SET 
+name = '{{ name }}',
+preferenceSet = '{{ preferenceSet }}',
+disableCloudLogging = true|false
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

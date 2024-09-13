@@ -1,3 +1,4 @@
+
 ---
 title: objects
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - objects
   - storage
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>object</code> resource or lists <code>objects</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,7 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="contentEncoding" /> | `string` | Content-Encoding of the object data. |
 | <CopyableCode code="contentLanguage" /> | `string` | Content-Language of the object data. |
 | <CopyableCode code="contentType" /> | `string` | Content-Type of the object data. If an object is stored without a Content-Type, it is served as application/octet-stream. |
-| <CopyableCode code="crc32c" /> | `string` | CRC32c checksum, as described in RFC 4960, Appendix B; encoded using base64 in big-endian byte order. For more information about using the CRC32c checksum, see Hashes and ETags: Best Practices. |
+| <CopyableCode code="crc32c" /> | `string` | CRC32c checksum, as described in RFC 4960, Appendix B; encoded using base64 in big-endian byte order. For more information about using the CRC32c checksum, see [Data Validation and Change Detection](https://cloud.google.com/storage/docs/data-validation). |
 | <CopyableCode code="customTime" /> | `string` | A timestamp in RFC 3339 format specified by the user for an object. |
 | <CopyableCode code="customerEncryption" /> | `object` | Metadata of customer-supplied encryption key, if the object is encrypted by such a key. |
 | <CopyableCode code="etag" /> | `string` | HTTP 1.1 Entity tag for the object. |
@@ -49,7 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="hardDeleteTime" /> | `string` | This is the time (in the future) when the soft-deleted object will no longer be restorable. It is equal to the soft delete time plus the current soft delete retention duration of the bucket. |
 | <CopyableCode code="kind" /> | `string` | The kind of item this is. For objects, this is always storage#object. |
 | <CopyableCode code="kmsKeyName" /> | `string` | Not currently supported. Specifying the parameter causes the request to fail with status code 400 - Bad Request. |
-| <CopyableCode code="md5Hash" /> | `string` | MD5 hash of the data; encoded using base64. For more information about using the MD5 hash, see Hashes and ETags: Best Practices. |
+| <CopyableCode code="md5Hash" /> | `string` | MD5 hash of the data; encoded using base64. For more information about using the MD5 hash, see [Data Validation and Change Detection](https://cloud.google.com/storage/docs/data-validation). |
 | <CopyableCode code="mediaLink" /> | `string` | Media download link. |
 | <CopyableCode code="metadata" /> | `object` | User-provided metadata, in key/value pairs. |
 | <CopyableCode code="metageneration" /> | `string` | The version of the metadata for this object at this generation. Used for preconditions and for detecting changes in metadata. A metageneration number is only meaningful in the context of a particular generation of a particular object. |
@@ -65,6 +67,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="timeDeleted" /> | `string` | The time at which the object became noncurrent in RFC 3339 format. Will be returned if and only if this version of the object has been deleted. |
 | <CopyableCode code="timeStorageClassUpdated" /> | `string` | The time at which the object's storage class was last changed. When the object is initially created, it will be set to timeCreated. |
 | <CopyableCode code="updated" /> | `string` | The modification time of the object metadata in RFC 3339 format. Set initially to object creation time and then updated whenever any metadata of the object changes. This includes changes made by a requester, such as modifying custom metadata, as well as changes made by Cloud Storage on behalf of a requester, such as changing the storage class based on an Object Lifecycle Configuration. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -73,11 +76,298 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="bucket" /> | Stores a new object and metadata. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bucket, object" /> | Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="bucket, object" /> | Patches an object's metadata. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="bucket, object" /> | Updates an object's metadata. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="bucket" /> | Retrieves a list of objects matching the criteria. |
 | <CopyableCode code="bulk_restore" /> | `EXEC` | <CopyableCode code="bucket" /> | Initiates a long-running bulk restore operation on the specified bucket. |
 | <CopyableCode code="compose" /> | `EXEC` | <CopyableCode code="destinationBucket, destinationObject" /> | Concatenates a list of existing objects into a new object in the same bucket. |
 | <CopyableCode code="copy" /> | `EXEC` | <CopyableCode code="destinationBucket, destinationObject, sourceBucket, sourceObject" /> | Copies a source object to a destination object. Optionally overrides metadata. |
 | <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="bucket, generation, object" /> | Restores a soft-deleted object. |
 | <CopyableCode code="rewrite" /> | `EXEC` | <CopyableCode code="destinationBucket, destinationObject, sourceBucket, sourceObject" /> | Rewrites a source object to a destination object. Optionally overrides metadata. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="bucket, object" /> | Updates an object's metadata. |
 | <CopyableCode code="watch_all" /> | `EXEC` | <CopyableCode code="bucket" /> | Watch for changes on all objects in a bucket. |
+
+## `SELECT` examples
+
+Retrieves a list of objects matching the criteria.
+
+```sql
+SELECT
+id,
+name,
+acl,
+bucket,
+cacheControl,
+componentCount,
+contentDisposition,
+contentEncoding,
+contentLanguage,
+contentType,
+crc32c,
+customTime,
+customerEncryption,
+etag,
+eventBasedHold,
+generation,
+hardDeleteTime,
+kind,
+kmsKeyName,
+md5Hash,
+mediaLink,
+metadata,
+metageneration,
+owner,
+retention,
+retentionExpirationTime,
+selfLink,
+size,
+softDeleteTime,
+storageClass,
+temporaryHold,
+timeCreated,
+timeDeleted,
+timeStorageClassUpdated,
+updated
+FROM google.storage.objects
+WHERE bucket = '{{ bucket }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>objects</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.storage.objects (
+bucket,
+acl,
+bucket,
+cacheControl,
+componentCount,
+contentDisposition,
+contentEncoding,
+contentLanguage,
+contentType,
+crc32c,
+customTime,
+customerEncryption,
+etag,
+eventBasedHold,
+generation,
+id,
+kind,
+kmsKeyName,
+md5Hash,
+mediaLink,
+metadata,
+metageneration,
+name,
+owner,
+retentionExpirationTime,
+retention,
+selfLink,
+size,
+storageClass,
+temporaryHold,
+timeCreated,
+timeDeleted,
+softDeleteTime,
+hardDeleteTime,
+timeStorageClassUpdated,
+updated
+)
+SELECT 
+'{{ bucket }}',
+'{{ acl }}',
+'{{ bucket }}',
+'{{ cacheControl }}',
+'{{ componentCount }}',
+'{{ contentDisposition }}',
+'{{ contentEncoding }}',
+'{{ contentLanguage }}',
+'{{ contentType }}',
+'{{ crc32c }}',
+'{{ customTime }}',
+'{{ customerEncryption }}',
+'{{ etag }}',
+true|false,
+'{{ generation }}',
+'{{ id }}',
+'{{ kind }}',
+'{{ kmsKeyName }}',
+'{{ md5Hash }}',
+'{{ mediaLink }}',
+'{{ metadata }}',
+'{{ metageneration }}',
+'{{ name }}',
+'{{ owner }}',
+'{{ retentionExpirationTime }}',
+'{{ retention }}',
+'{{ selfLink }}',
+'{{ size }}',
+'{{ storageClass }}',
+true|false,
+'{{ timeCreated }}',
+'{{ timeDeleted }}',
+'{{ softDeleteTime }}',
+'{{ hardDeleteTime }}',
+'{{ timeStorageClassUpdated }}',
+'{{ updated }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: acl
+        value: '{{ acl }}'
+      - name: bucket
+        value: '{{ bucket }}'
+      - name: cacheControl
+        value: '{{ cacheControl }}'
+      - name: componentCount
+        value: '{{ componentCount }}'
+      - name: contentDisposition
+        value: '{{ contentDisposition }}'
+      - name: contentEncoding
+        value: '{{ contentEncoding }}'
+      - name: contentLanguage
+        value: '{{ contentLanguage }}'
+      - name: contentType
+        value: '{{ contentType }}'
+      - name: crc32c
+        value: '{{ crc32c }}'
+      - name: customTime
+        value: '{{ customTime }}'
+      - name: customerEncryption
+        value:
+          - name: encryptionAlgorithm
+            value: '{{ encryptionAlgorithm }}'
+          - name: keySha256
+            value: '{{ keySha256 }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: eventBasedHold
+        value: '{{ eventBasedHold }}'
+      - name: generation
+        value: '{{ generation }}'
+      - name: id
+        value: '{{ id }}'
+      - name: kind
+        value: '{{ kind }}'
+      - name: kmsKeyName
+        value: '{{ kmsKeyName }}'
+      - name: md5Hash
+        value: '{{ md5Hash }}'
+      - name: mediaLink
+        value: '{{ mediaLink }}'
+      - name: metadata
+        value: '{{ metadata }}'
+      - name: metageneration
+        value: '{{ metageneration }}'
+      - name: name
+        value: '{{ name }}'
+      - name: owner
+        value:
+          - name: entity
+            value: '{{ entity }}'
+          - name: entityId
+            value: '{{ entityId }}'
+      - name: retentionExpirationTime
+        value: '{{ retentionExpirationTime }}'
+      - name: retention
+        value:
+          - name: retainUntilTime
+            value: '{{ retainUntilTime }}'
+          - name: mode
+            value: '{{ mode }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: size
+        value: '{{ size }}'
+      - name: storageClass
+        value: '{{ storageClass }}'
+      - name: temporaryHold
+        value: '{{ temporaryHold }}'
+      - name: timeCreated
+        value: '{{ timeCreated }}'
+      - name: timeDeleted
+        value: '{{ timeDeleted }}'
+      - name: softDeleteTime
+        value: '{{ softDeleteTime }}'
+      - name: hardDeleteTime
+        value: '{{ hardDeleteTime }}'
+      - name: timeStorageClassUpdated
+        value: '{{ timeStorageClassUpdated }}'
+      - name: updated
+        value: '{{ updated }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a object only if the necessary resources are available.
+
+```sql
+UPDATE google.storage.objects
+SET 
+acl = '{{ acl }}',
+bucket = '{{ bucket }}',
+cacheControl = '{{ cacheControl }}',
+componentCount = '{{ componentCount }}',
+contentDisposition = '{{ contentDisposition }}',
+contentEncoding = '{{ contentEncoding }}',
+contentLanguage = '{{ contentLanguage }}',
+contentType = '{{ contentType }}',
+crc32c = '{{ crc32c }}',
+customTime = '{{ customTime }}',
+customerEncryption = '{{ customerEncryption }}',
+etag = '{{ etag }}',
+eventBasedHold = true|false,
+generation = '{{ generation }}',
+id = '{{ id }}',
+kind = '{{ kind }}',
+kmsKeyName = '{{ kmsKeyName }}',
+md5Hash = '{{ md5Hash }}',
+mediaLink = '{{ mediaLink }}',
+metadata = '{{ metadata }}',
+metageneration = '{{ metageneration }}',
+name = '{{ name }}',
+owner = '{{ owner }}',
+retentionExpirationTime = '{{ retentionExpirationTime }}',
+retention = '{{ retention }}',
+selfLink = '{{ selfLink }}',
+size = '{{ size }}',
+storageClass = '{{ storageClass }}',
+temporaryHold = true|false,
+timeCreated = '{{ timeCreated }}',
+timeDeleted = '{{ timeDeleted }}',
+softDeleteTime = '{{ softDeleteTime }}',
+hardDeleteTime = '{{ hardDeleteTime }}',
+timeStorageClassUpdated = '{{ timeStorageClassUpdated }}',
+updated = '{{ updated }}'
+WHERE 
+bucket = '{{ bucket }}'
+AND object = '{{ object }}';
+```
+
+## `DELETE` example
+
+Deletes the specified object resource.
+
+```sql
+DELETE FROM google.storage.objects
+WHERE bucket = '{{ bucket }}'
+AND object = '{{ object }}';
+```

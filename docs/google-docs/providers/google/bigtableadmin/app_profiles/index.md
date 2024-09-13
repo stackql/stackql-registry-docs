@@ -1,3 +1,4 @@
+
 ---
 title: app_profiles
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - app_profiles
   - bigtableadmin
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>app_profile</code> resource or lists <code>app_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The unique name of the app profile. Values are of the form `projects/&#123;project&#125;/instances/&#123;instance&#125;/appProfiles/_a-zA-Z0-9*`. |
+| <CopyableCode code="name" /> | `string` | The unique name of the app profile. Values are of the form `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`. |
 | <CopyableCode code="description" /> | `string` | Long form description of the use case for this AppProfile. |
 | <CopyableCode code="dataBoostIsolationReadOnly" /> | `object` | Data Boost is a serverless compute capability that lets you run high-throughput read jobs and queries on your Bigtable data, without impacting the performance of the clusters that handle your application traffic. Data Boost supports read-only use cases with single-cluster routing. |
 | <CopyableCode code="etag" /> | `string` | Strongly validated etag for optimistic concurrency control. Preserve the value returned from `GetAppProfile` when calling `UpdateAppProfile` to fail the request if there has been a modification in the mean time. The `update_mask` of the request need not include `etag` for this protection to apply. See [Wikipedia](https://en.wikipedia.org/wiki/HTTP_ETag) and [RFC 7232](https://tools.ietf.org/html/rfc7232#section-2.3) for more details. |
@@ -38,6 +40,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="priority" /> | `string` | This field has been deprecated in favor of `standard_isolation.priority`. If you set this field, `standard_isolation.priority` will be set instead. The priority of requests sent using this app profile. |
 | <CopyableCode code="singleClusterRouting" /> | `object` | Unconditionally routes all read/write requests to a specific cluster. This option preserves read-your-writes consistency but does not improve availability. |
 | <CopyableCode code="standardIsolation" /> | `object` | Standard options for isolating this app profile's traffic from other use cases. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -46,4 +49,122 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="instancesId, projectsId" /> | Creates an app profile within an instance. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="appProfilesId, instancesId, projectsId" /> | Deletes an app profile from an instance. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="appProfilesId, instancesId, projectsId" /> | Updates an app profile within an instance. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Lists information about app profiles in an instance. |
+
+## `SELECT` examples
+
+Lists information about app profiles in an instance.
+
+```sql
+SELECT
+name,
+description,
+dataBoostIsolationReadOnly,
+etag,
+multiClusterRoutingUseAny,
+priority,
+singleClusterRouting,
+standardIsolation
+FROM google.bigtableadmin.app_profiles
+WHERE instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>app_profiles</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.bigtableadmin.app_profiles (
+instancesId,
+projectsId,
+name,
+etag,
+description,
+multiClusterRoutingUseAny,
+singleClusterRouting,
+priority,
+standardIsolation,
+dataBoostIsolationReadOnly
+)
+SELECT 
+'{{ instancesId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ etag }}',
+'{{ description }}',
+'{{ multiClusterRoutingUseAny }}',
+'{{ singleClusterRouting }}',
+'{{ priority }}',
+'{{ standardIsolation }}',
+'{{ dataBoostIsolationReadOnly }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: description
+        value: '{{ description }}'
+      - name: multiClusterRoutingUseAny
+        value: '{{ multiClusterRoutingUseAny }}'
+      - name: singleClusterRouting
+        value: '{{ singleClusterRouting }}'
+      - name: priority
+        value: '{{ priority }}'
+      - name: standardIsolation
+        value: '{{ standardIsolation }}'
+      - name: dataBoostIsolationReadOnly
+        value: '{{ dataBoostIsolationReadOnly }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a app_profile only if the necessary resources are available.
+
+```sql
+UPDATE google.bigtableadmin.app_profiles
+SET 
+name = '{{ name }}',
+etag = '{{ etag }}',
+description = '{{ description }}',
+multiClusterRoutingUseAny = '{{ multiClusterRoutingUseAny }}',
+singleClusterRouting = '{{ singleClusterRouting }}',
+priority = '{{ priority }}',
+standardIsolation = '{{ standardIsolation }}',
+dataBoostIsolationReadOnly = '{{ dataBoostIsolationReadOnly }}'
+WHERE 
+appProfilesId = '{{ appProfilesId }}'
+AND instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified app_profile resource.
+
+```sql
+DELETE FROM google.bigtableadmin.app_profiles
+WHERE appProfilesId = '{{ appProfilesId }}'
+AND instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}';
+```

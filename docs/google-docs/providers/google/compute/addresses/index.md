@@ -1,3 +1,4 @@
+
 ---
 title: addresses
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - addresses
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>address</code> resource or lists <code>addresses</code> in a region
 
 ## Overview
 <table><tbody>
@@ -50,6 +52,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of the address, which can be one of RESERVING, RESERVED, or IN_USE. An address that is RESERVING is currently in the process of being reserved. A RESERVED address is currently reserved and available to use. An IN_USE address is currently being used by another resource and is not available. |
 | <CopyableCode code="subnetwork" /> | `string` | The URL of the subnetwork in which to reserve the address. If an IP address is specified, it must be within the subnetwork's IP range. This field can only be used with INTERNAL type with a GCE_ENDPOINT or DNS_RESOLVER purpose. |
 | <CopyableCode code="users" /> | `array` | [Output Only] The URLs of the resources that are using this address. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -58,6 +61,162 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of addresses contained within the specified region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates an address resource in the specified project by using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="address, project, region" /> | Deletes the specified address resource. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of addresses. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="move" /> | `EXEC` | <CopyableCode code="address, project, region" /> | Moves the specified address resource. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Sets the labels on an Address. To learn more about labels, read the Labeling Resources documentation. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of addresses. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+address,
+addressType,
+creationTimestamp,
+ipVersion,
+ipv6EndpointType,
+kind,
+labelFingerprint,
+labels,
+network,
+networkTier,
+prefixLength,
+purpose,
+region,
+selfLink,
+status,
+subnetwork,
+users
+FROM google.compute.addresses
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>addresses</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.addresses (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+address,
+prefixLength,
+status,
+region,
+selfLink,
+users,
+networkTier,
+labels,
+labelFingerprint,
+ipVersion,
+addressType,
+purpose,
+subnetwork,
+network,
+ipv6EndpointType
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ address }}',
+'{{ prefixLength }}',
+'{{ status }}',
+'{{ region }}',
+'{{ selfLink }}',
+'{{ users }}',
+'{{ networkTier }}',
+'{{ labels }}',
+'{{ labelFingerprint }}',
+'{{ ipVersion }}',
+'{{ addressType }}',
+'{{ purpose }}',
+'{{ subnetwork }}',
+'{{ network }}',
+'{{ ipv6EndpointType }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: address
+        value: '{{ address }}'
+      - name: prefixLength
+        value: '{{ prefixLength }}'
+      - name: status
+        value: '{{ status }}'
+      - name: region
+        value: '{{ region }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: users
+        value: '{{ users }}'
+      - name: networkTier
+        value: '{{ networkTier }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+      - name: ipVersion
+        value: '{{ ipVersion }}'
+      - name: addressType
+        value: '{{ addressType }}'
+      - name: purpose
+        value: '{{ purpose }}'
+      - name: subnetwork
+        value: '{{ subnetwork }}'
+      - name: network
+        value: '{{ network }}'
+      - name: ipv6EndpointType
+        value: '{{ ipv6EndpointType }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified address resource.
+
+```sql
+DELETE FROM google.compute.addresses
+WHERE address = '{{ address }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: instance_settings
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instance_settings
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instance_setting</code> resource or lists <code>instance_settings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,8 +36,40 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#instance_settings for instance settings. |
 | <CopyableCode code="metadata" /> | `object` |  |
 | <CopyableCode code="zone" /> | `string` | [Output Only] URL of the zone where the resource resides You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="project, zone" /> | Get Instance settings. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, zone" /> | Patch Instance settings |
+
+## `SELECT` examples
+
+Get Instance settings.
+
+```sql
+SELECT
+fingerprint,
+kind,
+metadata,
+zone
+FROM google.compute.instance_settings
+WHERE project = '{{ project }}'
+AND zone = '{{ zone }}'; 
+```
+
+## `UPDATE` example
+
+Updates a instance_setting only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.instance_settings
+SET 
+kind = '{{ kind }}',
+fingerprint = '{{ fingerprint }}',
+metadata = '{{ metadata }}',
+zone = '{{ zone }}'
+WHERE 
+project = '{{ project }}'
+AND zone = '{{ zone }}';
+```

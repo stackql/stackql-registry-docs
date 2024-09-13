@@ -1,3 +1,4 @@
+
 ---
 title: step_entries
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - step_entries
   - workflowexecutions
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>step_entry</code> resource or lists <code>step_entries</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The full resource name of the step entry. Each step entry has a unique entry ID, which is a monotonically increasing counter. Step entry names have the format: `projects/&#123;project&#125;/locations/&#123;location&#125;/workflows/&#123;workflow&#125;/executions/&#123;execution&#125;/stepEntries/&#123;step_entry&#125;`. |
+| <CopyableCode code="name" /> | `string` | Output only. The full resource name of the step entry. Each step entry has a unique entry ID, which is a monotonically increasing counter. Step entry names have the format: `projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}/stepEntries/{step_entry}`. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation time of the step entry. |
 | <CopyableCode code="entryId" /> | `string` | Output only. The numeric ID of this step entry, used for navigation. |
 | <CopyableCode code="exception" /> | `object` | Exception describes why the step entry failed. |
@@ -41,9 +43,35 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="stepEntryMetadata" /> | `object` | StepEntryMetadata contains metadata information about this step. |
 | <CopyableCode code="stepType" /> | `string` | Output only. The type of the step this step entry belongs to. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The most recently updated time of the step entry. |
+| <CopyableCode code="variableData" /> | `object` | VariableData contains the variable data for this step. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="executionsId, locationsId, projectsId, stepEntriesId, workflowsId" /> | Gets a step entry. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="executionsId, locationsId, projectsId, workflowsId" /> | Lists step entries for the corresponding workflow execution. Returned entries are ordered by their create_time. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="executionsId, locationsId, projectsId, workflowsId" /> | Lists step entries for the corresponding workflow execution. Returned entries are ordered by their create_time. |
+
+## `SELECT` examples
+
+Lists step entries for the corresponding workflow execution. Returned entries are ordered by their create_time.
+
+```sql
+SELECT
+name,
+createTime,
+entryId,
+exception,
+navigationInfo,
+routine,
+state,
+step,
+stepEntryMetadata,
+stepType,
+updateTime,
+variableData
+FROM google.workflowexecutions.step_entries
+WHERE executionsId = '{{ executionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND workflowsId = '{{ workflowsId }}'; 
+```

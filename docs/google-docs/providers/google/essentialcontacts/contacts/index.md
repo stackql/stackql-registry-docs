@@ -1,3 +1,4 @@
+
 ---
 title: contacts
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - contacts
   - essentialcontacts
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>contact</code> resource or lists <code>contacts</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,12 +32,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The identifier for the contact. Format: &#123;resource_type&#125;/&#123;resource_id&#125;/contacts/&#123;contact_id&#125; |
+| <CopyableCode code="name" /> | `string` | Output only. The identifier for the contact. Format: {resource_type}/{resource_id}/contacts/{contact_id} |
 | <CopyableCode code="email" /> | `string` | Required. The email address to send notifications to. The email address does not need to be a Google Account. |
 | <CopyableCode code="languageTag" /> | `string` | Required. The preferred language for notifications, as a ISO 639-1 language code. See [Supported languages](https://cloud.google.com/resource-manager/docs/managing-notification-contacts#supported-languages) for a list of supported languages. |
 | <CopyableCode code="notificationCategorySubscriptions" /> | `array` | Required. The categories of notifications that the contact will receive communications for. |
 | <CopyableCode code="validateTime" /> | `string` | The last time the validation_state was updated, either manually or automatically. A contact is considered stale if its validation state was updated more than 1 year ago. |
-| <CopyableCode code="validationState" /> | `string` | The validity of the contact. A contact is considered valid if it is the correct recipient for notifications for a particular resource. |
+| <CopyableCode code="validationState" /> | `string` | Output only. The validity of the contact. A contact is considered valid if it is the correct recipient for notifications for a particular resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,12 +57,111 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_contacts_patch" /> | `UPDATE` | <CopyableCode code="contactsId, foldersId" /> | Updates a contact. Note: A contact's email address cannot be changed. |
 | <CopyableCode code="organizations_contacts_patch" /> | `UPDATE` | <CopyableCode code="contactsId, organizationsId" /> | Updates a contact. Note: A contact's email address cannot be changed. |
 | <CopyableCode code="projects_contacts_patch" /> | `UPDATE` | <CopyableCode code="contactsId, projectsId" /> | Updates a contact. Note: A contact's email address cannot be changed. |
-| <CopyableCode code="_folders_contacts_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists the contacts that have been set on a resource. |
-| <CopyableCode code="_organizations_contacts_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists the contacts that have been set on a resource. |
-| <CopyableCode code="_projects_contacts_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the contacts that have been set on a resource. |
 | <CopyableCode code="folders_contacts_compute" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. |
 | <CopyableCode code="folders_contacts_send_test_message" /> | `EXEC` | <CopyableCode code="foldersId" /> | Allows a contact admin to send a test message to contact to verify that it has been configured correctly. |
 | <CopyableCode code="organizations_contacts_compute" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. |
 | <CopyableCode code="organizations_contacts_send_test_message" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Allows a contact admin to send a test message to contact to verify that it has been configured correctly. |
 | <CopyableCode code="projects_contacts_compute" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. |
 | <CopyableCode code="projects_contacts_send_test_message" /> | `EXEC` | <CopyableCode code="projectsId" /> | Allows a contact admin to send a test message to contact to verify that it has been configured correctly. |
+
+## `SELECT` examples
+
+Lists the contacts that have been set on a resource.
+
+```sql
+SELECT
+name,
+email,
+languageTag,
+notificationCategorySubscriptions,
+validateTime,
+validationState
+FROM google.essentialcontacts.contacts
+WHERE foldersId = '{{ foldersId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>contacts</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.essentialcontacts.contacts (
+foldersId,
+validateTime,
+languageTag,
+notificationCategorySubscriptions,
+email,
+validationState,
+name
+)
+SELECT 
+'{{ foldersId }}',
+'{{ validateTime }}',
+'{{ languageTag }}',
+'{{ notificationCategorySubscriptions }}',
+'{{ email }}',
+'{{ validationState }}',
+'{{ name }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: validateTime
+        value: '{{ validateTime }}'
+      - name: languageTag
+        value: '{{ languageTag }}'
+      - name: notificationCategorySubscriptions
+        value: '{{ notificationCategorySubscriptions }}'
+      - name: email
+        value: '{{ email }}'
+      - name: validationState
+        value: '{{ validationState }}'
+      - name: name
+        value: '{{ name }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a contact only if the necessary resources are available.
+
+```sql
+UPDATE google.essentialcontacts.contacts
+SET 
+validateTime = '{{ validateTime }}',
+languageTag = '{{ languageTag }}',
+notificationCategorySubscriptions = '{{ notificationCategorySubscriptions }}',
+email = '{{ email }}',
+validationState = '{{ validationState }}',
+name = '{{ name }}'
+WHERE 
+contactsId = '{{ contactsId }}'
+AND foldersId = '{{ foldersId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified contact resource.
+
+```sql
+DELETE FROM google.essentialcontacts.contacts
+WHERE contactsId = '{{ contactsId }}'
+AND foldersId = '{{ foldersId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: accelerator_types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - accelerator_types
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>accelerator_type</code> resource or lists <code>accelerator_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,10 +41,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="maximumCardsPerInstance" /> | `integer` | [Output Only] Maximum number of accelerator cards allowed per instance. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined, fully qualified URL for this resource. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] The name of the zone where the accelerator type resides, such as us-central1-a. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of accelerator types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="acceleratorType, project, zone" /> | Returns the specified accelerator type. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves a list of accelerator types that are available to the specified project. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of accelerator types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of accelerator types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+deprecated,
+kind,
+maximumCardsPerInstance,
+selfLink,
+zone
+FROM google.compute.accelerator_types
+WHERE project = '{{ project }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: backup_plans
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - backup_plans
   - gkebackup
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>backup_plan</code> resource or lists <code>backup_plans</code> in a region
 
 ## Overview
 <table><tbody>
@@ -47,6 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="stateReason" /> | `string` | Output only. Human-readable description of why BackupPlan is in the current `state` |
 | <CopyableCode code="uid" /> | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when this BackupPlan resource was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -55,4 +58,176 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new BackupPlan in a given location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backupPlansId, locationsId, projectsId" /> | Deletes an existing BackupPlan. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backupPlansId, locationsId, projectsId" /> | Update a BackupPlan. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists BackupPlans in a given location. |
+
+## `SELECT` examples
+
+Lists BackupPlans in a given location.
+
+```sql
+SELECT
+name,
+description,
+backupConfig,
+backupSchedule,
+cluster,
+createTime,
+deactivated,
+etag,
+labels,
+protectedPodCount,
+retentionPolicy,
+rpoRiskLevel,
+rpoRiskReason,
+state,
+stateReason,
+uid,
+updateTime
+FROM google.gkebackup.backup_plans
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>backup_plans</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.gkebackup.backup_plans (
+locationsId,
+projectsId,
+name,
+uid,
+createTime,
+updateTime,
+description,
+cluster,
+retentionPolicy,
+labels,
+backupSchedule,
+etag,
+deactivated,
+backupConfig,
+protectedPodCount,
+state,
+stateReason,
+rpoRiskLevel,
+rpoRiskReason
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ description }}',
+'{{ cluster }}',
+'{{ retentionPolicy }}',
+'{{ labels }}',
+'{{ backupSchedule }}',
+'{{ etag }}',
+true|false,
+'{{ backupConfig }}',
+'{{ protectedPodCount }}',
+'{{ state }}',
+'{{ stateReason }}',
+'{{ rpoRiskLevel }}',
+'{{ rpoRiskReason }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: description
+        value: '{{ description }}'
+      - name: cluster
+        value: '{{ cluster }}'
+      - name: retentionPolicy
+        value: '{{ retentionPolicy }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: backupSchedule
+        value: '{{ backupSchedule }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: deactivated
+        value: '{{ deactivated }}'
+      - name: backupConfig
+        value: '{{ backupConfig }}'
+      - name: protectedPodCount
+        value: '{{ protectedPodCount }}'
+      - name: state
+        value: '{{ state }}'
+      - name: stateReason
+        value: '{{ stateReason }}'
+      - name: rpoRiskLevel
+        value: '{{ rpoRiskLevel }}'
+      - name: rpoRiskReason
+        value: '{{ rpoRiskReason }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a backup_plan only if the necessary resources are available.
+
+```sql
+UPDATE google.gkebackup.backup_plans
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+description = '{{ description }}',
+cluster = '{{ cluster }}',
+retentionPolicy = '{{ retentionPolicy }}',
+labels = '{{ labels }}',
+backupSchedule = '{{ backupSchedule }}',
+etag = '{{ etag }}',
+deactivated = true|false,
+backupConfig = '{{ backupConfig }}',
+protectedPodCount = '{{ protectedPodCount }}',
+state = '{{ state }}',
+stateReason = '{{ stateReason }}',
+rpoRiskLevel = '{{ rpoRiskLevel }}',
+rpoRiskReason = '{{ rpoRiskReason }}'
+WHERE 
+backupPlansId = '{{ backupPlansId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified backup_plan resource.
+
+```sql
+DELETE FROM google.gkebackup.backup_plans
+WHERE backupPlansId = '{{ backupPlansId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

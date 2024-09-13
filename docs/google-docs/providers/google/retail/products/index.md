@@ -1,3 +1,4 @@
+
 ---
 title: products
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - products
   - retail
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>product</code> resource or lists <code>products</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,13 +35,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` | Immutable. Product identifier, which is the final component of name. For example, this field is "id_1", if name is `projects/*/locations/global/catalogs/default_catalog/branches/default_branch/products/id_1`. This field must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is returned. Corresponding properties: Google Merchant Center property [id](https://support.google.com/merchants/answer/6324405). Schema.org property [Product.sku](https://schema.org/sku). |
 | <CopyableCode code="name" /> | `string` | Immutable. Full resource name of the product, such as `projects/*/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. |
 | <CopyableCode code="description" /> | `string` | Product description. This field must be a UTF-8 encoded string with a length limit of 5,000 characters. Otherwise, an INVALID_ARGUMENT error is returned. Corresponding properties: Google Merchant Center property [description](https://support.google.com/merchants/answer/6324468). Schema.org property [Product.description](https://schema.org/description). |
-| <CopyableCode code="attributes" /> | `object` | Highly encouraged. Extra product attributes to be included. For example, for products, this could include the store name, vendor, style, color, etc. These are very strong signals for recommendation model, thus we highly recommend providing the attributes here. Features that can take on one of a limited number of possible values. Two types of features can be set are: Textual features. some examples would be the brand/maker of a product, or country of a customer. Numerical features. Some examples would be the height/weight of a product, or age of a customer. For example: `&#123; "vendor": &#123;"text": ["vendor123", "vendor456"]&#125;, "lengths_cm": &#123;"numbers":[2.3, 15.4]&#125;, "heights_cm": &#123;"numbers":[8.1, 6.4]&#125; &#125;`. This field needs to pass all below criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries count: 200. * The key must be a UTF-8 encoded string with a length limit of 128 characters. * For indexable attribute, the key must match the pattern: `a-zA-Z0-9*`. For example, `key0LikeThis` or `KEY_1_LIKE_THIS`. * For text attributes, at most 400 values are allowed. Empty values are not allowed. Each value must be a non-empty UTF-8 encoded string with a length limit of 256 characters. * For number attributes, at most 400 values are allowed. |
+| <CopyableCode code="attributes" /> | `object` | Highly encouraged. Extra product attributes to be included. For example, for products, this could include the store name, vendor, style, color, etc. These are very strong signals for recommendation model, thus we highly recommend providing the attributes here. Features that can take on one of a limited number of possible values. Two types of features can be set are: Textual features. some examples would be the brand/maker of a product, or country of a customer. Numerical features. Some examples would be the height/weight of a product, or age of a customer. For example: `{ "vendor": {"text": ["vendor123", "vendor456"]}, "lengths_cm": {"numbers":[2.3, 15.4]}, "heights_cm": {"numbers":[8.1, 6.4]} }`. This field needs to pass all below criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries count: 200. * The key must be a UTF-8 encoded string with a length limit of 128 characters. * For indexable attribute, the key must match the pattern: `a-zA-Z0-9*`. For example, `key0LikeThis` or `KEY_1_LIKE_THIS`. * For text attributes, at most 400 values are allowed. Empty values are not allowed. Each value must be a non-empty UTF-8 encoded string with a length limit of 256 characters. * For number attributes, at most 400 values are allowed. |
 | <CopyableCode code="audience" /> | `object` | An intended audience of the Product for whom it's sold. |
-| <CopyableCode code="availability" /> | `string` | The online availability of the Product. Default to Availability.IN_STOCK. Corresponding properties: Google Merchant Center property [availability](https://support.google.com/merchants/answer/6324448). Schema.org property [Offer.availability](https://schema.org/availability). |
+| <CopyableCode code="availability" /> | `string` | The online availability of the Product. Default to Availability.IN_STOCK. For primary products with variants set the availability of the primary as Availability.OUT_OF_STOCK and set the true availability at the variant level. This way the primary product will be considered "in stock" as long as it has at least one variant in stock. For primary products with no variants set the true availability at the primary level. Corresponding properties: Google Merchant Center property [availability](https://support.google.com/merchants/answer/6324448). Schema.org property [Offer.availability](https://schema.org/availability). |
 | <CopyableCode code="availableQuantity" /> | `integer` | The available quantity of the item. |
 | <CopyableCode code="availableTime" /> | `string` | The timestamp when this Product becomes available for SearchService.Search. Note that this is only applicable to Type.PRIMARY and Type.COLLECTION, and ignored for Type.VARIANT. |
 | <CopyableCode code="brands" /> | `array` | The brands of the product. A maximum of 30 brands are allowed unless overridden through the Google Cloud console. Each brand must be a UTF-8 encoded string with a length limit of 1,000 characters. Otherwise, an INVALID_ARGUMENT error is returned. Corresponding properties: Google Merchant Center property [brand](https://support.google.com/merchants/answer/6324351). Schema.org property [Product.brand](https://schema.org/brand). |
-| <CopyableCode code="categories" /> | `array` | Product categories. This field is repeated for supporting one product belonging to several parallel categories. Strongly recommended using the full path for better search / recommendation quality. To represent full path of category, use '&gt;' sign to separate different hierarchies. If '&gt;' is part of the category name, replace it with other character(s). For example, if a shoes product belongs to both ["Shoes & Accessories" -&gt; "Shoes"] and ["Sports & Fitness" -&gt; "Athletic Clothing" -&gt; "Shoes"], it could be represented as: "categories": [ "Shoes & Accessories &gt; Shoes", "Sports & Fitness &gt; Athletic Clothing &gt; Shoes" ] Must be set for Type.PRIMARY Product otherwise an INVALID_ARGUMENT error is returned. At most 250 values are allowed per Product unless overridden through the Google Cloud console. Empty values are not allowed. Each value must be a UTF-8 encoded string with a length limit of 5,000 characters. Otherwise, an INVALID_ARGUMENT error is returned. Corresponding properties: Google Merchant Center property google_product_category. Schema.org property [Product.category] (https://schema.org/category). [mc_google_product_category]: https://support.google.com/merchants/answer/6324436 |
+| <CopyableCode code="categories" /> | `array` | Product categories. This field is repeated for supporting one product belonging to several parallel categories. Strongly recommended using the full path for better search / recommendation quality. To represent full path of category, use '>' sign to separate different hierarchies. If '>' is part of the category name, replace it with other character(s). For example, if a shoes product belongs to both ["Shoes & Accessories" -> "Shoes"] and ["Sports & Fitness" -> "Athletic Clothing" -> "Shoes"], it could be represented as: "categories": [ "Shoes & Accessories > Shoes", "Sports & Fitness > Athletic Clothing > Shoes" ] Must be set for Type.PRIMARY Product otherwise an INVALID_ARGUMENT error is returned. At most 250 values are allowed per Product unless overridden through the Google Cloud console. Empty values are not allowed. Each value must be a UTF-8 encoded string with a length limit of 5,000 characters. Otherwise, an INVALID_ARGUMENT error is returned. Corresponding properties: Google Merchant Center property google_product_category. Schema.org property [Product.category] (https://schema.org/category). [mc_google_product_category]: https://support.google.com/merchants/answer/6324436 |
 | <CopyableCode code="collectionMemberIds" /> | `array` | The id of the collection members when type is Type.COLLECTION. Non-existent product ids are allowed. The type of the members must be either Type.PRIMARY or Type.VARIANT otherwise an INVALID_ARGUMENT error is thrown. Should not set it for other types. A maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is return. |
 | <CopyableCode code="colorInfo" /> | `object` | The color information of a Product. |
 | <CopyableCode code="conditions" /> | `array` | The condition of the product. Strongly encouraged to use the standard values: "new", "refurbished", "used". A maximum of 1 value is allowed per Product. Each value must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is returned. Corresponding properties: Google Merchant Center property [condition](https://support.google.com/merchants/answer/6324469). Schema.org property [Offer.itemCondition](https://schema.org/itemCondition). |
@@ -64,6 +66,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="type" /> | `string` | Immutable. The type of the product. Default to Catalog.product_level_config.ingestion_product_type if unset. |
 | <CopyableCode code="uri" /> | `string` | Canonical URL directly linking to the product detail page. It is strongly recommended to provide a valid uri for the product, otherwise the service performance could be significantly degraded. This field must be a UTF-8 encoded string with a length limit of 5,000 characters. Otherwise, an INVALID_ARGUMENT error is returned. Corresponding properties: Google Merchant Center property [link](https://support.google.com/merchants/answer/6324416). Schema.org property [Offer.url](https://schema.org/url). |
 | <CopyableCode code="variants" /> | `array` | Output only. Product variants grouped together on primary product which share similar product attributes. It's automatically grouped by primary_product_id for all the product variants. Only populated for Type.PRIMARY Products. Note: This field is OUTPUT_ONLY for ProductService.GetProduct. Do not set this field in API requests. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -72,7 +75,291 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_catalogs_branches_products_create" /> | `INSERT` | <CopyableCode code="branchesId, catalogsId, locationsId, projectsId" /> | Creates a Product. |
 | <CopyableCode code="projects_locations_catalogs_branches_products_delete" /> | `DELETE` | <CopyableCode code="branchesId, catalogsId, locationsId, productsId, projectsId" /> | Deletes a Product. |
 | <CopyableCode code="projects_locations_catalogs_branches_products_patch" /> | `UPDATE` | <CopyableCode code="branchesId, catalogsId, locationsId, productsId, projectsId" /> | Updates a Product. |
-| <CopyableCode code="_projects_locations_catalogs_branches_products_list" /> | `EXEC` | <CopyableCode code="branchesId, catalogsId, locationsId, projectsId" /> | Gets a list of Products. |
 | <CopyableCode code="projects_locations_catalogs_branches_products_import" /> | `EXEC` | <CopyableCode code="branchesId, catalogsId, locationsId, projectsId" /> | Bulk import of multiple Products. Request processing may be synchronous. Non-existing items are created. Note that it is possible for a subset of the Products to be successfully updated. |
 | <CopyableCode code="projects_locations_catalogs_branches_products_purge" /> | `EXEC` | <CopyableCode code="branchesId, catalogsId, locationsId, projectsId" /> | Permanently deletes all selected Products under a branch. This process is asynchronous. If the request is valid, the removal will be enqueued and processed offline. Depending on the number of Products, this operation could take hours to complete. Before the operation completes, some Products may still be returned by ProductService.GetProduct or ProductService.ListProducts. Depending on the number of Products, this operation could take hours to complete. To get a sample of Products that would be deleted, set PurgeProductsRequest.force to false. |
 | <CopyableCode code="projects_locations_catalogs_branches_products_set_inventory" /> | `EXEC` | <CopyableCode code="branchesId, catalogsId, locationsId, productsId, projectsId" /> | Updates inventory information for a Product while respecting the last update timestamps of each inventory field. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update is enqueued and processed downstream. As a consequence, when a response is returned, updates are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. When inventory is updated with ProductService.CreateProduct and ProductService.UpdateProduct, the specified inventory field value(s) overwrite any existing value(s) while ignoring the last update time for this field. Furthermore, the last update times for the specified inventory fields are overwritten by the times of the ProductService.CreateProduct or ProductService.UpdateProduct request. If no inventory fields are set in CreateProductRequest.product, then any pre-existing inventory information for this product is used. If no inventory fields are set in SetInventoryRequest.set_mask, then any existing inventory information is preserved. Pre-existing inventory information can only be updated with ProductService.SetInventory, ProductService.AddFulfillmentPlaces, and ProductService.RemoveFulfillmentPlaces. The returned Operations is obsolete after one day, and the GetOperation API returns `NOT_FOUND` afterwards. If conflicting updates are issued, the Operations associated with the stale updates are not marked as done until they are obsolete. |
+
+## `SELECT` examples
+
+Gets a list of Products.
+
+```sql
+SELECT
+id,
+name,
+description,
+attributes,
+audience,
+availability,
+availableQuantity,
+availableTime,
+brands,
+categories,
+collectionMemberIds,
+colorInfo,
+conditions,
+expireTime,
+fulfillmentInfo,
+gtin,
+images,
+languageCode,
+localInventories,
+materials,
+patterns,
+priceInfo,
+primaryProductId,
+promotions,
+publishTime,
+rating,
+retrievableFields,
+sizes,
+tags,
+title,
+ttl,
+type,
+uri,
+variants
+FROM google.retail.products
+WHERE branchesId = '{{ branchesId }}'
+AND catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>products</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.retail.products (
+branchesId,
+catalogsId,
+locationsId,
+projectsId,
+expireTime,
+ttl,
+name,
+id,
+type,
+primaryProductId,
+collectionMemberIds,
+gtin,
+categories,
+title,
+brands,
+description,
+languageCode,
+attributes,
+tags,
+priceInfo,
+rating,
+availableTime,
+availability,
+availableQuantity,
+fulfillmentInfo,
+uri,
+images,
+audience,
+colorInfo,
+sizes,
+materials,
+patterns,
+conditions,
+promotions,
+publishTime,
+retrievableFields,
+variants,
+localInventories
+)
+SELECT 
+'{{ branchesId }}',
+'{{ catalogsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ expireTime }}',
+'{{ ttl }}',
+'{{ name }}',
+'{{ id }}',
+'{{ type }}',
+'{{ primaryProductId }}',
+'{{ collectionMemberIds }}',
+'{{ gtin }}',
+'{{ categories }}',
+'{{ title }}',
+'{{ brands }}',
+'{{ description }}',
+'{{ languageCode }}',
+'{{ attributes }}',
+'{{ tags }}',
+'{{ priceInfo }}',
+'{{ rating }}',
+'{{ availableTime }}',
+'{{ availability }}',
+'{{ availableQuantity }}',
+'{{ fulfillmentInfo }}',
+'{{ uri }}',
+'{{ images }}',
+'{{ audience }}',
+'{{ colorInfo }}',
+'{{ sizes }}',
+'{{ materials }}',
+'{{ patterns }}',
+'{{ conditions }}',
+'{{ promotions }}',
+'{{ publishTime }}',
+'{{ retrievableFields }}',
+'{{ variants }}',
+'{{ localInventories }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: expireTime
+        value: '{{ expireTime }}'
+      - name: ttl
+        value: '{{ ttl }}'
+      - name: name
+        value: '{{ name }}'
+      - name: id
+        value: '{{ id }}'
+      - name: type
+        value: '{{ type }}'
+      - name: primaryProductId
+        value: '{{ primaryProductId }}'
+      - name: collectionMemberIds
+        value: '{{ collectionMemberIds }}'
+      - name: gtin
+        value: '{{ gtin }}'
+      - name: categories
+        value: '{{ categories }}'
+      - name: title
+        value: '{{ title }}'
+      - name: brands
+        value: '{{ brands }}'
+      - name: description
+        value: '{{ description }}'
+      - name: languageCode
+        value: '{{ languageCode }}'
+      - name: attributes
+        value: '{{ attributes }}'
+      - name: tags
+        value: '{{ tags }}'
+      - name: priceInfo
+        value: '{{ priceInfo }}'
+      - name: rating
+        value: '{{ rating }}'
+      - name: availableTime
+        value: '{{ availableTime }}'
+      - name: availability
+        value: '{{ availability }}'
+      - name: availableQuantity
+        value: '{{ availableQuantity }}'
+      - name: fulfillmentInfo
+        value: '{{ fulfillmentInfo }}'
+      - name: uri
+        value: '{{ uri }}'
+      - name: images
+        value: '{{ images }}'
+      - name: audience
+        value: '{{ audience }}'
+      - name: colorInfo
+        value: '{{ colorInfo }}'
+      - name: sizes
+        value: '{{ sizes }}'
+      - name: materials
+        value: '{{ materials }}'
+      - name: patterns
+        value: '{{ patterns }}'
+      - name: conditions
+        value: '{{ conditions }}'
+      - name: promotions
+        value: '{{ promotions }}'
+      - name: publishTime
+        value: '{{ publishTime }}'
+      - name: retrievableFields
+        value: '{{ retrievableFields }}'
+      - name: variants
+        value: '{{ variants }}'
+      - name: localInventories
+        value: '{{ localInventories }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a product only if the necessary resources are available.
+
+```sql
+UPDATE google.retail.products
+SET 
+expireTime = '{{ expireTime }}',
+ttl = '{{ ttl }}',
+name = '{{ name }}',
+id = '{{ id }}',
+type = '{{ type }}',
+primaryProductId = '{{ primaryProductId }}',
+collectionMemberIds = '{{ collectionMemberIds }}',
+gtin = '{{ gtin }}',
+categories = '{{ categories }}',
+title = '{{ title }}',
+brands = '{{ brands }}',
+description = '{{ description }}',
+languageCode = '{{ languageCode }}',
+attributes = '{{ attributes }}',
+tags = '{{ tags }}',
+priceInfo = '{{ priceInfo }}',
+rating = '{{ rating }}',
+availableTime = '{{ availableTime }}',
+availability = '{{ availability }}',
+availableQuantity = '{{ availableQuantity }}',
+fulfillmentInfo = '{{ fulfillmentInfo }}',
+uri = '{{ uri }}',
+images = '{{ images }}',
+audience = '{{ audience }}',
+colorInfo = '{{ colorInfo }}',
+sizes = '{{ sizes }}',
+materials = '{{ materials }}',
+patterns = '{{ patterns }}',
+conditions = '{{ conditions }}',
+promotions = '{{ promotions }}',
+publishTime = '{{ publishTime }}',
+retrievableFields = '{{ retrievableFields }}',
+variants = '{{ variants }}',
+localInventories = '{{ localInventories }}'
+WHERE 
+branchesId = '{{ branchesId }}'
+AND catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND productsId = '{{ productsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified product resource.
+
+```sql
+DELETE FROM google.retail.products
+WHERE branchesId = '{{ branchesId }}'
+AND catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND productsId = '{{ productsId }}'
+AND projectsId = '{{ projectsId }}';
+```

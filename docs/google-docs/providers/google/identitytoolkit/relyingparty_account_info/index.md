@@ -1,3 +1,4 @@
+
 ---
 title: relyingparty_account_info
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - relyingparty_account_info
   - identitytoolkit
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>relyingparty_account_info</code> resource or lists <code>relyingparty_account_info</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="kind" /> | `string` | The fixed string "identitytoolkit#GetAccountInfoResponse". |
+| <CopyableCode code="users" /> | `array` | The info of the users. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_account_info" /> | `EXEC` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_account_info" /> | `SELECT` | <CopyableCode code="" /> | Returns the account info. |
+
+## `SELECT` examples
+
+Returns the account info.
+
+```sql
+SELECT
+kind,
+users
+FROM google.identitytoolkit.relyingparty_account_info
+WHERE  = '{{  }}'; 
+```

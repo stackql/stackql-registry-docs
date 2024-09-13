@@ -1,3 +1,4 @@
+
 ---
 title: deployments_state
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - deployments_state
   - config
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>deployments_state</code> resource or lists <code>deployments_state</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="delete_state" /> | `EXEC` | <CopyableCode code="deploymentsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="delete_state" /> | `DELETE` | <CopyableCode code="deploymentsId, locationsId, projectsId" /> | Deletes Terraform state file in a given deployment. |
+
+## `DELETE` example
+
+Deletes the specified deployments_state resource.
+
+```sql
+DELETE FROM google.config.deployments_state
+WHERE deploymentsId = '{{ deploymentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

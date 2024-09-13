@@ -1,3 +1,4 @@
+
 ---
 title: ssl_certificates_aggregated
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - ssl_certificates_aggregated
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>ssl_certificates_aggregated</code> resource or lists <code>ssl_certificates_aggregated</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,8 +46,32 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfManaged" /> | `object` | Configuration and status of a self-managed SSL certificate. |
 | <CopyableCode code="subjectAlternativeNames" /> | `array` | [Output Only] Domains associated with the certificate via Subject Alternative Name. |
 | <CopyableCode code="type" /> | `string` | (Optional) Specifies the type of SSL certificate, either "SELF_MANAGED" or "MANAGED". If not specified, the certificate is self-managed and the fields certificate and private_key are used. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves the list of all SslCertificate resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+
+## `SELECT` examples
+
+Retrieves the list of all SslCertificate resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+certificate,
+creationTimestamp,
+expireTime,
+kind,
+managed,
+privateKey,
+region,
+selfLink,
+selfManaged,
+subjectAlternativeNames,
+type
+FROM google.compute.ssl_certificates_aggregated
+WHERE project = '{{ project }}'; 
+```

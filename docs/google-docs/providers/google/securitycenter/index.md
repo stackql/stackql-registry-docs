@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Security Command Center API provides access to temporal views of assets and findings within an organization.  
-    
+The securitycenter service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>22</b></span><br />
-<span>total selectable resources:&nbsp;<b>18</b></span><br />
-<span>total methods:&nbsp;<b>223</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.securitycenter</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Security Command Center API</td></tr>
-<tr><td><b>Description</b></td><td>Security Command Center API provides access to temporal views of assets and findings within an organization.</td></tr>
-<tr><td><b>Id</b></td><td><code>securitycenter:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -50,7 +39,7 @@ Security Command Center API provides access to temporal views of assets and find
 <a href="/providers/google/securitycenter/event_threat_detection_modules/">event_threat_detection_modules</a><br />
 <a href="/providers/google/securitycenter/event_threat_detection_settings/">event_threat_detection_settings</a><br />
 <a href="/providers/google/securitycenter/external_systems/">external_systems</a><br />
-<a href="/providers/google/securitycenter/findings/">findings</a><br />
+<a href="/providers/google/securitycenter/findings/">findings</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/securitycenter/findings_security_marks/">findings_security_marks</a><br />
@@ -63,6 +52,6 @@ Security Command Center API provides access to temporal views of assets and find
 <a href="/providers/google/securitycenter/simulations/">simulations</a><br />
 <a href="/providers/google/securitycenter/sources/">sources</a><br />
 <a href="/providers/google/securitycenter/sources_iam_policies/">sources_iam_policies</a><br />
-<a href="/providers/google/securitycenter/valued_resources/">valued_resources</a><br />
+<a href="/providers/google/securitycenter/valued_resources/">valued_resources</a>
 </div>
 </div>

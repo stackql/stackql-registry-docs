@@ -1,3 +1,4 @@
+
 ---
 title: client_events
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - client_events
   - jobs
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>client_event</code> resource or lists <code>client_events</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,66 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId, tenantsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId, tenantsId" /> | Report events issued when end user interacts with customer's application that uses Cloud Talent Solution. You may inspect the created events in [self service tools](https://console.cloud.google.com/talent-solution/overview). [Learn more](https://cloud.google.com/talent-solution/docs/management-tools) about self service tools. |
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>client_events</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.jobs.client_events (
+projectsId,
+tenantsId,
+requestId,
+eventId,
+createTime,
+jobEvent,
+eventNotes
+)
+SELECT 
+'{{ projectsId }}',
+'{{ tenantsId }}',
+'{{ requestId }}',
+'{{ eventId }}',
+'{{ createTime }}',
+'{{ jobEvent }}',
+'{{ eventNotes }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: requestId
+        value: '{{ requestId }}'
+      - name: eventId
+        value: '{{ eventId }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: jobEvent
+        value: '{{ jobEvent }}'
+      - name: eventNotes
+        value: '{{ eventNotes }}'
+
+```
+</TabItem>
+</Tabs>

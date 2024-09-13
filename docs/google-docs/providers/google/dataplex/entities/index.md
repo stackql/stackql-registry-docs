@@ -1,3 +1,4 @@
+
 ---
 title: entities
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - entities
   - dataplex
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>entity</code> resource or lists <code>entities</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,7 +33,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | Required. A user-provided entity ID. It is mutable, and will be used as the published table name. Specifying a new ID in an update entity request will override the existing value. The ID must contain only letters (a-z, A-Z), numbers (0-9), and underscores, and consist of 256 or fewer characters. |
-| <CopyableCode code="name" /> | `string` | Output only. The resource name of the entity, of the form: projects/&#123;project_number&#125;/locations/&#123;location_id&#125;/lakes/&#123;lake_id&#125;/zones/&#123;zone_id&#125;/entities/&#123;id&#125;. |
+| <CopyableCode code="name" /> | `string` | Output only. The resource name of the entity, of the form: projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{id}. |
 | <CopyableCode code="description" /> | `string` | Optional. User friendly longer description text. Must be shorter than or equal to 1024 characters. |
 | <CopyableCode code="access" /> | `object` | Describes the access mechanism of the data within its storage location. |
 | <CopyableCode code="asset" /> | `string` | Required. Immutable. The ID of the asset associated with the storage location containing the entity data. The entity must be with in the same zone with the asset. |
@@ -48,6 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="type" /> | `string` | Required. Immutable. The type of entity. |
 | <CopyableCode code="uid" /> | `string` | Output only. System generated unique ID for the Entity. This ID will be different if the Entity is deleted and re-created with the same name. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time when the entity was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -55,5 +58,160 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_lakes_zones_entities_list" /> | `SELECT` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | List metadata entities in a zone. |
 | <CopyableCode code="projects_locations_lakes_zones_entities_create" /> | `INSERT` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Create a metadata entity. |
 | <CopyableCode code="projects_locations_lakes_zones_entities_delete" /> | `DELETE` | <CopyableCode code="entitiesId, lakesId, locationsId, projectsId, zonesId" /> | Delete a metadata entity. |
-| <CopyableCode code="projects_locations_lakes_zones_entities_update" /> | `UPDATE` | <CopyableCode code="entitiesId, lakesId, locationsId, projectsId, zonesId" /> | Update a metadata entity. Only supports full resource update. |
-| <CopyableCode code="_projects_locations_lakes_zones_entities_list" /> | `EXEC` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | List metadata entities in a zone. |
+| <CopyableCode code="projects_locations_lakes_zones_entities_update" /> | `EXEC` | <CopyableCode code="entitiesId, lakesId, locationsId, projectsId, zonesId" /> | Update a metadata entity. Only supports full resource update. |
+
+## `SELECT` examples
+
+List metadata entities in a zone.
+
+```sql
+SELECT
+id,
+name,
+description,
+access,
+asset,
+catalogEntry,
+compatibility,
+createTime,
+dataPath,
+dataPathPattern,
+displayName,
+etag,
+format,
+schema,
+system,
+type,
+uid,
+updateTime
+FROM google.dataplex.entities
+WHERE lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND zonesId = '{{ zonesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>entities</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataplex.entities (
+lakesId,
+locationsId,
+projectsId,
+zonesId,
+name,
+displayName,
+description,
+createTime,
+updateTime,
+id,
+etag,
+type,
+asset,
+dataPath,
+dataPathPattern,
+catalogEntry,
+system,
+format,
+compatibility,
+access,
+uid,
+schema
+)
+SELECT 
+'{{ lakesId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ zonesId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ id }}',
+'{{ etag }}',
+'{{ type }}',
+'{{ asset }}',
+'{{ dataPath }}',
+'{{ dataPathPattern }}',
+'{{ catalogEntry }}',
+'{{ system }}',
+'{{ format }}',
+'{{ compatibility }}',
+'{{ access }}',
+'{{ uid }}',
+'{{ schema }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: id
+        value: '{{ id }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: type
+        value: '{{ type }}'
+      - name: asset
+        value: '{{ asset }}'
+      - name: dataPath
+        value: '{{ dataPath }}'
+      - name: dataPathPattern
+        value: '{{ dataPathPattern }}'
+      - name: catalogEntry
+        value: '{{ catalogEntry }}'
+      - name: system
+        value: '{{ system }}'
+      - name: format
+        value: '{{ format }}'
+      - name: compatibility
+        value: '{{ compatibility }}'
+      - name: access
+        value: '{{ access }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: schema
+        value: '{{ schema }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified entity resource.
+
+```sql
+DELETE FROM google.dataplex.entities
+WHERE entitiesId = '{{ entitiesId }}'
+AND lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND zonesId = '{{ zonesId }}';
+```

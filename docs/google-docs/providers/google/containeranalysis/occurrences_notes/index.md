@@ -1,3 +1,4 @@
+
 ---
 title: occurrences_notes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - occurrences_notes
   - containeranalysis
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>occurrences_note</code> resource or lists <code>occurrences_notes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -51,8 +53,41 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="upgrade" /> | `object` | An Upgrade Note represents a potential upgrade of a package to a given version. For each package version combination (i.e. bash 4.0, bash 4.1, bash 4.1.2), there will be an Upgrade Note. For Windows, windows_update field represents the information related to the update. |
 | <CopyableCode code="vulnerability" /> | `object` | A security vulnerability that can be found in resources. |
 | <CopyableCode code="vulnerabilityAssessment" /> | `object` | A single VulnerabilityAssessmentNote represents one particular product's vulnerability assessment for one CVE. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_occurrences_get_notes" /> | `SELECT` | <CopyableCode code="locationsId, occurrencesId, projectsId" /> |
-| <CopyableCode code="projects_occurrences_get_notes" /> | `SELECT` | <CopyableCode code="occurrencesId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_occurrences_get_notes" /> | `SELECT` | <CopyableCode code="locationsId, occurrencesId, projectsId" /> | Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project. |
+| <CopyableCode code="projects_occurrences_get_notes" /> | `SELECT` | <CopyableCode code="occurrencesId, projectsId" /> | Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project. |
+
+## `SELECT` examples
+
+Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project.
+
+```sql
+SELECT
+name,
+attestation,
+build,
+compliance,
+createTime,
+deployment,
+discovery,
+dsseAttestation,
+expirationTime,
+image,
+kind,
+longDescription,
+package,
+relatedNoteNames,
+relatedUrl,
+sbomReference,
+shortDescription,
+updateTime,
+upgrade,
+vulnerability,
+vulnerabilityAssessment
+FROM google.containeranalysis.occurrences_notes
+WHERE occurrencesId = '{{ occurrencesId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

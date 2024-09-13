@@ -1,3 +1,4 @@
+
 ---
 title: inbound_sso_assignments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - inbound_sso_assignments
   - cloudidentity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>inbound_sso_assignment</code> resource or lists <code>inbound_sso_assignments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,14 +38,126 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="samlSsoInfo" /> | `object` | Details that are applicable when `sso_mode` == `SAML_SSO`. |
 | <CopyableCode code="signInBehavior" /> | `object` | Controls sign-in behavior. |
 | <CopyableCode code="ssoMode" /> | `string` | Inbound SSO behavior. |
-| <CopyableCode code="targetGroup" /> | `string` | Immutable. Must be of the form `groups/&#123;group&#125;`. |
-| <CopyableCode code="targetOrgUnit" /> | `string` | Immutable. Must be of the form `orgUnits/&#123;org_unit&#125;`. |
+| <CopyableCode code="targetGroup" /> | `string` | Immutable. Must be of the form `groups/{group}`. |
+| <CopyableCode code="targetOrgUnit" /> | `string` | Immutable. Must be of the form `orgUnits/{org_unit}`. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="inboundSsoAssignmentsId" /> | Gets an InboundSsoAssignment. |
-| <CopyableCode code="list" /> | `SELECT` |  | Lists the InboundSsoAssignments for a `Customer`. |
-| <CopyableCode code="create" /> | `INSERT` |  | Creates an InboundSsoAssignment for users and devices in a `Customer` under a given `Group` or `OrgUnit`. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists the InboundSsoAssignments for a `Customer`. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="" /> | Creates an InboundSsoAssignment for users and devices in a `Customer` under a given `Group` or `OrgUnit`. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="inboundSsoAssignmentsId" /> | Deletes an InboundSsoAssignment. To disable SSO, Create (or Update) an assignment that has `sso_mode` == `SSO_OFF`. |
-| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="inboundSsoAssignmentsId" /> | Updates an InboundSsoAssignment. The body of this request is the `inbound_sso_assignment` field and the `update_mask` is relative to that. For example: a PATCH to `/v1/inboundSsoAssignments/0abcdefg1234567&update_mask=rank` with a body of `&#123; "rank": 1 &#125;` moves that (presumably group-targeted) SSO assignment to the highest priority and shifts any other group-targeted assignments down in priority. |
-| <CopyableCode code="_list" /> | `EXEC` |  | Lists the InboundSsoAssignments for a `Customer`. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="inboundSsoAssignmentsId" /> | Updates an InboundSsoAssignment. The body of this request is the `inbound_sso_assignment` field and the `update_mask` is relative to that. For example: a PATCH to `/v1/inboundSsoAssignments/0abcdefg1234567&update_mask=rank` with a body of `{ "rank": 1 }` moves that (presumably group-targeted) SSO assignment to the highest priority and shifts any other group-targeted assignments down in priority. |
+
+## `SELECT` examples
+
+Lists the InboundSsoAssignments for a `Customer`.
+
+```sql
+SELECT
+name,
+customer,
+rank,
+samlSsoInfo,
+signInBehavior,
+ssoMode,
+targetGroup,
+targetOrgUnit
+FROM google.cloudidentity.inbound_sso_assignments
+WHERE  = '{{  }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>inbound_sso_assignments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.cloudidentity.inbound_sso_assignments (
+,
+targetGroup,
+targetOrgUnit,
+name,
+customer,
+rank,
+ssoMode,
+samlSsoInfo,
+signInBehavior
+)
+SELECT 
+'{{  }}',
+'{{ targetGroup }}',
+'{{ targetOrgUnit }}',
+'{{ name }}',
+'{{ customer }}',
+'{{ rank }}',
+'{{ ssoMode }}',
+'{{ samlSsoInfo }}',
+'{{ signInBehavior }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: targetGroup
+        value: '{{ targetGroup }}'
+      - name: targetOrgUnit
+        value: '{{ targetOrgUnit }}'
+      - name: name
+        value: '{{ name }}'
+      - name: customer
+        value: '{{ customer }}'
+      - name: rank
+        value: '{{ rank }}'
+      - name: ssoMode
+        value: '{{ ssoMode }}'
+      - name: samlSsoInfo
+        value: '{{ samlSsoInfo }}'
+      - name: signInBehavior
+        value: '{{ signInBehavior }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a inbound_sso_assignment only if the necessary resources are available.
+
+```sql
+UPDATE google.cloudidentity.inbound_sso_assignments
+SET 
+targetGroup = '{{ targetGroup }}',
+targetOrgUnit = '{{ targetOrgUnit }}',
+name = '{{ name }}',
+customer = '{{ customer }}',
+rank = '{{ rank }}',
+ssoMode = '{{ ssoMode }}',
+samlSsoInfo = '{{ samlSsoInfo }}',
+signInBehavior = '{{ signInBehavior }}'
+WHERE 
+inboundSsoAssignmentsId = '{{ inboundSsoAssignmentsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified inbound_sso_assignment resource.
+
+```sql
+DELETE FROM google.cloudidentity.inbound_sso_assignments
+WHERE inboundSsoAssignmentsId = '{{ inboundSsoAssignmentsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: versions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - versions
   - integrations
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>version</code> resource or lists <code>versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -56,6 +58,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="triggerConfigsInternal" /> | `array` | Optional. Trigger configurations. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Auto-generated. |
 | <CopyableCode code="userLabel" /> | `string` | Optional. A user-defined label that annotates an integration version. Typically, this is only set when the integration version is created. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -69,8 +72,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_products_integrations_versions_delete" /> | `DELETE` | <CopyableCode code="integrationsId, locationsId, productsId, projectsId, versionsId" /> | Soft-deletes the integration. Changes the status of the integration to ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is removed from this snapshot and set to the previous non-ARCHIVED snapshot. The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC throws an exception if the version being deleted is DRAFT, and if the `locked_by` user is not the same as the user performing the Delete. Audit fields updated include last_modified_timestamp, last_modified_by. Any existing lock is released when Deleting a integration. Currently, there is no undelete mechanism. |
 | <CopyableCode code="projects_locations_integrations_versions_patch" /> | `UPDATE` | <CopyableCode code="integrationsId, locationsId, projectsId, versionsId" /> | Update a integration with a draft version in the specified project. |
 | <CopyableCode code="projects_locations_products_integrations_versions_patch" /> | `UPDATE` | <CopyableCode code="integrationsId, locationsId, productsId, projectsId, versionsId" /> | Update a integration with a draft version in the specified project. |
-| <CopyableCode code="_projects_locations_integrations_versions_list" /> | `EXEC` | <CopyableCode code="integrationsId, locationsId, projectsId" /> | Returns the list of all integration versions in the specified project. |
-| <CopyableCode code="_projects_locations_products_integrations_versions_list" /> | `EXEC` | <CopyableCode code="integrationsId, locationsId, productsId, projectsId" /> | Returns the list of all integration versions in the specified project. |
 | <CopyableCode code="projects_locations_integrations_versions_download" /> | `EXEC` | <CopyableCode code="integrationsId, locationsId, projectsId, versionsId" /> | Downloads an integration. Retrieves the `IntegrationVersion` for a given `integration_id` and returns the response as a string. |
 | <CopyableCode code="projects_locations_integrations_versions_download_json_package" /> | `EXEC` | <CopyableCode code="integrationsId, locationsId, projectsId, versionsId" /> | Downloads an Integration version package like IntegrationVersion,Integration Config etc. Retrieves the IntegrationVersion package for a given `integration_id` and returns the response as a JSON. |
 | <CopyableCode code="projects_locations_integrations_versions_publish" /> | `EXEC` | <CopyableCode code="integrationsId, locationsId, projectsId, versionsId" /> | This RPC throws an exception if the integration is in ARCHIVED or ACTIVE state. This RPC throws an exception if the version being published is DRAFT, and if the `locked_by` user is not the same as the user performing the Publish. Audit fields updated include last_published_timestamp, last_published_by, last_modified_timestamp, last_modified_by. Any existing lock is on this integration is released. |
@@ -81,3 +82,235 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_products_integrations_versions_takeover_edit_lock" /> | `EXEC` | <CopyableCode code="integrationsId, locationsId, productsId, projectsId, versionsId" /> | Clears the `locked_by` and `locked_at_timestamp`in the DRAFT version of this integration. It then performs the same action as the CreateDraftIntegrationVersion (i.e., copies the DRAFT version of the integration as a SNAPSHOT and then creates a new DRAFT version with the `locked_by` set to the `user_taking_over` and the `locked_at_timestamp` set to the current timestamp). Both the `locked_by` and `user_taking_over` are notified via email about the takeover. This RPC throws an exception if the integration is not in DRAFT status or if the `locked_by` and `locked_at_timestamp` fields are not set.The TakeoverEdit lock is treated the same as an edit of the integration, and hence shares ACLs with edit. Audit fields updated include last_modified_timestamp, last_modified_by. |
 | <CopyableCode code="projects_locations_products_integrations_versions_unpublish" /> | `EXEC` | <CopyableCode code="integrationsId, locationsId, productsId, projectsId, versionsId" /> | Sets the status of the ACTIVE integration to SNAPSHOT with a new tag "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the version being snapshot is not ACTIVE. Audit fields added include action, action_by, action_timestamp. |
 | <CopyableCode code="projects_locations_products_integrations_versions_upload" /> | `EXEC` | <CopyableCode code="integrationsId, locationsId, productsId, projectsId" /> | Uploads an integration. The content can be a previously downloaded integration. Performs the same function as CreateDraftIntegrationVersion, but accepts input in a string format, which holds the complete representation of the IntegrationVersion content. |
+
+## `SELECT` examples
+
+Returns the list of all integration versions in the specified project.
+
+```sql
+SELECT
+name,
+description,
+cloudLoggingDetails,
+createTime,
+createdFromTemplate,
+databasePersistencePolicy,
+enableVariableMasking,
+errorCatcherConfigs,
+integrationConfigParameters,
+integrationParameters,
+integrationParametersInternal,
+lastModifierEmail,
+lockHolder,
+origin,
+parentTemplateId,
+runAsServiceAccount,
+snapshotNumber,
+state,
+status,
+taskConfigs,
+taskConfigsInternal,
+teardown,
+triggerConfigs,
+triggerConfigsInternal,
+updateTime,
+userLabel
+FROM google.integrations.versions
+WHERE integrationsId = '{{ integrationsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>versions</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.integrations.versions (
+integrationsId,
+locationsId,
+projectsId,
+integrationParametersInternal,
+runAsServiceAccount,
+userLabel,
+cloudLoggingDetails,
+integrationParameters,
+integrationConfigParameters,
+teardown,
+state,
+taskConfigsInternal,
+triggerConfigsInternal,
+triggerConfigs,
+lockHolder,
+createdFromTemplate,
+status,
+errorCatcherConfigs,
+lastModifierEmail,
+enableVariableMasking,
+updateTime,
+taskConfigs,
+origin,
+createTime,
+description,
+name,
+databasePersistencePolicy,
+parentTemplateId,
+snapshotNumber
+)
+SELECT 
+'{{ integrationsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ integrationParametersInternal }}',
+'{{ runAsServiceAccount }}',
+'{{ userLabel }}',
+'{{ cloudLoggingDetails }}',
+'{{ integrationParameters }}',
+'{{ integrationConfigParameters }}',
+'{{ teardown }}',
+'{{ state }}',
+'{{ taskConfigsInternal }}',
+'{{ triggerConfigsInternal }}',
+'{{ triggerConfigs }}',
+'{{ lockHolder }}',
+'{{ createdFromTemplate }}',
+'{{ status }}',
+'{{ errorCatcherConfigs }}',
+'{{ lastModifierEmail }}',
+true|false,
+'{{ updateTime }}',
+'{{ taskConfigs }}',
+'{{ origin }}',
+'{{ createTime }}',
+'{{ description }}',
+'{{ name }}',
+'{{ databasePersistencePolicy }}',
+'{{ parentTemplateId }}',
+'{{ snapshotNumber }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: integrationParametersInternal
+        value: '{{ integrationParametersInternal }}'
+      - name: runAsServiceAccount
+        value: '{{ runAsServiceAccount }}'
+      - name: userLabel
+        value: '{{ userLabel }}'
+      - name: cloudLoggingDetails
+        value: '{{ cloudLoggingDetails }}'
+      - name: integrationParameters
+        value: '{{ integrationParameters }}'
+      - name: integrationConfigParameters
+        value: '{{ integrationConfigParameters }}'
+      - name: teardown
+        value: '{{ teardown }}'
+      - name: state
+        value: '{{ state }}'
+      - name: taskConfigsInternal
+        value: '{{ taskConfigsInternal }}'
+      - name: triggerConfigsInternal
+        value: '{{ triggerConfigsInternal }}'
+      - name: triggerConfigs
+        value: '{{ triggerConfigs }}'
+      - name: lockHolder
+        value: '{{ lockHolder }}'
+      - name: createdFromTemplate
+        value: '{{ createdFromTemplate }}'
+      - name: status
+        value: '{{ status }}'
+      - name: errorCatcherConfigs
+        value: '{{ errorCatcherConfigs }}'
+      - name: lastModifierEmail
+        value: '{{ lastModifierEmail }}'
+      - name: enableVariableMasking
+        value: '{{ enableVariableMasking }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: taskConfigs
+        value: '{{ taskConfigs }}'
+      - name: origin
+        value: '{{ origin }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: description
+        value: '{{ description }}'
+      - name: name
+        value: '{{ name }}'
+      - name: databasePersistencePolicy
+        value: '{{ databasePersistencePolicy }}'
+      - name: parentTemplateId
+        value: '{{ parentTemplateId }}'
+      - name: snapshotNumber
+        value: '{{ snapshotNumber }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a version only if the necessary resources are available.
+
+```sql
+UPDATE google.integrations.versions
+SET 
+integrationParametersInternal = '{{ integrationParametersInternal }}',
+runAsServiceAccount = '{{ runAsServiceAccount }}',
+userLabel = '{{ userLabel }}',
+cloudLoggingDetails = '{{ cloudLoggingDetails }}',
+integrationParameters = '{{ integrationParameters }}',
+integrationConfigParameters = '{{ integrationConfigParameters }}',
+teardown = '{{ teardown }}',
+state = '{{ state }}',
+taskConfigsInternal = '{{ taskConfigsInternal }}',
+triggerConfigsInternal = '{{ triggerConfigsInternal }}',
+triggerConfigs = '{{ triggerConfigs }}',
+lockHolder = '{{ lockHolder }}',
+createdFromTemplate = '{{ createdFromTemplate }}',
+status = '{{ status }}',
+errorCatcherConfigs = '{{ errorCatcherConfigs }}',
+lastModifierEmail = '{{ lastModifierEmail }}',
+enableVariableMasking = true|false,
+updateTime = '{{ updateTime }}',
+taskConfigs = '{{ taskConfigs }}',
+origin = '{{ origin }}',
+createTime = '{{ createTime }}',
+description = '{{ description }}',
+name = '{{ name }}',
+databasePersistencePolicy = '{{ databasePersistencePolicy }}',
+parentTemplateId = '{{ parentTemplateId }}',
+snapshotNumber = '{{ snapshotNumber }}'
+WHERE 
+integrationsId = '{{ integrationsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND versionsId = '{{ versionsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified version resource.
+
+```sql
+DELETE FROM google.integrations.versions
+WHERE integrationsId = '{{ integrationsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND versionsId = '{{ versionsId }}';
+```

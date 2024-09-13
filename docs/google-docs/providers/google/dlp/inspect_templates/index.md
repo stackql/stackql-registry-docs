@@ -1,3 +1,4 @@
+
 ---
 title: inspect_templates
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - inspect_templates
   - dlp
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>inspect_template</code> resource or lists <code>inspect_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | Display name (max 256 chars). |
 | <CopyableCode code="inspectConfig" /> | `object` | Configuration description of the scanning process. When used with redactContent only info_types and min_likelihood are currently used. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of an inspectTemplate. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -59,7 +62,89 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_inspect_templates_patch" /> | `UPDATE` | <CopyableCode code="inspectTemplatesId, locationsId, organizationsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
 | <CopyableCode code="projects_inspect_templates_patch" /> | `UPDATE` | <CopyableCode code="inspectTemplatesId, projectsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
 | <CopyableCode code="projects_locations_inspect_templates_patch" /> | `UPDATE` | <CopyableCode code="inspectTemplatesId, locationsId, projectsId" /> | Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
-| <CopyableCode code="_organizations_inspect_templates_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
-| <CopyableCode code="_organizations_locations_inspect_templates_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
-| <CopyableCode code="_projects_inspect_templates_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
-| <CopyableCode code="_projects_locations_inspect_templates_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. |
+
+## `SELECT` examples
+
+Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+displayName,
+inspectConfig,
+updateTime
+FROM google.dlp.inspect_templates
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>inspect_templates</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dlp.inspect_templates (
+projectsId,
+templateId,
+locationId,
+inspectTemplate
+)
+SELECT 
+'{{ projectsId }}',
+'{{ templateId }}',
+'{{ locationId }}',
+'{{ inspectTemplate }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: templateId
+        value: '{{ templateId }}'
+      - name: locationId
+        value: '{{ locationId }}'
+      - name: inspectTemplate
+        value: '{{ inspectTemplate }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a inspect_template only if the necessary resources are available.
+
+```sql
+UPDATE google.dlp.inspect_templates
+SET 
+inspectTemplate = '{{ inspectTemplate }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+inspectTemplatesId = '{{ inspectTemplatesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified inspect_template resource.
+
+```sql
+DELETE FROM google.dlp.inspect_templates
+WHERE inspectTemplatesId = '{{ inspectTemplatesId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: private_connections
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - private_connections
   - datastream
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>private_connection</code> resource or lists <code>private_connections</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,6 +40,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The state of the Private Connection. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The update time of the resource. |
 | <CopyableCode code="vpcPeeringConfig" /> | `object` | The VPC Peering configuration is used to create VPC peering between Datastream and the consumer's VPC. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,4 +48,101 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Use this method to list private connectivity configurations in a project and location. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Use this method to create a private connectivity configuration. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, privateConnectionsId, projectsId" /> | Use this method to delete a private connectivity configuration. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Use this method to list private connectivity configurations in a project and location. |
+
+## `SELECT` examples
+
+Use this method to list private connectivity configurations in a project and location.
+
+```sql
+SELECT
+name,
+createTime,
+displayName,
+error,
+labels,
+state,
+updateTime,
+vpcPeeringConfig
+FROM google.datastream.private_connections
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>private_connections</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.datastream.private_connections (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+labels,
+displayName,
+state,
+error,
+vpcPeeringConfig
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ displayName }}',
+'{{ state }}',
+'{{ error }}',
+'{{ vpcPeeringConfig }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: state
+        value: '{{ state }}'
+      - name: error
+        value: '{{ error }}'
+      - name: vpcPeeringConfig
+        value: '{{ vpcPeeringConfig }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified private_connection resource.
+
+```sql
+DELETE FROM google.datastream.private_connections
+WHERE locationsId = '{{ locationsId }}'
+AND privateConnectionsId = '{{ privateConnectionsId }}'
+AND projectsId = '{{ projectsId }}';
+```

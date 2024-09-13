@@ -1,3 +1,4 @@
+
 ---
 title: instances
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances
   - redis
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instance</code> resource or lists <code>instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Unique name of the resource in this scope including project and location using the form: `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;/instances/&#123;instance_id&#125;` Note: Redis instances are managed and addressed at regional level so location_id here refers to a GCP region; however, users may choose which specific zone (or collection of zones for cross-zone instances) an instance should be provisioned in. Refer to location_id and alternative_location_id fields for more details. |
+| <CopyableCode code="name" /> | `string` | Required. Unique name of the resource in this scope including project and location using the form: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` Note: Redis instances are managed and addressed at regional level so location_id here refers to a GCP region; however, users may choose which specific zone (or collection of zones for cross-zone instances) an instance should be provisioned in. Refer to location_id and alternative_location_id fields for more details. |
 | <CopyableCode code="alternativeLocationId" /> | `string` | Optional. If specified, at least one node will be provisioned in this zone in addition to the zone specified in location_id. Only applicable to standard tier. If provided, it must be a different zone from the one provided in [location_id]. Additional nodes beyond the first 2 will be placed in zones selected by the service. |
 | <CopyableCode code="authEnabled" /> | `boolean` | Optional. Indicates whether OSS Redis AUTH is enabled for the instance. If set to "true" AUTH is enabled on the instance. Default value is "false" meaning AUTH is disabled. |
 | <CopyableCode code="authorizedNetwork" /> | `string` | Optional. The full name of the Google Compute Engine [network](https://cloud.google.com/vpc/docs/vpc) to which the instance is connected. If left unspecified, the `default` network will be used. |
@@ -67,17 +69,310 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="suspensionReasons" /> | `array` | Optional. reasons that causes instance in "SUSPENDED" state. |
 | <CopyableCode code="tier" /> | `string` | Required. The service tier of the instance. |
 | <CopyableCode code="transitEncryptionMode" /> | `string` | Optional. The TLS mode of the Redis instance. If not provided, TLS is disabled for the instance. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Gets the details of a specific Redis instance. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all Redis instances owned by a project in either the specified location (region) or all locations. The location should have the following format: * `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;` If `location_id` is specified as `-` (wildcard), then all regions available to the project are queried, and the results are aggregated. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists all Redis instances owned by a project in either the specified location (region) or all locations. The location should have the following format: * `projects/{project_id}/locations/{location_id}` If `location_id` is specified as `-` (wildcard), then all regions available to the project are queried, and the results are aggregated. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Redis instance based on the specified tier and memory size. By default, the instance is accessible from the project's [default network](https://cloud.google.com/vpc/docs/vpc). The creation is executed asynchronously and callers may check the returned operation to track its progress. Once the operation is completed the Redis instance will be fully functional. Completed longrunning.Operation will contain the new instance object in the response field. The returned operation is automatically deleted after a few hours, so there is no need to call DeleteOperation. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Deletes a specific Redis instance. Instance stops serving and data is deleted. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Updates the metadata and configuration of a specific Redis instance. Completed longrunning.Operation will contain the new instance object in the response field. The returned operation is automatically deleted after a few hours, so there is no need to call DeleteOperation. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all Redis instances owned by a project in either the specified location (region) or all locations. The location should have the following format: * `projects/&#123;project_id&#125;/locations/&#123;location_id&#125;` If `location_id` is specified as `-` (wildcard), then all regions available to the project are queried, and the results are aggregated. |
 | <CopyableCode code="export" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Export Redis instance data into a Redis RDB format file in Cloud Storage. Redis will continue serving during this operation. The returned operation is automatically deleted after a few hours, so there is no need to call DeleteOperation. |
 | <CopyableCode code="failover" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Initiates a failover of the primary node to current replica node for a specific STANDARD tier Cloud Memorystore for Redis instance. |
 | <CopyableCode code="import" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Import a Redis RDB snapshot file from Cloud Storage into a Redis instance. Redis may stop serving during this operation. Instance state will be IMPORTING for entire operation. When complete, the instance will contain only data from the imported file. The returned operation is automatically deleted after a few hours, so there is no need to call DeleteOperation. |
 | <CopyableCode code="reschedule_maintenance" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Reschedule maintenance for a given instance in a given project and location. |
 | <CopyableCode code="upgrade" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Upgrades Redis instance to the newer Redis version specified in the request. |
+
+## `SELECT` examples
+
+Lists all Redis instances owned by a project in either the specified location (region) or all locations. The location should have the following format: * `projects/{project_id}/locations/{location_id}` If `location_id` is specified as `-` (wildcard), then all regions available to the project are queried, and the results are aggregated.
+
+```sql
+SELECT
+name,
+alternativeLocationId,
+authEnabled,
+authorizedNetwork,
+availableMaintenanceVersions,
+connectMode,
+createTime,
+currentLocationId,
+customerManagedKey,
+displayName,
+host,
+labels,
+locationId,
+maintenancePolicy,
+maintenanceSchedule,
+maintenanceVersion,
+memorySizeGb,
+nodes,
+persistenceConfig,
+persistenceIamIdentity,
+port,
+readEndpoint,
+readEndpointPort,
+readReplicasMode,
+redisConfigs,
+redisVersion,
+replicaCount,
+reservedIpRange,
+satisfiesPzi,
+satisfiesPzs,
+secondaryIpRange,
+serverCaCerts,
+state,
+statusMessage,
+suspensionReasons,
+tier,
+transitEncryptionMode
+FROM google.redis.instances
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>instances</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.redis.instances (
+locationsId,
+projectsId,
+name,
+displayName,
+labels,
+locationId,
+alternativeLocationId,
+redisVersion,
+reservedIpRange,
+secondaryIpRange,
+host,
+port,
+currentLocationId,
+createTime,
+state,
+statusMessage,
+redisConfigs,
+tier,
+memorySizeGb,
+authorizedNetwork,
+persistenceIamIdentity,
+connectMode,
+authEnabled,
+serverCaCerts,
+transitEncryptionMode,
+maintenancePolicy,
+maintenanceSchedule,
+replicaCount,
+nodes,
+readEndpoint,
+readEndpointPort,
+readReplicasMode,
+customerManagedKey,
+persistenceConfig,
+suspensionReasons,
+maintenanceVersion,
+availableMaintenanceVersions,
+satisfiesPzs,
+satisfiesPzi
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ labels }}',
+'{{ locationId }}',
+'{{ alternativeLocationId }}',
+'{{ redisVersion }}',
+'{{ reservedIpRange }}',
+'{{ secondaryIpRange }}',
+'{{ host }}',
+'{{ port }}',
+'{{ currentLocationId }}',
+'{{ createTime }}',
+'{{ state }}',
+'{{ statusMessage }}',
+'{{ redisConfigs }}',
+'{{ tier }}',
+'{{ memorySizeGb }}',
+'{{ authorizedNetwork }}',
+'{{ persistenceIamIdentity }}',
+'{{ connectMode }}',
+true|false,
+'{{ serverCaCerts }}',
+'{{ transitEncryptionMode }}',
+'{{ maintenancePolicy }}',
+'{{ maintenanceSchedule }}',
+'{{ replicaCount }}',
+'{{ nodes }}',
+'{{ readEndpoint }}',
+'{{ readEndpointPort }}',
+'{{ readReplicasMode }}',
+'{{ customerManagedKey }}',
+'{{ persistenceConfig }}',
+'{{ suspensionReasons }}',
+'{{ maintenanceVersion }}',
+'{{ availableMaintenanceVersions }}',
+true|false,
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: locationId
+        value: '{{ locationId }}'
+      - name: alternativeLocationId
+        value: '{{ alternativeLocationId }}'
+      - name: redisVersion
+        value: '{{ redisVersion }}'
+      - name: reservedIpRange
+        value: '{{ reservedIpRange }}'
+      - name: secondaryIpRange
+        value: '{{ secondaryIpRange }}'
+      - name: host
+        value: '{{ host }}'
+      - name: port
+        value: '{{ port }}'
+      - name: currentLocationId
+        value: '{{ currentLocationId }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: statusMessage
+        value: '{{ statusMessage }}'
+      - name: redisConfigs
+        value: '{{ redisConfigs }}'
+      - name: tier
+        value: '{{ tier }}'
+      - name: memorySizeGb
+        value: '{{ memorySizeGb }}'
+      - name: authorizedNetwork
+        value: '{{ authorizedNetwork }}'
+      - name: persistenceIamIdentity
+        value: '{{ persistenceIamIdentity }}'
+      - name: connectMode
+        value: '{{ connectMode }}'
+      - name: authEnabled
+        value: '{{ authEnabled }}'
+      - name: serverCaCerts
+        value: '{{ serverCaCerts }}'
+      - name: transitEncryptionMode
+        value: '{{ transitEncryptionMode }}'
+      - name: maintenancePolicy
+        value: '{{ maintenancePolicy }}'
+      - name: maintenanceSchedule
+        value: '{{ maintenanceSchedule }}'
+      - name: replicaCount
+        value: '{{ replicaCount }}'
+      - name: nodes
+        value: '{{ nodes }}'
+      - name: readEndpoint
+        value: '{{ readEndpoint }}'
+      - name: readEndpointPort
+        value: '{{ readEndpointPort }}'
+      - name: readReplicasMode
+        value: '{{ readReplicasMode }}'
+      - name: customerManagedKey
+        value: '{{ customerManagedKey }}'
+      - name: persistenceConfig
+        value: '{{ persistenceConfig }}'
+      - name: suspensionReasons
+        value: '{{ suspensionReasons }}'
+      - name: maintenanceVersion
+        value: '{{ maintenanceVersion }}'
+      - name: availableMaintenanceVersions
+        value: '{{ availableMaintenanceVersions }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a instance only if the necessary resources are available.
+
+```sql
+UPDATE google.redis.instances
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+labels = '{{ labels }}',
+locationId = '{{ locationId }}',
+alternativeLocationId = '{{ alternativeLocationId }}',
+redisVersion = '{{ redisVersion }}',
+reservedIpRange = '{{ reservedIpRange }}',
+secondaryIpRange = '{{ secondaryIpRange }}',
+host = '{{ host }}',
+port = '{{ port }}',
+currentLocationId = '{{ currentLocationId }}',
+createTime = '{{ createTime }}',
+state = '{{ state }}',
+statusMessage = '{{ statusMessage }}',
+redisConfigs = '{{ redisConfigs }}',
+tier = '{{ tier }}',
+memorySizeGb = '{{ memorySizeGb }}',
+authorizedNetwork = '{{ authorizedNetwork }}',
+persistenceIamIdentity = '{{ persistenceIamIdentity }}',
+connectMode = '{{ connectMode }}',
+authEnabled = true|false,
+serverCaCerts = '{{ serverCaCerts }}',
+transitEncryptionMode = '{{ transitEncryptionMode }}',
+maintenancePolicy = '{{ maintenancePolicy }}',
+maintenanceSchedule = '{{ maintenanceSchedule }}',
+replicaCount = '{{ replicaCount }}',
+nodes = '{{ nodes }}',
+readEndpoint = '{{ readEndpoint }}',
+readEndpointPort = '{{ readEndpointPort }}',
+readReplicasMode = '{{ readReplicasMode }}',
+customerManagedKey = '{{ customerManagedKey }}',
+persistenceConfig = '{{ persistenceConfig }}',
+suspensionReasons = '{{ suspensionReasons }}',
+maintenanceVersion = '{{ maintenanceVersion }}',
+availableMaintenanceVersions = '{{ availableMaintenanceVersions }}',
+satisfiesPzs = true|false,
+satisfiesPzi = true|false
+WHERE 
+instancesId = '{{ instancesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified instance resource.
+
+```sql
+DELETE FROM google.redis.instances
+WHERE instancesId = '{{ instancesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

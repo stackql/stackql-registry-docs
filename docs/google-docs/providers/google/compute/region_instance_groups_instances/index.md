@@ -1,3 +1,4 @@
+
 ---
 title: region_instance_groups_instances
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_instance_groups_instances
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_instance_groups_instance</code> resource or lists <code>region_instance_groups_instances</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="instance" /> | `string` | [Output Only] The URL of the instance. |
+| <CopyableCode code="namedPorts" /> | `array` | [Output Only] The named ports that belong to this instance group. |
+| <CopyableCode code="status" /> | `string` | [Output Only] The status of the instance. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_instances" /> | `EXEC` | <CopyableCode code="instanceGroup, project, region" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_instances" /> | `SELECT` | <CopyableCode code="instanceGroup, project, region" /> | Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can list all instances or only the instances that are running. The orderBy query parameter is not supported. |
+
+## `SELECT` examples
+
+Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can list all instances or only the instances that are running. The orderBy query parameter is not supported.
+
+```sql
+SELECT
+instance,
+namedPorts,
+status
+FROM google.compute.region_instance_groups_instances
+WHERE instanceGroup = '{{ instanceGroup }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}'; 
+```

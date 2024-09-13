@@ -1,3 +1,4 @@
+
 ---
 title: nodes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - nodes
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>node</code> resource or lists <code>nodes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,9 +39,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nodeTypeId" /> | `string` | Output only. The canonical identifier of the node type (corresponds to the `NodeType`). For example: standard-72. |
 | <CopyableCode code="state" /> | `string` | Output only. The state of the appliance. |
 | <CopyableCode code="version" /> | `string` | Output only. The version number of the VMware ESXi management component in this cluster. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="clustersId, locationsId, nodesId, privateCloudsId, projectsId" /> | Gets details of a single node. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="clustersId, locationsId, privateCloudsId, projectsId" /> | Lists nodes in a given cluster. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, privateCloudsId, projectsId" /> | Lists nodes in a given cluster. |
+
+## `SELECT` examples
+
+Lists nodes in a given cluster.
+
+```sql
+SELECT
+name,
+customCoreCount,
+fqdn,
+internalIp,
+nodeTypeId,
+state,
+version
+FROM google.vmwareengine.nodes
+WHERE clustersId = '{{ clustersId }}'
+AND locationsId = '{{ locationsId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

@@ -4,31 +4,29 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - google
+  - google cloud platform
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Google Cloud Platform resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 id: google-doc
 slug: /providers/google
+
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
-Cloud computing services offered by Google.  
-    
-:::info Provider Summary (v24.06.00236)
+Cloud services from Google.
+
+:::info Provider Summary (v24.09.00251)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>163</b></span><br />
-<span>total methods:&nbsp;<b>8365</b></span><br />
-</div>
-<div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1706</b></span><br />
-<span>total selectable resources:&nbsp;<b>1438</b></span><br />
+<span>total services:&nbsp;<b>167</b></span><br />
+<span>total resources:&nbsp;<b>0</b></span><br />
 </div>
 </div>
 
@@ -107,12 +105,14 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/addressvalidation/">addressvalidation</a><br />
 <a href="/providers/google/advisorynotifications/">advisorynotifications</a><br />
 <a href="/providers/google/aiplatform/">aiplatform</a><br />
+<a href="/providers/google/airquality/">airquality</a><br />
 <a href="/providers/google/alloydb/">alloydb</a><br />
 <a href="/providers/google/analyticshub/">analyticshub</a><br />
 <a href="/providers/google/apigateway/">apigateway</a><br />
 <a href="/providers/google/apigee/">apigee</a><br />
 <a href="/providers/google/apigeeregistry/">apigeeregistry</a><br />
 <a href="/providers/google/apikeys/">apikeys</a><br />
+<a href="/providers/google/apim/">apim</a><br />
 <a href="/providers/google/appengine/">appengine</a><br />
 <a href="/providers/google/apphub/">apphub</a><br />
 <a href="/providers/google/artifactregistry/">artifactregistry</a><br />
@@ -190,6 +190,8 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/healthcare/">healthcare</a><br />
 <a href="/providers/google/iam/">iam</a><br />
 <a href="/providers/google/iamcredentials/">iamcredentials</a><br />
+<a href="/providers/google/iamv2/">iamv2</a><br />
+<a href="/providers/google/iamv2beta/">iamv2beta</a><br />
 <a href="/providers/google/iap/">iap</a><br />
 <a href="/providers/google/identitytoolkit/">identitytoolkit</a><br />
 <a href="/providers/google/ids/">ids</a><br />
@@ -220,6 +222,7 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/policyanalyzer/">policyanalyzer</a><br />
 <a href="/providers/google/policysimulator/">policysimulator</a><br />
 <a href="/providers/google/policytroubleshooter/">policytroubleshooter</a><br />
+<a href="/providers/google/pollen/">pollen</a><br />
 <a href="/providers/google/privateca/">privateca</a><br />
 <a href="/providers/google/prod_tt_sasportal/">prod_tt_sasportal</a><br />
 <a href="/providers/google/publicca/">publicca</a><br />
@@ -244,7 +247,6 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/servicenetworking/">servicenetworking</a><br />
 <a href="/providers/google/serviceusage/">serviceusage</a><br />
 <a href="/providers/google/solar/">solar</a><br />
-<a href="/providers/google/sourcerepo/">sourcerepo</a><br />
 <a href="/providers/google/spanner/">spanner</a><br />
 <a href="/providers/google/speech/">speech</a><br />
 <a href="/providers/google/sqladmin/">sqladmin</a><br />

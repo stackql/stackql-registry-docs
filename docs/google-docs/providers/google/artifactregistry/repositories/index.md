@@ -1,3 +1,4 @@
+
 ---
 title: repositories
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - repositories
   - artifactregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>repository</code> resource or lists <code>repositories</code> in a region
 
 ## Overview
 <table><tbody>
@@ -48,6 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sizeBytes" /> | `string` | Output only. The size, in bytes, of all artifact storage in this repository. Repositories that are generally available or in public preview use this to calculate storage costs. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time when the repository was last updated. |
 | <CopyableCode code="virtualRepositoryConfig" /> | `object` | Virtual repository configuration. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -56,4 +59,182 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a repository. The returned Operation will finish once the repository has been created. Its response will be the created Repository. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Deletes a repository and all of its contents. The returned Operation will finish once the repository has been deleted. It will not have any Operation metadata and will return a google.protobuf.Empty response. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Updates a repository. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists repositories. |
+
+## `SELECT` examples
+
+Lists repositories.
+
+```sql
+SELECT
+name,
+description,
+cleanupPolicies,
+cleanupPolicyDryRun,
+createTime,
+disallowUnspecifiedMode,
+dockerConfig,
+format,
+kmsKeyName,
+labels,
+mavenConfig,
+mode,
+remoteRepositoryConfig,
+satisfiesPzi,
+satisfiesPzs,
+sizeBytes,
+updateTime,
+virtualRepositoryConfig
+FROM google.artifactregistry.repositories
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>repositories</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.artifactregistry.repositories (
+locationsId,
+projectsId,
+mavenConfig,
+dockerConfig,
+virtualRepositoryConfig,
+remoteRepositoryConfig,
+name,
+format,
+description,
+labels,
+createTime,
+updateTime,
+kmsKeyName,
+mode,
+cleanupPolicies,
+sizeBytes,
+satisfiesPzs,
+cleanupPolicyDryRun,
+disallowUnspecifiedMode,
+satisfiesPzi
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ mavenConfig }}',
+'{{ dockerConfig }}',
+'{{ virtualRepositoryConfig }}',
+'{{ remoteRepositoryConfig }}',
+'{{ name }}',
+'{{ format }}',
+'{{ description }}',
+'{{ labels }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ kmsKeyName }}',
+'{{ mode }}',
+'{{ cleanupPolicies }}',
+'{{ sizeBytes }}',
+true|false,
+true|false,
+true|false,
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: mavenConfig
+        value: '{{ mavenConfig }}'
+      - name: dockerConfig
+        value: '{{ dockerConfig }}'
+      - name: virtualRepositoryConfig
+        value: '{{ virtualRepositoryConfig }}'
+      - name: remoteRepositoryConfig
+        value: '{{ remoteRepositoryConfig }}'
+      - name: name
+        value: '{{ name }}'
+      - name: format
+        value: '{{ format }}'
+      - name: description
+        value: '{{ description }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: kmsKeyName
+        value: '{{ kmsKeyName }}'
+      - name: mode
+        value: '{{ mode }}'
+      - name: cleanupPolicies
+        value: '{{ cleanupPolicies }}'
+      - name: sizeBytes
+        value: '{{ sizeBytes }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: cleanupPolicyDryRun
+        value: '{{ cleanupPolicyDryRun }}'
+      - name: disallowUnspecifiedMode
+        value: '{{ disallowUnspecifiedMode }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a repository only if the necessary resources are available.
+
+```sql
+UPDATE google.artifactregistry.repositories
+SET 
+mavenConfig = '{{ mavenConfig }}',
+dockerConfig = '{{ dockerConfig }}',
+virtualRepositoryConfig = '{{ virtualRepositoryConfig }}',
+remoteRepositoryConfig = '{{ remoteRepositoryConfig }}',
+name = '{{ name }}',
+format = '{{ format }}',
+description = '{{ description }}',
+labels = '{{ labels }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+kmsKeyName = '{{ kmsKeyName }}',
+mode = '{{ mode }}',
+cleanupPolicies = '{{ cleanupPolicies }}',
+sizeBytes = '{{ sizeBytes }}',
+satisfiesPzs = true|false,
+cleanupPolicyDryRun = true|false,
+disallowUnspecifiedMode = true|false,
+satisfiesPzi = true|false
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified repository resource.
+
+```sql
+DELETE FROM google.artifactregistry.repositories
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
+```

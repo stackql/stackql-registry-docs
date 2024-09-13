@@ -1,3 +1,4 @@
+
 ---
 title: developers
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - developers
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>developer</code> resource or lists <code>developers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizationName" /> | `string` | Output only. Name of the Apigee organization in which the developer resides. |
 | <CopyableCode code="status" /> | `string` | Output only. Status of the developer. Valid values are `active` and `inactive`. |
 | <CopyableCode code="userName" /> | `string` | Required. User name of the developer. Not used by Apigee hybrid. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,6 +54,130 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_developers_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all developers in an organization by email address. By default, the response does not include company developers. Set the `includeCompany` query parameter to `true` to include company developers. **Note**: A maximum of 1000 developers are returned in the response. You paginate the list of developers returned using the `startKey` and `count` query parameters. |
 | <CopyableCode code="organizations_developers_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a developer. Once created, the developer can register an app and obtain an API key. At creation time, a developer is set as `active`. To change the developer status, use the SetDeveloperStatus API. |
 | <CopyableCode code="organizations_developers_delete" /> | `DELETE` | <CopyableCode code="developersId, organizationsId" /> | Deletes a developer. All apps and API keys associated with the developer are also removed. **Warning**: This API will permanently delete the developer and related artifacts. To avoid permanently deleting developers and their artifacts, set the developer status to `inactive` using the SetDeveloperStatus API. **Note**: The delete operation is asynchronous. The developer app is deleted immediately, but its associated resources, such as apps and API keys, may take anywhere from a few seconds to a few minutes to be deleted. |
-| <CopyableCode code="organizations_developers_update" /> | `UPDATE` | <CopyableCode code="developersId, organizationsId" /> | Updates a developer. This API replaces the existing developer details with those specified in the request. Include or exclude any existing details that you want to retain or delete, respectively. The custom attribute limit is 18. **Note**: OAuth access tokens and Key Management Service (KMS) entities (apps, developers, and API products) are cached for 180 seconds (current default). Any custom attributes associated with these entities are cached for at least 180 seconds after the entity is accessed at runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy won't be able to expire an access token in less than 180 seconds. |
 | <CopyableCode code="organizations_developers_attributes" /> | `EXEC` | <CopyableCode code="developersId, organizationsId" /> | Updates developer attributes. This API replaces the existing attributes with those specified in the request. Add new attributes, and include or exclude any existing attributes that you want to retain or remove, respectively. The custom attribute limit is 18. **Note**: OAuth access tokens and Key Management Service (KMS) entities (apps, developers, and API products) are cached for 180 seconds (default). Any custom attributes associated with these entities are cached for at least 180 seconds after the entity is accessed at runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy won't be able to expire an access token in less than 180 seconds. |
 | <CopyableCode code="organizations_developers_set_developer_status" /> | `EXEC` | <CopyableCode code="developersId, organizationsId" /> | Sets the status of a developer. A developer is `active` by default. If you set a developer's status to `inactive`, the API keys assigned to the developer apps are no longer valid even though the API keys are set to `approved`. Inactive developers can still sign in to the developer portal and create apps; however, any new API keys generated during app creation won't work. To set the status of a developer, set the `action` query parameter to `active` or `inactive`, and the `Content-Type` header to `application/octet-stream`. If successful, the API call returns the following HTTP status code: `204 No Content` |
+| <CopyableCode code="organizations_developers_update" /> | `EXEC` | <CopyableCode code="developersId, organizationsId" /> | Updates a developer. This API replaces the existing developer details with those specified in the request. Include or exclude any existing details that you want to retain or delete, respectively. The custom attribute limit is 18. **Note**: OAuth access tokens and Key Management Service (KMS) entities (apps, developers, and API products) are cached for 180 seconds (current default). Any custom attributes associated with these entities are cached for at least 180 seconds after the entity is accessed at runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy won't be able to expire an access token in less than 180 seconds. |
+
+## `SELECT` examples
+
+Lists all developers in an organization by email address. By default, the response does not include company developers. Set the `includeCompany` query parameter to `true` to include company developers. **Note**: A maximum of 1000 developers are returned in the response. You paginate the list of developers returned using the `startKey` and `count` query parameters.
+
+```sql
+SELECT
+accessType,
+appFamily,
+apps,
+attributes,
+companies,
+createdAt,
+developerId,
+email,
+firstName,
+lastModifiedAt,
+lastName,
+organizationName,
+status,
+userName
+FROM google.apigee.developers
+WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>developers</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.developers (
+organizationsId,
+userName,
+lastModifiedAt,
+apps,
+companies,
+developerId,
+attributes,
+lastName,
+firstName,
+accessType,
+status,
+appFamily,
+organizationName,
+email,
+createdAt
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ userName }}',
+'{{ lastModifiedAt }}',
+'{{ apps }}',
+'{{ companies }}',
+'{{ developerId }}',
+'{{ attributes }}',
+'{{ lastName }}',
+'{{ firstName }}',
+'{{ accessType }}',
+'{{ status }}',
+'{{ appFamily }}',
+'{{ organizationName }}',
+'{{ email }}',
+'{{ createdAt }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: userName
+        value: '{{ userName }}'
+      - name: lastModifiedAt
+        value: '{{ lastModifiedAt }}'
+      - name: apps
+        value: '{{ apps }}'
+      - name: companies
+        value: '{{ companies }}'
+      - name: developerId
+        value: '{{ developerId }}'
+      - name: attributes
+        value: '{{ attributes }}'
+      - name: lastName
+        value: '{{ lastName }}'
+      - name: firstName
+        value: '{{ firstName }}'
+      - name: accessType
+        value: '{{ accessType }}'
+      - name: status
+        value: '{{ status }}'
+      - name: appFamily
+        value: '{{ appFamily }}'
+      - name: organizationName
+        value: '{{ organizationName }}'
+      - name: email
+        value: '{{ email }}'
+      - name: createdAt
+        value: '{{ createdAt }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified developer resource.
+
+```sql
+DELETE FROM google.apigee.developers
+WHERE developersId = '{{ developersId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

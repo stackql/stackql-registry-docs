@@ -1,3 +1,4 @@
+
 ---
 title: vpn_gateways
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - vpn_gateways
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>vpn_gateway</code> resource or lists <code>vpn_gateways</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,8 +43,9 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="network" /> | `string` | URL of the network to which this VPN gateway is attached. Provided by the client when the VPN gateway is created. |
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the VPN gateway resides. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
-| <CopyableCode code="stackType" /> | `string` | The stack type for this VPN gateway to identify the IP protocols that are enabled. Possible values are: IPV4_ONLY, IPV4_IPV6. If not specified, IPV4_ONLY will be used. |
+| <CopyableCode code="stackType" /> | `string` | The stack type for this VPN gateway to identify the IP protocols that are enabled. Possible values are: IPV4_ONLY, IPV4_IPV6, IPV6_ONLY. If not specified, IPV4_ONLY is used if the gateway IP version is IPV4, or IPV4_IPV6 if the gateway IP version is IPV6. |
 | <CopyableCode code="vpnInterfaces" /> | `array` | The list of VPN interfaces associated with this VPN gateway. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,5 +54,126 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of VPN gateways available to the specified project and region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a VPN gateway in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, vpnGateway" /> | Deletes the specified VPN gateway. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of VPN gateways. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Sets the labels on a VpnGateway. To learn more about labels, read the Labeling Resources documentation. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of VPN gateways. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+gatewayIpVersion,
+kind,
+labelFingerprint,
+labels,
+network,
+region,
+selfLink,
+stackType,
+vpnInterfaces
+FROM google.compute.vpn_gateways
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>vpn_gateways</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.vpn_gateways (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+region,
+network,
+selfLink,
+labels,
+labelFingerprint,
+vpnInterfaces,
+stackType,
+gatewayIpVersion
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ region }}',
+'{{ network }}',
+'{{ selfLink }}',
+'{{ labels }}',
+'{{ labelFingerprint }}',
+'{{ vpnInterfaces }}',
+'{{ stackType }}',
+'{{ gatewayIpVersion }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: region
+        value: '{{ region }}'
+      - name: network
+        value: '{{ network }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+      - name: vpnInterfaces
+        value: '{{ vpnInterfaces }}'
+      - name: stackType
+        value: '{{ stackType }}'
+      - name: gatewayIpVersion
+        value: '{{ gatewayIpVersion }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified vpn_gateway resource.
+
+```sql
+DELETE FROM google.compute.vpn_gateways
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'
+AND vpnGateway = '{{ vpnGateway }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: address_groups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - address_groups
   - networksecurity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>address_group</code> resource or lists <code>address_groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,6 +30,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="column_anon" /> | `string` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -41,7 +47,127 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_address_groups_delete" /> | `DELETE` | <CopyableCode code="addressGroupsId, locationsId, projectsId" /> | Deletes a single address group. |
 | <CopyableCode code="organizations_locations_address_groups_patch" /> | `UPDATE` | <CopyableCode code="addressGroupsId, locationsId, organizationsId" /> | Updates parameters of an address group. |
 | <CopyableCode code="projects_locations_address_groups_patch" /> | `UPDATE` | <CopyableCode code="addressGroupsId, locationsId, projectsId" /> | Updates the parameters of a single address group. |
-| <CopyableCode code="_organizations_locations_address_groups_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists address groups in a given project and location. |
-| <CopyableCode code="_projects_locations_address_groups_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists address groups in a given project and location. |
 | <CopyableCode code="organizations_locations_address_groups_clone_items" /> | `EXEC` | <CopyableCode code="addressGroupsId, locationsId, organizationsId" /> | Clones items from one address group to another. |
 | <CopyableCode code="projects_locations_address_groups_clone_items" /> | `EXEC` | <CopyableCode code="addressGroupsId, locationsId, projectsId" /> | Clones items from one address group to another. |
+
+## `SELECT` examples
+
+Lists address groups in a given project and location.
+
+```sql
+SELECT
+column_anon
+FROM google.networksecurity.address_groups
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>address_groups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networksecurity.address_groups (
+locationsId,
+projectsId,
+name,
+description,
+createTime,
+updateTime,
+labels,
+type,
+items,
+capacity,
+selfLink,
+purpose
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ type }}',
+'{{ items }}',
+'{{ capacity }}',
+'{{ selfLink }}',
+'{{ purpose }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: type
+        value: '{{ type }}'
+      - name: items
+        value: '{{ items }}'
+      - name: capacity
+        value: '{{ capacity }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: purpose
+        value: '{{ purpose }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a address_group only if the necessary resources are available.
+
+```sql
+UPDATE google.networksecurity.address_groups
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+type = '{{ type }}',
+items = '{{ items }}',
+capacity = '{{ capacity }}',
+selfLink = '{{ selfLink }}',
+purpose = '{{ purpose }}'
+WHERE 
+addressGroupsId = '{{ addressGroupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified address_group resource.
+
+```sql
+DELETE FROM google.networksecurity.address_groups
+WHERE addressGroupsId = '{{ addressGroupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

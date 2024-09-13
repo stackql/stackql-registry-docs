@@ -1,3 +1,4 @@
+
 ---
 title: voices
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - voices
   - texttospeech
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>voice</code> resource or lists <code>voices</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="voices" /> | `array` | The list of voices. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Returns a list of Voice supported for synthesis. |
+
+## `SELECT` examples
+
+Returns a list of Voice supported for synthesis.
+
+```sql
+SELECT
+voices
+FROM google.texttospeech.voices
+WHERE  = '{{  }}'; 
+```

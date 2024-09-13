@@ -1,3 +1,4 @@
+
 ---
 title: databases_ddl
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - databases_ddl
   - spanner
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>databases_ddl</code> resource or lists <code>databases_ddl</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,8 +34,39 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="protoDescriptors" /> | `string` | Proto descriptors stored in the database. Contains a protobuf-serialized [google.protobuf.FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto). For more details, see protobuffer [self description](https://developers.google.com/protocol-buffers/docs/techniques#self-description). |
 | <CopyableCode code="statements" /> | `array` | A list of formatted DDL statements defining the schema of the database specified in the request. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_instances_databases_get_ddl" /> | `SELECT` | <CopyableCode code="databasesId, instancesId, projectsId" /> | Returns the schema of a Cloud Spanner database as a list of formatted DDL statements. This method does not show pending schema updates, those may be queried using the Operations API. |
-| <CopyableCode code="projects_instances_databases_update_ddl" /> | `EXEC` | <CopyableCode code="databasesId, instancesId, projectsId" /> | Updates the schema of a Cloud Spanner database by creating/altering/dropping tables, columns, indexes, etc. The returned long-running operation will have a name of the format `/operations/` and can be used to track execution of the schema change(s). The metadata field type is UpdateDatabaseDdlMetadata. The operation has no response. |
+| <CopyableCode code="projects_instances_databases_update_ddl" /> | `UPDATE` | <CopyableCode code="databasesId, instancesId, projectsId" /> | Updates the schema of a Cloud Spanner database by creating/altering/dropping tables, columns, indexes, etc. The returned long-running operation will have a name of the format `/operations/` and can be used to track execution of the schema change(s). The metadata field type is UpdateDatabaseDdlMetadata. The operation has no response. |
+
+## `SELECT` examples
+
+Returns the schema of a Cloud Spanner database as a list of formatted DDL statements. This method does not show pending schema updates, those may be queried using the Operations API.
+
+```sql
+SELECT
+protoDescriptors,
+statements
+FROM google.spanner.databases_ddl
+WHERE databasesId = '{{ databasesId }}'
+AND instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a databases_ddl only if the necessary resources are available.
+
+```sql
+UPDATE google.spanner.databases_ddl
+SET 
+statements = '{{ statements }}',
+operationId = '{{ operationId }}',
+protoDescriptors = '{{ protoDescriptors }}'
+WHERE 
+databasesId = '{{ databasesId }}'
+AND instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}';
+```

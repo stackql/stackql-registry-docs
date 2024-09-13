@@ -1,3 +1,4 @@
+
 ---
 title: certificate_authorities
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - certificate_authorities
   - privateca
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>certificate_authority</code> resource or lists <code>certificate_authorities</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,36 +32,190 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Output only. The resource name for this CertificateAuthority in the format `projects/*/locations/*/caPools/*/certificateAuthorities/*`. |
-| <CopyableCode code="accessUrls" /> | `object` | URLs where a CertificateAuthority will publish content. |
-| <CopyableCode code="caCertificateDescriptions" /> | `array` | Output only. A structured description of this CertificateAuthority's CA certificate and its issuers. Ordered as self-to-root. |
-| <CopyableCode code="config" /> | `object` | A CertificateConfig describes an X.509 certificate or CSR that is to be created, as an alternative to using ASN.1. |
-| <CopyableCode code="createTime" /> | `string` | Output only. The time at which this CertificateAuthority was created. |
-| <CopyableCode code="deleteTime" /> | `string` | Output only. The time at which this CertificateAuthority was soft deleted, if it is in the DELETED state. |
-| <CopyableCode code="expireTime" /> | `string` | Output only. The time at which this CertificateAuthority will be permanently purged, if it is in the DELETED state. |
-| <CopyableCode code="gcsBucket" /> | `string` | Immutable. The name of a Cloud Storage bucket where this CertificateAuthority will publish content, such as the CA certificate and CRLs. This must be a bucket name, without any prefixes (such as `gs://`) or suffixes (such as `.googleapis.com`). For example, to use a bucket named `my-bucket`, you would simply specify `my-bucket`. If not specified, a managed bucket will be created. |
-| <CopyableCode code="keySpec" /> | `object` | A Cloud KMS key configuration that a CertificateAuthority will use. |
-| <CopyableCode code="labels" /> | `object` | Optional. Labels with user-defined metadata. |
-| <CopyableCode code="lifetime" /> | `string` | Required. Immutable. The desired lifetime of the CA certificate. Used to create the "not_before_time" and "not_after_time" fields inside an X.509 certificate. |
-| <CopyableCode code="pemCaCertificates" /> | `array` | Output only. This CertificateAuthority's certificate chain, including the current CertificateAuthority's certificate. Ordered such that the root issuer is the final element (consistent with RFC 5246). For a self-signed CA, this will only list the current CertificateAuthority's certificate. |
-| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
-| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
-| <CopyableCode code="state" /> | `string` | Output only. The State for this CertificateAuthority. |
-| <CopyableCode code="subordinateConfig" /> | `object` | Describes a subordinate CA's issuers. This is either a resource name to a known issuing CertificateAuthority, or a PEM issuer certificate chain. |
-| <CopyableCode code="tier" /> | `string` | Output only. The CaPool.Tier of the CaPool that includes this CertificateAuthority. |
-| <CopyableCode code="type" /> | `string` | Required. Immutable. The Type of this CertificateAuthority. |
-| <CopyableCode code="updateTime" /> | `string` | Output only. The time at which this CertificateAuthority was last updated. |
+| <CopyableCode code="pemCsr" /> | `string` | Output only. The PEM-encoded signed certificate signing request (CSR). |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch" /> | `SELECT` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Fetch a certificate signing request (CSR) from a CertificateAuthority that is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. The CSR must then be signed by the desired parent Certificate Authority, which could be another CertificateAuthority resource, or could be an on-prem certificate authority. See also ActivateCertificateAuthority. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Returns a CertificateAuthority. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="caPoolsId, locationsId, projectsId" /> | Lists CertificateAuthorities. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="caPoolsId, locationsId, projectsId" /> | Create a new CertificateAuthority in a given Project and Location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Delete a CertificateAuthority. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Update a CertificateAuthority. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="caPoolsId, locationsId, projectsId" /> | Lists CertificateAuthorities. |
 | <CopyableCode code="activate" /> | `EXEC` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Activate a CertificateAuthority that is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. After the parent Certificate Authority signs a certificate signing request from FetchCertificateAuthorityCsr, this method can complete the activation process. |
 | <CopyableCode code="disable" /> | `EXEC` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Disable a CertificateAuthority. |
 | <CopyableCode code="enable" /> | `EXEC` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Enable a CertificateAuthority. |
-| <CopyableCode code="fetch" /> | `EXEC` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Fetch a certificate signing request (CSR) from a CertificateAuthority that is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. The CSR must then be signed by the desired parent Certificate Authority, which could be another CertificateAuthority resource, or could be an on-prem certificate authority. See also ActivateCertificateAuthority. |
 | <CopyableCode code="undelete" /> | `EXEC` | <CopyableCode code="caPoolsId, certificateAuthoritiesId, locationsId, projectsId" /> | Undelete a CertificateAuthority that has been deleted. |
+
+## `SELECT` examples
+
+Lists CertificateAuthorities.
+
+```sql
+SELECT
+pemCsr
+FROM google.privateca.certificate_authorities
+WHERE caPoolsId = '{{ caPoolsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>certificate_authorities</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.privateca.certificate_authorities (
+caPoolsId,
+locationsId,
+projectsId,
+name,
+type,
+config,
+lifetime,
+keySpec,
+subordinateConfig,
+tier,
+state,
+pemCaCertificates,
+caCertificateDescriptions,
+gcsBucket,
+accessUrls,
+createTime,
+updateTime,
+deleteTime,
+expireTime,
+labels,
+satisfiesPzs,
+satisfiesPzi
+)
+SELECT 
+'{{ caPoolsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ type }}',
+'{{ config }}',
+'{{ lifetime }}',
+'{{ keySpec }}',
+'{{ subordinateConfig }}',
+'{{ tier }}',
+'{{ state }}',
+'{{ pemCaCertificates }}',
+'{{ caCertificateDescriptions }}',
+'{{ gcsBucket }}',
+'{{ accessUrls }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ deleteTime }}',
+'{{ expireTime }}',
+'{{ labels }}',
+true|false,
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: type
+        value: '{{ type }}'
+      - name: config
+        value: '{{ config }}'
+      - name: lifetime
+        value: '{{ lifetime }}'
+      - name: keySpec
+        value: '{{ keySpec }}'
+      - name: subordinateConfig
+        value: '{{ subordinateConfig }}'
+      - name: tier
+        value: '{{ tier }}'
+      - name: state
+        value: '{{ state }}'
+      - name: pemCaCertificates
+        value: '{{ pemCaCertificates }}'
+      - name: caCertificateDescriptions
+        value: '{{ caCertificateDescriptions }}'
+      - name: gcsBucket
+        value: '{{ gcsBucket }}'
+      - name: accessUrls
+        value: '{{ accessUrls }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: expireTime
+        value: '{{ expireTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a certificate_authority only if the necessary resources are available.
+
+```sql
+UPDATE google.privateca.certificate_authorities
+SET 
+name = '{{ name }}',
+type = '{{ type }}',
+config = '{{ config }}',
+lifetime = '{{ lifetime }}',
+keySpec = '{{ keySpec }}',
+subordinateConfig = '{{ subordinateConfig }}',
+tier = '{{ tier }}',
+state = '{{ state }}',
+pemCaCertificates = '{{ pemCaCertificates }}',
+caCertificateDescriptions = '{{ caCertificateDescriptions }}',
+gcsBucket = '{{ gcsBucket }}',
+accessUrls = '{{ accessUrls }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+deleteTime = '{{ deleteTime }}',
+expireTime = '{{ expireTime }}',
+labels = '{{ labels }}',
+satisfiesPzs = true|false,
+satisfiesPzi = true|false
+WHERE 
+caPoolsId = '{{ caPoolsId }}'
+AND certificateAuthoritiesId = '{{ certificateAuthoritiesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified certificate_authority resource.
+
+```sql
+DELETE FROM google.privateca.certificate_authorities
+WHERE caPoolsId = '{{ caPoolsId }}'
+AND certificateAuthoritiesId = '{{ certificateAuthoritiesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

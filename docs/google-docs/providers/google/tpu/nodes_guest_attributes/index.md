@@ -1,3 +1,4 @@
+
 ---
 title: nodes_guest_attributes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - nodes_guest_attributes
   - tpu
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>nodes_guest_attribute</code> resource or lists <code>nodes_guest_attributes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="guestAttributes" /> | `array` | The guest attributes for the TPU workers. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_guest_attributes" /> | `EXEC` | <CopyableCode code="locationsId, nodesId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_guest_attributes" /> | `SELECT` | <CopyableCode code="locationsId, nodesId, projectsId" /> | Retrieves the guest attributes for the node. |
+
+## `SELECT` examples
+
+Retrieves the guest attributes for the node.
+
+```sql
+SELECT
+guestAttributes
+FROM google.tpu.nodes_guest_attributes
+WHERE locationsId = '{{ locationsId }}'
+AND nodesId = '{{ nodesId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

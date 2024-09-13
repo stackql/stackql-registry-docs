@@ -1,3 +1,4 @@
+
 ---
 title: notification_configs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - notification_configs
   - securitycenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>notification_config</code> resource or lists <code>notification_configs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,11 +32,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The relative resource name of this notification config. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example: "organizations/&#123;organization_id&#125;/notificationConfigs/notify_public_bucket", "folders/&#123;folder_id&#125;/notificationConfigs/notify_public_bucket", or "projects/&#123;project_id&#125;/notificationConfigs/notify_public_bucket". |
+| <CopyableCode code="name" /> | `string` | The relative resource name of this notification config. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example: "organizations/{organization_id}/notificationConfigs/notify_public_bucket", "folders/{folder_id}/notificationConfigs/notify_public_bucket", or "projects/{project_id}/notificationConfigs/notify_public_bucket". |
 | <CopyableCode code="description" /> | `string` | The description of the notification config (max of 1024 characters). |
 | <CopyableCode code="pubsubTopic" /> | `string` | The Pub/Sub topic to send notifications to. Its format is "projects/[project_id]/topics/[topic]". |
 | <CopyableCode code="serviceAccount" /> | `string` | Output only. The service account that needs "pubsub.topics.publish" permission to publish to the Pub/Sub topic. |
 | <CopyableCode code="streamingConfig" /> | `object` | The config for streaming-based notifications, which send each event as soon as it is detected. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -53,6 +56,99 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_notification_configs_patch" /> | `UPDATE` | <CopyableCode code="foldersId, notificationConfigsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
 | <CopyableCode code="organizations_notification_configs_patch" /> | `UPDATE` | <CopyableCode code="notificationConfigsId, organizationsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
 | <CopyableCode code="projects_notification_configs_patch" /> | `UPDATE` | <CopyableCode code="notificationConfigsId, projectsId" /> |  Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter |
-| <CopyableCode code="_folders_notification_configs_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists notification configs. |
-| <CopyableCode code="_organizations_notification_configs_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists notification configs. |
-| <CopyableCode code="_projects_notification_configs_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists notification configs. |
+
+## `SELECT` examples
+
+Lists notification configs.
+
+```sql
+SELECT
+name,
+description,
+pubsubTopic,
+serviceAccount,
+streamingConfig
+FROM google.securitycenter.notification_configs
+WHERE foldersId = '{{ foldersId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>notification_configs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.securitycenter.notification_configs (
+foldersId,
+name,
+description,
+pubsubTopic,
+serviceAccount,
+streamingConfig
+)
+SELECT 
+'{{ foldersId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ pubsubTopic }}',
+'{{ serviceAccount }}',
+'{{ streamingConfig }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: pubsubTopic
+        value: '{{ pubsubTopic }}'
+      - name: serviceAccount
+        value: '{{ serviceAccount }}'
+      - name: streamingConfig
+        value: '{{ streamingConfig }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a notification_config only if the necessary resources are available.
+
+```sql
+UPDATE google.securitycenter.notification_configs
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+pubsubTopic = '{{ pubsubTopic }}',
+serviceAccount = '{{ serviceAccount }}',
+streamingConfig = '{{ streamingConfig }}'
+WHERE 
+foldersId = '{{ foldersId }}'
+AND notificationConfigsId = '{{ notificationConfigsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified notification_config resource.
+
+```sql
+DELETE FROM google.securitycenter.notification_configs
+WHERE foldersId = '{{ foldersId }}'
+AND notificationConfigsId = '{{ notificationConfigsId }}';
+```

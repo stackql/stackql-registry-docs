@@ -1,3 +1,4 @@
+
 ---
 title: xpn_host
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - xpn_host
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>xpn_host</code> resource or lists <code>xpn_host</code> in a region
 
 ## Overview
 <table><tbody>
@@ -45,7 +47,33 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="usageExportLocation" /> | `object` | The location in Cloud Storage and naming method of the daily usage report. Contains bucket_name and report_name prefix. |
 | <CopyableCode code="vmDnsSetting" /> | `string` | [Output Only] Default internal DNS setting used by VMs running in this project. |
 | <CopyableCode code="xpnProjectStatus" /> | `string` | [Output Only] The role this project has in a shared VPC configuration. Currently, only projects with the host role, which is specified by the value HOST, are differentiated. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_xpn_host" /> | `SELECT` | <CopyableCode code="project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_xpn_host" /> | `SELECT` | <CopyableCode code="project" /> | Gets the shared VPC host project that this project links to. May be empty if no link exists. |
+
+## `SELECT` examples
+
+Gets the shared VPC host project that this project links to. May be empty if no link exists.
+
+```sql
+SELECT
+id,
+name,
+description,
+cloudArmorTier,
+commonInstanceMetadata,
+creationTimestamp,
+defaultNetworkTier,
+defaultServiceAccount,
+enabledFeatures,
+kind,
+quotas,
+selfLink,
+usageExportLocation,
+vmDnsSetting,
+xpnProjectStatus
+FROM google.compute.xpn_host
+WHERE project = '{{ project }}'; 
+```

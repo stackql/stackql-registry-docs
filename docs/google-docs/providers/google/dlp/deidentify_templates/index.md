@@ -1,3 +1,4 @@
+
 ---
 title: deidentify_templates
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - deidentify_templates
   - dlp
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>deidentify_template</code> resource or lists <code>deidentify_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="deidentifyConfig" /> | `object` | The configuration that controls how the data will change. |
 | <CopyableCode code="displayName" /> | `string` | Display name (max 256 chars). |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of an inspectTemplate. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -59,7 +62,89 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_locations_deidentify_templates_patch" /> | `UPDATE` | <CopyableCode code="deidentifyTemplatesId, locationsId, organizationsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
 | <CopyableCode code="projects_deidentify_templates_patch" /> | `UPDATE` | <CopyableCode code="deidentifyTemplatesId, projectsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
 | <CopyableCode code="projects_locations_deidentify_templates_patch" /> | `UPDATE` | <CopyableCode code="deidentifyTemplatesId, locationsId, projectsId" /> | Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
-| <CopyableCode code="_organizations_deidentify_templates_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
-| <CopyableCode code="_organizations_locations_deidentify_templates_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
-| <CopyableCode code="_projects_deidentify_templates_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
-| <CopyableCode code="_projects_locations_deidentify_templates_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. |
+
+## `SELECT` examples
+
+Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+deidentifyConfig,
+displayName,
+updateTime
+FROM google.dlp.deidentify_templates
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>deidentify_templates</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dlp.deidentify_templates (
+projectsId,
+locationId,
+deidentifyTemplate,
+templateId
+)
+SELECT 
+'{{ projectsId }}',
+'{{ locationId }}',
+'{{ deidentifyTemplate }}',
+'{{ templateId }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: locationId
+        value: '{{ locationId }}'
+      - name: deidentifyTemplate
+        value: '{{ deidentifyTemplate }}'
+      - name: templateId
+        value: '{{ templateId }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a deidentify_template only if the necessary resources are available.
+
+```sql
+UPDATE google.dlp.deidentify_templates
+SET 
+deidentifyTemplate = '{{ deidentifyTemplate }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+deidentifyTemplatesId = '{{ deidentifyTemplatesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified deidentify_template resource.
+
+```sql
+DELETE FROM google.dlp.deidentify_templates
+WHERE deidentifyTemplatesId = '{{ deidentifyTemplatesId }}'
+AND projectsId = '{{ projectsId }}';
+```

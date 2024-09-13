@@ -1,3 +1,4 @@
+
 ---
 title: certificates
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - certificates
   - integrations
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>certificate</code> resource or lists <code>certificates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,12 +35,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Output only. Auto generated primary key |
 | <CopyableCode code="description" /> | `string` | Description of the certificate |
 | <CopyableCode code="certificateStatus" /> | `string` | Status of the certificate |
-| <CopyableCode code="credentialId" /> | `string` | Immutable. Credential id that will be used to register with trawler INTERNAL_ONLY |
+| <CopyableCode code="credentialId" /> | `string` | Immutable. Credential id that will be used to register with trawler |
 | <CopyableCode code="displayName" /> | `string` | Required. Name of the certificate |
 | <CopyableCode code="rawCertificate" /> | `object` | Contains client certificate information |
 | <CopyableCode code="requestorId" /> | `string` | Immutable. Requestor ID to be used to register certificate with trawler |
 | <CopyableCode code="validEndTime" /> | `string` | Output only. The timestamp after which certificate will expire |
 | <CopyableCode code="validStartTime" /> | `string` | Output only. The timestamp after which certificate will be valid |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,5 +55,128 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_products_certificates_delete" /> | `DELETE` | <CopyableCode code="certificatesId, locationsId, productsId, projectsId" /> | Delete a certificate |
 | <CopyableCode code="projects_locations_certificates_patch" /> | `UPDATE` | <CopyableCode code="certificatesId, locationsId, projectsId" /> | Updates the certificate by id. If new certificate file is updated, it will register with the trawler service, re-encrypt with cloud KMS and update the Spanner record. Other fields will directly update the Spanner record. Returns the Certificate. |
 | <CopyableCode code="projects_locations_products_certificates_patch" /> | `UPDATE` | <CopyableCode code="certificatesId, locationsId, productsId, projectsId" /> | Updates the certificate by id. If new certificate file is updated, it will register with the trawler service, re-encrypt with cloud KMS and update the Spanner record. Other fields will directly update the Spanner record. Returns the Certificate. |
-| <CopyableCode code="_projects_locations_certificates_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List all the certificates that match the filter. Restrict to certificate of current client only. |
-| <CopyableCode code="_projects_locations_products_certificates_list" /> | `EXEC` | <CopyableCode code="locationsId, productsId, projectsId" /> | List all the certificates that match the filter. Restrict to certificate of current client only. |
+
+## `SELECT` examples
+
+List all the certificates that match the filter. Restrict to certificate of current client only.
+
+```sql
+SELECT
+name,
+description,
+certificateStatus,
+credentialId,
+displayName,
+rawCertificate,
+requestorId,
+validEndTime,
+validStartTime
+FROM google.integrations.certificates
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>certificates</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.integrations.certificates (
+locationsId,
+projectsId,
+name,
+validEndTime,
+requestorId,
+certificateStatus,
+credentialId,
+rawCertificate,
+validStartTime,
+description,
+displayName
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ validEndTime }}',
+'{{ requestorId }}',
+'{{ certificateStatus }}',
+'{{ credentialId }}',
+'{{ rawCertificate }}',
+'{{ validStartTime }}',
+'{{ description }}',
+'{{ displayName }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: validEndTime
+        value: '{{ validEndTime }}'
+      - name: requestorId
+        value: '{{ requestorId }}'
+      - name: certificateStatus
+        value: '{{ certificateStatus }}'
+      - name: credentialId
+        value: '{{ credentialId }}'
+      - name: rawCertificate
+        value: '{{ rawCertificate }}'
+      - name: validStartTime
+        value: '{{ validStartTime }}'
+      - name: description
+        value: '{{ description }}'
+      - name: displayName
+        value: '{{ displayName }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a certificate only if the necessary resources are available.
+
+```sql
+UPDATE google.integrations.certificates
+SET 
+name = '{{ name }}',
+validEndTime = '{{ validEndTime }}',
+requestorId = '{{ requestorId }}',
+certificateStatus = '{{ certificateStatus }}',
+credentialId = '{{ credentialId }}',
+rawCertificate = '{{ rawCertificate }}',
+validStartTime = '{{ validStartTime }}',
+description = '{{ description }}',
+displayName = '{{ displayName }}'
+WHERE 
+certificatesId = '{{ certificatesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified certificate resource.
+
+```sql
+DELETE FROM google.integrations.certificates
+WHERE certificatesId = '{{ certificatesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

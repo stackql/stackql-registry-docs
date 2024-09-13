@@ -1,3 +1,4 @@
+
 ---
 title: customers
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - customers
   - cloudcontrolspartner
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>customer</code> resource or lists <code>customers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,13 +32,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. Format: `organizations/&#123;organization&#125;/locations/&#123;location&#125;/customers/&#123;customer&#125;` |
+| <CopyableCode code="name" /> | `string` | Identifier. Format: `organizations/{organization}/locations/{location}/customers/{customer}` |
 | <CopyableCode code="customerOnboardingState" /> | `object` | Container for customer onboarding steps |
-| <CopyableCode code="displayName" /> | `string` | The customer organization's display name. E.g. "google.com". |
-| <CopyableCode code="isOnboarded" /> | `boolean` | Indicates whether a customer is fully onboarded |
+| <CopyableCode code="displayName" /> | `string` | Required. Display name for the customer |
+| <CopyableCode code="isOnboarded" /> | `boolean` | Output only. Indicates whether a customer is fully onboarded |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="customersId, locationsId, organizationsId" /> | Gets details of a single customer |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId" /> | Lists customers of a partner identified by its Google Cloud organization ID |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists customers of a partner identified by its Google Cloud organization ID |
+
+## `SELECT` examples
+
+Lists customers of a partner identified by its Google Cloud organization ID
+
+```sql
+SELECT
+name,
+customerOnboardingState,
+displayName,
+isOnboarded
+FROM google.cloudcontrolspartner.customers
+WHERE locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```

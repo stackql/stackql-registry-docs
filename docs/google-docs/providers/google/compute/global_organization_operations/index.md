@@ -1,3 +1,4 @@
+
 ---
 title: global_organization_operations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - global_organization_operations
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>global_organization_operation</code> resource or lists <code>global_organization_operations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -56,9 +58,55 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="user" /> | `string` | [Output Only] User who requested the operation, for example: `user@example.com` or `alice_smith_identifier (global/workforcePools/example-com-us-employees)`. |
 | <CopyableCode code="warnings" /> | `array` | [Output Only] If warning messages are generated during processing of the operation, this field will be populated. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] The URL of the zone where the operation resides. Only applicable when performing per-zone operations. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="operation" /> | Retrieves the specified Operations resource. Gets a list of operations by making a `list()` request. |
-| <CopyableCode code="list" /> | `SELECT` |  | Retrieves a list of Operation resources contained within the specified organization. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Retrieves a list of Operation resources contained within the specified organization. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="operation" /> | Deletes the specified Operations resource. |
+
+## `SELECT` examples
+
+Retrieves a list of Operation resources contained within the specified organization.
+
+```sql
+SELECT
+id,
+name,
+description,
+clientOperationId,
+creationTimestamp,
+endTime,
+error,
+httpErrorMessage,
+httpErrorStatusCode,
+insertTime,
+instancesBulkInsertOperationMetadata,
+kind,
+operationGroupId,
+operationType,
+progress,
+region,
+selfLink,
+setCommonInstanceMetadataOperationMetadata,
+startTime,
+status,
+statusMessage,
+targetId,
+targetLink,
+user,
+warnings,
+zone
+FROM google.compute.global_organization_operations
+WHERE  = '{{  }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified global_organization_operation resource.
+
+```sql
+DELETE FROM google.compute.global_organization_operations
+WHERE operation = '{{ operation }}';
+```

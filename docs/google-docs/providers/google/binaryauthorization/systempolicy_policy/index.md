@@ -1,3 +1,4 @@
+
 ---
 title: systempolicy_policy
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - systempolicy_policy
   - binaryauthorization
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>systempolicy_policy</code> resource or lists <code>systempolicy_policy</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,7 +43,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kubernetesNamespaceAdmissionRules" /> | `object` | Optional. Per-kubernetes-namespace admission rules. K8s namespace spec format: `[a-z.-]+`, e.g. `some-namespace` |
 | <CopyableCode code="kubernetesServiceAccountAdmissionRules" /> | `object` | Optional. Per-kubernetes-service-account admission rules. Service account spec format: `namespace:serviceaccount`. e.g. `test-ns:default` |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the policy was last updated. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_policy" /> | `SELECT` | <CopyableCode code="locationsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_policy" /> | `SELECT` | <CopyableCode code="locationsId" /> | Gets the current system policy in the specified location. |
+
+## `SELECT` examples
+
+Gets the current system policy in the specified location.
+
+```sql
+SELECT
+name,
+description,
+admissionWhitelistPatterns,
+clusterAdmissionRules,
+defaultAdmissionRule,
+etag,
+globalPolicyEvaluationMode,
+istioServiceIdentityAdmissionRules,
+kubernetesNamespaceAdmissionRules,
+kubernetesServiceAccountAdmissionRules,
+updateTime
+FROM google.binaryauthorization.systempolicy_policy
+WHERE locationsId = '{{ locationsId }}'; 
+```

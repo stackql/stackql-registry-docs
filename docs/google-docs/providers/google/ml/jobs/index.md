@@ -1,3 +1,4 @@
+
 ---
 title: jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - jobs
   - ml
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>job</code> resource or lists <code>jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,12 +45,146 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The detailed state of a job. |
 | <CopyableCode code="trainingInput" /> | `object` | Represents input parameters for a training job. When using the gcloud command to submit your training job, you can specify the input parameters as command-line arguments and/or in a YAML configuration file referenced from the --config command-line argument. For details, see the guide to [submitting a training job](/ai-platform/training/docs/training-jobs). |
 | <CopyableCode code="trainingOutput" /> | `object` | Represents results of a training job. Output only. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_jobs_get" /> | `SELECT` | <CopyableCode code="jobsId, projectsId" /> | Describes a job. |
-| <CopyableCode code="projects_jobs_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the jobs in the project. If there are no jobs that match the request parameters, the list request returns an empty response body: &#123;&#125;. |
+| <CopyableCode code="projects_jobs_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the jobs in the project. If there are no jobs that match the request parameters, the list request returns an empty response body: {}. |
 | <CopyableCode code="projects_jobs_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a training or a batch prediction job. |
 | <CopyableCode code="projects_jobs_patch" /> | `UPDATE` | <CopyableCode code="jobsId, projectsId" /> | Updates a specific job resource. Currently the only supported fields to update are `labels`. |
-| <CopyableCode code="_projects_jobs_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the jobs in the project. If there are no jobs that match the request parameters, the list request returns an empty response body: &#123;&#125;. |
 | <CopyableCode code="projects_jobs_cancel" /> | `EXEC` | <CopyableCode code="jobsId, projectsId" /> | Cancels a running job. |
+
+## `SELECT` examples
+
+Lists the jobs in the project. If there are no jobs that match the request parameters, the list request returns an empty response body: {}.
+
+```sql
+SELECT
+createTime,
+endTime,
+errorMessage,
+etag,
+jobId,
+jobPosition,
+labels,
+predictionInput,
+predictionOutput,
+startTime,
+state,
+trainingInput,
+trainingOutput
+FROM google.ml.jobs
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>jobs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.ml.jobs (
+projectsId,
+jobId,
+trainingInput,
+predictionInput,
+createTime,
+startTime,
+endTime,
+state,
+errorMessage,
+trainingOutput,
+predictionOutput,
+labels,
+etag,
+jobPosition
+)
+SELECT 
+'{{ projectsId }}',
+'{{ jobId }}',
+'{{ trainingInput }}',
+'{{ predictionInput }}',
+'{{ createTime }}',
+'{{ startTime }}',
+'{{ endTime }}',
+'{{ state }}',
+'{{ errorMessage }}',
+'{{ trainingOutput }}',
+'{{ predictionOutput }}',
+'{{ labels }}',
+'{{ etag }}',
+'{{ jobPosition }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: jobId
+        value: '{{ jobId }}'
+      - name: trainingInput
+        value: '{{ trainingInput }}'
+      - name: predictionInput
+        value: '{{ predictionInput }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: errorMessage
+        value: '{{ errorMessage }}'
+      - name: trainingOutput
+        value: '{{ trainingOutput }}'
+      - name: predictionOutput
+        value: '{{ predictionOutput }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: jobPosition
+        value: '{{ jobPosition }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a job only if the necessary resources are available.
+
+```sql
+UPDATE google.ml.jobs
+SET 
+jobId = '{{ jobId }}',
+trainingInput = '{{ trainingInput }}',
+predictionInput = '{{ predictionInput }}',
+createTime = '{{ createTime }}',
+startTime = '{{ startTime }}',
+endTime = '{{ endTime }}',
+state = '{{ state }}',
+errorMessage = '{{ errorMessage }}',
+trainingOutput = '{{ trainingOutput }}',
+predictionOutput = '{{ predictionOutput }}',
+labels = '{{ labels }}',
+etag = '{{ etag }}',
+jobPosition = '{{ jobPosition }}'
+WHERE 
+jobsId = '{{ jobsId }}'
+AND projectsId = '{{ projectsId }}';
+```

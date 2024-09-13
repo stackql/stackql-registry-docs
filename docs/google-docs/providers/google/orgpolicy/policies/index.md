@@ -1,3 +1,4 @@
+
 ---
 title: policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - policies
   - orgpolicy
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>policy</code> resource or lists <code>policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,11 +32,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the policy. Must be one of the following forms, where `constraint_name` is the name of the constraint which this policy configures: * `projects/&#123;project_number&#125;/policies/&#123;constraint_name&#125;` * `folders/&#123;folder_id&#125;/policies/&#123;constraint_name&#125;` * `organizations/&#123;organization_id&#125;/policies/&#123;constraint_name&#125;` For example, `projects/123/policies/compute.disableSerialPortAccess`. Note: `projects/&#123;project_id&#125;/policies/&#123;constraint_name&#125;` is also an acceptable name for API requests, but responses will return the name using the equivalent project number. |
+| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the policy. Must be one of the following forms, where `constraint_name` is the name of the constraint which this policy configures: * `projects/{project_number}/policies/{constraint_name}` * `folders/{folder_id}/policies/{constraint_name}` * `organizations/{organization_id}/policies/{constraint_name}` For example, `projects/123/policies/compute.disableSerialPortAccess`. Note: `projects/{project_id}/policies/{constraint_name}` is also an acceptable name for API requests, but responses will return the name using the equivalent project number. |
 | <CopyableCode code="alternate" /> | `object` | Similar to PolicySpec but with an extra 'launch' field for launch reference. The PolicySpec here is specific for dry-run/darklaunch. |
 | <CopyableCode code="dryRunSpec" /> | `object` | Defines a Google Cloud policy specification which is used to specify constraints for configurations of Google Cloud resources. |
 | <CopyableCode code="etag" /> | `string` | Optional. An opaque tag indicating the current state of the policy, used for concurrency control. This 'etag' is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | <CopyableCode code="spec" /> | `object` | Defines a Google Cloud policy specification which is used to specify constraints for configurations of Google Cloud resources. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -53,6 +56,99 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_policies_patch" /> | `UPDATE` | <CopyableCode code="foldersId, policiesId" /> | Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields. |
 | <CopyableCode code="organizations_policies_patch" /> | `UPDATE` | <CopyableCode code="organizationsId, policiesId" /> | Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields. |
 | <CopyableCode code="projects_policies_patch" /> | `UPDATE` | <CopyableCode code="policiesId, projectsId" /> | Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields. |
-| <CopyableCode code="_folders_policies_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Retrieves all of the policies that exist on a particular resource. |
-| <CopyableCode code="_organizations_policies_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Retrieves all of the policies that exist on a particular resource. |
-| <CopyableCode code="_projects_policies_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Retrieves all of the policies that exist on a particular resource. |
+
+## `SELECT` examples
+
+Retrieves all of the policies that exist on a particular resource.
+
+```sql
+SELECT
+name,
+alternate,
+dryRunSpec,
+etag,
+spec
+FROM google.orgpolicy.policies
+WHERE foldersId = '{{ foldersId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.orgpolicy.policies (
+foldersId,
+dryRunSpec,
+etag,
+name,
+spec,
+alternate
+)
+SELECT 
+'{{ foldersId }}',
+'{{ dryRunSpec }}',
+'{{ etag }}',
+'{{ name }}',
+'{{ spec }}',
+'{{ alternate }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: dryRunSpec
+        value: '{{ dryRunSpec }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: name
+        value: '{{ name }}'
+      - name: spec
+        value: '{{ spec }}'
+      - name: alternate
+        value: '{{ alternate }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a policy only if the necessary resources are available.
+
+```sql
+UPDATE google.orgpolicy.policies
+SET 
+dryRunSpec = '{{ dryRunSpec }}',
+etag = '{{ etag }}',
+name = '{{ name }}',
+spec = '{{ spec }}',
+alternate = '{{ alternate }}'
+WHERE 
+foldersId = '{{ foldersId }}'
+AND policiesId = '{{ policiesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified policy resource.
+
+```sql
+DELETE FROM google.orgpolicy.policies
+WHERE foldersId = '{{ foldersId }}'
+AND policiesId = '{{ policiesId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: inbound_saml_sso_profiles
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - inbound_saml_sso_profiles
   - cloudidentity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>inbound_saml_sso_profile</code> resource or lists <code>inbound_saml_sso_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,12 +37,106 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | Human-readable name of the SAML SSO profile. |
 | <CopyableCode code="idpConfig" /> | `object` | SAML IDP (identity provider) configuration. |
 | <CopyableCode code="spConfig" /> | `object` | SAML SP (service provider) configuration. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="inboundSamlSsoProfilesId" /> | Gets an InboundSamlSsoProfile. |
-| <CopyableCode code="list" /> | `SELECT` |  | Lists InboundSamlSsoProfiles for a customer. |
-| <CopyableCode code="create" /> | `INSERT` |  | Creates an InboundSamlSsoProfile for a customer. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists InboundSamlSsoProfiles for a customer. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="" /> | Creates an InboundSamlSsoProfile for a customer. When the target customer has enabled [Multi-party approval for sensitive actions](https://support.google.com/a/answer/13790448), the `Operation` in the response will have `"done": false`, it will not have a response, and the metadata will have `"state": "awaiting-multi-party-approval"`. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="inboundSamlSsoProfilesId" /> | Deletes an InboundSamlSsoProfile. |
-| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="inboundSamlSsoProfilesId" /> | Updates an InboundSamlSsoProfile. |
-| <CopyableCode code="_list" /> | `EXEC` |  | Lists InboundSamlSsoProfiles for a customer. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="inboundSamlSsoProfilesId" /> | Updates an InboundSamlSsoProfile. When the target customer has enabled [Multi-party approval for sensitive actions](https://support.google.com/a/answer/13790448), the `Operation` in the response will have `"done": false`, it will not have a response, and the metadata will have `"state": "awaiting-multi-party-approval"`. |
+
+## `SELECT` examples
+
+Lists InboundSamlSsoProfiles for a customer.
+
+```sql
+SELECT
+name,
+customer,
+displayName,
+idpConfig,
+spConfig
+FROM google.cloudidentity.inbound_saml_sso_profiles
+WHERE  = '{{  }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>inbound_saml_sso_profiles</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.cloudidentity.inbound_saml_sso_profiles (
+,
+name,
+customer,
+displayName,
+idpConfig,
+spConfig
+)
+SELECT 
+'{{  }}',
+'{{ name }}',
+'{{ customer }}',
+'{{ displayName }}',
+'{{ idpConfig }}',
+'{{ spConfig }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: customer
+        value: '{{ customer }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: idpConfig
+        value: '{{ idpConfig }}'
+      - name: spConfig
+        value: '{{ spConfig }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a inbound_saml_sso_profile only if the necessary resources are available.
+
+```sql
+UPDATE google.cloudidentity.inbound_saml_sso_profiles
+SET 
+name = '{{ name }}',
+customer = '{{ customer }}',
+displayName = '{{ displayName }}',
+idpConfig = '{{ idpConfig }}',
+spConfig = '{{ spConfig }}'
+WHERE 
+inboundSamlSsoProfilesId = '{{ inboundSamlSsoProfilesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified inbound_saml_sso_profile resource.
+
+```sql
+DELETE FROM google.cloudidentity.inbound_saml_sso_profiles
+WHERE inboundSamlSsoProfilesId = '{{ inboundSamlSsoProfilesId }}';
+```

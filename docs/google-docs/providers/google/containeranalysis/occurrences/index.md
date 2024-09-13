@@ -1,3 +1,4 @@
+
 ---
 title: occurrences
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - occurrences
   - containeranalysis
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>occurrence</code> resource or lists <code>occurrences</code> in a region
 
 ## Overview
 <table><tbody>
@@ -49,6 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time this occurrence was last updated. |
 | <CopyableCode code="upgrade" /> | `object` | An Upgrade Occurrence represents that a specific resource_url could install a specific upgrade. This presence is supplied via local sources (i.e. it is present in the mirror and the running system has noticed its availability). For Windows, both distribution and windows_update contain information for the Windows update. |
 | <CopyableCode code="vulnerability" /> | `object` | An occurrence of a severity vulnerability on a resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -58,11 +61,119 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_notes_occurrences_list" /> | `SELECT` | <CopyableCode code="notesId, projectsId" /> | Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. |
 | <CopyableCode code="projects_occurrences_get" /> | `SELECT` | <CopyableCode code="occurrencesId, projectsId" /> | Gets the specified occurrence. |
 | <CopyableCode code="projects_occurrences_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists occurrences for the specified project. |
+| <CopyableCode code="projects_locations_occurrences_batch_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates new occurrences in batch. |
+| <CopyableCode code="projects_locations_occurrences_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new occurrence. |
+| <CopyableCode code="projects_occurrences_batch_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates new occurrences in batch. |
 | <CopyableCode code="projects_occurrences_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new occurrence. |
+| <CopyableCode code="projects_locations_occurrences_delete" /> | `DELETE` | <CopyableCode code="locationsId, occurrencesId, projectsId" /> | Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource. |
 | <CopyableCode code="projects_occurrences_delete" /> | `DELETE` | <CopyableCode code="occurrencesId, projectsId" /> | Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource. |
+| <CopyableCode code="projects_locations_occurrences_patch" /> | `UPDATE` | <CopyableCode code="locationsId, occurrencesId, projectsId" /> | Updates the specified occurrence. |
 | <CopyableCode code="projects_occurrences_patch" /> | `UPDATE` | <CopyableCode code="occurrencesId, projectsId" /> | Updates the specified occurrence. |
-| <CopyableCode code="_projects_locations_notes_occurrences_list" /> | `EXEC` | <CopyableCode code="locationsId, notesId, projectsId" /> | Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. |
-| <CopyableCode code="_projects_locations_occurrences_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists occurrences for the specified project. |
-| <CopyableCode code="_projects_notes_occurrences_list" /> | `EXEC` | <CopyableCode code="notesId, projectsId" /> | Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. |
-| <CopyableCode code="_projects_occurrences_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists occurrences for the specified project. |
-| <CopyableCode code="projects_occurrences_batch_create" /> | `EXEC` | <CopyableCode code="projectsId" /> | Creates new occurrences in batch. |
+
+## `SELECT` examples
+
+Lists occurrences for the specified project.
+
+```sql
+SELECT
+name,
+attestation,
+build,
+compliance,
+createTime,
+deployment,
+discovery,
+dsseAttestation,
+envelope,
+image,
+kind,
+noteName,
+package,
+remediation,
+resourceUri,
+sbomReference,
+updateTime,
+upgrade,
+vulnerability
+FROM google.containeranalysis.occurrences
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>occurrences</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.containeranalysis.occurrences (
+projectsId,
+occurrences
+)
+SELECT 
+'{{ projectsId }}',
+'{{ occurrences }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: occurrences
+        value: '{{ occurrences }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a occurrence only if the necessary resources are available.
+
+```sql
+UPDATE google.containeranalysis.occurrences
+SET 
+resourceUri = '{{ resourceUri }}',
+discovery = '{{ discovery }}',
+image = '{{ image }}',
+vulnerability = '{{ vulnerability }}',
+package = '{{ package }}',
+attestation = '{{ attestation }}',
+build = '{{ build }}',
+kind = '{{ kind }}',
+updateTime = '{{ updateTime }}',
+createTime = '{{ createTime }}',
+compliance = '{{ compliance }}',
+remediation = '{{ remediation }}',
+sbomReference = '{{ sbomReference }}',
+name = '{{ name }}',
+envelope = '{{ envelope }}',
+upgrade = '{{ upgrade }}',
+dsseAttestation = '{{ dsseAttestation }}',
+deployment = '{{ deployment }}',
+noteName = '{{ noteName }}'
+WHERE 
+occurrencesId = '{{ occurrencesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified occurrence resource.
+
+```sql
+DELETE FROM google.containeranalysis.occurrences
+WHERE occurrencesId = '{{ occurrencesId }}'
+AND projectsId = '{{ projectsId }}';
+```

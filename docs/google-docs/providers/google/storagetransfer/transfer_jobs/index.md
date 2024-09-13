@@ -1,3 +1,4 @@
+
 ---
 title: transfer_jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - transfer_jobs
   - storagetransfer
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>transfer_job</code> resource or lists <code>transfer_jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,13 +46,151 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="schedule" /> | `object` | Transfers can be scheduled to recur or to run just once. |
 | <CopyableCode code="status" /> | `string` | Status of the job. This value MUST be specified for `CreateTransferJobRequests`. **Note:** The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation. |
 | <CopyableCode code="transferSpec" /> | `object` | Configuration for running a transfer. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="projectId, transferJobsId" /> | Gets a transfer job. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="filter" /> | Lists transfer jobs. |
-| <CopyableCode code="create" /> | `INSERT` |  | Creates a transfer job that runs periodically. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="" /> | Creates a transfer job that runs periodically. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="projectId, transferJobsId" /> | Deletes a transfer job. Deleting a transfer job sets its status to DELETED. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="transferJobsId" /> | Updates a transfer job. Updating a job's transfer spec does not affect transfer operations that are running already. **Note:** The job's status field can be modified using this RPC (for example, to set a job's status to DELETED, DISABLED, or ENABLED). |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="filter" /> | Lists transfer jobs. |
 | <CopyableCode code="run" /> | `EXEC` | <CopyableCode code="transferJobsId" /> | Starts a new operation for the specified transfer job. A `TransferJob` has a maximum of one active `TransferOperation`. If this method is called while a `TransferOperation` is active, an error is returned. |
+
+## `SELECT` examples
+
+Lists transfer jobs.
+
+```sql
+SELECT
+name,
+description,
+creationTime,
+deletionTime,
+eventStream,
+lastModificationTime,
+latestOperationName,
+loggingConfig,
+notificationConfig,
+projectId,
+replicationSpec,
+schedule,
+status,
+transferSpec
+FROM google.storagetransfer.transfer_jobs
+WHERE filter = '{{ filter }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>transfer_jobs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.storagetransfer.transfer_jobs (
+,
+name,
+description,
+projectId,
+transferSpec,
+replicationSpec,
+notificationConfig,
+loggingConfig,
+schedule,
+eventStream,
+status,
+creationTime,
+lastModificationTime,
+deletionTime,
+latestOperationName
+)
+SELECT 
+'{{  }}',
+'{{ name }}',
+'{{ description }}',
+'{{ projectId }}',
+'{{ transferSpec }}',
+'{{ replicationSpec }}',
+'{{ notificationConfig }}',
+'{{ loggingConfig }}',
+'{{ schedule }}',
+'{{ eventStream }}',
+'{{ status }}',
+'{{ creationTime }}',
+'{{ lastModificationTime }}',
+'{{ deletionTime }}',
+'{{ latestOperationName }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: projectId
+        value: '{{ projectId }}'
+      - name: transferSpec
+        value: '{{ transferSpec }}'
+      - name: replicationSpec
+        value: '{{ replicationSpec }}'
+      - name: notificationConfig
+        value: '{{ notificationConfig }}'
+      - name: loggingConfig
+        value: '{{ loggingConfig }}'
+      - name: schedule
+        value: '{{ schedule }}'
+      - name: eventStream
+        value: '{{ eventStream }}'
+      - name: status
+        value: '{{ status }}'
+      - name: creationTime
+        value: '{{ creationTime }}'
+      - name: lastModificationTime
+        value: '{{ lastModificationTime }}'
+      - name: deletionTime
+        value: '{{ deletionTime }}'
+      - name: latestOperationName
+        value: '{{ latestOperationName }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a transfer_job only if the necessary resources are available.
+
+```sql
+UPDATE google.storagetransfer.transfer_jobs
+SET 
+projectId = '{{ projectId }}',
+transferJob = '{{ transferJob }}',
+updateTransferJobFieldMask = '{{ updateTransferJobFieldMask }}'
+WHERE 
+transferJobsId = '{{ transferJobsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified transfer_job resource.
+
+```sql
+DELETE FROM google.storagetransfer.transfer_jobs
+WHERE projectId = '{{ projectId }}'
+AND transferJobsId = '{{ transferJobsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - types
   - deploymentmanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>type</code> resource or lists <code>types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,10 +35,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` |  |
 | <CopyableCode code="name" /> | `string` | Name of the type. |
 | <CopyableCode code="insertTime" /> | `string` | Output only. Creation timestamp in RFC3339 text format. |
-| <CopyableCode code="operation" /> | `object` | Represents an Operation resource. Google Compute Engine has three Operation resources: * [Global](/compute/docs/reference/rest/&#123;$api_version&#125;/globalOperations) * [Regional](/compute/docs/reference/rest/&#123;$api_version&#125;/regionOperations) * [Zonal](/compute/docs/reference/rest/&#123;$api_version&#125;/zoneOperations) You can use an operation resource to manage asynchronous API requests. For more information, read Handling API responses. Operations can be global, regional or zonal. - For global operations, use the `globalOperations` resource. - For regional operations, use the `regionOperations` resource. - For zonal operations, use the `zoneOperations` resource. For more information, read Global, Regional, and Zonal Resources. Note that completed Operation resources have a limited retention period. |
+| <CopyableCode code="operation" /> | `object` | Represents an Operation resource. Google Compute Engine has three Operation resources: * [Global](/compute/docs/reference/rest/{$api_version}/globalOperations) * [Regional](/compute/docs/reference/rest/{$api_version}/regionOperations) * [Zonal](/compute/docs/reference/rest/{$api_version}/zoneOperations) You can use an operation resource to manage asynchronous API requests. For more information, read Handling API responses. Operations can be global, regional or zonal. - For global operations, use the `globalOperations` resource. - For regional operations, use the `regionOperations` resource. - For zonal operations, use the `zoneOperations` resource. For more information, read Global, Regional, and Zonal Resources. Note that completed Operation resources have a limited retention period. |
 | <CopyableCode code="selfLink" /> | `string` | Output only. Server defined URL for the resource. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project" /> | Lists all resource types for Deployment Manager. |
+
+## `SELECT` examples
+
+Lists all resource types for Deployment Manager.
+
+```sql
+SELECT
+id,
+name,
+insertTime,
+operation,
+selfLink
+FROM google.deploymentmanager.types
+WHERE project = '{{ project }}'; 
+```

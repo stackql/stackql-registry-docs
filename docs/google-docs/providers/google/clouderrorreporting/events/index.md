@@ -1,3 +1,4 @@
+
 ---
 title: events
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - events
   - clouderrorreporting
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>event</code> resource or lists <code>events</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,10 +36,35 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="eventTime" /> | `string` | Time when the event occurred as provided in the error report. If the report did not contain a timestamp, the time the error was received by the Error Reporting system is used. |
 | <CopyableCode code="message" /> | `string` | The stack trace that was reported or logged by the service. |
 | <CopyableCode code="serviceContext" /> | `object` | Describes a running service that sends errors. Its version changes over time and multiple versions can run in parallel. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the specified events. |
-| <CopyableCode code="delete_events" /> | `DELETE` | <CopyableCode code="projectsId" /> | Deletes all error events of a given project. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the specified events. |
-| <CopyableCode code="report" /> | `EXEC` | <CopyableCode code="projectsId" /> | Report an individual error event and record the event to a log. This endpoint accepts **either** an OAuth token, **or** an [API key](https://support.google.com/cloud/answer/6158862) for authentication. To use an API key, append it to the URL as the value of a `key` parameter. For example: `POST https://clouderrorreporting.googleapis.com/v1beta1/&#123;projectName&#125;/events:report?key=123ABC456` **Note:** [Error Reporting] (https://cloud.google.com/error-reporting) is a global service built on Cloud Logging and can analyze log entries when all of the following are true: * The log entries are stored in a log bucket in the `global` location. * Customer-managed encryption keys (CMEK) are disabled on the log bucket. * The log bucket satisfies one of the following: * The log bucket is stored in the same project where the logs originated. * The logs were routed to a project, and then that project stored those logs in a log bucket that it owns. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists the specified events. |
+| <CopyableCode code="delete_events" /> | `DELETE` | <CopyableCode code="locationsId, projectsId" /> | Deletes all error events of a given project. |
+| <CopyableCode code="report" /> | `EXEC` | <CopyableCode code="projectsId" /> | Report an individual error event and record the event to a log. This endpoint accepts **either** an OAuth token, **or** an [API key](https://support.google.com/cloud/answer/6158862) for authentication. To use an API key, append it to the URL as the value of a `key` parameter. For example: `POST https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456` **Note:** [Error Reporting] (https://cloud.google.com/error-reporting) is a service built on Cloud Logging and can analyze log entries when all of the following are true: * Customer-managed encryption keys (CMEK) are disabled on the log bucket. * The log bucket satisfies one of the following: * The log bucket is stored in the same project where the logs originated. * The logs were routed to a project, and then that project stored those logs in a log bucket that it owns. |
+
+## `SELECT` examples
+
+Lists the specified events.
+
+```sql
+SELECT
+context,
+eventTime,
+message,
+serviceContext
+FROM google.clouderrorreporting.events
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified event resource.
+
+```sql
+DELETE FROM google.clouderrorreporting.events
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

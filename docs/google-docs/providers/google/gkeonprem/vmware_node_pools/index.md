@@ -1,3 +1,4 @@
+
 ---
 title: vmware_node_pools
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - vmware_node_pools
   - gkeonprem
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>vmware_node_pool</code> resource or lists <code>vmware_node_pools</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `object` | ResourceStatus describes why a cluster or node pool has a certain status. (e.g., ERROR or DEGRADED). |
 | <CopyableCode code="uid" /> | `string` | Output only. The unique identifier of the node pool. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time at which this node pool was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,6 +55,165 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Creates a new VMware node pool in a given project, location and VMWare cluster. |
 | <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, vmwareClustersId, vmwareNodePoolsId" /> | Deletes a single VMware node pool. |
 | <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, vmwareClustersId, vmwareNodePoolsId" /> | Updates the parameters of a single VMware node pool. |
-| <CopyableCode code="_projects_locations_vmware_clusters_vmware_node_pools_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Lists VMware node pools in a given project, location and VMWare cluster. |
 | <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_enroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareClustersId" /> | Enrolls a VMware node pool to Anthos On-Prem API |
 | <CopyableCode code="projects_locations_vmware_clusters_vmware_node_pools_unenroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, vmwareClustersId, vmwareNodePoolsId" /> | Unenrolls a VMware node pool to Anthos On-Prem API |
+
+## `SELECT` examples
+
+Lists VMware node pools in a given project, location and VMWare cluster.
+
+```sql
+SELECT
+name,
+annotations,
+config,
+createTime,
+deleteTime,
+displayName,
+etag,
+nodePoolAutoscaling,
+onPremVersion,
+reconciling,
+state,
+status,
+uid,
+updateTime
+FROM google.gkeonprem.vmware_node_pools
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND vmwareClustersId = '{{ vmwareClustersId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>vmware_node_pools</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.gkeonprem.vmware_node_pools (
+locationsId,
+projectsId,
+vmwareClustersId,
+name,
+displayName,
+uid,
+state,
+reconciling,
+createTime,
+updateTime,
+deleteTime,
+etag,
+annotations,
+nodePoolAutoscaling,
+config,
+status,
+onPremVersion
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ vmwareClustersId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ uid }}',
+'{{ state }}',
+true|false,
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ deleteTime }}',
+'{{ etag }}',
+'{{ annotations }}',
+'{{ nodePoolAutoscaling }}',
+'{{ config }}',
+'{{ status }}',
+'{{ onPremVersion }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: state
+        value: '{{ state }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: nodePoolAutoscaling
+        value: '{{ nodePoolAutoscaling }}'
+      - name: config
+        value: '{{ config }}'
+      - name: status
+        value: '{{ status }}'
+      - name: onPremVersion
+        value: '{{ onPremVersion }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a vmware_node_pool only if the necessary resources are available.
+
+```sql
+UPDATE google.gkeonprem.vmware_node_pools
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+uid = '{{ uid }}',
+state = '{{ state }}',
+reconciling = true|false,
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+deleteTime = '{{ deleteTime }}',
+etag = '{{ etag }}',
+annotations = '{{ annotations }}',
+nodePoolAutoscaling = '{{ nodePoolAutoscaling }}',
+config = '{{ config }}',
+status = '{{ status }}',
+onPremVersion = '{{ onPremVersion }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND vmwareClustersId = '{{ vmwareClustersId }}'
+AND vmwareNodePoolsId = '{{ vmwareNodePoolsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified vmware_node_pool resource.
+
+```sql
+DELETE FROM google.gkeonprem.vmware_node_pools
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND vmwareClustersId = '{{ vmwareClustersId }}'
+AND vmwareNodePoolsId = '{{ vmwareNodePoolsId }}';
+```

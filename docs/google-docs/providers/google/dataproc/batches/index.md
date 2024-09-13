@@ -1,3 +1,4 @@
+
 ---
 title: batches
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - batches
   - dataproc
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>batch</code> resource or lists <code>batches</code> in a region
 
 ## Overview
 <table><tbody>
@@ -47,6 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="stateMessage" /> | `string` | Output only. Batch state details, such as a failure description if the state is FAILED. |
 | <CopyableCode code="stateTime" /> | `string` | Output only. The time when the batch entered a current state. |
 | <CopyableCode code="uuid" /> | `string` | Output only. A batch UUID (Unique Universal Identifier). The service generates this value when it creates the batch. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,5 +57,147 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_batches_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists batch workloads. |
 | <CopyableCode code="projects_locations_batches_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a batch workload that executes asynchronously. |
 | <CopyableCode code="projects_locations_batches_delete" /> | `DELETE` | <CopyableCode code="batchesId, locationsId, projectsId" /> | Deletes the batch workload resource. If the batch is not in a CANCELLED, SUCCEEDED or FAILED State, the delete operation fails and the response returns FAILED_PRECONDITION. |
-| <CopyableCode code="_projects_locations_batches_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists batch workloads. |
 | <CopyableCode code="projects_locations_batches_analyze" /> | `EXEC` | <CopyableCode code="batchesId, locationsId, projectsId" /> | Analyze a Batch for possible recommendations and insights. |
+
+## `SELECT` examples
+
+Lists batch workloads.
+
+```sql
+SELECT
+name,
+createTime,
+creator,
+environmentConfig,
+labels,
+operation,
+pysparkBatch,
+runtimeConfig,
+runtimeInfo,
+sparkBatch,
+sparkRBatch,
+sparkSqlBatch,
+state,
+stateHistory,
+stateMessage,
+stateTime,
+uuid
+FROM google.dataproc.batches
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>batches</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataproc.batches (
+locationsId,
+projectsId,
+name,
+uuid,
+createTime,
+pysparkBatch,
+sparkBatch,
+sparkRBatch,
+sparkSqlBatch,
+runtimeInfo,
+state,
+stateMessage,
+stateTime,
+creator,
+labels,
+runtimeConfig,
+environmentConfig,
+operation,
+stateHistory
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ uuid }}',
+'{{ createTime }}',
+'{{ pysparkBatch }}',
+'{{ sparkBatch }}',
+'{{ sparkRBatch }}',
+'{{ sparkSqlBatch }}',
+'{{ runtimeInfo }}',
+'{{ state }}',
+'{{ stateMessage }}',
+'{{ stateTime }}',
+'{{ creator }}',
+'{{ labels }}',
+'{{ runtimeConfig }}',
+'{{ environmentConfig }}',
+'{{ operation }}',
+'{{ stateHistory }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uuid
+        value: '{{ uuid }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: pysparkBatch
+        value: '{{ pysparkBatch }}'
+      - name: sparkBatch
+        value: '{{ sparkBatch }}'
+      - name: sparkRBatch
+        value: '{{ sparkRBatch }}'
+      - name: sparkSqlBatch
+        value: '{{ sparkSqlBatch }}'
+      - name: runtimeInfo
+        value: '{{ runtimeInfo }}'
+      - name: state
+        value: '{{ state }}'
+      - name: stateMessage
+        value: '{{ stateMessage }}'
+      - name: stateTime
+        value: '{{ stateTime }}'
+      - name: creator
+        value: '{{ creator }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: runtimeConfig
+        value: '{{ runtimeConfig }}'
+      - name: environmentConfig
+        value: '{{ environmentConfig }}'
+      - name: operation
+        value: '{{ operation }}'
+      - name: stateHistory
+        value: '{{ stateHistory }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified batch resource.
+
+```sql
+DELETE FROM google.dataproc.batches
+WHERE batchesId = '{{ batchesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: interconnects
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - interconnects
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>interconnect</code> resource or lists <code>interconnects</code> in a region
 
 ## Overview
 <table><tbody>
@@ -60,6 +62,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | [Output Only] Reserved for future use. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="state" /> | `string` | [Output Only] The current state of Interconnect functionality, which can take one of the following values: - ACTIVE: The Interconnect is valid, turned up and ready to use. Attachments may be provisioned on this Interconnect. - UNPROVISIONED: The Interconnect has not completed turnup. No attachments may be provisioned on this Interconnect. - UNDER_MAINTENANCE: The Interconnect is undergoing internal maintenance. No attachments may be provisioned or updated on this Interconnect.  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -69,3 +72,249 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="interconnect, project" /> | Deletes the specified Interconnect. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="interconnect, project" /> | Updates the specified Interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, resource" /> | Sets the labels on an Interconnect. To learn more about labels, read the Labeling Resources documentation. |
+
+## `SELECT` examples
+
+Retrieves the list of Interconnects available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+adminEnabled,
+availableFeatures,
+circuitInfos,
+creationTimestamp,
+customerName,
+expectedOutages,
+googleIpAddress,
+googleReferenceId,
+interconnectAttachments,
+interconnectType,
+kind,
+labelFingerprint,
+labels,
+linkType,
+location,
+macsec,
+macsecEnabled,
+nocContactEmail,
+operationalStatus,
+peerIpAddress,
+provisionedLinkCount,
+remoteLocation,
+requestedFeatures,
+requestedLinkCount,
+satisfiesPzs,
+selfLink,
+state
+FROM google.compute.interconnects
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>interconnects</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.interconnects (
+project,
+kind,
+description,
+selfLink,
+id,
+creationTimestamp,
+name,
+location,
+linkType,
+requestedLinkCount,
+interconnectType,
+adminEnabled,
+nocContactEmail,
+customerName,
+operationalStatus,
+provisionedLinkCount,
+interconnectAttachments,
+peerIpAddress,
+googleIpAddress,
+googleReferenceId,
+expectedOutages,
+circuitInfos,
+labels,
+labelFingerprint,
+state,
+satisfiesPzs,
+macsec,
+macsecEnabled,
+remoteLocation,
+requestedFeatures,
+availableFeatures
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ location }}',
+'{{ linkType }}',
+'{{ requestedLinkCount }}',
+'{{ interconnectType }}',
+true|false,
+'{{ nocContactEmail }}',
+'{{ customerName }}',
+'{{ operationalStatus }}',
+'{{ provisionedLinkCount }}',
+'{{ interconnectAttachments }}',
+'{{ peerIpAddress }}',
+'{{ googleIpAddress }}',
+'{{ googleReferenceId }}',
+'{{ expectedOutages }}',
+'{{ circuitInfos }}',
+'{{ labels }}',
+'{{ labelFingerprint }}',
+'{{ state }}',
+true|false,
+'{{ macsec }}',
+true|false,
+'{{ remoteLocation }}',
+'{{ requestedFeatures }}',
+'{{ availableFeatures }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: location
+        value: '{{ location }}'
+      - name: linkType
+        value: '{{ linkType }}'
+      - name: requestedLinkCount
+        value: '{{ requestedLinkCount }}'
+      - name: interconnectType
+        value: '{{ interconnectType }}'
+      - name: adminEnabled
+        value: '{{ adminEnabled }}'
+      - name: nocContactEmail
+        value: '{{ nocContactEmail }}'
+      - name: customerName
+        value: '{{ customerName }}'
+      - name: operationalStatus
+        value: '{{ operationalStatus }}'
+      - name: provisionedLinkCount
+        value: '{{ provisionedLinkCount }}'
+      - name: interconnectAttachments
+        value: '{{ interconnectAttachments }}'
+      - name: peerIpAddress
+        value: '{{ peerIpAddress }}'
+      - name: googleIpAddress
+        value: '{{ googleIpAddress }}'
+      - name: googleReferenceId
+        value: '{{ googleReferenceId }}'
+      - name: expectedOutages
+        value: '{{ expectedOutages }}'
+      - name: circuitInfos
+        value: '{{ circuitInfos }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+      - name: state
+        value: '{{ state }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: macsec
+        value: '{{ macsec }}'
+      - name: macsecEnabled
+        value: '{{ macsecEnabled }}'
+      - name: remoteLocation
+        value: '{{ remoteLocation }}'
+      - name: requestedFeatures
+        value: '{{ requestedFeatures }}'
+      - name: availableFeatures
+        value: '{{ availableFeatures }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a interconnect only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.interconnects
+SET 
+kind = '{{ kind }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+location = '{{ location }}',
+linkType = '{{ linkType }}',
+requestedLinkCount = '{{ requestedLinkCount }}',
+interconnectType = '{{ interconnectType }}',
+adminEnabled = true|false,
+nocContactEmail = '{{ nocContactEmail }}',
+customerName = '{{ customerName }}',
+operationalStatus = '{{ operationalStatus }}',
+provisionedLinkCount = '{{ provisionedLinkCount }}',
+interconnectAttachments = '{{ interconnectAttachments }}',
+peerIpAddress = '{{ peerIpAddress }}',
+googleIpAddress = '{{ googleIpAddress }}',
+googleReferenceId = '{{ googleReferenceId }}',
+expectedOutages = '{{ expectedOutages }}',
+circuitInfos = '{{ circuitInfos }}',
+labels = '{{ labels }}',
+labelFingerprint = '{{ labelFingerprint }}',
+state = '{{ state }}',
+satisfiesPzs = true|false,
+macsec = '{{ macsec }}',
+macsecEnabled = true|false,
+remoteLocation = '{{ remoteLocation }}',
+requestedFeatures = '{{ requestedFeatures }}',
+availableFeatures = '{{ availableFeatures }}'
+WHERE 
+interconnect = '{{ interconnect }}'
+AND project = '{{ project }}';
+```
+
+## `DELETE` example
+
+Deletes the specified interconnect resource.
+
+```sql
+DELETE FROM google.compute.interconnects
+WHERE interconnect = '{{ interconnect }}'
+AND project = '{{ project }}';
+```

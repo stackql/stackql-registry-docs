@@ -1,3 +1,4 @@
+
 ---
 title: dns_record_set
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - dns_record_set
   - servicenetworking
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>dns_record_set</code> resource or lists <code>dns_record_set</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,7 +36,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="domain" /> | `string` | Required. The DNS or domain name of the record set, e.g. `test.example.com`. Cloud DNS requires that a DNS suffix ends with a trailing dot. |
 | <CopyableCode code="ttl" /> | `string` | Required. The period of time for which this RecordSet can be cached by resolvers. |
 | <CopyableCode code="type" /> | `string` | Required. The identifier of a supported record type. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="servicesId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="servicesId" /> | Producers can use this method to retrieve information about the DNS record set added to the private zone inside the shared tenant host project associated with a consumer network. |
+
+## `SELECT` examples
+
+Producers can use this method to retrieve information about the DNS record set added to the private zone inside the shared tenant host project associated with a consumer network.
+
+```sql
+SELECT
+data,
+domain,
+ttl,
+type
+FROM google.servicenetworking.dns_record_set
+WHERE servicesId = '{{ servicesId }}'; 
+```

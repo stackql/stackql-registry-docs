@@ -1,3 +1,4 @@
+
 ---
 title: services
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - services
   - accesscontextmanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>service</code> resource or lists <code>services</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,12 +35,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | The service name or address of the supported service, such as `service.googleapis.com`. |
 | <CopyableCode code="availableOnRestrictedVip" /> | `boolean` | True if the service is available on the restricted VIP. Services on the restricted VIP typically either support VPC Service Controls or are core infrastructure services required for the functioning of Google Cloud. |
 | <CopyableCode code="knownLimitations" /> | `boolean` | True if the service is supported with some limitations. Check [documentation](https://cloud.google.com/vpc-service-controls/docs/supported-products) for details. |
+| <CopyableCode code="serviceSupportStage" /> | `string` | The support stage of the service. |
 | <CopyableCode code="supportStage" /> | `string` | The support stage of the service. |
 | <CopyableCode code="supportedMethods" /> | `array` | The list of the supported methods. This field exists only in response to GetSupportedService |
 | <CopyableCode code="title" /> | `string` | The name of the supported product, such as 'Cloud Product API'. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="name" /> | Returns a VPC-SC supported service based on the service name. |
-| <CopyableCode code="list" /> | `SELECT` |  | Lists all VPC-SC supported services. |
-| <CopyableCode code="_list" /> | `EXEC` |  | Lists all VPC-SC supported services. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists all VPC-SC supported services. |
+
+## `SELECT` examples
+
+Lists all VPC-SC supported services.
+
+```sql
+SELECT
+name,
+availableOnRestrictedVip,
+knownLimitations,
+serviceSupportStage,
+supportStage,
+supportedMethods,
+title
+FROM google.accesscontextmanager.services
+WHERE  = '{{  }}'; 
+```

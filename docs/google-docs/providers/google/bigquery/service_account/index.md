@@ -1,3 +1,4 @@
+
 ---
 title: service_account
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - service_account
   - bigquery
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>service_account</code> resource or lists <code>service_account</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,7 +34,20 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="email" /> | `string` | The service account email address. |
 | <CopyableCode code="kind" /> | `string` | The resource type of the response. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_service_account" /> | `SELECT` | <CopyableCode code="projectId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_service_account" /> | `SELECT` | <CopyableCode code="projectId" /> | RPC to get the service account for a project used for interactions with Google Cloud KMS |
+
+## `SELECT` examples
+
+RPC to get the service account for a project used for interactions with Google Cloud KMS
+
+```sql
+SELECT
+email,
+kind
+FROM google.bigquery.service_account
+WHERE projectId = '{{ projectId }}'; 
+```

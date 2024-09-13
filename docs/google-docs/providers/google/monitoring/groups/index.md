@@ -1,3 +1,4 @@
+
 ---
 title: groups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - groups
   - monitoring
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>group</code> resource or lists <code>groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,6 +37,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="filter" /> | `string` | The filter used to determine which monitored resources belong to this group. |
 | <CopyableCode code="isCluster" /> | `boolean` | If true, the members of this group are considered to be a cluster. The system can perform additional analysis on groups that are clusters. |
 | <CopyableCode code="parentName" /> | `string` | The name of the group's parent, if it has one. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] For groups with no parent, parent_name is the empty string, "". |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,5 +45,83 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_groups_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the existing groups. |
 | <CopyableCode code="projects_groups_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new group. |
 | <CopyableCode code="projects_groups_delete" /> | `DELETE` | <CopyableCode code="groupsId, projectsId" /> | Deletes an existing group. |
-| <CopyableCode code="projects_groups_update" /> | `UPDATE` | <CopyableCode code="groupsId, projectsId" /> | Updates an existing group. You can change any group attributes except name. |
-| <CopyableCode code="_projects_groups_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the existing groups. |
+| <CopyableCode code="projects_groups_update" /> | `EXEC` | <CopyableCode code="groupsId, projectsId" /> | Updates an existing group. You can change any group attributes except name. |
+
+## `SELECT` examples
+
+Lists the existing groups.
+
+```sql
+SELECT
+name,
+displayName,
+filter,
+isCluster,
+parentName
+FROM google.monitoring.groups
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>groups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.monitoring.groups (
+projectsId,
+name,
+displayName,
+parentName,
+filter,
+isCluster
+)
+SELECT 
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ parentName }}',
+'{{ filter }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: parentName
+        value: '{{ parentName }}'
+      - name: filter
+        value: '{{ filter }}'
+      - name: isCluster
+        value: '{{ isCluster }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified group resource.
+
+```sql
+DELETE FROM google.monitoring.groups
+WHERE groupsId = '{{ groupsId }}'
+AND projectsId = '{{ projectsId }}';
+```

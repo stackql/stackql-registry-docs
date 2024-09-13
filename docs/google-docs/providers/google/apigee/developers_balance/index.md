@@ -1,3 +1,4 @@
+
 ---
 title: developers_balance
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - developers_balance
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>developers_balance</code> resource or lists <code>developers_balance</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="wallets" /> | `array` | Output only. List of all wallets. Each individual wallet stores the account balance for a particular currency. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="organizations_developers_get_balance" /> | `SELECT` | <CopyableCode code="developersId, organizationsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_developers_get_balance" /> | `SELECT` | <CopyableCode code="developersId, organizationsId" /> | Gets the account balance for the developer. |
+
+## `SELECT` examples
+
+Gets the account balance for the developer.
+
+```sql
+SELECT
+wallets
+FROM google.apigee.developers_balance
+WHERE developersId = '{{ developersId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```

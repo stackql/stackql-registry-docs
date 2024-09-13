@@ -1,3 +1,4 @@
+
 ---
 title: instance_details
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instance_details
   - osconfig
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instance_detail</code> resource or lists <code>instance_details</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,8 +37,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="failureReason" /> | `string` | If the patch fails, this field provides the reason. |
 | <CopyableCode code="instanceSystemId" /> | `string` | The unique identifier for the instance. This identifier is defined by the server. |
 | <CopyableCode code="state" /> | `string` | Current state of instance patch. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="patchJobsId, projectsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="patchJobsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="patchJobsId, projectsId" /> | Get a list of instance details for a given patch job. |
+
+## `SELECT` examples
+
+Get a list of instance details for a given patch job.
+
+```sql
+SELECT
+name,
+attemptCount,
+failureReason,
+instanceSystemId,
+state
+FROM google.osconfig.instance_details
+WHERE patchJobsId = '{{ patchJobsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

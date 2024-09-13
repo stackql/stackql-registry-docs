@@ -1,3 +1,4 @@
+
 ---
 title: luns
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - luns
   - baremetalsolution
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>lun</code> resource or lists <code>luns</code> in a region
 
 ## Overview
 <table><tbody>
@@ -42,10 +44,34 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="storageType" /> | `string` | The storage type for this LUN. |
 | <CopyableCode code="storageVolume" /> | `string` | Display the storage volume for this LUN. |
 | <CopyableCode code="wwid" /> | `string` | The WWID for this LUN. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, lunsId, projectsId, volumesId" /> | Get details of a single storage logical unit number(LUN). |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, volumesId" /> | List storage volume luns for given storage volume. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, volumesId" /> | List storage volume luns for given storage volume. |
 | <CopyableCode code="evict" /> | `EXEC` | <CopyableCode code="locationsId, lunsId, projectsId, volumesId" /> | Skips lun's cooloff and deletes it now. Lun must be in cooloff state. |
+
+## `SELECT` examples
+
+List storage volume luns for given storage volume.
+
+```sql
+SELECT
+id,
+name,
+bootLun,
+expireTime,
+instances,
+multiprotocolType,
+shareable,
+sizeGb,
+state,
+storageType,
+storageVolume,
+wwid
+FROM google.baremetalsolution.luns
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND volumesId = '{{ volumesId }}'; 
+```

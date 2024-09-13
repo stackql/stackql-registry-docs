@@ -1,3 +1,4 @@
+
 ---
 title: images
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - images
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>image</code> resource or lists <code>images</code> in a region
 
 ## Overview
 <table><tbody>
@@ -64,6 +66,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sourceType" /> | `string` | The type of the image used to create this disk. The default and only valid value is RAW. |
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of the image. An image can be used to create other resources, such as instances, only after the image has been successfully created and the status is set to READY. Possible values are FAILED, PENDING, or READY. |
 | <CopyableCode code="storageLocations" /> | `array` | Cloud Storage bucket storage location of the image (regional or multi-regional). |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -74,3 +77,279 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="image, project" /> | Patches the specified image with the data included in the request. Only the following fields can be modified: family, description, deprecation status. |
 | <CopyableCode code="deprecate" /> | `EXEC` | <CopyableCode code="image, project" /> | Sets the deprecation status of an image. If an empty request body is given, clears the deprecation status instead. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, resource" /> | Sets the labels on an image. To learn more about labels, read the Labeling Resources documentation. |
+
+## `SELECT` examples
+
+Retrieves the list of custom images available to the specified project. Custom images are images you create that belong to your project. This method does not get any images that belong to other projects, including publicly-available images, like Debian 8. If you want to get a list of publicly-available images, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.
+
+```sql
+SELECT
+id,
+name,
+description,
+architecture,
+archiveSizeBytes,
+creationTimestamp,
+deprecated,
+diskSizeGb,
+enableConfidentialCompute,
+family,
+guestOsFeatures,
+imageEncryptionKey,
+kind,
+labelFingerprint,
+labels,
+licenseCodes,
+licenses,
+rawDisk,
+satisfiesPzi,
+satisfiesPzs,
+selfLink,
+shieldedInstanceInitialState,
+sourceDisk,
+sourceDiskEncryptionKey,
+sourceDiskId,
+sourceImage,
+sourceImageEncryptionKey,
+sourceImageId,
+sourceSnapshot,
+sourceSnapshotEncryptionKey,
+sourceSnapshotId,
+sourceType,
+status,
+storageLocations
+FROM google.compute.images
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>images</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.images (
+project,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+sourceType,
+rawDisk,
+deprecated,
+status,
+archiveSizeBytes,
+diskSizeGb,
+sourceDisk,
+sourceDiskId,
+licenses,
+family,
+imageEncryptionKey,
+sourceDiskEncryptionKey,
+selfLink,
+labels,
+labelFingerprint,
+guestOsFeatures,
+licenseCodes,
+sourceImage,
+sourceImageId,
+sourceImageEncryptionKey,
+sourceSnapshot,
+sourceSnapshotId,
+sourceSnapshotEncryptionKey,
+storageLocations,
+shieldedInstanceInitialState,
+satisfiesPzs,
+architecture,
+enableConfidentialCompute,
+satisfiesPzi
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ sourceType }}',
+'{{ rawDisk }}',
+'{{ deprecated }}',
+'{{ status }}',
+'{{ archiveSizeBytes }}',
+'{{ diskSizeGb }}',
+'{{ sourceDisk }}',
+'{{ sourceDiskId }}',
+'{{ licenses }}',
+'{{ family }}',
+'{{ imageEncryptionKey }}',
+'{{ sourceDiskEncryptionKey }}',
+'{{ selfLink }}',
+'{{ labels }}',
+'{{ labelFingerprint }}',
+'{{ guestOsFeatures }}',
+'{{ licenseCodes }}',
+'{{ sourceImage }}',
+'{{ sourceImageId }}',
+'{{ sourceImageEncryptionKey }}',
+'{{ sourceSnapshot }}',
+'{{ sourceSnapshotId }}',
+'{{ sourceSnapshotEncryptionKey }}',
+'{{ storageLocations }}',
+'{{ shieldedInstanceInitialState }}',
+true|false,
+'{{ architecture }}',
+true|false,
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: sourceType
+        value: '{{ sourceType }}'
+      - name: rawDisk
+        value:
+          - name: source
+            value: '{{ source }}'
+          - name: sha1Checksum
+            value: '{{ sha1Checksum }}'
+          - name: containerType
+            value: '{{ containerType }}'
+      - name: deprecated
+        value: '{{ deprecated }}'
+      - name: status
+        value: '{{ status }}'
+      - name: archiveSizeBytes
+        value: '{{ archiveSizeBytes }}'
+      - name: diskSizeGb
+        value: '{{ diskSizeGb }}'
+      - name: sourceDisk
+        value: '{{ sourceDisk }}'
+      - name: sourceDiskId
+        value: '{{ sourceDiskId }}'
+      - name: licenses
+        value: '{{ licenses }}'
+      - name: family
+        value: '{{ family }}'
+      - name: imageEncryptionKey
+        value: '{{ imageEncryptionKey }}'
+      - name: sourceDiskEncryptionKey
+        value: '{{ sourceDiskEncryptionKey }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+      - name: guestOsFeatures
+        value: '{{ guestOsFeatures }}'
+      - name: licenseCodes
+        value: '{{ licenseCodes }}'
+      - name: sourceImage
+        value: '{{ sourceImage }}'
+      - name: sourceImageId
+        value: '{{ sourceImageId }}'
+      - name: sourceImageEncryptionKey
+        value: '{{ sourceImageEncryptionKey }}'
+      - name: sourceSnapshot
+        value: '{{ sourceSnapshot }}'
+      - name: sourceSnapshotId
+        value: '{{ sourceSnapshotId }}'
+      - name: sourceSnapshotEncryptionKey
+        value: '{{ sourceSnapshotEncryptionKey }}'
+      - name: storageLocations
+        value: '{{ storageLocations }}'
+      - name: shieldedInstanceInitialState
+        value: '{{ shieldedInstanceInitialState }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: architecture
+        value: '{{ architecture }}'
+      - name: enableConfidentialCompute
+        value: '{{ enableConfidentialCompute }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a image only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.images
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+sourceType = '{{ sourceType }}',
+rawDisk = '{{ rawDisk }}',
+deprecated = '{{ deprecated }}',
+status = '{{ status }}',
+archiveSizeBytes = '{{ archiveSizeBytes }}',
+diskSizeGb = '{{ diskSizeGb }}',
+sourceDisk = '{{ sourceDisk }}',
+sourceDiskId = '{{ sourceDiskId }}',
+licenses = '{{ licenses }}',
+family = '{{ family }}',
+imageEncryptionKey = '{{ imageEncryptionKey }}',
+sourceDiskEncryptionKey = '{{ sourceDiskEncryptionKey }}',
+selfLink = '{{ selfLink }}',
+labels = '{{ labels }}',
+labelFingerprint = '{{ labelFingerprint }}',
+guestOsFeatures = '{{ guestOsFeatures }}',
+licenseCodes = '{{ licenseCodes }}',
+sourceImage = '{{ sourceImage }}',
+sourceImageId = '{{ sourceImageId }}',
+sourceImageEncryptionKey = '{{ sourceImageEncryptionKey }}',
+sourceSnapshot = '{{ sourceSnapshot }}',
+sourceSnapshotId = '{{ sourceSnapshotId }}',
+sourceSnapshotEncryptionKey = '{{ sourceSnapshotEncryptionKey }}',
+storageLocations = '{{ storageLocations }}',
+shieldedInstanceInitialState = '{{ shieldedInstanceInitialState }}',
+satisfiesPzs = true|false,
+architecture = '{{ architecture }}',
+enableConfidentialCompute = true|false,
+satisfiesPzi = true|false
+WHERE 
+image = '{{ image }}'
+AND project = '{{ project }}';
+```
+
+## `DELETE` example
+
+Deletes the specified image resource.
+
+```sql
+DELETE FROM google.compute.images
+WHERE image = '{{ image }}'
+AND project = '{{ project }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: connections_linkable_repositories
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - connections_linkable_repositories
   - cloudbuild
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>connections_linkable_repository</code> resource or lists <code>connections_linkable_repositories</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="nextPageToken" /> | `string` | A token identifying a page of results the server should return. |
+| <CopyableCode code="repositories" /> | `array` | repositories ready to be created. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_connections_fetch_linkable_repositories" /> | `EXEC` | <CopyableCode code="connectionsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_connections_fetch_linkable_repositories" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | FetchLinkableRepositories get repositories from SCM that are accessible and could be added to the connection. |
+
+## `SELECT` examples
+
+FetchLinkableRepositories get repositories from SCM that are accessible and could be added to the connection.
+
+```sql
+SELECT
+nextPageToken,
+repositories
+FROM google.cloudbuild.connections_linkable_repositories
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

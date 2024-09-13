@@ -1,3 +1,4 @@
+
 ---
 title: nodes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - nodes
   - tpu
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>node</code> resource or lists <code>nodes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -54,6 +56,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The current state for the TPU Node. |
 | <CopyableCode code="symptoms" /> | `array` | Output only. The Symptoms that have occurred to the TPU Node. |
 | <CopyableCode code="tags" /> | `array` | Tags to apply to the TPU Node. Tags are used to identify valid sources or targets for network firewalls. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -62,6 +65,220 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a node. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, nodesId, projectsId" /> | Deletes a node. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, nodesId, projectsId" /> | Updates the configurations of a node. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists nodes. |
 | <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="locationsId, nodesId, projectsId" /> | Starts a node. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="locationsId, nodesId, projectsId" /> | Stops a node. This operation is only available with single TPU nodes. |
+
+## `SELECT` examples
+
+Lists nodes.
+
+```sql
+SELECT
+id,
+name,
+description,
+acceleratorConfig,
+acceleratorType,
+apiVersion,
+cidrBlock,
+createTime,
+dataDisks,
+health,
+healthDescription,
+labels,
+metadata,
+multisliceNode,
+networkConfig,
+networkEndpoints,
+queuedResource,
+runtimeVersion,
+schedulingConfig,
+serviceAccount,
+shieldedInstanceConfig,
+state,
+symptoms,
+tags
+FROM google.tpu.nodes
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>nodes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.tpu.nodes (
+locationsId,
+projectsId,
+name,
+description,
+acceleratorType,
+state,
+healthDescription,
+runtimeVersion,
+networkConfig,
+cidrBlock,
+serviceAccount,
+createTime,
+schedulingConfig,
+networkEndpoints,
+health,
+labels,
+metadata,
+tags,
+id,
+dataDisks,
+apiVersion,
+symptoms,
+shieldedInstanceConfig,
+acceleratorConfig,
+queuedResource,
+multisliceNode
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ acceleratorType }}',
+'{{ state }}',
+'{{ healthDescription }}',
+'{{ runtimeVersion }}',
+'{{ networkConfig }}',
+'{{ cidrBlock }}',
+'{{ serviceAccount }}',
+'{{ createTime }}',
+'{{ schedulingConfig }}',
+'{{ networkEndpoints }}',
+'{{ health }}',
+'{{ labels }}',
+'{{ metadata }}',
+'{{ tags }}',
+'{{ id }}',
+'{{ dataDisks }}',
+'{{ apiVersion }}',
+'{{ symptoms }}',
+'{{ shieldedInstanceConfig }}',
+'{{ acceleratorConfig }}',
+'{{ queuedResource }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: acceleratorType
+        value: '{{ acceleratorType }}'
+      - name: state
+        value: '{{ state }}'
+      - name: healthDescription
+        value: '{{ healthDescription }}'
+      - name: runtimeVersion
+        value: '{{ runtimeVersion }}'
+      - name: networkConfig
+        value: '{{ networkConfig }}'
+      - name: cidrBlock
+        value: '{{ cidrBlock }}'
+      - name: serviceAccount
+        value: '{{ serviceAccount }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: schedulingConfig
+        value: '{{ schedulingConfig }}'
+      - name: networkEndpoints
+        value: '{{ networkEndpoints }}'
+      - name: health
+        value: '{{ health }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: metadata
+        value: '{{ metadata }}'
+      - name: tags
+        value: '{{ tags }}'
+      - name: id
+        value: '{{ id }}'
+      - name: dataDisks
+        value: '{{ dataDisks }}'
+      - name: apiVersion
+        value: '{{ apiVersion }}'
+      - name: symptoms
+        value: '{{ symptoms }}'
+      - name: shieldedInstanceConfig
+        value: '{{ shieldedInstanceConfig }}'
+      - name: acceleratorConfig
+        value: '{{ acceleratorConfig }}'
+      - name: queuedResource
+        value: '{{ queuedResource }}'
+      - name: multisliceNode
+        value: '{{ multisliceNode }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a node only if the necessary resources are available.
+
+```sql
+UPDATE google.tpu.nodes
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+acceleratorType = '{{ acceleratorType }}',
+state = '{{ state }}',
+healthDescription = '{{ healthDescription }}',
+runtimeVersion = '{{ runtimeVersion }}',
+networkConfig = '{{ networkConfig }}',
+cidrBlock = '{{ cidrBlock }}',
+serviceAccount = '{{ serviceAccount }}',
+createTime = '{{ createTime }}',
+schedulingConfig = '{{ schedulingConfig }}',
+networkEndpoints = '{{ networkEndpoints }}',
+health = '{{ health }}',
+labels = '{{ labels }}',
+metadata = '{{ metadata }}',
+tags = '{{ tags }}',
+id = '{{ id }}',
+dataDisks = '{{ dataDisks }}',
+apiVersion = '{{ apiVersion }}',
+symptoms = '{{ symptoms }}',
+shieldedInstanceConfig = '{{ shieldedInstanceConfig }}',
+acceleratorConfig = '{{ acceleratorConfig }}',
+queuedResource = '{{ queuedResource }}',
+multisliceNode = true|false
+WHERE 
+locationsId = '{{ locationsId }}'
+AND nodesId = '{{ nodesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified node resource.
+
+```sql
+DELETE FROM google.tpu.nodes
+WHERE locationsId = '{{ locationsId }}'
+AND nodesId = '{{ nodesId }}'
+AND projectsId = '{{ projectsId }}';
+```

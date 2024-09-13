@@ -1,3 +1,4 @@
+
 ---
 title: feature_views_feature_values
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - feature_views_feature_values
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>feature_views_feature_value</code> resource or lists <code>feature_views_feature_values</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="dataKey" /> | `object` | Lookup key for a feature view. |
+| <CopyableCode code="keyValues" /> | `object` | Response structure in the format of key (feature name) and (feature) value pair. |
+| <CopyableCode code="protoStruct" /> | `object` | Feature values in proto Struct format. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="fetch_feature_values" /> | `EXEC` | <CopyableCode code="featureOnlineStoresId, featureViewsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch_feature_values" /> | `SELECT` | <CopyableCode code="featureOnlineStoresId, featureViewsId, locationsId, projectsId" /> | Fetch feature values under a FeatureView. |
+
+## `SELECT` examples
+
+Fetch feature values under a FeatureView.
+
+```sql
+SELECT
+dataKey,
+keyValues,
+protoStruct
+FROM google.aiplatform.feature_views_feature_values
+WHERE featureOnlineStoresId = '{{ featureOnlineStoresId }}'
+AND featureViewsId = '{{ featureViewsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: external_addresses
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - external_addresses
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>external_address</code> resource or lists <code>external_addresses</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,6 +40,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The state of the resource. |
 | <CopyableCode code="uid" /> | `string` | Output only. System-generated unique identifier for the resource. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Last update time of this resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -46,4 +49,127 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Creates a new `ExternalAddress` resource in a given private cloud. The network policy that corresponds to the private cloud must have the external IP address network service enabled (`NetworkPolicy.external_ip`). |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="externalAddressesId, locationsId, privateCloudsId, projectsId" /> | Deletes a single external IP address. When you delete an external IP address, connectivity between the external IP address and the corresponding internal IP address is lost. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="externalAddressesId, locationsId, privateCloudsId, projectsId" /> | Updates the parameters of a single external IP address. Only fields specified in `update_mask` are applied. During operation processing, the resource is temporarily in the `ACTIVE` state before the operation fully completes. For that period of time, you can't update the resource. Use the operation status to determine when the processing fully completes. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists external IP addresses assigned to VMware workload VMs in a given private cloud. |
+
+## `SELECT` examples
+
+Lists external IP addresses assigned to VMware workload VMs in a given private cloud.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+externalIp,
+internalIp,
+state,
+uid,
+updateTime
+FROM google.vmwareengine.external_addresses
+WHERE locationsId = '{{ locationsId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>external_addresses</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.vmwareengine.external_addresses (
+locationsId,
+privateCloudsId,
+projectsId,
+name,
+createTime,
+updateTime,
+internalIp,
+externalIp,
+state,
+uid,
+description
+)
+SELECT 
+'{{ locationsId }}',
+'{{ privateCloudsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ internalIp }}',
+'{{ externalIp }}',
+'{{ state }}',
+'{{ uid }}',
+'{{ description }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: internalIp
+        value: '{{ internalIp }}'
+      - name: externalIp
+        value: '{{ externalIp }}'
+      - name: state
+        value: '{{ state }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: description
+        value: '{{ description }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a external_address only if the necessary resources are available.
+
+```sql
+UPDATE google.vmwareengine.external_addresses
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+internalIp = '{{ internalIp }}',
+externalIp = '{{ externalIp }}',
+state = '{{ state }}',
+uid = '{{ uid }}',
+description = '{{ description }}'
+WHERE 
+externalAddressesId = '{{ externalAddressesId }}'
+AND locationsId = '{{ locationsId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified external_address resource.
+
+```sql
+DELETE FROM google.vmwareengine.external_addresses
+WHERE externalAddressesId = '{{ externalAddressesId }}'
+AND locationsId = '{{ locationsId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}';
+```

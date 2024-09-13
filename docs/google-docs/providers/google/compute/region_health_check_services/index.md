@@ -1,3 +1,4 @@
+
 ---
 title: region_health_check_services
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_health_check_services
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_health_check_service</code> resource or lists <code>region_health_check_services</code> in a region
 
 ## Overview
 <table><tbody>
@@ -42,6 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="notificationEndpoints" /> | `array` | A list of URLs to the NotificationEndpoint resources. Must not have more than 10. A list of endpoints for receiving notifications of change in health status. For regional HealthCheckService, NotificationEndpoint must be regional and in the same region. For global HealthCheckService, NotificationEndpoint must be global. |
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the health check service resides. This field is not applicable to global health check services. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -50,3 +53,146 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a regional HealthCheckService resource in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="healthCheckService, project, region" /> | Deletes the specified regional HealthCheckService. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="healthCheckService, project, region" /> | Updates the specified regional HealthCheckService resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+
+## `SELECT` examples
+
+Lists all the HealthCheckService resources that have been configured for the specified project in the given region.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+fingerprint,
+healthChecks,
+healthStatusAggregationPolicy,
+kind,
+networkEndpointGroups,
+notificationEndpoints,
+region,
+selfLink
+FROM google.compute.region_health_check_services
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>region_health_check_services</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.region_health_check_services (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+selfLink,
+name,
+description,
+region,
+healthStatusAggregationPolicy,
+healthChecks,
+networkEndpointGroups,
+notificationEndpoints,
+fingerprint
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ selfLink }}',
+'{{ name }}',
+'{{ description }}',
+'{{ region }}',
+'{{ healthStatusAggregationPolicy }}',
+'{{ healthChecks }}',
+'{{ networkEndpointGroups }}',
+'{{ notificationEndpoints }}',
+'{{ fingerprint }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: region
+        value: '{{ region }}'
+      - name: healthStatusAggregationPolicy
+        value: '{{ healthStatusAggregationPolicy }}'
+      - name: healthChecks
+        value: '{{ healthChecks }}'
+      - name: networkEndpointGroups
+        value: '{{ networkEndpointGroups }}'
+      - name: notificationEndpoints
+        value: '{{ notificationEndpoints }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a region_health_check_service only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.region_health_check_services
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+selfLink = '{{ selfLink }}',
+name = '{{ name }}',
+description = '{{ description }}',
+region = '{{ region }}',
+healthStatusAggregationPolicy = '{{ healthStatusAggregationPolicy }}',
+healthChecks = '{{ healthChecks }}',
+networkEndpointGroups = '{{ networkEndpointGroups }}',
+notificationEndpoints = '{{ notificationEndpoints }}',
+fingerprint = '{{ fingerprint }}'
+WHERE 
+healthCheckService = '{{ healthCheckService }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```
+
+## `DELETE` example
+
+Deletes the specified region_health_check_service resource.
+
+```sql
+DELETE FROM google.compute.region_health_check_services
+WHERE healthCheckService = '{{ healthCheckService }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

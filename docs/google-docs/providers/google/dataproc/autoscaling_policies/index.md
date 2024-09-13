@@ -1,3 +1,4 @@
+
 ---
 title: autoscaling_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - autoscaling_policies
   - dataproc
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>autoscaling_policy</code> resource or lists <code>autoscaling_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -31,11 +33,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | Required. The policy id.The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of between 3 and 50 characters. |
-| <CopyableCode code="name" /> | `string` | Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies, the resource name of the policy has the following format: projects/&#123;project_id&#125;/regions/&#123;region&#125;/autoscalingPolicies/&#123;policy_id&#125; For projects.locations.autoscalingPolicies, the resource name of the policy has the following format: projects/&#123;project_id&#125;/locations/&#123;location&#125;/autoscalingPolicies/&#123;policy_id&#125; |
+| <CopyableCode code="name" /> | `string` | Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies, the resource name of the policy has the following format: projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the resource name of the policy has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id} |
 | <CopyableCode code="basicAlgorithm" /> | `object` | Basic algorithm for autoscaling. |
 | <CopyableCode code="labels" /> | `object` | Optional. The labels to associate with this autoscaling policy. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with an autoscaling policy. |
 | <CopyableCode code="secondaryWorkerConfig" /> | `object` | Configuration for the size bounds of an instance group, including its proportional size to other groups. |
 | <CopyableCode code="workerConfig" /> | `object` | Configuration for the size bounds of an instance group, including its proportional size to other groups. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,7 +50,93 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_regions_autoscaling_policies_create" /> | `INSERT` | <CopyableCode code="projectsId, regionsId" /> | Creates new autoscaling policy. |
 | <CopyableCode code="projects_locations_autoscaling_policies_delete" /> | `DELETE` | <CopyableCode code="autoscalingPoliciesId, locationsId, projectsId" /> | Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. |
 | <CopyableCode code="projects_regions_autoscaling_policies_delete" /> | `DELETE` | <CopyableCode code="autoscalingPoliciesId, projectsId, regionsId" /> | Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. |
-| <CopyableCode code="projects_locations_autoscaling_policies_update" /> | `UPDATE` | <CopyableCode code="autoscalingPoliciesId, locationsId, projectsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
-| <CopyableCode code="projects_regions_autoscaling_policies_update" /> | `UPDATE` | <CopyableCode code="autoscalingPoliciesId, projectsId, regionsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
-| <CopyableCode code="_projects_locations_autoscaling_policies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists autoscaling policies in the project. |
-| <CopyableCode code="_projects_regions_autoscaling_policies_list" /> | `EXEC` | <CopyableCode code="projectsId, regionsId" /> | Lists autoscaling policies in the project. |
+| <CopyableCode code="projects_locations_autoscaling_policies_update" /> | `EXEC` | <CopyableCode code="autoscalingPoliciesId, locationsId, projectsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
+| <CopyableCode code="projects_regions_autoscaling_policies_update" /> | `EXEC` | <CopyableCode code="autoscalingPoliciesId, projectsId, regionsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
+
+## `SELECT` examples
+
+Lists autoscaling policies in the project.
+
+```sql
+SELECT
+id,
+name,
+basicAlgorithm,
+labels,
+secondaryWorkerConfig,
+workerConfig
+FROM google.dataproc.autoscaling_policies
+WHERE projectsId = '{{ projectsId }}'
+AND regionsId = '{{ regionsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>autoscaling_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataproc.autoscaling_policies (
+projectsId,
+regionsId,
+id,
+name,
+basicAlgorithm,
+workerConfig,
+secondaryWorkerConfig,
+labels
+)
+SELECT 
+'{{ projectsId }}',
+'{{ regionsId }}',
+'{{ id }}',
+'{{ name }}',
+'{{ basicAlgorithm }}',
+'{{ workerConfig }}',
+'{{ secondaryWorkerConfig }}',
+'{{ labels }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: id
+        value: '{{ id }}'
+      - name: name
+        value: '{{ name }}'
+      - name: basicAlgorithm
+        value: '{{ basicAlgorithm }}'
+      - name: workerConfig
+        value: '{{ workerConfig }}'
+      - name: secondaryWorkerConfig
+        value: '{{ secondaryWorkerConfig }}'
+      - name: labels
+        value: '{{ labels }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified autoscaling_policy resource.
+
+```sql
+DELETE FROM google.dataproc.autoscaling_policies
+WHERE autoscalingPoliciesId = '{{ autoscalingPoliciesId }}'
+AND projectsId = '{{ projectsId }}'
+AND regionsId = '{{ regionsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: projects
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - projects
   - bigquery
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>project</code> resource or lists <code>projects</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,8 +37,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | The resource type. |
 | <CopyableCode code="numericId" /> | `string` | The numeric ID of this project. |
 | <CopyableCode code="projectReference" /> | `object` | A unique reference to a project. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
-| <CopyableCode code="_list" /> | `EXEC` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | RPC to list projects to which the user has been granted any project role. Users of this method are encouraged to consider the [Resource Manager](https://cloud.google.com/resource-manager/docs/) API, which provides the underlying data for this method and has more capabilities. |
+
+## `SELECT` examples
+
+RPC to list projects to which the user has been granted any project role. Users of this method are encouraged to consider the [Resource Manager](https://cloud.google.com/resource-manager/docs/) API, which provides the underlying data for this method and has more capabilities.
+
+```sql
+SELECT
+id,
+friendlyName,
+kind,
+numericId,
+projectReference
+FROM google.bigquery.projects
+WHERE  = '{{  }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: instant_snapshots
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instant_snapshots
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instant_snapshot</code> resource or lists <code>instant_snapshots</code> in a region
 
 ## Overview
 <table><tbody>
@@ -49,6 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sourceDiskId" /> | `string` | [Output Only] The ID value of the disk used to create this InstantSnapshot. This value may be used to determine whether the InstantSnapshot was taken from the current or a previous instance of a given disk name. |
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of the instantSnapshot. This can be CREATING, DELETING, FAILED, or READY. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] URL of the zone where the instant snapshot resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -57,5 +60,156 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves the list of InstantSnapshot resources contained within the specified zone. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates an instant snapshot in the specified zone. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instantSnapshot, project, zone" /> | Deletes the specified InstantSnapshot resource. Keep in mind that deleting a single instantSnapshot might not necessarily delete all the data on that instantSnapshot. If any data on the instantSnapshot that is marked for deletion is needed for subsequent instantSnapshots, the data will be moved to the next corresponding instantSnapshot. For more information, see Deleting instantSnapshots. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of instantSnapshots. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, resource, zone" /> | Sets the labels on a instantSnapshot in the given zone. To learn more about labels, read the Labeling Resources documentation. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of instantSnapshots. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+architecture,
+creationTimestamp,
+diskSizeGb,
+kind,
+labelFingerprint,
+labels,
+region,
+resourceStatus,
+satisfiesPzi,
+satisfiesPzs,
+selfLink,
+selfLinkWithId,
+sourceDisk,
+sourceDiskId,
+status,
+zone
+FROM google.compute.instant_snapshots
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>instant_snapshots</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.instant_snapshots (
+project,
+zone,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+status,
+sourceDisk,
+sourceDiskId,
+diskSizeGb,
+selfLink,
+selfLinkWithId,
+labels,
+labelFingerprint,
+zone,
+region,
+satisfiesPzs,
+architecture,
+resourceStatus,
+satisfiesPzi
+)
+SELECT 
+'{{ project }}',
+'{{ zone }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ status }}',
+'{{ sourceDisk }}',
+'{{ sourceDiskId }}',
+'{{ diskSizeGb }}',
+'{{ selfLink }}',
+'{{ selfLinkWithId }}',
+'{{ labels }}',
+'{{ labelFingerprint }}',
+'{{ zone }}',
+'{{ region }}',
+true|false,
+'{{ architecture }}',
+'{{ resourceStatus }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: status
+        value: '{{ status }}'
+      - name: sourceDisk
+        value: '{{ sourceDisk }}'
+      - name: sourceDiskId
+        value: '{{ sourceDiskId }}'
+      - name: diskSizeGb
+        value: '{{ diskSizeGb }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: selfLinkWithId
+        value: '{{ selfLinkWithId }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+      - name: zone
+        value: '{{ zone }}'
+      - name: region
+        value: '{{ region }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: architecture
+        value: '{{ architecture }}'
+      - name: resourceStatus
+        value: '{{ resourceStatus }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified instant_snapshot resource.
+
+```sql
+DELETE FROM google.compute.instant_snapshots
+WHERE instantSnapshot = '{{ instantSnapshot }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```

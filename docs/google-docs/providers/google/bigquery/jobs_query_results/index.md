@@ -1,3 +1,4 @@
+
 ---
 title: jobs_query_results
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - jobs_query_results
   - bigquery
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>jobs_query_result</code> resource or lists <code>jobs_query_results</code> in a region
 
 ## Overview
 <table><tbody>
@@ -42,7 +44,31 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="schema" /> | `object` | Schema of a table |
 | <CopyableCode code="totalBytesProcessed" /> | `string` | The total number of bytes processed for this query. |
 | <CopyableCode code="totalRows" /> | `string` | The total number of rows in the complete query result set, which can be more than the number of rows in this single page of results. Present only when the query completes successfully. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_query_results" /> | `SELECT` | <CopyableCode code="+jobId, projectId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_query_results" /> | `SELECT` | <CopyableCode code="+jobId, projectId" /> | RPC to get the results of a query job. |
+
+## `SELECT` examples
+
+RPC to get the results of a query job.
+
+```sql
+SELECT
+cacheHit,
+errors,
+etag,
+jobComplete,
+jobReference,
+kind,
+numDmlAffectedRows,
+pageToken,
+rows,
+schema,
+totalBytesProcessed,
+totalRows
+FROM google.bigquery.jobs_query_results
+WHERE +jobId = '{{ +jobId }}'
+AND projectId = '{{ projectId }}'; 
+```

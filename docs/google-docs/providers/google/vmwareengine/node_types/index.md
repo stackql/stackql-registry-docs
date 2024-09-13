@@ -1,3 +1,4 @@
+
 ---
 title: node_types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - node_types
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>node_type</code> resource or lists <code>node_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,9 +43,31 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nodeTypeId" /> | `string` | Output only. The canonical identifier of the node type (corresponds to the `NodeType`). For example: standard-72. |
 | <CopyableCode code="totalCoreCount" /> | `integer` | Output only. The total number of CPU cores in a single node. |
 | <CopyableCode code="virtualCpuCount" /> | `integer` | Output only. The total number of virtual CPUs in a single node. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, nodeTypesId, projectsId" /> | Gets details of a single `NodeType`. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists node types |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists node types |
+
+## `SELECT` examples
+
+Lists node types
+
+```sql
+SELECT
+name,
+availableCustomCoreCounts,
+capabilities,
+diskSizeGb,
+displayName,
+families,
+kind,
+memoryGb,
+nodeTypeId,
+totalCoreCount,
+virtualCpuCount
+FROM google.vmwareengine.node_types
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

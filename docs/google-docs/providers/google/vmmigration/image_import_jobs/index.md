@@ -1,3 +1,4 @@
+
 ---
 title: image_import_jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - image_import_jobs
   - vmmigration
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>image_import_job</code> resource or lists <code>image_import_jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,13 +39,37 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="diskImageTargetDetails" /> | `object` | The target details of the image resource that will be created by the import job. |
 | <CopyableCode code="endTime" /> | `string` | Output only. The time the image import was ended. |
 | <CopyableCode code="errors" /> | `array` | Output only. Provides details on the error that led to the image import state in case of an error. |
+| <CopyableCode code="machineImageTargetDetails" /> | `object` | The target details of the machine image resource that will be created by the image import job. |
 | <CopyableCode code="state" /> | `string` | Output only. The state of the image import. |
 | <CopyableCode code="steps" /> | `array` | Output only. The image import steps list representing its progress. |
 | <CopyableCode code="warnings" /> | `array` | Output only. Warnings that occurred during the image import. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="imageImportJobsId, imageImportsId, locationsId, projectsId" /> | Gets details of a single ImageImportJob. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="imageImportsId, locationsId, projectsId" /> | Lists ImageImportJobs in a given project. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="imageImportsId, locationsId, projectsId" /> | Lists ImageImportJobs in a given project. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="imageImportJobsId, imageImportsId, locationsId, projectsId" /> | Initiates the cancellation of a running clone job. |
+
+## `SELECT` examples
+
+Lists ImageImportJobs in a given project.
+
+```sql
+SELECT
+name,
+cloudStorageUri,
+createTime,
+createdResources,
+diskImageTargetDetails,
+endTime,
+errors,
+machineImageTargetDetails,
+state,
+steps,
+warnings
+FROM google.vmmigration.image_import_jobs
+WHERE imageImportsId = '{{ imageImportsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

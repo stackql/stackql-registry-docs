@@ -1,3 +1,4 @@
+
 ---
 title: users_login_profile
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - users_login_profile
   - oslogin
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>users_login_profile</code> resource or lists <code>users_login_profile</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,7 +35,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Required. A unique user ID. |
 | <CopyableCode code="posixAccounts" /> | `array` | The list of POSIX accounts associated with the user. |
 | <CopyableCode code="sshPublicKeys" /> | `object` | A map from SSH public key fingerprint to the associated key object. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_login_profile" /> | `SELECT` | <CopyableCode code="usersId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_login_profile" /> | `SELECT` | <CopyableCode code="usersId" /> | Retrieves the profile information used for logging in to a virtual machine on Google Compute Engine. |
+
+## `SELECT` examples
+
+Retrieves the profile information used for logging in to a virtual machine on Google Compute Engine.
+
+```sql
+SELECT
+name,
+posixAccounts,
+sshPublicKeys
+FROM google.oslogin.users_login_profile
+WHERE usersId = '{{ usersId }}'; 
+```

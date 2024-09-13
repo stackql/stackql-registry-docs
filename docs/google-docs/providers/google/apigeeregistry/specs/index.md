@@ -1,3 +1,4 @@
+
 ---
 title: specs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - specs
   - apigeeregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>spec</code> resource or lists <code>specs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="revisionUpdateTime" /> | `string` | Output only. Last update timestamp: when the represented revision was last modified. |
 | <CopyableCode code="sizeBytes" /> | `integer` | Output only. The size of the spec file in bytes. If the spec is gzipped, this is the size of the uncompressed spec. |
 | <CopyableCode code="sourceUri" /> | `string` | The original source URI of the spec (if one exists). This is an external location that can be used for reference purposes but which may not be authoritative since this external resource may change after the spec is retrieved. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,6 +55,170 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_apis_versions_specs_create" /> | `INSERT` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Creates a specified spec. |
 | <CopyableCode code="projects_locations_apis_versions_specs_delete" /> | `DELETE` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Removes a specified spec, all revisions, and all child resources (e.g., artifacts). |
 | <CopyableCode code="projects_locations_apis_versions_specs_patch" /> | `UPDATE` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Used to modify a specified spec. |
-| <CopyableCode code="_projects_locations_apis_versions_specs_list" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, versionsId" /> | Returns matching specs. |
 | <CopyableCode code="projects_locations_apis_versions_specs_rollback" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Sets the current revision to a specified prior revision. Note that this creates a new revision with a new revision ID. |
 | <CopyableCode code="projects_locations_apis_versions_specs_tag_revision" /> | `EXEC` | <CopyableCode code="apisId, locationsId, projectsId, specsId, versionsId" /> | Adds a tag to a specified revision of a spec. |
+
+## `SELECT` examples
+
+Returns matching specs.
+
+```sql
+SELECT
+name,
+description,
+annotations,
+contents,
+createTime,
+filename,
+hash,
+labels,
+mimeType,
+revisionCreateTime,
+revisionId,
+revisionUpdateTime,
+sizeBytes,
+sourceUri
+FROM google.apigeeregistry.specs
+WHERE apisId = '{{ apisId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND versionsId = '{{ versionsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>specs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigeeregistry.specs (
+apisId,
+locationsId,
+projectsId,
+versionsId,
+name,
+filename,
+description,
+revisionId,
+createTime,
+revisionCreateTime,
+revisionUpdateTime,
+mimeType,
+sizeBytes,
+hash,
+sourceUri,
+contents,
+labels,
+annotations
+)
+SELECT 
+'{{ apisId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ versionsId }}',
+'{{ name }}',
+'{{ filename }}',
+'{{ description }}',
+'{{ revisionId }}',
+'{{ createTime }}',
+'{{ revisionCreateTime }}',
+'{{ revisionUpdateTime }}',
+'{{ mimeType }}',
+'{{ sizeBytes }}',
+'{{ hash }}',
+'{{ sourceUri }}',
+'{{ contents }}',
+'{{ labels }}',
+'{{ annotations }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: filename
+        value: '{{ filename }}'
+      - name: description
+        value: '{{ description }}'
+      - name: revisionId
+        value: '{{ revisionId }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: revisionCreateTime
+        value: '{{ revisionCreateTime }}'
+      - name: revisionUpdateTime
+        value: '{{ revisionUpdateTime }}'
+      - name: mimeType
+        value: '{{ mimeType }}'
+      - name: sizeBytes
+        value: '{{ sizeBytes }}'
+      - name: hash
+        value: '{{ hash }}'
+      - name: sourceUri
+        value: '{{ sourceUri }}'
+      - name: contents
+        value: '{{ contents }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: annotations
+        value: '{{ annotations }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a spec only if the necessary resources are available.
+
+```sql
+UPDATE google.apigeeregistry.specs
+SET 
+name = '{{ name }}',
+filename = '{{ filename }}',
+description = '{{ description }}',
+revisionId = '{{ revisionId }}',
+createTime = '{{ createTime }}',
+revisionCreateTime = '{{ revisionCreateTime }}',
+revisionUpdateTime = '{{ revisionUpdateTime }}',
+mimeType = '{{ mimeType }}',
+sizeBytes = '{{ sizeBytes }}',
+hash = '{{ hash }}',
+sourceUri = '{{ sourceUri }}',
+contents = '{{ contents }}',
+labels = '{{ labels }}',
+annotations = '{{ annotations }}'
+WHERE 
+apisId = '{{ apisId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND specsId = '{{ specsId }}'
+AND versionsId = '{{ versionsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified spec resource.
+
+```sql
+DELETE FROM google.apigeeregistry.specs
+WHERE apisId = '{{ apisId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND specsId = '{{ specsId }}'
+AND versionsId = '{{ versionsId }}';
+```

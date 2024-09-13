@@ -1,3 +1,4 @@
+
 ---
 title: data_sources
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - data_sources
   - bigquerydatatransfer
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>data_source</code> resource or lists <code>data_sources</code> in a region
 
 ## Overview
 <table><tbody>
@@ -48,6 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="supportsMultipleTransfers" /> | `boolean` | Deprecated. This field has no effect. |
 | <CopyableCode code="transferType" /> | `string` | Deprecated. This field has no effect. |
 | <CopyableCode code="updateDeadlineSeconds" /> | `integer` | The number of seconds to wait for an update from the data source before the Data Transfer Service marks the transfer as FAILED. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -55,7 +58,33 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_data_sources_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists supported data sources and returns their settings. |
 | <CopyableCode code="projects_locations_data_sources_get" /> | `SELECT` | <CopyableCode code="dataSourcesId, locationsId, projectsId" /> | Retrieves a supported data source and returns its settings. |
 | <CopyableCode code="projects_locations_data_sources_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists supported data sources and returns their settings. |
-| <CopyableCode code="_projects_data_sources_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists supported data sources and returns their settings. |
-| <CopyableCode code="_projects_locations_data_sources_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists supported data sources and returns their settings. |
 | <CopyableCode code="projects_data_sources_check_valid_creds" /> | `EXEC` | <CopyableCode code="dataSourcesId, projectsId" /> | Returns true if valid credentials exist for the given data source and requesting user. |
 | <CopyableCode code="projects_locations_data_sources_check_valid_creds" /> | `EXEC` | <CopyableCode code="dataSourcesId, locationsId, projectsId" /> | Returns true if valid credentials exist for the given data source and requesting user. |
+
+## `SELECT` examples
+
+Lists supported data sources and returns their settings.
+
+```sql
+SELECT
+name,
+description,
+authorizationType,
+clientId,
+dataRefreshType,
+dataSourceId,
+defaultDataRefreshWindowDays,
+defaultSchedule,
+displayName,
+helpUrl,
+manualRunsDisabled,
+minimumScheduleInterval,
+parameters,
+scopes,
+supportsCustomSchedule,
+supportsMultipleTransfers,
+transferType,
+updateDeadlineSeconds
+FROM google.bigquerydatatransfer.data_sources
+WHERE projectsId = '{{ projectsId }}'; 
+```

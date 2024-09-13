@@ -1,3 +1,4 @@
+
 ---
 title: crypto_keys_primary_version
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - crypto_keys_primary_version
   - cloudkms
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>crypto_keys_primary_version</code> resource or lists <code>crypto_keys_primary_version</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="update_primary_version" /> | `EXEC` | <CopyableCode code="cryptoKeysId, keyRingsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="update_primary_version" /> | `UPDATE` | <CopyableCode code="cryptoKeysId, keyRingsId, locationsId, projectsId" /> | Update the version of a CryptoKey that will be used in Encrypt. Returns an error if called on a key whose purpose is not ENCRYPT_DECRYPT. |
+
+## `UPDATE` example
+
+Updates a crypto_keys_primary_version only if the necessary resources are available.
+
+```sql
+UPDATE google.cloudkms.crypto_keys_primary_version
+SET 
+cryptoKeyVersionId = '{{ cryptoKeyVersionId }}'
+WHERE 
+cryptoKeysId = '{{ cryptoKeysId }}'
+AND keyRingsId = '{{ keyRingsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

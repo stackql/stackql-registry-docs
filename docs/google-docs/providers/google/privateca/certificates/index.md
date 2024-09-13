@@ -1,3 +1,4 @@
+
 ---
 title: certificates
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - certificates
   - privateca
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>certificate</code> resource or lists <code>certificates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="revocationDetails" /> | `object` | Describes fields that are relavent to the revocation of a Certificate. |
 | <CopyableCode code="subjectMode" /> | `string` | Immutable. Specifies how the Certificate's identity fields are to be decided. If this is omitted, the `DEFAULT` subject mode will be used. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time at which this Certificate was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,5 +54,152 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="caPoolsId, locationsId, projectsId" /> | Lists Certificates. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="caPoolsId, locationsId, projectsId" /> | Create a new Certificate in a given Project, Location from a particular CaPool. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="caPoolsId, certificatesId, locationsId, projectsId" /> | Update a Certificate. Currently, the only field you can update is the labels field. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="caPoolsId, locationsId, projectsId" /> | Lists Certificates. |
 | <CopyableCode code="revoke" /> | `EXEC` | <CopyableCode code="caPoolsId, certificatesId, locationsId, projectsId" /> | Revoke a Certificate. |
+
+## `SELECT` examples
+
+Lists Certificates.
+
+```sql
+SELECT
+name,
+certificateDescription,
+certificateTemplate,
+config,
+createTime,
+issuerCertificateAuthority,
+labels,
+lifetime,
+pemCertificate,
+pemCertificateChain,
+pemCsr,
+revocationDetails,
+subjectMode,
+updateTime
+FROM google.privateca.certificates
+WHERE caPoolsId = '{{ caPoolsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>certificates</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.privateca.certificates (
+caPoolsId,
+locationsId,
+projectsId,
+name,
+pemCsr,
+config,
+issuerCertificateAuthority,
+lifetime,
+certificateTemplate,
+subjectMode,
+revocationDetails,
+pemCertificate,
+certificateDescription,
+pemCertificateChain,
+createTime,
+updateTime,
+labels
+)
+SELECT 
+'{{ caPoolsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ pemCsr }}',
+'{{ config }}',
+'{{ issuerCertificateAuthority }}',
+'{{ lifetime }}',
+'{{ certificateTemplate }}',
+'{{ subjectMode }}',
+'{{ revocationDetails }}',
+'{{ pemCertificate }}',
+'{{ certificateDescription }}',
+'{{ pemCertificateChain }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: pemCsr
+        value: '{{ pemCsr }}'
+      - name: config
+        value: '{{ config }}'
+      - name: issuerCertificateAuthority
+        value: '{{ issuerCertificateAuthority }}'
+      - name: lifetime
+        value: '{{ lifetime }}'
+      - name: certificateTemplate
+        value: '{{ certificateTemplate }}'
+      - name: subjectMode
+        value: '{{ subjectMode }}'
+      - name: revocationDetails
+        value: '{{ revocationDetails }}'
+      - name: pemCertificate
+        value: '{{ pemCertificate }}'
+      - name: certificateDescription
+        value: '{{ certificateDescription }}'
+      - name: pemCertificateChain
+        value: '{{ pemCertificateChain }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a certificate only if the necessary resources are available.
+
+```sql
+UPDATE google.privateca.certificates
+SET 
+name = '{{ name }}',
+pemCsr = '{{ pemCsr }}',
+config = '{{ config }}',
+issuerCertificateAuthority = '{{ issuerCertificateAuthority }}',
+lifetime = '{{ lifetime }}',
+certificateTemplate = '{{ certificateTemplate }}',
+subjectMode = '{{ subjectMode }}',
+revocationDetails = '{{ revocationDetails }}',
+pemCertificate = '{{ pemCertificate }}',
+certificateDescription = '{{ certificateDescription }}',
+pemCertificateChain = '{{ pemCertificateChain }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}'
+WHERE 
+caPoolsId = '{{ caPoolsId }}'
+AND certificatesId = '{{ certificatesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

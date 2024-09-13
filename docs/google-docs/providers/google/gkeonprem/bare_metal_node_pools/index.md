@@ -1,3 +1,4 @@
+
 ---
 title: bare_metal_node_pools
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - bare_metal_node_pools
   - gkeonprem
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>bare_metal_node_pool</code> resource or lists <code>bare_metal_node_pools</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="uid" /> | `string` | Output only. The unique identifier of the bare metal node pool. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time at which this bare metal node pool was last updated. |
 | <CopyableCode code="upgradePolicy" /> | `object` | BareMetalNodePoolUpgradePolicy defines the node pool upgrade policy. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,6 +54,159 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_create" /> | `INSERT` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Creates a new bare metal node pool in a given project, location and Bare Metal cluster. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_delete" /> | `DELETE` | <CopyableCode code="bareMetalClustersId, bareMetalNodePoolsId, locationsId, projectsId" /> | Deletes a single bare metal node pool. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_patch" /> | `UPDATE` | <CopyableCode code="bareMetalClustersId, bareMetalNodePoolsId, locationsId, projectsId" /> | Updates the parameters of a single bare metal node pool. |
-| <CopyableCode code="_projects_locations_bare_metal_clusters_bare_metal_node_pools_list" /> | `EXEC` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Lists bare metal node pools in a given project, location and bare metal cluster. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_enroll" /> | `EXEC` | <CopyableCode code="bareMetalClustersId, locationsId, projectsId" /> | Enrolls an existing bare metal node pool to the Anthos On-Prem API within a given project and location. Through enrollment, an existing node pool will become Anthos On-Prem API managed. The corresponding GCP resources will be created. |
 | <CopyableCode code="projects_locations_bare_metal_clusters_bare_metal_node_pools_unenroll" /> | `EXEC` | <CopyableCode code="bareMetalClustersId, bareMetalNodePoolsId, locationsId, projectsId" /> | Unenrolls a bare metal node pool from Anthos On-Prem API. |
+
+## `SELECT` examples
+
+Lists bare metal node pools in a given project, location and bare metal cluster.
+
+```sql
+SELECT
+name,
+annotations,
+createTime,
+deleteTime,
+displayName,
+etag,
+nodePoolConfig,
+reconciling,
+state,
+status,
+uid,
+updateTime,
+upgradePolicy
+FROM google.gkeonprem.bare_metal_node_pools
+WHERE bareMetalClustersId = '{{ bareMetalClustersId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>bare_metal_node_pools</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.gkeonprem.bare_metal_node_pools (
+bareMetalClustersId,
+locationsId,
+projectsId,
+name,
+displayName,
+uid,
+state,
+reconciling,
+createTime,
+updateTime,
+deleteTime,
+etag,
+annotations,
+nodePoolConfig,
+status,
+upgradePolicy
+)
+SELECT 
+'{{ bareMetalClustersId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ uid }}',
+'{{ state }}',
+true|false,
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ deleteTime }}',
+'{{ etag }}',
+'{{ annotations }}',
+'{{ nodePoolConfig }}',
+'{{ status }}',
+'{{ upgradePolicy }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: state
+        value: '{{ state }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: nodePoolConfig
+        value: '{{ nodePoolConfig }}'
+      - name: status
+        value: '{{ status }}'
+      - name: upgradePolicy
+        value: '{{ upgradePolicy }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a bare_metal_node_pool only if the necessary resources are available.
+
+```sql
+UPDATE google.gkeonprem.bare_metal_node_pools
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+uid = '{{ uid }}',
+state = '{{ state }}',
+reconciling = true|false,
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+deleteTime = '{{ deleteTime }}',
+etag = '{{ etag }}',
+annotations = '{{ annotations }}',
+nodePoolConfig = '{{ nodePoolConfig }}',
+status = '{{ status }}',
+upgradePolicy = '{{ upgradePolicy }}'
+WHERE 
+bareMetalClustersId = '{{ bareMetalClustersId }}'
+AND bareMetalNodePoolsId = '{{ bareMetalNodePoolsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified bare_metal_node_pool resource.
+
+```sql
+DELETE FROM google.gkeonprem.bare_metal_node_pools
+WHERE bareMetalClustersId = '{{ bareMetalClustersId }}'
+AND bareMetalNodePoolsId = '{{ bareMetalNodePoolsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

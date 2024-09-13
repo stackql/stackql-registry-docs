@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Train high-quality custom machine learning models with minimal machine learning expertise and effort.  
-    
+The aiplatform service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>65</b></span><br />
-<span>total selectable resources:&nbsp;<b>54</b></span><br />
-<span>total methods:&nbsp;<b>361</b></span><br />
+<span>total resources:&nbsp;<b>68</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.aiplatform</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Vertex AI API</td></tr>
-<tr><td><b>Description</b></td><td>Train high-quality custom machine learning models with minimal machine learning expertise and effort.</td></tr>
-<tr><td><b>Id</b></td><td><code>aiplatform:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -63,18 +52,20 @@ Train high-quality custom machine learning models with minimal machine learning 
 <a href="/providers/google/aiplatform/experiments/">experiments</a><br />
 <a href="/providers/google/aiplatform/feature_groups/">feature_groups</a><br />
 <a href="/providers/google/aiplatform/feature_online_stores/">feature_online_stores</a><br />
+<a href="/providers/google/aiplatform/feature_online_stores_iam_policies/">feature_online_stores_iam_policies</a><br />
 <a href="/providers/google/aiplatform/feature_view_syncs/">feature_view_syncs</a><br />
 <a href="/providers/google/aiplatform/feature_views/">feature_views</a><br />
 <a href="/providers/google/aiplatform/feature_views_feature_values/">feature_views_feature_values</a><br />
+<a href="/providers/google/aiplatform/feature_views_iam_policies/">feature_views_iam_policies</a><br />
 <a href="/providers/google/aiplatform/features/">features</a><br />
 <a href="/providers/google/aiplatform/featurestores/">featurestores</a><br />
 <a href="/providers/google/aiplatform/featurestores_iam_policies/">featurestores_iam_policies</a><br />
 <a href="/providers/google/aiplatform/hyperparameter_tuning_jobs/">hyperparameter_tuning_jobs</a><br />
 <a href="/providers/google/aiplatform/index_endpoints/">index_endpoints</a><br />
-<a href="/providers/google/aiplatform/indexes/">indexes</a><br />
-<a href="/providers/google/aiplatform/indexes_datapoints/">indexes_datapoints</a><br />
+<a href="/providers/google/aiplatform/indexes/">indexes</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/google/aiplatform/indexes_datapoints/">indexes_datapoints</a><br />
 <a href="/providers/google/aiplatform/locations/">locations</a><br />
 <a href="/providers/google/aiplatform/metadata_schemas/">metadata_schemas</a><br />
 <a href="/providers/google/aiplatform/metadata_stores/">metadata_stores</a><br />
@@ -87,6 +78,7 @@ Train high-quality custom machine learning models with minimal machine learning 
 <a href="/providers/google/aiplatform/models_versions/">models_versions</a><br />
 <a href="/providers/google/aiplatform/nas_jobs/">nas_jobs</a><br />
 <a href="/providers/google/aiplatform/nas_trial_details/">nas_trial_details</a><br />
+<a href="/providers/google/aiplatform/notebook_execution_jobs/">notebook_execution_jobs</a><br />
 <a href="/providers/google/aiplatform/notebook_runtime_templates/">notebook_runtime_templates</a><br />
 <a href="/providers/google/aiplatform/notebook_runtime_templates_iam_policies/">notebook_runtime_templates_iam_policies</a><br />
 <a href="/providers/google/aiplatform/notebook_runtimes/">notebook_runtimes</a><br />
@@ -106,6 +98,6 @@ Train high-quality custom machine learning models with minimal machine learning 
 <a href="/providers/google/aiplatform/trials/">trials</a><br />
 <a href="/providers/google/aiplatform/trials_optimal_trials/">trials_optimal_trials</a><br />
 <a href="/providers/google/aiplatform/trials_trial_measurement/">trials_trial_measurement</a><br />
-<a href="/providers/google/aiplatform/tuning_jobs/">tuning_jobs</a><br />
+<a href="/providers/google/aiplatform/tuning_jobs/">tuning_jobs</a>
 </div>
 </div>

@@ -1,3 +1,4 @@
+
 ---
 title: tags
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - tags
   - artifactregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>tag</code> resource or lists <code>tags</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,6 +34,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | The name of the tag, for example: "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/tags/tag1". If the package part contains slashes, the slashes are escaped. The tag part can only have characters in [a-zA-Z0-9\-._~:@], anything else must be URL encoded. |
 | <CopyableCode code="version" /> | `string` | The name of the version the tag refers to, for example: "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/sha256:5243811" If the package or version ID parts contain slashes, the slashes are escaped. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -40,4 +43,96 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Creates a tag. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId, tagsId" /> | Deletes a tag. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId, tagsId" /> | Updates a tag. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, packagesId, projectsId, repositoriesId" /> | Lists tags. |
+
+## `SELECT` examples
+
+Lists tags.
+
+```sql
+SELECT
+name,
+version
+FROM google.artifactregistry.tags
+WHERE locationsId = '{{ locationsId }}'
+AND packagesId = '{{ packagesId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>tags</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.artifactregistry.tags (
+locationsId,
+packagesId,
+projectsId,
+repositoriesId,
+name,
+version
+)
+SELECT 
+'{{ locationsId }}',
+'{{ packagesId }}',
+'{{ projectsId }}',
+'{{ repositoriesId }}',
+'{{ name }}',
+'{{ version }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: version
+        value: '{{ version }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a tag only if the necessary resources are available.
+
+```sql
+UPDATE google.artifactregistry.tags
+SET 
+name = '{{ name }}',
+version = '{{ version }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND packagesId = '{{ packagesId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'
+AND tagsId = '{{ tagsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified tag resource.
+
+```sql
+DELETE FROM google.artifactregistry.tags
+WHERE locationsId = '{{ locationsId }}'
+AND packagesId = '{{ packagesId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'
+AND tagsId = '{{ tagsId }}';
+```

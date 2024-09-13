@@ -1,3 +1,4 @@
+
 ---
 title: target_http_proxies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - target_http_proxies
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>target_http_proxy</code> resource or lists <code>target_http_proxies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,6 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the regional Target HTTP Proxy resides. This field is not applicable to global Target HTTP Proxies. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="urlMap" /> | `string` | URL to the UrlMap resource that defines the mapping from URL to the BackendService. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -50,3 +53,135 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, targetHttpProxy" /> | Deletes the specified TargetHttpProxy resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, targetHttpProxy" /> | Patches the specified TargetHttpProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
 | <CopyableCode code="set_url_map" /> | `EXEC` | <CopyableCode code="project, targetHttpProxy" /> | Changes the URL map for TargetHttpProxy. |
+
+## `SELECT` examples
+
+Retrieves the list of TargetHttpProxy resources available to the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+fingerprint,
+httpKeepAliveTimeoutSec,
+kind,
+proxyBind,
+region,
+selfLink,
+urlMap
+FROM google.compute.target_http_proxies
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>target_http_proxies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.target_http_proxies (
+project,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+urlMap,
+region,
+proxyBind,
+fingerprint,
+httpKeepAliveTimeoutSec
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ urlMap }}',
+'{{ region }}',
+true|false,
+'{{ fingerprint }}',
+'{{ httpKeepAliveTimeoutSec }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: urlMap
+        value: '{{ urlMap }}'
+      - name: region
+        value: '{{ region }}'
+      - name: proxyBind
+        value: '{{ proxyBind }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: httpKeepAliveTimeoutSec
+        value: '{{ httpKeepAliveTimeoutSec }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a target_http_proxy only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.target_http_proxies
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+urlMap = '{{ urlMap }}',
+region = '{{ region }}',
+proxyBind = true|false,
+fingerprint = '{{ fingerprint }}',
+httpKeepAliveTimeoutSec = '{{ httpKeepAliveTimeoutSec }}'
+WHERE 
+project = '{{ project }}'
+AND targetHttpProxy = '{{ targetHttpProxy }}';
+```
+
+## `DELETE` example
+
+Deletes the specified target_http_proxy resource.
+
+```sql
+DELETE FROM google.compute.target_http_proxies
+WHERE project = '{{ project }}'
+AND targetHttpProxy = '{{ targetHttpProxy }}';
+```

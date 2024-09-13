@@ -1,3 +1,4 @@
+
 ---
 title: resourcefiles
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - resourcefiles
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>resourcefile</code> resource or lists <code>resourcefiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,6 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="contentType" /> | `string` | The HTTP Content-Type header value specifying the content type of the body. |
 | <CopyableCode code="data" /> | `string` | The HTTP request/response body as raw binary. |
 | <CopyableCode code="extensions" /> | `array` | Application specific response metadata. Must be set in the first response for streaming APIs. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -40,4 +43,78 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_environments_resourcefiles_list" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Lists all resource files, optionally filtering by type. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
 | <CopyableCode code="organizations_environments_resourcefiles_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a resource file. Specify the `Content-Type` as `application/octet-stream` or `multipart/form-data`. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
 | <CopyableCode code="organizations_environments_resourcefiles_delete" /> | `DELETE` | <CopyableCode code="environmentsId, name, organizationsId, type" /> | Deletes a resource file. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
-| <CopyableCode code="organizations_environments_resourcefiles_update" /> | `UPDATE` | <CopyableCode code="environmentsId, name, organizationsId, type" /> | Updates a resource file. Specify the `Content-Type` as `application/octet-stream` or `multipart/form-data`. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
+| <CopyableCode code="organizations_environments_resourcefiles_update" /> | `EXEC` | <CopyableCode code="environmentsId, name, organizationsId, type" /> | Updates a resource file. Specify the `Content-Type` as `application/octet-stream` or `multipart/form-data`. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
+
+## `SELECT` examples
+
+Lists all resource files, optionally filtering by type. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files).
+
+```sql
+SELECT
+contentType,
+data,
+extensions
+FROM google.apigee.resourcefiles
+WHERE environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>resourcefiles</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.resourcefiles (
+environmentsId,
+organizationsId,
+contentType,
+extensions,
+data
+)
+SELECT 
+'{{ environmentsId }}',
+'{{ organizationsId }}',
+'{{ contentType }}',
+'{{ extensions }}',
+'{{ data }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: contentType
+        value: '{{ contentType }}'
+      - name: extensions
+        value: '{{ extensions }}'
+      - name: data
+        value: '{{ data }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified resourcefile resource.
+
+```sql
+DELETE FROM google.apigee.resourcefiles
+WHERE environmentsId = '{{ environmentsId }}'
+AND name = '{{ name }}'
+AND organizationsId = '{{ organizationsId }}'
+AND type = '{{ type }}';
+```

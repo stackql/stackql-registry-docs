@@ -1,3 +1,4 @@
+
 ---
 title: connections
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - connections
   - developerconnect
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>connection</code> resource or lists <code>connections</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. The resource name of the connection, in the format `projects/&#123;project&#125;/locations/&#123;location&#125;/connections/&#123;connection_id&#125;`. |
+| <CopyableCode code="name" /> | `string` | Identifier. The resource name of the connection, in the format `projects/{project}/locations/{location}/connections/{connection_id}`. |
 | <CopyableCode code="annotations" /> | `object` | Optional. Allows clients to store small amounts of arbitrary data. |
 | <CopyableCode code="createTime" /> | `string` | Output only. [Output only] Create timestamp |
 | <CopyableCode code="deleteTime" /> | `string` | Output only. [Output only] Delete timestamp |
@@ -42,6 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="reconciling" /> | `boolean` | Output only. Set to true when the connection is being set up or updated in the background. |
 | <CopyableCode code="uid" /> | `string` | Output only. A system-assigned unique identifier for a the GitRepositoryLink. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. [Output only] Update timestamp |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -50,4 +53,146 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Connection in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Deletes a single Connection. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Updates the parameters of a single Connection. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Connections in a given project and location. |
+
+## `SELECT` examples
+
+Lists Connections in a given project and location.
+
+```sql
+SELECT
+name,
+annotations,
+createTime,
+deleteTime,
+disabled,
+etag,
+githubConfig,
+installationState,
+labels,
+reconciling,
+uid,
+updateTime
+FROM google.developerconnect.connections
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>connections</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.developerconnect.connections (
+locationsId,
+projectsId,
+githubConfig,
+name,
+createTime,
+updateTime,
+deleteTime,
+labels,
+installationState,
+disabled,
+reconciling,
+annotations,
+etag,
+uid
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ githubConfig }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ deleteTime }}',
+'{{ labels }}',
+'{{ installationState }}',
+true|false,
+true|false,
+'{{ annotations }}',
+'{{ etag }}',
+'{{ uid }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: githubConfig
+        value: '{{ githubConfig }}'
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: installationState
+        value: '{{ installationState }}'
+      - name: disabled
+        value: '{{ disabled }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: uid
+        value: '{{ uid }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a connection only if the necessary resources are available.
+
+```sql
+UPDATE google.developerconnect.connections
+SET 
+githubConfig = '{{ githubConfig }}',
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+deleteTime = '{{ deleteTime }}',
+labels = '{{ labels }}',
+installationState = '{{ installationState }}',
+disabled = true|false,
+reconciling = true|false,
+annotations = '{{ annotations }}',
+etag = '{{ etag }}',
+uid = '{{ uid }}'
+WHERE 
+connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified connection resource.
+
+```sql
+DELETE FROM google.developerconnect.connections
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

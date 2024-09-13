@@ -1,3 +1,4 @@
+
 ---
 title: volume_backups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - volume_backups
   - gkebackup
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>volume_backup</code> resource or lists <code>volume_backups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,9 +45,35 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="uid" /> | `string` | Output only. Server generated global unique identifier of [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when this VolumeBackup resource was last updated. |
 | <CopyableCode code="volumeBackupHandle" /> | `string` | Output only. A storage system-specific opaque handle to the underlying volume backup. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="backupPlansId, backupsId, locationsId, projectsId, volumeBackupsId" /> | Retrieve the details of a single VolumeBackup. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="backupPlansId, backupsId, locationsId, projectsId" /> | Lists the VolumeBackups for a given Backup. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="backupPlansId, backupsId, locationsId, projectsId" /> | Lists the VolumeBackups for a given Backup. |
+
+## `SELECT` examples
+
+Lists the VolumeBackups for a given Backup.
+
+```sql
+SELECT
+name,
+completeTime,
+createTime,
+diskSizeBytes,
+etag,
+format,
+sourcePvc,
+state,
+stateMessage,
+storageBytes,
+uid,
+updateTime,
+volumeBackupHandle
+FROM google.gkebackup.volume_backups
+WHERE backupPlansId = '{{ backupPlansId }}'
+AND backupsId = '{{ backupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

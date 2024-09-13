@@ -1,3 +1,4 @@
+
 ---
 title: maven_artifacts
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - maven_artifacts
   - artifactregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>maven_artifact</code> resource or lists <code>maven_artifacts</code> in a region
 
 ## Overview
 <table><tbody>
@@ -37,9 +39,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="pomUri" /> | `string` | Required. URL to access the pom file of the artifact. Example: us-west4-maven.pkg.dev/test-project/test-repo/com/google/guava/guava/31.0/guava-31.0.pom |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time the artifact was updated. |
 | <CopyableCode code="version" /> | `string` | Version of this artifact. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, mavenArtifactsId, projectsId, repositoriesId" /> | Gets a maven artifact. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists maven artifacts. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists maven artifacts. |
+
+## `SELECT` examples
+
+Lists maven artifacts.
+
+```sql
+SELECT
+name,
+artifactId,
+createTime,
+groupId,
+pomUri,
+updateTime,
+version
+FROM google.artifactregistry.maven_artifacts
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```

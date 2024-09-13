@@ -1,3 +1,4 @@
+
 ---
 title: network_attachments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - network_attachments
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>network_attachment</code> resource or lists <code>network_attachments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -45,6 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="selfLinkWithId" /> | `string` | [Output Only] Server-defined URL for this resource's resource id. |
 | <CopyableCode code="subnetworks" /> | `array` | An array of URLs where each entry is the URL of a subnet provided by the service consumer to use for endpoints in the producers that connect to this network attachment. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,4 +57,163 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a NetworkAttachment in the specified project in the given scope using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="networkAttachment, project, region" /> | Deletes the specified NetworkAttachment in the given scope |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="networkAttachment, project, region" /> | Patches the specified NetworkAttachment resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves the list of all NetworkAttachment resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+
+## `SELECT` examples
+
+Retrieves the list of all NetworkAttachment resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+connectionEndpoints,
+connectionPreference,
+creationTimestamp,
+fingerprint,
+kind,
+network,
+producerAcceptLists,
+producerRejectLists,
+region,
+selfLink,
+selfLinkWithId,
+subnetworks
+FROM google.compute.network_attachments
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>network_attachments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.network_attachments (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+selfLinkWithId,
+region,
+connectionPreference,
+connectionEndpoints,
+subnetworks,
+producerRejectLists,
+producerAcceptLists,
+fingerprint,
+network
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ selfLinkWithId }}',
+'{{ region }}',
+'{{ connectionPreference }}',
+'{{ connectionEndpoints }}',
+'{{ subnetworks }}',
+'{{ producerRejectLists }}',
+'{{ producerAcceptLists }}',
+'{{ fingerprint }}',
+'{{ network }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: selfLinkWithId
+        value: '{{ selfLinkWithId }}'
+      - name: region
+        value: '{{ region }}'
+      - name: connectionPreference
+        value: '{{ connectionPreference }}'
+      - name: connectionEndpoints
+        value: '{{ connectionEndpoints }}'
+      - name: subnetworks
+        value: '{{ subnetworks }}'
+      - name: producerRejectLists
+        value: '{{ producerRejectLists }}'
+      - name: producerAcceptLists
+        value: '{{ producerAcceptLists }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: network
+        value: '{{ network }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a network_attachment only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.network_attachments
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+selfLinkWithId = '{{ selfLinkWithId }}',
+region = '{{ region }}',
+connectionPreference = '{{ connectionPreference }}',
+connectionEndpoints = '{{ connectionEndpoints }}',
+subnetworks = '{{ subnetworks }}',
+producerRejectLists = '{{ producerRejectLists }}',
+producerAcceptLists = '{{ producerAcceptLists }}',
+fingerprint = '{{ fingerprint }}',
+network = '{{ network }}'
+WHERE 
+networkAttachment = '{{ networkAttachment }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```
+
+## `DELETE` example
+
+Deletes the specified network_attachment resource.
+
+```sql
+DELETE FROM google.compute.network_attachments
+WHERE networkAttachment = '{{ networkAttachment }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

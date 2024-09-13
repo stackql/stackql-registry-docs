@@ -1,3 +1,4 @@
+
 ---
 title: dns_keys
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - dns_keys
   - dns
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>dns_key</code> resource or lists <code>dns_keys</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,9 +43,31 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` |  |
 | <CopyableCode code="publicKey" /> | `string` | Base64 encoded public half of this key. Output only. |
 | <CopyableCode code="type" /> | `string` | One of "KEY_SIGNING" or "ZONE_SIGNING". Keys of type KEY_SIGNING have the Secure Entry Point flag set and, when active, are used to sign only resource record sets of type DNSKEY. Otherwise, the Secure Entry Point flag is cleared, and this key is used to sign only resource record sets of other types. Immutable after creation time. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dnsKeyId, managedZone, project" /> | Fetches the representation of an existing DnsKey. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="managedZone, project" /> | Enumerates DnsKeys to a ResourceRecordSet collection. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="managedZone, project" /> | Enumerates DnsKeys to a ResourceRecordSet collection. |
+
+## `SELECT` examples
+
+Enumerates DnsKeys to a ResourceRecordSet collection.
+
+```sql
+SELECT
+id,
+description,
+algorithm,
+creationTime,
+digests,
+isActive,
+keyLength,
+keyTag,
+kind,
+publicKey,
+type
+FROM google.dns.dns_keys
+WHERE managedZone = '{{ managedZone }}'
+AND project = '{{ project }}'; 
+```

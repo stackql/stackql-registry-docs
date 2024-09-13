@@ -1,3 +1,4 @@
+
 ---
 title: persistent_resources
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - persistent_resources
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>persistent_resource</code> resource or lists <code>persistent_resources</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,14 +38,17 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="encryptionSpec" /> | `object` | Represents a customer-managed encryption key spec that can be applied to a top-level resource. |
 | <CopyableCode code="error" /> | `object` | The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors). |
 | <CopyableCode code="labels" /> | `object` | Optional. The labels with user-defined metadata to organize PersistentResource. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. |
-| <CopyableCode code="network" /> | `string` | Optional. The full name of the Compute Engine [network](/compute/docs/networks-and-firewalls#networks) to peered with Vertex AI to host the persistent resources. For example, `projects/12345/global/networks/myVPC`. [Format](/compute/docs/reference/rest/v1/networks/insert) is of the form `projects/&#123;project&#125;/global/networks/&#123;network&#125;`. Where &#123;project&#125; is a project number, as in `12345`, and &#123;network&#125; is a network name. To specify this field, you must have already [configured VPC Network Peering for Vertex AI](https://cloud.google.com/vertex-ai/docs/general/vpc-peering). If this field is left unspecified, the resources aren't peered with any network. |
+| <CopyableCode code="network" /> | `string` | Optional. The full name of the Compute Engine [network](/compute/docs/networks-and-firewalls#networks) to peered with Vertex AI to host the persistent resources. For example, `projects/12345/global/networks/myVPC`. [Format](/compute/docs/reference/rest/v1/networks/insert) is of the form `projects/{project}/global/networks/{network}`. Where {project} is a project number, as in `12345`, and {network} is a network name. To specify this field, you must have already [configured VPC Network Peering for Vertex AI](https://cloud.google.com/vertex-ai/docs/general/vpc-peering). If this field is left unspecified, the resources aren't peered with any network. |
 | <CopyableCode code="reservedIpRanges" /> | `array` | Optional. A list of names for the reserved IP ranges under the VPC network that can be used for this persistent resource. If set, we will deploy the persistent resource within the provided IP ranges. Otherwise, the persistent resource is deployed to any IP ranges under the provided VPC network. Example: ['vertex-ai-ip-range']. |
 | <CopyableCode code="resourcePools" /> | `array` | Required. The spec of the pools of different resources. |
 | <CopyableCode code="resourceRuntime" /> | `object` | Persistent Cluster runtime information as output |
 | <CopyableCode code="resourceRuntimeSpec" /> | `object` | Configuration for the runtime on a PersistentResource instance, including but not limited to: * Service accounts used to run the workloads. * Whether to make it a dedicated Ray Cluster. |
+| <CopyableCode code="satisfiesPzi" /> | `boolean` | Output only. Reserved for future use. |
+| <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="startTime" /> | `string` | Output only. Time when the PersistentResource for the first time entered the `RUNNING` state. |
 | <CopyableCode code="state" /> | `string` | Output only. The detailed state of a Study. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time when the PersistentResource was most recently updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,5 +57,171 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a PersistentResource. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, persistentResourcesId, projectsId" /> | Deletes a PersistentResource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, persistentResourcesId, projectsId" /> | Updates a PersistentResource. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists PersistentResources in a Location. |
 | <CopyableCode code="reboot" /> | `EXEC` | <CopyableCode code="locationsId, persistentResourcesId, projectsId" /> | Reboots a PersistentResource. |
+
+## `SELECT` examples
+
+Lists PersistentResources in a Location.
+
+```sql
+SELECT
+name,
+createTime,
+displayName,
+encryptionSpec,
+error,
+labels,
+network,
+reservedIpRanges,
+resourcePools,
+resourceRuntime,
+resourceRuntimeSpec,
+satisfiesPzi,
+satisfiesPzs,
+startTime,
+state,
+updateTime
+FROM google.aiplatform.persistent_resources
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>persistent_resources</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.aiplatform.persistent_resources (
+locationsId,
+projectsId,
+updateTime,
+resourcePools,
+error,
+satisfiesPzs,
+displayName,
+network,
+resourceRuntimeSpec,
+createTime,
+resourceRuntime,
+state,
+satisfiesPzi,
+startTime,
+labels,
+reservedIpRanges,
+name,
+encryptionSpec
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ updateTime }}',
+'{{ resourcePools }}',
+'{{ error }}',
+true|false,
+'{{ displayName }}',
+'{{ network }}',
+'{{ resourceRuntimeSpec }}',
+'{{ createTime }}',
+'{{ resourceRuntime }}',
+'{{ state }}',
+true|false,
+'{{ startTime }}',
+'{{ labels }}',
+'{{ reservedIpRanges }}',
+'{{ name }}',
+'{{ encryptionSpec }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: resourcePools
+        value: '{{ resourcePools }}'
+      - name: error
+        value: '{{ error }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: network
+        value: '{{ network }}'
+      - name: resourceRuntimeSpec
+        value: '{{ resourceRuntimeSpec }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: resourceRuntime
+        value: '{{ resourceRuntime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+      - name: startTime
+        value: '{{ startTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: reservedIpRanges
+        value: '{{ reservedIpRanges }}'
+      - name: name
+        value: '{{ name }}'
+      - name: encryptionSpec
+        value: '{{ encryptionSpec }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a persistent_resource only if the necessary resources are available.
+
+```sql
+UPDATE google.aiplatform.persistent_resources
+SET 
+updateTime = '{{ updateTime }}',
+resourcePools = '{{ resourcePools }}',
+error = '{{ error }}',
+satisfiesPzs = true|false,
+displayName = '{{ displayName }}',
+network = '{{ network }}',
+resourceRuntimeSpec = '{{ resourceRuntimeSpec }}',
+createTime = '{{ createTime }}',
+resourceRuntime = '{{ resourceRuntime }}',
+state = '{{ state }}',
+satisfiesPzi = true|false,
+startTime = '{{ startTime }}',
+labels = '{{ labels }}',
+reservedIpRanges = '{{ reservedIpRanges }}',
+name = '{{ name }}',
+encryptionSpec = '{{ encryptionSpec }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND persistentResourcesId = '{{ persistentResourcesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified persistent_resource resource.
+
+```sql
+DELETE FROM google.aiplatform.persistent_resources
+WHERE locationsId = '{{ locationsId }}'
+AND persistentResourcesId = '{{ persistentResourcesId }}'
+AND projectsId = '{{ projectsId }}';
+```

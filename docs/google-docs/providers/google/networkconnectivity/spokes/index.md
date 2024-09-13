@@ -1,3 +1,4 @@
+
 ---
 title: spokes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - spokes
   - networkconnectivity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>spoke</code> resource or lists <code>spokes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The name of the spoke. Spoke names must be unique. They use the following form: `projects/&#123;project_number&#125;/locations/&#123;region&#125;/spokes/&#123;spoke_id&#125;` |
+| <CopyableCode code="name" /> | `string` | Immutable. The name of the spoke. Spoke names must be unique. They use the following form: `projects/{project_number}/locations/{region}/spokes/{spoke_id}` |
 | <CopyableCode code="description" /> | `string` | An optional description of the spoke. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time the spoke was created. |
 | <CopyableCode code="group" /> | `string` | Optional. The name of the group that this spoke is associated with. |
@@ -45,6 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The current lifecycle state of this spoke. |
 | <CopyableCode code="uniqueId" /> | `string` | Output only. The Google-generated UUID for the spoke. This value is unique across all spoke resources. If a spoke is deleted and another with the same name is created, the new spoke is assigned a different `unique_id`. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time the spoke was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,5 +57,164 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Network Connectivity Center spoke. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, spokesId" /> | Deletes a Network Connectivity Center spoke. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, spokesId" /> | Updates the parameters of a Network Connectivity Center spoke. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists the Network Connectivity Center spokes in a specified project and location. |
-| <CopyableCode code="_list_spokes" /> | `EXEC` | <CopyableCode code="hubsId, projectsId" /> | Lists the Network Connectivity Center spokes associated with a specified hub and location. The list includes both spokes that are attached to the hub and spokes that have been proposed but not yet accepted. |
+
+## `SELECT` examples
+
+Lists the Network Connectivity Center spokes associated with a specified hub and location. The list includes both spokes that are attached to the hub and spokes that have been proposed but not yet accepted.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+group,
+hub,
+labels,
+linkedInterconnectAttachments,
+linkedRouterApplianceInstances,
+linkedVpcNetwork,
+linkedVpnTunnels,
+reasons,
+spokeType,
+state,
+uniqueId,
+updateTime
+FROM google.networkconnectivity.spokes
+WHERE hubsId = '{{ hubsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>spokes</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networkconnectivity.spokes (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+labels,
+description,
+hub,
+group,
+linkedVpnTunnels,
+linkedInterconnectAttachments,
+linkedRouterApplianceInstances,
+linkedVpcNetwork,
+uniqueId,
+state,
+reasons,
+spokeType
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ description }}',
+'{{ hub }}',
+'{{ group }}',
+'{{ linkedVpnTunnels }}',
+'{{ linkedInterconnectAttachments }}',
+'{{ linkedRouterApplianceInstances }}',
+'{{ linkedVpcNetwork }}',
+'{{ uniqueId }}',
+'{{ state }}',
+'{{ reasons }}',
+'{{ spokeType }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: description
+        value: '{{ description }}'
+      - name: hub
+        value: '{{ hub }}'
+      - name: group
+        value: '{{ group }}'
+      - name: linkedVpnTunnels
+        value: '{{ linkedVpnTunnels }}'
+      - name: linkedInterconnectAttachments
+        value: '{{ linkedInterconnectAttachments }}'
+      - name: linkedRouterApplianceInstances
+        value: '{{ linkedRouterApplianceInstances }}'
+      - name: linkedVpcNetwork
+        value: '{{ linkedVpcNetwork }}'
+      - name: uniqueId
+        value: '{{ uniqueId }}'
+      - name: state
+        value: '{{ state }}'
+      - name: reasons
+        value: '{{ reasons }}'
+      - name: spokeType
+        value: '{{ spokeType }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a spoke only if the necessary resources are available.
+
+```sql
+UPDATE google.networkconnectivity.spokes
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+description = '{{ description }}',
+hub = '{{ hub }}',
+group = '{{ group }}',
+linkedVpnTunnels = '{{ linkedVpnTunnels }}',
+linkedInterconnectAttachments = '{{ linkedInterconnectAttachments }}',
+linkedRouterApplianceInstances = '{{ linkedRouterApplianceInstances }}',
+linkedVpcNetwork = '{{ linkedVpcNetwork }}',
+uniqueId = '{{ uniqueId }}',
+state = '{{ state }}',
+reasons = '{{ reasons }}',
+spokeType = '{{ spokeType }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND spokesId = '{{ spokesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified spoke resource.
+
+```sql
+DELETE FROM google.networkconnectivity.spokes
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND spokesId = '{{ spokesId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: debug
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - debug
   - dataflow
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>debug</code> resource or lists <code>debug</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,9 +30,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_jobs_debug_send_capture" /> | `EXEC` | <CopyableCode code="jobId, projectId" /> |
-| <CopyableCode code="projects_locations_jobs_debug_send_capture" /> | `EXEC` | <CopyableCode code="jobId, location, projectId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_jobs_debug_send_capture" /> | `EXEC` | <CopyableCode code="jobId, projectId" /> | Send encoded debug capture data for component. |
+| <CopyableCode code="projects_locations_jobs_debug_send_capture" /> | `EXEC` | <CopyableCode code="jobId, location, projectId" /> | Send encoded debug capture data for component. |

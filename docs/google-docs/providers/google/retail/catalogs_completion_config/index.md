@@ -1,3 +1,4 @@
+
 ---
 title: catalogs_completion_config
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - catalogs_completion_config
   - retail
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>catalogs_completion_config</code> resource or lists <code>catalogs_completion_config</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,8 +43,56 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="maxSuggestions" /> | `integer` | The maximum number of autocomplete suggestions returned per term. Default value is 20. If left unset or set to 0, then will fallback to default value. Value range is 1 to 20. |
 | <CopyableCode code="minPrefixLength" /> | `integer` | The minimum number of characters needed to be typed in order to get suggestions. Default value is 2. If left unset or set to 0, then will fallback to default value. Value range is 1 to 20. |
 | <CopyableCode code="suggestionsInputConfig" /> | `object` | The input config source for completion data. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_catalogs_get_completion_config" /> | `SELECT` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Gets a CompletionConfig. |
-| <CopyableCode code="projects_locations_catalogs_update_completion_config" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Updates the CompletionConfigs. |
+| <CopyableCode code="projects_locations_catalogs_update_completion_config" /> | `UPDATE` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Updates the CompletionConfigs. |
+
+## `SELECT` examples
+
+Gets a CompletionConfig.
+
+```sql
+SELECT
+name,
+allowlistInputConfig,
+autoLearning,
+denylistInputConfig,
+lastAllowlistImportOperation,
+lastDenylistImportOperation,
+lastSuggestionsImportOperation,
+matchingOrder,
+maxSuggestions,
+minPrefixLength,
+suggestionsInputConfig
+FROM google.retail.catalogs_completion_config
+WHERE catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a catalogs_completion_config only if the necessary resources are available.
+
+```sql
+UPDATE google.retail.catalogs_completion_config
+SET 
+name = '{{ name }}',
+matchingOrder = '{{ matchingOrder }}',
+maxSuggestions = '{{ maxSuggestions }}',
+minPrefixLength = '{{ minPrefixLength }}',
+autoLearning = true|false,
+suggestionsInputConfig = '{{ suggestionsInputConfig }}',
+lastSuggestionsImportOperation = '{{ lastSuggestionsImportOperation }}',
+denylistInputConfig = '{{ denylistInputConfig }}',
+lastDenylistImportOperation = '{{ lastDenylistImportOperation }}',
+allowlistInputConfig = '{{ allowlistInputConfig }}',
+lastAllowlistImportOperation = '{{ lastAllowlistImportOperation }}'
+WHERE 
+catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

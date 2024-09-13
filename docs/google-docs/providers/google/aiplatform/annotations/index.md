@@ -1,3 +1,4 @@
+
 ---
 title: annotations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - annotations
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>annotation</code> resource or lists <code>annotations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,8 +40,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="payload" /> | `any` | Required. The schema of the payload can be found in payload_schema. |
 | <CopyableCode code="payloadSchemaUri" /> | `string` | Required. Google Cloud Storage URI points to a YAML file describing payload. The schema is defined as an [OpenAPI 3.0.2 Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject). The schema files that can be used here are found in gs://google-cloud-aiplatform/schema/dataset/annotation/, note that the chosen schema must be consistent with the parent Dataset's metadata. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this Annotation was last updated. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="dataItemsId, datasetsId, locationsId, projectsId" /> |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="dataItemsId, datasetsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="dataItemsId, datasetsId, locationsId, projectsId" /> | Lists Annotations belongs to a dataitem This RPC is only available in InternalDatasetService. It is only used for exporting conversation data to CCAI Insights. |
+
+## `SELECT` examples
+
+Lists Annotations belongs to a dataitem This RPC is only available in InternalDatasetService. It is only used for exporting conversation data to CCAI Insights.
+
+```sql
+SELECT
+name,
+annotationSource,
+createTime,
+etag,
+labels,
+payload,
+payloadSchemaUri,
+updateTime
+FROM google.aiplatform.annotations
+WHERE dataItemsId = '{{ dataItemsId }}'
+AND datasetsId = '{{ datasetsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

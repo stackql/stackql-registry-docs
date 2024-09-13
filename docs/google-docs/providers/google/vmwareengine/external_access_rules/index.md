@@ -1,3 +1,4 @@
+
 ---
 title: external_access_rules
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - external_access_rules
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>external_access_rule</code> resource or lists <code>external_access_rules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. The state of the resource. |
 | <CopyableCode code="uid" /> | `string` | Output only. System-generated unique identifier for the resource. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Last update time of this resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,4 +54,157 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, networkPoliciesId, projectsId" /> | Creates a new external access rule in a given network policy. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="externalAccessRulesId, locationsId, networkPoliciesId, projectsId" /> | Deletes a single external access rule. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="externalAccessRulesId, locationsId, networkPoliciesId, projectsId" /> | Updates the parameters of a single external access rule. Only fields specified in `update_mask` are applied. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, networkPoliciesId, projectsId" /> | Lists `ExternalAccessRule` resources in the specified network policy. |
+
+## `SELECT` examples
+
+Lists `ExternalAccessRule` resources in the specified network policy.
+
+```sql
+SELECT
+name,
+description,
+action,
+createTime,
+destinationIpRanges,
+destinationPorts,
+ipProtocol,
+priority,
+sourceIpRanges,
+sourcePorts,
+state,
+uid,
+updateTime
+FROM google.vmwareengine.external_access_rules
+WHERE locationsId = '{{ locationsId }}'
+AND networkPoliciesId = '{{ networkPoliciesId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>external_access_rules</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.vmwareengine.external_access_rules (
+locationsId,
+networkPoliciesId,
+projectsId,
+name,
+createTime,
+updateTime,
+description,
+priority,
+action,
+ipProtocol,
+sourceIpRanges,
+sourcePorts,
+destinationIpRanges,
+destinationPorts,
+state,
+uid
+)
+SELECT 
+'{{ locationsId }}',
+'{{ networkPoliciesId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ description }}',
+'{{ priority }}',
+'{{ action }}',
+'{{ ipProtocol }}',
+'{{ sourceIpRanges }}',
+'{{ sourcePorts }}',
+'{{ destinationIpRanges }}',
+'{{ destinationPorts }}',
+'{{ state }}',
+'{{ uid }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: description
+        value: '{{ description }}'
+      - name: priority
+        value: '{{ priority }}'
+      - name: action
+        value: '{{ action }}'
+      - name: ipProtocol
+        value: '{{ ipProtocol }}'
+      - name: sourceIpRanges
+        value: '{{ sourceIpRanges }}'
+      - name: sourcePorts
+        value: '{{ sourcePorts }}'
+      - name: destinationIpRanges
+        value: '{{ destinationIpRanges }}'
+      - name: destinationPorts
+        value: '{{ destinationPorts }}'
+      - name: state
+        value: '{{ state }}'
+      - name: uid
+        value: '{{ uid }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a external_access_rule only if the necessary resources are available.
+
+```sql
+UPDATE google.vmwareengine.external_access_rules
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+description = '{{ description }}',
+priority = '{{ priority }}',
+action = '{{ action }}',
+ipProtocol = '{{ ipProtocol }}',
+sourceIpRanges = '{{ sourceIpRanges }}',
+sourcePorts = '{{ sourcePorts }}',
+destinationIpRanges = '{{ destinationIpRanges }}',
+destinationPorts = '{{ destinationPorts }}',
+state = '{{ state }}',
+uid = '{{ uid }}'
+WHERE 
+externalAccessRulesId = '{{ externalAccessRulesId }}'
+AND locationsId = '{{ locationsId }}'
+AND networkPoliciesId = '{{ networkPoliciesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified external_access_rule resource.
+
+```sql
+DELETE FROM google.vmwareengine.external_access_rules
+WHERE externalAccessRulesId = '{{ externalAccessRulesId }}'
+AND locationsId = '{{ locationsId }}'
+AND networkPoliciesId = '{{ networkPoliciesId }}'
+AND projectsId = '{{ projectsId }}';
+```

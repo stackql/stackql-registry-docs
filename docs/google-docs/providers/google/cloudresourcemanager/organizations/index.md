@@ -1,3 +1,4 @@
+
 ---
 title: organizations
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - organizations
   - cloudresourcemanager
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>organization</code> resource or lists <code>organizations</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,8 +40,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="etag" /> | `string` | Output only. A checksum computed by the server based on the current value of the Organization resource. This may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
 | <CopyableCode code="state" /> | `string` | Output only. The organization's current lifecycle state. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when the Organization was last modified. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Fetches an organization resource identified by the specified resource name. |
-| <CopyableCode code="search" /> | `EXEC` |  | Searches organization resources that are visible to the user and satisfy the specified filter. This method returns organizations in an unspecified order. New organizations do not necessarily appear at the end of the results, and may take a small amount of time to appear. Search will only return organizations on which the user has the permission `resourcemanager.organizations.get` or has super admin privileges. |
+| <CopyableCode code="search" /> | `EXEC` | <CopyableCode code="" /> | Searches organization resources that are visible to the user and satisfy the specified filter. This method returns organizations in an unspecified order. New organizations do not necessarily appear at the end of the results, and may take a small amount of time to appear. Search will only return organizations on which the user has the permission `resourcemanager.organizations.get` or has super admin privileges. |
+
+## `SELECT` examples
+
+Fetches an organization resource identified by the specified resource name.
+
+```sql
+SELECT
+name,
+createTime,
+deleteTime,
+directoryCustomerId,
+displayName,
+etag,
+state,
+updateTime
+FROM google.cloudresourcemanager.organizations
+WHERE organizationsId = '{{ organizationsId }}'; 
+```

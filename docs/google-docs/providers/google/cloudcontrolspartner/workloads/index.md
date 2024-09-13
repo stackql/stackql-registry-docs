@@ -1,3 +1,4 @@
+
 ---
 title: workloads
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - workloads
   - cloudcontrolspartner
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>workload</code> resource or lists <code>workloads</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Identifier. Format: `organizations/&#123;organization&#125;/locations/&#123;location&#125;/customers/&#123;customer&#125;/workloads/&#123;workload&#125;` |
+| <CopyableCode code="name" /> | `string` | Identifier. Format: `organizations/{organization}/locations/{location}/customers/{customer}/workloads/{workload}` |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time the resource was created. |
 | <CopyableCode code="folder" /> | `string` | Output only. The name of container folder of the assured workload |
 | <CopyableCode code="folderId" /> | `string` | Output only. Folder id this workload is associated with |
@@ -39,9 +41,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="location" /> | `string` | The Google Cloud location of the workload |
 | <CopyableCode code="partner" /> | `string` | Partner associated with this workload. |
 | <CopyableCode code="workloadOnboardingState" /> | `object` | Container for workload onboarding steps. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="customersId, locationsId, organizationsId, workloadsId" /> | Gets details of a single workload |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="customersId, locationsId, organizationsId" /> | Lists customer workloads for a given customer org id |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="customersId, locationsId, organizationsId" /> | Lists customer workloads for a given customer org id |
+
+## `SELECT` examples
+
+Lists customer workloads for a given customer org id
+
+```sql
+SELECT
+name,
+createTime,
+folder,
+folderId,
+isOnboarded,
+keyManagementProjectId,
+location,
+partner,
+workloadOnboardingState
+FROM google.cloudcontrolspartner.workloads
+WHERE customersId = '{{ customersId }}'
+AND locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```

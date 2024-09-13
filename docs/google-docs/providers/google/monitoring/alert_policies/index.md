@@ -1,3 +1,4 @@
+
 ---
 title: alert_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - alert_policies
   - monitoring
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>alert_policy</code> resource or lists <code>alert_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,19 +32,20 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] [ALERT_POLICY_ID] is assigned by Cloud Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the name field in the alerting policy passed as part of the request. |
+| <CopyableCode code="name" /> | `string` | Identifier. Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] [ALERT_POLICY_ID] is assigned by Cloud Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the name field in the alerting policy passed as part of the request. |
 | <CopyableCode code="alertStrategy" /> | `object` | Control over how the notification channels in notification_channels are notified when this alert fires. |
 | <CopyableCode code="combiner" /> | `string` | How to combine the results of multiple conditions to determine if an incident should be opened. If condition_time_series_query_language is present, this must be COMBINE_UNSPECIFIED. |
 | <CopyableCode code="conditions" /> | `array` | A list of conditions for the policy. The conditions are combined by AND or OR according to the combiner field. If the combined conditions evaluate to true, then an incident is created. A policy can have from one to six conditions. If condition_time_series_query_language is present, it must be the only condition. If condition_monitoring_query_language is present, it must be the only condition. |
 | <CopyableCode code="creationRecord" /> | `object` | Describes a change made to a configuration. |
-| <CopyableCode code="displayName" /> | `string` | A short name or phrase used to identify the policy in dashboards, notifications, and incidents. To avoid confusion, don't use the same display name for multiple policies in the same project. The name is limited to 512 Unicode characters.The convention for the display_name of a PrometheusQueryLanguageCondition is "&#123;rule group name&#125;/&#123;alert name&#125;", where the &#123;rule group name&#125; and &#123;alert name&#125; should be taken from the corresponding Prometheus configuration file. This convention is not enforced. In any case the display_name is not a unique key of the AlertPolicy. |
+| <CopyableCode code="displayName" /> | `string` | A short name or phrase used to identify the policy in dashboards, notifications, and incidents. To avoid confusion, don't use the same display name for multiple policies in the same project. The name is limited to 512 Unicode characters.The convention for the display_name of a PrometheusQueryLanguageCondition is "{rule group name}/{alert name}", where the {rule group name} and {alert name} should be taken from the corresponding Prometheus configuration file. This convention is not enforced. In any case the display_name is not a unique key of the AlertPolicy. |
 | <CopyableCode code="documentation" /> | `object` | Documentation that is included in the notifications and incidents pertaining to this policy. |
 | <CopyableCode code="enabled" /> | `boolean` | Whether or not the policy is enabled. On write, the default interpretation if unset is that the policy is enabled. On read, clients should not make any assumption about the state if it has not been populated. The field should always be populated on List and Get operations, unless a field projection has been specified that strips it out. |
 | <CopyableCode code="mutationRecord" /> | `object` | Describes a change made to a configuration. |
 | <CopyableCode code="notificationChannels" /> | `array` | Identifies the notification channels to which notifications should be sent when incidents are opened or closed or when new violations occur on an already opened incident. Each element of this array corresponds to the name field in each of the NotificationChannel objects that are returned from the ListNotificationChannels method. The format of the entries in this field is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]  |
 | <CopyableCode code="severity" /> | `string` | Optional. The severity of an alert policy indicates how important incidents generated by that policy are. The severity level will be displayed on the Incident detail page and in notifications. |
-| <CopyableCode code="userLabels" /> | `object` | User-supplied key/value data to be used for organizing and identifying the AlertPolicy objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.Note that Prometheus &#123;alert name&#125; is a valid Prometheus label names (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels), whereas Prometheus &#123;rule group&#125; is an unrestricted UTF-8 string. This means that they cannot be stored as-is in user labels, because they may contain characters that are not allowed in user-label values. |
+| <CopyableCode code="userLabels" /> | `object` | User-supplied key/value data to be used for organizing and identifying the AlertPolicy objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.Note that Prometheus {alert name} is a valid Prometheus label names (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels), whereas Prometheus {rule group} is an unrestricted UTF-8 string. This means that they cannot be stored as-is in user labels, because they may contain characters that are not allowed in user-label values. |
 | <CopyableCode code="validity" /> | `object` | The Status type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by gRPC (https://github.com/grpc). Each Status message contains three pieces of data: error code, error message, and error details.You can find out more about this error model and how to work with it in the API Design Guide (https://cloud.google.com/apis/design/errors). |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,4 +54,147 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_alert_policies_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy. |
 | <CopyableCode code="projects_alert_policies_delete" /> | `DELETE` | <CopyableCode code="alertPoliciesId, projectsId" /> | Deletes an alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy. |
 | <CopyableCode code="projects_alert_policies_patch" /> | `UPDATE` | <CopyableCode code="alertPoliciesId, projectsId" /> | Updates an alerting policy. You can either replace the entire policy with a new one or replace only certain fields in the current alerting policy by specifying the fields to be updated via updateMask. Returns the updated alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy. |
-| <CopyableCode code="_projects_alert_policies_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the existing alerting policies for the workspace. |
+
+## `SELECT` examples
+
+Lists the existing alerting policies for the workspace.
+
+```sql
+SELECT
+name,
+alertStrategy,
+combiner,
+conditions,
+creationRecord,
+displayName,
+documentation,
+enabled,
+mutationRecord,
+notificationChannels,
+severity,
+userLabels,
+validity
+FROM google.monitoring.alert_policies
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>alert_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.monitoring.alert_policies (
+projectsId,
+name,
+displayName,
+documentation,
+userLabels,
+conditions,
+combiner,
+enabled,
+validity,
+notificationChannels,
+creationRecord,
+mutationRecord,
+alertStrategy,
+severity
+)
+SELECT 
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ documentation }}',
+'{{ userLabels }}',
+'{{ conditions }}',
+'{{ combiner }}',
+true|false,
+'{{ validity }}',
+'{{ notificationChannels }}',
+'{{ creationRecord }}',
+'{{ mutationRecord }}',
+'{{ alertStrategy }}',
+'{{ severity }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: documentation
+        value: '{{ documentation }}'
+      - name: userLabels
+        value: '{{ userLabels }}'
+      - name: conditions
+        value: '{{ conditions }}'
+      - name: combiner
+        value: '{{ combiner }}'
+      - name: enabled
+        value: '{{ enabled }}'
+      - name: validity
+        value: '{{ validity }}'
+      - name: notificationChannels
+        value: '{{ notificationChannels }}'
+      - name: creationRecord
+        value: '{{ creationRecord }}'
+      - name: mutationRecord
+        value: '{{ mutationRecord }}'
+      - name: alertStrategy
+        value: '{{ alertStrategy }}'
+      - name: severity
+        value: '{{ severity }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a alert_policy only if the necessary resources are available.
+
+```sql
+UPDATE google.monitoring.alert_policies
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+documentation = '{{ documentation }}',
+userLabels = '{{ userLabels }}',
+conditions = '{{ conditions }}',
+combiner = '{{ combiner }}',
+enabled = true|false,
+validity = '{{ validity }}',
+notificationChannels = '{{ notificationChannels }}',
+creationRecord = '{{ creationRecord }}',
+mutationRecord = '{{ mutationRecord }}',
+alertStrategy = '{{ alertStrategy }}',
+severity = '{{ severity }}'
+WHERE 
+alertPoliciesId = '{{ alertPoliciesId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified alert_policy resource.
+
+```sql
+DELETE FROM google.monitoring.alert_policies
+WHERE alertPoliciesId = '{{ alertPoliciesId }}'
+AND projectsId = '{{ projectsId }}';
+```

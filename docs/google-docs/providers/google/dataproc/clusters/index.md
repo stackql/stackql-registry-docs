@@ -1,3 +1,4 @@
+
 ---
 title: clusters
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - clusters
   - dataproc
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>cluster</code> resource or lists <code>clusters</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,17 +41,142 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `object` | The status of a cluster and its instances. |
 | <CopyableCode code="statusHistory" /> | `array` | Output only. The previous cluster status. |
 | <CopyableCode code="virtualClusterConfig" /> | `object` | The Dataproc cluster config for a cluster that does not directly control the underlying compute resources, such as a Dataproc-on-GKE cluster (https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke-overview). |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_regions_clusters_get" /> | `SELECT` | <CopyableCode code="clusterName, projectId, region" /> | Gets the resource representation for a cluster in a project. |
-| <CopyableCode code="projects_regions_clusters_list" /> | `SELECT` | <CopyableCode code="projectId, region" /> | Lists all regions/&#123;region&#125;/clusters in a project alphabetically. |
+| <CopyableCode code="projects_regions_clusters_list" /> | `SELECT` | <CopyableCode code="projectId, region" /> | Lists all regions/{region}/clusters in a project alphabetically. |
 | <CopyableCode code="projects_regions_clusters_create" /> | `INSERT` | <CopyableCode code="projectId, region" /> | Creates a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). |
 | <CopyableCode code="projects_regions_clusters_delete" /> | `DELETE` | <CopyableCode code="clusterName, projectId, region" /> | Deletes a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). |
 | <CopyableCode code="projects_regions_clusters_patch" /> | `UPDATE` | <CopyableCode code="clusterName, projectId, region" /> | Updates a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). The cluster must be in a RUNNING state or an error is returned. |
-| <CopyableCode code="_projects_regions_clusters_list" /> | `EXEC` | <CopyableCode code="projectId, region" /> | Lists all regions/&#123;region&#125;/clusters in a project alphabetically. |
 | <CopyableCode code="projects_regions_clusters_diagnose" /> | `EXEC` | <CopyableCode code="clusterName, projectId, region" /> | Gets cluster diagnostic information. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). After the operation completes, Operation.response contains DiagnoseClusterResults (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#diagnoseclusterresults). |
 | <CopyableCode code="projects_regions_clusters_inject_credentials" /> | `EXEC` | <CopyableCode code="clustersId, projectsId, regionsId" /> | Inject encrypted credentials into all of the VMs in a cluster.The target cluster must be a personal auth cluster assigned to the user who is issuing the RPC. |
 | <CopyableCode code="projects_regions_clusters_repair" /> | `EXEC` | <CopyableCode code="clusterName, projectId, region" /> | Repairs a cluster. |
 | <CopyableCode code="projects_regions_clusters_start" /> | `EXEC` | <CopyableCode code="clusterName, projectId, region" /> | Starts a cluster in a project. |
 | <CopyableCode code="projects_regions_clusters_stop" /> | `EXEC` | <CopyableCode code="clusterName, projectId, region" /> | Stops a cluster in a project. |
+
+## `SELECT` examples
+
+Lists all regions/{region}/clusters in a project alphabetically.
+
+```sql
+SELECT
+clusterName,
+clusterUuid,
+config,
+labels,
+metrics,
+projectId,
+status,
+statusHistory,
+virtualClusterConfig
+FROM google.dataproc.clusters
+WHERE projectId = '{{ projectId }}'
+AND region = '{{ region }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>clusters</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataproc.clusters (
+projectId,
+region,
+projectId,
+clusterName,
+config,
+virtualClusterConfig,
+labels,
+status,
+statusHistory,
+clusterUuid,
+metrics
+)
+SELECT 
+'{{ projectId }}',
+'{{ region }}',
+'{{ projectId }}',
+'{{ clusterName }}',
+'{{ config }}',
+'{{ virtualClusterConfig }}',
+'{{ labels }}',
+'{{ status }}',
+'{{ statusHistory }}',
+'{{ clusterUuid }}',
+'{{ metrics }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: projectId
+        value: '{{ projectId }}'
+      - name: clusterName
+        value: '{{ clusterName }}'
+      - name: config
+        value: '{{ config }}'
+      - name: virtualClusterConfig
+        value: '{{ virtualClusterConfig }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: status
+        value: '{{ status }}'
+      - name: statusHistory
+        value: '{{ statusHistory }}'
+      - name: clusterUuid
+        value: '{{ clusterUuid }}'
+      - name: metrics
+        value: '{{ metrics }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a cluster only if the necessary resources are available.
+
+```sql
+UPDATE google.dataproc.clusters
+SET 
+projectId = '{{ projectId }}',
+clusterName = '{{ clusterName }}',
+config = '{{ config }}',
+virtualClusterConfig = '{{ virtualClusterConfig }}',
+labels = '{{ labels }}',
+status = '{{ status }}',
+statusHistory = '{{ statusHistory }}',
+clusterUuid = '{{ clusterUuid }}',
+metrics = '{{ metrics }}'
+WHERE 
+clusterName = '{{ clusterName }}'
+AND projectId = '{{ projectId }}'
+AND region = '{{ region }}';
+```
+
+## `DELETE` example
+
+Deletes the specified cluster resource.
+
+```sql
+DELETE FROM google.dataproc.clusters
+WHERE clusterName = '{{ clusterName }}'
+AND projectId = '{{ projectId }}'
+AND region = '{{ region }}';
+```

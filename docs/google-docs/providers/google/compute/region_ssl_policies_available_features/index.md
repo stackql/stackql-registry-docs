@@ -1,3 +1,4 @@
+
 ---
 title: region_ssl_policies_available_features
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_ssl_policies_available_features
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_ssl_policies_available_feature</code> resource or lists <code>region_ssl_policies_available_features</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="features" /> | `array` |  |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_available_features" /> | `SELECT` | <CopyableCode code="project, region" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_available_features" /> | `SELECT` | <CopyableCode code="project, region" /> | Lists all features that can be specified in the SSL policy when using custom profile. |
+
+## `SELECT` examples
+
+Lists all features that can be specified in the SSL policy when using custom profile.
+
+```sql
+SELECT
+features
+FROM google.compute.region_ssl_policies_available_features
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'; 
+```

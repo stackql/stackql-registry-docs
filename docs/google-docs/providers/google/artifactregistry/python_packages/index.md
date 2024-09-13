@@ -1,3 +1,4 @@
+
 ---
 title: python_packages
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - python_packages
   - artifactregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>python_package</code> resource or lists <code>python_packages</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,9 +38,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. Time the package was updated. |
 | <CopyableCode code="uri" /> | `string` | Required. URL to access the package. Example: us-west4-python.pkg.dev/test-project/test-repo/python_package/file-name-1.0.0.tar.gz |
 | <CopyableCode code="version" /> | `string` | Version of this package. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, pythonPackagesId, repositoriesId" /> | Gets a python package. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists python packages. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Lists python packages. |
+
+## `SELECT` examples
+
+Lists python packages.
+
+```sql
+SELECT
+name,
+createTime,
+packageName,
+updateTime,
+uri,
+version
+FROM google.artifactregistry.python_packages
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}'; 
+```

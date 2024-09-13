@@ -1,3 +1,4 @@
+
 ---
 title: packet_mirrorings
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - packet_mirrorings
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>packet_mirroring</code> resource or lists <code>packet_mirrorings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -43,6 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="priority" /> | `integer` | The priority of applying this configuration. Priority is used to break ties in cases where there is more than one matching rule. In the case of two rules that apply for a given Instance, the one with the lowest-numbered priority value wins. Default value is 1000. Valid range is 0 through 65535. |
 | <CopyableCode code="region" /> | `string` | [Output Only] URI of the region where the packetMirroring resides. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,4 +55,151 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a PacketMirroring resource in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="packetMirroring, project, region" /> | Deletes the specified PacketMirroring resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="packetMirroring, project, region" /> | Patches the specified PacketMirroring resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of packetMirrorings. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of packetMirrorings. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+collectorIlb,
+creationTimestamp,
+enable,
+filter,
+kind,
+mirroredResources,
+network,
+priority,
+region,
+selfLink
+FROM google.compute.packet_mirrorings
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>packet_mirrorings</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.packet_mirrorings (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+selfLink,
+name,
+description,
+region,
+network,
+priority,
+collectorIlb,
+mirroredResources,
+filter,
+enable
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ selfLink }}',
+'{{ name }}',
+'{{ description }}',
+'{{ region }}',
+'{{ network }}',
+'{{ priority }}',
+'{{ collectorIlb }}',
+'{{ mirroredResources }}',
+'{{ filter }}',
+'{{ enable }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: region
+        value: '{{ region }}'
+      - name: network
+        value: '{{ network }}'
+      - name: priority
+        value: '{{ priority }}'
+      - name: collectorIlb
+        value: '{{ collectorIlb }}'
+      - name: mirroredResources
+        value: '{{ mirroredResources }}'
+      - name: filter
+        value: '{{ filter }}'
+      - name: enable
+        value: '{{ enable }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a packet_mirroring only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.packet_mirrorings
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+selfLink = '{{ selfLink }}',
+name = '{{ name }}',
+description = '{{ description }}',
+region = '{{ region }}',
+network = '{{ network }}',
+priority = '{{ priority }}',
+collectorIlb = '{{ collectorIlb }}',
+mirroredResources = '{{ mirroredResources }}',
+filter = '{{ filter }}',
+enable = '{{ enable }}'
+WHERE 
+packetMirroring = '{{ packetMirroring }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```
+
+## `DELETE` example
+
+Deletes the specified packet_mirroring resource.
+
+```sql
+DELETE FROM google.compute.packet_mirrorings
+WHERE packetMirroring = '{{ packetMirroring }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

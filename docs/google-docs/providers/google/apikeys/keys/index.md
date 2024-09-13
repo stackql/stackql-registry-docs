@@ -1,3 +1,4 @@
+
 ---
 title: keys
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - keys
   - apikeys
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>key</code> resource or lists <code>keys</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,6 +42,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="restrictions" /> | `object` | Describes the restrictions on the key. |
 | <CopyableCode code="uid" /> | `string` | Output only. Unique id in UUID4 format. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. A timestamp identifying the time this key was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,6 +51,136 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new API key. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="keysId, locationsId, projectsId" /> | Deletes an API key. Deleted key can be retrieved within 30 days of deletion. Afterward, key will be purged from the project. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="keysId, locationsId, projectsId" /> | Patches the modifiable fields of an API key. The key string of the API key isn't included in the response. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists the API keys owned by a project. The key string of the API key isn't included in the response. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
-| <CopyableCode code="lookup_key" /> | `EXEC` |  | Find the parent project and resource name of the API key that matches the key string in the request. If the API key has been purged, resource name will not be set. The service account must have the `apikeys.keys.lookup` permission on the parent project. |
+| <CopyableCode code="lookup_key" /> | `EXEC` | <CopyableCode code="" /> | Find the parent project and resource name of the API key that matches the key string in the request. If the API key has been purged, resource name will not be set. The service account must have the `apikeys.keys.lookup` permission on the parent project. |
 | <CopyableCode code="undelete" /> | `EXEC` | <CopyableCode code="keysId, locationsId, projectsId" /> | Undeletes an API key which was deleted within 30 days. NOTE: Key is a global resource; hence the only supported value for location is `global`. |
+
+## `SELECT` examples
+
+Lists the API keys owned by a project. The key string of the API key isn't included in the response. NOTE: Key is a global resource; hence the only supported value for location is `global`.
+
+```sql
+SELECT
+name,
+annotations,
+createTime,
+deleteTime,
+displayName,
+etag,
+keyString,
+restrictions,
+uid,
+updateTime
+FROM google.apikeys.keys
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>keys</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apikeys.keys (
+locationsId,
+projectsId,
+name,
+etag,
+createTime,
+annotations,
+uid,
+keyString,
+restrictions,
+displayName,
+updateTime,
+deleteTime
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ etag }}',
+'{{ createTime }}',
+'{{ annotations }}',
+'{{ uid }}',
+'{{ keyString }}',
+'{{ restrictions }}',
+'{{ displayName }}',
+'{{ updateTime }}',
+'{{ deleteTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: keyString
+        value: '{{ keyString }}'
+      - name: restrictions
+        value: '{{ restrictions }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a key only if the necessary resources are available.
+
+```sql
+UPDATE google.apikeys.keys
+SET 
+name = '{{ name }}',
+etag = '{{ etag }}',
+createTime = '{{ createTime }}',
+annotations = '{{ annotations }}',
+uid = '{{ uid }}',
+keyString = '{{ keyString }}',
+restrictions = '{{ restrictions }}',
+displayName = '{{ displayName }}',
+updateTime = '{{ updateTime }}',
+deleteTime = '{{ deleteTime }}'
+WHERE 
+keysId = '{{ keysId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified key resource.
+
+```sql
+DELETE FROM google.apikeys.keys
+WHERE keysId = '{{ keysId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: region_backend_services
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_backend_services
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_backend_service</code> resource or lists <code>region_backend_services</code> in a region
 
 ## Overview
 <table><tbody>
@@ -53,7 +55,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | [Output Only] Type of resource. Always compute#backendService for backend services. |
 | <CopyableCode code="loadBalancingScheme" /> | `string` | Specifies the load balancer type. A backend service created for one type of load balancer cannot be used with another. For more information, refer to Choosing a load balancer. |
 | <CopyableCode code="localityLbPolicies" /> | `array` | A list of locality load-balancing policies to be used in order of preference. When you use localityLbPolicies, you must set at least one value for either the localityLbPolicies[].policy or the localityLbPolicies[].customPolicy field. localityLbPolicies overrides any value set in the localityLbPolicy field. For an example of how to use this field, see Define a list of preferred policies. Caution: This field and its children are intended for use in a service mesh that includes gRPC clients only. Envoy proxies can't use backend services that have this configuration. |
-| <CopyableCode code="localityLbPolicy" /> | `string` | The load balancing algorithm used within the scope of the locality. The possible values are: - ROUND_ROBIN: This is a simple policy in which each healthy backend is selected in round robin order. This is the default. - LEAST_REQUEST: An O(1) algorithm which selects two random healthy hosts and picks the host which has fewer active requests. - RING_HASH: The ring/modulo hash load balancer implements consistent hashing to backends. The algorithm has the property that the addition/removal of a host from a set of N hosts only affects 1/N of the requests. - RANDOM: The load balancer selects a random healthy host. - ORIGINAL_DESTINATION: Backend host is selected based on the client connection metadata, i.e., connections are opened to the same address as the destination address of the incoming connection before the connection was redirected to the load balancer. - MAGLEV: used as a drop in replacement for the ring hash load balancer. Maglev is not as stable as ring hash but has faster table lookup build times and host selection times. For more information about Maglev, see https://ai.google/research/pubs/pub44824 This field is applicable to either: - A regional backend service with the service_protocol set to HTTP, HTTPS, or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to INTERNAL_SELF_MANAGED, INTERNAL_MANAGED, or EXTERNAL_MANAGED. If sessionAffinity is not NONE, and this field is not set to MAGLEV or RING_HASH, session affinity settings will not take effect. Only ROUND_ROBIN and RING_HASH are supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true. |
+| <CopyableCode code="localityLbPolicy" /> | `string` | The load balancing algorithm used within the scope of the locality. The possible values are: - ROUND_ROBIN: This is a simple policy in which each healthy backend is selected in round robin order. This is the default. - LEAST_REQUEST: An O(1) algorithm which selects two random healthy hosts and picks the host which has fewer active requests. - RING_HASH: The ring/modulo hash load balancer implements consistent hashing to backends. The algorithm has the property that the addition/removal of a host from a set of N hosts only affects 1/N of the requests. - RANDOM: The load balancer selects a random healthy host. - ORIGINAL_DESTINATION: Backend host is selected based on the client connection metadata, i.e., connections are opened to the same address as the destination address of the incoming connection before the connection was redirected to the load balancer. - MAGLEV: used as a drop in replacement for the ring hash load balancer. Maglev is not as stable as ring hash but has faster table lookup build times and host selection times. For more information about Maglev, see https://ai.google/research/pubs/pub44824 This field is applicable to either: - A regional backend service with the service_protocol set to HTTP, HTTPS, or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to INTERNAL_SELF_MANAGED, INTERNAL_MANAGED, or EXTERNAL_MANAGED. If sessionAffinity is not configured—that is, if session affinity remains at the default value of NONE—then the default value for localityLbPolicy is ROUND_ROBIN. If session affinity is set to a value other than NONE, then the default value for localityLbPolicy is MAGLEV. Only ROUND_ROBIN and RING_HASH are supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true. |
 | <CopyableCode code="logConfig" /> | `object` | The available logging options for the load balancer traffic served by this backend service. |
 | <CopyableCode code="maxStreamDuration" /> | `object` | A Duration represents a fixed-length span of time represented as a count of seconds and fractions of seconds at nanosecond resolution. It is independent of any calendar and concepts like "day" or "month". Range is approximately 10,000 years. |
 | <CopyableCode code="metadatas" /> | `object` | Deployment metadata associated with the resource to be set by a GKE hub controller and read by the backend RCTH |
@@ -71,7 +73,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sessionAffinity" /> | `string` | Type of session affinity to use. The default is NONE. Only NONE and HEADER_FIELD are supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true. For more details, see: [Session Affinity](https://cloud.google.com/load-balancing/docs/backend-service#session_affinity). |
 | <CopyableCode code="subsetting" /> | `object` | Subsetting configuration for this BackendService. Currently this is applicable only for Internal TCP/UDP load balancing, Internal HTTP(S) load balancing and Traffic Director. |
 | <CopyableCode code="timeoutSec" /> | `integer` | The backend service timeout has a different meaning depending on the type of load balancer. For more information see, Backend service settings. The default is 30 seconds. The full range of timeout values allowed goes from 1 through 2,147,483,647 seconds. This value can be overridden in the PathMatcher configuration of the UrlMap that references this backend service. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true. Instead, use maxStreamDuration. |
-| <CopyableCode code="usedBy" /> | `array` |  |
+| <CopyableCode code="usedBy" /> | `array` | [Output Only] List of resources referencing given backend service. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -80,5 +83,328 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a regional BackendService resource in the specified project using the data included in the request. For more information, see Backend services overview. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backendService, project, region" /> | Deletes the specified regional BackendService resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backendService, project, region" /> | Updates the specified regional BackendService resource with the data included in the request. For more information, see Understanding backend services This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="backendService, project, region" /> | Updates the specified regional BackendService resource with the data included in the request. For more information, see Backend services overview . |
 | <CopyableCode code="set_security_policy" /> | `EXEC` | <CopyableCode code="backendService, project, region" /> | Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="backendService, project, region" /> | Updates the specified regional BackendService resource with the data included in the request. For more information, see Backend services overview . |
+
+## `SELECT` examples
+
+Retrieves the list of regional BackendService resources available to the specified project in the given region.
+
+```sql
+SELECT
+id,
+name,
+description,
+affinityCookieTtlSec,
+backends,
+cdnPolicy,
+circuitBreakers,
+compressionMode,
+connectionDraining,
+connectionTrackingPolicy,
+consistentHash,
+creationTimestamp,
+customRequestHeaders,
+customResponseHeaders,
+edgeSecurityPolicy,
+enableCDN,
+failoverPolicy,
+fingerprint,
+healthChecks,
+iap,
+kind,
+loadBalancingScheme,
+localityLbPolicies,
+localityLbPolicy,
+logConfig,
+maxStreamDuration,
+metadatas,
+network,
+outlierDetection,
+port,
+portName,
+protocol,
+region,
+securityPolicy,
+securitySettings,
+selfLink,
+serviceBindings,
+serviceLbPolicy,
+sessionAffinity,
+subsetting,
+timeoutSec,
+usedBy
+FROM google.compute.region_backend_services
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>region_backend_services</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.region_backend_services (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+backends,
+healthChecks,
+timeoutSec,
+port,
+protocol,
+fingerprint,
+portName,
+enableCDN,
+sessionAffinity,
+affinityCookieTtlSec,
+region,
+failoverPolicy,
+loadBalancingScheme,
+connectionDraining,
+iap,
+cdnPolicy,
+customRequestHeaders,
+customResponseHeaders,
+securityPolicy,
+edgeSecurityPolicy,
+logConfig,
+securitySettings,
+localityLbPolicy,
+consistentHash,
+circuitBreakers,
+outlierDetection,
+network,
+subsetting,
+connectionTrackingPolicy,
+maxStreamDuration,
+compressionMode,
+serviceLbPolicy,
+serviceBindings,
+localityLbPolicies,
+metadatas,
+usedBy
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ backends }}',
+'{{ healthChecks }}',
+'{{ timeoutSec }}',
+'{{ port }}',
+'{{ protocol }}',
+'{{ fingerprint }}',
+'{{ portName }}',
+true|false,
+'{{ sessionAffinity }}',
+'{{ affinityCookieTtlSec }}',
+'{{ region }}',
+'{{ failoverPolicy }}',
+'{{ loadBalancingScheme }}',
+'{{ connectionDraining }}',
+'{{ iap }}',
+'{{ cdnPolicy }}',
+'{{ customRequestHeaders }}',
+'{{ customResponseHeaders }}',
+'{{ securityPolicy }}',
+'{{ edgeSecurityPolicy }}',
+'{{ logConfig }}',
+'{{ securitySettings }}',
+'{{ localityLbPolicy }}',
+'{{ consistentHash }}',
+'{{ circuitBreakers }}',
+'{{ outlierDetection }}',
+'{{ network }}',
+'{{ subsetting }}',
+'{{ connectionTrackingPolicy }}',
+'{{ maxStreamDuration }}',
+'{{ compressionMode }}',
+'{{ serviceLbPolicy }}',
+'{{ serviceBindings }}',
+'{{ localityLbPolicies }}',
+'{{ metadatas }}',
+'{{ usedBy }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: backends
+        value: '{{ backends }}'
+      - name: healthChecks
+        value: '{{ healthChecks }}'
+      - name: timeoutSec
+        value: '{{ timeoutSec }}'
+      - name: port
+        value: '{{ port }}'
+      - name: protocol
+        value: '{{ protocol }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: portName
+        value: '{{ portName }}'
+      - name: enableCDN
+        value: '{{ enableCDN }}'
+      - name: sessionAffinity
+        value: '{{ sessionAffinity }}'
+      - name: affinityCookieTtlSec
+        value: '{{ affinityCookieTtlSec }}'
+      - name: region
+        value: '{{ region }}'
+      - name: failoverPolicy
+        value: '{{ failoverPolicy }}'
+      - name: loadBalancingScheme
+        value: '{{ loadBalancingScheme }}'
+      - name: connectionDraining
+        value: '{{ connectionDraining }}'
+      - name: iap
+        value: '{{ iap }}'
+      - name: cdnPolicy
+        value: '{{ cdnPolicy }}'
+      - name: customRequestHeaders
+        value: '{{ customRequestHeaders }}'
+      - name: customResponseHeaders
+        value: '{{ customResponseHeaders }}'
+      - name: securityPolicy
+        value: '{{ securityPolicy }}'
+      - name: edgeSecurityPolicy
+        value: '{{ edgeSecurityPolicy }}'
+      - name: logConfig
+        value: '{{ logConfig }}'
+      - name: securitySettings
+        value: '{{ securitySettings }}'
+      - name: localityLbPolicy
+        value: '{{ localityLbPolicy }}'
+      - name: consistentHash
+        value: '{{ consistentHash }}'
+      - name: circuitBreakers
+        value: '{{ circuitBreakers }}'
+      - name: outlierDetection
+        value: '{{ outlierDetection }}'
+      - name: network
+        value: '{{ network }}'
+      - name: subsetting
+        value: '{{ subsetting }}'
+      - name: connectionTrackingPolicy
+        value: '{{ connectionTrackingPolicy }}'
+      - name: maxStreamDuration
+        value: '{{ maxStreamDuration }}'
+      - name: compressionMode
+        value: '{{ compressionMode }}'
+      - name: serviceLbPolicy
+        value: '{{ serviceLbPolicy }}'
+      - name: serviceBindings
+        value: '{{ serviceBindings }}'
+      - name: localityLbPolicies
+        value: '{{ localityLbPolicies }}'
+      - name: metadatas
+        value: '{{ metadatas }}'
+      - name: usedBy
+        value: '{{ usedBy }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a region_backend_service only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.region_backend_services
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+backends = '{{ backends }}',
+healthChecks = '{{ healthChecks }}',
+timeoutSec = '{{ timeoutSec }}',
+port = '{{ port }}',
+protocol = '{{ protocol }}',
+fingerprint = '{{ fingerprint }}',
+portName = '{{ portName }}',
+enableCDN = true|false,
+sessionAffinity = '{{ sessionAffinity }}',
+affinityCookieTtlSec = '{{ affinityCookieTtlSec }}',
+region = '{{ region }}',
+failoverPolicy = '{{ failoverPolicy }}',
+loadBalancingScheme = '{{ loadBalancingScheme }}',
+connectionDraining = '{{ connectionDraining }}',
+iap = '{{ iap }}',
+cdnPolicy = '{{ cdnPolicy }}',
+customRequestHeaders = '{{ customRequestHeaders }}',
+customResponseHeaders = '{{ customResponseHeaders }}',
+securityPolicy = '{{ securityPolicy }}',
+edgeSecurityPolicy = '{{ edgeSecurityPolicy }}',
+logConfig = '{{ logConfig }}',
+securitySettings = '{{ securitySettings }}',
+localityLbPolicy = '{{ localityLbPolicy }}',
+consistentHash = '{{ consistentHash }}',
+circuitBreakers = '{{ circuitBreakers }}',
+outlierDetection = '{{ outlierDetection }}',
+network = '{{ network }}',
+subsetting = '{{ subsetting }}',
+connectionTrackingPolicy = '{{ connectionTrackingPolicy }}',
+maxStreamDuration = '{{ maxStreamDuration }}',
+compressionMode = '{{ compressionMode }}',
+serviceLbPolicy = '{{ serviceLbPolicy }}',
+serviceBindings = '{{ serviceBindings }}',
+localityLbPolicies = '{{ localityLbPolicies }}',
+metadatas = '{{ metadatas }}',
+usedBy = '{{ usedBy }}'
+WHERE 
+backendService = '{{ backendService }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```
+
+## `DELETE` example
+
+Deletes the specified region_backend_service resource.
+
+```sql
+DELETE FROM google.compute.region_backend_services
+WHERE backendService = '{{ backendService }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

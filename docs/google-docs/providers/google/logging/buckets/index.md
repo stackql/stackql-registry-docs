@@ -1,3 +1,4 @@
+
 ---
 title: buckets
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - buckets
   - logging
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>bucket</code> resource or lists <code>buckets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,6 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="restrictedFields" /> | `array` | Optional. Log entry field paths that are denied access in this bucket.The following fields and their children are eligible: textPayload, jsonPayload, protoPayload, httpRequest, labels, sourceLocation.Restricting a repeated field will restrict all values. Adding a parent will block all child fields. (e.g. foo.bar will block foo.bar.baz) |
 | <CopyableCode code="retentionDays" /> | `integer` | Optional. Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If this value is set to zero at bucket creation time, the default time of 30 days will be used. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of the bucket. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -66,13 +69,145 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_locations_buckets_patch" /> | `UPDATE` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
 | <CopyableCode code="organizations_locations_buckets_patch" /> | `UPDATE` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
 | <CopyableCode code="projects_locations_buckets_patch" /> | `UPDATE` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Updates a log bucket.If the bucket has a lifecycle_state of DELETE_REQUESTED, then FAILED_PRECONDITION will be returned.After a bucket has been created, the bucket's location cannot be changed. |
-| <CopyableCode code="_billing_accounts_locations_buckets_list" /> | `EXEC` | <CopyableCode code="billingAccountsId, locationsId" /> | Lists log buckets. |
-| <CopyableCode code="_folders_locations_buckets_list" /> | `EXEC` | <CopyableCode code="foldersId, locationsId" /> | Lists log buckets. |
-| <CopyableCode code="_locations_buckets_list" /> | `EXEC` | <CopyableCode code="parent, parentType" /> | Lists log buckets. |
-| <CopyableCode code="_organizations_locations_buckets_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists log buckets. |
-| <CopyableCode code="_projects_locations_buckets_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists log buckets. |
 | <CopyableCode code="billing_accounts_locations_buckets_undelete" /> | `EXEC` | <CopyableCode code="billingAccountsId, bucketsId, locationsId" /> | Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. |
 | <CopyableCode code="folders_locations_buckets_undelete" /> | `EXEC` | <CopyableCode code="bucketsId, foldersId, locationsId" /> | Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. |
 | <CopyableCode code="locations_buckets_undelete" /> | `EXEC` | <CopyableCode code="name" /> | Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. |
 | <CopyableCode code="organizations_locations_buckets_undelete" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, organizationsId" /> | Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. |
 | <CopyableCode code="projects_locations_buckets_undelete" /> | `EXEC` | <CopyableCode code="bucketsId, locationsId, projectsId" /> | Undeletes a log bucket. A bucket that has been deleted can be undeleted within the grace period of 7 days. |
+
+## `SELECT` examples
+
+Lists log buckets.
+
+```sql
+SELECT
+name,
+description,
+analyticsEnabled,
+cmekSettings,
+createTime,
+indexConfigs,
+lifecycleState,
+locked,
+restrictedFields,
+retentionDays,
+updateTime
+FROM google.logging.buckets
+WHERE parent = '{{ parent }}'
+AND parentType = '{{ parentType }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>buckets</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.logging.buckets (
+parent,
+parentType,
+name,
+description,
+createTime,
+updateTime,
+retentionDays,
+locked,
+lifecycleState,
+analyticsEnabled,
+restrictedFields,
+indexConfigs,
+cmekSettings
+)
+SELECT 
+'{{ parent }}',
+'{{ parentType }}',
+'{{ name }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ retentionDays }}',
+true|false,
+'{{ lifecycleState }}',
+true|false,
+'{{ restrictedFields }}',
+'{{ indexConfigs }}',
+'{{ cmekSettings }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: retentionDays
+        value: '{{ retentionDays }}'
+      - name: locked
+        value: '{{ locked }}'
+      - name: lifecycleState
+        value: '{{ lifecycleState }}'
+      - name: analyticsEnabled
+        value: '{{ analyticsEnabled }}'
+      - name: restrictedFields
+        value: '{{ restrictedFields }}'
+      - name: indexConfigs
+        value: '{{ indexConfigs }}'
+      - name: cmekSettings
+        value: '{{ cmekSettings }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a bucket only if the necessary resources are available.
+
+```sql
+UPDATE google.logging.buckets
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+retentionDays = '{{ retentionDays }}',
+locked = true|false,
+lifecycleState = '{{ lifecycleState }}',
+analyticsEnabled = true|false,
+restrictedFields = '{{ restrictedFields }}',
+indexConfigs = '{{ indexConfigs }}',
+cmekSettings = '{{ cmekSettings }}'
+WHERE 
+bucketsId = '{{ bucketsId }}'
+AND foldersId = '{{ foldersId }}'
+AND locationsId = '{{ locationsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified bucket resource.
+
+```sql
+DELETE FROM google.logging.buckets
+WHERE bucketsId = '{{ bucketsId }}'
+AND foldersId = '{{ foldersId }}'
+AND locationsId = '{{ locationsId }}';
+```

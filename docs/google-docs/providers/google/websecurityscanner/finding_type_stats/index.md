@@ -1,3 +1,4 @@
+
 ---
 title: finding_type_stats
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - finding_type_stats
   - websecurityscanner
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>finding_type_stat</code> resource or lists <code>finding_type_stats</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,7 +30,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="findingTypeStats" /> | `array` | The list of FindingTypeStats returned. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId, scanConfigsId, scanRunsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId, scanConfigsId, scanRunsId" /> | List all FindingTypeStats under a given ScanRun. |
+
+## `SELECT` examples
+
+List all FindingTypeStats under a given ScanRun.
+
+```sql
+SELECT
+findingTypeStats
+FROM google.websecurityscanner.finding_type_stats
+WHERE projectsId = '{{ projectsId }}'
+AND scanConfigsId = '{{ scanConfigsId }}'
+AND scanRunsId = '{{ scanRunsId }}'; 
+```

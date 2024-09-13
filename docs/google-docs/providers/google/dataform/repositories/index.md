@@ -1,3 +1,4 @@
+
 ---
 title: repositories
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - repositories
   - dataform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>repository</code> resource or lists <code>repositories</code> in a region
 
 ## Overview
 <table><tbody>
@@ -40,17 +42,154 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="npmrcEnvironmentVariablesSecretVersion" /> | `string` | Optional. The name of the Secret Manager secret version to be used to interpolate variables into the .npmrc file for package installation operations. Must be in the format `projects/*/secrets/*/versions/*`. The file itself must be in a JSON format. |
 | <CopyableCode code="serviceAccount" /> | `string` | Optional. The service account to run workflow invocations under. |
 | <CopyableCode code="setAuthenticatedUserAdmin" /> | `boolean` | Optional. Input only. If set to true, the authenticated user will be granted the roles/dataform.admin role on the created repository. To modify access to the created repository later apply setIamPolicy from https://cloud.google.com/dataform/reference/rest#rest-resource:-v1beta1.projects.locations.repositories |
-| <CopyableCode code="workspaceCompilationOverrides" /> | `object` | Configures workspace compilation overrides for a repository. Primarily used by the UI (`console.cloud.google.com`). `schema_suffix` and `table_prefix` can have a special expression - `$&#123;workspaceName&#125;`, which refers to the workspace name from which the compilation results will be created. API callers are expected to resolve the expression in these overrides and provide them explicitly in `code_compilation_config` (https://cloud.google.com/dataform/reference/rest/v1beta1/projects.locations.repositories.compilationResults#codecompilationconfig) when creating workspace-scoped compilation results. |
+| <CopyableCode code="workspaceCompilationOverrides" /> | `object` | Configures workspace compilation overrides for a repository. Primarily used by the UI (`console.cloud.google.com`). `schema_suffix` and `table_prefix` can have a special expression - `${workspaceName}`, which refers to the workspace name from which the compilation results will be created. API callers are expected to resolve the expression in these overrides and provide them explicitly in `code_compilation_config` (https://cloud.google.com/dataform/reference/rest/v1beta1/projects.locations.repositories.compilationResults#codecompilationconfig) when creating workspace-scoped compilation results. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Fetches a single Repository. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Repositories in a given project and location. |
+| <CopyableCode code="query_directory_contents" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Returns the contents of a given Repository directory. The Repository must not have a value for `git_remote_settings.url`. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new Repository in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Deletes a single Repository. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Updates a single Repository. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists Repositories in a given project and location. |
 | <CopyableCode code="commit" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Applies a Git commit to a Repository. The Repository must not have a value for `git_remote_settings.url`. |
 | <CopyableCode code="compute_access_token_status" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Computes a Repository's Git access token status. |
-| <CopyableCode code="query_directory_contents" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Returns the contents of a given Repository directory. The Repository must not have a value for `git_remote_settings.url`. |
 | <CopyableCode code="read_file" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Returns the contents of a file (inside a Repository). The Repository must not have a value for `git_remote_settings.url`. |
+
+## `SELECT` examples
+
+Lists Repositories in a given project and location.
+
+```sql
+SELECT
+name,
+createTime,
+dataEncryptionState,
+displayName,
+gitRemoteSettings,
+kmsKeyName,
+labels,
+npmrcEnvironmentVariablesSecretVersion,
+serviceAccount,
+setAuthenticatedUserAdmin,
+workspaceCompilationOverrides
+FROM google.dataform.repositories
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>repositories</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataform.repositories (
+locationsId,
+projectsId,
+name,
+createTime,
+displayName,
+gitRemoteSettings,
+npmrcEnvironmentVariablesSecretVersion,
+workspaceCompilationOverrides,
+labels,
+setAuthenticatedUserAdmin,
+serviceAccount,
+kmsKeyName,
+dataEncryptionState
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ displayName }}',
+'{{ gitRemoteSettings }}',
+'{{ npmrcEnvironmentVariablesSecretVersion }}',
+'{{ workspaceCompilationOverrides }}',
+'{{ labels }}',
+true|false,
+'{{ serviceAccount }}',
+'{{ kmsKeyName }}',
+'{{ dataEncryptionState }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: gitRemoteSettings
+        value: '{{ gitRemoteSettings }}'
+      - name: npmrcEnvironmentVariablesSecretVersion
+        value: '{{ npmrcEnvironmentVariablesSecretVersion }}'
+      - name: workspaceCompilationOverrides
+        value: '{{ workspaceCompilationOverrides }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: setAuthenticatedUserAdmin
+        value: '{{ setAuthenticatedUserAdmin }}'
+      - name: serviceAccount
+        value: '{{ serviceAccount }}'
+      - name: kmsKeyName
+        value: '{{ kmsKeyName }}'
+      - name: dataEncryptionState
+        value: '{{ dataEncryptionState }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a repository only if the necessary resources are available.
+
+```sql
+UPDATE google.dataform.repositories
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+displayName = '{{ displayName }}',
+gitRemoteSettings = '{{ gitRemoteSettings }}',
+npmrcEnvironmentVariablesSecretVersion = '{{ npmrcEnvironmentVariablesSecretVersion }}',
+workspaceCompilationOverrides = '{{ workspaceCompilationOverrides }}',
+labels = '{{ labels }}',
+setAuthenticatedUserAdmin = true|false,
+serviceAccount = '{{ serviceAccount }}',
+kmsKeyName = '{{ kmsKeyName }}',
+dataEncryptionState = '{{ dataEncryptionState }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified repository resource.
+
+```sql
+DELETE FROM google.dataform.repositories
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
+```

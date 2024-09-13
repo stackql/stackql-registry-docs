@@ -1,3 +1,4 @@
+
 ---
 title: settings
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - settings
   - resourcesettings
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>setting</code> resource or lists <code>settings</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,11 +32,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the setting. Must be in one of the following forms: * `projects/&#123;project_number&#125;/settings/&#123;setting_name&#125;` * `folders/&#123;folder_id&#125;/settings/&#123;setting_name&#125;` * `organizations/&#123;organization_id&#125;/settings/&#123;setting_name&#125;` For example, "/projects/123/settings/gcp-enableMyFeature" |
+| <CopyableCode code="name" /> | `string` | The resource name of the setting. Must be in one of the following forms: * `projects/{project_number}/settings/{setting_name}` * `folders/{folder_id}/settings/{setting_name}` * `organizations/{organization_id}/settings/{setting_name}` For example, "/projects/123/settings/gcp-enableMyFeature" |
 | <CopyableCode code="effectiveValue" /> | `object` | The data in a setting value. |
 | <CopyableCode code="etag" /> | `string` | A fingerprint used for optimistic concurrency. See UpdateSetting for more details. |
 | <CopyableCode code="localValue" /> | `object` | The data in a setting value. |
 | <CopyableCode code="metadata" /> | `object` | Metadata about a setting which is not editable by the end user. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,6 +50,35 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="folders_settings_patch" /> | `UPDATE` | <CopyableCode code="foldersId, settingsId" /> | Updates a specified setting. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the setting does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.FAILED_PRECONDITION` if the setting is flagged as read only. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the setting value. On success, the response will contain only `name`, `local_value` and `etag`. The `metadata` and `effective_value` cannot be updated through this API. Note: the supplied setting will perform a full overwrite of the `local_value` field. |
 | <CopyableCode code="organizations_settings_patch" /> | `UPDATE` | <CopyableCode code="organizationsId, settingsId" /> | Updates a specified setting. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the setting does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.FAILED_PRECONDITION` if the setting is flagged as read only. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the setting value. On success, the response will contain only `name`, `local_value` and `etag`. The `metadata` and `effective_value` cannot be updated through this API. Note: the supplied setting will perform a full overwrite of the `local_value` field. |
 | <CopyableCode code="projects_settings_patch" /> | `UPDATE` | <CopyableCode code="projectsId, settingsId" /> | Updates a specified setting. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the setting does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.FAILED_PRECONDITION` if the setting is flagged as read only. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the setting value. On success, the response will contain only `name`, `local_value` and `etag`. The `metadata` and `effective_value` cannot be updated through this API. Note: the supplied setting will perform a full overwrite of the `local_value` field. |
-| <CopyableCode code="_folders_settings_list" /> | `EXEC` | <CopyableCode code="foldersId" /> | Lists all the settings that are available on the Cloud resource `parent`. |
-| <CopyableCode code="_organizations_settings_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists all the settings that are available on the Cloud resource `parent`. |
-| <CopyableCode code="_projects_settings_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists all the settings that are available on the Cloud resource `parent`. |
+
+## `SELECT` examples
+
+Lists all the settings that are available on the Cloud resource `parent`.
+
+```sql
+SELECT
+name,
+effectiveValue,
+etag,
+localValue,
+metadata
+FROM google.resourcesettings.settings
+WHERE foldersId = '{{ foldersId }}'; 
+```
+
+## `UPDATE` example
+
+Updates a setting only if the necessary resources are available.
+
+```sql
+UPDATE google.resourcesettings.settings
+SET 
+effectiveValue = '{{ effectiveValue }}',
+localValue = '{{ localValue }}',
+etag = '{{ etag }}',
+name = '{{ name }}',
+metadata = '{{ metadata }}'
+WHERE 
+foldersId = '{{ foldersId }}'
+AND settingsId = '{{ settingsId }}';
+```

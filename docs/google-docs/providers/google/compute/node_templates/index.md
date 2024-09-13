@@ -1,3 +1,4 @@
+
 ---
 title: node_templates
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - node_templates
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>node_template</code> resource or lists <code>node_templates</code> in a region
 
 ## Overview
 <table><tbody>
@@ -46,6 +48,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="serverBinding" /> | `object` |  |
 | <CopyableCode code="status" /> | `string` | [Output Only] The status of the node template. One of the following values: CREATING, READY, and DELETING. |
 | <CopyableCode code="statusMessage" /> | `string` | [Output Only] An optional, human-readable explanation of the status. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -54,4 +57,140 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Retrieves a list of node templates available to the specified project. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a NodeTemplate resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="nodeTemplate, project, region" /> | Deletes the specified NodeTemplate resource. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of node templates. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of node templates. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+accelerators,
+cpuOvercommitType,
+creationTimestamp,
+disks,
+kind,
+nodeAffinityLabels,
+nodeType,
+nodeTypeFlexibility,
+region,
+selfLink,
+serverBinding,
+status,
+statusMessage
+FROM google.compute.node_templates
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>node_templates</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.node_templates (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+nodeType,
+nodeAffinityLabels,
+status,
+statusMessage,
+region,
+selfLink,
+nodeTypeFlexibility,
+serverBinding,
+disks,
+accelerators,
+cpuOvercommitType
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ nodeType }}',
+'{{ nodeAffinityLabels }}',
+'{{ status }}',
+'{{ statusMessage }}',
+'{{ region }}',
+'{{ selfLink }}',
+'{{ nodeTypeFlexibility }}',
+'{{ serverBinding }}',
+'{{ disks }}',
+'{{ accelerators }}',
+'{{ cpuOvercommitType }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: nodeType
+        value: '{{ nodeType }}'
+      - name: nodeAffinityLabels
+        value: '{{ nodeAffinityLabels }}'
+      - name: status
+        value: '{{ status }}'
+      - name: statusMessage
+        value: '{{ statusMessage }}'
+      - name: region
+        value: '{{ region }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: nodeTypeFlexibility
+        value: '{{ nodeTypeFlexibility }}'
+      - name: serverBinding
+        value: '{{ serverBinding }}'
+      - name: disks
+        value: '{{ disks }}'
+      - name: accelerators
+        value: '{{ accelerators }}'
+      - name: cpuOvercommitType
+        value: '{{ cpuOvercommitType }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified node_template resource.
+
+```sql
+DELETE FROM google.compute.node_templates
+WHERE nodeTemplate = '{{ nodeTemplate }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

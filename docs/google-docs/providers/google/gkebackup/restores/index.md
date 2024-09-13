@@ -1,3 +1,4 @@
+
 ---
 title: restores
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - restores
   - gkebackup
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>restore</code> resource or lists <code>restores</code> in a region
 
 ## Overview
 <table><tbody>
@@ -49,6 +51,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when this Restore resource was last updated. |
 | <CopyableCode code="volumeDataRestorePolicyOverrides" /> | `array` | Optional. Immutable. Overrides the volume data restore policies selected in the Restore Config for override-scoped resources. |
 | <CopyableCode code="volumesRestoredCount" /> | `integer` | Output only. Number of volumes restored during the restore execution. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -57,4 +60,193 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, restorePlansId" /> | Creates a new Restore for the given RestorePlan. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, restorePlansId, restoresId" /> | Deletes an existing Restore. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, restorePlansId, restoresId" /> | Update a Restore. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, restorePlansId" /> | Lists the Restores for a given RestorePlan. |
+
+## `SELECT` examples
+
+Lists the Restores for a given RestorePlan.
+
+```sql
+SELECT
+name,
+description,
+backup,
+cluster,
+completeTime,
+createTime,
+etag,
+filter,
+labels,
+resourcesExcludedCount,
+resourcesFailedCount,
+resourcesRestoredCount,
+restoreConfig,
+state,
+stateReason,
+uid,
+updateTime,
+volumeDataRestorePolicyOverrides,
+volumesRestoredCount
+FROM google.gkebackup.restores
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND restorePlansId = '{{ restorePlansId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>restores</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.gkebackup.restores (
+locationsId,
+projectsId,
+restorePlansId,
+name,
+uid,
+createTime,
+updateTime,
+description,
+backup,
+cluster,
+restoreConfig,
+labels,
+state,
+stateReason,
+completeTime,
+resourcesRestoredCount,
+resourcesExcludedCount,
+resourcesFailedCount,
+volumesRestoredCount,
+etag,
+filter,
+volumeDataRestorePolicyOverrides
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ restorePlansId }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ description }}',
+'{{ backup }}',
+'{{ cluster }}',
+'{{ restoreConfig }}',
+'{{ labels }}',
+'{{ state }}',
+'{{ stateReason }}',
+'{{ completeTime }}',
+'{{ resourcesRestoredCount }}',
+'{{ resourcesExcludedCount }}',
+'{{ resourcesFailedCount }}',
+'{{ volumesRestoredCount }}',
+'{{ etag }}',
+'{{ filter }}',
+'{{ volumeDataRestorePolicyOverrides }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: description
+        value: '{{ description }}'
+      - name: backup
+        value: '{{ backup }}'
+      - name: cluster
+        value: '{{ cluster }}'
+      - name: restoreConfig
+        value: '{{ restoreConfig }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: state
+        value: '{{ state }}'
+      - name: stateReason
+        value: '{{ stateReason }}'
+      - name: completeTime
+        value: '{{ completeTime }}'
+      - name: resourcesRestoredCount
+        value: '{{ resourcesRestoredCount }}'
+      - name: resourcesExcludedCount
+        value: '{{ resourcesExcludedCount }}'
+      - name: resourcesFailedCount
+        value: '{{ resourcesFailedCount }}'
+      - name: volumesRestoredCount
+        value: '{{ volumesRestoredCount }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: filter
+        value: '{{ filter }}'
+      - name: volumeDataRestorePolicyOverrides
+        value: '{{ volumeDataRestorePolicyOverrides }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a restore only if the necessary resources are available.
+
+```sql
+UPDATE google.gkebackup.restores
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+description = '{{ description }}',
+backup = '{{ backup }}',
+cluster = '{{ cluster }}',
+restoreConfig = '{{ restoreConfig }}',
+labels = '{{ labels }}',
+state = '{{ state }}',
+stateReason = '{{ stateReason }}',
+completeTime = '{{ completeTime }}',
+resourcesRestoredCount = '{{ resourcesRestoredCount }}',
+resourcesExcludedCount = '{{ resourcesExcludedCount }}',
+resourcesFailedCount = '{{ resourcesFailedCount }}',
+volumesRestoredCount = '{{ volumesRestoredCount }}',
+etag = '{{ etag }}',
+filter = '{{ filter }}',
+volumeDataRestorePolicyOverrides = '{{ volumeDataRestorePolicyOverrides }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND restorePlansId = '{{ restorePlansId }}'
+AND restoresId = '{{ restoresId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified restore resource.
+
+```sql
+DELETE FROM google.gkebackup.restores
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND restorePlansId = '{{ restorePlansId }}'
+AND restoresId = '{{ restoresId }}';
+```

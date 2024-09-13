@@ -1,3 +1,4 @@
+
 ---
 title: managed_zones
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - managed_zones
   - dns
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>managed_zone</code> resource or lists <code>managed_zones</code> in a region
 
 ## Overview
 <table><tbody>
@@ -47,6 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="reverseLookupConfig" /> | `object` |  |
 | <CopyableCode code="serviceDirectoryConfig" /> | `object` | Contains information about Service Directory-backed zones. |
 | <CopyableCode code="visibility" /> | `string` | The zone's visibility: public zones are exposed to the Internet, while private zones are visible only to Virtual Private Cloud resources. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -55,5 +58,172 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new ManagedZone. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="managedZone, project" /> | Deletes a previously created ManagedZone. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="managedZone, project" /> | Applies a partial update to an existing ManagedZone. |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="managedZone, project" /> | Updates an existing ManagedZone. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="project" /> | Enumerates ManagedZones that have been created but not yet deleted. |
+| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="managedZone, project" /> | Updates an existing ManagedZone. |
+
+## `SELECT` examples
+
+Enumerates ManagedZones that have been created but not yet deleted.
+
+```sql
+SELECT
+id,
+name,
+description,
+cloudLoggingConfig,
+creationTime,
+dnsName,
+dnssecConfig,
+forwardingConfig,
+kind,
+labels,
+nameServerSet,
+nameServers,
+peeringConfig,
+privateVisibilityConfig,
+reverseLookupConfig,
+serviceDirectoryConfig,
+visibility
+FROM google.dns.managed_zones
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>managed_zones</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dns.managed_zones (
+project,
+name,
+dnsName,
+description,
+id,
+nameServers,
+creationTime,
+dnssecConfig,
+nameServerSet,
+visibility,
+privateVisibilityConfig,
+forwardingConfig,
+labels,
+peeringConfig,
+reverseLookupConfig,
+serviceDirectoryConfig,
+cloudLoggingConfig,
+kind
+)
+SELECT 
+'{{ project }}',
+'{{ name }}',
+'{{ dnsName }}',
+'{{ description }}',
+'{{ id }}',
+'{{ nameServers }}',
+'{{ creationTime }}',
+'{{ dnssecConfig }}',
+'{{ nameServerSet }}',
+'{{ visibility }}',
+'{{ privateVisibilityConfig }}',
+'{{ forwardingConfig }}',
+'{{ labels }}',
+'{{ peeringConfig }}',
+'{{ reverseLookupConfig }}',
+'{{ serviceDirectoryConfig }}',
+'{{ cloudLoggingConfig }}',
+'{{ kind }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: dnsName
+        value: '{{ dnsName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: id
+        value: '{{ id }}'
+      - name: nameServers
+        value: '{{ nameServers }}'
+      - name: creationTime
+        value: '{{ creationTime }}'
+      - name: dnssecConfig
+        value: '{{ dnssecConfig }}'
+      - name: nameServerSet
+        value: '{{ nameServerSet }}'
+      - name: visibility
+        value: '{{ visibility }}'
+      - name: privateVisibilityConfig
+        value: '{{ privateVisibilityConfig }}'
+      - name: forwardingConfig
+        value: '{{ forwardingConfig }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: peeringConfig
+        value: '{{ peeringConfig }}'
+      - name: reverseLookupConfig
+        value: '{{ reverseLookupConfig }}'
+      - name: serviceDirectoryConfig
+        value: '{{ serviceDirectoryConfig }}'
+      - name: cloudLoggingConfig
+        value: '{{ cloudLoggingConfig }}'
+      - name: kind
+        value: '{{ kind }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a managed_zone only if the necessary resources are available.
+
+```sql
+UPDATE google.dns.managed_zones
+SET 
+name = '{{ name }}',
+dnsName = '{{ dnsName }}',
+description = '{{ description }}',
+id = '{{ id }}',
+nameServers = '{{ nameServers }}',
+creationTime = '{{ creationTime }}',
+dnssecConfig = '{{ dnssecConfig }}',
+nameServerSet = '{{ nameServerSet }}',
+visibility = '{{ visibility }}',
+privateVisibilityConfig = '{{ privateVisibilityConfig }}',
+forwardingConfig = '{{ forwardingConfig }}',
+labels = '{{ labels }}',
+peeringConfig = '{{ peeringConfig }}',
+reverseLookupConfig = '{{ reverseLookupConfig }}',
+serviceDirectoryConfig = '{{ serviceDirectoryConfig }}',
+cloudLoggingConfig = '{{ cloudLoggingConfig }}',
+kind = '{{ kind }}'
+WHERE 
+managedZone = '{{ managedZone }}'
+AND project = '{{ project }}';
+```
+
+## `DELETE` example
+
+Deletes the specified managed_zone resource.
+
+```sql
+DELETE FROM google.dns.managed_zones
+WHERE managedZone = '{{ managedZone }}'
+AND project = '{{ project }}';
+```

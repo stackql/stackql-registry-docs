@@ -1,3 +1,4 @@
+
 ---
 title: usable_subnetworks
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - usable_subnetworks
   - container
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>usable_subnetwork</code> resource or lists <code>usable_subnetworks</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,8 +37,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="secondaryIpRanges" /> | `array` | Secondary IP ranges. |
 | <CopyableCode code="statusMessage" /> | `string` | A human readable status message representing the reasons for cases where the caller cannot use the secondary ranges under the subnet. For example if the secondary_ip_ranges is empty due to a permission issue, an insufficient permission message will be given by status_message. |
 | <CopyableCode code="subnetwork" /> | `string` | Subnetwork Name. Example: projects/my-project/regions/us-central1/subnetworks/my-subnet |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_aggregated_usable_subnetworks_list" /> | `SELECT` | <CopyableCode code="projectsId" /> |
-| <CopyableCode code="_projects_aggregated_usable_subnetworks_list" /> | `EXEC` | <CopyableCode code="projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_aggregated_usable_subnetworks_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists subnetworks that are usable for creating clusters in a project. |
+
+## `SELECT` examples
+
+Lists subnetworks that are usable for creating clusters in a project.
+
+```sql
+SELECT
+ipCidrRange,
+network,
+secondaryIpRanges,
+statusMessage,
+subnetwork
+FROM google.container.usable_subnetworks
+WHERE projectsId = '{{ projectsId }}'; 
+```

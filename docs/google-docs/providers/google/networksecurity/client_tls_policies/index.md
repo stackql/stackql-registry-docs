@@ -1,3 +1,4 @@
+
 ---
 title: client_tls_policies
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - client_tls_policies
   - networksecurity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>client_tls_policy</code> resource or lists <code>client_tls_policies</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. Name of the ClientTlsPolicy resource. It matches the pattern `projects/*/locations/&#123;location&#125;/clientTlsPolicies/&#123;client_tls_policy&#125;` |
+| <CopyableCode code="name" /> | `string` | Required. Name of the ClientTlsPolicy resource. It matches the pattern `projects/*/locations/{location}/clientTlsPolicies/{client_tls_policy}` |
 | <CopyableCode code="description" /> | `string` | Optional. Free-text description of the resource. |
 | <CopyableCode code="clientCertificate" /> | `object` | Specification of certificate provider. Defines the mechanism to obtain the certificate and private key for peer to peer authentication. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The timestamp when the resource was created. |
@@ -38,6 +40,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="serverValidationCa" /> | `array` | Optional. Defines the mechanism to obtain the Certificate Authority certificate to validate the server certificate. If empty, client does not validate the server certificate. |
 | <CopyableCode code="sni" /> | `string` | Optional. Server Name Indication string to present to the server during TLS handshake. E.g: "secure.example.com". |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the resource was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -46,4 +49,122 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_client_tls_policies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new ClientTlsPolicy in a given project and location. |
 | <CopyableCode code="projects_locations_client_tls_policies_delete" /> | `DELETE` | <CopyableCode code="clientTlsPoliciesId, locationsId, projectsId" /> | Deletes a single ClientTlsPolicy. |
 | <CopyableCode code="projects_locations_client_tls_policies_patch" /> | `UPDATE` | <CopyableCode code="clientTlsPoliciesId, locationsId, projectsId" /> | Updates the parameters of a single ClientTlsPolicy. |
-| <CopyableCode code="_projects_locations_client_tls_policies_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists ClientTlsPolicies in a given project and location. |
+
+## `SELECT` examples
+
+Lists ClientTlsPolicies in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+clientCertificate,
+createTime,
+labels,
+serverValidationCa,
+sni,
+updateTime
+FROM google.networksecurity.client_tls_policies
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>client_tls_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.networksecurity.client_tls_policies (
+locationsId,
+projectsId,
+name,
+description,
+createTime,
+updateTime,
+labels,
+sni,
+clientCertificate,
+serverValidationCa
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ sni }}',
+'{{ clientCertificate }}',
+'{{ serverValidationCa }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: sni
+        value: '{{ sni }}'
+      - name: clientCertificate
+        value: '{{ clientCertificate }}'
+      - name: serverValidationCa
+        value: '{{ serverValidationCa }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a client_tls_policy only if the necessary resources are available.
+
+```sql
+UPDATE google.networksecurity.client_tls_policies
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+sni = '{{ sni }}',
+clientCertificate = '{{ clientCertificate }}',
+serverValidationCa = '{{ serverValidationCa }}'
+WHERE 
+clientTlsPoliciesId = '{{ clientTlsPoliciesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified client_tls_policy resource.
+
+```sql
+DELETE FROM google.networksecurity.client_tls_policies
+WHERE clientTlsPoliciesId = '{{ clientTlsPoliciesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

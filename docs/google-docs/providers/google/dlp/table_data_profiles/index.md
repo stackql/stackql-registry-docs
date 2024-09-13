@@ -1,3 +1,4 @@
+
 ---
 title: table_data_profiles
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - table_data_profiles
   - dlp
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>table_data_profile</code> resource or lists <code>table_data_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -47,7 +49,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="predictedInfoTypes" /> | `array` | The infoTypes predicted from this table's data. |
 | <CopyableCode code="profileLastGenerated" /> | `string` | The last time the profile was generated. |
 | <CopyableCode code="profileStatus" /> | `object` | Success or errors for the profile generation. |
-| <CopyableCode code="projectDataProfile" /> | `string` | The resource name to the project data profile for this table. |
+| <CopyableCode code="projectDataProfile" /> | `string` | The resource name of the project data profile for this table. |
 | <CopyableCode code="resourceLabels" /> | `object` | The labels applied to the resource at the time the profile was generated. |
 | <CopyableCode code="resourceVisibility" /> | `string` | How broadly a resource has been shared. |
 | <CopyableCode code="rowCount" /> | `string` | Number of rows in the table when the profile was generated. This will not be populated for BigLake tables. |
@@ -56,6 +58,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | State of a profile. |
 | <CopyableCode code="tableId" /> | `string` | If the resource is BigQuery, the BigQuery table ID. |
 | <CopyableCode code="tableSizeBytes" /> | `string` | The size of the table when the profile was generated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -65,5 +68,51 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_table_data_profiles_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists table data profiles for an organization. |
 | <CopyableCode code="organizations_locations_table_data_profiles_delete" /> | `DELETE` | <CopyableCode code="locationsId, organizationsId, tableDataProfilesId" /> | Delete a TableDataProfile. Will not prevent the profile from being regenerated if the table is still included in a discovery configuration. |
 | <CopyableCode code="projects_locations_table_data_profiles_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, tableDataProfilesId" /> | Delete a TableDataProfile. Will not prevent the profile from being regenerated if the table is still included in a discovery configuration. |
-| <CopyableCode code="_organizations_locations_table_data_profiles_list" /> | `EXEC` | <CopyableCode code="locationsId, organizationsId" /> | Lists table data profiles for an organization. |
-| <CopyableCode code="_projects_locations_table_data_profiles_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists table data profiles for an organization. |
+
+## `SELECT` examples
+
+Lists table data profiles for an organization.
+
+```sql
+SELECT
+name,
+configSnapshot,
+createTime,
+dataRiskLevel,
+dataSourceType,
+datasetId,
+datasetLocation,
+datasetProjectId,
+encryptionStatus,
+expirationTime,
+failedColumnCount,
+fullResource,
+lastModifiedTime,
+otherInfoTypes,
+predictedInfoTypes,
+profileLastGenerated,
+profileStatus,
+projectDataProfile,
+resourceLabels,
+resourceVisibility,
+rowCount,
+scannedColumnCount,
+sensitivityScore,
+state,
+tableId,
+tableSizeBytes
+FROM google.dlp.table_data_profiles
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified table_data_profile resource.
+
+```sql
+DELETE FROM google.dlp.table_data_profiles
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND tableDataProfilesId = '{{ tableDataProfilesId }}';
+```

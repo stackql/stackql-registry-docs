@@ -1,3 +1,4 @@
+
 ---
 title: jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - jobs
   - dataproc
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>job</code> resource or lists <code>jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -52,14 +54,93 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="statusHistory" /> | `array` | Output only. The previous job status. |
 | <CopyableCode code="trinoJob" /> | `object` | A Dataproc job for running Trino (https://trino.io/) queries. IMPORTANT: The Dataproc Trino Optional Component (https://cloud.google.com/dataproc/docs/concepts/components/trino) must be enabled when the cluster is created to submit a Trino job to the cluster. |
 | <CopyableCode code="yarnApplications" /> | `array` | Output only. The collection of YARN applications spun up by this job.Beta Feature: This report is available for testing purposes only. It might be changed before final release. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_regions_jobs_get" /> | `SELECT` | <CopyableCode code="jobId, projectId, region" /> | Gets the resource representation for a job in a project. |
-| <CopyableCode code="projects_regions_jobs_list" /> | `SELECT` | <CopyableCode code="projectId, region" /> | Lists regions/&#123;region&#125;/jobs in a project. |
+| <CopyableCode code="projects_regions_jobs_list" /> | `SELECT` | <CopyableCode code="projectId, region" /> | Lists regions/{region}/jobs in a project. |
 | <CopyableCode code="projects_regions_jobs_delete" /> | `DELETE` | <CopyableCode code="jobId, projectId, region" /> | Deletes the job from the project. If the job is active, the delete fails, and the response returns FAILED_PRECONDITION. |
 | <CopyableCode code="projects_regions_jobs_patch" /> | `UPDATE` | <CopyableCode code="jobId, projectId, region" /> | Updates a job in a project. |
-| <CopyableCode code="_projects_regions_jobs_list" /> | `EXEC` | <CopyableCode code="projectId, region" /> | Lists regions/&#123;region&#125;/jobs in a project. |
-| <CopyableCode code="projects_regions_jobs_cancel" /> | `EXEC` | <CopyableCode code="jobId, projectId, region" /> | Starts a job cancellation request. To access the job resource after cancellation, call regions/&#123;region&#125;/jobs.list (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/list) or regions/&#123;region&#125;/jobs.get (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/get). |
+| <CopyableCode code="projects_regions_jobs_cancel" /> | `EXEC` | <CopyableCode code="jobId, projectId, region" /> | Starts a job cancellation request. To access the job resource after cancellation, call regions/{region}/jobs.list (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/list) or regions/{region}/jobs.get (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/get). |
 | <CopyableCode code="projects_regions_jobs_submit" /> | `EXEC` | <CopyableCode code="projectId, region" /> | Submits a job to a cluster. |
 | <CopyableCode code="projects_regions_jobs_submit_as_operation" /> | `EXEC` | <CopyableCode code="projectId, region" /> | Submits job to a cluster. |
+
+## `SELECT` examples
+
+Lists regions/{region}/jobs in a project.
+
+```sql
+SELECT
+done,
+driverControlFilesUri,
+driverOutputResourceUri,
+driverSchedulingConfig,
+flinkJob,
+hadoopJob,
+hiveJob,
+jobUuid,
+labels,
+pigJob,
+placement,
+prestoJob,
+pysparkJob,
+reference,
+scheduling,
+sparkJob,
+sparkRJob,
+sparkSqlJob,
+status,
+statusHistory,
+trinoJob,
+yarnApplications
+FROM google.dataproc.jobs
+WHERE projectId = '{{ projectId }}'
+AND region = '{{ region }}'; 
+```
+
+## `UPDATE` example
+
+Updates a job only if the necessary resources are available.
+
+```sql
+UPDATE google.dataproc.jobs
+SET 
+reference = '{{ reference }}',
+placement = '{{ placement }}',
+hadoopJob = '{{ hadoopJob }}',
+sparkJob = '{{ sparkJob }}',
+pysparkJob = '{{ pysparkJob }}',
+hiveJob = '{{ hiveJob }}',
+pigJob = '{{ pigJob }}',
+sparkRJob = '{{ sparkRJob }}',
+sparkSqlJob = '{{ sparkSqlJob }}',
+prestoJob = '{{ prestoJob }}',
+trinoJob = '{{ trinoJob }}',
+flinkJob = '{{ flinkJob }}',
+status = '{{ status }}',
+statusHistory = '{{ statusHistory }}',
+yarnApplications = '{{ yarnApplications }}',
+driverOutputResourceUri = '{{ driverOutputResourceUri }}',
+driverControlFilesUri = '{{ driverControlFilesUri }}',
+labels = '{{ labels }}',
+scheduling = '{{ scheduling }}',
+jobUuid = '{{ jobUuid }}',
+done = true|false,
+driverSchedulingConfig = '{{ driverSchedulingConfig }}'
+WHERE 
+jobId = '{{ jobId }}'
+AND projectId = '{{ projectId }}'
+AND region = '{{ region }}';
+```
+
+## `DELETE` example
+
+Deletes the specified job resource.
+
+```sql
+DELETE FROM google.dataproc.jobs
+WHERE jobId = '{{ jobId }}'
+AND projectId = '{{ projectId }}'
+AND region = '{{ region }}';
+```

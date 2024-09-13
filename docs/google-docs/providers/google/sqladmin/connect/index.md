@@ -1,3 +1,4 @@
+
 ---
 title: connect
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - connect
   - sqladmin
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>connect</code> resource or lists <code>connect</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,8 +40,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="pscEnabled" /> | `boolean` | Whether PSC connectivity is enabled for this instance. |
 | <CopyableCode code="region" /> | `string` | The cloud region for the instance. For example, `us-central1`, `europe-west1`. The region cannot be changed after instance creation. |
 | <CopyableCode code="serverCaCert" /> | `object` | SslCerts Resource |
+| <CopyableCode code="serverCaMode" /> | `string` | Specify what type of CA is used for the server certificate. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instance, project" /> | Retrieves connect settings about a Cloud SQL instance. |
 | <CopyableCode code="generate_ephemeral" /> | `EXEC` | <CopyableCode code="instance, project" /> | Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as themselves when connecting to the database. |
+
+## `SELECT` examples
+
+Retrieves connect settings about a Cloud SQL instance.
+
+```sql
+SELECT
+backendType,
+databaseVersion,
+dnsName,
+ipAddresses,
+kind,
+pscEnabled,
+region,
+serverCaCert,
+serverCaMode
+FROM google.sqladmin.connect
+WHERE instance = '{{ instance }}'
+AND project = '{{ project }}'; 
+```

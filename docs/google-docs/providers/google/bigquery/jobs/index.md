@@ -1,3 +1,4 @@
+
 ---
 title: jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - jobs
   - bigquery
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>job</code> resource or lists <code>jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -41,6 +43,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="statistics" /> | `object` | Statistics for a single job execution. |
 | <CopyableCode code="status" /> | `object` |  |
 | <CopyableCode code="user_email" /> | `string` | Output only. Email address of the user who ran the job. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -48,6 +51,114 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectId" /> | Lists all jobs that you started in the specified project. Job information is available for a six month period after creation. The job list is sorted in reverse chronological order, by job creation time. Requires the Can View project role, or the Is Owner project role if you set the allUsers property. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="projectId" /> | Starts a new asynchronous job. This API has two different kinds of endpoint URIs, as this method supports a variety of use cases. * The *Metadata* URI is used for most interactions, as it accepts the job configuration directly. * The *Upload* URI is ONLY for the case when you're sending both a load job configuration and a data stream together. In this case, the Upload URI accepts the job configuration and the data as two distinct multipart MIME parts. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="+jobId, projectId" /> | Requests the deletion of the metadata of a job. This call returns when the job's metadata is deleted. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="projectId" /> | Lists all jobs that you started in the specified project. Job information is available for a six month period after creation. The job list is sorted in reverse chronological order, by job creation time. Requires the Can View project role, or the Is Owner project role if you set the allUsers property. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="+jobId, projectId" /> | Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed successfully. Cancelled jobs may still incur costs. |
 | <CopyableCode code="query" /> | `EXEC` | <CopyableCode code="projectId" /> | Runs a BigQuery SQL query synchronously and returns query results if the query completes within a specified timeout. |
+
+## `SELECT` examples
+
+Lists all jobs that you started in the specified project. Job information is available for a six month period after creation. The job list is sorted in reverse chronological order, by job creation time. Requires the Can View project role, or the Is Owner project role if you set the allUsers property.
+
+```sql
+SELECT
+id,
+configuration,
+etag,
+jobCreationReason,
+jobReference,
+kind,
+principal_subject,
+selfLink,
+statistics,
+status,
+user_email
+FROM google.bigquery.jobs
+WHERE projectId = '{{ projectId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>jobs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.bigquery.jobs (
+projectId,
+configuration,
+etag,
+id,
+jobCreationReason,
+jobReference,
+kind,
+principal_subject,
+selfLink,
+statistics,
+status,
+user_email
+)
+SELECT 
+'{{ projectId }}',
+'{{ configuration }}',
+'{{ etag }}',
+'{{ id }}',
+'{{ jobCreationReason }}',
+'{{ jobReference }}',
+'{{ kind }}',
+'{{ principal_subject }}',
+'{{ selfLink }}',
+'{{ statistics }}',
+'{{ status }}',
+'{{ user_email }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: configuration
+        value: '{{ configuration }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: id
+        value: '{{ id }}'
+      - name: jobCreationReason
+        value: '{{ jobCreationReason }}'
+      - name: jobReference
+        value: '{{ jobReference }}'
+      - name: kind
+        value: '{{ kind }}'
+      - name: principal_subject
+        value: '{{ principal_subject }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: statistics
+        value: '{{ statistics }}'
+      - name: status
+        value: '{{ status }}'
+      - name: user_email
+        value: '{{ user_email }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified job resource.
+
+```sql
+DELETE FROM google.bigquery.jobs
+WHERE +jobId = '{{ +jobId }}'
+AND projectId = '{{ projectId }}';
+```

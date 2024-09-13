@@ -1,3 +1,4 @@
+
 ---
 title: fhir_stores_fhirstore_metrics
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - fhir_stores_fhirstore_metrics
   - healthcare
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>fhir_stores_fhirstore_metric</code> resource or lists <code>fhir_stores_fhirstore_metrics</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,9 +32,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the FHIR store to get metrics for, in the format `projects/&#123;project_id&#125;/datasets/&#123;dataset_id&#125;/fhirStores/&#123;fhir_store_id&#125;`. |
+| <CopyableCode code="name" /> | `string` | The resource name of the FHIR store to get metrics for, in the format `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`. |
 | <CopyableCode code="metrics" /> | `array` | List of FhirStoreMetric by resource type. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_fhirstore_metrics" /> | `SELECT` | <CopyableCode code="datasetsId, fhirStoresId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_fhirstore_metrics" /> | `SELECT` | <CopyableCode code="datasetsId, fhirStoresId, locationsId, projectsId" /> | Gets metrics associated with the FHIR store. |
+
+## `SELECT` examples
+
+Gets metrics associated with the FHIR store.
+
+```sql
+SELECT
+name,
+metrics
+FROM google.healthcare.fhir_stores_fhirstore_metrics
+WHERE datasetsId = '{{ datasetsId }}'
+AND fhirStoresId = '{{ fhirStoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

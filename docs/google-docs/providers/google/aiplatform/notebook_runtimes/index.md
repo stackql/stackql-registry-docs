@@ -1,3 +1,4 @@
+
 ---
 title: notebook_runtimes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - notebook_runtimes
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>notebook_runtime</code> resource or lists <code>notebook_runtimes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -51,13 +53,56 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="serviceAccount" /> | `string` | Output only. The service account that the NotebookRuntime workload runs as. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this NotebookRuntime was most recently updated. |
 | <CopyableCode code="version" /> | `string` | Output only. The VM os image version of NotebookRuntime. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, notebookRuntimesId, projectsId" /> | Gets a NotebookRuntime. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists NotebookRuntimes in a Location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, notebookRuntimesId, projectsId" /> | Deletes a NotebookRuntime. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists NotebookRuntimes in a Location. |
 | <CopyableCode code="assign" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Assigns a NotebookRuntime to a user for a particular Notebook file. This method will either returns an existing assignment or generates a new one. |
 | <CopyableCode code="start" /> | `EXEC` | <CopyableCode code="locationsId, notebookRuntimesId, projectsId" /> | Starts a NotebookRuntime. |
 | <CopyableCode code="upgrade" /> | `EXEC` | <CopyableCode code="locationsId, notebookRuntimesId, projectsId" /> | Upgrades a NotebookRuntime. |
+
+## `SELECT` examples
+
+Lists NotebookRuntimes in a Location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+displayName,
+encryptionSpec,
+expirationTime,
+healthState,
+idleShutdownConfig,
+isUpgradable,
+labels,
+networkTags,
+notebookRuntimeTemplateRef,
+notebookRuntimeType,
+proxyUri,
+runtimeState,
+runtimeUser,
+satisfiesPzi,
+satisfiesPzs,
+serviceAccount,
+updateTime,
+version
+FROM google.aiplatform.notebook_runtimes
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `DELETE` example
+
+Deletes the specified notebook_runtime resource.
+
+```sql
+DELETE FROM google.aiplatform.notebook_runtimes
+WHERE locationsId = '{{ locationsId }}'
+AND notebookRuntimesId = '{{ notebookRuntimesId }}'
+AND projectsId = '{{ projectsId }}';
+```

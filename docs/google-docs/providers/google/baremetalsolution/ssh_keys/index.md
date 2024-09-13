@@ -1,3 +1,4 @@
+
 ---
 title: ssh_keys
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - ssh_keys
   - baremetalsolution
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>ssh_key</code> resource or lists <code>ssh_keys</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,10 +34,78 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Output only. The name of this SSH key. Currently, the only valid value for the location is "global". |
 | <CopyableCode code="publicKey" /> | `string` | The public SSH key. This must be in OpenSSH .authorized_keys format. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists the public SSH keys registered for the specified project. These SSH keys are used only for the interactive serial console feature. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Register a public SSH key in the specified project for use with the interactive serial console feature. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, sshKeysId" /> | Deletes a public SSH key registered in the specified project. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists the public SSH keys registered for the specified project. These SSH keys are used only for the interactive serial console feature. |
+
+## `SELECT` examples
+
+Lists the public SSH keys registered for the specified project. These SSH keys are used only for the interactive serial console feature.
+
+```sql
+SELECT
+name,
+publicKey
+FROM google.baremetalsolution.ssh_keys
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>ssh_keys</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.baremetalsolution.ssh_keys (
+locationsId,
+projectsId,
+name,
+publicKey
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ publicKey }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: publicKey
+        value: '{{ publicKey }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified ssh_key resource.
+
+```sql
+DELETE FROM google.baremetalsolution.ssh_keys
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sshKeysId = '{{ sshKeysId }}';
+```

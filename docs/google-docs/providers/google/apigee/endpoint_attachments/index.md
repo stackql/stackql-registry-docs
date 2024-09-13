@@ -1,3 +1,4 @@
+
 ---
 title: endpoint_attachments
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - endpoint_attachments
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>endpoint_attachment</code> resource or lists <code>endpoint_attachments</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,12 +32,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the endpoint attachment. Use the following structure in your request: `organizations/&#123;org&#125;/endpointAttachments/&#123;endpoint_attachment&#125;` |
+| <CopyableCode code="name" /> | `string` | Name of the endpoint attachment. Use the following structure in your request: `organizations/{org}/endpointAttachments/{endpoint_attachment}` |
 | <CopyableCode code="connectionState" /> | `string` | Output only. State of the endpoint attachment connection to the service attachment. |
 | <CopyableCode code="host" /> | `string` | Output only. Host that can be used in either the HTTP target endpoint directly or as the host in target server. |
 | <CopyableCode code="location" /> | `string` | Required. Location of the endpoint attachment. |
 | <CopyableCode code="serviceAttachment" /> | `string` | Format: projects/*/regions/*/serviceAttachments/* |
 | <CopyableCode code="state" /> | `string` | Output only. State of the endpoint attachment. Values other than `ACTIVE` mean the resource is not ready to use. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,4 +46,87 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_endpoint_attachments_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists the endpoint attachments in an organization. |
 | <CopyableCode code="organizations_endpoint_attachments_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates an endpoint attachment. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_endpoint_attachments_delete" /> | `DELETE` | <CopyableCode code="endpointAttachmentsId, organizationsId" /> | Deletes an endpoint attachment. |
-| <CopyableCode code="_organizations_endpoint_attachments_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Lists the endpoint attachments in an organization. |
+
+## `SELECT` examples
+
+Lists the endpoint attachments in an organization.
+
+```sql
+SELECT
+name,
+connectionState,
+host,
+location,
+serviceAttachment,
+state
+FROM google.apigee.endpoint_attachments
+WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>endpoint_attachments</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.endpoint_attachments (
+organizationsId,
+name,
+connectionState,
+serviceAttachment,
+location,
+state,
+host
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ name }}',
+'{{ connectionState }}',
+'{{ serviceAttachment }}',
+'{{ location }}',
+'{{ state }}',
+'{{ host }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: connectionState
+        value: '{{ connectionState }}'
+      - name: serviceAttachment
+        value: '{{ serviceAttachment }}'
+      - name: location
+        value: '{{ location }}'
+      - name: state
+        value: '{{ state }}'
+      - name: host
+        value: '{{ host }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified endpoint_attachment resource.
+
+```sql
+DELETE FROM google.apigee.endpoint_attachments
+WHERE endpointAttachmentsId = '{{ endpointAttachmentsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: address_groups_references
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - address_groups_references
   - networksecurity
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>address_groups_reference</code> resource or lists <code>address_groups_references</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,10 +35,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="firewallPolicy" /> | `string` | FirewallPolicy that is using the Address Group. |
 | <CopyableCode code="rulePriority" /> | `integer` | Rule priority of the FirewallPolicy that is using the Address Group. |
 | <CopyableCode code="securityPolicy" /> | `string` | Cloud Armor SecurityPolicy that is using the Address Group. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="organizations_locations_address_groups_list_references" /> | `SELECT` | <CopyableCode code="addressGroupsId, locationsId, organizationsId" /> |
-| <CopyableCode code="projects_locations_address_groups_list_references" /> | `SELECT` | <CopyableCode code="addressGroupsId, locationsId, projectsId" /> |
-| <CopyableCode code="_organizations_locations_address_groups_list_references" /> | `EXEC` | <CopyableCode code="addressGroupsId, locationsId, organizationsId" /> |
-| <CopyableCode code="_projects_locations_address_groups_list_references" /> | `EXEC` | <CopyableCode code="addressGroupsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="organizations_locations_address_groups_list_references" /> | `SELECT` | <CopyableCode code="addressGroupsId, locationsId, organizationsId" /> | Lists references of an address group. |
+| <CopyableCode code="projects_locations_address_groups_list_references" /> | `SELECT` | <CopyableCode code="addressGroupsId, locationsId, projectsId" /> | Lists references of an address group. |
+
+## `SELECT` examples
+
+Lists references of an address group.
+
+```sql
+SELECT
+firewallPolicy,
+rulePriority,
+securityPolicy
+FROM google.networksecurity.address_groups_references
+WHERE addressGroupsId = '{{ addressGroupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

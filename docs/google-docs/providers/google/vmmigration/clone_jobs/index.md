@@ -1,3 +1,4 @@
+
 ---
 title: clone_jobs
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - clone_jobs
   - vmmigration
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>clone_job</code> resource or lists <code>clone_jobs</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,11 +41,109 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="state" /> | `string` | Output only. State of the clone job. |
 | <CopyableCode code="stateTime" /> | `string` | Output only. The time the state was last updated. |
 | <CopyableCode code="steps" /> | `array` | Output only. The clone steps list representing its progress. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="cloneJobsId, locationsId, migratingVmsId, projectsId, sourcesId" /> | Gets details of a single CloneJob. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists the CloneJobs of a migrating VM. Only 25 most recent CloneJobs are listed. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Initiates a Clone of a specific migrating VM. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, migratingVmsId, projectsId, sourcesId" /> | Lists the CloneJobs of a migrating VM. Only 25 most recent CloneJobs are listed. |
 | <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="cloneJobsId, locationsId, migratingVmsId, projectsId, sourcesId" /> | Initiates the cancellation of a running clone job. |
+
+## `SELECT` examples
+
+Lists the CloneJobs of a migrating VM. Only 25 most recent CloneJobs are listed.
+
+```sql
+SELECT
+name,
+computeEngineDisksTargetDetails,
+computeEngineTargetDetails,
+createTime,
+endTime,
+error,
+state,
+stateTime,
+steps
+FROM google.vmmigration.clone_jobs
+WHERE locationsId = '{{ locationsId }}'
+AND migratingVmsId = '{{ migratingVmsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>clone_jobs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.vmmigration.clone_jobs (
+locationsId,
+migratingVmsId,
+projectsId,
+sourcesId,
+computeEngineTargetDetails,
+computeEngineDisksTargetDetails,
+createTime,
+endTime,
+name,
+state,
+stateTime,
+error,
+steps
+)
+SELECT 
+'{{ locationsId }}',
+'{{ migratingVmsId }}',
+'{{ projectsId }}',
+'{{ sourcesId }}',
+'{{ computeEngineTargetDetails }}',
+'{{ computeEngineDisksTargetDetails }}',
+'{{ createTime }}',
+'{{ endTime }}',
+'{{ name }}',
+'{{ state }}',
+'{{ stateTime }}',
+'{{ error }}',
+'{{ steps }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: computeEngineTargetDetails
+        value: '{{ computeEngineTargetDetails }}'
+      - name: computeEngineDisksTargetDetails
+        value: '{{ computeEngineDisksTargetDetails }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: name
+        value: '{{ name }}'
+      - name: state
+        value: '{{ state }}'
+      - name: stateTime
+        value: '{{ stateTime }}'
+      - name: error
+        value: '{{ error }}'
+      - name: steps
+        value: '{{ steps }}'
+
+```
+</TabItem>
+</Tabs>

@@ -1,3 +1,4 @@
+
 ---
 title: snapshots
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - snapshots
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>snapshot</code> resource or lists <code>snapshots</code> in a region
 
 ## Overview
 <table><tbody>
@@ -66,6 +68,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="storageBytes" /> | `string` | [Output Only] A size of the storage used by the snapshot. As snapshots share storage, this number is expected to change with snapshot creation/deletion. |
 | <CopyableCode code="storageBytesStatus" /> | `string` | [Output Only] An indicator whether storageBytes is in a stable state or it is being adjusted as a result of shared storage reallocation. This status can either be UPDATING, meaning the size of the snapshot is being updated, or UP_TO_DATE, meaning the size of the snapshot is up-to-date. |
 | <CopyableCode code="storageLocations" /> | `array` | Cloud Storage bucket storage location of the snapshot (regional or multi-regional). |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -74,3 +77,237 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a snapshot in the specified project using the data included in the request. For regular snapshot creation, consider using this method instead of disks.createSnapshot, as this method supports more features, such as creating snapshots in a project different from the source disk project. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, snapshot" /> | Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot. For more information, see Deleting snapshots. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, resource" /> | Sets the labels on a snapshot. To learn more about labels, read the Labeling Resources documentation. |
+
+## `SELECT` examples
+
+Retrieves the list of Snapshot resources contained within the specified project.
+
+```sql
+SELECT
+id,
+name,
+description,
+architecture,
+autoCreated,
+chainName,
+creationSizeBytes,
+creationTimestamp,
+diskSizeGb,
+downloadBytes,
+enableConfidentialCompute,
+guestOsFeatures,
+kind,
+labelFingerprint,
+labels,
+licenseCodes,
+licenses,
+locationHint,
+satisfiesPzi,
+satisfiesPzs,
+selfLink,
+snapshotEncryptionKey,
+snapshotType,
+sourceDisk,
+sourceDiskEncryptionKey,
+sourceDiskForRecoveryCheckpoint,
+sourceDiskId,
+sourceInstantSnapshot,
+sourceInstantSnapshotEncryptionKey,
+sourceInstantSnapshotId,
+sourceSnapshotSchedulePolicy,
+sourceSnapshotSchedulePolicyId,
+status,
+storageBytes,
+storageBytesStatus,
+storageLocations
+FROM google.compute.snapshots
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>snapshots</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.snapshots (
+project,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+status,
+sourceDisk,
+sourceDiskId,
+diskSizeGb,
+storageBytes,
+storageBytesStatus,
+licenses,
+snapshotEncryptionKey,
+sourceDiskEncryptionKey,
+selfLink,
+labels,
+labelFingerprint,
+licenseCodes,
+storageLocations,
+autoCreated,
+guestOsFeatures,
+downloadBytes,
+chainName,
+satisfiesPzs,
+locationHint,
+sourceSnapshotSchedulePolicy,
+sourceSnapshotSchedulePolicyId,
+sourceInstantSnapshot,
+sourceInstantSnapshotId,
+architecture,
+snapshotType,
+creationSizeBytes,
+enableConfidentialCompute,
+sourceDiskForRecoveryCheckpoint,
+sourceInstantSnapshotEncryptionKey,
+satisfiesPzi
+)
+SELECT 
+'{{ project }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ status }}',
+'{{ sourceDisk }}',
+'{{ sourceDiskId }}',
+'{{ diskSizeGb }}',
+'{{ storageBytes }}',
+'{{ storageBytesStatus }}',
+'{{ licenses }}',
+'{{ snapshotEncryptionKey }}',
+'{{ sourceDiskEncryptionKey }}',
+'{{ selfLink }}',
+'{{ labels }}',
+'{{ labelFingerprint }}',
+'{{ licenseCodes }}',
+'{{ storageLocations }}',
+true|false,
+'{{ guestOsFeatures }}',
+'{{ downloadBytes }}',
+'{{ chainName }}',
+true|false,
+'{{ locationHint }}',
+'{{ sourceSnapshotSchedulePolicy }}',
+'{{ sourceSnapshotSchedulePolicyId }}',
+'{{ sourceInstantSnapshot }}',
+'{{ sourceInstantSnapshotId }}',
+'{{ architecture }}',
+'{{ snapshotType }}',
+'{{ creationSizeBytes }}',
+true|false,
+'{{ sourceDiskForRecoveryCheckpoint }}',
+'{{ sourceInstantSnapshotEncryptionKey }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: status
+        value: '{{ status }}'
+      - name: sourceDisk
+        value: '{{ sourceDisk }}'
+      - name: sourceDiskId
+        value: '{{ sourceDiskId }}'
+      - name: diskSizeGb
+        value: '{{ diskSizeGb }}'
+      - name: storageBytes
+        value: '{{ storageBytes }}'
+      - name: storageBytesStatus
+        value: '{{ storageBytesStatus }}'
+      - name: licenses
+        value: '{{ licenses }}'
+      - name: snapshotEncryptionKey
+        value: '{{ snapshotEncryptionKey }}'
+      - name: sourceDiskEncryptionKey
+        value: '{{ sourceDiskEncryptionKey }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+      - name: licenseCodes
+        value: '{{ licenseCodes }}'
+      - name: storageLocations
+        value: '{{ storageLocations }}'
+      - name: autoCreated
+        value: '{{ autoCreated }}'
+      - name: guestOsFeatures
+        value: '{{ guestOsFeatures }}'
+      - name: downloadBytes
+        value: '{{ downloadBytes }}'
+      - name: chainName
+        value: '{{ chainName }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: locationHint
+        value: '{{ locationHint }}'
+      - name: sourceSnapshotSchedulePolicy
+        value: '{{ sourceSnapshotSchedulePolicy }}'
+      - name: sourceSnapshotSchedulePolicyId
+        value: '{{ sourceSnapshotSchedulePolicyId }}'
+      - name: sourceInstantSnapshot
+        value: '{{ sourceInstantSnapshot }}'
+      - name: sourceInstantSnapshotId
+        value: '{{ sourceInstantSnapshotId }}'
+      - name: architecture
+        value: '{{ architecture }}'
+      - name: snapshotType
+        value: '{{ snapshotType }}'
+      - name: creationSizeBytes
+        value: '{{ creationSizeBytes }}'
+      - name: enableConfidentialCompute
+        value: '{{ enableConfidentialCompute }}'
+      - name: sourceDiskForRecoveryCheckpoint
+        value: '{{ sourceDiskForRecoveryCheckpoint }}'
+      - name: sourceInstantSnapshotEncryptionKey
+        value: '{{ sourceInstantSnapshotEncryptionKey }}'
+      - name: satisfiesPzi
+        value: '{{ satisfiesPzi }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified snapshot resource.
+
+```sql
+DELETE FROM google.compute.snapshots
+WHERE project = '{{ project }}'
+AND snapshot = '{{ snapshot }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: connections_connection_schema_metadata
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - connections_connection_schema_metadata
   - integrations
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>connections_connection_schema_metadatum</code> resource or lists <code>connections_connection_schema_metadata</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,7 +34,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="actions" /> | `array` | List of actions. |
 | <CopyableCode code="entities" /> | `array` | List of entity names. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_connections_get_connection_schema_metadata" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_connections_get_connection_schema_metadata" /> | `SELECT` | <CopyableCode code="connectionsId, locationsId, projectsId" /> | Lists the available entities and actions associated with a Connection. |
+
+## `SELECT` examples
+
+Lists the available entities and actions associated with a Connection.
+
+```sql
+SELECT
+actions,
+entities
+FROM google.integrations.connections_connection_schema_metadata
+WHERE connectionsId = '{{ connectionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

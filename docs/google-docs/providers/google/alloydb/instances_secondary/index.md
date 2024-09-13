@@ -1,3 +1,4 @@
+
 ---
 title: instances_secondary
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances_secondary
   - alloydb
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instances_secondary</code> resource or lists <code>instances_secondary</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,156 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="createsecondary" /> | `INSERT` | <CopyableCode code="clustersId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="createsecondary" /> | `INSERT` | <CopyableCode code="clustersId, locationsId, projectsId" /> | Creates a new SECONDARY Instance in a given project and location. |
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>instances_secondary</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.alloydb.instances_secondary (
+clustersId,
+locationsId,
+projectsId,
+name,
+displayName,
+uid,
+createTime,
+updateTime,
+deleteTime,
+labels,
+state,
+instanceType,
+machineConfig,
+availabilityType,
+gceZone,
+databaseFlags,
+writableNode,
+nodes,
+queryInsightsConfig,
+readPoolConfig,
+ipAddress,
+publicIpAddress,
+reconciling,
+etag,
+annotations,
+clientConnectionConfig,
+satisfiesPzs,
+pscInstanceConfig,
+networkConfig,
+outboundPublicIpAddresses
+)
+SELECT 
+'{{ clustersId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ uid }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ deleteTime }}',
+'{{ labels }}',
+'{{ state }}',
+'{{ instanceType }}',
+'{{ machineConfig }}',
+'{{ availabilityType }}',
+'{{ gceZone }}',
+'{{ databaseFlags }}',
+'{{ writableNode }}',
+'{{ nodes }}',
+'{{ queryInsightsConfig }}',
+'{{ readPoolConfig }}',
+'{{ ipAddress }}',
+'{{ publicIpAddress }}',
+true|false,
+'{{ etag }}',
+'{{ annotations }}',
+'{{ clientConnectionConfig }}',
+true|false,
+'{{ pscInstanceConfig }}',
+'{{ networkConfig }}',
+'{{ outboundPublicIpAddresses }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: state
+        value: '{{ state }}'
+      - name: instanceType
+        value: '{{ instanceType }}'
+      - name: machineConfig
+        value: '{{ machineConfig }}'
+      - name: availabilityType
+        value: '{{ availabilityType }}'
+      - name: gceZone
+        value: '{{ gceZone }}'
+      - name: databaseFlags
+        value: '{{ databaseFlags }}'
+      - name: writableNode
+        value: '{{ writableNode }}'
+      - name: nodes
+        value: '{{ nodes }}'
+      - name: queryInsightsConfig
+        value: '{{ queryInsightsConfig }}'
+      - name: readPoolConfig
+        value: '{{ readPoolConfig }}'
+      - name: ipAddress
+        value: '{{ ipAddress }}'
+      - name: publicIpAddress
+        value: '{{ publicIpAddress }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: clientConnectionConfig
+        value: '{{ clientConnectionConfig }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: pscInstanceConfig
+        value: '{{ pscInstanceConfig }}'
+      - name: networkConfig
+        value: '{{ networkConfig }}'
+      - name: outboundPublicIpAddresses
+        value: '{{ outboundPublicIpAddresses }}'
+
+```
+</TabItem>
+</Tabs>

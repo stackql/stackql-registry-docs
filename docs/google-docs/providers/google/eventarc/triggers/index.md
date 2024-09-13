@@ -1,3 +1,4 @@
+
 ---
 title: triggers
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - triggers
   - eventarc
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>trigger</code> resource or lists <code>triggers</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,8 +32,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. The resource name of the trigger. Must be unique within the location of the project and must be in `projects/&#123;project&#125;/locations/&#123;location&#125;/triggers/&#123;trigger&#125;` format. |
-| <CopyableCode code="channel" /> | `string` | Optional. The name of the channel associated with the trigger in `projects/&#123;project&#125;/locations/&#123;location&#125;/channels/&#123;channel&#125;` format. You must provide a channel to receive events from Eventarc SaaS partners. |
+| <CopyableCode code="name" /> | `string` | Required. The resource name of the trigger. Must be unique within the location of the project and must be in `projects/{project}/locations/{location}/triggers/{trigger}` format. |
+| <CopyableCode code="channel" /> | `string` | Optional. The name of the channel associated with the trigger in `projects/{project}/locations/{location}/channels/{channel}` format. You must provide a channel to receive events from Eventarc SaaS partners. |
 | <CopyableCode code="conditions" /> | `object` | Output only. The reason(s) why a trigger is in FAILED state. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation time. |
 | <CopyableCode code="destination" /> | `object` | Represents a target of an invocation over HTTP. |
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="transport" /> | `object` | Represents the transport intermediaries created for the trigger to deliver events. |
 | <CopyableCode code="uid" /> | `string` | Output only. Server-assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last-modified time. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -52,4 +55,158 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Create a new trigger in a particular project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, triggersId" /> | Delete a single trigger. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, triggersId" /> | Update a single trigger. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | List triggers. |
+
+## `SELECT` examples
+
+List triggers.
+
+```sql
+SELECT
+name,
+channel,
+conditions,
+createTime,
+destination,
+etag,
+eventDataContentType,
+eventFilters,
+labels,
+satisfiesPzs,
+serviceAccount,
+transport,
+uid,
+updateTime
+FROM google.eventarc.triggers
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>triggers</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.eventarc.triggers (
+locationsId,
+projectsId,
+name,
+uid,
+createTime,
+updateTime,
+eventFilters,
+serviceAccount,
+destination,
+transport,
+labels,
+channel,
+conditions,
+eventDataContentType,
+satisfiesPzs,
+etag
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ eventFilters }}',
+'{{ serviceAccount }}',
+'{{ destination }}',
+'{{ transport }}',
+'{{ labels }}',
+'{{ channel }}',
+'{{ conditions }}',
+'{{ eventDataContentType }}',
+true|false,
+'{{ etag }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: eventFilters
+        value: '{{ eventFilters }}'
+      - name: serviceAccount
+        value: '{{ serviceAccount }}'
+      - name: destination
+        value: '{{ destination }}'
+      - name: transport
+        value: '{{ transport }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: channel
+        value: '{{ channel }}'
+      - name: conditions
+        value: '{{ conditions }}'
+      - name: eventDataContentType
+        value: '{{ eventDataContentType }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: etag
+        value: '{{ etag }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a trigger only if the necessary resources are available.
+
+```sql
+UPDATE google.eventarc.triggers
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+eventFilters = '{{ eventFilters }}',
+serviceAccount = '{{ serviceAccount }}',
+destination = '{{ destination }}',
+transport = '{{ transport }}',
+labels = '{{ labels }}',
+channel = '{{ channel }}',
+conditions = '{{ conditions }}',
+eventDataContentType = '{{ eventDataContentType }}',
+satisfiesPzs = true|false,
+etag = '{{ etag }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND triggersId = '{{ triggersId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified trigger resource.
+
+```sql
+DELETE FROM google.eventarc.triggers
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND triggersId = '{{ triggersId }}';
+```

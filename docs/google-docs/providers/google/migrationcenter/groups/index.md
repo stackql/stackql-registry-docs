@@ -1,3 +1,4 @@
+
 ---
 title: groups
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - groups
   - migrationcenter
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>group</code> resource or lists <code>groups</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | Optional. User-friendly display name. |
 | <CopyableCode code="labels" /> | `object` | Labels as key value pairs. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The timestamp when the group was last updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,4 +47,110 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new group in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="groupsId, locationsId, projectsId" /> | Deletes a group. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="groupsId, locationsId, projectsId" /> | Updates the parameters of a group. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists all groups in a given project and location. |
+
+## `SELECT` examples
+
+Lists all groups in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+displayName,
+labels,
+updateTime
+FROM google.migrationcenter.groups
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>groups</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.migrationcenter.groups (
+locationsId,
+projectsId,
+name,
+createTime,
+updateTime,
+labels,
+displayName,
+description
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ displayName }}',
+'{{ description }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a group only if the necessary resources are available.
+
+```sql
+UPDATE google.migrationcenter.groups
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}'
+WHERE 
+groupsId = '{{ groupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified group resource.
+
+```sql
+DELETE FROM google.migrationcenter.groups
+WHERE groupsId = '{{ groupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

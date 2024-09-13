@@ -1,3 +1,4 @@
+
 ---
 title: hcx_activation_keys
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - hcx_activation_keys
   - vmwareengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>hcx_activation_key</code> resource or lists <code>hcx_activation_keys</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,10 +37,85 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. Creation time of HCX activation key. |
 | <CopyableCode code="state" /> | `string` | Output only. State of HCX activation key. |
 | <CopyableCode code="uid" /> | `string` | Output only. System-generated unique identifier for the resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="hcxActivationKeysId, locationsId, privateCloudsId, projectsId" /> | Retrieves a `HcxActivationKey` resource by its resource name. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists `HcxActivationKey` resources in a given private cloud. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Creates a new HCX activation key in a given private cloud. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, privateCloudsId, projectsId" /> | Lists `HcxActivationKey` resources in a given private cloud. |
+
+## `SELECT` examples
+
+Lists `HcxActivationKey` resources in a given private cloud.
+
+```sql
+SELECT
+name,
+activationKey,
+createTime,
+state,
+uid
+FROM google.vmwareengine.hcx_activation_keys
+WHERE locationsId = '{{ locationsId }}'
+AND privateCloudsId = '{{ privateCloudsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>hcx_activation_keys</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.vmwareengine.hcx_activation_keys (
+locationsId,
+privateCloudsId,
+projectsId,
+name,
+createTime,
+state,
+activationKey,
+uid
+)
+SELECT 
+'{{ locationsId }}',
+'{{ privateCloudsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ createTime }}',
+'{{ state }}',
+'{{ activationKey }}',
+'{{ uid }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: state
+        value: '{{ state }}'
+      - name: activationKey
+        value: '{{ activationKey }}'
+      - name: uid
+        value: '{{ uid }}'
+
+```
+</TabItem>
+</Tabs>

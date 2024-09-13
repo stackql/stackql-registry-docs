@@ -1,3 +1,4 @@
+
 ---
 title: instances_latest_recovery_time
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances_latest_recovery_time
   - sqladmin
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instances_latest_recovery_time</code> resource or lists <code>instances_latest_recovery_time</code> in a region
 
 ## Overview
 <table><tbody>
@@ -32,7 +34,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="kind" /> | `string` | This is always `sql#getLatestRecoveryTime`. |
 | <CopyableCode code="latestRecoveryTime" /> | `string` | Timestamp, identifies the latest recovery time of the source instance. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_latest_recovery_time" /> | `SELECT` | <CopyableCode code="instance, project" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_latest_recovery_time" /> | `SELECT` | <CopyableCode code="instance, project" /> | Get Latest Recovery Time for a given instance. |
+
+## `SELECT` examples
+
+Get Latest Recovery Time for a given instance.
+
+```sql
+SELECT
+kind,
+latestRecoveryTime
+FROM google.sqladmin.instances_latest_recovery_time
+WHERE instance = '{{ instance }}'
+AND project = '{{ project }}'; 
+```

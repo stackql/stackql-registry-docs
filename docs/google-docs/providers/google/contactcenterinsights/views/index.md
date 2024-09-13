@@ -1,3 +1,4 @@
+
 ---
 title: views
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - views
   - contactcenterinsights
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>view</code> resource or lists <code>views</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,11 +32,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the view. Format: projects/&#123;project&#125;/locations/&#123;location&#125;/views/&#123;view&#125; |
+| <CopyableCode code="name" /> | `string` | Immutable. The resource name of the view. Format: projects/{project}/locations/{location}/views/{view} |
 | <CopyableCode code="createTime" /> | `string` | Output only. The time at which this view was created. |
 | <CopyableCode code="displayName" /> | `string` | The human-readable display name of the view. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The most recent time at which the view was updated. |
 | <CopyableCode code="value" /> | `string` | String with specific view properties, must be non-empty. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -43,4 +46,104 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a view. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, viewsId" /> | Deletes a view. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, viewsId" /> | Updates a view. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists views. |
+
+## `SELECT` examples
+
+Lists views.
+
+```sql
+SELECT
+name,
+createTime,
+displayName,
+updateTime,
+value
+FROM google.contactcenterinsights.views
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>views</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.contactcenterinsights.views (
+locationsId,
+projectsId,
+value,
+name,
+displayName,
+createTime,
+updateTime
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ value }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ createTime }}',
+'{{ updateTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: value
+        value: '{{ value }}'
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a view only if the necessary resources are available.
+
+```sql
+UPDATE google.contactcenterinsights.views
+SET 
+value = '{{ value }}',
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND viewsId = '{{ viewsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified view resource.
+
+```sql
+DELETE FROM google.contactcenterinsights.views
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND viewsId = '{{ viewsId }}';
+```

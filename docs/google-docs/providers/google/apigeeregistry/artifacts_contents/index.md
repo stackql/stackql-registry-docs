@@ -1,3 +1,4 @@
+
 ---
 title: artifacts_contents
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - artifacts_contents
   - apigeeregistry
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>artifacts_content</code> resource or lists <code>artifacts_contents</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,11 +35,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="contentType" /> | `string` | The HTTP Content-Type header value specifying the content type of the body. |
 | <CopyableCode code="data" /> | `string` | The HTTP request/response body as raw binary. |
 | <CopyableCode code="extensions" /> | `array` | Application specific response metadata. Must be set in the first response for streaming APIs. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="projects_locations_apis_artifacts_get_contents" /> | `SELECT` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId" /> |
-| <CopyableCode code="projects_locations_apis_deployments_artifacts_get_contents" /> | `SELECT` | <CopyableCode code="apisId, artifactsId, deploymentsId, locationsId, projectsId" /> |
-| <CopyableCode code="projects_locations_apis_versions_artifacts_get_contents" /> | `SELECT` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> |
-| <CopyableCode code="projects_locations_apis_versions_specs_artifacts_get_contents" /> | `SELECT` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> |
-| <CopyableCode code="projects_locations_artifacts_get_contents" /> | `SELECT` | <CopyableCode code="artifactsId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="projects_locations_apis_artifacts_get_contents" /> | `SELECT` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId" /> | Returns the contents of a specified artifact. If artifacts are stored with GZip compression, the default behavior is to return the artifact uncompressed (the mime_type response field indicates the exact format returned). |
+| <CopyableCode code="projects_locations_apis_deployments_artifacts_get_contents" /> | `SELECT` | <CopyableCode code="apisId, artifactsId, deploymentsId, locationsId, projectsId" /> | Returns the contents of a specified artifact. If artifacts are stored with GZip compression, the default behavior is to return the artifact uncompressed (the mime_type response field indicates the exact format returned). |
+| <CopyableCode code="projects_locations_apis_versions_artifacts_get_contents" /> | `SELECT` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> | Returns the contents of a specified artifact. If artifacts are stored with GZip compression, the default behavior is to return the artifact uncompressed (the mime_type response field indicates the exact format returned). |
+| <CopyableCode code="projects_locations_apis_versions_specs_artifacts_get_contents" /> | `SELECT` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> | Returns the contents of a specified artifact. If artifacts are stored with GZip compression, the default behavior is to return the artifact uncompressed (the mime_type response field indicates the exact format returned). |
+| <CopyableCode code="projects_locations_artifacts_get_contents" /> | `SELECT` | <CopyableCode code="artifactsId, locationsId, projectsId" /> | Returns the contents of a specified artifact. If artifacts are stored with GZip compression, the default behavior is to return the artifact uncompressed (the mime_type response field indicates the exact format returned). |
+
+## `SELECT` examples
+
+Returns the contents of a specified artifact. If artifacts are stored with GZip compression, the default behavior is to return the artifact uncompressed (the mime_type response field indicates the exact format returned).
+
+```sql
+SELECT
+contentType,
+data,
+extensions
+FROM google.apigeeregistry.artifacts_contents
+WHERE artifactsId = '{{ artifactsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: instances_serial_port_output
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances_serial_port_output
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instances_serial_port_output</code> resource or lists <code>instances_serial_port_output</code> in a region
 
 ## Overview
 <table><tbody>
@@ -35,7 +37,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="next" /> | `string` | [Output Only] The position of the next byte of content, regardless of whether the content exists, following the output returned in the `contents` property. Use this value in the next request as the start parameter. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for this resource. |
 | <CopyableCode code="start" /> | `string` | The starting byte position of the output that was returned. This should match the start parameter sent with the request. If the serial console output exceeds the size of the buffer (1 MB), older output is overwritten by newer content. The output start value will indicate the byte position of the output that was returned, which might be different than the `start` value that was specified in the request. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_serial_port_output" /> | `SELECT` | <CopyableCode code="instance, project, zone" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_serial_port_output" /> | `SELECT` | <CopyableCode code="instance, project, zone" /> | Returns the last 1 MB of serial port output from the specified instance. |
+
+## `SELECT` examples
+
+Returns the last 1 MB of serial port output from the specified instance.
+
+```sql
+SELECT
+contents,
+kind,
+next,
+selfLink,
+start
+FROM google.compute.instances_serial_port_output
+WHERE instance = '{{ instance }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}'; 
+```

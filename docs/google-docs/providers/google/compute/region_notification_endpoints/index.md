@@ -1,3 +1,4 @@
+
 ---
 title: region_notification_endpoints
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - region_notification_endpoints
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>region_notification_endpoint</code> resource or lists <code>region_notification_endpoints</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,6 +40,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | [Output Only] Type of the resource. Always compute#notificationEndpoint for notification endpoints. |
 | <CopyableCode code="region" /> | `string` | [Output Only] URL of the region where the notification endpoint resides. This field applies only to the regional resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -45,3 +48,101 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, region" /> | Lists the NotificationEndpoints for a project in the given region. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Create a NotificationEndpoint in the specified project in the given region using the parameters that are included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="notificationEndpoint, project, region" /> | Deletes the specified NotificationEndpoint in the given region |
+
+## `SELECT` examples
+
+Lists the NotificationEndpoints for a project in the given region.
+
+```sql
+SELECT
+id,
+name,
+description,
+creationTimestamp,
+grpcSettings,
+kind,
+region,
+selfLink
+FROM google.compute.region_notification_endpoints
+WHERE project = '{{ project }}'
+AND region = '{{ region }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>region_notification_endpoints</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.region_notification_endpoints (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+selfLink,
+region,
+grpcSettings
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ selfLink }}',
+'{{ region }}',
+'{{ grpcSettings }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: region
+        value: '{{ region }}'
+      - name: grpcSettings
+        value: '{{ grpcSettings }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified region_notification_endpoint resource.
+
+```sql
+DELETE FROM google.compute.region_notification_endpoints
+WHERE notificationEndpoint = '{{ notificationEndpoint }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

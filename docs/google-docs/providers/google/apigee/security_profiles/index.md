@@ -1,3 +1,4 @@
+
 ---
 title: security_profiles
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - security_profiles
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>security_profile</code> resource or lists <code>security_profiles</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Immutable. Name of the security profile resource. Format: organizations/&#123;org&#125;/securityProfiles/&#123;profile&#125; |
+| <CopyableCode code="name" /> | `string` | Immutable. Name of the security profile resource. Format: organizations/{org}/securityProfiles/{profile} |
 | <CopyableCode code="description" /> | `string` | Description of the security profile. |
 | <CopyableCode code="displayName" /> | `string` | DEPRECATED: DO NOT USE Display name of the security profile. |
 | <CopyableCode code="environments" /> | `array` | List of environments attached to security profile. |
@@ -42,6 +44,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="revisionPublishTime" /> | `string` | Output only. DEPRECATED: DO NOT USE The time when revision was published. Once published, the security profile revision cannot be updated further and can be attached to environments. |
 | <CopyableCode code="revisionUpdateTime" /> | `string` | Output only. The time when revision was updated. |
 | <CopyableCode code="scoringConfigs" /> | `array` | List of profile scoring configs in this revision. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -50,4 +53,141 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_security_profiles_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | CreateSecurityProfile create a new custom security profile. |
 | <CopyableCode code="organizations_security_profiles_delete" /> | `DELETE` | <CopyableCode code="organizationsId, securityProfilesId" /> | DeleteSecurityProfile delete a profile with all its revisions. |
 | <CopyableCode code="organizations_security_profiles_patch" /> | `UPDATE` | <CopyableCode code="organizationsId, securityProfilesId" /> | UpdateSecurityProfile update the metadata of security profile. |
-| <CopyableCode code="_organizations_security_profiles_list" /> | `EXEC` | <CopyableCode code="organizationsId" /> | ListSecurityProfiles lists all the security profiles associated with the org including attached and unattached profiles. |
+
+## `SELECT` examples
+
+ListSecurityProfiles lists all the security profiles associated with the org including attached and unattached profiles.
+
+```sql
+SELECT
+name,
+description,
+displayName,
+environments,
+maxScore,
+minScore,
+profileConfig,
+revisionCreateTime,
+revisionId,
+revisionPublishTime,
+revisionUpdateTime,
+scoringConfigs
+FROM google.apigee.security_profiles
+WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>security_profiles</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.security_profiles (
+organizationsId,
+name,
+maxScore,
+revisionCreateTime,
+displayName,
+profileConfig,
+environments,
+revisionPublishTime,
+minScore,
+description,
+scoringConfigs,
+revisionId,
+revisionUpdateTime
+)
+SELECT 
+'{{ organizationsId }}',
+'{{ name }}',
+'{{ maxScore }}',
+'{{ revisionCreateTime }}',
+'{{ displayName }}',
+'{{ profileConfig }}',
+'{{ environments }}',
+'{{ revisionPublishTime }}',
+'{{ minScore }}',
+'{{ description }}',
+'{{ scoringConfigs }}',
+'{{ revisionId }}',
+'{{ revisionUpdateTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: maxScore
+        value: '{{ maxScore }}'
+      - name: revisionCreateTime
+        value: '{{ revisionCreateTime }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: profileConfig
+        value: '{{ profileConfig }}'
+      - name: environments
+        value: '{{ environments }}'
+      - name: revisionPublishTime
+        value: '{{ revisionPublishTime }}'
+      - name: minScore
+        value: '{{ minScore }}'
+      - name: description
+        value: '{{ description }}'
+      - name: scoringConfigs
+        value: '{{ scoringConfigs }}'
+      - name: revisionId
+        value: '{{ revisionId }}'
+      - name: revisionUpdateTime
+        value: '{{ revisionUpdateTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a security_profile only if the necessary resources are available.
+
+```sql
+UPDATE google.apigee.security_profiles
+SET 
+name = '{{ name }}',
+maxScore = '{{ maxScore }}',
+revisionCreateTime = '{{ revisionCreateTime }}',
+displayName = '{{ displayName }}',
+profileConfig = '{{ profileConfig }}',
+environments = '{{ environments }}',
+revisionPublishTime = '{{ revisionPublishTime }}',
+minScore = '{{ minScore }}',
+description = '{{ description }}',
+scoringConfigs = '{{ scoringConfigs }}',
+revisionId = '{{ revisionId }}',
+revisionUpdateTime = '{{ revisionUpdateTime }}'
+WHERE 
+organizationsId = '{{ organizationsId }}'
+AND securityProfilesId = '{{ securityProfilesId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified security_profile resource.
+
+```sql
+DELETE FROM google.apigee.security_profiles
+WHERE organizationsId = '{{ organizationsId }}'
+AND securityProfilesId = '{{ securityProfilesId }}';
+```

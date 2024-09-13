@@ -1,3 +1,4 @@
+
 ---
 title: datacenter_connectors
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - datacenter_connectors
   - vmmigration
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>datacenter_connector</code> resource or lists <code>datacenter_connectors</code> in a region
 
 ## Overview
 <table><tbody>
@@ -44,6 +46,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last time the connector was updated with an API call. |
 | <CopyableCode code="upgradeStatus" /> | `object` | UpgradeStatus contains information about upgradeAppliance operation. |
 | <CopyableCode code="version" /> | `string` | The version running in the DatacenterConnector. This is supplied by the OVA connector during the registration process and can not be modified. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -51,5 +54,136 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Lists DatacenterConnectors in a given Source. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Creates a new DatacenterConnector in a given Source. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="datacenterConnectorsId, locationsId, projectsId, sourcesId" /> | Deletes a single DatacenterConnector. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, sourcesId" /> | Lists DatacenterConnectors in a given Source. |
 | <CopyableCode code="upgrade_appliance" /> | `EXEC` | <CopyableCode code="datacenterConnectorsId, locationsId, projectsId, sourcesId" /> | Upgrades the appliance relate to this DatacenterConnector to the in-place updateable version. |
+
+## `SELECT` examples
+
+Lists DatacenterConnectors in a given Source.
+
+```sql
+SELECT
+name,
+applianceInfrastructureVersion,
+applianceSoftwareVersion,
+availableVersions,
+bucket,
+createTime,
+error,
+registrationId,
+serviceAccount,
+state,
+stateTime,
+updateTime,
+upgradeStatus,
+version
+FROM google.vmmigration.datacenter_connectors
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>datacenter_connectors</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.vmmigration.datacenter_connectors (
+locationsId,
+projectsId,
+sourcesId,
+createTime,
+updateTime,
+name,
+registrationId,
+serviceAccount,
+version,
+bucket,
+state,
+stateTime,
+error,
+applianceInfrastructureVersion,
+applianceSoftwareVersion,
+availableVersions,
+upgradeStatus
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ sourcesId }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ name }}',
+'{{ registrationId }}',
+'{{ serviceAccount }}',
+'{{ version }}',
+'{{ bucket }}',
+'{{ state }}',
+'{{ stateTime }}',
+'{{ error }}',
+'{{ applianceInfrastructureVersion }}',
+'{{ applianceSoftwareVersion }}',
+'{{ availableVersions }}',
+'{{ upgradeStatus }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: name
+        value: '{{ name }}'
+      - name: registrationId
+        value: '{{ registrationId }}'
+      - name: serviceAccount
+        value: '{{ serviceAccount }}'
+      - name: version
+        value: '{{ version }}'
+      - name: bucket
+        value: '{{ bucket }}'
+      - name: state
+        value: '{{ state }}'
+      - name: stateTime
+        value: '{{ stateTime }}'
+      - name: error
+        value: '{{ error }}'
+      - name: applianceInfrastructureVersion
+        value: '{{ applianceInfrastructureVersion }}'
+      - name: applianceSoftwareVersion
+        value: '{{ applianceSoftwareVersion }}'
+      - name: availableVersions
+        value: '{{ availableVersions }}'
+      - name: upgradeStatus
+        value: '{{ upgradeStatus }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified datacenter_connector resource.
+
+```sql
+DELETE FROM google.vmmigration.datacenter_connectors
+WHERE datacenterConnectorsId = '{{ datacenterConnectorsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND sourcesId = '{{ sourcesId }}';
+```

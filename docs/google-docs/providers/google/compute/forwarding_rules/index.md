@@ -1,3 +1,4 @@
+
 ---
 title: forwarding_rules
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - forwarding_rules
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>forwarding_rule</code> resource or lists <code>forwarding_rules</code> in a region
 
 ## Overview
 <table><tbody>
@@ -65,6 +67,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sourceIpRanges" /> | `array` | If not empty, this forwarding rule will only forward the traffic when the source IP address matches one of the IP addresses or CIDR ranges set here. Note that a forwarding rule can only have up to 64 source IP ranges, and this field can only be used with a regional forwarding rule whose scheme is EXTERNAL. Each source_ip_range entry should be either an IP address (for example, 1.2.3.4) or a CIDR range (for example, 1.2.3.0/24). |
 | <CopyableCode code="subnetwork" /> | `string` | This field identifies the subnetwork that the load balanced IP should belong to for this forwarding rule, used with internal load balancers and external passthrough Network Load Balancers with IPv6. If the network specified is in auto subnet mode, this field is optional. However, a subnetwork must be specified if the network is in custom subnet mode or when creating external forwarding rule with IPv6. |
 | <CopyableCode code="target" /> | `string` | The URL of the target resource to receive the matched traffic. For regional forwarding rules, this target must be in the same region as the forwarding rule. For global forwarding rules, this target must be a global load balancing resource. The forwarded traffic must be of a type appropriate to the target object. - For load balancers, see the "Target" column in [Port specifications](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications). - For Private Service Connect forwarding rules that forward traffic to Google APIs, provide the name of a supported Google API bundle: - vpc-sc - APIs that support VPC Service Controls. - all-apis - All supported Google APIs. - For Private Service Connect forwarding rules that forward traffic to managed services, the target must be a service attachment. The target is not mutable once set as a service attachment.  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -74,6 +77,285 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a ForwardingRule resource in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="forwardingRule, project, region" /> | Deletes the specified ForwardingRule resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="forwardingRule, project, region" /> | Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently, you can only patch the network_tier field. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of forwarding rules. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="set_labels" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Sets the labels on the specified resource. To learn more about labels, read the Labeling Resources documentation. |
 | <CopyableCode code="set_target" /> | `EXEC` | <CopyableCode code="forwardingRule, project, region" /> | Changes target URL for forwarding rule. The new target should be of the same type as the old target. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of forwarding rules. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+IPAddress,
+IPProtocol,
+allPorts,
+allowGlobalAccess,
+allowPscGlobalAccess,
+backendService,
+baseForwardingRule,
+creationTimestamp,
+fingerprint,
+ipCollection,
+ipVersion,
+isMirroringCollector,
+kind,
+labelFingerprint,
+labels,
+loadBalancingScheme,
+metadataFilters,
+network,
+networkTier,
+noAutomateDnsZone,
+portRange,
+ports,
+pscConnectionId,
+pscConnectionStatus,
+region,
+selfLink,
+serviceDirectoryRegistrations,
+serviceLabel,
+serviceName,
+sourceIpRanges,
+subnetwork,
+target
+FROM google.compute.forwarding_rules
+WHERE project = '{{ project }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>forwarding_rules</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.compute.forwarding_rules (
+project,
+region,
+kind,
+id,
+creationTimestamp,
+name,
+description,
+region,
+IPAddress,
+IPProtocol,
+portRange,
+ports,
+target,
+selfLink,
+loadBalancingScheme,
+subnetwork,
+network,
+backendService,
+serviceDirectoryRegistrations,
+serviceLabel,
+serviceName,
+networkTier,
+labels,
+labelFingerprint,
+ipVersion,
+fingerprint,
+allPorts,
+allowGlobalAccess,
+metadataFilters,
+isMirroringCollector,
+sourceIpRanges,
+pscConnectionId,
+pscConnectionStatus,
+baseForwardingRule,
+allowPscGlobalAccess,
+noAutomateDnsZone,
+ipCollection
+)
+SELECT 
+'{{ project }}',
+'{{ region }}',
+'{{ kind }}',
+'{{ id }}',
+'{{ creationTimestamp }}',
+'{{ name }}',
+'{{ description }}',
+'{{ region }}',
+'{{ IPAddress }}',
+'{{ IPProtocol }}',
+'{{ portRange }}',
+'{{ ports }}',
+'{{ target }}',
+'{{ selfLink }}',
+'{{ loadBalancingScheme }}',
+'{{ subnetwork }}',
+'{{ network }}',
+'{{ backendService }}',
+'{{ serviceDirectoryRegistrations }}',
+'{{ serviceLabel }}',
+'{{ serviceName }}',
+'{{ networkTier }}',
+'{{ labels }}',
+'{{ labelFingerprint }}',
+'{{ ipVersion }}',
+'{{ fingerprint }}',
+true|false,
+true|false,
+'{{ metadataFilters }}',
+true|false,
+'{{ sourceIpRanges }}',
+'{{ pscConnectionId }}',
+'{{ pscConnectionStatus }}',
+'{{ baseForwardingRule }}',
+true|false,
+true|false,
+'{{ ipCollection }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: kind
+        value: '{{ kind }}'
+      - name: id
+        value: '{{ id }}'
+      - name: creationTimestamp
+        value: '{{ creationTimestamp }}'
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: region
+        value: '{{ region }}'
+      - name: IPAddress
+        value: '{{ IPAddress }}'
+      - name: IPProtocol
+        value: '{{ IPProtocol }}'
+      - name: portRange
+        value: '{{ portRange }}'
+      - name: ports
+        value: '{{ ports }}'
+      - name: target
+        value: '{{ target }}'
+      - name: selfLink
+        value: '{{ selfLink }}'
+      - name: loadBalancingScheme
+        value: '{{ loadBalancingScheme }}'
+      - name: subnetwork
+        value: '{{ subnetwork }}'
+      - name: network
+        value: '{{ network }}'
+      - name: backendService
+        value: '{{ backendService }}'
+      - name: serviceDirectoryRegistrations
+        value: '{{ serviceDirectoryRegistrations }}'
+      - name: serviceLabel
+        value: '{{ serviceLabel }}'
+      - name: serviceName
+        value: '{{ serviceName }}'
+      - name: networkTier
+        value: '{{ networkTier }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: labelFingerprint
+        value: '{{ labelFingerprint }}'
+      - name: ipVersion
+        value: '{{ ipVersion }}'
+      - name: fingerprint
+        value: '{{ fingerprint }}'
+      - name: allPorts
+        value: '{{ allPorts }}'
+      - name: allowGlobalAccess
+        value: '{{ allowGlobalAccess }}'
+      - name: metadataFilters
+        value: '{{ metadataFilters }}'
+      - name: isMirroringCollector
+        value: '{{ isMirroringCollector }}'
+      - name: sourceIpRanges
+        value: '{{ sourceIpRanges }}'
+      - name: pscConnectionId
+        value: '{{ pscConnectionId }}'
+      - name: pscConnectionStatus
+        value: '{{ pscConnectionStatus }}'
+      - name: baseForwardingRule
+        value: '{{ baseForwardingRule }}'
+      - name: allowPscGlobalAccess
+        value: '{{ allowPscGlobalAccess }}'
+      - name: noAutomateDnsZone
+        value: '{{ noAutomateDnsZone }}'
+      - name: ipCollection
+        value: '{{ ipCollection }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a forwarding_rule only if the necessary resources are available.
+
+```sql
+UPDATE google.compute.forwarding_rules
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+region = '{{ region }}',
+IPAddress = '{{ IPAddress }}',
+IPProtocol = '{{ IPProtocol }}',
+portRange = '{{ portRange }}',
+ports = '{{ ports }}',
+target = '{{ target }}',
+selfLink = '{{ selfLink }}',
+loadBalancingScheme = '{{ loadBalancingScheme }}',
+subnetwork = '{{ subnetwork }}',
+network = '{{ network }}',
+backendService = '{{ backendService }}',
+serviceDirectoryRegistrations = '{{ serviceDirectoryRegistrations }}',
+serviceLabel = '{{ serviceLabel }}',
+serviceName = '{{ serviceName }}',
+networkTier = '{{ networkTier }}',
+labels = '{{ labels }}',
+labelFingerprint = '{{ labelFingerprint }}',
+ipVersion = '{{ ipVersion }}',
+fingerprint = '{{ fingerprint }}',
+allPorts = true|false,
+allowGlobalAccess = true|false,
+metadataFilters = '{{ metadataFilters }}',
+isMirroringCollector = true|false,
+sourceIpRanges = '{{ sourceIpRanges }}',
+pscConnectionId = '{{ pscConnectionId }}',
+pscConnectionStatus = '{{ pscConnectionStatus }}',
+baseForwardingRule = '{{ baseForwardingRule }}',
+allowPscGlobalAccess = true|false,
+noAutomateDnsZone = true|false,
+ipCollection = '{{ ipCollection }}'
+WHERE 
+forwardingRule = '{{ forwardingRule }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```
+
+## `DELETE` example
+
+Deletes the specified forwarding_rule resource.
+
+```sql
+DELETE FROM google.compute.forwarding_rules
+WHERE forwardingRule = '{{ forwardingRule }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```

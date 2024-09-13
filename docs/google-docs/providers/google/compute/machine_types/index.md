@@ -1,3 +1,4 @@
+
 ---
 title: machine_types
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - machine_types
   - compute
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>machine_type</code> resource or lists <code>machine_types</code> in a region
 
 ## Overview
 <table><tbody>
@@ -34,6 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | [Output Only] Name of the resource. |
 | <CopyableCode code="description" /> | `string` | [Output Only] An optional textual description of the resource. |
 | <CopyableCode code="accelerators" /> | `array` | [Output Only] A list of accelerator configurations assigned to this machine type. |
+| <CopyableCode code="architecture" /> | `string` | [Output Only] The architecture of the machine type. |
 | <CopyableCode code="creationTimestamp" /> | `string` | [Output Only] Creation timestamp in RFC3339 text format. |
 | <CopyableCode code="deprecated" /> | `object` | Deprecation status for a public resource. |
 | <CopyableCode code="guestCpus" /> | `integer` | [Output Only] The number of virtual CPUs that are available to the instance. |
@@ -46,10 +49,37 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="scratchDisks" /> | `array` | [Output Only] A list of extended scratch disks assigned to the instance. |
 | <CopyableCode code="selfLink" /> | `string` | [Output Only] Server-defined URL for the resource. |
 | <CopyableCode code="zone" /> | `string` | [Output Only] The name of the zone where the machine type resides, such as us-central1-a. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="aggregated_list" /> | `SELECT` | <CopyableCode code="project" /> | Retrieves an aggregated list of machine types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="machineType, project, zone" /> | Returns the specified machine type. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="project, zone" /> | Retrieves a list of machine types available to the specified project. |
-| <CopyableCode code="_aggregated_list" /> | `EXEC` | <CopyableCode code="project" /> | Retrieves an aggregated list of machine types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`. |
+
+## `SELECT` examples
+
+Retrieves an aggregated list of machine types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+
+```sql
+SELECT
+id,
+name,
+description,
+accelerators,
+architecture,
+creationTimestamp,
+deprecated,
+guestCpus,
+imageSpaceGb,
+isSharedCpu,
+kind,
+maximumPersistentDisks,
+maximumPersistentDisksSizeGb,
+memoryMb,
+scratchDisks,
+selfLink,
+zone
+FROM google.compute.machine_types
+WHERE project = '{{ project }}'; 
+```

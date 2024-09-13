@@ -1,3 +1,4 @@
+
 ---
 title: delivery_pipelines
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - delivery_pipelines
   - clouddeploy
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>delivery_pipeline</code> resource or lists <code>delivery_pipelines</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,17 +32,18 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Optional. Name of the `DeliveryPipeline`. Format is `projects/&#123;project&#125;/locations/&#123;location&#125;/deliveryPipelines/&#123;deliveryPipeline&#125;`. The `deliveryPipeline` component must match `[a-z]([a-z0-9-]&#123;0,61&#125;[a-z0-9])?` |
+| <CopyableCode code="name" /> | `string` | Optional. Name of the `DeliveryPipeline`. Format is `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}`. The `deliveryPipeline` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?` |
 | <CopyableCode code="description" /> | `string` | Description of the `DeliveryPipeline`. Max length is 255 characters. |
 | <CopyableCode code="annotations" /> | `object` | User annotations. These attributes can only be set and used by the user, and not by Cloud Deploy. |
 | <CopyableCode code="condition" /> | `object` | PipelineCondition contains all conditions relevant to a Delivery Pipeline. |
 | <CopyableCode code="createTime" /> | `string` | Output only. Time at which the pipeline was created. |
 | <CopyableCode code="etag" /> | `string` | This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. |
-| <CopyableCode code="labels" /> | `object` | Labels are attributes that can be set and used by both the user and by Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be &lt;= 128 bytes. |
+| <CopyableCode code="labels" /> | `object` | Labels are attributes that can be set and used by both the user and by Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be <= 128 bytes. |
 | <CopyableCode code="serialPipeline" /> | `object` | SerialPipeline defines a sequential set of stages for a `DeliveryPipeline`. |
 | <CopyableCode code="suspended" /> | `boolean` | When suspended, no new releases or rollouts can be created, but in-progress ones will complete. |
 | <CopyableCode code="uid" /> | `string` | Output only. Unique identifier of the `DeliveryPipeline`. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. Most recent time at which the pipeline was updated. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -49,5 +52,141 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new DeliveryPipeline in a given project and location. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Deletes a single DeliveryPipeline. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Updates the parameters of a single DeliveryPipeline. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists DeliveryPipelines in a given project and location. |
 | <CopyableCode code="rollback_target" /> | `EXEC` | <CopyableCode code="deliveryPipelinesId, locationsId, projectsId" /> | Creates a `Rollout` to roll back the specified target. |
+
+## `SELECT` examples
+
+Lists DeliveryPipelines in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+annotations,
+condition,
+createTime,
+etag,
+labels,
+serialPipeline,
+suspended,
+uid,
+updateTime
+FROM google.clouddeploy.delivery_pipelines
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>delivery_pipelines</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.clouddeploy.delivery_pipelines (
+locationsId,
+projectsId,
+name,
+uid,
+description,
+annotations,
+labels,
+createTime,
+updateTime,
+serialPipeline,
+condition,
+etag,
+suspended
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ description }}',
+'{{ annotations }}',
+'{{ labels }}',
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ serialPipeline }}',
+'{{ condition }}',
+'{{ etag }}',
+true|false
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: description
+        value: '{{ description }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: serialPipeline
+        value: '{{ serialPipeline }}'
+      - name: condition
+        value: '{{ condition }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: suspended
+        value: '{{ suspended }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a delivery_pipeline only if the necessary resources are available.
+
+```sql
+UPDATE google.clouddeploy.delivery_pipelines
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+description = '{{ description }}',
+annotations = '{{ annotations }}',
+labels = '{{ labels }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+serialPipeline = '{{ serialPipeline }}',
+condition = '{{ condition }}',
+etag = '{{ etag }}',
+suspended = true|false
+WHERE 
+deliveryPipelinesId = '{{ deliveryPipelinesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified delivery_pipeline resource.
+
+```sql
+DELETE FROM google.clouddeploy.delivery_pipelines
+WHERE deliveryPipelinesId = '{{ deliveryPipelinesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

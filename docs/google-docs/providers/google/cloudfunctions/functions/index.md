@@ -1,3 +1,4 @@
+
 ---
 title: functions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - functions
   - cloudfunctions
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>function</code> resource or lists <code>functions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,7 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="createTime" /> | `string` | Output only. The create timestamp of a Cloud Function. This is only applicable to 2nd Gen functions. |
 | <CopyableCode code="environment" /> | `string` | Describe whether the function is 1st Gen or 2nd Gen. |
 | <CopyableCode code="eventTrigger" /> | `object` | Describes EventTrigger, used to request events to be sent from another service. |
-| <CopyableCode code="kmsKeyName" /> | `string` | [Preview] Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources. It must match the pattern `projects/&#123;project&#125;/locations/&#123;location&#125;/keyRings/&#123;key_ring&#125;/cryptoKeys/&#123;crypto_key&#125;`. |
+| <CopyableCode code="kmsKeyName" /> | `string` | Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources. It must match the pattern `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`. |
 | <CopyableCode code="labels" /> | `object` | Labels associated with this Cloud Function. |
 | <CopyableCode code="satisfiesPzs" /> | `boolean` | Output only. Reserved for future use. |
 | <CopyableCode code="serviceConfig" /> | `object` | Describes the Service being deployed. Currently Supported : Cloud Run (fully managed). |
@@ -45,6 +47,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="updateTime" /> | `string` | Output only. The last update timestamp of a Cloud Function. |
 | <CopyableCode code="upgradeInfo" /> | `object` | Information related to: * A function's eligibility for 1st Gen to 2nd Gen migration * Current state of migration for function undergoing migration. |
 | <CopyableCode code="url" /> | `string` | Output only. The deployed url for the function. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -53,7 +56,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new function. If a function with the given name already exists in the specified project, the long running operation will return `ALREADY_EXISTS` error. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="functionsId, locationsId, projectsId" /> | Deletes a function with the given name from the specified project. If the given function is used by some trigger, the trigger will be updated to remove this function. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="functionsId, locationsId, projectsId" /> | Updates existing function. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Returns a list of functions that belong to the requested project. |
 | <CopyableCode code="abort_function_upgrade" /> | `EXEC` | <CopyableCode code="functionsId, locationsId, projectsId" /> | Aborts generation upgrade process for a function with the given name from the specified project. Deletes all 2nd Gen copy related configuration and resources which were created during the upgrade process. |
 | <CopyableCode code="commit_function_upgrade" /> | `EXEC` | <CopyableCode code="functionsId, locationsId, projectsId" /> | Finalizes the upgrade after which function upgrade can not be rolled back. This is the last step of the multi step process to upgrade 1st Gen functions to 2nd Gen. Deletes all original 1st Gen related configuration and resources. |
 | <CopyableCode code="generate_download_url" /> | `EXEC` | <CopyableCode code="functionsId, locationsId, projectsId" /> | Returns a signed URL for downloading deployed function source code. The URL is only valid for a limited period and should be used within 30 minutes of generation. For more information about the signed URL usage see: https://cloud.google.com/storage/docs/access-control/signed-urls |
@@ -61,3 +63,164 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="redirect_function_upgrade_traffic" /> | `EXEC` | <CopyableCode code="functionsId, locationsId, projectsId" /> | Changes the traffic target of a function from the original 1st Gen function to the 2nd Gen copy. This is the second step of the multi step process to upgrade 1st Gen functions to 2nd Gen. After this operation, all new traffic will be served by 2nd Gen copy. |
 | <CopyableCode code="rollback_function_upgrade_traffic" /> | `EXEC` | <CopyableCode code="functionsId, locationsId, projectsId" /> | Reverts the traffic target of a function from the 2nd Gen copy to the original 1st Gen function. After this operation, all new traffic would be served by the 1st Gen. |
 | <CopyableCode code="setup_function_upgrade_config" /> | `EXEC` | <CopyableCode code="functionsId, locationsId, projectsId" /> | Creates a 2nd Gen copy of the function configuration based on the 1st Gen function with the given name. This is the first step of the multi step process to upgrade 1st Gen functions to 2nd Gen. Only 2nd Gen configuration is setup as part of this request and traffic continues to be served by 1st Gen. |
+
+## `SELECT` examples
+
+Returns a list of functions that belong to the requested project.
+
+```sql
+SELECT
+name,
+description,
+buildConfig,
+createTime,
+environment,
+eventTrigger,
+kmsKeyName,
+labels,
+satisfiesPzs,
+serviceConfig,
+state,
+stateMessages,
+updateTime,
+upgradeInfo,
+url
+FROM google.cloudfunctions.functions
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>functions</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.cloudfunctions.functions (
+locationsId,
+projectsId,
+name,
+description,
+buildConfig,
+serviceConfig,
+eventTrigger,
+state,
+updateTime,
+labels,
+stateMessages,
+environment,
+upgradeInfo,
+url,
+kmsKeyName,
+satisfiesPzs,
+createTime
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ buildConfig }}',
+'{{ serviceConfig }}',
+'{{ eventTrigger }}',
+'{{ state }}',
+'{{ updateTime }}',
+'{{ labels }}',
+'{{ stateMessages }}',
+'{{ environment }}',
+'{{ upgradeInfo }}',
+'{{ url }}',
+'{{ kmsKeyName }}',
+true|false,
+'{{ createTime }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: buildConfig
+        value: '{{ buildConfig }}'
+      - name: serviceConfig
+        value: '{{ serviceConfig }}'
+      - name: eventTrigger
+        value: '{{ eventTrigger }}'
+      - name: state
+        value: '{{ state }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: stateMessages
+        value: '{{ stateMessages }}'
+      - name: environment
+        value: '{{ environment }}'
+      - name: upgradeInfo
+        value: '{{ upgradeInfo }}'
+      - name: url
+        value: '{{ url }}'
+      - name: kmsKeyName
+        value: '{{ kmsKeyName }}'
+      - name: satisfiesPzs
+        value: '{{ satisfiesPzs }}'
+      - name: createTime
+        value: '{{ createTime }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a function only if the necessary resources are available.
+
+```sql
+UPDATE google.cloudfunctions.functions
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+buildConfig = '{{ buildConfig }}',
+serviceConfig = '{{ serviceConfig }}',
+eventTrigger = '{{ eventTrigger }}',
+state = '{{ state }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+stateMessages = '{{ stateMessages }}',
+environment = '{{ environment }}',
+upgradeInfo = '{{ upgradeInfo }}',
+url = '{{ url }}',
+kmsKeyName = '{{ kmsKeyName }}',
+satisfiesPzs = true|false,
+createTime = '{{ createTime }}'
+WHERE 
+functionsId = '{{ functionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified function resource.
+
+```sql
+DELETE FROM google.cloudfunctions.functions
+WHERE functionsId = '{{ functionsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: apps_runtimes
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - apps_runtimes
   - appengine
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>apps_runtime</code> resource or lists <code>apps_runtimes</code> in a region
 
 ## Overview
 <table><tbody>
@@ -39,8 +41,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="stage" /> | `string` | The stage of life this runtime is in, e.g., BETA, GA, etc. |
 | <CopyableCode code="supportedOperatingSystems" /> | `array` | Supported operating systems for the runtime, e.g., 'ubuntu22', etc. |
 | <CopyableCode code="warnings" /> | `array` | Warning messages, e.g., a deprecation warning. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_runtimes" /> | `SELECT` | <CopyableCode code="appsId" /> |
-| <CopyableCode code="_list_runtimes" /> | `EXEC` | <CopyableCode code="appsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_runtimes" /> | `SELECT` | <CopyableCode code="appsId" /> | Lists all the available runtimes for the application. |
+
+## `SELECT` examples
+
+Lists all the available runtimes for the application.
+
+```sql
+SELECT
+name,
+decommissionedDate,
+deprecationDate,
+displayName,
+endOfSupportDate,
+environment,
+stage,
+supportedOperatingSystems,
+warnings
+FROM google.appengine.apps_runtimes
+WHERE appsId = '{{ appsId }}'; 
+```

@@ -1,3 +1,4 @@
+
 ---
 title: versions
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - versions
   - dialogflow
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>version</code> resource or lists <code>versions</code> in a region
 
 ## Overview
 <table><tbody>
@@ -36,6 +38,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="displayName" /> | `string` | Required. The human-readable name of the version. Limit of 64 characters. |
 | <CopyableCode code="nluSettings" /> | `object` | Settings related to NLU. |
 | <CopyableCode code="state" /> | `string` | Output only. The state of this version. This field is read-only and cannot be set by create and update methods. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -44,6 +47,122 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_agents_flows_versions_create" /> | `INSERT` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId" /> | Creates a Version in the specified Flow. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: CreateVersionOperationMetadata - `response`: Version |
 | <CopyableCode code="projects_locations_agents_flows_versions_delete" /> | `DELETE` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, versionsId" /> | Deletes the specified Version. |
 | <CopyableCode code="projects_locations_agents_flows_versions_patch" /> | `UPDATE` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, versionsId" /> | Updates the specified Version. |
-| <CopyableCode code="_projects_locations_agents_flows_versions_list" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId" /> | Returns the list of all versions in the specified Flow. |
 | <CopyableCode code="projects_locations_agents_flows_versions_compare_versions" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, versionsId" /> | Compares the specified base version with target version. |
 | <CopyableCode code="projects_locations_agents_flows_versions_load" /> | `EXEC` | <CopyableCode code="agentsId, flowsId, locationsId, projectsId, versionsId" /> | Loads resources in the specified version to the draft flow. This method is a [long-running operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation). The returned `Operation` type has the following method-specific fields: - `metadata`: An empty [Struct message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct) - `response`: An [Empty message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty) |
+
+## `SELECT` examples
+
+Returns the list of all versions in the specified Flow.
+
+```sql
+SELECT
+name,
+description,
+createTime,
+displayName,
+nluSettings,
+state
+FROM google.dialogflow.versions
+WHERE agentsId = '{{ agentsId }}'
+AND flowsId = '{{ flowsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>versions</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dialogflow.versions (
+agentsId,
+flowsId,
+locationsId,
+projectsId,
+name,
+displayName,
+description,
+nluSettings,
+createTime,
+state
+)
+SELECT 
+'{{ agentsId }}',
+'{{ flowsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ nluSettings }}',
+'{{ createTime }}',
+'{{ state }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: displayName
+        value: '{{ displayName }}'
+      - name: description
+        value: '{{ description }}'
+      - name: nluSettings
+        value: '{{ nluSettings }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: state
+        value: '{{ state }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a version only if the necessary resources are available.
+
+```sql
+UPDATE google.dialogflow.versions
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+nluSettings = '{{ nluSettings }}',
+createTime = '{{ createTime }}',
+state = '{{ state }}'
+WHERE 
+agentsId = '{{ agentsId }}'
+AND flowsId = '{{ flowsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND versionsId = '{{ versionsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified version resource.
+
+```sql
+DELETE FROM google.dialogflow.versions
+WHERE agentsId = '{{ agentsId }}'
+AND flowsId = '{{ flowsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND versionsId = '{{ versionsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: nat_addresses
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - nat_addresses
   - apigee
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>nat_address</code> resource or lists <code>nat_addresses</code> in a region
 
 ## Overview
 <table><tbody>
@@ -33,6 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Required. Resource ID of the NAT address. |
 | <CopyableCode code="ipAddress" /> | `string` | Output only. The static IPV4 address. |
 | <CopyableCode code="state" /> | `string` | Output only. State of the nat address. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -40,5 +43,77 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="organizations_instances_nat_addresses_list" /> | `SELECT` | <CopyableCode code="instancesId, organizationsId" /> | Lists the NAT addresses for an Apigee instance. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_instances_nat_addresses_create" /> | `INSERT` | <CopyableCode code="instancesId, organizationsId" /> | Creates a NAT address. The address is created in the RESERVED state and a static external IP address will be provisioned. At this time, the instance will not use this IP address for Internet egress traffic. The address can be activated for use once any required firewall IP whitelisting has been completed. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_instances_nat_addresses_delete" /> | `DELETE` | <CopyableCode code="instancesId, natAddressesId, organizationsId" /> | Deletes the NAT address. Connections that are actively using the address are drained before it is removed. **Note:** Not supported for Apigee hybrid. |
-| <CopyableCode code="_organizations_instances_nat_addresses_list" /> | `EXEC` | <CopyableCode code="instancesId, organizationsId" /> | Lists the NAT addresses for an Apigee instance. **Note:** Not supported for Apigee hybrid. |
 | <CopyableCode code="organizations_instances_nat_addresses_activate" /> | `EXEC` | <CopyableCode code="instancesId, natAddressesId, organizationsId" /> | Activates the NAT address. The Apigee instance can now use this for Internet egress traffic. **Note:** Not supported for Apigee hybrid. |
+
+## `SELECT` examples
+
+Lists the NAT addresses for an Apigee instance. **Note:** Not supported for Apigee hybrid.
+
+```sql
+SELECT
+name,
+ipAddress,
+state
+FROM google.apigee.nat_addresses
+WHERE instancesId = '{{ instancesId }}'
+AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>nat_addresses</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.apigee.nat_addresses (
+instancesId,
+organizationsId,
+state,
+ipAddress,
+name
+)
+SELECT 
+'{{ instancesId }}',
+'{{ organizationsId }}',
+'{{ state }}',
+'{{ ipAddress }}',
+'{{ name }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: state
+        value: '{{ state }}'
+      - name: ipAddress
+        value: '{{ ipAddress }}'
+      - name: name
+        value: '{{ name }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified nat_address resource.
+
+```sql
+DELETE FROM google.apigee.nat_addresses
+WHERE instancesId = '{{ instancesId }}'
+AND natAddressesId = '{{ natAddressesId }}'
+AND organizationsId = '{{ organizationsId }}';
+```

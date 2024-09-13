@@ -9,33 +9,22 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage google resources using SQL
 custom_edit_url: null
 image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
-Integrates text translation into your website or application.  
-    
+The translate service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>12</b></span><br />
-<span>total selectable resources:&nbsp;<b>11</b></span><br />
-<span>total methods:&nbsp;<b>61</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>google.translate</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Cloud Translation API</td></tr>
-<tr><td><b>Description</b></td><td>Integrates text translation into your website or application.</td></tr>
-<tr><td><b>Id</b></td><td><code>translate:v24.06.00236</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -45,7 +34,7 @@ Integrates text translation into your website or application.
 <a href="/providers/google/translate/adaptive_mt_sentences/">adaptive_mt_sentences</a><br />
 <a href="/providers/google/translate/datasets/">datasets</a><br />
 <a href="/providers/google/translate/examples/">examples</a><br />
-<a href="/providers/google/translate/glossaries/">glossaries</a><br />
+<a href="/providers/google/translate/glossaries/">glossaries</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/google/translate/glossary_entries/">glossary_entries</a><br />
@@ -53,6 +42,6 @@ Integrates text translation into your website or application.
 <a href="/providers/google/translate/models/">models</a><br />
 <a href="/providers/google/translate/operations/">operations</a><br />
 <a href="/providers/google/translate/projects/">projects</a><br />
-<a href="/providers/google/translate/supported_languages/">supported_languages</a><br />
+<a href="/providers/google/translate/supported_languages/">supported_languages</a>
 </div>
 </div>

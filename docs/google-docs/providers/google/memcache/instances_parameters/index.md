@@ -1,3 +1,4 @@
+
 ---
 title: instances_parameters
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - instances_parameters
   - memcache
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>instances_parameter</code> resource or lists <code>instances_parameters</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="update_parameters" /> | `EXEC` | <CopyableCode code="instancesId, locationsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="update_parameters" /> | `UPDATE` | <CopyableCode code="instancesId, locationsId, projectsId" /> | Updates the defined Memcached parameters for an existing instance. This method only stages the parameters, it must be followed by `ApplyParameters` to apply the parameters to nodes of the Memcached instance. |
+
+## `UPDATE` example
+
+Updates a instances_parameter only if the necessary resources are available.
+
+```sql
+UPDATE google.memcache.instances_parameters
+SET 
+updateMask = '{{ updateMask }}',
+parameters = '{{ parameters }}'
+WHERE 
+instancesId = '{{ instancesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

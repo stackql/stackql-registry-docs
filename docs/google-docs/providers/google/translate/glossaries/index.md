@@ -1,3 +1,4 @@
+
 ---
 title: glossaries
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - glossaries
   - translate
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>glossary</code> resource or lists <code>glossaries</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,7 +32,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Required. The resource name of the glossary. Glossary names have the form `projects/&#123;project-number-or-id&#125;/locations/&#123;location-id&#125;/glossaries/&#123;glossary-id&#125;`. |
+| <CopyableCode code="name" /> | `string` | Required. The resource name of the glossary. Glossary names have the form `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`. |
 | <CopyableCode code="displayName" /> | `string` | Optional. The display name of the glossary. |
 | <CopyableCode code="endTime" /> | `string` | Output only. When the glossary creation was finished. |
 | <CopyableCode code="entryCount" /> | `integer` | Output only. The number of entries defined in the glossary. |
@@ -38,6 +40,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="languageCodesSet" /> | `object` | Used with equivalent term set glossaries. |
 | <CopyableCode code="languagePair" /> | `object` | Used with unidirectional glossaries. |
 | <CopyableCode code="submitTime" /> | `string` | Output only. When CreateGlossary was called. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -46,4 +49,122 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_glossaries_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a glossary and returns the long-running operation. Returns NOT_FOUND, if the project doesn't exist. |
 | <CopyableCode code="projects_locations_glossaries_delete" /> | `DELETE` | <CopyableCode code="glossariesId, locationsId, projectsId" /> | Deletes a glossary, or cancels glossary construction if the glossary isn't created yet. Returns NOT_FOUND, if the glossary doesn't exist. |
 | <CopyableCode code="projects_locations_glossaries_patch" /> | `UPDATE` | <CopyableCode code="glossariesId, locationsId, projectsId" /> | Updates a glossary. A LRO is used since the update can be async if the glossary's entry file is updated. |
-| <CopyableCode code="_projects_locations_glossaries_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't exist. |
+
+## `SELECT` examples
+
+Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't exist.
+
+```sql
+SELECT
+name,
+displayName,
+endTime,
+entryCount,
+inputConfig,
+languageCodesSet,
+languagePair,
+submitTime
+FROM google.translate.glossaries
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>glossaries</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.translate.glossaries (
+locationsId,
+projectsId,
+name,
+languagePair,
+languageCodesSet,
+inputConfig,
+entryCount,
+submitTime,
+endTime,
+displayName
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ languagePair }}',
+'{{ languageCodesSet }}',
+'{{ inputConfig }}',
+'{{ entryCount }}',
+'{{ submitTime }}',
+'{{ endTime }}',
+'{{ displayName }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: languagePair
+        value: '{{ languagePair }}'
+      - name: languageCodesSet
+        value: '{{ languageCodesSet }}'
+      - name: inputConfig
+        value: '{{ inputConfig }}'
+      - name: entryCount
+        value: '{{ entryCount }}'
+      - name: submitTime
+        value: '{{ submitTime }}'
+      - name: endTime
+        value: '{{ endTime }}'
+      - name: displayName
+        value: '{{ displayName }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a glossary only if the necessary resources are available.
+
+```sql
+UPDATE google.translate.glossaries
+SET 
+name = '{{ name }}',
+languagePair = '{{ languagePair }}',
+languageCodesSet = '{{ languageCodesSet }}',
+inputConfig = '{{ inputConfig }}',
+entryCount = '{{ entryCount }}',
+submitTime = '{{ submitTime }}',
+endTime = '{{ endTime }}',
+displayName = '{{ displayName }}'
+WHERE 
+glossariesId = '{{ glossariesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified glossary resource.
+
+```sql
+DELETE FROM google.translate.glossaries
+WHERE glossariesId = '{{ glossariesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

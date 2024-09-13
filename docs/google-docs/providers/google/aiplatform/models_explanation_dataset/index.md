@@ -1,3 +1,4 @@
+
 ---
 title: models_explanation_dataset
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - models_explanation_dataset
   - aiplatform
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>models_explanation_dataset</code> resource or lists <code>models_explanation_dataset</code> in a region
 
 ## Overview
 <table><tbody>
@@ -28,8 +30,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="update_explanation_dataset" /> | `EXEC` | <CopyableCode code="locationsId, modelsId, projectsId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="update_explanation_dataset" /> | `UPDATE` | <CopyableCode code="locationsId, modelsId, projectsId" /> | Incrementally update the dataset used for an examples model. |
+
+## `UPDATE` example
+
+Updates a models_explanation_dataset only if the necessary resources are available.
+
+```sql
+UPDATE google.aiplatform.models_explanation_dataset
+SET 
+examples = '{{ examples }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND modelsId = '{{ modelsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: models
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - models
   - ml
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>model</code> resource or lists <code>models</code> in a region
 
 ## Overview
 <table><tbody>
@@ -38,12 +40,126 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="onlinePredictionConsoleLogging" /> | `boolean` | Optional. If true, online prediction nodes send `stderr` and `stdout` streams to Cloud Logging. These can be more verbose than the standard access logs (see `onlinePredictionLogging`) and can incur higher cost. However, they are helpful for debugging. Note that [logs may incur a cost](/stackdriver/pricing), especially if your project receives prediction requests at a high QPS. Estimate your costs before enabling this option. Default is false. |
 | <CopyableCode code="onlinePredictionLogging" /> | `boolean` | Optional. If true, online prediction access logs are sent to Cloud Logging. These logs are like standard server access logs, containing information like timestamp and latency for each request. Note that [logs may incur a cost](/stackdriver/pricing), especially if your project receives prediction requests at a high queries per second rate (QPS). Estimate your costs before enabling this option. Default is false. |
 | <CopyableCode code="regions" /> | `array` | Optional. The list of regions where the model is going to be deployed. Only one region per model is supported. Defaults to 'us-central1' if nothing is set. See the available regions for AI Platform services. Note: * No matter where a model is deployed, it can always be accessed by users from anywhere, both for online and batch prediction. * The region for a batch prediction job is set by the region field when submitting the batch prediction job and does not take its value from this field. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_models_get" /> | `SELECT` | <CopyableCode code="modelsId, projectsId" /> | Gets information about a model, including its name, the description (if set), and the default version (if at least one version of the model has been deployed). |
-| <CopyableCode code="projects_models_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the models in a project. Each project can contain multiple models, and each model can have multiple versions. If there are no models that match the request parameters, the list request returns an empty response body: &#123;&#125;. |
+| <CopyableCode code="projects_models_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the models in a project. Each project can contain multiple models, and each model can have multiple versions. If there are no models that match the request parameters, the list request returns an empty response body: {}. |
 | <CopyableCode code="projects_models_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a model which will later contain one or more versions. You must add at least one version before you can request predictions from the model. Add versions by calling projects.models.versions.create. |
 | <CopyableCode code="projects_models_delete" /> | `DELETE` | <CopyableCode code="modelsId, projectsId" /> | Deletes a model. You can only delete a model if there are no versions in it. You can delete versions by calling projects.models.versions.delete. |
 | <CopyableCode code="projects_models_patch" /> | `UPDATE` | <CopyableCode code="modelsId, projectsId" /> | Updates a specific model resource. Currently the only supported fields to update are `description` and `default_version.name`. |
-| <CopyableCode code="_projects_models_list" /> | `EXEC` | <CopyableCode code="projectsId" /> | Lists the models in a project. Each project can contain multiple models, and each model can have multiple versions. If there are no models that match the request parameters, the list request returns an empty response body: &#123;&#125;. |
+
+## `SELECT` examples
+
+Lists the models in a project. Each project can contain multiple models, and each model can have multiple versions. If there are no models that match the request parameters, the list request returns an empty response body: {}.
+
+```sql
+SELECT
+name,
+description,
+defaultVersion,
+etag,
+labels,
+onlinePredictionConsoleLogging,
+onlinePredictionLogging,
+regions
+FROM google.ml.models
+WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>models</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.ml.models (
+projectsId,
+name,
+description,
+defaultVersion,
+regions,
+onlinePredictionLogging,
+onlinePredictionConsoleLogging,
+labels,
+etag
+)
+SELECT 
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ defaultVersion }}',
+'{{ regions }}',
+true|false,
+true|false,
+'{{ labels }}',
+'{{ etag }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: defaultVersion
+        value: '{{ defaultVersion }}'
+      - name: regions
+        value: '{{ regions }}'
+      - name: onlinePredictionLogging
+        value: '{{ onlinePredictionLogging }}'
+      - name: onlinePredictionConsoleLogging
+        value: '{{ onlinePredictionConsoleLogging }}'
+      - name: labels
+        value: '{{ labels }}'
+      - name: etag
+        value: '{{ etag }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a model only if the necessary resources are available.
+
+```sql
+UPDATE google.ml.models
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+defaultVersion = '{{ defaultVersion }}',
+regions = '{{ regions }}',
+onlinePredictionLogging = true|false,
+onlinePredictionConsoleLogging = true|false,
+labels = '{{ labels }}',
+etag = '{{ etag }}'
+WHERE 
+modelsId = '{{ modelsId }}'
+AND projectsId = '{{ projectsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified model resource.
+
+```sql
+DELETE FROM google.ml.models
+WHERE modelsId = '{{ modelsId }}'
+AND projectsId = '{{ projectsId }}';
+```

@@ -1,3 +1,4 @@
+
 ---
 title: rule_sets
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - rule_sets
   - contentwarehouse
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>rule_set</code> resource or lists <code>rule_sets</code> in a region
 
 ## Overview
 <table><tbody>
@@ -30,10 +32,11 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The resource name of the rule set. Managed internally. Format: projects/&#123;project_number&#125;/locations/&#123;location&#125;/ruleSet/&#123;rule_set_id&#125;. The name is ignored when creating a rule set. |
+| <CopyableCode code="name" /> | `string` | The resource name of the rule set. Managed internally. Format: projects/{project_number}/locations/{location}/ruleSet/{rule_set_id}. The name is ignored when creating a rule set. |
 | <CopyableCode code="description" /> | `string` | Short description of the rule-set. |
 | <CopyableCode code="rules" /> | `array` | List of rules given by the customer. |
 | <CopyableCode code="source" /> | `string` | Source of the rules i.e., customer name. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,4 +45,95 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a ruleset. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, ruleSetsId" /> | Deletes a ruleset. Returns NOT_FOUND if the document does not exist. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, ruleSetsId" /> | Updates a ruleset. Returns INVALID_ARGUMENT if the name of the ruleset is non-empty and does not equal the existing name. |
-| <CopyableCode code="_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists rulesets. |
+
+## `SELECT` examples
+
+Lists rulesets.
+
+```sql
+SELECT
+name,
+description,
+rules,
+source
+FROM google.contentwarehouse.rule_sets
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>rule_sets</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.contentwarehouse.rule_sets (
+locationsId,
+projectsId,
+rules,
+description,
+name,
+source
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ rules }}',
+'{{ description }}',
+'{{ name }}',
+'{{ source }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: rules
+        value: '{{ rules }}'
+      - name: description
+        value: '{{ description }}'
+      - name: name
+        value: '{{ name }}'
+      - name: source
+        value: '{{ source }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a rule_set only if the necessary resources are available.
+
+```sql
+UPDATE google.contentwarehouse.rule_sets
+SET 
+ruleSet = '{{ ruleSet }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND ruleSetsId = '{{ ruleSetsId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified rule_set resource.
+
+```sql
+DELETE FROM google.contentwarehouse.rule_sets
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND ruleSetsId = '{{ ruleSetsId }}';
+```

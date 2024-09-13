@@ -1,3 +1,4 @@
+
 ---
 title: bare_metal_admin_clusters
 hide_title: false
@@ -5,7 +6,7 @@ hide_table_of_contents: false
 keywords:
   - bare_metal_admin_clusters
   - gkeonprem
-  - google    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
@@ -16,9 +17,10 @@ image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes or gets an <code>bare_metal_admin_cluster</code> resource or lists <code>bare_metal_admin_clusters</code> in a region
 
 ## Overview
 <table><tbody>
@@ -59,6 +61,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="uid" /> | `string` | Output only. The unique identifier of the bare metal admin cluster. |
 | <CopyableCode code="updateTime" /> | `string` | Output only. The time at which this bare metal admin cluster was last updated. |
 | <CopyableCode code="validationCheck" /> | `object` | ValidationCheck represents the result of preflight check. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -66,7 +69,240 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists bare metal admin clusters in a given project and location. |
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a new bare metal admin cluster in a given project and location. The API needs to be combined with creating a bootstrap cluster to work. See: https://cloud.google.com/anthos/clusters/docs/bare-metal/latest/installing/creating-clusters/create-admin-cluster-api#prepare_bootstrap_environment |
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_patch" /> | `UPDATE` | <CopyableCode code="bareMetalAdminClustersId, locationsId, projectsId" /> | Updates the parameters of a single bare metal admin cluster. |
-| <CopyableCode code="_projects_locations_bare_metal_admin_clusters_list" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Lists bare metal admin clusters in a given project and location. |
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_enroll" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Enrolls an existing bare metal admin cluster to the Anthos On-Prem API within a given project and location. Through enrollment, an existing admin cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster will be expected to be performed through the API. |
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_query_version_config" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Queries the bare metal admin cluster version config. |
 | <CopyableCode code="projects_locations_bare_metal_admin_clusters_unenroll" /> | `EXEC` | <CopyableCode code="bareMetalAdminClustersId, locationsId, projectsId" /> | Unenrolls an existing bare metal admin cluster from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients. |
+
+## `SELECT` examples
+
+Lists bare metal admin clusters in a given project and location.
+
+```sql
+SELECT
+name,
+description,
+annotations,
+bareMetalVersion,
+binaryAuthorization,
+clusterOperations,
+controlPlane,
+createTime,
+deleteTime,
+endpoint,
+etag,
+fleet,
+loadBalancer,
+localName,
+maintenanceConfig,
+maintenanceStatus,
+networkConfig,
+nodeAccessConfig,
+nodeConfig,
+osEnvironmentConfig,
+proxy,
+reconciling,
+securityConfig,
+state,
+status,
+storage,
+uid,
+updateTime,
+validationCheck
+FROM google.gkeonprem.bare_metal_admin_clusters
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
+```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>bare_metal_admin_clusters</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.gkeonprem.bare_metal_admin_clusters (
+locationsId,
+projectsId,
+name,
+description,
+uid,
+bareMetalVersion,
+state,
+endpoint,
+reconciling,
+createTime,
+updateTime,
+deleteTime,
+localName,
+etag,
+annotations,
+networkConfig,
+controlPlane,
+loadBalancer,
+storage,
+fleet,
+clusterOperations,
+status,
+maintenanceConfig,
+maintenanceStatus,
+validationCheck,
+nodeConfig,
+proxy,
+securityConfig,
+nodeAccessConfig,
+osEnvironmentConfig,
+binaryAuthorization
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ description }}',
+'{{ uid }}',
+'{{ bareMetalVersion }}',
+'{{ state }}',
+'{{ endpoint }}',
+true|false,
+'{{ createTime }}',
+'{{ updateTime }}',
+'{{ deleteTime }}',
+'{{ localName }}',
+'{{ etag }}',
+'{{ annotations }}',
+'{{ networkConfig }}',
+'{{ controlPlane }}',
+'{{ loadBalancer }}',
+'{{ storage }}',
+'{{ fleet }}',
+'{{ clusterOperations }}',
+'{{ status }}',
+'{{ maintenanceConfig }}',
+'{{ maintenanceStatus }}',
+'{{ validationCheck }}',
+'{{ nodeConfig }}',
+'{{ proxy }}',
+'{{ securityConfig }}',
+'{{ nodeAccessConfig }}',
+'{{ osEnvironmentConfig }}',
+'{{ binaryAuthorization }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+resources:
+  - name: instance
+    props:
+      - name: name
+        value: '{{ name }}'
+      - name: description
+        value: '{{ description }}'
+      - name: uid
+        value: '{{ uid }}'
+      - name: bareMetalVersion
+        value: '{{ bareMetalVersion }}'
+      - name: state
+        value: '{{ state }}'
+      - name: endpoint
+        value: '{{ endpoint }}'
+      - name: reconciling
+        value: '{{ reconciling }}'
+      - name: createTime
+        value: '{{ createTime }}'
+      - name: updateTime
+        value: '{{ updateTime }}'
+      - name: deleteTime
+        value: '{{ deleteTime }}'
+      - name: localName
+        value: '{{ localName }}'
+      - name: etag
+        value: '{{ etag }}'
+      - name: annotations
+        value: '{{ annotations }}'
+      - name: networkConfig
+        value: '{{ networkConfig }}'
+      - name: controlPlane
+        value: '{{ controlPlane }}'
+      - name: loadBalancer
+        value: '{{ loadBalancer }}'
+      - name: storage
+        value: '{{ storage }}'
+      - name: fleet
+        value: '{{ fleet }}'
+      - name: clusterOperations
+        value: '{{ clusterOperations }}'
+      - name: status
+        value: '{{ status }}'
+      - name: maintenanceConfig
+        value: '{{ maintenanceConfig }}'
+      - name: maintenanceStatus
+        value: '{{ maintenanceStatus }}'
+      - name: validationCheck
+        value: '{{ validationCheck }}'
+      - name: nodeConfig
+        value: '{{ nodeConfig }}'
+      - name: proxy
+        value: '{{ proxy }}'
+      - name: securityConfig
+        value: '{{ securityConfig }}'
+      - name: nodeAccessConfig
+        value: '{{ nodeAccessConfig }}'
+      - name: osEnvironmentConfig
+        value: '{{ osEnvironmentConfig }}'
+      - name: binaryAuthorization
+        value: '{{ binaryAuthorization }}'
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a bare_metal_admin_cluster only if the necessary resources are available.
+
+```sql
+UPDATE google.gkeonprem.bare_metal_admin_clusters
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+uid = '{{ uid }}',
+bareMetalVersion = '{{ bareMetalVersion }}',
+state = '{{ state }}',
+endpoint = '{{ endpoint }}',
+reconciling = true|false,
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+deleteTime = '{{ deleteTime }}',
+localName = '{{ localName }}',
+etag = '{{ etag }}',
+annotations = '{{ annotations }}',
+networkConfig = '{{ networkConfig }}',
+controlPlane = '{{ controlPlane }}',
+loadBalancer = '{{ loadBalancer }}',
+storage = '{{ storage }}',
+fleet = '{{ fleet }}',
+clusterOperations = '{{ clusterOperations }}',
+status = '{{ status }}',
+maintenanceConfig = '{{ maintenanceConfig }}',
+maintenanceStatus = '{{ maintenanceStatus }}',
+validationCheck = '{{ validationCheck }}',
+nodeConfig = '{{ nodeConfig }}',
+proxy = '{{ proxy }}',
+securityConfig = '{{ securityConfig }}',
+nodeAccessConfig = '{{ nodeAccessConfig }}',
+osEnvironmentConfig = '{{ osEnvironmentConfig }}',
+binaryAuthorization = '{{ binaryAuthorization }}'
+WHERE 
+bareMetalAdminClustersId = '{{ bareMetalAdminClustersId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
