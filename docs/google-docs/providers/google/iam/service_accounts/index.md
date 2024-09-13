@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>service_account</code> resource or lists <code>service_accounts</code> in a region
+Creates, updates, deletes, gets or lists a <code>service_accounts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -119,9 +119,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a service_account only if the necessary resources are available.
+Updates a <code>service_accounts</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.iam.service_accounts
 SET 
 serviceAccount = '{{ serviceAccount }}',
@@ -133,9 +134,10 @@ AND serviceAccountsId = '{{ serviceAccountsId }}';
 
 ## `DELETE` example
 
-Deletes the specified service_account resource.
+Deletes the specified <code>service_accounts</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.iam.service_accounts
 WHERE projectsId = '{{ projectsId }}'
 AND serviceAccountsId = '{{ serviceAccountsId }}';

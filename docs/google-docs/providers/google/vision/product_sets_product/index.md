@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>product_sets_product</code> resource or lists <code>product_sets_product</code> in a region
+Creates, updates, deletes, gets or lists a <code>product_sets_product</code> resource.
 
 ## Overview
 <table><tbody>
@@ -82,9 +82,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified product_sets_product resource.
+Deletes the specified <code>product_sets_product</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vision.product_sets_product
 WHERE locationsId = '{{ locationsId }}'
 AND productSetsId = '{{ productSetsId }}'

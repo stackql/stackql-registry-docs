@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>node_template</code> resource or lists <code>node_templates</code> in a region
+Creates, updates, deletes, gets or lists a <code>node_templates</code> resource.
 
 ## Overview
 <table><tbody>
@@ -185,9 +185,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified node_template resource.
+Deletes the specified <code>node_templates</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.node_templates
 WHERE nodeTemplate = '{{ nodeTemplate }}'
 AND project = '{{ project }}'

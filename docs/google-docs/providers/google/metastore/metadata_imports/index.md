@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>metadata_import</code> resource or lists <code>metadata_imports</code> in a region
+Creates, updates, deletes, gets or lists a <code>metadata_imports</code> resource.
 
 ## Overview
 <table><tbody>
@@ -134,9 +134,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a metadata_import only if the necessary resources are available.
+Updates a <code>metadata_imports</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.metastore.metadata_imports
 SET 
 databaseDump = '{{ databaseDump }}',

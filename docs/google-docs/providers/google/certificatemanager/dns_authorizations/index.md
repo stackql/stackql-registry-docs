@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dns_authorization</code> resource or lists <code>dns_authorizations</code> in a region
+Creates, updates, deletes, gets or lists a <code>dns_authorizations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -138,9 +138,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a dns_authorization only if the necessary resources are available.
+Updates a <code>dns_authorizations</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.certificatemanager.dns_authorizations
 SET 
 name = '{{ name }}',
@@ -159,9 +160,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified dns_authorization resource.
+Deletes the specified <code>dns_authorizations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.certificatemanager.dns_authorizations
 WHERE dnsAuthorizationsId = '{{ dnsAuthorizationsId }}'
 AND locationsId = '{{ locationsId }}'

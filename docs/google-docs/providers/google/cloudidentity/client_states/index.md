@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>client_state</code> resource or lists <code>client_states</code> in a region
+Creates, updates, deletes, gets or lists a <code>client_states</code> resource.
 
 ## Overview
 <table><tbody>
@@ -76,9 +76,10 @@ AND devicesId = '{{ devicesId }}';
 
 ## `UPDATE` example
 
-Updates a client_state only if the necessary resources are available.
+Updates a <code>client_states</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudidentity.client_states
 SET 
 name = '{{ name }}',

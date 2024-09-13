@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>notification_channel</code> resource or lists <code>notification_channels</code> in a region
+Creates, updates, deletes, gets or lists a <code>notification_channels</code> resource.
 
 ## Overview
 <table><tbody>
@@ -149,9 +149,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a notification_channel only if the necessary resources are available.
+Updates a <code>notification_channels</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.monitoring.notification_channels
 SET 
 type = '{{ type }}',
@@ -171,9 +172,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified notification_channel resource.
+Deletes the specified <code>notification_channels</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.monitoring.notification_channels
 WHERE notificationChannelsId = '{{ notificationChannelsId }}'
 AND projectsId = '{{ projectsId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>device_user</code> resource or lists <code>device_users</code> in a region
+Creates, updates, deletes, gets or lists a <code>device_users</code> resource.
 
 ## Overview
 <table><tbody>
@@ -76,9 +76,10 @@ WHERE devicesId = '{{ devicesId }}';
 
 ## `DELETE` example
 
-Deletes the specified device_user resource.
+Deletes the specified <code>device_users</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudidentity.device_users
 WHERE deviceUsersId = '{{ deviceUsersId }}'
 AND devicesId = '{{ devicesId }}';

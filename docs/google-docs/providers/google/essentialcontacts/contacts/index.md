@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>contact</code> resource or lists <code>contacts</code> in a region
+Creates, updates, deletes, gets or lists a <code>contacts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -139,9 +139,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a contact only if the necessary resources are available.
+Updates a <code>contacts</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.essentialcontacts.contacts
 SET 
 validateTime = '{{ validateTime }}',
@@ -157,9 +158,10 @@ AND foldersId = '{{ foldersId }}';
 
 ## `DELETE` example
 
-Deletes the specified contact resource.
+Deletes the specified <code>contacts</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.essentialcontacts.contacts
 WHERE contactsId = '{{ contactsId }}'
 AND foldersId = '{{ foldersId }}';

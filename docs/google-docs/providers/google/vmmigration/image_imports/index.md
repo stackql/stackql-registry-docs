@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>image_import</code> resource or lists <code>image_imports</code> in a region
+Creates, updates, deletes, gets or lists a <code>image_imports</code> resource.
 
 ## Overview
 <table><tbody>
@@ -131,9 +131,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified image_import resource.
+Deletes the specified <code>image_imports</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmmigration.image_imports
 WHERE imageImportsId = '{{ imageImportsId }}'
 AND locationsId = '{{ locationsId }}'

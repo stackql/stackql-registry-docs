@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>source</code> resource or lists <code>sources</code> in a region
+Creates, updates, deletes, gets or lists a <code>sources</code> resource.
 
 ## Overview
 <table><tbody>
@@ -144,9 +144,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a source only if the necessary resources are available.
+Updates a <code>sources</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vmmigration.sources
 SET 
 vmware = '{{ vmware }}',
@@ -166,9 +167,10 @@ AND sourcesId = '{{ sourcesId }}';
 
 ## `DELETE` example
 
-Deletes the specified source resource.
+Deletes the specified <code>sources</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmmigration.sources
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>consent_artifact</code> resource or lists <code>consent_artifacts</code> in a region
+Creates, updates, deletes, gets or lists a <code>consent_artifacts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -143,9 +143,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified consent_artifact resource.
+Deletes the specified <code>consent_artifacts</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.consent_artifacts
 WHERE consentArtifactsId = '{{ consentArtifactsId }}'
 AND consentStoresId = '{{ consentStoresId }}'

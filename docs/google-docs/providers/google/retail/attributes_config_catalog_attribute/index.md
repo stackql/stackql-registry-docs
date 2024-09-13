@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>attributes_config_catalog_attribute</code> resource or lists <code>attributes_config_catalog_attribute</code> in a region
+Creates, updates, deletes, gets or lists a <code>attributes_config_catalog_attribute</code> resource.
 
 ## Overview
 <table><tbody>
@@ -82,9 +82,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified attributes_config_catalog_attribute resource.
+Deletes the specified <code>attributes_config_catalog_attribute</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.retail.attributes_config_catalog_attribute
 WHERE catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'

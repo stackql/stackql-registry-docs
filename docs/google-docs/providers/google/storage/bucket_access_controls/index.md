@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>bucket_access_control</code> resource or lists <code>bucket_access_controls</code> in a region
+Creates, updates, deletes, gets or lists a <code>bucket_access_controls</code> resource.
 
 ## Overview
 <table><tbody>
@@ -169,9 +169,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a bucket_access_control only if the necessary resources are available.
+Updates a <code>bucket_access_controls</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.storage.bucket_access_controls
 SET 
 bucket = '{{ bucket }}',
@@ -192,9 +193,10 @@ AND entity = '{{ entity }}';
 
 ## `DELETE` example
 
-Deletes the specified bucket_access_control resource.
+Deletes the specified <code>bucket_access_controls</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.storage.bucket_access_controls
 WHERE bucket = '{{ bucket }}'
 AND entity = '{{ entity }}';

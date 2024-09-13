@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>service_level_objective</code> resource or lists <code>service_level_objectives</code> in a region
+Creates, updates, deletes, gets or lists a <code>service_level_objectives</code> resource.
 
 ## Overview
 <table><tbody>
@@ -131,9 +131,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a service_level_objective only if the necessary resources are available.
+Updates a <code>service_level_objectives</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.monitoring.service_level_objectives
 SET 
 name = '{{ name }}',
@@ -149,9 +150,10 @@ name = '{{ name }}';
 
 ## `DELETE` example
 
-Deletes the specified service_level_objective resource.
+Deletes the specified <code>service_level_objectives</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.monitoring.service_level_objectives
 WHERE name = '{{ name }}';
 ```

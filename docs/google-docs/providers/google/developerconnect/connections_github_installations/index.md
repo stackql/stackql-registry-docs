@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>connections_github_installation</code> resource or lists <code>connections_github_installations</code> in a region
+Creates, updates, deletes, gets or lists a <code>connections_github_installations</code> resource.
 
 ## Overview
 <table><tbody>

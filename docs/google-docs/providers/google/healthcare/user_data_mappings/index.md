@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>user_data_mapping</code> resource or lists <code>user_data_mappings</code> in a region
+Creates, updates, deletes, gets or lists a <code>user_data_mappings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -133,9 +133,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a user_data_mapping only if the necessary resources are available.
+Updates a <code>user_data_mappings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.healthcare.user_data_mappings
 SET 
 name = '{{ name }}',
@@ -154,9 +155,10 @@ AND userDataMappingsId = '{{ userDataMappingsId }}';
 
 ## `DELETE` example
 
-Deletes the specified user_data_mapping resource.
+Deletes the specified <code>user_data_mappings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.user_data_mappings
 WHERE consentStoresId = '{{ consentStoresId }}'
 AND datasetsId = '{{ datasetsId }}'

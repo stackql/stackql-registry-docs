@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>policy_based_route</code> resource or lists <code>policy_based_routes</code> in a region
+Creates, updates, deletes, gets or lists a <code>policy_based_routes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -176,9 +176,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified policy_based_route resource.
+Deletes the specified <code>policy_based_routes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkconnectivity.policy_based_routes
 WHERE policyBasedRoutesId = '{{ policyBasedRoutesId }}'
 AND projectsId = '{{ projectsId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>job</code> resource or lists <code>jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -165,9 +165,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a job only if the necessary resources are available.
+Updates a <code>jobs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.ml.jobs
 SET 
 jobId = '{{ jobId }}',

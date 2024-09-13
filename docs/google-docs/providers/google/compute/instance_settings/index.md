@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instance_setting</code> resource or lists <code>instance_settings</code> in a region
+Creates, updates, deletes, gets or lists a <code>instance_settings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -59,9 +59,10 @@ AND zone = '{{ zone }}';
 
 ## `UPDATE` example
 
-Updates a instance_setting only if the necessary resources are available.
+Updates a <code>instance_settings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.instance_settings
 SET 
 kind = '{{ kind }}',

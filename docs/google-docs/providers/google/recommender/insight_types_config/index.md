@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>insight_types_config</code> resource or lists <code>insight_types_config</code> in a region
+Creates, updates, deletes, gets or lists a <code>insight_types_config</code> resource.
 
 ## Overview
 <table><tbody>
@@ -70,9 +70,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a insight_types_config only if the necessary resources are available.
+Updates a <code>insight_types_config</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.recommender.insight_types_config
 SET 
 name = '{{ name }}',

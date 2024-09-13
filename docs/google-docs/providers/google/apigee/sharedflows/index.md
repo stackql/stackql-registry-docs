@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>sharedflow</code> resource or lists <code>sharedflows</code> in a region
+Creates, updates, deletes, gets or lists a <code>sharedflows</code> resource.
 
 ## Overview
 <table><tbody>
@@ -106,9 +106,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified sharedflow resource.
+Deletes the specified <code>sharedflows</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.sharedflows
 WHERE organizationsId = '{{ organizationsId }}'
 AND sharedflowsId = '{{ sharedflowsId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>domains_ldapssetting</code> resource or lists <code>domains_ldapssettings</code> in a region
+Creates, updates, deletes, gets or lists a <code>domains_ldapssettings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -63,9 +63,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a domains_ldapssetting only if the necessary resources are available.
+Updates a <code>domains_ldapssettings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.managedidentities.domains_ldapssettings
 SET 
 name = '{{ name }}',

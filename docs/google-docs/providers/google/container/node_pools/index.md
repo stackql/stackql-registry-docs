@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>node_pool</code> resource or lists <code>node_pools</code> in a region
+Creates, updates, deletes, gets or lists a <code>node_pools</code> resource.
 
 ## Overview
 <table><tbody>
@@ -169,9 +169,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a node_pool only if the necessary resources are available.
+Updates a <code>node_pools</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.container.node_pools
 SET 
 projectId = '{{ projectId }}',
@@ -215,9 +216,10 @@ AND zone = '{{ zone }}';
 
 ## `DELETE` example
 
-Deletes the specified node_pool resource.
+Deletes the specified <code>node_pools</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.container.node_pools
 WHERE clusterId = '{{ clusterId }}'
 AND nodePoolId = '{{ nodePoolId }}'

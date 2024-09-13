@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>lineage_event</code> resource or lists <code>lineage_events</code> in a region
+Creates, updates, deletes, gets or lists a <code>lineage_events</code> resource.
 
 ## Overview
 <table><tbody>
@@ -119,9 +119,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified lineage_event resource.
+Deletes the specified <code>lineage_events</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datalineage.lineage_events
 WHERE lineageEventsId = '{{ lineageEventsId }}'
 AND locationsId = '{{ locationsId }}'

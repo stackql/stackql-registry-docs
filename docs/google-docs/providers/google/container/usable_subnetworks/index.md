@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>usable_subnetwork</code> resource or lists <code>usable_subnetworks</code> in a region
+Creates, updates, deletes, gets or lists a <code>usable_subnetworks</code> resource.
 
 ## Overview
 <table><tbody>

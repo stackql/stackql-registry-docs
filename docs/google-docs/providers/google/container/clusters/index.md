@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>cluster</code> resource or lists <code>clusters</code> in a region
+Creates, updates, deletes, gets or lists a <code>clusters</code> resource.
 
 ## Overview
 <table><tbody>
@@ -280,9 +280,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified cluster resource.
+Deletes the specified <code>clusters</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.container.clusters
 WHERE clusterId = '{{ clusterId }}'
 AND projectId = '{{ projectId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>billing_account</code> resource or lists <code>billing_accounts</code> in a region
+Creates, updates, deletes, gets or lists a <code>billing_accounts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -117,9 +117,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a billing_account only if the necessary resources are available.
+Updates a <code>billing_accounts</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudbilling.billing_accounts
 SET 
 name = '{{ name }}',

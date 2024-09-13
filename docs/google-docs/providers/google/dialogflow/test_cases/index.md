@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>test_case</code> resource or lists <code>test_cases</code> in a region
+Creates, updates, deletes, gets or lists a <code>test_cases</code> resource.
 
 ## Overview
 <table><tbody>
@@ -146,9 +146,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a test_case only if the necessary resources are available.
+Updates a <code>test_cases</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dialogflow.test_cases
 SET 
 name = '{{ name }}',
@@ -168,9 +169,10 @@ AND testCasesId = '{{ testCasesId }}';
 
 ## `DELETE` example
 
-Deletes the specified test_case resource.
+Deletes the specified <code>test_cases</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dialogflow.test_cases
 WHERE agentsId = '{{ agentsId }}'
 AND locationsId = '{{ locationsId }}'

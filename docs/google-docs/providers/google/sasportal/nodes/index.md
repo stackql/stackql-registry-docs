@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>node</code> resource or lists <code>nodes</code> in a region
+Creates, updates, deletes, gets or lists a <code>nodes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -109,9 +109,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a node only if the necessary resources are available.
+Updates a <code>nodes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.sasportal.nodes
 SET 
 sasUserIds = '{{ sasUserIds }}',
@@ -124,9 +125,10 @@ AND nodesId1 = '{{ nodesId1 }}';
 
 ## `DELETE` example
 
-Deletes the specified node resource.
+Deletes the specified <code>nodes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.sasportal.nodes
 WHERE nodesId = '{{ nodesId }}'
 AND nodesId1 = '{{ nodesId1 }}';

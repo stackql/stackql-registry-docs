@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>workspaces_file</code> resource or lists <code>workspaces_file</code> in a region
+Creates, updates, deletes, gets or lists a <code>workspaces_file</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>workspaces_file</code> resource or li
 
 ## `DELETE` example
 
-Deletes the specified workspaces_file resource.
+Deletes the specified <code>workspaces_file</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataform.workspaces_file
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

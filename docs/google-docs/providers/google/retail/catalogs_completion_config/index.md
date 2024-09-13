@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>catalogs_completion_config</code> resource or lists <code>catalogs_completion_config</code> in a region
+Creates, updates, deletes, gets or lists a <code>catalogs_completion_config</code> resource.
 
 ## Overview
 <table><tbody>
@@ -74,9 +74,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a catalogs_completion_config only if the necessary resources are available.
+Updates a <code>catalogs_completion_config</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.retail.catalogs_completion_config
 SET 
 name = '{{ name }}',

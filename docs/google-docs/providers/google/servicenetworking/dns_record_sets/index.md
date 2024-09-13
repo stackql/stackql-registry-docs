@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dns_record_set</code> resource or lists <code>dns_record_sets</code> in a region
+Creates, updates, deletes, gets or lists a <code>dns_record_sets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -100,9 +100,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a dns_record_set only if the necessary resources are available.
+Updates a <code>dns_record_sets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.servicenetworking.dns_record_sets
 SET 
 zone = '{{ zone }}',
@@ -115,9 +116,10 @@ servicesId = '{{ servicesId }}';
 
 ## `DELETE` example
 
-Deletes the specified dns_record_set resource.
+Deletes the specified <code>dns_record_sets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.servicenetworking.dns_record_sets
 WHERE servicesId = '{{ servicesId }}';
 ```

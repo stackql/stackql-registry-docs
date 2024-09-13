@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>debugsessions_datum</code> resource or lists <code>debugsessions_data</code> in a region
+Creates, updates, deletes, gets or lists a <code>debugsessions_data</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>debugsessions_datum</code> resource o
 
 ## `DELETE` example
 
-Deletes the specified debugsessions_datum resource.
+Deletes the specified <code>debugsessions_data</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.debugsessions_data
 WHERE apisId = '{{ apisId }}'
 AND debugsessionsId = '{{ debugsessionsId }}'

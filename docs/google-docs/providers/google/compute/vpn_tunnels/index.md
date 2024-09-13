@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>vpn_tunnel</code> resource or lists <code>vpn_tunnels</code> in a region
+Creates, updates, deletes, gets or lists a <code>vpn_tunnels</code> resource.
 
 ## Overview
 <table><tbody>
@@ -234,9 +234,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified vpn_tunnel resource.
+Deletes the specified <code>vpn_tunnels</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.vpn_tunnels
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'

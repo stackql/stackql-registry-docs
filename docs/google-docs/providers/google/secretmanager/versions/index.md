@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>version</code> resource or lists <code>versions</code> in a region
+Creates, updates, deletes, gets or lists a <code>versions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -73,9 +73,10 @@ AND secretsId = '{{ secretsId }}';
 
 ## `DELETE` example
 
-Deletes the specified version resource.
+Deletes the specified <code>versions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.secretmanager.versions
 WHERE projectsId = '{{ projectsId }}'
 AND secretsId = '{{ secretsId }}'

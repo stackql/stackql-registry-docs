@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>stored_info_type</code> resource or lists <code>stored_info_types</code> in a region
+Creates, updates, deletes, gets or lists a <code>stored_info_types</code> resource.
 
 ## Overview
 <table><tbody>
@@ -120,9 +120,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a stored_info_type only if the necessary resources are available.
+Updates a <code>stored_info_types</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dlp.stored_info_types
 SET 
 updateMask = '{{ updateMask }}',
@@ -134,9 +135,10 @@ AND storedInfoTypesId = '{{ storedInfoTypesId }}';
 
 ## `DELETE` example
 
-Deletes the specified stored_info_type resource.
+Deletes the specified <code>stored_info_types</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dlp.stored_info_types
 WHERE projectsId = '{{ projectsId }}'
 AND storedInfoTypesId = '{{ storedInfoTypesId }}';

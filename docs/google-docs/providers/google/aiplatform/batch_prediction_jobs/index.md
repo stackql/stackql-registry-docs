@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>batch_prediction_job</code> resource or lists <code>batch_prediction_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>batch_prediction_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -264,9 +264,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified batch_prediction_job resource.
+Deletes the specified <code>batch_prediction_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.batch_prediction_jobs
 WHERE batchPredictionJobsId = '{{ batchPredictionJobsId }}'
 AND locationsId = '{{ locationsId }}'

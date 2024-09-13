@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>groups_security_setting</code> resource or lists <code>groups_security_settings</code> in a region
+Creates, updates, deletes, gets or lists a <code>groups_security_settings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -54,9 +54,10 @@ WHERE groupsId = '{{ groupsId }}';
 
 ## `UPDATE` example
 
-Updates a groups_security_setting only if the necessary resources are available.
+Updates a <code>groups_security_settings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudidentity.groups_security_settings
 SET 
 name = '{{ name }}',

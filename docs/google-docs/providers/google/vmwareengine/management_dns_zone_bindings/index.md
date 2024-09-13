@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>management_dns_zone_binding</code> resource or lists <code>management_dns_zone_bindings</code> in a region
+Creates, updates, deletes, gets or lists a <code>management_dns_zone_bindings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -142,9 +142,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a management_dns_zone_binding only if the necessary resources are available.
+Updates a <code>management_dns_zone_bindings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vmwareengine.management_dns_zone_bindings
 SET 
 name = '{{ name }}',
@@ -164,9 +165,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified management_dns_zone_binding resource.
+Deletes the specified <code>management_dns_zone_bindings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmwareengine.management_dns_zone_bindings
 WHERE locationsId = '{{ locationsId }}'
 AND managementDnsZoneBindingsId = '{{ managementDnsZoneBindingsId }}'

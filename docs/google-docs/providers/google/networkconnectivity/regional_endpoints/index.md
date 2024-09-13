@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>regional_endpoint</code> resource or lists <code>regional_endpoints</code> in a region
+Creates, updates, deletes, gets or lists a <code>regional_endpoints</code> resource.
 
 ## Overview
 <table><tbody>
@@ -161,9 +161,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified regional_endpoint resource.
+Deletes the specified <code>regional_endpoints</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkconnectivity.regional_endpoints
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

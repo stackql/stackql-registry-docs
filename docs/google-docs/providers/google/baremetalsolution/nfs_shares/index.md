@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>nfs_share</code> resource or lists <code>nfs_shares</code> in a region
+Creates, updates, deletes, gets or lists a <code>nfs_shares</code> resource.
 
 ## Overview
 <table><tbody>
@@ -151,9 +151,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a nfs_share only if the necessary resources are available.
+Updates a <code>nfs_shares</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.baremetalsolution.nfs_shares
 SET 
 name = '{{ name }}',
@@ -174,9 +175,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified nfs_share resource.
+Deletes the specified <code>nfs_shares</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.baremetalsolution.nfs_shares
 WHERE locationsId = '{{ locationsId }}'
 AND nfsSharesId = '{{ nfsSharesId }}'

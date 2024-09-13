@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>recommenders_config</code> resource or lists <code>recommenders_config</code> in a region
+Creates, updates, deletes, gets or lists a <code>recommenders_config</code> resource.
 
 ## Overview
 <table><tbody>
@@ -70,9 +70,10 @@ AND recommendersId = '{{ recommendersId }}';
 
 ## `UPDATE` example
 
-Updates a recommenders_config only if the necessary resources are available.
+Updates a <code>recommenders_config</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.recommender.recommenders_config
 SET 
 revisionId = '{{ revisionId }}',

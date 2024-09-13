@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>targetserver</code> resource or lists <code>targetservers</code> in a region
+Creates, updates, deletes, gets or lists a <code>targetservers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -132,9 +132,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified targetserver resource.
+Deletes the specified <code>targetservers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.targetservers
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'

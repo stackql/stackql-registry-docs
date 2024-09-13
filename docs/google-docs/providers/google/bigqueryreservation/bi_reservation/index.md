@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>bi_reservation</code> resource or lists <code>bi_reservation</code> in a region
+Creates, updates, deletes, gets or lists a <code>bi_reservation</code> resource.
 
 ## Overview
 <table><tbody>
@@ -59,9 +59,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a bi_reservation only if the necessary resources are available.
+Updates a <code>bi_reservation</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.bigqueryreservation.bi_reservation
 SET 
 name = '{{ name }}',

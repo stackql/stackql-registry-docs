@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instances_access_config</code> resource or lists <code>instances_access_config</code> in a region
+Creates, updates, deletes, gets or lists a <code>instances_access_config</code> resource.
 
 ## Overview
 <table><tbody>
@@ -121,9 +121,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a instances_access_config only if the necessary resources are available.
+Updates a <code>instances_access_config</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.instances_access_config
 SET 
 kind = '{{ kind }}',
@@ -145,9 +146,10 @@ AND zone = '{{ zone }}';
 
 ## `DELETE` example
 
-Deletes the specified instances_access_config resource.
+Deletes the specified <code>instances_access_config</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.instances_access_config
 WHERE accessConfig = '{{ accessConfig }}'
 AND instance = '{{ instance }}'

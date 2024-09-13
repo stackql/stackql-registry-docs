@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>restore</code> resource or lists <code>restores</code> in a region
+Creates, updates, deletes, gets or lists a <code>restores</code> resource.
 
 ## Overview
 <table><tbody>
@@ -207,9 +207,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a restore only if the necessary resources are available.
+Updates a <code>restores</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.gkebackup.restores
 SET 
 name = '{{ name }}',
@@ -240,9 +241,10 @@ AND restoresId = '{{ restoresId }}';
 
 ## `DELETE` example
 
-Deletes the specified restore resource.
+Deletes the specified <code>restores</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.gkebackup.restores
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

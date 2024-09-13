@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>saved_query</code> resource or lists <code>saved_queries</code> in a region
+Creates, updates, deletes, gets or lists a <code>saved_queries</code> resource.
 
 ## Overview
 <table><tbody>
@@ -137,9 +137,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a saved_query only if the necessary resources are available.
+Updates a <code>saved_queries</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudasset.saved_queries
 SET 
 name = '{{ name }}',
@@ -156,9 +157,10 @@ name = '{{ name }}';
 
 ## `DELETE` example
 
-Deletes the specified saved_query resource.
+Deletes the specified <code>saved_queries</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudasset.saved_queries
 WHERE name = '{{ name }}';
 ```

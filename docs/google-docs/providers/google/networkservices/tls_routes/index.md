@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>tls_route</code> resource or lists <code>tls_routes</code> in a region
+Creates, updates, deletes, gets or lists a <code>tls_routes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -144,9 +144,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a tls_route only if the necessary resources are available.
+Updates a <code>tls_routes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkservices.tls_routes
 SET 
 name = '{{ name }}',
@@ -166,9 +167,10 @@ AND tlsRoutesId = '{{ tlsRoutesId }}';
 
 ## `DELETE` example
 
-Deletes the specified tls_route resource.
+Deletes the specified <code>tls_routes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkservices.tls_routes
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

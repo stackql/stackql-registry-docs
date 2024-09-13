@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>service_perimeter</code> resource or lists <code>service_perimeters</code> in a region
+Creates, updates, deletes, gets or lists a <code>service_perimeters</code> resource.
 
 ## Overview
 <table><tbody>
@@ -131,9 +131,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a service_perimeter only if the necessary resources are available.
+Updates a <code>service_perimeters</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.accesscontextmanager.service_perimeters
 SET 
 name = '{{ name }}',
@@ -150,9 +151,10 @@ AND servicePerimetersId = '{{ servicePerimetersId }}';
 
 ## `DELETE` example
 
-Deletes the specified service_perimeter resource.
+Deletes the specified <code>service_perimeters</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.accesscontextmanager.service_perimeters
 WHERE accessPoliciesId = '{{ accessPoliciesId }}'
 AND servicePerimetersId = '{{ servicePerimetersId }}';

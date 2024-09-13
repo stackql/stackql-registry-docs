@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>event</code> resource or lists <code>events</code> in a region
+Creates, updates, deletes, gets or lists a <code>events</code> resource.
 
 ## Overview
 <table><tbody>
@@ -60,9 +60,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified event resource.
+Deletes the specified <code>events</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.clouderrorreporting.events
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}';

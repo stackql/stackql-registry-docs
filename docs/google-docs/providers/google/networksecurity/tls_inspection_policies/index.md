@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>tls_inspection_policy</code> resource or lists <code>tls_inspection_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>tls_inspection_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -150,9 +150,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a tls_inspection_policy only if the necessary resources are available.
+Updates a <code>tls_inspection_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networksecurity.tls_inspection_policies
 SET 
 name = '{{ name }}',
@@ -173,9 +174,10 @@ AND tlsInspectionPoliciesId = '{{ tlsInspectionPoliciesId }}';
 
 ## `DELETE` example
 
-Deletes the specified tls_inspection_policy resource.
+Deletes the specified <code>tls_inspection_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networksecurity.tls_inspection_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

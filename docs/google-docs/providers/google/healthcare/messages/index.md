@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>message</code> resource or lists <code>messages</code> in a region
+Creates, updates, deletes, gets or lists a <code>messages</code> resource.
 
 ## Overview
 <table><tbody>
@@ -121,9 +121,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a message only if the necessary resources are available.
+Updates a <code>messages</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.healthcare.messages
 SET 
 name = '{{ name }}',
@@ -146,9 +147,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified message resource.
+Deletes the specified <code>messages</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.messages
 WHERE datasetsId = '{{ datasetsId }}'
 AND hl7V2StoresId = '{{ hl7V2StoresId }}'

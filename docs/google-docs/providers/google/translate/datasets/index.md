@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dataset</code> resource or lists <code>datasets</code> in a region
+Creates, updates, deletes, gets or lists a <code>datasets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -151,9 +151,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified dataset resource.
+Deletes the specified <code>datasets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.translate.datasets
 WHERE datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'

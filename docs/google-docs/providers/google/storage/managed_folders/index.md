@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>managed_folder</code> resource or lists <code>managed_folders</code> in a region
+Creates, updates, deletes, gets or lists a <code>managed_folders</code> resource.
 
 ## Overview
 <table><tbody>
@@ -134,9 +134,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified managed_folder resource.
+Deletes the specified <code>managed_folders</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.storage.managed_folders
 WHERE bucket = '{{ bucket }}'
 AND managedFolder = '{{ managedFolder }}';

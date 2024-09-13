@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>domain_mapping</code> resource or lists <code>domain_mappings</code> in a region
+Creates, updates, deletes, gets or lists a <code>domain_mappings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -111,9 +111,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a domain_mapping only if the necessary resources are available.
+Updates a <code>domain_mappings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.appengine.domain_mappings
 SET 
 name = '{{ name }}',
@@ -127,9 +128,10 @@ AND domainMappingsId = '{{ domainMappingsId }}';
 
 ## `DELETE` example
 
-Deletes the specified domain_mapping resource.
+Deletes the specified <code>domain_mappings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.appengine.domain_mappings
 WHERE appsId = '{{ appsId }}'
 AND domainMappingsId = '{{ domainMappingsId }}';

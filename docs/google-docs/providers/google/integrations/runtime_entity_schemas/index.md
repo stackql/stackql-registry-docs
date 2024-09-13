@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>runtime_entity_schema</code> resource or lists <code>runtime_entity_schemas</code> in a region
+Creates, updates, deletes, gets or lists a <code>runtime_entity_schemas</code> resource.
 
 ## Overview
 <table><tbody>

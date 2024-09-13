@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>models_explanation_dataset</code> resource or lists <code>models_explanation_dataset</code> in a region
+Creates, updates, deletes, gets or lists a <code>models_explanation_dataset</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>models_explanation_dataset</code> res
 
 ## `UPDATE` example
 
-Updates a models_explanation_dataset only if the necessary resources are available.
+Updates a <code>models_explanation_dataset</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.models_explanation_dataset
 SET 
 examples = '{{ examples }}'

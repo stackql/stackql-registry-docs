@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>job</code> resource or lists <code>jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -100,9 +100,10 @@ AND region = '{{ region }}';
 
 ## `UPDATE` example
 
-Updates a job only if the necessary resources are available.
+Updates a <code>jobs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataproc.jobs
 SET 
 reference = '{{ reference }}',
@@ -135,9 +136,10 @@ AND region = '{{ region }}';
 
 ## `DELETE` example
 
-Deletes the specified job resource.
+Deletes the specified <code>jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataproc.jobs
 WHERE jobId = '{{ jobId }}'
 AND projectId = '{{ projectId }}'

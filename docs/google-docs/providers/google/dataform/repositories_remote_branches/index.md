@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>repositories_remote_branch</code> resource or lists <code>repositories_remote_branches</code> in a region
+Creates, updates, deletes, gets or lists a <code>repositories_remote_branches</code> resource.
 
 ## Overview
 <table><tbody>

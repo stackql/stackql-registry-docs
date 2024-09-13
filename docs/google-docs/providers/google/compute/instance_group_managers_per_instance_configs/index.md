@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instance_group_managers_per_instance_config</code> resource or lists <code>instance_group_managers_per_instance_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>instance_group_managers_per_instance_configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -61,9 +61,10 @@ AND zone = '{{ zone }}';
 
 ## `UPDATE` example
 
-Updates a instance_group_managers_per_instance_config only if the necessary resources are available.
+Updates a <code>instance_group_managers_per_instance_configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.instance_group_managers_per_instance_configs
 SET 
 perInstanceConfigs = '{{ perInstanceConfigs }}'
@@ -75,9 +76,10 @@ AND zone = '{{ zone }}';
 
 ## `DELETE` example
 
-Deletes the specified instance_group_managers_per_instance_config resource.
+Deletes the specified <code>instance_group_managers_per_instance_configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.instance_group_managers_per_instance_configs
 WHERE instanceGroupManager = '{{ instanceGroupManager }}'
 AND project = '{{ project }}'

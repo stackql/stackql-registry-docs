@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>config</code> resource or lists <code>configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -159,9 +159,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a config only if the necessary resources are available.
+Updates a <code>configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigateway.configs
 SET 
 name = '{{ name }}',
@@ -184,9 +185,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified config resource.
+Deletes the specified <code>configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigateway.configs
 WHERE apisId = '{{ apisId }}'
 AND configsId = '{{ configsId }}'

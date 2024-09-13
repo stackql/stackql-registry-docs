@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>networks_peering</code> resource or lists <code>networks_peering</code> in a region
+Creates, updates, deletes, gets or lists a <code>networks_peering</code> resource.
 
 ## Overview
 <table><tbody>
@@ -93,9 +93,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a networks_peering only if the necessary resources are available.
+Updates a <code>networks_peering</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.networks_peering
 SET 
 networkPeering = '{{ networkPeering }}'
@@ -106,9 +107,10 @@ AND project = '{{ project }}';
 
 ## `DELETE` example
 
-Deletes the specified networks_peering resource.
+Deletes the specified <code>networks_peering</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.networks_peering
 WHERE network = '{{ network }}'
 AND project = '{{ project }}';

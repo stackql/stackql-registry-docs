@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>transition_route_group</code> resource or lists <code>transition_route_groups</code> in a region
+Creates, updates, deletes, gets or lists a <code>transition_route_groups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -116,9 +116,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a transition_route_group only if the necessary resources are available.
+Updates a <code>transition_route_groups</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dialogflow.transition_route_groups
 SET 
 name = '{{ name }}',
@@ -133,9 +134,10 @@ AND transitionRouteGroupsId = '{{ transitionRouteGroupsId }}';
 
 ## `DELETE` example
 
-Deletes the specified transition_route_group resource.
+Deletes the specified <code>transition_route_groups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dialogflow.transition_route_groups
 WHERE agentsId = '{{ agentsId }}'
 AND locationsId = '{{ locationsId }}'

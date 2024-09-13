@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>service_binding</code> resource or lists <code>service_bindings</code> in a region
+Creates, updates, deletes, gets or lists a <code>service_bindings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -131,9 +131,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified service_binding resource.
+Deletes the specified <code>service_bindings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkservices.service_bindings
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

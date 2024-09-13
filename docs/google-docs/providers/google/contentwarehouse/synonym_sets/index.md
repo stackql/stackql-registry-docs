@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>synonym_set</code> resource or lists <code>synonym_sets</code> in a region
+Creates, updates, deletes, gets or lists a <code>synonym_sets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -108,9 +108,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a synonym_set only if the necessary resources are available.
+Updates a <code>synonym_sets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.contentwarehouse.synonym_sets
 SET 
 name = '{{ name }}',
@@ -124,9 +125,10 @@ AND synonymSetsId = '{{ synonymSetsId }}';
 
 ## `DELETE` example
 
-Deletes the specified synonym_set resource.
+Deletes the specified <code>synonym_sets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.contentwarehouse.synonym_sets
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>profiles_offline</code> resource or lists <code>profiles_offline</code> in a region
+Creates, updates, deletes, gets or lists a <code>profiles_offline</code> resource.
 
 ## Overview
 <table><tbody>

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>file_store_data_profile</code> resource or lists <code>file_store_data_profiles</code> in a region
+Creates, updates, deletes, gets or lists a <code>file_store_data_profiles</code> resource.
 
 ## Overview
 <table><tbody>
@@ -101,9 +101,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified file_store_data_profile resource.
+Deletes the specified <code>file_store_data_profiles</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dlp.file_store_data_profiles
 WHERE fileStoreDataProfilesId = '{{ fileStoreDataProfilesId }}'
 AND locationsId = '{{ locationsId }}'

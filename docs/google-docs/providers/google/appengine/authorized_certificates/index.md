@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>authorized_certificate</code> resource or lists <code>authorized_certificates</code> in a region
+Creates, updates, deletes, gets or lists a <code>authorized_certificates</code> resource.
 
 ## Overview
 <table><tbody>
@@ -141,9 +141,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a authorized_certificate only if the necessary resources are available.
+Updates a <code>authorized_certificates</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.appengine.authorized_certificates
 SET 
 name = '{{ name }}',
@@ -162,9 +163,10 @@ AND authorizedCertificatesId = '{{ authorizedCertificatesId }}';
 
 ## `DELETE` example
 
-Deletes the specified authorized_certificate resource.
+Deletes the specified <code>authorized_certificates</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.appengine.authorized_certificates
 WHERE appsId = '{{ appsId }}'
 AND authorizedCertificatesId = '{{ authorizedCertificatesId }}';

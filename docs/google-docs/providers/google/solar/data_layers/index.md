@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>data_layer</code> resource or lists <code>data_layers</code> in a region
+Creates, updates, deletes, gets or lists a <code>data_layers</code> resource.
 
 ## Overview
 <table><tbody>

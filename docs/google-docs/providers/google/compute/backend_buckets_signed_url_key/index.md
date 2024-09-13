@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>backend_buckets_signed_url_key</code> resource or lists <code>backend_buckets_signed_url_key</code> in a region
+Creates, updates, deletes, gets or lists a <code>backend_buckets_signed_url_key</code> resource.
 
 ## Overview
 <table><tbody>
@@ -84,9 +84,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified backend_buckets_signed_url_key resource.
+Deletes the specified <code>backend_buckets_signed_url_key</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.backend_buckets_signed_url_key
 WHERE backendBucket = '{{ backendBucket }}'
 AND keyName = '{{ keyName }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>private_clouds_dns_forwarding</code> resource or lists <code>private_clouds_dns_forwarding</code> in a region
+Creates, updates, deletes, gets or lists a <code>private_clouds_dns_forwarding</code> resource.
 
 ## Overview
 <table><tbody>
@@ -60,9 +60,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a private_clouds_dns_forwarding only if the necessary resources are available.
+Updates a <code>private_clouds_dns_forwarding</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.vmwareengine.private_clouds_dns_forwarding
 SET 
 name = '{{ name }}',

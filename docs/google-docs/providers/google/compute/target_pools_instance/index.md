@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>target_pools_instance</code> resource or lists <code>target_pools_instance</code> in a region
+Creates, updates, deletes, gets or lists a <code>target_pools_instance</code> resource.
 
 ## Overview
 <table><tbody>
@@ -82,9 +82,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified target_pools_instance resource.
+Deletes the specified <code>target_pools_instance</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.target_pools_instance
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'

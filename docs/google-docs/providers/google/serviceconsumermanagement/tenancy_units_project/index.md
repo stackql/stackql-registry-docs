@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>tenancy_units_project</code> resource or lists <code>tenancy_units_project</code> in a region
+Creates, updates, deletes, gets or lists a <code>tenancy_units_project</code> resource.
 
 ## Overview
 <table><tbody>
@@ -89,9 +89,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified tenancy_units_project resource.
+Deletes the specified <code>tenancy_units_project</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.serviceconsumermanagement.tenancy_units_project
 WHERE servicesId = '{{ servicesId }}'
 AND servicesId1 = '{{ servicesId1 }}'

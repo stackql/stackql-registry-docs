@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>resource_policy</code> resource or lists <code>resource_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>resource_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -168,9 +168,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a resource_policy only if the necessary resources are available.
+Updates a <code>resource_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.resource_policies
 SET 
 kind = '{{ kind }}',
@@ -194,9 +195,10 @@ AND resourcePolicy = '{{ resourcePolicy }}';
 
 ## `DELETE` example
 
-Deletes the specified resource_policy resource.
+Deletes the specified <code>resource_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.resource_policies
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'

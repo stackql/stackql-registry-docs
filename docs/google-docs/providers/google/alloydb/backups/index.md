@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>backup</code> resource or lists <code>backups</code> in a region
+Creates, updates, deletes, gets or lists a <code>backups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -222,9 +222,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a backup only if the necessary resources are available.
+Updates a <code>backups</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.alloydb.backups
 SET 
 name = '{{ name }}',
@@ -257,9 +258,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified backup resource.
+Deletes the specified <code>backups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.alloydb.backups
 WHERE backupsId = '{{ backupsId }}'
 AND locationsId = '{{ locationsId }}'

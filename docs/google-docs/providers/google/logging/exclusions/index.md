@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>exclusion</code> resource or lists <code>exclusions</code> in a region
+Creates, updates, deletes, gets or lists a <code>exclusions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -143,9 +143,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a exclusion only if the necessary resources are available.
+Updates a <code>exclusions</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.logging.exclusions
 SET 
 name = '{{ name }}',
@@ -160,9 +161,10 @@ name = '{{ name }}';
 
 ## `DELETE` example
 
-Deletes the specified exclusion resource.
+Deletes the specified <code>exclusions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.logging.exclusions
 WHERE name = '{{ name }}';
 ```

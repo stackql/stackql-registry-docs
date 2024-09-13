@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>access_level</code> resource or lists <code>access_levels</code> in a region
+Creates, updates, deletes, gets or lists a <code>access_levels</code> resource.
 
 ## Overview
 <table><tbody>
@@ -118,9 +118,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a access_level only if the necessary resources are available.
+Updates a <code>access_levels</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.accesscontextmanager.access_levels
 SET 
 name = '{{ name }}',
@@ -135,9 +136,10 @@ AND accessPoliciesId = '{{ accessPoliciesId }}';
 
 ## `DELETE` example
 
-Deletes the specified access_level resource.
+Deletes the specified <code>access_levels</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.accesscontextmanager.access_levels
 WHERE accessLevelsId = '{{ accessLevelsId }}'
 AND accessPoliciesId = '{{ accessPoliciesId }}';

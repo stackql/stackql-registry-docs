@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>entry_group</code> resource or lists <code>entry_groups</code> in a region
+Creates, updates, deletes, gets or lists a <code>entry_groups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -138,9 +138,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a entry_group only if the necessary resources are available.
+Updates a <code>entry_groups</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataplex.entry_groups
 SET 
 name = '{{ name }}',
@@ -159,9 +160,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified entry_group resource.
+Deletes the specified <code>entry_groups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataplex.entry_groups
 WHERE entryGroupsId = '{{ entryGroupsId }}'
 AND locationsId = '{{ locationsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>groups_group_migration</code> resource or lists <code>groups_group_migration</code> in a region
+Creates, updates, deletes, gets or lists a <code>groups_group_migration</code> resource.
 
 ## Overview
 <table><tbody>
@@ -82,9 +82,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified groups_group_migration resource.
+Deletes the specified <code>groups_group_migration</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vmmigration.groups_group_migration
 WHERE groupsId = '{{ groupsId }}'
 AND locationsId = '{{ locationsId }}'

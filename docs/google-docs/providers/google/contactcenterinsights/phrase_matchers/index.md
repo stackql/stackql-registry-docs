@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>phrase_matcher</code> resource or lists <code>phrase_matchers</code> in a region
+Creates, updates, deletes, gets or lists a <code>phrase_matchers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -156,9 +156,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a phrase_matcher only if the necessary resources are available.
+Updates a <code>phrase_matchers</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.contactcenterinsights.phrase_matchers
 SET 
 activationUpdateTime = '{{ activationUpdateTime }}',
@@ -180,9 +181,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified phrase_matcher resource.
+Deletes the specified <code>phrase_matchers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.contactcenterinsights.phrase_matchers
 WHERE locationsId = '{{ locationsId }}'
 AND phraseMatchersId = '{{ phraseMatchersId }}'

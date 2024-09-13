@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>alert_policy</code> resource or lists <code>alert_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>alert_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -165,9 +165,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a alert_policy only if the necessary resources are available.
+Updates a <code>alert_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.monitoring.alert_policies
 SET 
 name = '{{ name }}',
@@ -190,9 +191,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified alert_policy resource.
+Deletes the specified <code>alert_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.monitoring.alert_policies
 WHERE alertPoliciesId = '{{ alertPoliciesId }}'
 AND projectsId = '{{ projectsId }}';

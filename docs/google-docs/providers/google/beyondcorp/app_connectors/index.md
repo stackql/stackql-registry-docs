@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>app_connector</code> resource or lists <code>app_connectors</code> in a region
+Creates, updates, deletes, gets or lists a <code>app_connectors</code> resource.
 
 ## Overview
 <table><tbody>
@@ -146,9 +146,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a app_connector only if the necessary resources are available.
+Updates a <code>app_connectors</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.beyondcorp.app_connectors
 SET 
 name = '{{ name }}',
@@ -168,9 +169,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified app_connector resource.
+Deletes the specified <code>app_connectors</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.beyondcorp.app_connectors
 WHERE appConnectorsId = '{{ appConnectorsId }}'
 AND locationsId = '{{ locationsId }}'

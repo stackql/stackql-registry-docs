@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>revision</code> resource or lists <code>revisions</code> in a region
+Creates, updates, deletes, gets or lists a <code>revisions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -64,9 +64,10 @@ AND revisionsId = '{{ revisionsId }}';
 
 ## `DELETE` example
 
-Deletes the specified revision resource.
+Deletes the specified <code>revisions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.revisions
 WHERE apisId = '{{ apisId }}'
 AND organizationsId = '{{ organizationsId }}'

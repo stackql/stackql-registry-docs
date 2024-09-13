@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>endpoint_policy</code> resource or lists <code>endpoint_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>endpoint_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -156,9 +156,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a endpoint_policy only if the necessary resources are available.
+Updates a <code>endpoint_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkservices.endpoint_policies
 SET 
 name = '{{ name }}',
@@ -180,9 +181,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified endpoint_policy resource.
+Deletes the specified <code>endpoint_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkservices.endpoint_policies
 WHERE endpointPoliciesId = '{{ endpointPoliciesId }}'
 AND locationsId = '{{ locationsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>workstation</code> resource or lists <code>workstations</code> in a region
+Creates, updates, deletes, gets or lists a <code>workstations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -189,9 +189,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a workstation only if the necessary resources are available.
+Updates a <code>workstations</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.workstations.workstations
 SET 
 name = '{{ name }}',
@@ -219,9 +220,10 @@ AND workstationsId = '{{ workstationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified workstation resource.
+Deletes the specified <code>workstations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.workstations.workstations
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

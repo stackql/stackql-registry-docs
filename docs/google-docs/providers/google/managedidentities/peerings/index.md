@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>peering</code> resource or lists <code>peerings</code> in a region
+Creates, updates, deletes, gets or lists a <code>peerings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -135,9 +135,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a peering only if the necessary resources are available.
+Updates a <code>peerings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.managedidentities.peerings
 SET 
 name = '{{ name }}',
@@ -155,9 +156,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified peering resource.
+Deletes the specified <code>peerings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.managedidentities.peerings
 WHERE peeringsId = '{{ peeringsId }}'
 AND projectsId = '{{ projectsId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>executions_execution_history</code> resource or lists <code>executions_execution_history</code> in a region
+Creates, updates, deletes, gets or lists a <code>executions_execution_history</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>executions_execution_history</code> r
 
 ## `DELETE` example
 
-Deletes the specified executions_execution_history resource.
+Deletes the specified <code>executions_execution_history</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.workflowexecutions.executions_execution_history
 WHERE executionsId = '{{ executionsId }}'
 AND locationsId = '{{ locationsId }}'

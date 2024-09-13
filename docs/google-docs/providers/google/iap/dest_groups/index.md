@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dest_group</code> resource or lists <code>dest_groups</code> in a region
+Creates, updates, deletes, gets or lists a <code>dest_groups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -108,9 +108,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a dest_group only if the necessary resources are available.
+Updates a <code>dest_groups</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.iap.dest_groups
 SET 
 name = '{{ name }}',
@@ -124,9 +125,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified dest_group resource.
+Deletes the specified <code>dest_groups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.iap.dest_groups
 WHERE destGroupsId = '{{ destGroupsId }}'
 AND locationsId = '{{ locationsId }}'

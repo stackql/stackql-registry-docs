@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>uptime_check_config</code> resource or lists <code>uptime_check_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>uptime_check_configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -177,9 +177,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a uptime_check_config only if the necessary resources are available.
+Updates a <code>uptime_check_configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.monitoring.uptime_check_configs
 SET 
 name = '{{ name }}',
@@ -204,9 +205,10 @@ AND uptimeCheckConfigsId = '{{ uptimeCheckConfigsId }}';
 
 ## `DELETE` example
 
-Deletes the specified uptime_check_config resource.
+Deletes the specified <code>uptime_check_configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.monitoring.uptime_check_configs
 WHERE projectsId = '{{ projectsId }}'
 AND uptimeCheckConfigsId = '{{ uptimeCheckConfigsId }}';

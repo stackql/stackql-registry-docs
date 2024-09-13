@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>custom_constraint</code> resource or lists <code>custom_constraints</code> in a region
+Creates, updates, deletes, gets or lists a <code>custom_constraints</code> resource.
 
 ## Overview
 <table><tbody>
@@ -135,9 +135,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a custom_constraint only if the necessary resources are available.
+Updates a <code>custom_constraints</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.orgpolicy.custom_constraints
 SET 
 name = '{{ name }}',
@@ -155,9 +156,10 @@ AND organizationsId = '{{ organizationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified custom_constraint resource.
+Deletes the specified <code>custom_constraints</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.orgpolicy.custom_constraints
 WHERE customConstraintsId = '{{ customConstraintsId }}'
 AND organizationsId = '{{ organizationsId }}';

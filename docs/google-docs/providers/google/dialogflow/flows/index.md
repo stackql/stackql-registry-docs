@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>flow</code> resource or lists <code>flows</code> in a region
+Creates, updates, deletes, gets or lists a <code>flows</code> resource.
 
 ## Overview
 <table><tbody>
@@ -163,9 +163,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a flow only if the necessary resources are available.
+Updates a <code>flows</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dialogflow.flows
 SET 
 name = '{{ name }}',
@@ -188,9 +189,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified flow resource.
+Deletes the specified <code>flows</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dialogflow.flows
 WHERE agentsId = '{{ agentsId }}'
 AND flowsId = '{{ flowsId }}'

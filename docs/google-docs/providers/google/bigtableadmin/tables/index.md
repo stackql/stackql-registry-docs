@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>table</code> resource or lists <code>tables</code> in a region
+Creates, updates, deletes, gets or lists a <code>tables</code> resource.
 
 ## Overview
 <table><tbody>
@@ -126,9 +126,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a table only if the necessary resources are available.
+Updates a <code>tables</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.bigtableadmin.tables
 SET 
 name = '{{ name }}',
@@ -148,9 +149,10 @@ AND tablesId = '{{ tablesId }}';
 
 ## `DELETE` example
 
-Deletes the specified table resource.
+Deletes the specified <code>tables</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.bigtableadmin.tables
 WHERE instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}'

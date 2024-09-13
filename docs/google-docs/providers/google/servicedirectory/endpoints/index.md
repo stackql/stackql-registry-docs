@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>endpoint</code> resource or lists <code>endpoints</code> in a region
+Creates, updates, deletes, gets or lists a <code>endpoints</code> resource.
 
 ## Overview
 <table><tbody>
@@ -132,9 +132,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a endpoint only if the necessary resources are available.
+Updates a <code>endpoints</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.servicedirectory.endpoints
 SET 
 name = '{{ name }}',
@@ -153,9 +154,10 @@ AND servicesId = '{{ servicesId }}';
 
 ## `DELETE` example
 
-Deletes the specified endpoint resource.
+Deletes the specified <code>endpoints</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.servicedirectory.endpoints
 WHERE endpointsId = '{{ endpointsId }}'
 AND locationsId = '{{ locationsId }}'

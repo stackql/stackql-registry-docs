@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>volume</code> resource or lists <code>volumes</code> in a region
+Creates, updates, deletes, gets or lists a <code>volumes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -103,9 +103,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a volume only if the necessary resources are available.
+Updates a <code>volumes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.baremetalsolution.volumes
 SET 
 name = '{{ name }}',

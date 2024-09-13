@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>role</code> resource or lists <code>roles</code> in a region
+Creates, updates, deletes, gets or lists a <code>roles</code> resource.
 
 ## Overview
 <table><tbody>
@@ -111,9 +111,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a role only if the necessary resources are available.
+Updates a <code>roles</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.iam.roles
 SET 
 name = '{{ name }}',
@@ -130,9 +131,10 @@ AND rolesId = '{{ rolesId }}';
 
 ## `DELETE` example
 
-Deletes the specified role resource.
+Deletes the specified <code>roles</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.iam.roles
 WHERE organizationsId = '{{ organizationsId }}'
 AND rolesId = '{{ rolesId }}';

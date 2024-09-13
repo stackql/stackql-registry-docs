@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>attestor</code> resource or lists <code>attestors</code> in a region
+Creates, updates, deletes, gets or lists a <code>attestors</code> resource.
 
 ## Overview
 <table><tbody>
@@ -118,9 +118,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified attestor resource.
+Deletes the specified <code>attestors</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.binaryauthorization.attestors
 WHERE attestorsId = '{{ attestorsId }}'
 AND projectsId = '{{ projectsId }}';

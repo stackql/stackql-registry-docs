@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>backend_services_aggregated</code> resource or lists <code>backend_services_aggregated</code> in a region
+Creates, updates, deletes, gets or lists a <code>backend_services_aggregated</code> resource.
 
 ## Overview
 <table><tbody>

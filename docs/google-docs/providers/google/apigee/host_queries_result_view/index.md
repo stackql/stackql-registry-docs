@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>host_queries_result_view</code> resource or lists <code>host_queries_result_view</code> in a region
+Creates, updates, deletes, gets or lists a <code>host_queries_result_view</code> resource.
 
 ## Overview
 <table><tbody>

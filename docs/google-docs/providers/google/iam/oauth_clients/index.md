@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>oauth_client</code> resource or lists <code>oauth_clients</code> in a region
+Creates, updates, deletes, gets or lists a <code>oauth_clients</code> resource.
 
 ## Overview
 <table><tbody>
@@ -157,9 +157,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a oauth_client only if the necessary resources are available.
+Updates a <code>oauth_clients</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.iam.oauth_clients
 SET 
 name = '{{ name }}',
@@ -181,9 +182,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified oauth_client resource.
+Deletes the specified <code>oauth_clients</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.iam.oauth_clients
 WHERE locationsId = '{{ locationsId }}'
 AND oauthClientsId = '{{ oauthClientsId }}'

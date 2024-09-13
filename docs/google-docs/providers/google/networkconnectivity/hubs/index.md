@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>hub</code> resource or lists <code>hubs</code> in a region
+Creates, updates, deletes, gets or lists a <code>hubs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -167,9 +167,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a hub only if the necessary resources are available.
+Updates a <code>hubs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkconnectivity.hubs
 SET 
 name = '{{ name }}',
@@ -192,9 +193,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified hub resource.
+Deletes the specified <code>hubs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkconnectivity.hubs
 WHERE hubsId = '{{ hubsId }}'
 AND projectsId = '{{ projectsId }}';

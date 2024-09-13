@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>lb_traffic_extension</code> resource or lists <code>lb_traffic_extensions</code> in a region
+Creates, updates, deletes, gets or lists a <code>lb_traffic_extensions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -144,9 +144,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a lb_traffic_extension only if the necessary resources are available.
+Updates a <code>lb_traffic_extensions</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkservices.lb_traffic_extensions
 SET 
 name = '{{ name }}',
@@ -166,9 +167,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified lb_traffic_extension resource.
+Deletes the specified <code>lb_traffic_extensions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkservices.lb_traffic_extensions
 WHERE lbTrafficExtensionsId = '{{ lbTrafficExtensionsId }}'
 AND locationsId = '{{ locationsId }}'

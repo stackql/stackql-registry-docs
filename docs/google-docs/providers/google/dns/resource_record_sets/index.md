@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>resource_record_set</code> resource or lists <code>resource_record_sets</code> in a region
+Creates, updates, deletes, gets or lists a <code>resource_record_sets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -132,9 +132,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a resource_record_set only if the necessary resources are available.
+Updates a <code>resource_record_sets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dns.resource_record_sets
 SET 
 name = '{{ name }}',
@@ -153,9 +154,10 @@ AND type = '{{ type }}';
 
 ## `DELETE` example
 
-Deletes the specified resource_record_set resource.
+Deletes the specified <code>resource_record_sets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dns.resource_record_sets
 WHERE managedZone = '{{ managedZone }}'
 AND name = '{{ name }}'

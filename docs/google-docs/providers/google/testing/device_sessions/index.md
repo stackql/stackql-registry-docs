@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>device_session</code> resource or lists <code>device_sessions</code> in a region
+Creates, updates, deletes, gets or lists a <code>device_sessions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -147,9 +147,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a device_session only if the necessary resources are available.
+Updates a <code>device_sessions</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.testing.device_sessions
 SET 
 name = '{{ name }}',

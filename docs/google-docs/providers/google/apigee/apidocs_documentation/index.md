@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>apidocs_documentation</code> resource or lists <code>apidocs_documentation</code> in a region
+Creates, updates, deletes, gets or lists a <code>apidocs_documentation</code> resource.
 
 ## Overview
 <table><tbody>
@@ -62,9 +62,10 @@ AND sitesId = '{{ sitesId }}';
 
 ## `UPDATE` example
 
-Updates a apidocs_documentation only if the necessary resources are available.
+Updates a <code>apidocs_documentation</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.apidocs_documentation
 SET 
 graphqlDocumentation = '{{ graphqlDocumentation }}',

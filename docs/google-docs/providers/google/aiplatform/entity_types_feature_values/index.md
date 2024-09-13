@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>entity_types_feature_value</code> resource or lists <code>entity_types_feature_values</code> in a region
+Creates, updates, deletes, gets or lists a <code>entity_types_feature_values</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>entity_types_feature_value</code> res
 
 ## `DELETE` example
 
-Deletes the specified entity_types_feature_value resource.
+Deletes the specified <code>entity_types_feature_values</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.entity_types_feature_values
 WHERE entityTypesId = '{{ entityTypesId }}'
 AND featurestoresId = '{{ featurestoresId }}'

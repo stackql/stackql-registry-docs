@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>queued_resource</code> resource or lists <code>queued_resources</code> in a region
+Creates, updates, deletes, gets or lists a <code>queued_resources</code> resource.
 
 ## Overview
 <table><tbody>
@@ -138,9 +138,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified queued_resource resource.
+Deletes the specified <code>queued_resources</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.tpu.queued_resources
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

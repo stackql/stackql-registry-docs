@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>database</code> resource or lists <code>databases</code> in a region
+Creates, updates, deletes, gets or lists a <code>databases</code> resource.
 
 ## Overview
 <table><tbody>
@@ -135,9 +135,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a database only if the necessary resources are available.
+Updates a <code>databases</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.biglake.databases
 SET 
 hiveOptions = '{{ hiveOptions }}',
@@ -156,9 +157,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified database resource.
+Deletes the specified <code>databases</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.biglake.databases
 WHERE catalogsId = '{{ catalogsId }}'
 AND databasesId = '{{ databasesId }}'

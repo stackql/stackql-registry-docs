@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>backend_bucket</code> resource or lists <code>backend_buckets</code> in a region
+Creates, updates, deletes, gets or lists a <code>backend_buckets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -167,9 +167,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a backend_bucket only if the necessary resources are available.
+Updates a <code>backend_buckets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.backend_buckets
 SET 
 kind = '{{ kind }}',
@@ -192,9 +193,10 @@ AND project = '{{ project }}';
 
 ## `DELETE` example
 
-Deletes the specified backend_bucket resource.
+Deletes the specified <code>backend_buckets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.backend_buckets
 WHERE backendBucket = '{{ backendBucket }}'
 AND project = '{{ project }}';

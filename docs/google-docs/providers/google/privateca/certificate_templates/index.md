@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>certificate_template</code> resource or lists <code>certificate_templates</code> in a region
+Creates, updates, deletes, gets or lists a <code>certificate_templates</code> resource.
 
 ## Overview
 <table><tbody>
@@ -144,9 +144,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a certificate_template only if the necessary resources are available.
+Updates a <code>certificate_templates</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.privateca.certificate_templates
 SET 
 name = '{{ name }}',
@@ -166,9 +167,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified certificate_template resource.
+Deletes the specified <code>certificate_templates</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.privateca.certificate_templates
 WHERE certificateTemplatesId = '{{ certificateTemplatesId }}'
 AND locationsId = '{{ locationsId }}'

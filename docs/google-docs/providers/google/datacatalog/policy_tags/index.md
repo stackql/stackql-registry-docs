@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>policy_tag</code> resource or lists <code>policy_tags</code> in a region
+Creates, updates, deletes, gets or lists a <code>policy_tags</code> resource.
 
 ## Overview
 <table><tbody>
@@ -123,9 +123,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a policy_tag only if the necessary resources are available.
+Updates a <code>policy_tags</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.datacatalog.policy_tags
 SET 
 name = '{{ name }}',
@@ -142,9 +143,10 @@ AND taxonomiesId = '{{ taxonomiesId }}';
 
 ## `DELETE` example
 
-Deletes the specified policy_tag resource.
+Deletes the specified <code>policy_tags</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datacatalog.policy_tags
 WHERE locationsId = '{{ locationsId }}'
 AND policyTagsId = '{{ policyTagsId }}'

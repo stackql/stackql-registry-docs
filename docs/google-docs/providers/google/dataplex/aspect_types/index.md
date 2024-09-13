@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>aspect_type</code> resource or lists <code>aspect_types</code> in a region
+Creates, updates, deletes, gets or lists a <code>aspect_types</code> resource.
 
 ## Overview
 <table><tbody>
@@ -150,9 +150,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a aspect_type only if the necessary resources are available.
+Updates a <code>aspect_types</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataplex.aspect_types
 SET 
 name = '{{ name }}',
@@ -173,9 +174,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified aspect_type resource.
+Deletes the specified <code>aspect_types</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataplex.aspect_types
 WHERE aspectTypesId = '{{ aspectTypesId }}'
 AND locationsId = '{{ locationsId }}'

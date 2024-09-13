@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>photos_media</code> resource or lists <code>photos_media</code> in a region
+Creates, updates, deletes, gets or lists a <code>photos_media</code> resource.
 
 ## Overview
 <table><tbody>

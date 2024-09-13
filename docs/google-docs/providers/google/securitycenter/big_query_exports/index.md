@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>big_query_export</code> resource or lists <code>big_query_exports</code> in a region
+Creates, updates, deletes, gets or lists a <code>big_query_exports</code> resource.
 
 ## Overview
 <table><tbody>
@@ -145,9 +145,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a big_query_export only if the necessary resources are available.
+Updates a <code>big_query_exports</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.securitycenter.big_query_exports
 SET 
 name = '{{ name }}',
@@ -165,9 +166,10 @@ AND foldersId = '{{ foldersId }}';
 
 ## `DELETE` example
 
-Deletes the specified big_query_export resource.
+Deletes the specified <code>big_query_exports</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.securitycenter.big_query_exports
 WHERE bigQueryExportsId = '{{ bigQueryExportsId }}'
 AND foldersId = '{{ foldersId }}';

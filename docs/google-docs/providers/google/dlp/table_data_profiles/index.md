@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>table_data_profile</code> resource or lists <code>table_data_profiles</code> in a region
+Creates, updates, deletes, gets or lists a <code>table_data_profiles</code> resource.
 
 ## Overview
 <table><tbody>
@@ -107,9 +107,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified table_data_profile resource.
+Deletes the specified <code>table_data_profiles</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dlp.table_data_profiles
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

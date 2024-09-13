@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>job_run</code> resource or lists <code>job_runs</code> in a region
+Creates, updates, deletes, gets or lists a <code>job_runs</code> resource.
 
 ## Overview
 <table><tbody>

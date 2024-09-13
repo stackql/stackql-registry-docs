@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>series</code> resource or lists <code>series</code> in a region
+Creates, updates, deletes, gets or lists a <code>series</code> resource.
 
 ## Overview
 <table><tbody>
@@ -40,9 +40,10 @@ Creates, updates, deletes or gets an <code>series</code> resource or lists <code
 
 ## `DELETE` example
 
-Deletes the specified series resource.
+Deletes the specified <code>series</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.series
 WHERE datasetsId = '{{ datasetsId }}'
 AND dicomStoresId = '{{ dicomStoresId }}'

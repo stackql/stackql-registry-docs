@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>prediction_api_key_registration</code> resource or lists <code>prediction_api_key_registrations</code> in a region
+Creates, updates, deletes, gets or lists a <code>prediction_api_key_registrations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -100,9 +100,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified prediction_api_key_registration resource.
+Deletes the specified <code>prediction_api_key_registrations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.recommendationengine.prediction_api_key_registrations
 WHERE catalogsId = '{{ catalogsId }}'
 AND eventStoresId = '{{ eventStoresId }}'

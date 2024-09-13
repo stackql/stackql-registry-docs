@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>folder</code> resource or lists <code>folders</code> in a region
+Creates, updates, deletes, gets or lists a <code>folders</code> resource.
 
 ## Overview
 <table><tbody>
@@ -144,9 +144,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a folder only if the necessary resources are available.
+Updates a <code>folders</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudresourcemanager.folders
 SET 
 name = '{{ name }}',
@@ -164,9 +165,10 @@ foldersId = '{{ foldersId }}';
 
 ## `DELETE` example
 
-Deletes the specified folder resource.
+Deletes the specified <code>folders</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudresourcemanager.folders
 WHERE foldersId = '{{ foldersId }}';
 ```

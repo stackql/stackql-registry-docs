@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>image_import_job</code> resource or lists <code>image_import_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>image_import_jobs</code> resource.
 
 ## Overview
 <table><tbody>

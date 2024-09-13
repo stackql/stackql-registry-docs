@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>service_lb_policy</code> resource or lists <code>service_lb_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>service_lb_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -138,9 +138,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a service_lb_policy only if the necessary resources are available.
+Updates a <code>service_lb_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkservices.service_lb_policies
 SET 
 name = '{{ name }}',
@@ -159,9 +160,10 @@ AND serviceLbPoliciesId = '{{ serviceLbPoliciesId }}';
 
 ## `DELETE` example
 
-Deletes the specified service_lb_policy resource.
+Deletes the specified <code>service_lb_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkservices.service_lb_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

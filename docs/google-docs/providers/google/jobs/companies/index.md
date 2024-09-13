@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>company</code> resource or lists <code>companies</code> in a region
+Creates, updates, deletes, gets or lists a <code>companies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -168,9 +168,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a company only if the necessary resources are available.
+Updates a <code>companies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.jobs.companies
 SET 
 name = '{{ name }}',
@@ -194,9 +195,10 @@ AND tenantsId = '{{ tenantsId }}';
 
 ## `DELETE` example
 
-Deletes the specified company resource.
+Deletes the specified <code>companies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.jobs.companies
 WHERE companiesId = '{{ companiesId }}'
 AND projectsId = '{{ projectsId }}'

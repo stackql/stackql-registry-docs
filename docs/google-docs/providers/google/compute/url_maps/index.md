@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>url_map</code> resource or lists <code>url_maps</code> in a region
+Creates, updates, deletes, gets or lists a <code>url_maps</code> resource.
 
 ## Overview
 <table><tbody>
@@ -186,9 +186,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a url_map only if the necessary resources are available.
+Updates a <code>url_maps</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.url_maps
 SET 
 kind = '{{ kind }}',
@@ -214,9 +215,10 @@ AND urlMap = '{{ urlMap }}';
 
 ## `DELETE` example
 
-Deletes the specified url_map resource.
+Deletes the specified <code>url_maps</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.url_maps
 WHERE project = '{{ project }}'
 AND urlMap = '{{ urlMap }}';

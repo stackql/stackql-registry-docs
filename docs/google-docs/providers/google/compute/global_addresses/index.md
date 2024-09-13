@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>global_address</code> resource or lists <code>global_addresses</code> in a region
+Creates, updates, deletes, gets or lists a <code>global_addresses</code> resource.
 
 ## Overview
 <table><tbody>
@@ -208,9 +208,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified global_address resource.
+Deletes the specified <code>global_addresses</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.global_addresses
 WHERE address = '{{ address }}'
 AND project = '{{ project }}';

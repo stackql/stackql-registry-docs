@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instance_partition</code> resource or lists <code>instance_partitions</code> in a region
+Creates, updates, deletes, gets or lists a <code>instance_partitions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -120,9 +120,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a instance_partition only if the necessary resources are available.
+Updates a <code>instance_partitions</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.spanner.instance_partitions
 SET 
 instancePartition = '{{ instancePartition }}',
@@ -135,9 +136,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified instance_partition resource.
+Deletes the specified <code>instance_partitions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.spanner.instance_partitions
 WHERE instancePartitionsId = '{{ instancePartitionsId }}'
 AND instancesId = '{{ instancesId }}'

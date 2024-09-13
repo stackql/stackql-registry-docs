@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>data_source</code> resource or lists <code>data_sources</code> in a region
+Creates, updates, deletes, gets or lists a <code>data_sources</code> resource.
 
 ## Overview
 <table><tbody>
@@ -82,9 +82,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a data_source only if the necessary resources are available.
+Updates a <code>data_sources</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.backupdr.data_sources
 SET 
 name = '{{ name }}',
@@ -108,9 +109,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified data_source resource.
+Deletes the specified <code>data_sources</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.backupdr.data_sources
 WHERE backupVaultsId = '{{ backupVaultsId }}'
 AND dataSourcesId = '{{ dataSourcesId }}'

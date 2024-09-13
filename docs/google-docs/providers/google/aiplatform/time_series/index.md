@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>time_sery</code> resource or lists <code>time_series</code> in a region
+Creates, updates, deletes, gets or lists a <code>time_series</code> resource.
 
 ## Overview
 <table><tbody>
@@ -162,9 +162,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a time_sery only if the necessary resources are available.
+Updates a <code>time_series</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.time_series
 SET 
 description = '{{ description }}',
@@ -188,9 +189,10 @@ AND timeSeriesId = '{{ timeSeriesId }}';
 
 ## `DELETE` example
 
-Deletes the specified time_sery resource.
+Deletes the specified <code>time_series</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.time_series
 WHERE experimentsId = '{{ experimentsId }}'
 AND locationsId = '{{ locationsId }}'

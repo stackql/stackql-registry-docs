@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>study</code> resource or lists <code>studies</code> in a region
+Creates, updates, deletes, gets or lists a <code>studies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -43,9 +43,10 @@ Creates, updates, deletes or gets an <code>study</code> resource or lists <code>
 
 ## `DELETE` example
 
-Deletes the specified study resource.
+Deletes the specified <code>studies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.studies
 WHERE datasetsId = '{{ datasetsId }}'
 AND dicomStoresId = '{{ dicomStoresId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>policy</code> resource or lists <code>policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -136,9 +136,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a policy only if the necessary resources are available.
+Updates a <code>policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dns.policies
 SET 
 id = '{{ id }}',
@@ -156,9 +157,10 @@ AND project = '{{ project }}';
 
 ## `DELETE` example
 
-Deletes the specified policy resource.
+Deletes the specified <code>policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dns.policies
 WHERE policy = '{{ policy }}'
 AND project = '{{ project }}';

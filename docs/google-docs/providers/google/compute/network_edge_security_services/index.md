@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>network_edge_security_service</code> resource or lists <code>network_edge_security_services</code> in a region
+Creates, updates, deletes, gets or lists a <code>network_edge_security_services</code> resource.
 
 ## Overview
 <table><tbody>
@@ -149,9 +149,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a network_edge_security_service only if the necessary resources are available.
+Updates a <code>network_edge_security_services</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.network_edge_security_services
 SET 
 kind = '{{ kind }}',
@@ -172,9 +173,10 @@ AND region = '{{ region }}';
 
 ## `DELETE` example
 
-Deletes the specified network_edge_security_service resource.
+Deletes the specified <code>network_edge_security_services</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.network_edge_security_services
 WHERE networkEdgeSecurityService = '{{ networkEdgeSecurityService }}'
 AND project = '{{ project }}'

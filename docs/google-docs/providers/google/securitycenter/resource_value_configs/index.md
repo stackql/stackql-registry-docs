@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>resource_value_config</code> resource or lists <code>resource_value_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>resource_value_configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -113,9 +113,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a resource_value_config only if the necessary resources are available.
+Updates a <code>resource_value_configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.securitycenter.resource_value_configs
 SET 
 name = '{{ name }}',
@@ -136,9 +137,10 @@ AND resourceValueConfigsId = '{{ resourceValueConfigsId }}';
 
 ## `DELETE` example
 
-Deletes the specified resource_value_config resource.
+Deletes the specified <code>resource_value_configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.securitycenter.resource_value_configs
 WHERE organizationsId = '{{ organizationsId }}'
 AND resourceValueConfigsId = '{{ resourceValueConfigsId }}';

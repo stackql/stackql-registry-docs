@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>deployment</code> resource or lists <code>deployments</code> in a region
+Creates, updates, deletes, gets or lists a <code>deployments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -233,9 +233,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a deployment only if the necessary resources are available.
+Updates a <code>deployments</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.config.deployments
 SET 
 terraformBlueprint = '{{ terraformBlueprint }}',
@@ -269,9 +270,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified deployment resource.
+Deletes the specified <code>deployments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.config.deployments
 WHERE deploymentsId = '{{ deploymentsId }}'
 AND locationsId = '{{ locationsId }}'

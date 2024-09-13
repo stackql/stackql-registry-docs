@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>contact_center</code> resource or lists <code>contact_centers</code> in a region
+Creates, updates, deletes, gets or lists a <code>contact_centers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -204,9 +204,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a contact_center only if the necessary resources are available.
+Updates a <code>contact_centers</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.contactcenteraiplatform.contact_centers
 SET 
 name = '{{ name }}',
@@ -236,9 +237,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified contact_center resource.
+Deletes the specified <code>contact_centers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.contactcenteraiplatform.contact_centers
 WHERE contactCentersId = '{{ contactCentersId }}'
 AND locationsId = '{{ locationsId }}'

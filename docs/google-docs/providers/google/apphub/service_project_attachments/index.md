@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>service_project_attachment</code> resource or lists <code>service_project_attachments</code> in a region
+Creates, updates, deletes, gets or lists a <code>service_project_attachments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -119,9 +119,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified service_project_attachment resource.
+Deletes the specified <code>service_project_attachments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apphub.service_project_attachments
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

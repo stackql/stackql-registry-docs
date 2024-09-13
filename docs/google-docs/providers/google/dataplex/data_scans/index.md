@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>data_scan</code> resource or lists <code>data_scans</code> in a region
+Creates, updates, deletes, gets or lists a <code>data_scans</code> resource.
 
 ## Overview
 <table><tbody>
@@ -188,9 +188,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a data_scan only if the necessary resources are available.
+Updates a <code>data_scans</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataplex.data_scans
 SET 
 name = '{{ name }}',
@@ -217,9 +218,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified data_scan resource.
+Deletes the specified <code>data_scans</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataplex.data_scans
 WHERE dataScansId = '{{ dataScansId }}'
 AND locationsId = '{{ locationsId }}'

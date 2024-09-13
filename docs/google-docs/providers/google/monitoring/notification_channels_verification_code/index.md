@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>notification_channels_verification_code</code> resource or lists <code>notification_channels_verification_code</code> in a region
+Creates, updates, deletes, gets or lists a <code>notification_channels_verification_code</code> resource.
 
 ## Overview
 <table><tbody>

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>site_search_engine_domain_verification_status</code> resource or lists <code>site_search_engine_domain_verification_status</code> in a region
+Creates, updates, deletes, gets or lists a <code>site_search_engine_domain_verification_status</code> resource.
 
 ## Overview
 <table><tbody>

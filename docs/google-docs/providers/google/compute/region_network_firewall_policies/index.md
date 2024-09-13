@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_network_firewall_policy</code> resource or lists <code>region_network_firewall_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_network_firewall_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -182,9 +182,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a region_network_firewall_policy only if the necessary resources are available.
+Updates a <code>region_network_firewall_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.region_network_firewall_policies
 SET 
 kind = '{{ kind }}',
@@ -210,9 +211,10 @@ AND region = '{{ region }}';
 
 ## `DELETE` example
 
-Deletes the specified region_network_firewall_policy resource.
+Deletes the specified <code>region_network_firewall_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.region_network_firewall_policies
 WHERE firewallPolicy = '{{ firewallPolicy }}'
 AND project = '{{ project }}'

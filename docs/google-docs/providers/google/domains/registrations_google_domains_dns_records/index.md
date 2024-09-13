@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>registrations_google_domains_dns_record</code> resource or lists <code>registrations_google_domains_dns_records</code> in a region
+Creates, updates, deletes, gets or lists a <code>registrations_google_domains_dns_records</code> resource.
 
 ## Overview
 <table><tbody>

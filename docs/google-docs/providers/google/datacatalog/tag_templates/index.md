@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>tag_template</code> resource or lists <code>tag_templates</code> in a region
+Creates, updates, deletes, gets or lists a <code>tag_templates</code> resource.
 
 ## Overview
 <table><tbody>
@@ -120,9 +120,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a tag_template only if the necessary resources are available.
+Updates a <code>tag_templates</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.datacatalog.tag_templates
 SET 
 name = '{{ name }}',
@@ -138,9 +139,10 @@ AND tagTemplatesId = '{{ tagTemplatesId }}';
 
 ## `DELETE` example
 
-Deletes the specified tag_template resource.
+Deletes the specified <code>tag_templates</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datacatalog.tag_templates
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

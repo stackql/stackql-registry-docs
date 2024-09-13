@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>budget</code> resource or lists <code>budgets</code> in a region
+Creates, updates, deletes, gets or lists a <code>budgets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -135,9 +135,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a budget only if the necessary resources are available.
+Updates a <code>budgets</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.billingbudgets.budgets
 SET 
 ownershipScope = '{{ ownershipScope }}',
@@ -155,9 +156,10 @@ AND budgetsId = '{{ budgetsId }}';
 
 ## `DELETE` example
 
-Deletes the specified budget resource.
+Deletes the specified <code>budgets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.billingbudgets.budgets
 WHERE billingAccountsId = '{{ billingAccountsId }}'
 AND budgetsId = '{{ budgetsId }}';

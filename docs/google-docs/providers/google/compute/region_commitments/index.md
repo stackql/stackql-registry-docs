@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_commitment</code> resource or lists <code>region_commitments</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_commitments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -215,9 +215,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a region_commitment only if the necessary resources are available.
+Updates a <code>region_commitments</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.region_commitments
 SET 
 kind = '{{ kind }}',

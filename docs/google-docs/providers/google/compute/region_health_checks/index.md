@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_health_check</code> resource or lists <code>region_health_checks</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_health_checks</code> resource.
 
 ## Overview
 <table><tbody>
@@ -211,9 +211,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a region_health_check only if the necessary resources are available.
+Updates a <code>region_health_checks</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.region_health_checks
 SET 
 kind = '{{ kind }}',
@@ -244,9 +245,10 @@ AND region = '{{ region }}';
 
 ## `DELETE` example
 
-Deletes the specified region_health_check resource.
+Deletes the specified <code>region_health_checks</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.region_health_checks
 WHERE healthCheck = '{{ healthCheck }}'
 AND project = '{{ project }}'

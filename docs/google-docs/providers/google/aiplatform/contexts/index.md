@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>context</code> resource or lists <code>contexts</code> in a region
+Creates, updates, deletes, gets or lists a <code>contexts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -161,9 +161,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a context only if the necessary resources are available.
+Updates a <code>contexts</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.contexts
 SET 
 description = '{{ description }}',
@@ -186,9 +187,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified context resource.
+Deletes the specified <code>contexts</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.contexts
 WHERE contextsId = '{{ contextsId }}'
 AND locationsId = '{{ locationsId }}'

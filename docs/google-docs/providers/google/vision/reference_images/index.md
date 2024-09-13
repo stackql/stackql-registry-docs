@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>reference_image</code> resource or lists <code>reference_images</code> in a region
+Creates, updates, deletes, gets or lists a <code>reference_images</code> resource.
 
 ## Overview
 <table><tbody>
@@ -110,9 +110,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified reference_image resource.
+Deletes the specified <code>reference_images</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.vision.reference_images
 WHERE locationsId = '{{ locationsId }}'
 AND productsId = '{{ productsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>products_local_inventory</code> resource or lists <code>products_local_inventories</code> in a region
+Creates, updates, deletes, gets or lists a <code>products_local_inventories</code> resource.
 
 ## Overview
 <table><tbody>
@@ -98,9 +98,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified products_local_inventory resource.
+Deletes the specified <code>products_local_inventories</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.retail.products_local_inventories
 WHERE branchesId = '{{ branchesId }}'
 AND catalogsId = '{{ catalogsId }}'

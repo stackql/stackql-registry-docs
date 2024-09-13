@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>feature_online_store</code> resource or lists <code>feature_online_stores</code> in a region
+Creates, updates, deletes, gets or lists a <code>feature_online_stores</code> resource.
 
 ## Overview
 <table><tbody>
@@ -162,9 +162,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a feature_online_store only if the necessary resources are available.
+Updates a <code>feature_online_stores</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.feature_online_stores
 SET 
 dedicatedServingEndpoint = '{{ dedicatedServingEndpoint }}',
@@ -187,9 +188,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified feature_online_store resource.
+Deletes the specified <code>feature_online_stores</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.feature_online_stores
 WHERE featureOnlineStoresId = '{{ featureOnlineStoresId }}'
 AND locationsId = '{{ locationsId }}'

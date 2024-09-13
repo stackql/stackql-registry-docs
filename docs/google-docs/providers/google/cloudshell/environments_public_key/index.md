@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>environments_public_key</code> resource or lists <code>environments_public_key</code> in a region
+Creates, updates, deletes, gets or lists a <code>environments_public_key</code> resource.
 
 ## Overview
 <table><tbody>
@@ -80,9 +80,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified environments_public_key resource.
+Deletes the specified <code>environments_public_key</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudshell.environments_public_key
 WHERE environmentsId = '{{ environmentsId }}'
 AND usersId = '{{ usersId }}';

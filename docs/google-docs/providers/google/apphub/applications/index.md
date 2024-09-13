@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>application</code> resource or lists <code>applications</code> in a region
+Creates, updates, deletes, gets or lists a <code>applications</code> resource.
 
 ## Overview
 <table><tbody>
@@ -144,9 +144,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a application only if the necessary resources are available.
+Updates a <code>applications</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apphub.applications
 SET 
 name = '{{ name }}',
@@ -166,9 +167,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified application resource.
+Deletes the specified <code>applications</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apphub.applications
 WHERE applicationsId = '{{ applicationsId }}'
 AND locationsId = '{{ locationsId }}'

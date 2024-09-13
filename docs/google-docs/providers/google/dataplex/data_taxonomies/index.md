@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>data_taxonomy</code> resource or lists <code>data_taxonomies</code> in a region
+Creates, updates, deletes, gets or lists a <code>data_taxonomies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -150,9 +150,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a data_taxonomy only if the necessary resources are available.
+Updates a <code>data_taxonomies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataplex.data_taxonomies
 SET 
 name = '{{ name }}',
@@ -173,9 +174,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified data_taxonomy resource.
+Deletes the specified <code>data_taxonomies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataplex.data_taxonomies
 WHERE dataTaxonomiesId = '{{ dataTaxonomiesId }}'
 AND locationsId = '{{ locationsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>alias</code> resource or lists <code>aliases</code> in a region
+Creates, updates, deletes, gets or lists a <code>aliases</code> resource.
 
 ## Overview
 <table><tbody>
@@ -112,9 +112,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified alias resource.
+Deletes the specified <code>aliases</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.aliases
 WHERE aliasesId = '{{ aliasesId }}'
 AND environmentsId = '{{ environmentsId }}'

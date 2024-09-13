@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>trust_config</code> resource or lists <code>trust_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>trust_configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -138,9 +138,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a trust_config only if the necessary resources are available.
+Updates a <code>trust_configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.certificatemanager.trust_configs
 SET 
 name = '{{ name }}',
@@ -159,9 +160,10 @@ AND trustConfigsId = '{{ trustConfigsId }}';
 
 ## `DELETE` example
 
-Deletes the specified trust_config resource.
+Deletes the specified <code>trust_configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.certificatemanager.trust_configs
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

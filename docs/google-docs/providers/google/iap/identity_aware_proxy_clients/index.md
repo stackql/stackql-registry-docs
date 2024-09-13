@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>identity_aware_proxy_client</code> resource or lists <code>identity_aware_proxy_clients</code> in a region
+Creates, updates, deletes, gets or lists a <code>identity_aware_proxy_clients</code> resource.
 
 ## Overview
 <table><tbody>
@@ -108,9 +108,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified identity_aware_proxy_client resource.
+Deletes the specified <code>identity_aware_proxy_clients</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.iap.identity_aware_proxy_clients
 WHERE brandsId = '{{ brandsId }}'
 AND identityAwareProxyClientsId = '{{ identityAwareProxyClientsId }}'

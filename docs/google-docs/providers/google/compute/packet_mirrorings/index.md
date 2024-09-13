@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>packet_mirroring</code> resource or lists <code>packet_mirrorings</code> in a region
+Creates, updates, deletes, gets or lists a <code>packet_mirrorings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -168,9 +168,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a packet_mirroring only if the necessary resources are available.
+Updates a <code>packet_mirrorings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.packet_mirrorings
 SET 
 kind = '{{ kind }}',
@@ -194,9 +195,10 @@ AND region = '{{ region }}';
 
 ## `DELETE` example
 
-Deletes the specified packet_mirroring resource.
+Deletes the specified <code>packet_mirrorings</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.packet_mirrorings
 WHERE packetMirroring = '{{ packetMirroring }}'
 AND project = '{{ project }}'

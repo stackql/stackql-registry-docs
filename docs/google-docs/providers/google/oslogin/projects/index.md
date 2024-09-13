@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>project</code> resource or lists <code>projects</code> in a region
+Creates, updates, deletes, gets or lists a <code>projects</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>project</code> resource or lists <cod
 
 ## `DELETE` example
 
-Deletes the specified project resource.
+Deletes the specified <code>projects</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.oslogin.projects
 WHERE projectsId = '{{ projectsId }}'
 AND usersId = '{{ usersId }}';

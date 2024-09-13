@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>autoscaler</code> resource or lists <code>autoscalers</code> in a region
+Creates, updates, deletes, gets or lists a <code>autoscalers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -175,9 +175,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a autoscaler only if the necessary resources are available.
+Updates a <code>autoscalers</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.autoscalers
 SET 
 kind = '{{ kind }}',
@@ -201,9 +202,10 @@ AND zone = '{{ zone }}';
 
 ## `DELETE` example
 
-Deletes the specified autoscaler resource.
+Deletes the specified <code>autoscalers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.autoscalers
 WHERE autoscaler = '{{ autoscaler }}'
 AND project = '{{ project }}'

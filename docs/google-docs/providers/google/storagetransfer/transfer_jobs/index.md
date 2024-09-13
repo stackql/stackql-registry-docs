@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>transfer_job</code> resource or lists <code>transfer_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>transfer_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -172,9 +172,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a transfer_job only if the necessary resources are available.
+Updates a <code>transfer_jobs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.storagetransfer.transfer_jobs
 SET 
 projectId = '{{ projectId }}',
@@ -186,9 +187,10 @@ transferJobsId = '{{ transferJobsId }}';
 
 ## `DELETE` example
 
-Deletes the specified transfer_job resource.
+Deletes the specified <code>transfer_jobs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.storagetransfer.transfer_jobs
 WHERE projectId = '{{ projectId }}'
 AND transferJobsId = '{{ transferJobsId }}';

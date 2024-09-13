@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>schema</code> resource or lists <code>schemas</code> in a region
+Creates, updates, deletes, gets or lists a <code>schemas</code> resource.
 
 ## Overview
 <table><tbody>
@@ -120,9 +120,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified schema resource.
+Deletes the specified <code>schemas</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.pubsub.schemas
 WHERE projectsId = '{{ projectsId }}'
 AND schemasId = '{{ schemasId }}';

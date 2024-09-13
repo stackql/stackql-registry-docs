@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>specialist_pool</code> resource or lists <code>specialist_pools</code> in a region
+Creates, updates, deletes, gets or lists a <code>specialist_pools</code> resource.
 
 ## Overview
 <table><tbody>
@@ -126,9 +126,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a specialist_pool only if the necessary resources are available.
+Updates a <code>specialist_pools</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.specialist_pools
 SET 
 pendingDataLabelingJobs = '{{ pendingDataLabelingJobs }}',
@@ -145,9 +146,10 @@ AND specialistPoolsId = '{{ specialistPoolsId }}';
 
 ## `DELETE` example
 
-Deletes the specified specialist_pool resource.
+Deletes the specified <code>specialist_pools</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.specialist_pools
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

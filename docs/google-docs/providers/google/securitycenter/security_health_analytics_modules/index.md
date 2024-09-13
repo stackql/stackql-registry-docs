@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>security_health_analytics_module</code> resource or lists <code>security_health_analytics_modules</code> in a region
+Creates, updates, deletes, gets or lists a <code>security_health_analytics_modules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -136,9 +136,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified security_health_analytics_module resource.
+Deletes the specified <code>security_health_analytics_modules</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.securitycenter.security_health_analytics_modules
 WHERE customModulesId = '{{ customModulesId }}'
 AND foldersId = '{{ foldersId }}';

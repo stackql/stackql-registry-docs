@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>environment</code> resource or lists <code>environments</code> in a region
+Creates, updates, deletes, gets or lists a <code>environments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -138,9 +138,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a environment only if the necessary resources are available.
+Updates a <code>environments</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dialogflow.environments
 SET 
 name = '{{ name }}',
@@ -159,9 +160,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified environment resource.
+Deletes the specified <code>environments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dialogflow.environments
 WHERE agentsId = '{{ agentsId }}'
 AND environmentsId = '{{ environmentsId }}'

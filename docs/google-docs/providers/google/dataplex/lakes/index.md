@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>lake</code> resource or lists <code>lakes</code> in a region
+Creates, updates, deletes, gets or lists a <code>lakes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -162,9 +162,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a lake only if the necessary resources are available.
+Updates a <code>lakes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataplex.lakes
 SET 
 name = '{{ name }}',
@@ -187,9 +188,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified lake resource.
+Deletes the specified <code>lakes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataplex.lakes
 WHERE lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'

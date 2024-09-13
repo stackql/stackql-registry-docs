@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>resourcefile</code> resource or lists <code>resourcefiles</code> in a region
+Creates, updates, deletes, gets or lists a <code>resourcefiles</code> resource.
 
 ## Overview
 <table><tbody>
@@ -108,9 +108,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified resourcefile resource.
+Deletes the specified <code>resourcefiles</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.resourcefiles
 WHERE environmentsId = '{{ environmentsId }}'
 AND name = '{{ name }}'

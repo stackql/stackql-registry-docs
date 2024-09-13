@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>discovery_config</code> resource or lists <code>discovery_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>discovery_configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -125,9 +125,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a discovery_config only if the necessary resources are available.
+Updates a <code>discovery_configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dlp.discovery_configs
 SET 
 updateMask = '{{ updateMask }}',
@@ -140,9 +141,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified discovery_config resource.
+Deletes the specified <code>discovery_configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dlp.discovery_configs
 WHERE discoveryConfigsId = '{{ discoveryConfigsId }}'
 AND locationsId = '{{ locationsId }}'

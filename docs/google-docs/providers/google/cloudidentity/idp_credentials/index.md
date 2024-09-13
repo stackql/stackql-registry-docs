@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>idp_credential</code> resource or lists <code>idp_credentials</code> in a region
+Creates, updates, deletes, gets or lists a <code>idp_credentials</code> resource.
 
 ## Overview
 <table><tbody>
@@ -98,9 +98,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified idp_credential resource.
+Deletes the specified <code>idp_credentials</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudidentity.idp_credentials
 WHERE idpCredentialsId = '{{ idpCredentialsId }}'
 AND inboundSamlSsoProfilesId = '{{ inboundSamlSsoProfilesId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>security_setting</code> resource or lists <code>security_settings</code> in a region
+Creates, updates, deletes, gets or lists a <code>security_settings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -54,9 +54,10 @@ WHERE organizationsId = '{{ organizationsId }}';
 
 ## `UPDATE` example
 
-Updates a security_setting only if the necessary resources are available.
+Updates a <code>security_settings</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.security_settings
 SET 
 mlRetrainingFeedbackEnabled = true|false,

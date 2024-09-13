@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>custom_target_type</code> resource or lists <code>custom_target_types</code> in a region
+Creates, updates, deletes, gets or lists a <code>custom_target_types</code> resource.
 
 ## Overview
 <table><tbody>
@@ -150,9 +150,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a custom_target_type only if the necessary resources are available.
+Updates a <code>custom_target_types</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.clouddeploy.custom_target_types
 SET 
 name = '{{ name }}',
@@ -173,9 +174,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified custom_target_type resource.
+Deletes the specified <code>custom_target_types</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.clouddeploy.custom_target_types
 WHERE customTargetTypesId = '{{ customTargetTypesId }}'
 AND locationsId = '{{ locationsId }}'

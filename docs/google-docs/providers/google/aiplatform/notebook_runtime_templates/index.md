@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>notebook_runtime_template</code> resource or lists <code>notebook_runtime_templates</code> in a region
+Creates, updates, deletes, gets or lists a <code>notebook_runtime_templates</code> resource.
 
 ## Overview
 <table><tbody>
@@ -198,9 +198,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a notebook_runtime_template only if the necessary resources are available.
+Updates a <code>notebook_runtime_templates</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.notebook_runtime_templates
 SET 
 machineSpec = '{{ machineSpec }}',
@@ -229,9 +230,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified notebook_runtime_template resource.
+Deletes the specified <code>notebook_runtime_templates</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.notebook_runtime_templates
 WHERE locationsId = '{{ locationsId }}'
 AND notebookRuntimeTemplatesId = '{{ notebookRuntimeTemplatesId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>environments_api_security_runtime_config</code> resource or lists <code>environments_api_security_runtime_config</code> in a region
+Creates, updates, deletes, gets or lists a <code>environments_api_security_runtime_config</code> resource.
 
 ## Overview
 <table><tbody>

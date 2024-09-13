@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>view</code> resource or lists <code>views</code> in a region
+Creates, updates, deletes, gets or lists a <code>views</code> resource.
 
 ## Overview
 <table><tbody>
@@ -120,9 +120,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a view only if the necessary resources are available.
+Updates a <code>views</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.contactcenterinsights.views
 SET 
 value = '{{ value }}',
@@ -138,9 +139,10 @@ AND viewsId = '{{ viewsId }}';
 
 ## `DELETE` example
 
-Deletes the specified view resource.
+Deletes the specified <code>views</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.contactcenterinsights.views
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

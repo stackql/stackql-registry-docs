@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instance_group_manager_resize_request</code> resource or lists <code>instance_group_manager_resize_requests</code> in a region
+Creates, updates, deletes, gets or lists a <code>instance_group_manager_resize_requests</code> resource.
 
 ## Overview
 <table><tbody>
@@ -165,9 +165,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified instance_group_manager_resize_request resource.
+Deletes the specified <code>instance_group_manager_resize_requests</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.instance_group_manager_resize_requests
 WHERE instanceGroupManager = '{{ instanceGroupManager }}'
 AND project = '{{ project }}'

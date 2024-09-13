@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>adaptive_mt_sentence</code> resource or lists <code>adaptive_mt_sentences</code> in a region
+Creates, updates, deletes, gets or lists a <code>adaptive_mt_sentences</code> resource.
 
 ## Overview
 <table><tbody>

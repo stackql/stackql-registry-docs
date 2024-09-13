@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>function</code> resource or lists <code>functions</code> in a region
+Creates, updates, deletes, gets or lists a <code>functions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -187,9 +187,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a function only if the necessary resources are available.
+Updates a <code>functions</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.cloudfunctions.functions
 SET 
 name = '{{ name }}',
@@ -215,9 +216,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified function resource.
+Deletes the specified <code>functions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.cloudfunctions.functions
 WHERE functionsId = '{{ functionsId }}'
 AND locationsId = '{{ locationsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>public_advertised_prefix</code> resource or lists <code>public_advertised_prefixes</code> in a region
+Creates, updates, deletes, gets or lists a <code>public_advertised_prefixes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -173,9 +173,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a public_advertised_prefix only if the necessary resources are available.
+Updates a <code>public_advertised_prefixes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.public_advertised_prefixes
 SET 
 kind = '{{ kind }}',
@@ -199,9 +200,10 @@ AND publicAdvertisedPrefix = '{{ publicAdvertisedPrefix }}';
 
 ## `DELETE` example
 
-Deletes the specified public_advertised_prefix resource.
+Deletes the specified <code>public_advertised_prefixes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.public_advertised_prefixes
 WHERE project = '{{ project }}'
 AND publicAdvertisedPrefix = '{{ publicAdvertisedPrefix }}';

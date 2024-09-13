@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>global_public_delegated_prefix</code> resource or lists <code>global_public_delegated_prefixes</code> in a region
+Creates, updates, deletes, gets or lists a <code>global_public_delegated_prefixes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -183,9 +183,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a global_public_delegated_prefix only if the necessary resources are available.
+Updates a <code>global_public_delegated_prefixes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.global_public_delegated_prefixes
 SET 
 kind = '{{ kind }}',
@@ -211,9 +212,10 @@ AND publicDelegatedPrefix = '{{ publicDelegatedPrefix }}';
 
 ## `DELETE` example
 
-Deletes the specified global_public_delegated_prefix resource.
+Deletes the specified <code>global_public_delegated_prefixes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.global_public_delegated_prefixes
 WHERE project = '{{ project }}'
 AND publicDelegatedPrefix = '{{ publicDelegatedPrefix }}';

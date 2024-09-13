@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>subnetwork</code> resource or lists <code>subnetworks</code> in a region
+Creates, updates, deletes, gets or lists a <code>subnetworks</code> resource.
 
 ## Overview
 <table><tbody>
@@ -242,9 +242,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a subnetwork only if the necessary resources are available.
+Updates a <code>subnetworks</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.subnetworks
 SET 
 kind = '{{ kind }}',
@@ -280,9 +281,10 @@ AND subnetwork = '{{ subnetwork }}';
 
 ## `DELETE` example
 
-Deletes the specified subnetwork resource.
+Deletes the specified <code>subnetworks</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.subnetworks
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'

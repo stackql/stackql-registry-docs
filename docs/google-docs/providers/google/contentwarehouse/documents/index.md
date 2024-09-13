@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>document</code> resource or lists <code>documents</code> in a region
+Creates, updates, deletes, gets or lists a <code>documents</code> resource.
 
 ## Overview
 <table><tbody>
@@ -157,9 +157,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a document only if the necessary resources are available.
+Updates a <code>documents</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.contentwarehouse.documents
 SET 
 updateOptions = '{{ updateOptions }}',
@@ -174,9 +175,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified document resource.
+Deletes the specified <code>documents</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.contentwarehouse.documents
 WHERE documentsId = '{{ documentsId }}'
 AND locationsId = '{{ locationsId }}'

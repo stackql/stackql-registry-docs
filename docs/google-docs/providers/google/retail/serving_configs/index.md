@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>serving_config</code> resource or lists <code>serving_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>serving_configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -215,9 +215,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a serving_config only if the necessary resources are available.
+Updates a <code>serving_configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.retail.serving_configs
 SET 
 name = '{{ name }}',
@@ -249,9 +250,10 @@ AND servingConfigsId = '{{ servingConfigsId }}';
 
 ## `DELETE` example
 
-Deletes the specified serving_config resource.
+Deletes the specified <code>serving_configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.retail.serving_configs
 WHERE catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'

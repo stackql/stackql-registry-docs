@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>conversion_workspace</code> resource or lists <code>conversion_workspaces</code> in a region
+Creates, updates, deletes, gets or lists a <code>conversion_workspaces</code> resource.
 
 ## Overview
 <table><tbody>
@@ -158,9 +158,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a conversion_workspace only if the necessary resources are available.
+Updates a <code>conversion_workspaces</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.datamigration.conversion_workspaces
 SET 
 name = '{{ name }}',
@@ -181,9 +182,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified conversion_workspace resource.
+Deletes the specified <code>conversion_workspaces</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.datamigration.conversion_workspaces
 WHERE conversionWorkspacesId = '{{ conversionWorkspacesId }}'
 AND locationsId = '{{ locationsId }}'

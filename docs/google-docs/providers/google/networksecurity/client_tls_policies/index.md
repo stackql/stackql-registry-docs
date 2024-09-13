@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>client_tls_policy</code> resource or lists <code>client_tls_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>client_tls_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -138,9 +138,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a client_tls_policy only if the necessary resources are available.
+Updates a <code>client_tls_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networksecurity.client_tls_policies
 SET 
 name = '{{ name }}',
@@ -159,9 +160,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified client_tls_policy resource.
+Deletes the specified <code>client_tls_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networksecurity.client_tls_policies
 WHERE clientTlsPoliciesId = '{{ clientTlsPoliciesId }}'
 AND locationsId = '{{ locationsId }}'

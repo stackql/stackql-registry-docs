@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>products_fulfillment_place</code> resource or lists <code>products_fulfillment_places</code> in a region
+Creates, updates, deletes, gets or lists a <code>products_fulfillment_places</code> resource.
 
 ## Overview
 <table><tbody>
@@ -98,9 +98,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified products_fulfillment_place resource.
+Deletes the specified <code>products_fulfillment_places</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.retail.products_fulfillment_places
 WHERE branchesId = '{{ branchesId }}'
 AND catalogsId = '{{ catalogsId }}'

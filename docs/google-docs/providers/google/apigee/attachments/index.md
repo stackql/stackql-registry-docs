@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>attachment</code> resource or lists <code>attachments</code> in a region
+Creates, updates, deletes, gets or lists a <code>attachments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -117,9 +117,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified attachment resource.
+Deletes the specified <code>attachments</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.attachments
 WHERE attachmentsId = '{{ attachmentsId }}'
 AND envgroupsId = '{{ envgroupsId }}'

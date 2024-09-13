@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>systempolicy_policy</code> resource or lists <code>systempolicy_policy</code> in a region
+Creates, updates, deletes, gets or lists a <code>systempolicy_policy</code> resource.
 
 ## Overview
 <table><tbody>

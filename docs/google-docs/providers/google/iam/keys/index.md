@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>key</code> resource or lists <code>keys</code> in a region
+Creates, updates, deletes, gets or lists a <code>keys</code> resource.
 
 ## Overview
 <table><tbody>
@@ -126,9 +126,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified key resource.
+Deletes the specified <code>keys</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.iam.keys
 WHERE keysId = '{{ keysId }}'
 AND locationsId = '{{ locationsId }}'

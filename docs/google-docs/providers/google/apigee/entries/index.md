@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>entry</code> resource or lists <code>entries</code> in a region
+Creates, updates, deletes, gets or lists a <code>entries</code> resource.
 
 ## Overview
 <table><tbody>
@@ -112,9 +112,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified entry resource.
+Deletes the specified <code>entries</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.entries
 WHERE entriesId = '{{ entriesId }}'
 AND keyvaluemapsId = '{{ keyvaluemapsId }}'

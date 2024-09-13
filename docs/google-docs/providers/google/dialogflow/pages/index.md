@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>page</code> resource or lists <code>pages</code> in a region
+Creates, updates, deletes, gets or lists a <code>pages</code> resource.
 
 ## Overview
 <table><tbody>
@@ -156,9 +156,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a page only if the necessary resources are available.
+Updates a <code>pages</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dialogflow.pages
 SET 
 name = '{{ name }}',
@@ -181,9 +182,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified page resource.
+Deletes the specified <code>pages</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dialogflow.pages
 WHERE agentsId = '{{ agentsId }}'
 AND flowsId = '{{ flowsId }}'

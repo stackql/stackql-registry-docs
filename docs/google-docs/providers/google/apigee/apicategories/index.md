@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>apicategory</code> resource or lists <code>apicategories</code> in a region
+Creates, updates, deletes, gets or lists a <code>apicategories</code> resource.
 
 ## Overview
 <table><tbody>
@@ -116,9 +116,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a apicategory only if the necessary resources are available.
+Updates a <code>apicategories</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.apicategories
 SET 
 siteId = '{{ siteId }}',
@@ -133,9 +134,10 @@ AND sitesId = '{{ sitesId }}';
 
 ## `DELETE` example
 
-Deletes the specified apicategory resource.
+Deletes the specified <code>apicategories</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.apicategories
 WHERE apicategoriesId = '{{ apicategoriesId }}'
 AND organizationsId = '{{ organizationsId }}'

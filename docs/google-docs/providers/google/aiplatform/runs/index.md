@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>run</code> resource or lists <code>runs</code> in a region
+Creates, updates, deletes, gets or lists a <code>runs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -116,9 +116,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a run only if the necessary resources are available.
+Updates a <code>runs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.runs
 SET 
 createTime = '{{ createTime }}',
@@ -138,9 +139,10 @@ AND tensorboardsId = '{{ tensorboardsId }}';
 
 ## `DELETE` example
 
-Deletes the specified run resource.
+Deletes the specified <code>runs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.runs
 WHERE experimentsId = '{{ experimentsId }}'
 AND locationsId = '{{ locationsId }}'

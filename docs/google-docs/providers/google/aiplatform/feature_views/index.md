@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>feature_view</code> resource or lists <code>feature_views</code> in a region
+Creates, updates, deletes, gets or lists a <code>feature_views</code> resource.
 
 ## Overview
 <table><tbody>
@@ -167,9 +167,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a feature_view only if the necessary resources are available.
+Updates a <code>feature_views</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.feature_views
 SET 
 satisfiesPzs = true|false,
@@ -193,9 +194,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified feature_view resource.
+Deletes the specified <code>feature_views</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.feature_views
 WHERE featureOnlineStoresId = '{{ featureOnlineStoresId }}'
 AND featureViewsId = '{{ featureViewsId }}'

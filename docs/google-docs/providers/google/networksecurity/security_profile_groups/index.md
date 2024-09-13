@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>security_profile_group</code> resource or lists <code>security_profile_groups</code> in a region
+Creates, updates, deletes, gets or lists a <code>security_profile_groups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -132,9 +132,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a security_profile_group only if the necessary resources are available.
+Updates a <code>security_profile_groups</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networksecurity.security_profile_groups
 SET 
 name = '{{ name }}',
@@ -152,9 +153,10 @@ AND securityProfileGroupsId = '{{ securityProfileGroupsId }}';
 
 ## `DELETE` example
 
-Deletes the specified security_profile_group resource.
+Deletes the specified <code>security_profile_groups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networksecurity.security_profile_groups
 WHERE locationsId = '{{ locationsId }}'
 AND organizationsId = '{{ organizationsId }}'

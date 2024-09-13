@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instance_template</code> resource or lists <code>instance_templates</code> in a region
+Creates, updates, deletes, gets or lists a <code>instance_templates</code> resource.
 
 ## Overview
 <table><tbody>
@@ -146,9 +146,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified instance_template resource.
+Deletes the specified <code>instance_templates</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.instance_templates
 WHERE instanceTemplate = '{{ instanceTemplate }}'
 AND project = '{{ project }}';

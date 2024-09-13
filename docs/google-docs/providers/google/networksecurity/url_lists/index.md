@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>url_list</code> resource or lists <code>url_lists</code> in a region
+Creates, updates, deletes, gets or lists a <code>url_lists</code> resource.
 
 ## Overview
 <table><tbody>
@@ -120,9 +120,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a url_list only if the necessary resources are available.
+Updates a <code>url_lists</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networksecurity.url_lists
 SET 
 name = '{{ name }}',
@@ -138,9 +139,10 @@ AND urlListsId = '{{ urlListsId }}';
 
 ## `DELETE` example
 
-Deletes the specified url_list resource.
+Deletes the specified <code>url_lists</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networksecurity.url_lists
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

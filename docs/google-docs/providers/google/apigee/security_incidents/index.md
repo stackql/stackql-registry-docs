@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>security_incident</code> resource or lists <code>security_incidents</code> in a region
+Creates, updates, deletes, gets or lists a <code>security_incidents</code> resource.
 
 ## Overview
 <table><tbody>
@@ -71,9 +71,10 @@ AND organizationsId = '{{ organizationsId }}';
 
 ## `UPDATE` example
 
-Updates a security_incident only if the necessary resources are available.
+Updates a <code>security_incidents</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.security_incidents
 SET 
 requests = '{{ requests }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>preview</code> resource or lists <code>previews</code> in a region
+Creates, updates, deletes, gets or lists a <code>previews</code> resource.
 
 ## Overview
 <table><tbody>
@@ -210,9 +210,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified preview resource.
+Deletes the specified <code>previews</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.config.previews
 WHERE locationsId = '{{ locationsId }}'
 AND previewsId = '{{ previewsId }}'

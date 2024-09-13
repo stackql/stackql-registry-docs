@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>import_data_file</code> resource or lists <code>import_data_files</code> in a region
+Creates, updates, deletes, gets or lists a <code>import_data_files</code> resource.
 
 ## Overview
 <table><tbody>
@@ -128,9 +128,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified import_data_file resource.
+Deletes the specified <code>import_data_files</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.migrationcenter.import_data_files
 WHERE importDataFilesId = '{{ importDataFilesId }}'
 AND importJobsId = '{{ importJobsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dns_bind_permission</code> resource or lists <code>dns_bind_permission</code> in a region
+Creates, updates, deletes, gets or lists a <code>dns_bind_permission</code> resource.
 
 ## Overview
 <table><tbody>

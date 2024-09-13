@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>group</code> resource or lists <code>groups</code> in a region
+Creates, updates, deletes, gets or lists a <code>groups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -126,9 +126,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a group only if the necessary resources are available.
+Updates a <code>groups</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.migrationcenter.groups
 SET 
 name = '{{ name }}',
@@ -145,9 +146,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified group resource.
+Deletes the specified <code>groups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.migrationcenter.groups
 WHERE groupsId = '{{ groupsId }}'
 AND locationsId = '{{ locationsId }}'

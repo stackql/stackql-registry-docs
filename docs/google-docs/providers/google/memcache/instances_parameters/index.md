@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instances_parameter</code> resource or lists <code>instances_parameters</code> in a region
+Creates, updates, deletes, gets or lists a <code>instances_parameters</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>instances_parameter</code> resource o
 
 ## `UPDATE` example
 
-Updates a instances_parameter only if the necessary resources are available.
+Updates a <code>instances_parameters</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.memcache.instances_parameters
 SET 
 updateMask = '{{ updateMask }}',

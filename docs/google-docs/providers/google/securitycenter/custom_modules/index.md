@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>custom_module</code> resource or lists <code>custom_modules</code> in a region
+Creates, updates, deletes, gets or lists a <code>custom_modules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -79,9 +79,10 @@ AND foldersId = '{{ foldersId }}';
 
 ## `UPDATE` example
 
-Updates a custom_module only if the necessary resources are available.
+Updates a <code>custom_modules</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.securitycenter.custom_modules
 SET 
 name = '{{ name }}',

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>adaptive_mt_dataset</code> resource or lists <code>adaptive_mt_datasets</code> in a region
+Creates, updates, deletes, gets or lists a <code>adaptive_mt_datasets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -132,9 +132,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified adaptive_mt_dataset resource.
+Deletes the specified <code>adaptive_mt_datasets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.translate.adaptive_mt_datasets
 WHERE adaptiveMtDatasetsId = '{{ adaptiveMtDatasetsId }}'
 AND locationsId = '{{ locationsId }}'

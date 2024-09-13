@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>firewall_endpoint</code> resource or lists <code>firewall_endpoints</code> in a region
+Creates, updates, deletes, gets or lists a <code>firewall_endpoints</code> resource.
 
 ## Overview
 <table><tbody>
@@ -150,9 +150,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a firewall_endpoint only if the necessary resources are available.
+Updates a <code>firewall_endpoints</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networksecurity.firewall_endpoints
 SET 
 name = '{{ name }}',
@@ -173,9 +174,10 @@ AND organizationsId = '{{ organizationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified firewall_endpoint resource.
+Deletes the specified <code>firewall_endpoints</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networksecurity.firewall_endpoints
 WHERE firewallEndpointsId = '{{ firewallEndpointsId }}'
 AND locationsId = '{{ locationsId }}'

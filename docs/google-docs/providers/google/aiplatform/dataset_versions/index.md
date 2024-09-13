@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>dataset_version</code> resource or lists <code>dataset_versions</code> in a region
+Creates, updates, deletes, gets or lists a <code>dataset_versions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -148,9 +148,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a dataset_version only if the necessary resources are available.
+Updates a <code>dataset_versions</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.aiplatform.dataset_versions
 SET 
 etag = '{{ etag }}',
@@ -170,9 +171,10 @@ AND datasetsId = '{{ datasetsId }}';
 
 ## `DELETE` example
 
-Deletes the specified dataset_version resource.
+Deletes the specified <code>dataset_versions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.aiplatform.dataset_versions
 WHERE datasetVersionsId = '{{ datasetVersionsId }}'
 AND datasetsId = '{{ datasetsId }}';

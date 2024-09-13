@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>data_store</code> resource or lists <code>data_stores</code> in a region
+Creates, updates, deletes, gets or lists a <code>data_stores</code> resource.
 
 ## Overview
 <table><tbody>
@@ -164,9 +164,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a data_store only if the necessary resources are available.
+Updates a <code>data_stores</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.discoveryengine.data_stores
 SET 
 name = '{{ name }}',
@@ -188,9 +189,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified data_store resource.
+Deletes the specified <code>data_stores</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.discoveryengine.data_stores
 WHERE dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>groups_asset</code> resource or lists <code>groups_assets</code> in a region
+Creates, updates, deletes, gets or lists a <code>groups_assets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -90,9 +90,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified groups_asset resource.
+Deletes the specified <code>groups_assets</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.migrationcenter.groups_assets
 WHERE groupsId = '{{ groupsId }}'
 AND locationsId = '{{ locationsId }}'

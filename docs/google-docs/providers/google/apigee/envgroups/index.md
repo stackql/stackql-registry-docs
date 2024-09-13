@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>envgroup</code> resource or lists <code>envgroups</code> in a region
+Creates, updates, deletes, gets or lists a <code>envgroups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -117,9 +117,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a envgroup only if the necessary resources are available.
+Updates a <code>envgroups</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.apigee.envgroups
 SET 
 lastModifiedAt = '{{ lastModifiedAt }}',
@@ -134,9 +135,10 @@ AND organizationsId = '{{ organizationsId }}';
 
 ## `DELETE` example
 
-Deletes the specified envgroup resource.
+Deletes the specified <code>envgroups</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.apigee.envgroups
 WHERE envgroupsId = '{{ envgroupsId }}'
 AND organizationsId = '{{ organizationsId }}';

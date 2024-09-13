@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>vmware_admin_cluster</code> resource or lists <code>vmware_admin_clusters</code> in a region
+Creates, updates, deletes, gets or lists a <code>vmware_admin_clusters</code> resource.
 
 ## Overview
 <table><tbody>
@@ -108,9 +108,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a vmware_admin_cluster only if the necessary resources are available.
+Updates a <code>vmware_admin_clusters</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.gkeonprem.vmware_admin_clusters
 SET 
 name = '{{ name }}',

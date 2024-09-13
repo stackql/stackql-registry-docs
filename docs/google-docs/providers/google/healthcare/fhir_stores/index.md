@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>fhir_store</code> resource or lists <code>fhir_stores</code> in a region
+Creates, updates, deletes, gets or lists a <code>fhir_stores</code> resource.
 
 ## Overview
 <table><tbody>
@@ -169,9 +169,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a fhir_store only if the necessary resources are available.
+Updates a <code>fhir_stores</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.healthcare.fhir_stores
 SET 
 name = '{{ name }}',
@@ -195,9 +196,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified fhir_store resource.
+Deletes the specified <code>fhir_stores</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.fhir_stores
 WHERE datasetsId = '{{ datasetsId }}'
 AND fhirStoresId = '{{ fhirStoresId }}'

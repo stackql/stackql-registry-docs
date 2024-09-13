@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_network_endpoint_groups_network_endpoint</code> resource or lists <code>region_network_endpoint_groups_network_endpoints</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_network_endpoint_groups_network_endpoints</code> resource.
 
 ## Overview
 <table><tbody>

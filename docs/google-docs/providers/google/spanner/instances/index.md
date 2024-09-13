@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>instance</code> resource or lists <code>instances</code> in a region
+Creates, updates, deletes, gets or lists a <code>instances</code> resource.
 
 ## Overview
 <table><tbody>
@@ -124,9 +124,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a instance only if the necessary resources are available.
+Updates a <code>instances</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.spanner.instances
 SET 
 instance = '{{ instance }}',
@@ -138,9 +139,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified instance resource.
+Deletes the specified <code>instances</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.spanner.instances
 WHERE instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}';

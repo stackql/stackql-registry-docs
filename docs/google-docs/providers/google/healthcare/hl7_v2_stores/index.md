@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>hl7_v2_store</code> resource or lists <code>hl7_v2_stores</code> in a region
+Creates, updates, deletes, gets or lists a <code>hl7_v2_stores</code> resource.
 
 ## Overview
 <table><tbody>
@@ -126,9 +126,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a hl7_v2_store only if the necessary resources are available.
+Updates a <code>hl7_v2_stores</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.healthcare.hl7_v2_stores
 SET 
 name = '{{ name }}',
@@ -145,9 +146,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified hl7_v2_store resource.
+Deletes the specified <code>hl7_v2_stores</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.healthcare.hl7_v2_stores
 WHERE datasetsId = '{{ datasetsId }}'
 AND hl7V2StoresId = '{{ hl7V2StoresId }}'

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>policy</code> resource or lists <code>policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -121,9 +121,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified policy resource.
+Deletes the specified <code>policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.binaryauthorization.policies
 WHERE platformsId = '{{ platformsId }}'
 AND policiesId = '{{ policiesId }}'

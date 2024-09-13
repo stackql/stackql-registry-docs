@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>intent</code> resource or lists <code>intents</code> in a region
+Creates, updates, deletes, gets or lists a <code>intents</code> resource.
 
 ## Overview
 <table><tbody>
@@ -143,9 +143,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a intent only if the necessary resources are available.
+Updates a <code>intents</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dialogflow.intents
 SET 
 name = '{{ name }}',
@@ -165,9 +166,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified intent resource.
+Deletes the specified <code>intents</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dialogflow.intents
 WHERE agentsId = '{{ agentsId }}'
 AND intentsId = '{{ intentsId }}'

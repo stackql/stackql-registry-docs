@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>log</code> resource or lists <code>logs</code> in a region
+Creates, updates, deletes, gets or lists a <code>logs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -64,9 +64,10 @@ WHERE foldersId = '{{ foldersId }}';
 
 ## `DELETE` example
 
-Deletes the specified log resource.
+Deletes the specified <code>logs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.logging.logs
 WHERE logName = '{{ logName }}';
 ```

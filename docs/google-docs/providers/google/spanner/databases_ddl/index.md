@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>databases_ddl</code> resource or lists <code>databases_ddl</code> in a region
+Creates, updates, deletes, gets or lists a <code>databases_ddl</code> resource.
 
 ## Overview
 <table><tbody>
@@ -56,9 +56,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `UPDATE` example
 
-Updates a databases_ddl only if the necessary resources are available.
+Updates a <code>databases_ddl</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.spanner.databases_ddl
 SET 
 statements = '{{ statements }}',

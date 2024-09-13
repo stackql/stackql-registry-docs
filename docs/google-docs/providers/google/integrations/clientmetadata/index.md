@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>clientmetadatum</code> resource or lists <code>clientmetadata</code> in a region
+Creates, updates, deletes, gets or lists a <code>clientmetadata</code> resource.
 
 ## Overview
 <table><tbody>

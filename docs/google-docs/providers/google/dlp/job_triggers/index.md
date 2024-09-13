@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>job_trigger</code> resource or lists <code>job_triggers</code> in a region
+Creates, updates, deletes, gets or lists a <code>job_triggers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -132,9 +132,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a job_trigger only if the necessary resources are available.
+Updates a <code>job_triggers</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dlp.job_triggers
 SET 
 updateMask = '{{ updateMask }}',
@@ -146,9 +147,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified job_trigger resource.
+Deletes the specified <code>job_triggers</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dlp.job_triggers
 WHERE jobTriggersId = '{{ jobTriggersId }}'
 AND projectsId = '{{ projectsId }}';

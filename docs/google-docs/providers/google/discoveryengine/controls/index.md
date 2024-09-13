@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>control</code> resource or lists <code>controls</code> in a region
+Creates, updates, deletes, gets or lists a <code>controls</code> resource.
 
 ## Overview
 <table><tbody>
@@ -163,9 +163,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a control only if the necessary resources are available.
+Updates a <code>controls</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.discoveryengine.controls
 SET 
 boostAction = '{{ boostAction }}',
@@ -187,9 +188,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified control resource.
+Deletes the specified <code>controls</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.discoveryengine.controls
 WHERE controlsId = '{{ controlsId }}'
 AND dataStoresId = '{{ dataStoresId }}'

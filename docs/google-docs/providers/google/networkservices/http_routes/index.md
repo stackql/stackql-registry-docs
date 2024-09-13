@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>http_route</code> resource or lists <code>http_routes</code> in a region
+Creates, updates, deletes, gets or lists a <code>http_routes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -150,9 +150,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a http_route only if the necessary resources are available.
+Updates a <code>http_routes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkservices.http_routes
 SET 
 name = '{{ name }}',
@@ -173,9 +174,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified http_route resource.
+Deletes the specified <code>http_routes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkservices.http_routes
 WHERE httpRoutesId = '{{ httpRoutesId }}'
 AND locationsId = '{{ locationsId }}'

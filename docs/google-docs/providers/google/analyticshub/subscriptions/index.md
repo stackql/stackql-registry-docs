@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>subscription</code> resource or lists <code>subscriptions</code> in a region
+Creates, updates, deletes, gets or lists a <code>subscriptions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -78,9 +78,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified subscription resource.
+Deletes the specified <code>subscriptions</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.analyticshub.subscriptions
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

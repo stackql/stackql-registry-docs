@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_security_policies_rule</code> resource or lists <code>region_security_policies_rule</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_security_policies_rule</code> resource.
 
 ## Overview
 <table><tbody>
@@ -157,9 +157,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified region_security_policies_rule resource.
+Deletes the specified <code>region_security_policies_rule</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.region_security_policies_rule
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'

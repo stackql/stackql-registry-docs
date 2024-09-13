@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>peered_dns_domain</code> resource or lists <code>peered_dns_domains</code> in a region
+Creates, updates, deletes, gets or lists a <code>peered_dns_domains</code> resource.
 
 ## Overview
 <table><tbody>
@@ -101,9 +101,10 @@ resources:
 
 ## `DELETE` example
 
-Deletes the specified peered_dns_domain resource.
+Deletes the specified <code>peered_dns_domains</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.servicenetworking.peered_dns_domains
 WHERE networksId = '{{ networksId }}'
 AND peeredDnsDomainsId = '{{ peeredDnsDomainsId }}'

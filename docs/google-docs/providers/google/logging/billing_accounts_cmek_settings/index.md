@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>billing_accounts_cmek_setting</code> resource or lists <code>billing_accounts_cmek_settings</code> in a region
+Creates, updates, deletes, gets or lists a <code>billing_accounts_cmek_settings</code> resource.
 
 ## Overview
 <table><tbody>

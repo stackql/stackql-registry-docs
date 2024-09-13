@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>inspect_template</code> resource or lists <code>inspect_templates</code> in a region
+Creates, updates, deletes, gets or lists a <code>inspect_templates</code> resource.
 
 ## Overview
 <table><tbody>
@@ -126,9 +126,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a inspect_template only if the necessary resources are available.
+Updates a <code>inspect_templates</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dlp.inspect_templates
 SET 
 inspectTemplate = '{{ inspectTemplate }}',
@@ -140,9 +141,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified inspect_template resource.
+Deletes the specified <code>inspect_templates</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dlp.inspect_templates
 WHERE inspectTemplatesId = '{{ inspectTemplatesId }}'
 AND projectsId = '{{ projectsId }}';

@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>databases_scan</code> resource or lists <code>databases_scans</code> in a region
+Creates, updates, deletes, gets or lists a <code>databases_scans</code> resource.
 
 ## Overview
 <table><tbody>

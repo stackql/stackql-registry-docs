@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>mesh</code> resource or lists <code>meshes</code> in a region
+Creates, updates, deletes, gets or lists a <code>meshes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -138,9 +138,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a mesh only if the necessary resources are available.
+Updates a <code>meshes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkservices.meshes
 SET 
 name = '{{ name }}',
@@ -159,9 +160,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified mesh resource.
+Deletes the specified <code>meshes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkservices.meshes
 WHERE locationsId = '{{ locationsId }}'
 AND meshesId = '{{ meshesId }}'

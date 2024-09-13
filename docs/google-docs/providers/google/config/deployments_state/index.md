@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>deployments_state</code> resource or lists <code>deployments_state</code> in a region
+Creates, updates, deletes, gets or lists a <code>deployments_state</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,9 +39,10 @@ Creates, updates, deletes or gets an <code>deployments_state</code> resource or 
 
 ## `DELETE` example
 
-Deletes the specified deployments_state resource.
+Deletes the specified <code>deployments_state</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.config.deployments_state
 WHERE deploymentsId = '{{ deploymentsId }}'
 AND locationsId = '{{ locationsId }}'

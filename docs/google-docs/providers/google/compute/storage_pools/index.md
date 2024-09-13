@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>storage_pool</code> resource or lists <code>storage_pools</code> in a region
+Creates, updates, deletes, gets or lists a <code>storage_pools</code> resource.
 
 ## Overview
 <table><tbody>
@@ -204,9 +204,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a storage_pool only if the necessary resources are available.
+Updates a <code>storage_pools</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.storage_pools
 SET 
 kind = '{{ kind }}',
@@ -236,9 +237,10 @@ AND zone = '{{ zone }}';
 
 ## `DELETE` example
 
-Deletes the specified storage_pool resource.
+Deletes the specified <code>storage_pools</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.storage_pools
 WHERE project = '{{ project }}'
 AND storagePool = '{{ storagePool }}'

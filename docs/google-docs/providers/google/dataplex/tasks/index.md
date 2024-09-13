@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>task</code> resource or lists <code>tasks</code> in a region
+Creates, updates, deletes, gets or lists a <code>tasks</code> resource.
 
 ## Overview
 <table><tbody>
@@ -172,9 +172,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a task only if the necessary resources are available.
+Updates a <code>tasks</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.dataplex.tasks
 SET 
 name = '{{ name }}',
@@ -199,9 +200,10 @@ AND tasksId = '{{ tasksId }}';
 
 ## `DELETE` example
 
-Deletes the specified task resource.
+Deletes the specified <code>tasks</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.dataplex.tasks
 WHERE lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'

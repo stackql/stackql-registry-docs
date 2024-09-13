@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>cutover_job</code> resource or lists <code>cutover_jobs</code> in a region
+Creates, updates, deletes, gets or lists a <code>cutover_jobs</code> resource.
 
 ## Overview
 <table><tbody>

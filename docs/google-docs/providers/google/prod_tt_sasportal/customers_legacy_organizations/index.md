@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>customers_legacy_organization</code> resource or lists <code>customers_legacy_organizations</code> in a region
+Creates, updates, deletes, gets or lists a <code>customers_legacy_organizations</code> resource.
 
 ## Overview
 <table><tbody>

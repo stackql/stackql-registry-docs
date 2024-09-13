@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>catalog_item</code> resource or lists <code>catalog_items</code> in a region
+Creates, updates, deletes, gets or lists a <code>catalog_items</code> resource.
 
 ## Overview
 <table><tbody>
@@ -148,9 +148,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a catalog_item only if the necessary resources are available.
+Updates a <code>catalog_items</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.recommendationengine.catalog_items
 SET 
 id = '{{ id }}',
@@ -171,9 +172,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified catalog_item resource.
+Deletes the specified <code>catalog_items</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.recommendationengine.catalog_items
 WHERE catalogItemsId = '{{ catalogItemsId }}'
 AND catalogsId = '{{ catalogsId }}'

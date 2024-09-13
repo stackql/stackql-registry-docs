@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>auth_config</code> resource or lists <code>auth_configs</code> in a region
+Creates, updates, deletes, gets or lists a <code>auth_configs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -197,9 +197,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a auth_config only if the necessary resources are available.
+Updates a <code>auth_configs</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.integrations.auth_configs
 SET 
 reason = '{{ reason }}',
@@ -227,9 +228,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified auth_config resource.
+Deletes the specified <code>auth_configs</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.integrations.auth_configs
 WHERE authConfigsId = '{{ authConfigsId }}'
 AND locationsId = '{{ locationsId }}'

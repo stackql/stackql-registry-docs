@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>region_instance_group_managers_managed_instance</code> resource or lists <code>region_instance_group_managers_managed_instances</code> in a region
+Creates, updates, deletes, gets or lists a <code>region_instance_group_managers_managed_instances</code> resource.
 
 ## Overview
 <table><tbody>

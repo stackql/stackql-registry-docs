@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>data_policy</code> resource or lists <code>data_policies</code> in a region
+Creates, updates, deletes, gets or lists a <code>data_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -121,9 +121,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a data_policy only if the necessary resources are available.
+Updates a <code>data_policies</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.bigquerydatapolicy.data_policies
 SET 
 policyTag = '{{ policyTag }}',
@@ -139,9 +140,10 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified data_policy resource.
+Deletes the specified <code>data_policies</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.bigquerydatapolicy.data_policies
 WHERE dataPoliciesId = '{{ dataPoliciesId }}'
 AND locationsId = '{{ locationsId }}'

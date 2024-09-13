@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>tcp_route</code> resource or lists <code>tcp_routes</code> in a region
+Creates, updates, deletes, gets or lists a <code>tcp_routes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -144,9 +144,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a tcp_route only if the necessary resources are available.
+Updates a <code>tcp_routes</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.networkservices.tcp_routes
 SET 
 name = '{{ name }}',
@@ -166,9 +167,10 @@ AND tcpRoutesId = '{{ tcpRoutesId }}';
 
 ## `DELETE` example
 
-Deletes the specified tcp_route resource.
+Deletes the specified <code>tcp_routes</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.networkservices.tcp_routes
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

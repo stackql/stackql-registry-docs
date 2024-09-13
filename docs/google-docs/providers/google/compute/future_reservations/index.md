@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>future_reservation</code> resource or lists <code>future_reservations</code> in a region
+Creates, updates, deletes, gets or lists a <code>future_reservations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -193,9 +193,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a future_reservation only if the necessary resources are available.
+Updates a <code>future_reservations</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.compute.future_reservations
 SET 
 kind = '{{ kind }}',
@@ -223,9 +224,10 @@ AND zone = '{{ zone }}';
 
 ## `DELETE` example
 
-Deletes the specified future_reservation resource.
+Deletes the specified <code>future_reservations</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.compute.future_reservations
 WHERE futureReservation = '{{ futureReservation }}'
 AND project = '{{ project }}'

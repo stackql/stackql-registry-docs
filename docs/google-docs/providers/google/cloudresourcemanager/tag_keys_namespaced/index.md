@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>tag_keys_namespaced</code> resource or lists <code>tag_keys_namespaced</code> in a region
+Creates, updates, deletes, gets or lists a <code>tag_keys_namespaced</code> resource.
 
 ## Overview
 <table><tbody>

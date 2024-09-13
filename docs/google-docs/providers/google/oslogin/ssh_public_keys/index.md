@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes or gets an <code>ssh_public_key</code> resource or lists <code>ssh_public_keys</code> in a region
+Creates, updates, deletes, gets or lists a <code>ssh_public_keys</code> resource.
 
 ## Overview
 <table><tbody>
@@ -111,9 +111,10 @@ resources:
 
 ## `UPDATE` example
 
-Updates a ssh_public_key only if the necessary resources are available.
+Updates a <code>ssh_public_keys</code> resource.
 
 ```sql
+/*+ update */
 UPDATE google.oslogin.ssh_public_keys
 SET 
 key = '{{ key }}',
@@ -127,9 +128,10 @@ AND usersId = '{{ usersId }}';
 
 ## `DELETE` example
 
-Deletes the specified ssh_public_key resource.
+Deletes the specified <code>ssh_public_keys</code> resource.
 
 ```sql
+/*+ delete */
 DELETE FROM google.oslogin.ssh_public_keys
 WHERE sshPublicKeysId = '{{ sshPublicKeysId }}'
 AND usersId = '{{ usersId }}';
