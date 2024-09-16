@@ -107,20 +107,17 @@ locationsId,
 projectsId,
 bigqueryDataset,
 pubsubTopic,
-name,
 displayName,
 description,
 primaryContact,
 documentation,
-state,
 icon,
 dataProvider,
 categories,
 publisher,
 requestAccess,
 restrictedExportConfig,
-discoveryType,
-resourceType
+discoveryType
 )
 SELECT 
 '{{ dataExchangesId }}',
@@ -128,20 +125,17 @@ SELECT
 '{{ projectsId }}',
 '{{ bigqueryDataset }}',
 '{{ pubsubTopic }}',
-'{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ primaryContact }}',
 '{{ documentation }}',
-'{{ state }}',
 '{{ icon }}',
 '{{ dataProvider }}',
 '{{ categories }}',
 '{{ publisher }}',
 '{{ requestAccess }}',
 '{{ restrictedExportConfig }}',
-'{{ discoveryType }}',
-'{{ resourceType }}'
+'{{ discoveryType }}'
 ;
 ```
 </TabItem>
@@ -151,11 +145,29 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: bigqueryDataset
-      value: '{{ bigqueryDataset }}'
+      value:
+        - name: dataset
+          value: '{{ dataset }}'
+        - name: selectedResources
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: restrictedExportPolicy
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+            - name: restrictDirectTableAccess
+              value: '{{ restrictDirectTableAccess }}'
+            - name: restrictQueryResult
+              value: '{{ restrictQueryResult }}'
     - name: pubsubTopic
-      value: '{{ pubsubTopic }}'
-    - name: name
-      value: '{{ name }}'
+      value:
+        - name: topic
+          value: '{{ topic }}'
+        - name: dataAffinityRegions
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
@@ -164,24 +176,38 @@ SELECT
       value: '{{ primaryContact }}'
     - name: documentation
       value: '{{ documentation }}'
-    - name: state
-      value: '{{ state }}'
     - name: icon
       value: '{{ icon }}'
     - name: dataProvider
-      value: '{{ dataProvider }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: primaryContact
+          value: '{{ primaryContact }}'
     - name: categories
-      value: '{{ categories }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: publisher
-      value: '{{ publisher }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: primaryContact
+          value: '{{ primaryContact }}'
     - name: requestAccess
       value: '{{ requestAccess }}'
     - name: restrictedExportConfig
-      value: '{{ restrictedExportConfig }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: restrictQueryResult
+          value: '{{ restrictQueryResult }}'
     - name: discoveryType
       value: '{{ discoveryType }}'
-    - name: resourceType
-      value: '{{ resourceType }}'
 
 ```
 </TabItem>
@@ -197,20 +223,17 @@ UPDATE google.analyticshub.listings
 SET 
 bigqueryDataset = '{{ bigqueryDataset }}',
 pubsubTopic = '{{ pubsubTopic }}',
-name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 primaryContact = '{{ primaryContact }}',
 documentation = '{{ documentation }}',
-state = '{{ state }}',
 icon = '{{ icon }}',
 dataProvider = '{{ dataProvider }}',
 categories = '{{ categories }}',
 publisher = '{{ publisher }}',
 requestAccess = '{{ requestAccess }}',
 restrictedExportConfig = '{{ restrictedExportConfig }}',
-discoveryType = '{{ discoveryType }}',
-resourceType = '{{ resourceType }}'
+discoveryType = '{{ discoveryType }}'
 WHERE 
 dataExchangesId = '{{ dataExchangesId }}'
 AND listingsId = '{{ listingsId }}'

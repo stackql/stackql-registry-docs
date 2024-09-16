@@ -115,7 +115,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: requests
-      value: '{{ requests }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -129,16 +131,9 @@ Updates a <code>target_sites</code> resource.
 /*+ update */
 UPDATE google.discoveryengine.target_sites
 SET 
-name = '{{ name }}',
 providedUriPattern = '{{ providedUriPattern }}',
 type = '{{ type }}',
-exactMatch = true|false,
-generatedUriPattern = '{{ generatedUriPattern }}',
-rootDomainUri = '{{ rootDomainUri }}',
-siteVerificationInfo = '{{ siteVerificationInfo }}',
-indexingStatus = '{{ indexingStatus }}',
-updateTime = '{{ updateTime }}',
-failureReason = '{{ failureReason }}'
+exactMatch = true|false
 WHERE 
 dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'

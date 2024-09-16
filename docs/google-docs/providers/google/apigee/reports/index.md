@@ -115,23 +115,18 @@ organizationsId,
 fromTime,
 sortByCols,
 offset,
-environment,
 sortOrder,
 topk,
 name,
 timeUnit,
 chartType,
-lastModifiedAt,
 metrics,
 filter,
-createdAt,
 properties,
 toTime,
 displayName,
-organization,
 comments,
 tags,
-lastViewedAt,
 dimensions,
 limit
 )
@@ -140,23 +135,18 @@ SELECT
 '{{ fromTime }}',
 '{{ sortByCols }}',
 '{{ offset }}',
-'{{ environment }}',
 '{{ sortOrder }}',
 '{{ topk }}',
 '{{ name }}',
 '{{ timeUnit }}',
 '{{ chartType }}',
-'{{ lastModifiedAt }}',
 '{{ metrics }}',
 '{{ filter }}',
-'{{ createdAt }}',
 '{{ properties }}',
 '{{ toTime }}',
 '{{ displayName }}',
-'{{ organization }}',
 '{{ comments }}',
 '{{ tags }}',
-'{{ lastViewedAt }}',
 '{{ dimensions }}',
 '{{ limit }}'
 ;
@@ -170,11 +160,11 @@ SELECT
     - name: fromTime
       value: '{{ fromTime }}'
     - name: sortByCols
-      value: '{{ sortByCols }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: offset
       value: '{{ offset }}'
-    - name: environment
-      value: '{{ environment }}'
     - name: sortOrder
       value: '{{ sortOrder }}'
     - name: topk
@@ -185,30 +175,32 @@ SELECT
       value: '{{ timeUnit }}'
     - name: chartType
       value: '{{ chartType }}'
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
     - name: metrics
-      value: '{{ metrics }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: filter
       value: '{{ filter }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
     - name: properties
-      value: '{{ properties }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: toTime
       value: '{{ toTime }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: organization
-      value: '{{ organization }}'
     - name: comments
-      value: '{{ comments }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: tags
-      value: '{{ tags }}'
-    - name: lastViewedAt
-      value: '{{ lastViewedAt }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: dimensions
-      value: '{{ dimensions }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: limit
       value: '{{ limit }}'
 
@@ -227,23 +219,18 @@ SET
 fromTime = '{{ fromTime }}',
 sortByCols = '{{ sortByCols }}',
 offset = '{{ offset }}',
-environment = '{{ environment }}',
 sortOrder = '{{ sortOrder }}',
 topk = '{{ topk }}',
 name = '{{ name }}',
 timeUnit = '{{ timeUnit }}',
 chartType = '{{ chartType }}',
-lastModifiedAt = '{{ lastModifiedAt }}',
 metrics = '{{ metrics }}',
 filter = '{{ filter }}',
-createdAt = '{{ createdAt }}',
 properties = '{{ properties }}',
 toTime = '{{ toTime }}',
 displayName = '{{ displayName }}',
-organization = '{{ organization }}',
 comments = '{{ comments }}',
 tags = '{{ tags }}',
-lastViewedAt = '{{ lastViewedAt }}',
 dimensions = '{{ dimensions }}',
 limit = '{{ limit }}'
 WHERE 

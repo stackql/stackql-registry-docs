@@ -127,7 +127,6 @@ name,
 description,
 isDefault,
 deploymentUri,
-createTime,
 lastUseTime,
 runtimeVersion,
 machineType,
@@ -146,9 +145,7 @@ serviceAccount,
 requestLoggingConfig,
 explanationConfig,
 container,
-routes,
-lastMigrationTime,
-lastMigrationModelId
+routes
 )
 SELECT 
 '{{ modelsId }}',
@@ -157,7 +154,6 @@ SELECT
 '{{ description }}',
 true|false,
 '{{ deploymentUri }}',
-'{{ createTime }}',
 '{{ lastUseTime }}',
 '{{ runtimeVersion }}',
 '{{ machineType }}',
@@ -176,9 +172,7 @@ true|false,
 '{{ requestLoggingConfig }}',
 '{{ explanationConfig }}',
 '{{ container }}',
-'{{ routes }}',
-'{{ lastMigrationTime }}',
-'{{ lastMigrationModelId }}'
+'{{ routes }}'
 ;
 ```
 </TabItem>
@@ -195,8 +189,6 @@ true|false,
       value: '{{ isDefault }}'
     - name: deploymentUri
       value: '{{ deploymentUri }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: lastUseTime
       value: '{{ lastUseTime }}'
     - name: runtimeVersion
@@ -204,9 +196,19 @@ true|false,
     - name: machineType
       value: '{{ machineType }}'
     - name: autoScaling
-      value: '{{ autoScaling }}'
+      value:
+        - name: minNodes
+          value: '{{ minNodes }}'
+        - name: maxNodes
+          value: '{{ maxNodes }}'
+        - name: metrics
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: manualScaling
-      value: '{{ manualScaling }}'
+      value:
+        - name: nodes
+          value: '{{ nodes }}'
     - name: state
       value: '{{ state }}'
     - name: errorMessage
@@ -214,7 +216,9 @@ true|false,
     - name: predictionClass
       value: '{{ predictionClass }}'
     - name: packageUris
-      value: '{{ packageUris }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
     - name: etag
@@ -224,21 +228,59 @@ true|false,
     - name: pythonVersion
       value: '{{ pythonVersion }}'
     - name: acceleratorConfig
-      value: '{{ acceleratorConfig }}'
+      value:
+        - name: count
+          value: '{{ count }}'
+        - name: type
+          value: '{{ type }}'
     - name: serviceAccount
       value: '{{ serviceAccount }}'
     - name: requestLoggingConfig
-      value: '{{ requestLoggingConfig }}'
+      value:
+        - name: samplingPercentage
+          value: '{{ samplingPercentage }}'
+        - name: bigqueryTableName
+          value: '{{ bigqueryTableName }}'
     - name: explanationConfig
-      value: '{{ explanationConfig }}'
+      value:
+        - name: integratedGradientsAttribution
+          value:
+            - name: numIntegralSteps
+              value: '{{ numIntegralSteps }}'
+        - name: sampledShapleyAttribution
+          value:
+            - name: numPaths
+              value: '{{ numPaths }}'
+        - name: xraiAttribution
+          value:
+            - name: numIntegralSteps
+              value: '{{ numIntegralSteps }}'
     - name: container
-      value: '{{ container }}'
+      value:
+        - name: image
+          value: '{{ image }}'
+        - name: command
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: args
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: ports
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: env
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: routes
-      value: '{{ routes }}'
-    - name: lastMigrationTime
-      value: '{{ lastMigrationTime }}'
-    - name: lastMigrationModelId
-      value: '{{ lastMigrationModelId }}'
+      value:
+        - name: predict
+          value: '{{ predict }}'
+        - name: health
+          value: '{{ health }}'
 
 ```
 </TabItem>
@@ -256,7 +298,6 @@ name = '{{ name }}',
 description = '{{ description }}',
 isDefault = true|false,
 deploymentUri = '{{ deploymentUri }}',
-createTime = '{{ createTime }}',
 lastUseTime = '{{ lastUseTime }}',
 runtimeVersion = '{{ runtimeVersion }}',
 machineType = '{{ machineType }}',
@@ -275,9 +316,7 @@ serviceAccount = '{{ serviceAccount }}',
 requestLoggingConfig = '{{ requestLoggingConfig }}',
 explanationConfig = '{{ explanationConfig }}',
 container = '{{ container }}',
-routes = '{{ routes }}',
-lastMigrationTime = '{{ lastMigrationTime }}',
-lastMigrationModelId = '{{ lastMigrationModelId }}'
+routes = '{{ routes }}'
 WHERE 
 modelsId = '{{ modelsId }}'
 AND projectsId = '{{ projectsId }}'

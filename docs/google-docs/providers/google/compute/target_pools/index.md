@@ -97,9 +97,6 @@ Use the following StackQL query and manifest file to create a new <code>target_p
 INSERT INTO google.compute.target_pools (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 region,
@@ -108,15 +105,11 @@ instances,
 sessionAffinity,
 failoverRatio,
 backupPool,
-selfLink,
 securityPolicy
 )
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ region }}',
@@ -125,7 +118,6 @@ SELECT
 '{{ sessionAffinity }}',
 number,
 '{{ backupPool }}',
-'{{ selfLink }}',
 '{{ securityPolicy }}'
 ;
 ```
@@ -135,12 +127,6 @@ number,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -148,17 +134,19 @@ number,
     - name: region
       value: '{{ region }}'
     - name: healthChecks
-      value: '{{ healthChecks }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: instances
-      value: '{{ instances }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: sessionAffinity
       value: '{{ sessionAffinity }}'
     - name: failoverRatio
       value: '{{ failoverRatio }}'
     - name: backupPool
       value: '{{ backupPool }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: securityPolicy
       value: '{{ securityPolicy }}'
 

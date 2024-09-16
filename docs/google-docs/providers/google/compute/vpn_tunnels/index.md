@@ -118,9 +118,6 @@ Use the following StackQL query and manifest file to create a new <code>vpn_tunn
 INSERT INTO google.compute.vpn_tunnels (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 region,
@@ -135,7 +132,6 @@ peerIp,
 sharedSecret,
 sharedSecretHash,
 status,
-selfLink,
 ikeVersion,
 detailedStatus,
 localTrafficSelector,
@@ -146,9 +142,6 @@ labelFingerprint
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ region }}',
@@ -163,7 +156,6 @@ SELECT
 '{{ sharedSecret }}',
 '{{ sharedSecretHash }}',
 '{{ status }}',
-'{{ selfLink }}',
 '{{ ikeVersion }}',
 '{{ detailedStatus }}',
 '{{ localTrafficSelector }}',
@@ -178,12 +170,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -212,16 +198,18 @@ SELECT
       value: '{{ sharedSecretHash }}'
     - name: status
       value: '{{ status }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: ikeVersion
       value: '{{ ikeVersion }}'
     - name: detailedStatus
       value: '{{ detailedStatus }}'
     - name: localTrafficSelector
-      value: '{{ localTrafficSelector }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: remoteTrafficSelector
-      value: '{{ remoteTrafficSelector }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
     - name: labelFingerprint

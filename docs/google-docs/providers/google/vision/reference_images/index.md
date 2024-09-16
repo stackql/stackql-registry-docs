@@ -101,7 +101,9 @@ SELECT
     - name: uri
       value: '{{ uri }}'
     - name: boundingPolys
-      value: '{{ boundingPolys }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

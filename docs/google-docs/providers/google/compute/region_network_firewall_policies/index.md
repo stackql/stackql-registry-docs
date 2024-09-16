@@ -102,15 +102,10 @@ Use the following StackQL query and manifest file to create a new <code>region_n
 INSERT INTO google.compute.region_network_firewall_policies (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 rules,
 fingerprint,
-selfLink,
-selfLinkWithId,
 associations,
 ruleTupleCount,
 shortName,
@@ -121,15 +116,10 @@ region
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ rules }}',
 '{{ fingerprint }}',
-'{{ selfLink }}',
-'{{ selfLinkWithId }}',
 '{{ associations }}',
 '{{ ruleTupleCount }}',
 '{{ shortName }}',
@@ -144,26 +134,20 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: rules
-      value: '{{ rules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: selfLinkWithId
-      value: '{{ selfLinkWithId }}'
     - name: associations
-      value: '{{ associations }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: ruleTupleCount
       value: '{{ ruleTupleCount }}'
     - name: shortName
@@ -187,15 +171,10 @@ Updates a <code>region_network_firewall_policies</code> resource.
 /*+ update */
 UPDATE google.compute.region_network_firewall_policies
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 rules = '{{ rules }}',
 fingerprint = '{{ fingerprint }}',
-selfLink = '{{ selfLink }}',
-selfLinkWithId = '{{ selfLinkWithId }}',
 associations = '{{ associations }}',
 ruleTupleCount = '{{ ruleTupleCount }}',
 shortName = '{{ shortName }}',

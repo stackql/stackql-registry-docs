@@ -97,8 +97,7 @@ testingOptions,
 labels,
 androidSettings,
 expressSettings,
-iosSettings,
-createTime
+iosSettings
 )
 SELECT 
 '{{ projectsId }}',
@@ -110,8 +109,7 @@ SELECT
 '{{ labels }}',
 '{{ androidSettings }}',
 '{{ expressSettings }}',
-'{{ iosSettings }}',
-'{{ createTime }}'
+'{{ iosSettings }}'
 ;
 ```
 </TabItem>
@@ -125,21 +123,61 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: webSettings
-      value: '{{ webSettings }}'
+      value:
+        - name: challengeSecurityPreference
+          value: '{{ challengeSecurityPreference }}'
+        - name: allowAllDomains
+          value: '{{ allowAllDomains }}'
+        - name: allowAmpTraffic
+          value: '{{ allowAmpTraffic }}'
+        - name: integrationType
+          value: '{{ integrationType }}'
+        - name: allowedDomains
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: wafSettings
-      value: '{{ wafSettings }}'
+      value:
+        - name: wafFeature
+          value: '{{ wafFeature }}'
+        - name: wafService
+          value: '{{ wafService }}'
     - name: testingOptions
-      value: '{{ testingOptions }}'
+      value:
+        - name: testingScore
+          value: '{{ testingScore }}'
+        - name: testingChallenge
+          value: '{{ testingChallenge }}'
     - name: labels
       value: '{{ labels }}'
     - name: androidSettings
-      value: '{{ androidSettings }}'
+      value:
+        - name: supportNonGoogleAppStoreDistribution
+          value: '{{ supportNonGoogleAppStoreDistribution }}'
+        - name: allowedPackageNames
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: allowAllPackageNames
+          value: '{{ allowAllPackageNames }}'
     - name: expressSettings
-      value: '{{ expressSettings }}'
+      value: []
     - name: iosSettings
-      value: '{{ iosSettings }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: allowedBundleIds
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: allowAllBundleIds
+          value: '{{ allowAllBundleIds }}'
+        - name: appleDeveloperId
+          value:
+            - name: keyId
+              value: '{{ keyId }}'
+            - name: privateKey
+              value: '{{ privateKey }}'
+            - name: teamId
+              value: '{{ teamId }}'
 
 ```
 </TabItem>
@@ -161,8 +199,7 @@ testingOptions = '{{ testingOptions }}',
 labels = '{{ labels }}',
 androidSettings = '{{ androidSettings }}',
 expressSettings = '{{ expressSettings }}',
-iosSettings = '{{ iosSettings }}',
-createTime = '{{ createTime }}'
+iosSettings = '{{ iosSettings }}'
 WHERE 
 keysId = '{{ keysId }}'
 AND projectsId = '{{ projectsId }}';

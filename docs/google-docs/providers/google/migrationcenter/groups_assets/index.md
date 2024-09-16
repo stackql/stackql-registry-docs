@@ -79,7 +79,11 @@ true|false
     - name: requestId
       value: '{{ requestId }}'
     - name: assets
-      value: '{{ assets }}'
+      value:
+        - name: assetIds
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: allowExisting
       value: '{{ allowExisting }}'
 

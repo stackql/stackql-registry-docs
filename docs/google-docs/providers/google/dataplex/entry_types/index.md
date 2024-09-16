@@ -96,10 +96,6 @@ Use the following StackQL query and manifest file to create a new <code>entry_ty
 INSERT INTO google.dataplex.entry_types (
 locationsId,
 projectsId,
-name,
-uid,
-createTime,
-updateTime,
 description,
 displayName,
 labels,
@@ -113,10 +109,6 @@ authorization
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ displayName }}',
 '{{ labels }}',
@@ -134,14 +126,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: displayName
@@ -151,15 +135,21 @@ SELECT
     - name: etag
       value: '{{ etag }}'
     - name: typeAliases
-      value: '{{ typeAliases }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: platform
       value: '{{ platform }}'
     - name: system
       value: '{{ system }}'
     - name: requiredAspects
-      value: '{{ requiredAspects }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: authorization
-      value: '{{ authorization }}'
+      value:
+        - name: alternateUsePermission
+          value: '{{ alternateUsePermission }}'
 
 ```
 </TabItem>
@@ -173,10 +163,6 @@ Updates a <code>entry_types</code> resource.
 /*+ update */
 UPDATE google.dataplex.entry_types
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 displayName = '{{ displayName }}',
 labels = '{{ labels }}',

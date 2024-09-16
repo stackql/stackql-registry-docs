@@ -94,30 +94,20 @@ Use the following StackQL query and manifest file to create a new <code>anywhere
 /*+ create */
 INSERT INTO google.storage.anywhere_caches (
 bucket,
-kind,
-id,
-selfLink,
 bucket,
 anywhereCacheId,
 zone,
 state,
-createTime,
-updateTime,
 ttl,
 admissionPolicy,
 pendingUpdate
 )
 SELECT 
 '{{ bucket }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ selfLink }}',
 '{{ bucket }}',
 '{{ anywhereCacheId }}',
 '{{ zone }}',
 '{{ state }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ ttl }}',
 '{{ admissionPolicy }}',
 true|false
@@ -129,12 +119,6 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: bucket
       value: '{{ bucket }}'
     - name: anywhereCacheId
@@ -143,10 +127,6 @@ true|false
       value: '{{ zone }}'
     - name: state
       value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: ttl
       value: '{{ ttl }}'
     - name: admissionPolicy
@@ -166,15 +146,10 @@ Updates a <code>anywhere_caches</code> resource.
 /*+ update */
 UPDATE google.storage.anywhere_caches
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-selfLink = '{{ selfLink }}',
 bucket = '{{ bucket }}',
 anywhereCacheId = '{{ anywhereCacheId }}',
 zone = '{{ zone }}',
 state = '{{ state }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 ttl = '{{ ttl }}',
 admissionPolicy = '{{ admissionPolicy }}',
 pendingUpdate = true|false

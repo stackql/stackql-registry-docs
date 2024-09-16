@@ -78,11 +78,9 @@ SET
 analysisConfig = '{{ analysisConfig }}',
 conversationTtl = '{{ conversationTtl }}',
 redactionConfig = '{{ redactionConfig }}',
-updateTime = '{{ updateTime }}',
 speechConfig = '{{ speechConfig }}',
 pubsubNotificationSettings = '{{ pubsubNotificationSettings }}',
 languageCode = '{{ languageCode }}',
-createTime = '{{ createTime }}',
 name = '{{ name }}'
 WHERE 
 locationsId = '{{ locationsId }}'

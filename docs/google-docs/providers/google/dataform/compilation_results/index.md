@@ -94,13 +94,7 @@ repositoriesId,
 gitCommitish,
 workspace,
 releaseConfig,
-name,
-codeCompilationConfig,
-resolvedGitCommitSha,
-dataformCoreVersion,
-compilationErrors,
-dataEncryptionState,
-createTime
+codeCompilationConfig
 )
 SELECT 
 '{{ locationsId }}',
@@ -109,13 +103,7 @@ SELECT
 '{{ gitCommitish }}',
 '{{ workspace }}',
 '{{ releaseConfig }}',
-'{{ name }}',
-'{{ codeCompilationConfig }}',
-'{{ resolvedGitCommitSha }}',
-'{{ dataformCoreVersion }}',
-'{{ compilationErrors }}',
-'{{ dataEncryptionState }}',
-'{{ createTime }}'
+'{{ codeCompilationConfig }}'
 ;
 ```
 </TabItem>
@@ -130,20 +118,28 @@ SELECT
       value: '{{ workspace }}'
     - name: releaseConfig
       value: '{{ releaseConfig }}'
-    - name: name
-      value: '{{ name }}'
     - name: codeCompilationConfig
-      value: '{{ codeCompilationConfig }}'
-    - name: resolvedGitCommitSha
-      value: '{{ resolvedGitCommitSha }}'
-    - name: dataformCoreVersion
-      value: '{{ dataformCoreVersion }}'
-    - name: compilationErrors
-      value: '{{ compilationErrors }}'
-    - name: dataEncryptionState
-      value: '{{ dataEncryptionState }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: defaultDatabase
+          value: '{{ defaultDatabase }}'
+        - name: defaultSchema
+          value: '{{ defaultSchema }}'
+        - name: defaultLocation
+          value: '{{ defaultLocation }}'
+        - name: assertionSchema
+          value: '{{ assertionSchema }}'
+        - name: vars
+          value: '{{ vars }}'
+        - name: databaseSuffix
+          value: '{{ databaseSuffix }}'
+        - name: schemaSuffix
+          value: '{{ schemaSuffix }}'
+        - name: tablePrefix
+          value: '{{ tablePrefix }}'
+        - name: defaultNotebookRuntimeOptions
+          value:
+            - name: gcsOutputBucket
+              value: '{{ gcsOutputBucket }}'
 
 ```
 </TabItem>

@@ -82,9 +82,7 @@ Use the following StackQL query and manifest file to create a new <code>speciali
 INSERT INTO google.aiplatform.specialist_pools (
 locationsId,
 projectsId,
-pendingDataLabelingJobs,
 specialistManagerEmails,
-specialistManagersCount,
 specialistWorkerEmails,
 displayName,
 name
@@ -92,9 +90,7 @@ name
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ pendingDataLabelingJobs }}',
 '{{ specialistManagerEmails }}',
-'{{ specialistManagersCount }}',
 '{{ specialistWorkerEmails }}',
 '{{ displayName }}',
 '{{ name }}'
@@ -106,14 +102,14 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: pendingDataLabelingJobs
-      value: '{{ pendingDataLabelingJobs }}'
     - name: specialistManagerEmails
-      value: '{{ specialistManagerEmails }}'
-    - name: specialistManagersCount
-      value: '{{ specialistManagersCount }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: specialistWorkerEmails
-      value: '{{ specialistWorkerEmails }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: name
@@ -131,9 +127,7 @@ Updates a <code>specialist_pools</code> resource.
 /*+ update */
 UPDATE google.aiplatform.specialist_pools
 SET 
-pendingDataLabelingJobs = '{{ pendingDataLabelingJobs }}',
 specialistManagerEmails = '{{ specialistManagerEmails }}',
-specialistManagersCount = '{{ specialistManagersCount }}',
 specialistWorkerEmails = '{{ specialistWorkerEmails }}',
 displayName = '{{ displayName }}',
 name = '{{ name }}'

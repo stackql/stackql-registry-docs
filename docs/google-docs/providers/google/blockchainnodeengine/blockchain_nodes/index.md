@@ -89,26 +89,16 @@ INSERT INTO google.blockchainnodeengine.blockchain_nodes (
 locationsId,
 projectsId,
 ethereumDetails,
-name,
-createTime,
-updateTime,
 labels,
 blockchainType,
-connectionInfo,
-state,
 privateServiceConnectEnabled
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ ethereumDetails }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ blockchainType }}',
-'{{ connectionInfo }}',
-'{{ state }}',
 true|false
 ;
 ```
@@ -119,21 +109,37 @@ true|false
 - name: your_resource_model_name
   props:
     - name: ethereumDetails
-      value: '{{ ethereumDetails }}'
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: gethDetails
+          value:
+            - name: garbageCollectionMode
+              value: '{{ garbageCollectionMode }}'
+        - name: network
+          value: '{{ network }}'
+        - name: nodeType
+          value: '{{ nodeType }}'
+        - name: executionClient
+          value: '{{ executionClient }}'
+        - name: consensusClient
+          value: '{{ consensusClient }}'
+        - name: apiEnableAdmin
+          value: '{{ apiEnableAdmin }}'
+        - name: apiEnableDebug
+          value: '{{ apiEnableDebug }}'
+        - name: validatorConfig
+          value:
+            - name: mevRelayUrls
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: managedValidatorClient
+              value: '{{ managedValidatorClient }}'
+            - name: beaconFeeRecipient
+              value: '{{ beaconFeeRecipient }}'
     - name: labels
       value: '{{ labels }}'
     - name: blockchainType
       value: '{{ blockchainType }}'
-    - name: connectionInfo
-      value: '{{ connectionInfo }}'
-    - name: state
-      value: '{{ state }}'
     - name: privateServiceConnectEnabled
       value: '{{ privateServiceConnectEnabled }}'
 
@@ -150,13 +156,8 @@ Updates a <code>blockchain_nodes</code> resource.
 UPDATE google.blockchainnodeengine.blockchain_nodes
 SET 
 ethereumDetails = '{{ ethereumDetails }}',
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 blockchainType = '{{ blockchainType }}',
-connectionInfo = '{{ connectionInfo }}',
-state = '{{ state }}',
 privateServiceConnectEnabled = true|false
 WHERE 
 blockchainNodesId = '{{ blockchainNodesId }}'

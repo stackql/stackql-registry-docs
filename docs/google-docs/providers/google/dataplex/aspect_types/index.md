@@ -90,10 +90,6 @@ Use the following StackQL query and manifest file to create a new <code>aspect_t
 INSERT INTO google.dataplex.aspect_types (
 locationsId,
 projectsId,
-name,
-uid,
-createTime,
-updateTime,
 description,
 displayName,
 labels,
@@ -104,10 +100,6 @@ metadataTemplate
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ displayName }}',
 '{{ labels }}',
@@ -122,14 +114,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: displayName
@@ -139,9 +123,49 @@ SELECT
     - name: etag
       value: '{{ etag }}'
     - name: authorization
-      value: '{{ authorization }}'
+      value:
+        - name: alternateUsePermission
+          value: '{{ alternateUsePermission }}'
     - name: metadataTemplate
-      value: '{{ metadataTemplate }}'
+      value:
+        - name: index
+          value: '{{ index }}'
+        - name: name
+          value: '{{ name }}'
+        - name: type
+          value: '{{ type }}'
+        - name: recordFields
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: enumValues
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: typeId
+          value: '{{ typeId }}'
+        - name: typeRef
+          value: '{{ typeRef }}'
+        - name: constraints
+          value:
+            - name: required
+              value: '{{ required }}'
+        - name: annotations
+          value:
+            - name: deprecated
+              value: '{{ deprecated }}'
+            - name: displayName
+              value: '{{ displayName }}'
+            - name: description
+              value: '{{ description }}'
+            - name: displayOrder
+              value: '{{ displayOrder }}'
+            - name: stringType
+              value: '{{ stringType }}'
+            - name: stringValues
+              value:
+                - name: type
+                  value: '{{ type }}'
 
 ```
 </TabItem>
@@ -155,10 +179,6 @@ Updates a <code>aspect_types</code> resource.
 /*+ update */
 UPDATE google.dataplex.aspect_types
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 displayName = '{{ displayName }}',
 labels = '{{ labels }}',

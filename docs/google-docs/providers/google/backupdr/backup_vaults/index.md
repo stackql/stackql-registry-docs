@@ -100,39 +100,21 @@ Use the following StackQL query and manifest file to create a new <code>backup_v
 INSERT INTO google.backupdr.backup_vaults (
 locationsId,
 projectsId,
-name,
 description,
 labels,
-createTime,
-updateTime,
 backupMinimumEnforcedRetentionDuration,
-deletable,
 etag,
-state,
 effectiveTime,
-backupCount,
-serviceAccount,
-totalStoredBytes,
-uid,
 annotations
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ description }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ backupMinimumEnforcedRetentionDuration }}',
-true|false,
 '{{ etag }}',
-'{{ state }}',
 '{{ effectiveTime }}',
-'{{ backupCount }}',
-'{{ serviceAccount }}',
-'{{ totalStoredBytes }}',
-'{{ uid }}',
 '{{ annotations }}'
 ;
 ```
@@ -142,34 +124,16 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: backupMinimumEnforcedRetentionDuration
       value: '{{ backupMinimumEnforcedRetentionDuration }}'
-    - name: deletable
-      value: '{{ deletable }}'
     - name: etag
       value: '{{ etag }}'
-    - name: state
-      value: '{{ state }}'
     - name: effectiveTime
       value: '{{ effectiveTime }}'
-    - name: backupCount
-      value: '{{ backupCount }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: totalStoredBytes
-      value: '{{ totalStoredBytes }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: annotations
       value: '{{ annotations }}'
 
@@ -185,20 +149,11 @@ Updates a <code>backup_vaults</code> resource.
 /*+ update */
 UPDATE google.backupdr.backup_vaults
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 backupMinimumEnforcedRetentionDuration = '{{ backupMinimumEnforcedRetentionDuration }}',
-deletable = true|false,
 etag = '{{ etag }}',
-state = '{{ state }}',
 effectiveTime = '{{ effectiveTime }}',
-backupCount = '{{ backupCount }}',
-serviceAccount = '{{ serviceAccount }}',
-totalStoredBytes = '{{ totalStoredBytes }}',
-uid = '{{ uid }}',
 annotations = '{{ annotations }}'
 WHERE 
 backupVaultsId = '{{ backupVaultsId }}'

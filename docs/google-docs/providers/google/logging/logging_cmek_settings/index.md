@@ -64,10 +64,7 @@ Updates a <code>logging_cmek_settings</code> resource.
 /*+ update */
 UPDATE google.logging.logging_cmek_settings
 SET 
-name = '{{ name }}',
-kmsKeyName = '{{ kmsKeyName }}',
-kmsKeyVersionName = '{{ kmsKeyVersionName }}',
-serviceAccountId = '{{ serviceAccountId }}'
+kmsKeyName = '{{ kmsKeyName }}'
 WHERE 
 name = '{{ name }}';
 ```

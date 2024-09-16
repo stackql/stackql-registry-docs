@@ -91,7 +91,15 @@ SELECT
     - name: customClassId
       value: '{{ customClassId }}'
     - name: customClass
-      value: '{{ customClass }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: customClassId
+          value: '{{ customClassId }}'
+        - name: items
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -107,17 +115,7 @@ UPDATE google.speech.custom_classes
 SET 
 name = '{{ name }}',
 customClassId = '{{ customClassId }}',
-items = '{{ items }}',
-kmsKeyName = '{{ kmsKeyName }}',
-kmsKeyVersionName = '{{ kmsKeyVersionName }}',
-uid = '{{ uid }}',
-displayName = '{{ displayName }}',
-state = '{{ state }}',
-deleteTime = '{{ deleteTime }}',
-expireTime = '{{ expireTime }}',
-annotations = '{{ annotations }}',
-etag = '{{ etag }}',
-reconciling = true|false
+items = '{{ items }}'
 WHERE 
 customClassesId = '{{ customClassesId }}'
 AND locationsId = '{{ locationsId }}'

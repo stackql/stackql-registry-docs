@@ -111,9 +111,6 @@ Use the following StackQL query and manifest file to create a new <code>routes</
 /*+ create */
 INSERT INTO google.compute.routes (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 network,
@@ -129,16 +126,12 @@ nextHopIlb,
 warnings,
 nextHopVpnTunnel,
 nextHopHub,
-selfLink,
 routeType,
 asPaths,
 routeStatus
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ network }}',
@@ -154,7 +147,6 @@ SELECT
 '{{ warnings }}',
 '{{ nextHopVpnTunnel }}',
 '{{ nextHopHub }}',
-'{{ selfLink }}',
 '{{ routeType }}',
 '{{ asPaths }}',
 '{{ routeStatus }}'
@@ -166,12 +158,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -179,7 +165,9 @@ SELECT
     - name: network
       value: '{{ network }}'
     - name: tags
-      value: '{{ tags }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: destRange
       value: '{{ destRange }}'
     - name: priority
@@ -198,26 +186,26 @@ SELECT
       value: '{{ nextHopIlb }}'
     - name: warnings
       value:
-        - - name: code
-            value: '{{ code }}'
-          - name: message
-            value: '{{ message }}'
-          - name: data
-            value:
-              - - name: key
-                  value: '{{ key }}'
-                - name: value
-                  value: '{{ value }}'
+        - name: code
+          value: '{{ code }}'
+        - name: message
+          value: '{{ message }}'
+        - name: data
+          value:
+            - name: key
+              value: '{{ key }}'
+            - name: value
+              value: '{{ value }}'
     - name: nextHopVpnTunnel
       value: '{{ nextHopVpnTunnel }}'
     - name: nextHopHub
       value: '{{ nextHopHub }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: routeType
       value: '{{ routeType }}'
     - name: asPaths
-      value: '{{ asPaths }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: routeStatus
       value: '{{ routeStatus }}'
 

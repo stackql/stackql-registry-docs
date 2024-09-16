@@ -87,15 +87,13 @@ INSERT INTO google.dataform.workspaces (
 locationsId,
 projectsId,
 repositoriesId,
-name,
-dataEncryptionState
+name
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ repositoriesId }}',
-'{{ name }}',
-'{{ dataEncryptionState }}'
+'{{ name }}'
 ;
 ```
 </TabItem>
@@ -106,8 +104,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: dataEncryptionState
-      value: '{{ dataEncryptionState }}'
 
 ```
 </TabItem>

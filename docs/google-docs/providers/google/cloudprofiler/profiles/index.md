@@ -96,9 +96,21 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: deployment
-      value: '{{ deployment }}'
+      value:
+        - name: projectId
+          value: '{{ projectId }}'
+        - name: target
+          value: '{{ target }}'
+        - name: labels
+          value: '{{ labels }}'
     - name: profileType
-      value: '{{ profileType }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
 
 ```
 </TabItem>
@@ -112,13 +124,11 @@ Updates a <code>profiles</code> resource.
 /*+ update */
 UPDATE google.cloudprofiler.profiles
 SET 
-name = '{{ name }}',
 profileType = '{{ profileType }}',
 deployment = '{{ deployment }}',
 duration = '{{ duration }}',
 profileBytes = '{{ profileBytes }}',
-labels = '{{ labels }}',
-startTime = '{{ startTime }}'
+labels = '{{ labels }}'
 WHERE 
 profilesId = '{{ profilesId }}'
 AND projectsId = '{{ projectsId }}';

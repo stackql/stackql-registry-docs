@@ -83,22 +83,16 @@ Use the following StackQL query and manifest file to create a new <code>workload
 INSERT INTO google.iam.workload_identity_pools (
 locationsId,
 projectsId,
-name,
 displayName,
 description,
-state,
-disabled,
-expireTime
+disabled
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ state }}',
-true|false,
-'{{ expireTime }}'
+true|false
 ;
 ```
 </TabItem>
@@ -107,18 +101,12 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
     - name: disabled
       value: '{{ disabled }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
 
 ```
 </TabItem>
@@ -132,12 +120,9 @@ Updates a <code>workload_identity_pools</code> resource.
 /*+ update */
 UPDATE google.iam.workload_identity_pools
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-state = '{{ state }}',
-disabled = true|false,
-expireTime = '{{ expireTime }}'
+disabled = true|false
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

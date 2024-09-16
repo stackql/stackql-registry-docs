@@ -71,15 +71,11 @@ Use the following StackQL query and manifest file to create a new <code>key_ring
 /*+ create */
 INSERT INTO google.cloudkms.key_rings (
 locationsId,
-projectsId,
-name,
-createTime
+projectsId
 )
 SELECT 
 '{{ locationsId }}',
-'{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}'
+'{{ projectsId }}'
 ;
 ```
 </TabItem>
@@ -87,11 +83,7 @@ SELECT
 
 ```yaml
 - name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
+  props: []
 
 ```
 </TabItem>

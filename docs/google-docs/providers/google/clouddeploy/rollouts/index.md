@@ -122,27 +122,11 @@ locationsId,
 projectsId,
 releasesId,
 name,
-uid,
 description,
 annotations,
 labels,
-createTime,
-approveTime,
-enqueueTime,
-deployStartTime,
-deployEndTime,
 targetId,
-approvalState,
-state,
-failureReason,
-deployingBuild,
-etag,
-deployFailureCause,
-phases,
-metadata,
-controllerRollout,
-rollbackOfRollout,
-rolledBackByRollouts
+etag
 )
 SELECT 
 '{{ deliveryPipelinesId }}',
@@ -150,27 +134,11 @@ SELECT
 '{{ projectsId }}',
 '{{ releasesId }}',
 '{{ name }}',
-'{{ uid }}',
 '{{ description }}',
 '{{ annotations }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ approveTime }}',
-'{{ enqueueTime }}',
-'{{ deployStartTime }}',
-'{{ deployEndTime }}',
 '{{ targetId }}',
-'{{ approvalState }}',
-'{{ state }}',
-'{{ failureReason }}',
-'{{ deployingBuild }}',
-'{{ etag }}',
-'{{ deployFailureCause }}',
-'{{ phases }}',
-'{{ metadata }}',
-'{{ controllerRollout }}',
-'{{ rollbackOfRollout }}',
-'{{ rolledBackByRollouts }}'
+'{{ etag }}'
 ;
 ```
 </TabItem>
@@ -181,48 +149,16 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: description
       value: '{{ description }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: approveTime
-      value: '{{ approveTime }}'
-    - name: enqueueTime
-      value: '{{ enqueueTime }}'
-    - name: deployStartTime
-      value: '{{ deployStartTime }}'
-    - name: deployEndTime
-      value: '{{ deployEndTime }}'
     - name: targetId
       value: '{{ targetId }}'
-    - name: approvalState
-      value: '{{ approvalState }}'
-    - name: state
-      value: '{{ state }}'
-    - name: failureReason
-      value: '{{ failureReason }}'
-    - name: deployingBuild
-      value: '{{ deployingBuild }}'
     - name: etag
       value: '{{ etag }}'
-    - name: deployFailureCause
-      value: '{{ deployFailureCause }}'
-    - name: phases
-      value: '{{ phases }}'
-    - name: metadata
-      value: '{{ metadata }}'
-    - name: controllerRollout
-      value: '{{ controllerRollout }}'
-    - name: rollbackOfRollout
-      value: '{{ rollbackOfRollout }}'
-    - name: rolledBackByRollouts
-      value: '{{ rolledBackByRollouts }}'
 
 ```
 </TabItem>

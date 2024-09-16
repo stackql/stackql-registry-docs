@@ -96,14 +96,10 @@ Use the following StackQL query and manifest file to create a new <code>vpn_gate
 INSERT INTO google.compute.vpn_gateways (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 region,
 network,
-selfLink,
 labels,
 labelFingerprint,
 vpnInterfaces,
@@ -113,14 +109,10 @@ gatewayIpVersion
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ region }}',
 '{{ network }}',
-'{{ selfLink }}',
 '{{ labels }}',
 '{{ labelFingerprint }}',
 '{{ vpnInterfaces }}',
@@ -134,12 +126,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -148,14 +134,14 @@ SELECT
       value: '{{ region }}'
     - name: network
       value: '{{ network }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: labels
       value: '{{ labels }}'
     - name: labelFingerprint
       value: '{{ labelFingerprint }}'
     - name: vpnInterfaces
-      value: '{{ vpnInterfaces }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: stackType
       value: '{{ stackType }}'
     - name: gatewayIpVersion

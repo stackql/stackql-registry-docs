@@ -63,7 +63,6 @@ Updates a <code>settings</code> resource.
 /*+ update */
 UPDATE google.migrationcenter.settings
 SET 
-name = '{{ name }}',
 preferenceSet = '{{ preferenceSet }}',
 disableCloudLogging = true|false
 WHERE 

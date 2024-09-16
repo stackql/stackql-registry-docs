@@ -140,13 +140,135 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: cloudAiDocumentOption
-      value: '{{ cloudAiDocumentOption }}'
+      value:
+        - name: customizedEntitiesPropertiesConversions
+          value: '{{ customizedEntitiesPropertiesConversions }}'
+        - name: enableEntitiesConversions
+          value: '{{ enableEntitiesConversions }}'
     - name: policy
-      value: '{{ policy }}'
+      value:
+        - name: etag
+          value: '{{ etag }}'
+        - name: auditConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: version
+          value: '{{ version }}'
+        - name: bindings
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: document
-      value: '{{ document }}'
+      value:
+        - name: displayUri
+          value: '{{ displayUri }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: updater
+          value: '{{ updater }}'
+        - name: plainText
+          value: '{{ plainText }}'
+        - name: textExtractionEnabled
+          value: '{{ textExtractionEnabled }}'
+        - name: inlineRawDocument
+          value: '{{ inlineRawDocument }}'
+        - name: name
+          value: '{{ name }}'
+        - name: rawDocumentFileType
+          value: '{{ rawDocumentFileType }}'
+        - name: documentSchemaName
+          value: '{{ documentSchemaName }}'
+        - name: properties
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: referenceId
+          value: '{{ referenceId }}'
+        - name: cloudAiDocument
+          value:
+            - name: content
+              value: '{{ content }}'
+            - name: textStyles
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: shardInfo
+              value:
+                - name: shardCount
+                  value: '{{ shardCount }}'
+                - name: shardIndex
+                  value: '{{ shardIndex }}'
+                - name: textOffset
+                  value: '{{ textOffset }}'
+            - name: pages
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: documentLayout
+              value:
+                - name: blocks
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: error
+              value:
+                - name: details
+                  value:
+                    - name: additionalProperties
+                      value: '{{ additionalProperties }}'
+                    - name: type
+                      value: '{{ type }}'
+                - name: code
+                  value: '{{ code }}'
+                - name: message
+                  value: '{{ message }}'
+            - name: mimeType
+              value: '{{ mimeType }}'
+            - name: text
+              value: '{{ text }}'
+            - name: entities
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: revisions
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: textChanges
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: chunkedDocument
+              value:
+                - name: chunks
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: uri
+              value: '{{ uri }}'
+            - name: entityRelations
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: rawDocumentPath
+          value: '{{ rawDocumentPath }}'
+        - name: contentCategory
+          value: '{{ contentCategory }}'
+        - name: textExtractionDisabled
+          value: '{{ textExtractionDisabled }}'
+        - name: creator
+          value: '{{ creator }}'
+        - name: title
+          value: '{{ title }}'
     - name: requestMetadata
-      value: '{{ requestMetadata }}'
+      value:
+        - name: userInfo
+          value:
+            - name: groupIds
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: createMask
       value: '{{ createMask }}'
 

@@ -100,9 +100,7 @@ projectsId,
 name,
 state,
 userPseudoId,
-messages,
-startTime,
-endTime
+messages
 )
 SELECT 
 '{{ dataStoresId }}',
@@ -111,9 +109,7 @@ SELECT
 '{{ name }}',
 '{{ state }}',
 '{{ userPseudoId }}',
-'{{ messages }}',
-'{{ startTime }}',
-'{{ endTime }}'
+'{{ messages }}'
 ;
 ```
 </TabItem>
@@ -129,11 +125,9 @@ SELECT
     - name: userPseudoId
       value: '{{ userPseudoId }}'
     - name: messages
-      value: '{{ messages }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -150,9 +144,7 @@ SET
 name = '{{ name }}',
 state = '{{ state }}',
 userPseudoId = '{{ userPseudoId }}',
-messages = '{{ messages }}',
-startTime = '{{ startTime }}',
-endTime = '{{ endTime }}'
+messages = '{{ messages }}'
 WHERE 
 conversationsId = '{{ conversationsId }}'
 AND dataStoresId = '{{ dataStoresId }}'

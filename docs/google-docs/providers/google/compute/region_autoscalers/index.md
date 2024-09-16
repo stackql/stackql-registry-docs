@@ -99,16 +99,12 @@ Use the following StackQL query and manifest file to create a new <code>region_a
 INSERT INTO google.compute.region_autoscalers (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 target,
 autoscalingPolicy,
 zone,
 region,
-selfLink,
 status,
 statusDetails,
 recommendedSize,
@@ -117,16 +113,12 @@ scalingScheduleStatus
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ target }}',
 '{{ autoscalingPolicy }}',
 '{{ zone }}',
 '{{ region }}',
-'{{ selfLink }}',
 '{{ status }}',
 '{{ statusDetails }}',
 '{{ recommendedSize }}',
@@ -139,12 +131,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -152,17 +138,53 @@ SELECT
     - name: target
       value: '{{ target }}'
     - name: autoscalingPolicy
-      value: '{{ autoscalingPolicy }}'
+      value:
+        - name: minNumReplicas
+          value: '{{ minNumReplicas }}'
+        - name: maxNumReplicas
+          value: '{{ maxNumReplicas }}'
+        - name: scaleInControl
+          value:
+            - name: maxScaledInReplicas
+              value:
+                - name: fixed
+                  value: '{{ fixed }}'
+                - name: percent
+                  value: '{{ percent }}'
+                - name: calculated
+                  value: '{{ calculated }}'
+            - name: timeWindowSec
+              value: '{{ timeWindowSec }}'
+        - name: coolDownPeriodSec
+          value: '{{ coolDownPeriodSec }}'
+        - name: cpuUtilization
+          value:
+            - name: utilizationTarget
+              value: '{{ utilizationTarget }}'
+            - name: predictiveMethod
+              value: '{{ predictiveMethod }}'
+        - name: customMetricUtilizations
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: loadBalancingUtilization
+          value:
+            - name: utilizationTarget
+              value: '{{ utilizationTarget }}'
+        - name: mode
+          value: '{{ mode }}'
+        - name: scalingSchedules
+          value: '{{ scalingSchedules }}'
     - name: zone
       value: '{{ zone }}'
     - name: region
       value: '{{ region }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: status
       value: '{{ status }}'
     - name: statusDetails
-      value: '{{ statusDetails }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: recommendedSize
       value: '{{ recommendedSize }}'
     - name: scalingScheduleStatus
@@ -180,16 +202,12 @@ Updates a <code>region_autoscalers</code> resource.
 /*+ update */
 UPDATE google.compute.region_autoscalers
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 target = '{{ target }}',
 autoscalingPolicy = '{{ autoscalingPolicy }}',
 zone = '{{ zone }}',
 region = '{{ region }}',
-selfLink = '{{ selfLink }}',
 status = '{{ status }}',
 statusDetails = '{{ statusDetails }}',
 recommendedSize = '{{ recommendedSize }}',
@@ -207,16 +225,12 @@ Replaces all fields in the specified <code>region_autoscalers</code> resource.
 /*+ update */
 REPLACE google.compute.region_autoscalers
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 target = '{{ target }}',
 autoscalingPolicy = '{{ autoscalingPolicy }}',
 zone = '{{ zone }}',
 region = '{{ region }}',
-selfLink = '{{ selfLink }}',
 status = '{{ status }}',
 statusDetails = '{{ statusDetails }}',
 recommendedSize = '{{ recommendedSize }}',

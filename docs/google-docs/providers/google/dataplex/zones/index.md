@@ -96,35 +96,23 @@ INSERT INTO google.dataplex.zones (
 lakesId,
 locationsId,
 projectsId,
-name,
 displayName,
-uid,
-createTime,
-updateTime,
 labels,
 description,
-state,
 type,
 discoverySpec,
-resourceSpec,
-assetStatus
+resourceSpec
 )
 SELECT 
 '{{ lakesId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
-'{{ state }}',
 '{{ type }}',
 '{{ discoverySpec }}',
-'{{ resourceSpec }}',
-'{{ assetStatus }}'
+'{{ resourceSpec }}'
 ;
 ```
 </TabItem>
@@ -133,30 +121,48 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
     - name: type
       value: '{{ type }}'
     - name: discoverySpec
-      value: '{{ discoverySpec }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: includePatterns
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: excludePatterns
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: csvOptions
+          value:
+            - name: headerRows
+              value: '{{ headerRows }}'
+            - name: delimiter
+              value: '{{ delimiter }}'
+            - name: encoding
+              value: '{{ encoding }}'
+            - name: disableTypeInference
+              value: '{{ disableTypeInference }}'
+        - name: jsonOptions
+          value:
+            - name: encoding
+              value: '{{ encoding }}'
+            - name: disableTypeInference
+              value: '{{ disableTypeInference }}'
+        - name: schedule
+          value: '{{ schedule }}'
     - name: resourceSpec
-      value: '{{ resourceSpec }}'
-    - name: assetStatus
-      value: '{{ assetStatus }}'
+      value:
+        - name: locationType
+          value: '{{ locationType }}'
 
 ```
 </TabItem>
@@ -170,18 +176,12 @@ Updates a <code>zones</code> resource.
 /*+ update */
 UPDATE google.dataplex.zones
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
-state = '{{ state }}',
 type = '{{ type }}',
 discoverySpec = '{{ discoverySpec }}',
-resourceSpec = '{{ resourceSpec }}',
-assetStatus = '{{ assetStatus }}'
+resourceSpec = '{{ resourceSpec }}'
 WHERE 
 lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'

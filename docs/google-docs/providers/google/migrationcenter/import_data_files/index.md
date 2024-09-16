@@ -83,22 +83,16 @@ INSERT INTO google.migrationcenter.import_data_files (
 importJobsId,
 locationsId,
 projectsId,
-name,
 displayName,
 format,
-createTime,
-state,
 uploadFileInfo
 )
 SELECT 
 '{{ importJobsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ displayName }}',
 '{{ format }}',
-'{{ createTime }}',
-'{{ state }}',
 '{{ uploadFileInfo }}'
 ;
 ```
@@ -108,18 +102,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: format
       value: '{{ format }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: state
-      value: '{{ state }}'
     - name: uploadFileInfo
-      value: '{{ uploadFileInfo }}'
+      value: []
 
 ```
 </TabItem>

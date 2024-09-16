@@ -72,13 +72,11 @@ Use the following StackQL query and manifest file to create a new <code>ssh_keys
 INSERT INTO google.baremetalsolution.ssh_keys (
 locationsId,
 projectsId,
-name,
 publicKey
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ publicKey }}'
 ;
 ```
@@ -88,8 +86,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: publicKey
       value: '{{ publicKey }}'
 

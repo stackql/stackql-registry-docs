@@ -90,9 +90,7 @@ projectsId,
 name,
 dataId,
 userId,
-resourceAttributes,
-archived,
-archiveTime
+resourceAttributes
 )
 SELECT 
 '{{ consentStoresId }}',
@@ -102,9 +100,7 @@ SELECT
 '{{ name }}',
 '{{ dataId }}',
 '{{ userId }}',
-'{{ resourceAttributes }}',
-true|false,
-'{{ archiveTime }}'
+'{{ resourceAttributes }}'
 ;
 ```
 </TabItem>
@@ -120,11 +116,9 @@ true|false,
     - name: userId
       value: '{{ userId }}'
     - name: resourceAttributes
-      value: '{{ resourceAttributes }}'
-    - name: archived
-      value: '{{ archived }}'
-    - name: archiveTime
-      value: '{{ archiveTime }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -141,9 +135,7 @@ SET
 name = '{{ name }}',
 dataId = '{{ dataId }}',
 userId = '{{ userId }}',
-resourceAttributes = '{{ resourceAttributes }}',
-archived = true|false,
-archiveTime = '{{ archiveTime }}'
+resourceAttributes = '{{ resourceAttributes }}'
 WHERE 
 consentStoresId = '{{ consentStoresId }}'
 AND datasetsId = '{{ datasetsId }}'

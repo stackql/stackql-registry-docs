@@ -74,7 +74,7 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: measurement
-      value: '{{ measurement }}'
+      value: []
 
 ```
 </TabItem>

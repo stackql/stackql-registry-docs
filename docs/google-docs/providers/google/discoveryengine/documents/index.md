@@ -106,13 +106,9 @@ projectsId,
 structData,
 jsonData,
 name,
-id,
 schemaId,
 content,
-parentDocumentId,
-derivedStructData,
-indexTime,
-indexStatus
+parentDocumentId
 )
 SELECT 
 '{{ branchesId }}',
@@ -122,13 +118,9 @@ SELECT
 '{{ structData }}',
 '{{ jsonData }}',
 '{{ name }}',
-'{{ id }}',
 '{{ schemaId }}',
 '{{ content }}',
-'{{ parentDocumentId }}',
-'{{ derivedStructData }}',
-'{{ indexTime }}',
-'{{ indexStatus }}'
+'{{ parentDocumentId }}'
 ;
 ```
 </TabItem>
@@ -143,20 +135,18 @@ SELECT
       value: '{{ jsonData }}'
     - name: name
       value: '{{ name }}'
-    - name: id
-      value: '{{ id }}'
     - name: schemaId
       value: '{{ schemaId }}'
     - name: content
-      value: '{{ content }}'
+      value:
+        - name: rawBytes
+          value: '{{ rawBytes }}'
+        - name: uri
+          value: '{{ uri }}'
+        - name: mimeType
+          value: '{{ mimeType }}'
     - name: parentDocumentId
       value: '{{ parentDocumentId }}'
-    - name: derivedStructData
-      value: '{{ derivedStructData }}'
-    - name: indexTime
-      value: '{{ indexTime }}'
-    - name: indexStatus
-      value: '{{ indexStatus }}'
 
 ```
 </TabItem>
@@ -173,13 +163,9 @@ SET
 structData = '{{ structData }}',
 jsonData = '{{ jsonData }}',
 name = '{{ name }}',
-id = '{{ id }}',
 schemaId = '{{ schemaId }}',
 content = '{{ content }}',
-parentDocumentId = '{{ parentDocumentId }}',
-derivedStructData = '{{ derivedStructData }}',
-indexTime = '{{ indexTime }}',
-indexStatus = '{{ indexStatus }}'
+parentDocumentId = '{{ parentDocumentId }}'
 WHERE 
 branchesId = '{{ branchesId }}'
 AND dataStoresId = '{{ dataStoresId }}'

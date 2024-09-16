@@ -104,42 +104,24 @@ Use the following StackQL query and manifest file to create a new <code>data_sca
 INSERT INTO google.dataplex.data_scans (
 locationsId,
 projectsId,
-name,
-uid,
 description,
 displayName,
 labels,
-state,
-createTime,
-updateTime,
 data,
 executionSpec,
-executionStatus,
-type,
 dataQualitySpec,
-dataProfileSpec,
-dataQualityResult,
-dataProfileResult
+dataProfileSpec
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
 '{{ description }}',
 '{{ displayName }}',
 '{{ labels }}',
-'{{ state }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ data }}',
 '{{ executionSpec }}',
-'{{ executionStatus }}',
-'{{ type }}',
 '{{ dataQualitySpec }}',
-'{{ dataProfileSpec }}',
-'{{ dataQualityResult }}',
-'{{ dataProfileResult }}'
+'{{ dataProfileSpec }}'
 ;
 ```
 </TabItem>
@@ -148,38 +130,80 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: description
       value: '{{ description }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: labels
       value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: data
-      value: '{{ data }}'
+      value:
+        - name: entity
+          value: '{{ entity }}'
+        - name: resource
+          value: '{{ resource }}'
     - name: executionSpec
-      value: '{{ executionSpec }}'
-    - name: executionStatus
-      value: '{{ executionStatus }}'
-    - name: type
-      value: '{{ type }}'
+      value:
+        - name: trigger
+          value:
+            - name: onDemand
+              value: []
+            - name: schedule
+              value:
+                - name: cron
+                  value: '{{ cron }}'
+        - name: field
+          value: '{{ field }}'
     - name: dataQualitySpec
-      value: '{{ dataQualitySpec }}'
+      value:
+        - name: rules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: samplingPercent
+          value: '{{ samplingPercent }}'
+        - name: rowFilter
+          value: '{{ rowFilter }}'
+        - name: postScanActions
+          value:
+            - name: bigqueryExport
+              value:
+                - name: resultsTable
+                  value: '{{ resultsTable }}'
+            - name: notificationReport
+              value:
+                - name: recipients
+                  value:
+                    - name: emails
+                      value:
+                        - name: type
+                          value: '{{ type }}'
+                - name: scoreThresholdTrigger
+                  value:
+                    - name: scoreThreshold
+                      value: '{{ scoreThreshold }}'
+                - name: jobFailureTrigger
+                  value: []
+                - name: jobEndTrigger
+                  value: []
     - name: dataProfileSpec
-      value: '{{ dataProfileSpec }}'
-    - name: dataQualityResult
-      value: '{{ dataQualityResult }}'
-    - name: dataProfileResult
-      value: '{{ dataProfileResult }}'
+      value:
+        - name: samplingPercent
+          value: '{{ samplingPercent }}'
+        - name: rowFilter
+          value: '{{ rowFilter }}'
+        - name: postScanActions
+          value:
+            - name: bigqueryExport
+              value:
+                - name: resultsTable
+                  value: '{{ resultsTable }}'
+        - name: includeFields
+          value:
+            - name: fieldNames
+              value:
+                - name: type
+                  value: '{{ type }}'
 
 ```
 </TabItem>
@@ -193,22 +217,13 @@ Updates a <code>data_scans</code> resource.
 /*+ update */
 UPDATE google.dataplex.data_scans
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
 description = '{{ description }}',
 displayName = '{{ displayName }}',
 labels = '{{ labels }}',
-state = '{{ state }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 data = '{{ data }}',
 executionSpec = '{{ executionSpec }}',
-executionStatus = '{{ executionStatus }}',
-type = '{{ type }}',
 dataQualitySpec = '{{ dataQualitySpec }}',
-dataProfileSpec = '{{ dataProfileSpec }}',
-dataQualityResult = '{{ dataQualityResult }}',
-dataProfileResult = '{{ dataProfileResult }}'
+dataProfileSpec = '{{ dataProfileSpec }}'
 WHERE 
 dataScansId = '{{ dataScansId }}'
 AND locationsId = '{{ locationsId }}'

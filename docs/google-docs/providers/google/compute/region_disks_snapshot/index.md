@@ -56,9 +56,6 @@ INSERT INTO google.compute.region_disks_snapshot (
 disk,
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 status,
@@ -70,7 +67,6 @@ storageBytesStatus,
 licenses,
 snapshotEncryptionKey,
 sourceDiskEncryptionKey,
-selfLink,
 labels,
 labelFingerprint,
 licenseCodes,
@@ -90,16 +86,12 @@ snapshotType,
 creationSizeBytes,
 enableConfidentialCompute,
 sourceDiskForRecoveryCheckpoint,
-sourceInstantSnapshotEncryptionKey,
-satisfiesPzi
+sourceInstantSnapshotEncryptionKey
 )
 SELECT 
 '{{ disk }}',
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ status }}',
@@ -111,7 +103,6 @@ SELECT
 '{{ licenses }}',
 '{{ snapshotEncryptionKey }}',
 '{{ sourceDiskEncryptionKey }}',
-'{{ selfLink }}',
 '{{ labels }}',
 '{{ labelFingerprint }}',
 '{{ licenseCodes }}',
@@ -131,8 +122,7 @@ true|false,
 '{{ creationSizeBytes }}',
 true|false,
 '{{ sourceDiskForRecoveryCheckpoint }}',
-'{{ sourceInstantSnapshotEncryptionKey }}',
-true|false
+'{{ sourceInstantSnapshotEncryptionKey }}'
 ;
 ```
 </TabItem>
@@ -141,12 +131,6 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -164,25 +148,41 @@ true|false
     - name: storageBytesStatus
       value: '{{ storageBytesStatus }}'
     - name: licenses
-      value: '{{ licenses }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: snapshotEncryptionKey
-      value: '{{ snapshotEncryptionKey }}'
-    - name: sourceDiskEncryptionKey
-      value: '{{ sourceDiskEncryptionKey }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
+      value:
+        - name: rawKey
+          value: '{{ rawKey }}'
+        - name: rsaEncryptedKey
+          value: '{{ rsaEncryptedKey }}'
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
+        - name: sha256
+          value: '{{ sha256 }}'
+        - name: kmsKeyServiceAccount
+          value: '{{ kmsKeyServiceAccount }}'
     - name: labels
       value: '{{ labels }}'
     - name: labelFingerprint
       value: '{{ labelFingerprint }}'
     - name: licenseCodes
-      value: '{{ licenseCodes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: format
+          value: '{{ format }}'
     - name: storageLocations
-      value: '{{ storageLocations }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: autoCreated
       value: '{{ autoCreated }}'
     - name: guestOsFeatures
-      value: '{{ guestOsFeatures }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: downloadBytes
       value: '{{ downloadBytes }}'
     - name: chainName
@@ -209,10 +209,6 @@ true|false
       value: '{{ enableConfidentialCompute }}'
     - name: sourceDiskForRecoveryCheckpoint
       value: '{{ sourceDiskForRecoveryCheckpoint }}'
-    - name: sourceInstantSnapshotEncryptionKey
-      value: '{{ sourceInstantSnapshotEncryptionKey }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

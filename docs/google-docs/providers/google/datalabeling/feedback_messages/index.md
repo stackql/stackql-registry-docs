@@ -89,8 +89,7 @@ requesterFeedbackMetadata,
 operatorFeedbackMetadata,
 name,
 body,
-image,
-createTime
+image
 )
 SELECT 
 '{{ annotatedDatasetsId }}',
@@ -101,8 +100,7 @@ SELECT
 '{{ operatorFeedbackMetadata }}',
 '{{ name }}',
 '{{ body }}',
-'{{ image }}',
-'{{ createTime }}'
+'{{ image }}'
 ;
 ```
 </TabItem>
@@ -112,17 +110,15 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: requesterFeedbackMetadata
-      value: '{{ requesterFeedbackMetadata }}'
+      value: []
     - name: operatorFeedbackMetadata
-      value: '{{ operatorFeedbackMetadata }}'
+      value: []
     - name: name
       value: '{{ name }}'
     - name: body
       value: '{{ body }}'
     - name: image
       value: '{{ image }}'
-    - name: createTime
-      value: '{{ createTime }}'
 
 ```
 </TabItem>

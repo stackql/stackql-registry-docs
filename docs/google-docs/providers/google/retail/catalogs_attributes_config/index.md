@@ -65,8 +65,7 @@ Updates a <code>catalogs_attributes_config</code> resource.
 UPDATE google.retail.catalogs_attributes_config
 SET 
 name = '{{ name }}',
-catalogAttributes = '{{ catalogAttributes }}',
-attributeConfigLevel = '{{ attributeConfigLevel }}'
+catalogAttributes = '{{ catalogAttributes }}'
 WHERE 
 catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'

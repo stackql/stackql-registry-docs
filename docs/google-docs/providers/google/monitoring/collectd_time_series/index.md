@@ -72,11 +72,17 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: resource
-      value: '{{ resource }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: labels
+          value: '{{ labels }}'
     - name: collectdVersion
       value: '{{ collectdVersion }}'
     - name: collectdPayloads
-      value: '{{ collectdPayloads }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

@@ -91,32 +91,22 @@ Use the following StackQL query and manifest file to create a new <code>backup_p
 INSERT INTO google.backupdr.backup_plans (
 locationsId,
 projectsId,
-name,
 description,
 labels,
-createTime,
-updateTime,
 backupRules,
-state,
 resourceType,
 etag,
-backupVault,
-backupVaultServiceAccount
+backupVault
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ description }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ backupRules }}',
-'{{ state }}',
 '{{ resourceType }}',
 '{{ etag }}',
-'{{ backupVault }}',
-'{{ backupVaultServiceAccount }}'
+'{{ backupVault }}'
 ;
 ```
 </TabItem>
@@ -125,28 +115,20 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: backupRules
-      value: '{{ backupRules }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: resourceType
       value: '{{ resourceType }}'
     - name: etag
       value: '{{ etag }}'
     - name: backupVault
       value: '{{ backupVault }}'
-    - name: backupVaultServiceAccount
-      value: '{{ backupVaultServiceAccount }}'
 
 ```
 </TabItem>

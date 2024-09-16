@@ -77,7 +77,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: items
-      value: '{{ items }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: requestId
       value: '{{ requestId }}'
 

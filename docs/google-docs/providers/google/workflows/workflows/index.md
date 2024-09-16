@@ -108,44 +108,26 @@ locationsId,
 projectsId,
 name,
 description,
-state,
-revisionId,
-createTime,
-updateTime,
-revisionCreateTime,
 labels,
 serviceAccount,
 sourceContents,
 cryptoKeyName,
-stateError,
 callLogLevel,
 userEnvVars,
-executionHistoryLevel,
-allKmsKeys,
-allKmsKeysVersions,
-cryptoKeyVersion
+executionHistoryLevel
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ state }}',
-'{{ revisionId }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ revisionCreateTime }}',
 '{{ labels }}',
 '{{ serviceAccount }}',
 '{{ sourceContents }}',
 '{{ cryptoKeyName }}',
-'{{ stateError }}',
 '{{ callLogLevel }}',
 '{{ userEnvVars }}',
-'{{ executionHistoryLevel }}',
-'{{ allKmsKeys }}',
-'{{ allKmsKeysVersions }}',
-'{{ cryptoKeyVersion }}'
+'{{ executionHistoryLevel }}'
 ;
 ```
 </TabItem>
@@ -158,16 +140,6 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
-    - name: revisionId
-      value: '{{ revisionId }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: revisionCreateTime
-      value: '{{ revisionCreateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: serviceAccount
@@ -176,20 +148,12 @@ SELECT
       value: '{{ sourceContents }}'
     - name: cryptoKeyName
       value: '{{ cryptoKeyName }}'
-    - name: stateError
-      value: '{{ stateError }}'
     - name: callLogLevel
       value: '{{ callLogLevel }}'
     - name: userEnvVars
       value: '{{ userEnvVars }}'
     - name: executionHistoryLevel
       value: '{{ executionHistoryLevel }}'
-    - name: allKmsKeys
-      value: '{{ allKmsKeys }}'
-    - name: allKmsKeysVersions
-      value: '{{ allKmsKeysVersions }}'
-    - name: cryptoKeyVersion
-      value: '{{ cryptoKeyVersion }}'
 
 ```
 </TabItem>
@@ -205,22 +169,13 @@ UPDATE google.workflows.workflows
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-state = '{{ state }}',
-revisionId = '{{ revisionId }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-revisionCreateTime = '{{ revisionCreateTime }}',
 labels = '{{ labels }}',
 serviceAccount = '{{ serviceAccount }}',
 sourceContents = '{{ sourceContents }}',
 cryptoKeyName = '{{ cryptoKeyName }}',
-stateError = '{{ stateError }}',
 callLogLevel = '{{ callLogLevel }}',
 userEnvVars = '{{ userEnvVars }}',
-executionHistoryLevel = '{{ executionHistoryLevel }}',
-allKmsKeys = '{{ allKmsKeys }}',
-allKmsKeysVersions = '{{ allKmsKeysVersions }}',
-cryptoKeyVersion = '{{ cryptoKeyVersion }}'
+executionHistoryLevel = '{{ executionHistoryLevel }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

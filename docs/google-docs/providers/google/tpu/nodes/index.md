@@ -120,58 +120,38 @@ Use the following StackQL query and manifest file to create a new <code>nodes</c
 INSERT INTO google.tpu.nodes (
 locationsId,
 projectsId,
-name,
 description,
 acceleratorType,
-state,
-healthDescription,
 runtimeVersion,
 networkConfig,
 cidrBlock,
 serviceAccount,
-createTime,
 schedulingConfig,
-networkEndpoints,
 health,
 labels,
 metadata,
 tags,
-id,
 dataDisks,
-apiVersion,
-symptoms,
 shieldedInstanceConfig,
-acceleratorConfig,
-queuedResource,
-multisliceNode
+acceleratorConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ description }}',
 '{{ acceleratorType }}',
-'{{ state }}',
-'{{ healthDescription }}',
 '{{ runtimeVersion }}',
 '{{ networkConfig }}',
 '{{ cidrBlock }}',
 '{{ serviceAccount }}',
-'{{ createTime }}',
 '{{ schedulingConfig }}',
-'{{ networkEndpoints }}',
 '{{ health }}',
 '{{ labels }}',
 '{{ metadata }}',
 '{{ tags }}',
-'{{ id }}',
 '{{ dataDisks }}',
-'{{ apiVersion }}',
-'{{ symptoms }}',
 '{{ shieldedInstanceConfig }}',
-'{{ acceleratorConfig }}',
-'{{ queuedResource }}',
-true|false
+'{{ acceleratorConfig }}'
 ;
 ```
 </TabItem>
@@ -180,30 +160,42 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: acceleratorType
       value: '{{ acceleratorType }}'
-    - name: state
-      value: '{{ state }}'
-    - name: healthDescription
-      value: '{{ healthDescription }}'
     - name: runtimeVersion
       value: '{{ runtimeVersion }}'
     - name: networkConfig
-      value: '{{ networkConfig }}'
+      value:
+        - name: network
+          value: '{{ network }}'
+        - name: subnetwork
+          value: '{{ subnetwork }}'
+        - name: enableExternalIps
+          value: '{{ enableExternalIps }}'
+        - name: canIpForward
+          value: '{{ canIpForward }}'
+        - name: queueCount
+          value: '{{ queueCount }}'
     - name: cidrBlock
       value: '{{ cidrBlock }}'
     - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: email
+          value: '{{ email }}'
+        - name: scope
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: schedulingConfig
-      value: '{{ schedulingConfig }}'
-    - name: networkEndpoints
-      value: '{{ networkEndpoints }}'
+      value:
+        - name: preemptible
+          value: '{{ preemptible }}'
+        - name: reserved
+          value: '{{ reserved }}'
+        - name: spot
+          value: '{{ spot }}'
     - name: health
       value: '{{ health }}'
     - name: labels
@@ -211,23 +203,23 @@ true|false
     - name: metadata
       value: '{{ metadata }}'
     - name: tags
-      value: '{{ tags }}'
-    - name: id
-      value: '{{ id }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: dataDisks
-      value: '{{ dataDisks }}'
-    - name: apiVersion
-      value: '{{ apiVersion }}'
-    - name: symptoms
-      value: '{{ symptoms }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: shieldedInstanceConfig
-      value: '{{ shieldedInstanceConfig }}'
+      value:
+        - name: enableSecureBoot
+          value: '{{ enableSecureBoot }}'
     - name: acceleratorConfig
-      value: '{{ acceleratorConfig }}'
-    - name: queuedResource
-      value: '{{ queuedResource }}'
-    - name: multisliceNode
-      value: '{{ multisliceNode }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: topology
+          value: '{{ topology }}'
 
 ```
 </TabItem>
@@ -241,30 +233,20 @@ Updates a <code>nodes</code> resource.
 /*+ update */
 UPDATE google.tpu.nodes
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
 acceleratorType = '{{ acceleratorType }}',
-state = '{{ state }}',
-healthDescription = '{{ healthDescription }}',
 runtimeVersion = '{{ runtimeVersion }}',
 networkConfig = '{{ networkConfig }}',
 cidrBlock = '{{ cidrBlock }}',
 serviceAccount = '{{ serviceAccount }}',
-createTime = '{{ createTime }}',
 schedulingConfig = '{{ schedulingConfig }}',
-networkEndpoints = '{{ networkEndpoints }}',
 health = '{{ health }}',
 labels = '{{ labels }}',
 metadata = '{{ metadata }}',
 tags = '{{ tags }}',
-id = '{{ id }}',
 dataDisks = '{{ dataDisks }}',
-apiVersion = '{{ apiVersion }}',
-symptoms = '{{ symptoms }}',
 shieldedInstanceConfig = '{{ shieldedInstanceConfig }}',
-acceleratorConfig = '{{ acceleratorConfig }}',
-queuedResource = '{{ queuedResource }}',
-multisliceNode = true|false
+acceleratorConfig = '{{ acceleratorConfig }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND nodesId = '{{ nodesId }}'

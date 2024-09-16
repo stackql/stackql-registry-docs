@@ -123,9 +123,17 @@ SELECT
     - name: createStatement
       value: '{{ createStatement }}'
     - name: extraStatements
-      value: '{{ extraStatements }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: encryptionConfig
-      value: '{{ encryptionConfig }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
+        - name: kmsKeyNames
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: databaseDialect
       value: '{{ databaseDialect }}'
     - name: protoDescriptors
@@ -144,18 +152,7 @@ Updates a <code>databases</code> resource.
 UPDATE google.spanner.databases
 SET 
 name = '{{ name }}',
-state = '{{ state }}',
-createTime = '{{ createTime }}',
-restoreInfo = '{{ restoreInfo }}',
-encryptionConfig = '{{ encryptionConfig }}',
-encryptionInfo = '{{ encryptionInfo }}',
-versionRetentionPeriod = '{{ versionRetentionPeriod }}',
-earliestVersionTime = '{{ earliestVersionTime }}',
-defaultLeader = '{{ defaultLeader }}',
-databaseDialect = '{{ databaseDialect }}',
-enableDropProtection = true|false,
-reconciling = true|false,
-quorumInfo = '{{ quorumInfo }}'
+enableDropProtection = true|false
 WHERE 
 databasesId = '{{ databasesId }}'
 AND instancesId = '{{ instancesId }}'

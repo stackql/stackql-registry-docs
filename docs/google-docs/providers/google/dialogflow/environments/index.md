@@ -93,7 +93,6 @@ name,
 displayName,
 description,
 versionConfigs,
-updateTime,
 testCasesConfig,
 webhookConfig
 )
@@ -105,7 +104,6 @@ SELECT
 '{{ displayName }}',
 '{{ description }}',
 '{{ versionConfigs }}',
-'{{ updateTime }}',
 '{{ testCasesConfig }}',
 '{{ webhookConfig }}'
 ;
@@ -123,13 +121,25 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: versionConfigs
-      value: '{{ versionConfigs }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: testCasesConfig
-      value: '{{ testCasesConfig }}'
+      value:
+        - name: testCases
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: enableContinuousRun
+          value: '{{ enableContinuousRun }}'
+        - name: enablePredeploymentRun
+          value: '{{ enablePredeploymentRun }}'
     - name: webhookConfig
-      value: '{{ webhookConfig }}'
+      value:
+        - name: webhookOverrides
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -147,7 +157,6 @@ name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 versionConfigs = '{{ versionConfigs }}',
-updateTime = '{{ updateTime }}',
 testCasesConfig = '{{ testCasesConfig }}',
 webhookConfig = '{{ webhookConfig }}'
 WHERE 

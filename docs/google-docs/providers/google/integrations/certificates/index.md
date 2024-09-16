@@ -93,26 +93,20 @@ Use the following StackQL query and manifest file to create a new <code>certific
 INSERT INTO google.integrations.certificates (
 locationsId,
 projectsId,
-name,
-validEndTime,
 requestorId,
 certificateStatus,
 credentialId,
 rawCertificate,
-validStartTime,
 description,
 displayName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ validEndTime }}',
 '{{ requestorId }}',
 '{{ certificateStatus }}',
 '{{ credentialId }}',
 '{{ rawCertificate }}',
-'{{ validStartTime }}',
 '{{ description }}',
 '{{ displayName }}'
 ;
@@ -123,10 +117,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: validEndTime
-      value: '{{ validEndTime }}'
     - name: requestorId
       value: '{{ requestorId }}'
     - name: certificateStatus
@@ -134,9 +124,13 @@ SELECT
     - name: credentialId
       value: '{{ credentialId }}'
     - name: rawCertificate
-      value: '{{ rawCertificate }}'
-    - name: validStartTime
-      value: '{{ validStartTime }}'
+      value:
+        - name: passphrase
+          value: '{{ passphrase }}'
+        - name: sslCertificate
+          value: '{{ sslCertificate }}'
+        - name: encryptedPrivateKey
+          value: '{{ encryptedPrivateKey }}'
     - name: description
       value: '{{ description }}'
     - name: displayName
@@ -154,13 +148,10 @@ Updates a <code>certificates</code> resource.
 /*+ update */
 UPDATE google.integrations.certificates
 SET 
-name = '{{ name }}',
-validEndTime = '{{ validEndTime }}',
 requestorId = '{{ requestorId }}',
 certificateStatus = '{{ certificateStatus }}',
 credentialId = '{{ credentialId }}',
 rawCertificate = '{{ rawCertificate }}',
-validStartTime = '{{ validStartTime }}',
 description = '{{ description }}',
 displayName = '{{ displayName }}'
 WHERE 

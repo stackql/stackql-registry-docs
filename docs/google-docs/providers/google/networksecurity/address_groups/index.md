@@ -81,13 +81,10 @@ locationsId,
 projectsId,
 name,
 description,
-createTime,
-updateTime,
 labels,
 type,
 items,
 capacity,
-selfLink,
 purpose
 )
 SELECT 
@@ -95,13 +92,10 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ type }}',
 '{{ items }}',
 '{{ capacity }}',
-'{{ selfLink }}',
 '{{ purpose }}'
 ;
 ```
@@ -115,22 +109,24 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: type
       value: '{{ type }}'
     - name: items
-      value: '{{ items }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: capacity
       value: '{{ capacity }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: purpose
-      value: '{{ purpose }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
 
 ```
 </TabItem>
@@ -146,13 +142,10 @@ UPDATE google.networksecurity.address_groups
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 type = '{{ type }}',
 items = '{{ items }}',
 capacity = '{{ capacity }}',
-selfLink = '{{ selfLink }}',
 purpose = '{{ purpose }}'
 WHERE 
 addressGroupsId = '{{ addressGroupsId }}'

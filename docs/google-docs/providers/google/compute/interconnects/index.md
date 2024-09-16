@@ -129,11 +129,7 @@ Use the following StackQL query and manifest file to create a new <code>intercon
 /*+ create */
 INSERT INTO google.compute.interconnects (
 project,
-kind,
 description,
-selfLink,
-id,
-creationTimestamp,
 name,
 location,
 linkType,
@@ -162,11 +158,7 @@ availableFeatures
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
 '{{ description }}',
-'{{ selfLink }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ location }}',
 '{{ linkType }}',
@@ -200,16 +192,8 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: location
@@ -231,7 +215,9 @@ true|false,
     - name: provisionedLinkCount
       value: '{{ provisionedLinkCount }}'
     - name: interconnectAttachments
-      value: '{{ interconnectAttachments }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: peerIpAddress
       value: '{{ peerIpAddress }}'
     - name: googleIpAddress
@@ -239,9 +225,13 @@ true|false,
     - name: googleReferenceId
       value: '{{ googleReferenceId }}'
     - name: expectedOutages
-      value: '{{ expectedOutages }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: circuitInfos
-      value: '{{ circuitInfos }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: labels
       value: '{{ labels }}'
     - name: labelFingerprint
@@ -251,15 +241,33 @@ true|false,
     - name: satisfiesPzs
       value: '{{ satisfiesPzs }}'
     - name: macsec
-      value: '{{ macsec }}'
+      value:
+        - name: preSharedKeys
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: failOpen
+          value: '{{ failOpen }}'
     - name: macsecEnabled
       value: '{{ macsecEnabled }}'
     - name: remoteLocation
       value: '{{ remoteLocation }}'
     - name: requestedFeatures
-      value: '{{ requestedFeatures }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: availableFeatures
-      value: '{{ availableFeatures }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
 
 ```
 </TabItem>
@@ -273,11 +281,7 @@ Updates a <code>interconnects</code> resource.
 /*+ update */
 UPDATE google.compute.interconnects
 SET 
-kind = '{{ kind }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 location = '{{ location }}',
 linkType = '{{ linkType }}',

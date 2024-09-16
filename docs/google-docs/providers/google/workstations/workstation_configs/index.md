@@ -126,13 +126,8 @@ projectsId,
 workstationClustersId,
 name,
 displayName,
-uid,
-reconciling,
 annotations,
 labels,
-createTime,
-updateTime,
-deleteTime,
 etag,
 idleTimeout,
 runningTimeout,
@@ -144,8 +139,6 @@ container,
 encryptionKey,
 readinessChecks,
 replicaZones,
-degraded,
-conditions,
 enableAuditAgent,
 disableTcpConnections,
 allowedPorts,
@@ -157,13 +150,8 @@ SELECT
 '{{ workstationClustersId }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-true|false,
 '{{ annotations }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ etag }}',
 '{{ idleTimeout }}',
 '{{ runningTimeout }}',
@@ -175,8 +163,6 @@ true|false,
 '{{ encryptionKey }}',
 '{{ readinessChecks }}',
 '{{ replicaZones }}',
-true|false,
-'{{ conditions }}',
 true|false,
 true|false,
 '{{ allowedPorts }}',
@@ -193,20 +179,10 @@ true|false
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: etag
       value: '{{ etag }}'
     - name: idleTimeout
@@ -216,29 +192,97 @@ true|false
     - name: maxUsableWorkstations
       value: '{{ maxUsableWorkstations }}'
     - name: host
-      value: '{{ host }}'
+      value:
+        - name: gceInstance
+          value:
+            - name: machineType
+              value: '{{ machineType }}'
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
+            - name: serviceAccountScopes
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: tags
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: poolSize
+              value: '{{ poolSize }}'
+            - name: disablePublicIpAddresses
+              value: '{{ disablePublicIpAddresses }}'
+            - name: enableNestedVirtualization
+              value: '{{ enableNestedVirtualization }}'
+            - name: shieldedInstanceConfig
+              value:
+                - name: enableSecureBoot
+                  value: '{{ enableSecureBoot }}'
+                - name: enableVtpm
+                  value: '{{ enableVtpm }}'
+                - name: enableIntegrityMonitoring
+                  value: '{{ enableIntegrityMonitoring }}'
+            - name: confidentialInstanceConfig
+              value:
+                - name: enableConfidentialCompute
+                  value: '{{ enableConfidentialCompute }}'
+            - name: bootDiskSizeGb
+              value: '{{ bootDiskSizeGb }}'
+            - name: accelerators
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: disableSsh
+              value: '{{ disableSsh }}'
+            - name: vmTags
+              value: '{{ vmTags }}'
     - name: persistentDirectories
-      value: '{{ persistentDirectories }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: ephemeralDirectories
-      value: '{{ ephemeralDirectories }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: container
-      value: '{{ container }}'
+      value:
+        - name: image
+          value: '{{ image }}'
+        - name: command
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: args
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: env
+          value: '{{ env }}'
+        - name: workingDir
+          value: '{{ workingDir }}'
+        - name: runAsUser
+          value: '{{ runAsUser }}'
     - name: encryptionKey
-      value: '{{ encryptionKey }}'
+      value:
+        - name: kmsKey
+          value: '{{ kmsKey }}'
+        - name: kmsKeyServiceAccount
+          value: '{{ kmsKeyServiceAccount }}'
     - name: readinessChecks
-      value: '{{ readinessChecks }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: replicaZones
-      value: '{{ replicaZones }}'
-    - name: degraded
-      value: '{{ degraded }}'
-    - name: conditions
-      value: '{{ conditions }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: enableAuditAgent
       value: '{{ enableAuditAgent }}'
     - name: disableTcpConnections
       value: '{{ disableTcpConnections }}'
     - name: allowedPorts
-      value: '{{ allowedPorts }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: grantWorkstationAdminRoleOnCreate
       value: '{{ grantWorkstationAdminRoleOnCreate }}'
 
@@ -256,13 +300,8 @@ UPDATE google.workstations.workstation_configs
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-reconciling = true|false,
 annotations = '{{ annotations }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
 etag = '{{ etag }}',
 idleTimeout = '{{ idleTimeout }}',
 runningTimeout = '{{ runningTimeout }}',
@@ -274,8 +313,6 @@ container = '{{ container }}',
 encryptionKey = '{{ encryptionKey }}',
 readinessChecks = '{{ readinessChecks }}',
 replicaZones = '{{ replicaZones }}',
-degraded = true|false,
-conditions = '{{ conditions }}',
 enableAuditAgent = true|false,
 disableTcpConnections = true|false,
 allowedPorts = '{{ allowedPorts }}',

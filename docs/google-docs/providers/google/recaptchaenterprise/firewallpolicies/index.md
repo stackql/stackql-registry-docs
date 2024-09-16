@@ -107,7 +107,9 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: actions
-      value: '{{ actions }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: path
       value: '{{ path }}'
 

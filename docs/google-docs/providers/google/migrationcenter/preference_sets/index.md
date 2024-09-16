@@ -82,9 +82,6 @@ Use the following StackQL query and manifest file to create a new <code>preferen
 INSERT INTO google.migrationcenter.preference_sets (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 displayName,
 description,
 virtualMachinePreferences
@@ -92,9 +89,6 @@ virtualMachinePreferences
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ virtualMachinePreferences }}'
@@ -106,18 +100,58 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
     - name: virtualMachinePreferences
-      value: '{{ virtualMachinePreferences }}'
+      value:
+        - name: targetProduct
+          value: '{{ targetProduct }}'
+        - name: regionPreferences
+          value:
+            - name: preferredRegions
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: commitmentPlan
+          value: '{{ commitmentPlan }}'
+        - name: sizingOptimizationStrategy
+          value: '{{ sizingOptimizationStrategy }}'
+        - name: computeEnginePreferences
+          value:
+            - name: persistentDiskType
+              value: '{{ persistentDiskType }}'
+            - name: machinePreferences
+              value:
+                - name: allowedMachineSeries
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: licenseType
+              value: '{{ licenseType }}'
+        - name: vmwareEnginePreferences
+          value:
+            - name: cpuOvercommitRatio
+              value: '{{ cpuOvercommitRatio }}'
+            - name: memoryOvercommitRatio
+              value: '{{ memoryOvercommitRatio }}'
+            - name: storageDeduplicationCompressionRatio
+              value: '{{ storageDeduplicationCompressionRatio }}'
+            - name: commitmentPlan
+              value: '{{ commitmentPlan }}'
+        - name: soleTenancyPreferences
+          value:
+            - name: cpuOvercommitRatio
+              value: '{{ cpuOvercommitRatio }}'
+            - name: hostMaintenancePolicy
+              value: '{{ hostMaintenancePolicy }}'
+            - name: commitmentPlan
+              value: '{{ commitmentPlan }}'
+            - name: nodeTypes
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -131,9 +165,6 @@ Updates a <code>preference_sets</code> resource.
 /*+ update */
 UPDATE google.migrationcenter.preference_sets
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 virtualMachinePreferences = '{{ virtualMachinePreferences }}'

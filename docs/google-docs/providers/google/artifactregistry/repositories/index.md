@@ -114,16 +114,11 @@ name,
 format,
 description,
 labels,
-createTime,
-updateTime,
 kmsKeyName,
 mode,
 cleanupPolicies,
-sizeBytes,
-satisfiesPzs,
 cleanupPolicyDryRun,
-disallowUnspecifiedMode,
-satisfiesPzi
+disallowUnspecifiedMode
 )
 SELECT 
 '{{ locationsId }}',
@@ -136,14 +131,9 @@ SELECT
 '{{ format }}',
 '{{ description }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ kmsKeyName }}',
 '{{ mode }}',
 '{{ cleanupPolicies }}',
-'{{ sizeBytes }}',
-true|false,
-true|false,
 true|false,
 true|false
 ;
@@ -155,13 +145,95 @@ true|false
 - name: your_resource_model_name
   props:
     - name: mavenConfig
-      value: '{{ mavenConfig }}'
+      value:
+        - name: allowSnapshotOverwrites
+          value: '{{ allowSnapshotOverwrites }}'
+        - name: versionPolicy
+          value: '{{ versionPolicy }}'
     - name: dockerConfig
-      value: '{{ dockerConfig }}'
+      value:
+        - name: immutableTags
+          value: '{{ immutableTags }}'
     - name: virtualRepositoryConfig
-      value: '{{ virtualRepositoryConfig }}'
+      value:
+        - name: upstreamPolicies
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: remoteRepositoryConfig
-      value: '{{ remoteRepositoryConfig }}'
+      value:
+        - name: dockerRepository
+          value:
+            - name: publicRepository
+              value: '{{ publicRepository }}'
+            - name: customRepository
+              value:
+                - name: uri
+                  value: '{{ uri }}'
+        - name: mavenRepository
+          value:
+            - name: publicRepository
+              value: '{{ publicRepository }}'
+            - name: customRepository
+              value:
+                - name: uri
+                  value: '{{ uri }}'
+        - name: npmRepository
+          value:
+            - name: publicRepository
+              value: '{{ publicRepository }}'
+            - name: customRepository
+              value:
+                - name: uri
+                  value: '{{ uri }}'
+        - name: pythonRepository
+          value:
+            - name: publicRepository
+              value: '{{ publicRepository }}'
+            - name: customRepository
+              value:
+                - name: uri
+                  value: '{{ uri }}'
+        - name: aptRepository
+          value:
+            - name: publicRepository
+              value:
+                - name: repositoryBase
+                  value: '{{ repositoryBase }}'
+                - name: repositoryPath
+                  value: '{{ repositoryPath }}'
+            - name: customRepository
+              value:
+                - name: uri
+                  value: '{{ uri }}'
+        - name: yumRepository
+          value:
+            - name: publicRepository
+              value:
+                - name: repositoryBase
+                  value: '{{ repositoryBase }}'
+                - name: repositoryPath
+                  value: '{{ repositoryPath }}'
+            - name: customRepository
+              value:
+                - name: uri
+                  value: '{{ uri }}'
+        - name: commonRepository
+          value:
+            - name: uri
+              value: '{{ uri }}'
+        - name: description
+          value: '{{ description }}'
+        - name: upstreamCredentials
+          value:
+            - name: usernamePasswordCredentials
+              value:
+                - name: username
+                  value: '{{ username }}'
+                - name: passwordSecretVersion
+                  value: '{{ passwordSecretVersion }}'
+        - name: disableUpstreamValidation
+          value: '{{ disableUpstreamValidation }}'
     - name: name
       value: '{{ name }}'
     - name: format
@@ -170,26 +242,16 @@ true|false
       value: '{{ description }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: kmsKeyName
       value: '{{ kmsKeyName }}'
     - name: mode
       value: '{{ mode }}'
     - name: cleanupPolicies
       value: '{{ cleanupPolicies }}'
-    - name: sizeBytes
-      value: '{{ sizeBytes }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
     - name: cleanupPolicyDryRun
       value: '{{ cleanupPolicyDryRun }}'
     - name: disallowUnspecifiedMode
       value: '{{ disallowUnspecifiedMode }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>
@@ -211,16 +273,11 @@ name = '{{ name }}',
 format = '{{ format }}',
 description = '{{ description }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 kmsKeyName = '{{ kmsKeyName }}',
 mode = '{{ mode }}',
 cleanupPolicies = '{{ cleanupPolicies }}',
-sizeBytes = '{{ sizeBytes }}',
-satisfiesPzs = true|false,
 cleanupPolicyDryRun = true|false,
-disallowUnspecifiedMode = true|false,
-satisfiesPzi = true|false
+disallowUnspecifiedMode = true|false
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

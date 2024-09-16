@@ -141,15 +141,6 @@ name,
 adminClusterMembership,
 description,
 bareMetalVersion,
-uid,
-state,
-endpoint,
-reconciling,
-createTime,
-updateTime,
-deleteTime,
-localName,
-etag,
 annotations,
 networkConfig,
 controlPlane,
@@ -159,12 +150,7 @@ proxy,
 clusterOperations,
 maintenanceConfig,
 nodeConfig,
-fleet,
-status,
-validationCheck,
 securityConfig,
-maintenanceStatus,
-adminClusterName,
 nodeAccessConfig,
 osEnvironmentConfig,
 binaryAuthorization,
@@ -177,15 +163,6 @@ SELECT
 '{{ adminClusterMembership }}',
 '{{ description }}',
 '{{ bareMetalVersion }}',
-'{{ uid }}',
-'{{ state }}',
-'{{ endpoint }}',
-true|false,
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
-'{{ localName }}',
-'{{ etag }}',
 '{{ annotations }}',
 '{{ networkConfig }}',
 '{{ controlPlane }}',
@@ -195,12 +172,7 @@ true|false,
 '{{ clusterOperations }}',
 '{{ maintenanceConfig }}',
 '{{ nodeConfig }}',
-'{{ fleet }}',
-'{{ status }}',
-'{{ validationCheck }}',
 '{{ securityConfig }}',
-'{{ maintenanceStatus }}',
-'{{ adminClusterName }}',
 '{{ nodeAccessConfig }}',
 '{{ osEnvironmentConfig }}',
 '{{ binaryAuthorization }}',
@@ -221,62 +193,156 @@ true|false,
       value: '{{ description }}'
     - name: bareMetalVersion
       value: '{{ bareMetalVersion }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: state
-      value: '{{ state }}'
-    - name: endpoint
-      value: '{{ endpoint }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: localName
-      value: '{{ localName }}'
-    - name: etag
-      value: '{{ etag }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: networkConfig
-      value: '{{ networkConfig }}'
+      value:
+        - name: islandModeCidr
+          value:
+            - name: serviceAddressCidrBlocks
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: podAddressCidrBlocks
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: advancedNetworking
+          value: '{{ advancedNetworking }}'
+        - name: multipleNetworkInterfacesConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: srIovConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
     - name: controlPlane
-      value: '{{ controlPlane }}'
+      value:
+        - name: controlPlaneNodePoolConfig
+          value:
+            - name: nodePoolConfig
+              value:
+                - name: nodeConfigs
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: operatingSystem
+                  value: '{{ operatingSystem }}'
+                - name: taints
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: labels
+                  value: '{{ labels }}'
+                - name: kubeletConfig
+                  value:
+                    - name: registryPullQps
+                      value: '{{ registryPullQps }}'
+                    - name: registryBurst
+                      value: '{{ registryBurst }}'
+                    - name: serializeImagePullsDisabled
+                      value: '{{ serializeImagePullsDisabled }}'
+        - name: apiServerArgs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: loadBalancer
-      value: '{{ loadBalancer }}'
+      value:
+        - name: vipConfig
+          value:
+            - name: controlPlaneVip
+              value: '{{ controlPlaneVip }}'
+            - name: ingressVip
+              value: '{{ ingressVip }}'
+        - name: portConfig
+          value:
+            - name: controlPlaneLoadBalancerPort
+              value: '{{ controlPlaneLoadBalancerPort }}'
+        - name: metalLbConfig
+          value:
+            - name: addressPools
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: loadBalancerNodePoolConfig
+              value: []
+        - name: manualLbConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: bgpLbConfig
+          value:
+            - name: asn
+              value: '{{ asn }}'
+            - name: bgpPeerConfigs
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: addressPools
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: storage
-      value: '{{ storage }}'
+      value:
+        - name: lvpShareConfig
+          value:
+            - name: lvpConfig
+              value:
+                - name: path
+                  value: '{{ path }}'
+                - name: storageClass
+                  value: '{{ storageClass }}'
+            - name: sharedPathPvCount
+              value: '{{ sharedPathPvCount }}'
     - name: proxy
-      value: '{{ proxy }}'
+      value:
+        - name: uri
+          value: '{{ uri }}'
+        - name: noProxy
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: clusterOperations
-      value: '{{ clusterOperations }}'
+      value:
+        - name: enableApplicationLogs
+          value: '{{ enableApplicationLogs }}'
     - name: maintenanceConfig
-      value: '{{ maintenanceConfig }}'
+      value:
+        - name: maintenanceAddressCidrBlocks
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: nodeConfig
-      value: '{{ nodeConfig }}'
-    - name: fleet
-      value: '{{ fleet }}'
-    - name: status
-      value: '{{ status }}'
-    - name: validationCheck
-      value: '{{ validationCheck }}'
+      value:
+        - name: maxPodsPerNode
+          value: '{{ maxPodsPerNode }}'
+        - name: containerRuntime
+          value: '{{ containerRuntime }}'
     - name: securityConfig
-      value: '{{ securityConfig }}'
-    - name: maintenanceStatus
-      value: '{{ maintenanceStatus }}'
-    - name: adminClusterName
-      value: '{{ adminClusterName }}'
+      value:
+        - name: authorization
+          value:
+            - name: adminUsers
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: nodeAccessConfig
-      value: '{{ nodeAccessConfig }}'
+      value:
+        - name: loginUser
+          value: '{{ loginUser }}'
     - name: osEnvironmentConfig
-      value: '{{ osEnvironmentConfig }}'
+      value:
+        - name: packageRepoExcluded
+          value: '{{ packageRepoExcluded }}'
     - name: binaryAuthorization
-      value: '{{ binaryAuthorization }}'
+      value:
+        - name: evaluationMode
+          value: '{{ evaluationMode }}'
     - name: upgradePolicy
-      value: '{{ upgradePolicy }}'
+      value:
+        - name: policy
+          value: '{{ policy }}'
 
 ```
 </TabItem>
@@ -294,15 +360,6 @@ name = '{{ name }}',
 adminClusterMembership = '{{ adminClusterMembership }}',
 description = '{{ description }}',
 bareMetalVersion = '{{ bareMetalVersion }}',
-uid = '{{ uid }}',
-state = '{{ state }}',
-endpoint = '{{ endpoint }}',
-reconciling = true|false,
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
-localName = '{{ localName }}',
-etag = '{{ etag }}',
 annotations = '{{ annotations }}',
 networkConfig = '{{ networkConfig }}',
 controlPlane = '{{ controlPlane }}',
@@ -312,12 +369,7 @@ proxy = '{{ proxy }}',
 clusterOperations = '{{ clusterOperations }}',
 maintenanceConfig = '{{ maintenanceConfig }}',
 nodeConfig = '{{ nodeConfig }}',
-fleet = '{{ fleet }}',
-status = '{{ status }}',
-validationCheck = '{{ validationCheck }}',
 securityConfig = '{{ securityConfig }}',
-maintenanceStatus = '{{ maintenanceStatus }}',
-adminClusterName = '{{ adminClusterName }}',
 nodeAccessConfig = '{{ nodeAccessConfig }}',
 osEnvironmentConfig = '{{ osEnvironmentConfig }}',
 binaryAuthorization = '{{ binaryAuthorization }}',

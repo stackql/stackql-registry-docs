@@ -101,11 +101,7 @@ patchConfig,
 duration,
 oneTimeSchedule,
 recurringSchedule,
-createTime,
-updateTime,
-lastExecuteTime,
-rollout,
-state
+rollout
 )
 SELECT 
 '{{ projectsId }}',
@@ -116,11 +112,7 @@ SELECT
 '{{ duration }}',
 '{{ oneTimeSchedule }}',
 '{{ recurringSchedule }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ lastExecuteTime }}',
-'{{ rollout }}',
-'{{ state }}'
+'{{ rollout }}'
 ;
 ```
 </TabItem>
@@ -134,25 +126,175 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: instanceFilter
-      value: '{{ instanceFilter }}'
+      value:
+        - name: all
+          value: '{{ all }}'
+        - name: groupLabels
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: zones
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: instances
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: instanceNamePrefixes
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: patchConfig
-      value: '{{ patchConfig }}'
+      value:
+        - name: rebootConfig
+          value: '{{ rebootConfig }}'
+        - name: apt
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: excludes
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: exclusivePackages
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: yum
+          value:
+            - name: security
+              value: '{{ security }}'
+            - name: minimal
+              value: '{{ minimal }}'
+            - name: excludes
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: exclusivePackages
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: goo
+          value: []
+        - name: zypper
+          value:
+            - name: withOptional
+              value: '{{ withOptional }}'
+            - name: withUpdate
+              value: '{{ withUpdate }}'
+            - name: categories
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: severities
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: excludes
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: exclusivePatches
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: windowsUpdate
+          value:
+            - name: classifications
+              value:
+                - name: type
+                  value: '{{ type }}'
+                - name: enumDescriptions
+                  value: '{{ enumDescriptions }}'
+                - name: enum
+                  value: '{{ enum }}'
+            - name: excludes
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: exclusivePatches
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: preStep
+          value:
+            - name: linuxExecStepConfig
+              value:
+                - name: localPath
+                  value: '{{ localPath }}'
+                - name: gcsObject
+                  value:
+                    - name: bucket
+                      value: '{{ bucket }}'
+                    - name: object
+                      value: '{{ object }}'
+                    - name: generationNumber
+                      value: '{{ generationNumber }}'
+                - name: allowedSuccessCodes
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                    - name: format
+                      value: '{{ format }}'
+                - name: interpreter
+                  value: '{{ interpreter }}'
+        - name: migInstancesAllowed
+          value: '{{ migInstancesAllowed }}'
     - name: duration
       value: '{{ duration }}'
     - name: oneTimeSchedule
-      value: '{{ oneTimeSchedule }}'
+      value:
+        - name: executeTime
+          value: '{{ executeTime }}'
     - name: recurringSchedule
-      value: '{{ recurringSchedule }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: lastExecuteTime
-      value: '{{ lastExecuteTime }}'
+      value:
+        - name: timeZone
+          value:
+            - name: version
+              value: '{{ version }}'
+        - name: startTime
+          value: '{{ startTime }}'
+        - name: endTime
+          value: '{{ endTime }}'
+        - name: timeOfDay
+          value:
+            - name: hours
+              value: '{{ hours }}'
+            - name: minutes
+              value: '{{ minutes }}'
+            - name: seconds
+              value: '{{ seconds }}'
+            - name: nanos
+              value: '{{ nanos }}'
+        - name: frequency
+          value: '{{ frequency }}'
+        - name: weekly
+          value:
+            - name: dayOfWeek
+              value: '{{ dayOfWeek }}'
+        - name: monthly
+          value:
+            - name: weekDayOfMonth
+              value:
+                - name: weekOrdinal
+                  value: '{{ weekOrdinal }}'
+                - name: dayOfWeek
+                  value: '{{ dayOfWeek }}'
+                - name: dayOffset
+                  value: '{{ dayOffset }}'
+            - name: monthDay
+              value: '{{ monthDay }}'
     - name: rollout
-      value: '{{ rollout }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: mode
+          value: '{{ mode }}'
+        - name: disruptionBudget
+          value:
+            - name: fixed
+              value: '{{ fixed }}'
+            - name: percent
+              value: '{{ percent }}'
 
 ```
 </TabItem>
@@ -173,11 +315,7 @@ patchConfig = '{{ patchConfig }}',
 duration = '{{ duration }}',
 oneTimeSchedule = '{{ oneTimeSchedule }}',
 recurringSchedule = '{{ recurringSchedule }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-lastExecuteTime = '{{ lastExecuteTime }}',
-rollout = '{{ rollout }}',
-state = '{{ state }}'
+rollout = '{{ rollout }}'
 WHERE 
 patchDeploymentsId = '{{ patchDeploymentsId }}'
 AND projectsId = '{{ projectsId }}';

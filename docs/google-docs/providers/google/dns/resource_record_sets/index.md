@@ -89,8 +89,7 @@ type,
 ttl,
 rrdatas,
 signatureRrdatas,
-routingPolicy,
-kind
+routingPolicy
 )
 SELECT 
 '{{ managedZone }}',
@@ -100,8 +99,7 @@ SELECT
 '{{ ttl }}',
 '{{ rrdatas }}',
 '{{ signatureRrdatas }}',
-'{{ routingPolicy }}',
-'{{ kind }}'
+'{{ routingPolicy }}'
 ;
 ```
 </TabItem>
@@ -117,13 +115,45 @@ SELECT
     - name: ttl
       value: '{{ ttl }}'
     - name: rrdatas
-      value: '{{ rrdatas }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: signatureRrdatas
-      value: '{{ signatureRrdatas }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: routingPolicy
-      value: '{{ routingPolicy }}'
-    - name: kind
-      value: '{{ kind }}'
+      value:
+        - name: geo
+          value:
+            - name: items
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: enableFencing
+              value: '{{ enableFencing }}'
+        - name: wrr
+          value:
+            - name: items
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: primaryBackup
+          value:
+            - name: primaryTargets
+              value:
+                - name: internalLoadBalancers
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: externalEndpoints
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+            - name: trickleTraffic
+              value: '{{ trickleTraffic }}'
+        - name: healthCheck
+          value: '{{ healthCheck }}'
 
 ```
 </TabItem>
@@ -142,8 +172,7 @@ type = '{{ type }}',
 ttl = '{{ ttl }}',
 rrdatas = '{{ rrdatas }}',
 signatureRrdatas = '{{ signatureRrdatas }}',
-routingPolicy = '{{ routingPolicy }}',
-kind = '{{ kind }}'
+routingPolicy = '{{ routingPolicy }}'
 WHERE 
 managedZone = '{{ managedZone }}'
 AND name = '{{ name }}'

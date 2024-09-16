@@ -100,12 +100,8 @@ Use the following StackQL query and manifest file to create a new <code>global_p
 /*+ create */
 INSERT INTO google.compute.global_public_delegated_prefixes (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 region,
 ipCidrRange,
 status,
@@ -119,12 +115,8 @@ byoipApiVersion
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ region }}',
 '{{ ipCidrRange }}',
 '{{ status }}',
@@ -143,18 +135,10 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: region
       value: '{{ region }}'
     - name: ipCidrRange
@@ -164,7 +148,9 @@ true|false,
     - name: parentPrefix
       value: '{{ parentPrefix }}'
     - name: publicDelegatedSubPrefixs
-      value: '{{ publicDelegatedSubPrefixs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: isLiveMigration
       value: '{{ isLiveMigration }}'
     - name: fingerprint
@@ -188,12 +174,8 @@ Updates a <code>global_public_delegated_prefixes</code> resource.
 /*+ update */
 UPDATE google.compute.global_public_delegated_prefixes
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 region = '{{ region }}',
 ipCidrRange = '{{ ipCidrRange }}',
 status = '{{ status }}',

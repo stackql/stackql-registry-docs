@@ -100,8 +100,6 @@ slotCapacity,
 ignoreIdleSlots,
 autoscale,
 concurrency,
-creationTime,
-updateTime,
 multiRegionAuxiliary,
 edition,
 primaryLocation,
@@ -116,8 +114,6 @@ SELECT
 true|false,
 '{{ autoscale }}',
 '{{ concurrency }}',
-'{{ creationTime }}',
-'{{ updateTime }}',
 true|false,
 '{{ edition }}',
 '{{ primaryLocation }}',
@@ -138,13 +134,11 @@ true|false,
     - name: ignoreIdleSlots
       value: '{{ ignoreIdleSlots }}'
     - name: autoscale
-      value: '{{ autoscale }}'
+      value:
+        - name: maxSlots
+          value: '{{ maxSlots }}'
     - name: concurrency
       value: '{{ concurrency }}'
-    - name: creationTime
-      value: '{{ creationTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: multiRegionAuxiliary
       value: '{{ multiRegionAuxiliary }}'
     - name: edition
@@ -173,8 +167,6 @@ slotCapacity = '{{ slotCapacity }}',
 ignoreIdleSlots = true|false,
 autoscale = '{{ autoscale }}',
 concurrency = '{{ concurrency }}',
-creationTime = '{{ creationTime }}',
-updateTime = '{{ updateTime }}',
 multiRegionAuxiliary = true|false,
 edition = '{{ edition }}',
 primaryLocation = '{{ primaryLocation }}',

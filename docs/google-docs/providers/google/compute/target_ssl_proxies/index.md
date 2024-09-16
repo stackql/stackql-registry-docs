@@ -94,12 +94,8 @@ Use the following StackQL query and manifest file to create a new <code>target_s
 /*+ create */
 INSERT INTO google.compute.target_ssl_proxies (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 service,
 sslCertificates,
 certificateMap,
@@ -108,12 +104,8 @@ sslPolicy
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ service }}',
 '{{ sslCertificates }}',
 '{{ certificateMap }}',
@@ -127,22 +119,16 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: service
       value: '{{ service }}'
     - name: sslCertificates
-      value: '{{ sslCertificates }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: certificateMap
       value: '{{ certificateMap }}'
     - name: proxyHeader

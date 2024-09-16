@@ -87,25 +87,15 @@ Use the following StackQL query and manifest file to create a new <code>folders<
 INSERT INTO google.storage.folders (
 bucket,
 bucket,
-id,
-kind,
 metageneration,
 name,
-selfLink,
-createTime,
-updateTime,
 pendingRenameInfo
 )
 SELECT 
 '{{ bucket }}',
 '{{ bucket }}',
-'{{ id }}',
-'{{ kind }}',
 '{{ metageneration }}',
 '{{ name }}',
-'{{ selfLink }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ pendingRenameInfo }}'
 ;
 ```
@@ -117,20 +107,10 @@ SELECT
   props:
     - name: bucket
       value: '{{ bucket }}'
-    - name: id
-      value: '{{ id }}'
-    - name: kind
-      value: '{{ kind }}'
     - name: metageneration
       value: '{{ metageneration }}'
     - name: name
       value: '{{ name }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: pendingRenameInfo
       value:
         - name: operationId

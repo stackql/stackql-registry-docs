@@ -89,13 +89,9 @@ Use the following StackQL query and manifest file to create a new <code>region_i
 INSERT INTO google.compute.region_instance_templates (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 properties,
-selfLink,
 sourceInstance,
 sourceInstanceParams,
 region
@@ -103,13 +99,9 @@ region
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ properties }}',
-'{{ selfLink }}',
 '{{ sourceInstance }}',
 '{{ sourceInstanceParams }}',
 '{{ region }}'
@@ -121,24 +113,150 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: properties
-      value: '{{ properties }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
+      value:
+        - name: description
+          value: '{{ description }}'
+        - name: tags
+          value:
+            - name: items
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: fingerprint
+              value: '{{ fingerprint }}'
+        - name: resourceManagerTags
+          value: '{{ resourceManagerTags }}'
+        - name: machineType
+          value: '{{ machineType }}'
+        - name: canIpForward
+          value: '{{ canIpForward }}'
+        - name: networkInterfaces
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: disks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: metadata
+          value:
+            - name: fingerprint
+              value: '{{ fingerprint }}'
+            - name: items
+              value:
+                - name: key
+                  value: '{{ key }}'
+                - name: value
+                  value: '{{ value }}'
+        - name: serviceAccounts
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: scheduling
+          value:
+            - name: onHostMaintenance
+              value: '{{ onHostMaintenance }}'
+            - name: automaticRestart
+              value: '{{ automaticRestart }}'
+            - name: preemptible
+              value: '{{ preemptible }}'
+            - name: nodeAffinities
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: minNodeCpus
+              value: '{{ minNodeCpus }}'
+            - name: locationHint
+              value: '{{ locationHint }}'
+            - name: availabilityDomain
+              value: '{{ availabilityDomain }}'
+            - name: provisioningModel
+              value: '{{ provisioningModel }}'
+            - name: instanceTerminationAction
+              value: '{{ instanceTerminationAction }}'
+            - name: maxRunDuration
+              value:
+                - name: seconds
+                  value: '{{ seconds }}'
+                - name: nanos
+                  value: '{{ nanos }}'
+            - name: terminationTime
+              value: '{{ terminationTime }}'
+            - name: onInstanceStopAction
+              value:
+                - name: discardLocalSsd
+                  value: '{{ discardLocalSsd }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: guestAccelerators
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: minCpuPlatform
+          value: '{{ minCpuPlatform }}'
+        - name: reservationAffinity
+          value:
+            - name: consumeReservationType
+              value: '{{ consumeReservationType }}'
+            - name: key
+              value: '{{ key }}'
+            - name: values
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: shieldedInstanceConfig
+          value:
+            - name: enableSecureBoot
+              value: '{{ enableSecureBoot }}'
+            - name: enableVtpm
+              value: '{{ enableVtpm }}'
+            - name: enableIntegrityMonitoring
+              value: '{{ enableIntegrityMonitoring }}'
+        - name: resourcePolicies
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: confidentialInstanceConfig
+          value:
+            - name: enableConfidentialCompute
+              value: '{{ enableConfidentialCompute }}'
+            - name: confidentialInstanceType
+              value: '{{ confidentialInstanceType }}'
+        - name: privateIpv6GoogleAccess
+          value: '{{ privateIpv6GoogleAccess }}'
+        - name: advancedMachineFeatures
+          value:
+            - name: enableNestedVirtualization
+              value: '{{ enableNestedVirtualization }}'
+            - name: threadsPerCore
+              value: '{{ threadsPerCore }}'
+            - name: visibleCoreCount
+              value: '{{ visibleCoreCount }}'
+            - name: enableUefiNetworking
+              value: '{{ enableUefiNetworking }}'
+            - name: performanceMonitoringUnit
+              value: '{{ performanceMonitoringUnit }}'
+            - name: turboMode
+              value: '{{ turboMode }}'
+        - name: networkPerformanceConfig
+          value:
+            - name: totalEgressBandwidthTier
+              value: '{{ totalEgressBandwidthTier }}'
+        - name: keyRevocationActionType
+          value: '{{ keyRevocationActionType }}'
     - name: sourceInstance
       value: '{{ sourceInstance }}'
     - name: sourceInstanceParams
-      value: '{{ sourceInstanceParams }}'
+      value:
+        - name: diskConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: region
       value: '{{ region }}'
 

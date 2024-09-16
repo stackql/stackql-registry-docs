@@ -101,38 +101,22 @@ Use the following StackQL query and manifest file to create a new <code>discover
 INSERT INTO google.migrationcenter.discovery_clients (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 source,
 serviceAccount,
-signalsEndpoint,
 displayName,
 description,
 labels,
-state,
-version,
-errors,
-heartbeatTime,
 expireTime,
 ttl
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ source }}',
 '{{ serviceAccount }}',
-'{{ signalsEndpoint }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ labels }}',
-'{{ state }}',
-'{{ version }}',
-'{{ errors }}',
-'{{ heartbeatTime }}',
 '{{ expireTime }}',
 '{{ ttl }}'
 ;
@@ -143,32 +127,16 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: source
       value: '{{ source }}'
     - name: serviceAccount
       value: '{{ serviceAccount }}'
-    - name: signalsEndpoint
-      value: '{{ signalsEndpoint }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
     - name: labels
       value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
-    - name: version
-      value: '{{ version }}'
-    - name: errors
-      value: '{{ errors }}'
-    - name: heartbeatTime
-      value: '{{ heartbeatTime }}'
     - name: expireTime
       value: '{{ expireTime }}'
     - name: ttl
@@ -186,19 +154,11 @@ Updates a <code>discovery_clients</code> resource.
 /*+ update */
 UPDATE google.migrationcenter.discovery_clients
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 source = '{{ source }}',
 serviceAccount = '{{ serviceAccount }}',
-signalsEndpoint = '{{ signalsEndpoint }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 labels = '{{ labels }}',
-state = '{{ state }}',
-version = '{{ version }}',
-errors = '{{ errors }}',
-heartbeatTime = '{{ heartbeatTime }}',
 expireTime = '{{ expireTime }}',
 ttl = '{{ ttl }}'
 WHERE 

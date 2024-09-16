@@ -95,8 +95,6 @@ INSERT INTO google.apigee.security_actions (
 environmentsId,
 organizationsId,
 apiProxies,
-createTime,
-updateTime,
 name,
 description,
 conditionConfig,
@@ -111,8 +109,6 @@ SELECT
 '{{ environmentsId }}',
 '{{ organizationsId }}',
 '{{ apiProxies }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ name }}',
 '{{ description }}',
 '{{ conditionConfig }}',
@@ -131,27 +127,77 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: apiProxies
-      value: '{{ apiProxies }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: conditionConfig
-      value: '{{ conditionConfig }}'
+      value:
+        - name: asns
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: format
+              value: '{{ format }}'
+        - name: ipAddressRanges
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: botReasons
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: apiKeys
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: httpMethods
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: accessTokens
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: developers
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: regionCodes
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: apiProducts
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: developerApps
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: userAgents
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: deny
-      value: '{{ deny }}'
+      value:
+        - name: responseCode
+          value: '{{ responseCode }}'
     - name: state
       value: '{{ state }}'
     - name: ttl
       value: '{{ ttl }}'
     - name: allow
-      value: '{{ allow }}'
+      value: []
     - name: flag
-      value: '{{ flag }}'
+      value:
+        - name: headers
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: expireTime
       value: '{{ expireTime }}'
 

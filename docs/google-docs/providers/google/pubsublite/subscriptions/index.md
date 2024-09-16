@@ -100,9 +100,19 @@ SELECT
     - name: topic
       value: '{{ topic }}'
     - name: deliveryConfig
-      value: '{{ deliveryConfig }}'
+      value:
+        - name: deliveryRequirement
+          value: '{{ deliveryRequirement }}'
     - name: exportConfig
-      value: '{{ exportConfig }}'
+      value:
+        - name: desiredState
+          value: '{{ desiredState }}'
+        - name: deadLetterTopic
+          value: '{{ deadLetterTopic }}'
+        - name: pubsubConfig
+          value:
+            - name: topic
+              value: '{{ topic }}'
 
 ```
 </TabItem>

@@ -105,15 +105,10 @@ Use the following StackQL query and manifest file to create a new <code>networks
 /*+ create */
 INSERT INTO google.compute.networks (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 IPv4Range,
 gatewayIPv4,
-selfLink,
-selfLinkWithId,
 autoCreateSubnetworks,
 subnetworks,
 peerings,
@@ -126,15 +121,10 @@ internalIpv6Range
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ IPv4Range }}',
 '{{ gatewayIPv4 }}',
-'{{ selfLink }}',
-'{{ selfLinkWithId }}',
 true|false,
 '{{ subnetworks }}',
 '{{ peerings }}',
@@ -152,12 +142,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -166,18 +150,20 @@ true|false,
       value: '{{ IPv4Range }}'
     - name: gatewayIPv4
       value: '{{ gatewayIPv4 }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: selfLinkWithId
-      value: '{{ selfLinkWithId }}'
     - name: autoCreateSubnetworks
       value: '{{ autoCreateSubnetworks }}'
     - name: subnetworks
-      value: '{{ subnetworks }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: peerings
-      value: '{{ peerings }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: routingConfig
-      value: '{{ routingConfig }}'
+      value:
+        - name: routingMode
+          value: '{{ routingMode }}'
     - name: mtu
       value: '{{ mtu }}'
     - name: firewallPolicy
@@ -201,15 +187,10 @@ Updates a <code>networks</code> resource.
 /*+ update */
 UPDATE google.compute.networks
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 IPv4Range = '{{ IPv4Range }}',
 gatewayIPv4 = '{{ gatewayIPv4 }}',
-selfLink = '{{ selfLink }}',
-selfLinkWithId = '{{ selfLinkWithId }}',
 autoCreateSubnetworks = true|false,
 subnetworks = '{{ subnetworks }}',
 peerings = '{{ peerings }}',

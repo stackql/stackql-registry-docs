@@ -88,11 +88,7 @@ Use the following StackQL query and manifest file to create a new <code>external
 /*+ create */
 INSERT INTO google.compute.external_vpn_gateways (
 project,
-kind,
 description,
-selfLink,
-id,
-creationTimestamp,
 name,
 redundancyType,
 interfaces,
@@ -101,11 +97,7 @@ labelFingerprint
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
 '{{ description }}',
-'{{ selfLink }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ redundancyType }}',
 '{{ interfaces }}',
@@ -119,22 +111,16 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: redundancyType
       value: '{{ redundancyType }}'
     - name: interfaces
-      value: '{{ interfaces }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: labels
       value: '{{ labels }}'
     - name: labelFingerprint

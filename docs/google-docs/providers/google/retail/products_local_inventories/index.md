@@ -83,7 +83,9 @@ true|false
 - name: your_resource_model_name
   props:
     - name: localInventories
-      value: '{{ localInventories }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: addMask
       value: '{{ addMask }}'
     - name: addTime

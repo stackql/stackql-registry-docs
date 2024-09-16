@@ -94,14 +94,9 @@ INSERT INTO google.apigateway.configs (
 apisId,
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 labels,
 displayName,
 gatewayServiceAccount,
-serviceConfigId,
-state,
 openapiDocuments,
 grpcServices,
 managedServiceConfigs
@@ -110,14 +105,9 @@ SELECT
 '{{ apisId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
 '{{ gatewayServiceAccount }}',
-'{{ serviceConfigId }}',
-'{{ state }}',
 '{{ openapiDocuments }}',
 '{{ grpcServices }}',
 '{{ managedServiceConfigs }}'
@@ -129,28 +119,24 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: gatewayServiceAccount
       value: '{{ gatewayServiceAccount }}'
-    - name: serviceConfigId
-      value: '{{ serviceConfigId }}'
-    - name: state
-      value: '{{ state }}'
     - name: openapiDocuments
-      value: '{{ openapiDocuments }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: grpcServices
-      value: '{{ grpcServices }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: managedServiceConfigs
-      value: '{{ managedServiceConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -164,14 +150,9 @@ Updates a <code>configs</code> resource.
 /*+ update */
 UPDATE google.apigateway.configs
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
 gatewayServiceAccount = '{{ gatewayServiceAccount }}',
-serviceConfigId = '{{ serviceConfigId }}',
-state = '{{ state }}',
 openapiDocuments = '{{ openapiDocuments }}',
 grpcServices = '{{ grpcServices }}',
 managedServiceConfigs = '{{ managedServiceConfigs }}'

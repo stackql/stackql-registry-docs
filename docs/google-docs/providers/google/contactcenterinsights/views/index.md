@@ -82,18 +82,14 @@ locationsId,
 projectsId,
 value,
 name,
-displayName,
-createTime,
-updateTime
+displayName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ value }}',
 '{{ name }}',
-'{{ displayName }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ displayName }}'
 ;
 ```
 </TabItem>
@@ -108,10 +104,6 @@ SELECT
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>
@@ -127,9 +119,7 @@ UPDATE google.contactcenterinsights.views
 SET 
 value = '{{ value }}',
 name = '{{ name }}',
-displayName = '{{ displayName }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}'
+displayName = '{{ displayName }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

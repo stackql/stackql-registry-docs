@@ -83,23 +83,19 @@ Use the following StackQL query and manifest file to create a new <code>response
 /*+ create */
 INSERT INTO google.dns.response_policies (
 project,
-id,
 responsePolicyName,
 description,
 networks,
 gkeClusters,
-labels,
-kind
+labels
 )
 SELECT 
 '{{ project }}',
-'{{ id }}',
 '{{ responsePolicyName }}',
 '{{ description }}',
 '{{ networks }}',
 '{{ gkeClusters }}',
-'{{ labels }}',
-'{{ kind }}'
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -108,20 +104,20 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: id
-      value: '{{ id }}'
     - name: responsePolicyName
       value: '{{ responsePolicyName }}'
     - name: description
       value: '{{ description }}'
     - name: networks
-      value: '{{ networks }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: gkeClusters
-      value: '{{ gkeClusters }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: labels
       value: '{{ labels }}'
-    - name: kind
-      value: '{{ kind }}'
 
 ```
 </TabItem>
@@ -135,13 +131,11 @@ Updates a <code>response_policies</code> resource.
 /*+ update */
 UPDATE google.dns.response_policies
 SET 
-id = '{{ id }}',
 responsePolicyName = '{{ responsePolicyName }}',
 description = '{{ description }}',
 networks = '{{ networks }}',
 gkeClusters = '{{ gkeClusters }}',
-labels = '{{ labels }}',
-kind = '{{ kind }}'
+labels = '{{ labels }}'
 WHERE 
 project = '{{ project }}'
 AND responsePolicy = '{{ responsePolicy }}';
@@ -155,13 +149,11 @@ Replaces all fields in the specified <code>response_policies</code> resource.
 /*+ update */
 REPLACE google.dns.response_policies
 SET 
-id = '{{ id }}',
 responsePolicyName = '{{ responsePolicyName }}',
 description = '{{ description }}',
 networks = '{{ networks }}',
 gkeClusters = '{{ gkeClusters }}',
-labels = '{{ labels }}',
-kind = '{{ kind }}'
+labels = '{{ labels }}'
 WHERE 
 project = '{{ project }}'
 AND responsePolicy = '{{ responsePolicy }}';

@@ -91,7 +91,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: predictionApiKeyRegistration
-      value: '{{ predictionApiKeyRegistration }}'
+      value:
+        - name: apiKey
+          value: '{{ apiKey }}'
 
 ```
 </TabItem>

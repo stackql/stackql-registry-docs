@@ -136,25 +136,61 @@ true|false,
     - name: displayName
       value: '{{ displayName }}'
     - name: documentation
-      value: '{{ documentation }}'
+      value:
+        - name: content
+          value: '{{ content }}'
+        - name: mimeType
+          value: '{{ mimeType }}'
+        - name: subject
+          value: '{{ subject }}'
+        - name: links
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: userLabels
       value: '{{ userLabels }}'
     - name: conditions
-      value: '{{ conditions }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: combiner
       value: '{{ combiner }}'
     - name: enabled
       value: '{{ enabled }}'
     - name: validity
-      value: '{{ validity }}'
+      value:
+        - name: code
+          value: '{{ code }}'
+        - name: message
+          value: '{{ message }}'
+        - name: details
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: additionalProperties
+              value: '{{ additionalProperties }}'
     - name: notificationChannels
-      value: '{{ notificationChannels }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: creationRecord
-      value: '{{ creationRecord }}'
-    - name: mutationRecord
-      value: '{{ mutationRecord }}'
+      value:
+        - name: mutateTime
+          value: '{{ mutateTime }}'
+        - name: mutatedBy
+          value: '{{ mutatedBy }}'
     - name: alertStrategy
-      value: '{{ alertStrategy }}'
+      value:
+        - name: notificationRateLimit
+          value:
+            - name: period
+              value: '{{ period }}'
+        - name: autoClose
+          value: '{{ autoClose }}'
+        - name: notificationChannelStrategy
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: severity
       value: '{{ severity }}'
 

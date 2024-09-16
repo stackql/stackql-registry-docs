@@ -90,8 +90,6 @@ locationsId,
 projectsId,
 name,
 entryType,
-createTime,
-updateTime,
 aspects,
 parentEntry,
 fullyQualifiedName,
@@ -103,8 +101,6 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ entryType }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ aspects }}',
 '{{ parentEntry }}',
 '{{ fullyQualifiedName }}',
@@ -121,10 +117,6 @@ SELECT
       value: '{{ name }}'
     - name: entryType
       value: '{{ entryType }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: aspects
       value: '{{ aspects }}'
     - name: parentEntry
@@ -132,7 +124,23 @@ SELECT
     - name: fullyQualifiedName
       value: '{{ fullyQualifiedName }}'
     - name: entrySource
-      value: '{{ entrySource }}'
+      value:
+        - name: resource
+          value: '{{ resource }}'
+        - name: system
+          value: '{{ system }}'
+        - name: platform
+          value: '{{ platform }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: description
+          value: '{{ description }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: ancestors
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -148,8 +156,6 @@ UPDATE google.dataplex.entries
 SET 
 name = '{{ name }}',
 entryType = '{{ entryType }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 aspects = '{{ aspects }}',
 parentEntry = '{{ parentEntry }}',
 fullyQualifiedName = '{{ fullyQualifiedName }}',

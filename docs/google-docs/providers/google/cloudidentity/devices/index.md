@@ -133,72 +133,20 @@ Use the following StackQL query and manifest file to create a new <code>devices<
 /*+ create */
 INSERT INTO google.cloudidentity.devices (
 ,
-name,
-createTime,
 lastSyncTime,
-ownerType,
-model,
-osVersion,
-deviceType,
 serialNumber,
 assetTag,
-imei,
-meid,
 wifiMacAddresses,
-networkOperator,
-manufacturer,
-releaseVersion,
-brand,
-buildNumber,
-kernelVersion,
-basebandVersion,
-enabledDeveloperOptions,
-otherAccounts,
-enabledUsbDebugging,
-securityPatchTime,
-bootloaderVersion,
-encryptionState,
-androidSpecificAttributes,
-managementState,
-compromisedState,
 deviceId,
-unifiedDeviceId,
-endpointVerificationSpecificAttributes,
 hostname
 )
 SELECT 
 '{{  }}',
-'{{ name }}',
-'{{ createTime }}',
 '{{ lastSyncTime }}',
-'{{ ownerType }}',
-'{{ model }}',
-'{{ osVersion }}',
-'{{ deviceType }}',
 '{{ serialNumber }}',
 '{{ assetTag }}',
-'{{ imei }}',
-'{{ meid }}',
 '{{ wifiMacAddresses }}',
-'{{ networkOperator }}',
-'{{ manufacturer }}',
-'{{ releaseVersion }}',
-'{{ brand }}',
-'{{ buildNumber }}',
-'{{ kernelVersion }}',
-'{{ basebandVersion }}',
-true|false,
-'{{ otherAccounts }}',
-true|false,
-'{{ securityPatchTime }}',
-'{{ bootloaderVersion }}',
-'{{ encryptionState }}',
-'{{ androidSpecificAttributes }}',
-'{{ managementState }}',
-'{{ compromisedState }}',
 '{{ deviceId }}',
-'{{ unifiedDeviceId }}',
-'{{ endpointVerificationSpecificAttributes }}',
 '{{ hostname }}'
 ;
 ```
@@ -208,68 +156,18 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: lastSyncTime
       value: '{{ lastSyncTime }}'
-    - name: ownerType
-      value: '{{ ownerType }}'
-    - name: model
-      value: '{{ model }}'
-    - name: osVersion
-      value: '{{ osVersion }}'
-    - name: deviceType
-      value: '{{ deviceType }}'
     - name: serialNumber
       value: '{{ serialNumber }}'
     - name: assetTag
       value: '{{ assetTag }}'
-    - name: imei
-      value: '{{ imei }}'
-    - name: meid
-      value: '{{ meid }}'
     - name: wifiMacAddresses
-      value: '{{ wifiMacAddresses }}'
-    - name: networkOperator
-      value: '{{ networkOperator }}'
-    - name: manufacturer
-      value: '{{ manufacturer }}'
-    - name: releaseVersion
-      value: '{{ releaseVersion }}'
-    - name: brand
-      value: '{{ brand }}'
-    - name: buildNumber
-      value: '{{ buildNumber }}'
-    - name: kernelVersion
-      value: '{{ kernelVersion }}'
-    - name: basebandVersion
-      value: '{{ basebandVersion }}'
-    - name: enabledDeveloperOptions
-      value: '{{ enabledDeveloperOptions }}'
-    - name: otherAccounts
-      value: '{{ otherAccounts }}'
-    - name: enabledUsbDebugging
-      value: '{{ enabledUsbDebugging }}'
-    - name: securityPatchTime
-      value: '{{ securityPatchTime }}'
-    - name: bootloaderVersion
-      value: '{{ bootloaderVersion }}'
-    - name: encryptionState
-      value: '{{ encryptionState }}'
-    - name: androidSpecificAttributes
-      value: '{{ androidSpecificAttributes }}'
-    - name: managementState
-      value: '{{ managementState }}'
-    - name: compromisedState
-      value: '{{ compromisedState }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: deviceId
       value: '{{ deviceId }}'
-    - name: unifiedDeviceId
-      value: '{{ unifiedDeviceId }}'
-    - name: endpointVerificationSpecificAttributes
-      value: '{{ endpointVerificationSpecificAttributes }}'
     - name: hostname
       value: '{{ hostname }}'
 

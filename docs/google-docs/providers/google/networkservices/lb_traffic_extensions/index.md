@@ -89,8 +89,6 @@ INSERT INTO google.networkservices.lb_traffic_extensions (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 description,
 labels,
 forwardingRules,
@@ -102,8 +100,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ labels }}',
 '{{ forwardingRules }}',
@@ -120,18 +116,18 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: labels
       value: '{{ labels }}'
     - name: forwardingRules
-      value: '{{ forwardingRules }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: extensionChains
-      value: '{{ extensionChains }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: loadBalancingScheme
       value: '{{ loadBalancingScheme }}'
     - name: metadata
@@ -150,8 +146,6 @@ Updates a <code>lb_traffic_extensions</code> resource.
 UPDATE google.networkservices.lb_traffic_extensions
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 labels = '{{ labels }}',
 forwardingRules = '{{ forwardingRules }}',

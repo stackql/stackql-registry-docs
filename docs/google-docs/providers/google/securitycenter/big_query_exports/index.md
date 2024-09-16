@@ -97,22 +97,14 @@ foldersId,
 name,
 description,
 filter,
-dataset,
-createTime,
-updateTime,
-mostRecentEditor,
-principal
+dataset
 )
 SELECT 
 '{{ foldersId }}',
 '{{ name }}',
 '{{ description }}',
 '{{ filter }}',
-'{{ dataset }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ mostRecentEditor }}',
-'{{ principal }}'
+'{{ dataset }}'
 ;
 ```
 </TabItem>
@@ -129,14 +121,6 @@ SELECT
       value: '{{ filter }}'
     - name: dataset
       value: '{{ dataset }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: mostRecentEditor
-      value: '{{ mostRecentEditor }}'
-    - name: principal
-      value: '{{ principal }}'
 
 ```
 </TabItem>
@@ -153,11 +137,7 @@ SET
 name = '{{ name }}',
 description = '{{ description }}',
 filter = '{{ filter }}',
-dataset = '{{ dataset }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-mostRecentEditor = '{{ mostRecentEditor }}',
-principal = '{{ principal }}'
+dataset = '{{ dataset }}'
 WHERE 
 bigQueryExportsId = '{{ bigQueryExportsId }}'
 AND foldersId = '{{ foldersId }}';

@@ -106,7 +106,49 @@ SELECT
     - name: deploymentResourcePoolId
       value: '{{ deploymentResourcePoolId }}'
     - name: deploymentResourcePool
-      value: '{{ deploymentResourcePool }}'
+      value:
+        - name: serviceAccount
+          value: '{{ serviceAccount }}'
+        - name: dedicatedResources
+          value:
+            - name: spot
+              value: '{{ spot }}'
+            - name: machineSpec
+              value:
+                - name: acceleratorCount
+                  value: '{{ acceleratorCount }}'
+                - name: reservationAffinity
+                  value:
+                    - name: key
+                      value: '{{ key }}'
+                    - name: reservationAffinityType
+                      value: '{{ reservationAffinityType }}'
+                    - name: values
+                      value:
+                        - name: type
+                          value: '{{ type }}'
+                - name: tpuTopology
+                  value: '{{ tpuTopology }}'
+                - name: acceleratorType
+                  value: '{{ acceleratorType }}'
+                - name: machineType
+                  value: '{{ machineType }}'
+            - name: autoscalingMetricSpecs
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: minReplicaCount
+              value: '{{ minReplicaCount }}'
+            - name: maxReplicaCount
+              value: '{{ maxReplicaCount }}'
+        - name: disableContainerLogging
+          value: '{{ disableContainerLogging }}'
+        - name: encryptionSpec
+          value:
+            - name: kmsKeyName
+              value: '{{ kmsKeyName }}'
+        - name: name
+          value: '{{ name }}'
 
 ```
 </TabItem>
@@ -124,9 +166,6 @@ serviceAccount = '{{ serviceAccount }}',
 dedicatedResources = '{{ dedicatedResources }}',
 disableContainerLogging = true|false,
 encryptionSpec = '{{ encryptionSpec }}',
-createTime = '{{ createTime }}',
-satisfiesPzs = true|false,
-satisfiesPzi = true|false,
 name = '{{ name }}'
 WHERE 
 deploymentResourcePoolsId = '{{ deploymentResourcePoolsId }}'

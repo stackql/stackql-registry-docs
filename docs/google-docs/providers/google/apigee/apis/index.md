@@ -102,7 +102,11 @@ SELECT
     - name: contentType
       value: '{{ contentType }}'
     - name: extensions
-      value: '{{ extensions }}'
+      value:
+        - name: additionalProperties
+          value: '{{ additionalProperties }}'
+        - name: type
+          value: '{{ type }}'
     - name: data
       value: '{{ data }}'
 
@@ -118,13 +122,7 @@ Updates a <code>apis</code> resource.
 /*+ update */
 UPDATE google.apigee.apis
 SET 
-labels = '{{ labels }}',
-apiProxyType = '{{ apiProxyType }}',
-latestRevisionId = '{{ latestRevisionId }}',
-readOnly = true|false,
-name = '{{ name }}',
-metaData = '{{ metaData }}',
-revision = '{{ revision }}'
+labels = '{{ labels }}'
 WHERE 
 apisId = '{{ apisId }}'
 AND organizationsId = '{{ organizationsId }}';

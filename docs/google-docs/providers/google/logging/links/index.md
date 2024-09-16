@@ -93,19 +93,13 @@ Use the following StackQL query and manifest file to create a new <code>links</c
 INSERT INTO google.logging.links (
 parent,
 parentType,
-name,
 description,
-createTime,
-lifecycleState,
 bigqueryDataset
 )
 SELECT 
 '{{ parent }}',
 '{{ parentType }}',
-'{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ lifecycleState }}',
 '{{ bigqueryDataset }}'
 ;
 ```
@@ -115,16 +109,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: lifecycleState
-      value: '{{ lifecycleState }}'
     - name: bigqueryDataset
-      value: '{{ bigqueryDataset }}'
+      value: []
 
 ```
 </TabItem>

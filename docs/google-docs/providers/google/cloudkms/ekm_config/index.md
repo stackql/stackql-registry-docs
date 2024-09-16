@@ -61,7 +61,6 @@ Updates a <code>ekm_config</code> resource.
 /*+ update */
 UPDATE google.cloudkms.ekm_config
 SET 
-name = '{{ name }}',
 defaultEkmConnection = '{{ defaultEkmConnection }}'
 WHERE 
 locationsId = '{{ locationsId }}'

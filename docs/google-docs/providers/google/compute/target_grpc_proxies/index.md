@@ -88,26 +88,16 @@ Use the following StackQL query and manifest file to create a new <code>target_g
 /*+ create */
 INSERT INTO google.compute.target_grpc_proxies (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
-selfLinkWithId,
 urlMap,
 validateForProxyless,
 fingerprint
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
-'{{ selfLinkWithId }}',
 '{{ urlMap }}',
 true|false,
 '{{ fingerprint }}'
@@ -119,20 +109,10 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: selfLinkWithId
-      value: '{{ selfLinkWithId }}'
     - name: urlMap
       value: '{{ urlMap }}'
     - name: validateForProxyless
@@ -152,13 +132,8 @@ Updates a <code>target_grpc_proxies</code> resource.
 /*+ update */
 UPDATE google.compute.target_grpc_proxies
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
-selfLinkWithId = '{{ selfLinkWithId }}',
 urlMap = '{{ urlMap }}',
 validateForProxyless = true|false,
 fingerprint = '{{ fingerprint }}'

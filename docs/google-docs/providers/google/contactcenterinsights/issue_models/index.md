@@ -96,13 +96,8 @@ INSERT INTO google.contactcenterinsights.issue_models (
 locationsId,
 projectsId,
 languageCode,
-createTime,
-updateTime,
 inputDataConfig,
 name,
-issueCount,
-state,
-trainingStats,
 modelType,
 displayName
 )
@@ -110,13 +105,8 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ languageCode }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ inputDataConfig }}',
 '{{ name }}',
-'{{ issueCount }}',
-'{{ state }}',
-'{{ trainingStats }}',
 '{{ modelType }}',
 '{{ displayName }}'
 ;
@@ -129,20 +119,14 @@ SELECT
   props:
     - name: languageCode
       value: '{{ languageCode }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: inputDataConfig
-      value: '{{ inputDataConfig }}'
+      value:
+        - name: filter
+          value: '{{ filter }}'
+        - name: medium
+          value: '{{ medium }}'
     - name: name
       value: '{{ name }}'
-    - name: issueCount
-      value: '{{ issueCount }}'
-    - name: state
-      value: '{{ state }}'
-    - name: trainingStats
-      value: '{{ trainingStats }}'
     - name: modelType
       value: '{{ modelType }}'
     - name: displayName
@@ -161,13 +145,8 @@ Updates a <code>issue_models</code> resource.
 UPDATE google.contactcenterinsights.issue_models
 SET 
 languageCode = '{{ languageCode }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 inputDataConfig = '{{ inputDataConfig }}',
 name = '{{ name }}',
-issueCount = '{{ issueCount }}',
-state = '{{ state }}',
-trainingStats = '{{ trainingStats }}',
 modelType = '{{ modelType }}',
 displayName = '{{ displayName }}'
 WHERE 

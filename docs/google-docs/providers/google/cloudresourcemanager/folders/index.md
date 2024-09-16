@@ -89,26 +89,14 @@ Use the following StackQL query and manifest file to create a new <code>folders<
 /*+ create */
 INSERT INTO google.cloudresourcemanager.folders (
 ,
-name,
 parent,
 displayName,
-state,
-createTime,
-updateTime,
-deleteTime,
-etag,
 tags
 )
 SELECT 
 '{{  }}',
-'{{ name }}',
 '{{ parent }}',
 '{{ displayName }}',
-'{{ state }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
-'{{ etag }}',
 '{{ tags }}'
 ;
 ```
@@ -118,22 +106,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: parent
       value: '{{ parent }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: state
-      value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: etag
-      value: '{{ etag }}'
     - name: tags
       value: '{{ tags }}'
 
@@ -149,14 +125,8 @@ Updates a <code>folders</code> resource.
 /*+ update */
 UPDATE google.cloudresourcemanager.folders
 SET 
-name = '{{ name }}',
 parent = '{{ parent }}',
 displayName = '{{ displayName }}',
-state = '{{ state }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
-etag = '{{ etag }}',
 tags = '{{ tags }}'
 WHERE 
 foldersId = '{{ foldersId }}';

@@ -72,8 +72,6 @@ UPDATE google.artifactregistry.packages
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 annotations = '{{ annotations }}'
 WHERE 
 locationsId = '{{ locationsId }}'

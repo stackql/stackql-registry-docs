@@ -114,9 +114,47 @@ true|false
     - name: displayName
       value: '{{ displayName }}'
     - name: genericWebService
-      value: '{{ genericWebService }}'
+      value:
+        - name: uri
+          value: '{{ uri }}'
+        - name: username
+          value: '{{ username }}'
+        - name: password
+          value: '{{ password }}'
+        - name: requestHeaders
+          value: '{{ requestHeaders }}'
+        - name: allowedCaCerts
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: format
+              value: '{{ format }}'
+        - name: oauthConfig
+          value:
+            - name: clientId
+              value: '{{ clientId }}'
+            - name: clientSecret
+              value: '{{ clientSecret }}'
+            - name: tokenEndpoint
+              value: '{{ tokenEndpoint }}'
+            - name: scopes
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: serviceAgentAuth
+          value: '{{ serviceAgentAuth }}'
+        - name: webhookType
+          value: '{{ webhookType }}'
+        - name: httpMethod
+          value: '{{ httpMethod }}'
+        - name: requestBody
+          value: '{{ requestBody }}'
+        - name: parameterMapping
+          value: '{{ parameterMapping }}'
     - name: serviceDirectory
-      value: '{{ serviceDirectory }}'
+      value:
+        - name: service
+          value: '{{ service }}'
     - name: timeout
       value: '{{ timeout }}'
     - name: disabled

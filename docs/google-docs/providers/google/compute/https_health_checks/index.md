@@ -95,9 +95,6 @@ Use the following StackQL query and manifest file to create a new <code>https_he
 /*+ create */
 INSERT INTO google.compute.https_health_checks (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 host,
@@ -106,14 +103,10 @@ port,
 checkIntervalSec,
 timeoutSec,
 unhealthyThreshold,
-healthyThreshold,
-selfLink
+healthyThreshold
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ host }}',
@@ -122,8 +115,7 @@ SELECT
 '{{ checkIntervalSec }}',
 '{{ timeoutSec }}',
 '{{ unhealthyThreshold }}',
-'{{ healthyThreshold }}',
-'{{ selfLink }}'
+'{{ healthyThreshold }}'
 ;
 ```
 </TabItem>
@@ -132,12 +124,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -156,8 +142,6 @@ SELECT
       value: '{{ unhealthyThreshold }}'
     - name: healthyThreshold
       value: '{{ healthyThreshold }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
 
 ```
 </TabItem>
@@ -171,9 +155,6 @@ Updates a <code>https_health_checks</code> resource.
 /*+ update */
 UPDATE google.compute.https_health_checks
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 host = '{{ host }}',
@@ -182,8 +163,7 @@ port = '{{ port }}',
 checkIntervalSec = '{{ checkIntervalSec }}',
 timeoutSec = '{{ timeoutSec }}',
 unhealthyThreshold = '{{ unhealthyThreshold }}',
-healthyThreshold = '{{ healthyThreshold }}',
-selfLink = '{{ selfLink }}'
+healthyThreshold = '{{ healthyThreshold }}'
 WHERE 
 httpsHealthCheck = '{{ httpsHealthCheck }}'
 AND project = '{{ project }}';
@@ -197,9 +177,6 @@ Replaces all fields in the specified <code>https_health_checks</code> resource.
 /*+ update */
 REPLACE google.compute.https_health_checks
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 host = '{{ host }}',
@@ -208,8 +185,7 @@ port = '{{ port }}',
 checkIntervalSec = '{{ checkIntervalSec }}',
 timeoutSec = '{{ timeoutSec }}',
 unhealthyThreshold = '{{ unhealthyThreshold }}',
-healthyThreshold = '{{ healthyThreshold }}',
-selfLink = '{{ selfLink }}'
+healthyThreshold = '{{ healthyThreshold }}'
 WHERE 
 httpsHealthCheck = '{{ httpsHealthCheck }}'
 AND project = '{{ project }}';

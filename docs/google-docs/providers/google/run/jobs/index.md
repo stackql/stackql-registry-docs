@@ -124,61 +124,29 @@ INSERT INTO google.run.jobs (
 locationsId,
 projectsId,
 name,
-uid,
-generation,
 labels,
 annotations,
-createTime,
-updateTime,
-deleteTime,
-expireTime,
-creator,
-lastModifier,
 client,
 clientVersion,
 launchStage,
 binaryAuthorization,
 template,
-observedGeneration,
-terminalCondition,
-conditions,
-executionCount,
-latestCreatedExecution,
-reconciling,
-satisfiesPzs,
 startExecutionToken,
-runExecutionToken,
-etag
+runExecutionToken
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ uid }}',
-'{{ generation }}',
 '{{ labels }}',
 '{{ annotations }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
-'{{ expireTime }}',
-'{{ creator }}',
-'{{ lastModifier }}',
 '{{ client }}',
 '{{ clientVersion }}',
 '{{ launchStage }}',
 '{{ binaryAuthorization }}',
 '{{ template }}',
-'{{ observedGeneration }}',
-'{{ terminalCondition }}',
-'{{ conditions }}',
-'{{ executionCount }}',
-'{{ latestCreatedExecution }}',
-true|false,
-true|false,
 '{{ startExecutionToken }}',
-'{{ runExecutionToken }}',
-'{{ etag }}'
+'{{ runExecutionToken }}'
 ;
 ```
 </TabItem>
@@ -189,26 +157,10 @@ true|false,
   props:
     - name: name
       value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: generation
-      value: '{{ generation }}'
     - name: labels
       value: '{{ labels }}'
     - name: annotations
       value: '{{ annotations }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
-    - name: creator
-      value: '{{ creator }}'
-    - name: lastModifier
-      value: '{{ lastModifier }}'
     - name: client
       value: '{{ client }}'
     - name: clientVersion
@@ -216,29 +168,57 @@ true|false,
     - name: launchStage
       value: '{{ launchStage }}'
     - name: binaryAuthorization
-      value: '{{ binaryAuthorization }}'
+      value:
+        - name: useDefault
+          value: '{{ useDefault }}'
+        - name: policy
+          value: '{{ policy }}'
+        - name: breakglassJustification
+          value: '{{ breakglassJustification }}'
     - name: template
-      value: '{{ template }}'
-    - name: observedGeneration
-      value: '{{ observedGeneration }}'
-    - name: terminalCondition
-      value: '{{ terminalCondition }}'
-    - name: conditions
-      value: '{{ conditions }}'
-    - name: executionCount
-      value: '{{ executionCount }}'
-    - name: latestCreatedExecution
-      value: '{{ latestCreatedExecution }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
+      value:
+        - name: labels
+          value: '{{ labels }}'
+        - name: annotations
+          value: '{{ annotations }}'
+        - name: parallelism
+          value: '{{ parallelism }}'
+        - name: taskCount
+          value: '{{ taskCount }}'
+        - name: template
+          value:
+            - name: containers
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: volumes
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: maxRetries
+              value: '{{ maxRetries }}'
+            - name: timeout
+              value: '{{ timeout }}'
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
+            - name: executionEnvironment
+              value: '{{ executionEnvironment }}'
+            - name: encryptionKey
+              value: '{{ encryptionKey }}'
+            - name: vpcAccess
+              value:
+                - name: connector
+                  value: '{{ connector }}'
+                - name: egress
+                  value: '{{ egress }}'
+                - name: networkInterfaces
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
     - name: startExecutionToken
       value: '{{ startExecutionToken }}'
     - name: runExecutionToken
       value: '{{ runExecutionToken }}'
-    - name: etag
-      value: '{{ etag }}'
 
 ```
 </TabItem>
@@ -253,31 +233,15 @@ Updates a <code>jobs</code> resource.
 UPDATE google.run.jobs
 SET 
 name = '{{ name }}',
-uid = '{{ uid }}',
-generation = '{{ generation }}',
 labels = '{{ labels }}',
 annotations = '{{ annotations }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
-expireTime = '{{ expireTime }}',
-creator = '{{ creator }}',
-lastModifier = '{{ lastModifier }}',
 client = '{{ client }}',
 clientVersion = '{{ clientVersion }}',
 launchStage = '{{ launchStage }}',
 binaryAuthorization = '{{ binaryAuthorization }}',
 template = '{{ template }}',
-observedGeneration = '{{ observedGeneration }}',
-terminalCondition = '{{ terminalCondition }}',
-conditions = '{{ conditions }}',
-executionCount = '{{ executionCount }}',
-latestCreatedExecution = '{{ latestCreatedExecution }}',
-reconciling = true|false,
-satisfiesPzs = true|false,
 startExecutionToken = '{{ startExecutionToken }}',
-runExecutionToken = '{{ runExecutionToken }}',
-etag = '{{ etag }}'
+runExecutionToken = '{{ runExecutionToken }}'
 WHERE 
 jobsId = '{{ jobsId }}'
 AND locationsId = '{{ locationsId }}'

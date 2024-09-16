@@ -112,7 +112,11 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: message
-      value: '{{ message }}'
+      value:
+        - name: data
+          value: '{{ data }}'
+        - name: labels
+          value: '{{ labels }}'
 
 ```
 </TabItem>
@@ -126,16 +130,8 @@ Updates a <code>messages</code> resource.
 /*+ update */
 UPDATE google.healthcare.messages
 SET 
-name = '{{ name }}',
 data = '{{ data }}',
-createTime = '{{ createTime }}',
-sendFacility = '{{ sendFacility }}',
-sendTime = '{{ sendTime }}',
-messageType = '{{ messageType }}',
-patientIds = '{{ patientIds }}',
-labels = '{{ labels }}',
-parsedData = '{{ parsedData }}',
-schematizedData = '{{ schematizedData }}'
+labels = '{{ labels }}'
 WHERE 
 datasetsId = '{{ datasetsId }}'
 AND hl7V2StoresId = '{{ hl7V2StoresId }}'

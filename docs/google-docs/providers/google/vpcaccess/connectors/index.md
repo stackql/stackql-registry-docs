@@ -95,10 +95,8 @@ projectsId,
 name,
 network,
 ipCidrRange,
-state,
 minThroughput,
 maxThroughput,
-connectedProjects,
 subnet,
 machineType,
 minInstances,
@@ -110,10 +108,8 @@ SELECT
 '{{ name }}',
 '{{ network }}',
 '{{ ipCidrRange }}',
-'{{ state }}',
 '{{ minThroughput }}',
 '{{ maxThroughput }}',
-'{{ connectedProjects }}',
 '{{ subnet }}',
 '{{ machineType }}',
 '{{ minInstances }}',
@@ -132,16 +128,16 @@ SELECT
       value: '{{ network }}'
     - name: ipCidrRange
       value: '{{ ipCidrRange }}'
-    - name: state
-      value: '{{ state }}'
     - name: minThroughput
       value: '{{ minThroughput }}'
     - name: maxThroughput
       value: '{{ maxThroughput }}'
-    - name: connectedProjects
-      value: '{{ connectedProjects }}'
     - name: subnet
-      value: '{{ subnet }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: projectId
+          value: '{{ projectId }}'
     - name: machineType
       value: '{{ machineType }}'
     - name: minInstances
@@ -164,10 +160,8 @@ SET
 name = '{{ name }}',
 network = '{{ network }}',
 ipCidrRange = '{{ ipCidrRange }}',
-state = '{{ state }}',
 minThroughput = '{{ minThroughput }}',
 maxThroughput = '{{ maxThroughput }}',
-connectedProjects = '{{ connectedProjects }}',
 subnet = '{{ subnet }}',
 machineType = '{{ machineType }}',
 minInstances = '{{ minInstances }}',

@@ -114,7 +114,61 @@ number,
     - name: displayName
       value: '{{ displayName }}'
     - name: serviceLevelIndicator
-      value: '{{ serviceLevelIndicator }}'
+      value:
+        - name: basicSli
+          value:
+            - name: method
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: location
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: version
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: availability
+              value: []
+            - name: latency
+              value:
+                - name: threshold
+                  value: '{{ threshold }}'
+        - name: requestBased
+          value:
+            - name: goodTotalRatio
+              value:
+                - name: goodServiceFilter
+                  value: '{{ goodServiceFilter }}'
+                - name: badServiceFilter
+                  value: '{{ badServiceFilter }}'
+                - name: totalServiceFilter
+                  value: '{{ totalServiceFilter }}'
+            - name: distributionCut
+              value:
+                - name: distributionFilter
+                  value: '{{ distributionFilter }}'
+                - name: range
+                  value:
+                    - name: min
+                      value: '{{ min }}'
+                    - name: max
+                      value: '{{ max }}'
+        - name: windowsBased
+          value:
+            - name: goodBadMetricFilter
+              value: '{{ goodBadMetricFilter }}'
+            - name: goodTotalRatioThreshold
+              value:
+                - name: threshold
+                  value: '{{ threshold }}'
+            - name: metricMeanInRange
+              value:
+                - name: timeSeries
+                  value: '{{ timeSeries }}'
+            - name: windowPeriod
+              value: '{{ windowPeriod }}'
     - name: goal
       value: '{{ goal }}'
     - name: rollingPeriod

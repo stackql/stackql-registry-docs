@@ -146,22 +146,17 @@ cloudLoggingDetails,
 integrationParameters,
 integrationConfigParameters,
 teardown,
-state,
 taskConfigsInternal,
 triggerConfigsInternal,
 triggerConfigs,
 lockHolder,
 createdFromTemplate,
-status,
 errorCatcherConfigs,
 lastModifierEmail,
 enableVariableMasking,
-updateTime,
 taskConfigs,
 origin,
-createTime,
 description,
-name,
 databasePersistencePolicy,
 parentTemplateId,
 snapshotNumber
@@ -177,22 +172,17 @@ SELECT
 '{{ integrationParameters }}',
 '{{ integrationConfigParameters }}',
 '{{ teardown }}',
-'{{ state }}',
 '{{ taskConfigsInternal }}',
 '{{ triggerConfigsInternal }}',
 '{{ triggerConfigs }}',
 '{{ lockHolder }}',
 '{{ createdFromTemplate }}',
-'{{ status }}',
 '{{ errorCatcherConfigs }}',
 '{{ lastModifierEmail }}',
 true|false,
-'{{ updateTime }}',
 '{{ taskConfigs }}',
 '{{ origin }}',
-'{{ createTime }}',
 '{{ description }}',
-'{{ name }}',
 '{{ databasePersistencePolicy }}',
 '{{ parentTemplateId }}',
 '{{ snapshotNumber }}'
@@ -205,51 +195,67 @@ true|false,
 - name: your_resource_model_name
   props:
     - name: integrationParametersInternal
-      value: '{{ integrationParametersInternal }}'
+      value:
+        - name: parameters
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: runAsServiceAccount
       value: '{{ runAsServiceAccount }}'
     - name: userLabel
       value: '{{ userLabel }}'
     - name: cloudLoggingDetails
-      value: '{{ cloudLoggingDetails }}'
+      value:
+        - name: cloudLoggingSeverity
+          value: '{{ cloudLoggingSeverity }}'
+        - name: enableCloudLogging
+          value: '{{ enableCloudLogging }}'
     - name: integrationParameters
-      value: '{{ integrationParameters }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: integrationConfigParameters
-      value: '{{ integrationConfigParameters }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: teardown
-      value: '{{ teardown }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: teardownTaskConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: taskConfigsInternal
-      value: '{{ taskConfigsInternal }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: triggerConfigsInternal
-      value: '{{ triggerConfigsInternal }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: triggerConfigs
-      value: '{{ triggerConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: lockHolder
       value: '{{ lockHolder }}'
     - name: createdFromTemplate
       value: '{{ createdFromTemplate }}'
-    - name: status
-      value: '{{ status }}'
     - name: errorCatcherConfigs
-      value: '{{ errorCatcherConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: lastModifierEmail
       value: '{{ lastModifierEmail }}'
     - name: enableVariableMasking
       value: '{{ enableVariableMasking }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: taskConfigs
-      value: '{{ taskConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: origin
       value: '{{ origin }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: description
       value: '{{ description }}'
-    - name: name
-      value: '{{ name }}'
     - name: databasePersistencePolicy
       value: '{{ databasePersistencePolicy }}'
     - name: parentTemplateId
@@ -276,22 +282,17 @@ cloudLoggingDetails = '{{ cloudLoggingDetails }}',
 integrationParameters = '{{ integrationParameters }}',
 integrationConfigParameters = '{{ integrationConfigParameters }}',
 teardown = '{{ teardown }}',
-state = '{{ state }}',
 taskConfigsInternal = '{{ taskConfigsInternal }}',
 triggerConfigsInternal = '{{ triggerConfigsInternal }}',
 triggerConfigs = '{{ triggerConfigs }}',
 lockHolder = '{{ lockHolder }}',
 createdFromTemplate = '{{ createdFromTemplate }}',
-status = '{{ status }}',
 errorCatcherConfigs = '{{ errorCatcherConfigs }}',
 lastModifierEmail = '{{ lastModifierEmail }}',
 enableVariableMasking = true|false,
-updateTime = '{{ updateTime }}',
 taskConfigs = '{{ taskConfigs }}',
 origin = '{{ origin }}',
-createTime = '{{ createTime }}',
 description = '{{ description }}',
-name = '{{ name }}',
 databasePersistencePolicy = '{{ databasePersistencePolicy }}',
 parentTemplateId = '{{ parentTemplateId }}',
 snapshotNumber = '{{ snapshotNumber }}'

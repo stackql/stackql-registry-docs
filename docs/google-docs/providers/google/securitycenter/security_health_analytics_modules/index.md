@@ -92,9 +92,6 @@ foldersId,
 name,
 displayName,
 enablementState,
-updateTime,
-lastEditor,
-ancestorModule,
 customConfig
 )
 SELECT 
@@ -102,9 +99,6 @@ SELECT
 '{{ name }}',
 '{{ displayName }}',
 '{{ enablementState }}',
-'{{ updateTime }}',
-'{{ lastEditor }}',
-'{{ ancestorModule }}',
 '{{ customConfig }}'
 ;
 ```
@@ -120,14 +114,36 @@ SELECT
       value: '{{ displayName }}'
     - name: enablementState
       value: '{{ enablementState }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: lastEditor
-      value: '{{ lastEditor }}'
-    - name: ancestorModule
-      value: '{{ ancestorModule }}'
     - name: customConfig
-      value: '{{ customConfig }}'
+      value:
+        - name: predicate
+          value:
+            - name: expression
+              value: '{{ expression }}'
+            - name: title
+              value: '{{ title }}'
+            - name: description
+              value: '{{ description }}'
+            - name: location
+              value: '{{ location }}'
+        - name: customOutput
+          value:
+            - name: properties
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: resourceSelector
+          value:
+            - name: resourceTypes
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: severity
+          value: '{{ severity }}'
+        - name: description
+          value: '{{ description }}'
+        - name: recommendation
+          value: '{{ recommendation }}'
 
 ```
 </TabItem>

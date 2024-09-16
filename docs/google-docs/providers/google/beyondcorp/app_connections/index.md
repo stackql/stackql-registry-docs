@@ -98,35 +98,23 @@ INSERT INTO google.beyondcorp.app_connections (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 displayName,
-uid,
 type,
 applicationEndpoint,
 connectors,
-state,
-gateway,
-satisfiesPzs,
-satisfiesPzi
+gateway
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
-'{{ uid }}',
 '{{ type }}',
 '{{ applicationEndpoint }}',
 '{{ connectors }}',
-'{{ state }}',
-'{{ gateway }}',
-true|false,
-true|false
+'{{ gateway }}'
 ;
 ```
 </TabItem>
@@ -137,30 +125,28 @@ true|false
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: type
       value: '{{ type }}'
     - name: applicationEndpoint
-      value: '{{ applicationEndpoint }}'
+      value:
+        - name: host
+          value: '{{ host }}'
+        - name: port
+          value: '{{ port }}'
     - name: connectors
-      value: '{{ connectors }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: gateway
-      value: '{{ gateway }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: appGateway
+          value: '{{ appGateway }}'
 
 ```
 </TabItem>
@@ -175,18 +161,12 @@ Updates a <code>app_connections</code> resource.
 UPDATE google.beyondcorp.app_connections
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
 type = '{{ type }}',
 applicationEndpoint = '{{ applicationEndpoint }}',
 connectors = '{{ connectors }}',
-state = '{{ state }}',
-gateway = '{{ gateway }}',
-satisfiesPzs = true|false,
-satisfiesPzi = true|false
+gateway = '{{ gateway }}'
 WHERE 
 appConnectionsId = '{{ appConnectionsId }}'
 AND locationsId = '{{ locationsId }}'

@@ -96,16 +96,12 @@ Use the following StackQL query and manifest file to create a new <code>target_v
 INSERT INTO google.compute.target_vpn_gateways (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 region,
 network,
 tunnels,
 status,
-selfLink,
 forwardingRules,
 labels,
 labelFingerprint
@@ -113,16 +109,12 @@ labelFingerprint
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ region }}',
 '{{ network }}',
 '{{ tunnels }}',
 '{{ status }}',
-'{{ selfLink }}',
 '{{ forwardingRules }}',
 '{{ labels }}',
 '{{ labelFingerprint }}'
@@ -134,12 +126,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -149,13 +135,15 @@ SELECT
     - name: network
       value: '{{ network }}'
     - name: tunnels
-      value: '{{ tunnels }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: status
       value: '{{ status }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: forwardingRules
-      value: '{{ forwardingRules }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
     - name: labelFingerprint

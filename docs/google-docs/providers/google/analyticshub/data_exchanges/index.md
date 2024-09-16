@@ -90,12 +90,10 @@ Use the following StackQL query and manifest file to create a new <code>data_exc
 INSERT INTO google.analyticshub.data_exchanges (
 locationsId,
 projectsId,
-name,
 displayName,
 description,
 primaryContact,
 documentation,
-listingCount,
 icon,
 sharingEnvironmentConfig,
 discoveryType
@@ -103,12 +101,10 @@ discoveryType
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ primaryContact }}',
 '{{ documentation }}',
-'{{ listingCount }}',
 '{{ icon }}',
 '{{ sharingEnvironmentConfig }}',
 '{{ discoveryType }}'
@@ -120,8 +116,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
@@ -130,12 +124,14 @@ SELECT
       value: '{{ primaryContact }}'
     - name: documentation
       value: '{{ documentation }}'
-    - name: listingCount
-      value: '{{ listingCount }}'
     - name: icon
       value: '{{ icon }}'
     - name: sharingEnvironmentConfig
-      value: '{{ sharingEnvironmentConfig }}'
+      value:
+        - name: defaultExchangeConfig
+          value: []
+        - name: dcrExchangeConfig
+          value: []
     - name: discoveryType
       value: '{{ discoveryType }}'
 
@@ -151,12 +147,10 @@ Updates a <code>data_exchanges</code> resource.
 /*+ update */
 UPDATE google.analyticshub.data_exchanges
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 primaryContact = '{{ primaryContact }}',
 documentation = '{{ documentation }}',
-listingCount = '{{ listingCount }}',
 icon = '{{ icon }}',
 sharingEnvironmentConfig = '{{ sharingEnvironmentConfig }}',
 discoveryType = '{{ discoveryType }}'

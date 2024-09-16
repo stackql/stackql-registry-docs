@@ -100,9 +100,6 @@ Use the following StackQL query and manifest file to create a new <code>routers<
 INSERT INTO google.compute.routers (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 region,
@@ -110,7 +107,6 @@ network,
 interfaces,
 bgpPeers,
 bgp,
-selfLink,
 nats,
 encryptedInterconnectRouter,
 md5AuthenticationKeys
@@ -118,9 +114,6 @@ md5AuthenticationKeys
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ region }}',
@@ -128,7 +121,6 @@ SELECT
 '{{ interfaces }}',
 '{{ bgpPeers }}',
 '{{ bgp }}',
-'{{ selfLink }}',
 '{{ nats }}',
 true|false,
 '{{ md5AuthenticationKeys }}'
@@ -140,12 +132,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -155,19 +141,45 @@ true|false,
     - name: network
       value: '{{ network }}'
     - name: interfaces
-      value: '{{ interfaces }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: bgpPeers
-      value: '{{ bgpPeers }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: bgp
-      value: '{{ bgp }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
+      value:
+        - name: asn
+          value: '{{ asn }}'
+        - name: advertiseMode
+          value: '{{ advertiseMode }}'
+        - name: advertisedGroups
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
+        - name: advertisedIpRanges
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: keepaliveInterval
+          value: '{{ keepaliveInterval }}'
+        - name: identifierRange
+          value: '{{ identifierRange }}'
     - name: nats
-      value: '{{ nats }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: encryptedInterconnectRouter
       value: '{{ encryptedInterconnectRouter }}'
     - name: md5AuthenticationKeys
-      value: '{{ md5AuthenticationKeys }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -181,9 +193,6 @@ Updates a <code>routers</code> resource.
 /*+ update */
 UPDATE google.compute.routers
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 region = '{{ region }}',
@@ -191,7 +200,6 @@ network = '{{ network }}',
 interfaces = '{{ interfaces }}',
 bgpPeers = '{{ bgpPeers }}',
 bgp = '{{ bgp }}',
-selfLink = '{{ selfLink }}',
 nats = '{{ nats }}',
 encryptedInterconnectRouter = true|false,
 md5AuthenticationKeys = '{{ md5AuthenticationKeys }}'
@@ -209,9 +217,6 @@ Replaces all fields in the specified <code>routers</code> resource.
 /*+ update */
 REPLACE google.compute.routers
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 region = '{{ region }}',
@@ -219,7 +224,6 @@ network = '{{ network }}',
 interfaces = '{{ interfaces }}',
 bgpPeers = '{{ bgpPeers }}',
 bgp = '{{ bgp }}',
-selfLink = '{{ selfLink }}',
 nats = '{{ nats }}',
 encryptedInterconnectRouter = true|false,
 md5AuthenticationKeys = '{{ md5AuthenticationKeys }}'

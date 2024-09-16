@@ -112,11 +112,17 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: notificationConfig
-      value: '{{ notificationConfig }}'
+      value:
+        - name: pubsubTopic
+          value: '{{ pubsubTopic }}'
+        - name: sendForBulkImport
+          value: '{{ sendForBulkImport }}'
     - name: labels
       value: '{{ labels }}'
     - name: streamConfigs
-      value: '{{ streamConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

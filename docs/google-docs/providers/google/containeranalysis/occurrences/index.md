@@ -129,7 +129,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: occurrences
-      value: '{{ occurrences }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -150,9 +152,6 @@ vulnerability = '{{ vulnerability }}',
 package = '{{ package }}',
 attestation = '{{ attestation }}',
 build = '{{ build }}',
-kind = '{{ kind }}',
-updateTime = '{{ updateTime }}',
-createTime = '{{ createTime }}',
 compliance = '{{ compliance }}',
 remediation = '{{ remediation }}',
 sbomReference = '{{ sbomReference }}',

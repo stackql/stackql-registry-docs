@@ -111,12 +111,6 @@ authorizedNetworks,
 reservedIpRange,
 locations,
 admin,
-fqdn,
-createTime,
-updateTime,
-state,
-statusMessage,
-trusts,
 auditLogsEnabled
 )
 SELECT 
@@ -127,12 +121,6 @@ SELECT
 '{{ reservedIpRange }}',
 '{{ locations }}',
 '{{ admin }}',
-'{{ fqdn }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ state }}',
-'{{ statusMessage }}',
-'{{ trusts }}',
 true|false
 ;
 ```
@@ -147,25 +135,17 @@ true|false
     - name: labels
       value: '{{ labels }}'
     - name: authorizedNetworks
-      value: '{{ authorizedNetworks }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: reservedIpRange
       value: '{{ reservedIpRange }}'
     - name: locations
-      value: '{{ locations }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: admin
       value: '{{ admin }}'
-    - name: fqdn
-      value: '{{ fqdn }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: statusMessage
-      value: '{{ statusMessage }}'
-    - name: trusts
-      value: '{{ trusts }}'
     - name: auditLogsEnabled
       value: '{{ auditLogsEnabled }}'
 
@@ -187,12 +167,6 @@ authorizedNetworks = '{{ authorizedNetworks }}',
 reservedIpRange = '{{ reservedIpRange }}',
 locations = '{{ locations }}',
 admin = '{{ admin }}',
-fqdn = '{{ fqdn }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-state = '{{ state }}',
-statusMessage = '{{ statusMessage }}',
-trusts = '{{ trusts }}',
 auditLogsEnabled = true|false
 WHERE 
 domainsId = '{{ domainsId }}'

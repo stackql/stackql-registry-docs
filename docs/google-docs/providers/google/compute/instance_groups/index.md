@@ -96,16 +96,12 @@ Use the following StackQL query and manifest file to create a new <code>instance
 INSERT INTO google.compute.instance_groups (
 project,
 zone,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 namedPorts,
 network,
 fingerprint,
 zone,
-selfLink,
 size,
 region,
 subnetwork
@@ -113,16 +109,12 @@ subnetwork
 SELECT 
 '{{ project }}',
 '{{ zone }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ namedPorts }}',
 '{{ network }}',
 '{{ fingerprint }}',
 '{{ zone }}',
-'{{ selfLink }}',
 '{{ size }}',
 '{{ region }}',
 '{{ subnetwork }}'
@@ -134,26 +126,20 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: namedPorts
-      value: '{{ namedPorts }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: network
       value: '{{ network }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
     - name: zone
       value: '{{ zone }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: size
       value: '{{ size }}'
     - name: region

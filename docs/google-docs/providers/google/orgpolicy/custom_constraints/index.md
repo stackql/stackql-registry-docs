@@ -89,7 +89,6 @@ methodTypes,
 description,
 resourceTypes,
 displayName,
-updateTime,
 actionType,
 condition
 )
@@ -100,7 +99,6 @@ SELECT
 '{{ description }}',
 '{{ resourceTypes }}',
 '{{ displayName }}',
-'{{ updateTime }}',
 '{{ actionType }}',
 '{{ condition }}'
 ;
@@ -114,15 +112,21 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: methodTypes
-      value: '{{ methodTypes }}'
+      value:
+        - name: enum
+          value: '{{ enum }}'
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
     - name: description
       value: '{{ description }}'
     - name: resourceTypes
-      value: '{{ resourceTypes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: actionType
       value: '{{ actionType }}'
     - name: condition
@@ -145,7 +149,6 @@ methodTypes = '{{ methodTypes }}',
 description = '{{ description }}',
 resourceTypes = '{{ resourceTypes }}',
 displayName = '{{ displayName }}',
-updateTime = '{{ updateTime }}',
 actionType = '{{ actionType }}',
 condition = '{{ condition }}'
 WHERE 

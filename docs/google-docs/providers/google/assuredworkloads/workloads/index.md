@@ -118,53 +118,37 @@ Use the following StackQL query and manifest file to create a new <code>workload
 INSERT INTO google.assuredworkloads.workloads (
 locationsId,
 organizationsId,
-saaEnrollmentResponse,
 resourceSettings,
 partner,
-createTime,
-resources,
 displayName,
 kmsSettings,
 partnerServicesBillingAccount,
-complianceStatus,
-resourceMonitoringEnabled,
-kajEnrollmentState,
 violationNotificationsEnabled,
 enableSovereignControls,
 billingAccount,
 etag,
 complianceRegime,
 partnerPermissions,
-compliantButDisallowedServices,
 provisionedResourcesParent,
 labels,
-ekmProvisioningResponse,
 name
 )
 SELECT 
 '{{ locationsId }}',
 '{{ organizationsId }}',
-'{{ saaEnrollmentResponse }}',
 '{{ resourceSettings }}',
 '{{ partner }}',
-'{{ createTime }}',
-'{{ resources }}',
 '{{ displayName }}',
 '{{ kmsSettings }}',
 '{{ partnerServicesBillingAccount }}',
-'{{ complianceStatus }}',
-true|false,
-'{{ kajEnrollmentState }}',
 true|false,
 true|false,
 '{{ billingAccount }}',
 '{{ etag }}',
 '{{ complianceRegime }}',
 '{{ partnerPermissions }}',
-'{{ compliantButDisallowedServices }}',
 '{{ provisionedResourcesParent }}',
 '{{ labels }}',
-'{{ ekmProvisioningResponse }}',
 '{{ name }}'
 ;
 ```
@@ -174,28 +158,22 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: saaEnrollmentResponse
-      value: '{{ saaEnrollmentResponse }}'
     - name: resourceSettings
-      value: '{{ resourceSettings }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: partner
       value: '{{ partner }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: resources
-      value: '{{ resources }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: kmsSettings
-      value: '{{ kmsSettings }}'
+      value:
+        - name: nextRotationTime
+          value: '{{ nextRotationTime }}'
+        - name: rotationPeriod
+          value: '{{ rotationPeriod }}'
     - name: partnerServicesBillingAccount
       value: '{{ partnerServicesBillingAccount }}'
-    - name: complianceStatus
-      value: '{{ complianceStatus }}'
-    - name: resourceMonitoringEnabled
-      value: '{{ resourceMonitoringEnabled }}'
-    - name: kajEnrollmentState
-      value: '{{ kajEnrollmentState }}'
     - name: violationNotificationsEnabled
       value: '{{ violationNotificationsEnabled }}'
     - name: enableSovereignControls
@@ -207,15 +185,19 @@ true|false,
     - name: complianceRegime
       value: '{{ complianceRegime }}'
     - name: partnerPermissions
-      value: '{{ partnerPermissions }}'
-    - name: compliantButDisallowedServices
-      value: '{{ compliantButDisallowedServices }}'
+      value:
+        - name: assuredWorkloadsMonitoring
+          value: '{{ assuredWorkloadsMonitoring }}'
+        - name: serviceAccessApprover
+          value: '{{ serviceAccessApprover }}'
+        - name: dataLogsViewer
+          value: '{{ dataLogsViewer }}'
+        - name: accessTransparencyLogsSupportCaseViewer
+          value: '{{ accessTransparencyLogsSupportCaseViewer }}'
     - name: provisionedResourcesParent
       value: '{{ provisionedResourcesParent }}'
     - name: labels
       value: '{{ labels }}'
-    - name: ekmProvisioningResponse
-      value: '{{ ekmProvisioningResponse }}'
     - name: name
       value: '{{ name }}'
 
@@ -231,27 +213,19 @@ Updates a <code>workloads</code> resource.
 /*+ update */
 UPDATE google.assuredworkloads.workloads
 SET 
-saaEnrollmentResponse = '{{ saaEnrollmentResponse }}',
 resourceSettings = '{{ resourceSettings }}',
 partner = '{{ partner }}',
-createTime = '{{ createTime }}',
-resources = '{{ resources }}',
 displayName = '{{ displayName }}',
 kmsSettings = '{{ kmsSettings }}',
 partnerServicesBillingAccount = '{{ partnerServicesBillingAccount }}',
-complianceStatus = '{{ complianceStatus }}',
-resourceMonitoringEnabled = true|false,
-kajEnrollmentState = '{{ kajEnrollmentState }}',
 violationNotificationsEnabled = true|false,
 enableSovereignControls = true|false,
 billingAccount = '{{ billingAccount }}',
 etag = '{{ etag }}',
 complianceRegime = '{{ complianceRegime }}',
 partnerPermissions = '{{ partnerPermissions }}',
-compliantButDisallowedServices = '{{ compliantButDisallowedServices }}',
 provisionedResourcesParent = '{{ provisionedResourcesParent }}',
 labels = '{{ labels }}',
-ekmProvisioningResponse = '{{ ekmProvisioningResponse }}',
 name = '{{ name }}'
 WHERE 
 locationsId = '{{ locationsId }}'

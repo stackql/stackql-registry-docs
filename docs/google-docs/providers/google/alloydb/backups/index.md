@@ -114,54 +114,26 @@ Use the following StackQL query and manifest file to create a new <code>backups<
 INSERT INTO google.alloydb.backups (
 locationsId,
 projectsId,
-name,
 displayName,
-uid,
-createTime,
-updateTime,
-deleteTime,
 labels,
-state,
 type,
 description,
-clusterUid,
 clusterName,
-reconciling,
 encryptionConfig,
-encryptionInfo,
 etag,
-annotations,
-sizeBytes,
-expiryTime,
-expiryQuantity,
-satisfiesPzs,
-databaseVersion
+annotations
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ labels }}',
-'{{ state }}',
 '{{ type }}',
 '{{ description }}',
-'{{ clusterUid }}',
 '{{ clusterName }}',
-true|false,
 '{{ encryptionConfig }}',
-'{{ encryptionInfo }}',
 '{{ etag }}',
-'{{ annotations }}',
-'{{ sizeBytes }}',
-'{{ expiryTime }}',
-'{{ expiryQuantity }}',
-true|false,
-'{{ databaseVersion }}'
+'{{ annotations }}'
 ;
 ```
 </TabItem>
@@ -170,50 +142,24 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
     - name: type
       value: '{{ type }}'
     - name: description
       value: '{{ description }}'
-    - name: clusterUid
-      value: '{{ clusterUid }}'
     - name: clusterName
       value: '{{ clusterName }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
     - name: encryptionConfig
-      value: '{{ encryptionConfig }}'
-    - name: encryptionInfo
-      value: '{{ encryptionInfo }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: etag
       value: '{{ etag }}'
     - name: annotations
       value: '{{ annotations }}'
-    - name: sizeBytes
-      value: '{{ sizeBytes }}'
-    - name: expiryTime
-      value: '{{ expiryTime }}'
-    - name: expiryQuantity
-      value: '{{ expiryQuantity }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: databaseVersion
-      value: '{{ databaseVersion }}'
 
 ```
 </TabItem>
@@ -227,28 +173,14 @@ Updates a <code>backups</code> resource.
 /*+ update */
 UPDATE google.alloydb.backups
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
 labels = '{{ labels }}',
-state = '{{ state }}',
 type = '{{ type }}',
 description = '{{ description }}',
-clusterUid = '{{ clusterUid }}',
 clusterName = '{{ clusterName }}',
-reconciling = true|false,
 encryptionConfig = '{{ encryptionConfig }}',
-encryptionInfo = '{{ encryptionInfo }}',
 etag = '{{ etag }}',
-annotations = '{{ annotations }}',
-sizeBytes = '{{ sizeBytes }}',
-expiryTime = '{{ expiryTime }}',
-expiryQuantity = '{{ expiryQuantity }}',
-satisfiesPzs = true|false,
-databaseVersion = '{{ databaseVersion }}'
+annotations = '{{ annotations }}'
 WHERE 
 backupsId = '{{ backupsId }}'
 AND locationsId = '{{ locationsId }}'

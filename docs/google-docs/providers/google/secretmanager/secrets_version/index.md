@@ -70,7 +70,11 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: payload
-      value: '{{ payload }}'
+      value:
+        - name: data
+          value: '{{ data }}'
+        - name: dataCrc32c
+          value: '{{ dataCrc32c }}'
 
 ```
 </TabItem>

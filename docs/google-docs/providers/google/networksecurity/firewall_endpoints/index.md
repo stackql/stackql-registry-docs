@@ -92,13 +92,7 @@ locationsId,
 organizationsId,
 name,
 description,
-createTime,
-updateTime,
 labels,
-state,
-reconciling,
-associatedNetworks,
-associations,
 billingProjectId
 )
 SELECT 
@@ -106,13 +100,7 @@ SELECT
 '{{ organizationsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
-'{{ state }}',
-true|false,
-'{{ associatedNetworks }}',
-'{{ associations }}',
 '{{ billingProjectId }}'
 ;
 ```
@@ -126,20 +114,8 @@ true|false,
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
-    - name: associatedNetworks
-      value: '{{ associatedNetworks }}'
-    - name: associations
-      value: '{{ associations }}'
     - name: billingProjectId
       value: '{{ billingProjectId }}'
 
@@ -157,13 +133,7 @@ UPDATE google.networksecurity.firewall_endpoints
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
-state = '{{ state }}',
-reconciling = true|false,
-associatedNetworks = '{{ associatedNetworks }}',
-associations = '{{ associations }}',
 billingProjectId = '{{ billingProjectId }}'
 WHERE 
 firewallEndpointsId = '{{ firewallEndpointsId }}'

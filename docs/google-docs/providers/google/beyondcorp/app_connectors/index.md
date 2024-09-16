@@ -91,12 +91,8 @@ INSERT INTO google.beyondcorp.app_connectors (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 displayName,
-uid,
-state,
 principalInfo,
 resourceInfo
 )
@@ -104,12 +100,8 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
-'{{ uid }}',
-'{{ state }}',
 '{{ principalInfo }}',
 '{{ resourceInfo }}'
 ;
@@ -122,22 +114,28 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: state
-      value: '{{ state }}'
     - name: principalInfo
-      value: '{{ principalInfo }}'
+      value:
+        - name: serviceAccount
+          value:
+            - name: email
+              value: '{{ email }}'
     - name: resourceInfo
-      value: '{{ resourceInfo }}'
+      value:
+        - name: status
+          value: '{{ status }}'
+        - name: resource
+          value: '{{ resource }}'
+        - name: time
+          value: '{{ time }}'
+        - name: sub
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -152,12 +150,8 @@ Updates a <code>app_connectors</code> resource.
 UPDATE google.beyondcorp.app_connectors
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-state = '{{ state }}',
 principalInfo = '{{ principalInfo }}',
 resourceInfo = '{{ resourceInfo }}'
 WHERE 

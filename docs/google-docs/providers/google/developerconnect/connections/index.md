@@ -96,32 +96,20 @@ locationsId,
 projectsId,
 githubConfig,
 name,
-createTime,
-updateTime,
-deleteTime,
 labels,
-installationState,
 disabled,
-reconciling,
 annotations,
-etag,
-uid
+etag
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ githubConfig }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ labels }}',
-'{{ installationState }}',
-true|false,
 true|false,
 '{{ annotations }}',
-'{{ etag }}',
-'{{ uid }}'
+'{{ etag }}'
 ;
 ```
 </TabItem>
@@ -131,29 +119,25 @@ true|false,
 - name: your_resource_model_name
   props:
     - name: githubConfig
-      value: '{{ githubConfig }}'
+      value:
+        - name: githubApp
+          value: '{{ githubApp }}'
+        - name: authorizerCredential
+          value:
+            - name: oauthTokenSecretVersion
+              value: '{{ oauthTokenSecretVersion }}'
+        - name: appInstallationId
+          value: '{{ appInstallationId }}'
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: installationState
-      value: '{{ installationState }}'
     - name: disabled
       value: '{{ disabled }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: etag
       value: '{{ etag }}'
-    - name: uid
-      value: '{{ uid }}'
 
 ```
 </TabItem>
@@ -169,16 +153,10 @@ UPDATE google.developerconnect.connections
 SET 
 githubConfig = '{{ githubConfig }}',
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
 labels = '{{ labels }}',
-installationState = '{{ installationState }}',
 disabled = true|false,
-reconciling = true|false,
 annotations = '{{ annotations }}',
-etag = '{{ etag }}',
-uid = '{{ uid }}'
+etag = '{{ etag }}'
 WHERE 
 connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'

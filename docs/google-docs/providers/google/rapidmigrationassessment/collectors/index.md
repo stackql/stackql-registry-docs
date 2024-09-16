@@ -104,18 +104,11 @@ INSERT INTO google.rapidmigrationassessment.collectors (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 displayName,
 description,
 serviceAccount,
-bucket,
 expectedAssetCount,
-state,
-clientVersion,
-guestOsScan,
-vsphereScan,
 collectionDays,
 eulaUri
 )
@@ -123,18 +116,11 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ serviceAccount }}',
-'{{ bucket }}',
 '{{ expectedAssetCount }}',
-'{{ state }}',
-'{{ clientVersion }}',
-'{{ guestOsScan }}',
-'{{ vsphereScan }}',
 '{{ collectionDays }}',
 '{{ eulaUri }}'
 ;
@@ -147,10 +133,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
@@ -159,18 +141,8 @@ SELECT
       value: '{{ description }}'
     - name: serviceAccount
       value: '{{ serviceAccount }}'
-    - name: bucket
-      value: '{{ bucket }}'
     - name: expectedAssetCount
       value: '{{ expectedAssetCount }}'
-    - name: state
-      value: '{{ state }}'
-    - name: clientVersion
-      value: '{{ clientVersion }}'
-    - name: guestOsScan
-      value: '{{ guestOsScan }}'
-    - name: vsphereScan
-      value: '{{ vsphereScan }}'
     - name: collectionDays
       value: '{{ collectionDays }}'
     - name: eulaUri
@@ -189,18 +161,11 @@ Updates a <code>collectors</code> resource.
 UPDATE google.rapidmigrationassessment.collectors
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 serviceAccount = '{{ serviceAccount }}',
-bucket = '{{ bucket }}',
 expectedAssetCount = '{{ expectedAssetCount }}',
-state = '{{ state }}',
-clientVersion = '{{ clientVersion }}',
-guestOsScan = '{{ guestOsScan }}',
-vsphereScan = '{{ vsphereScan }}',
 collectionDays = '{{ collectionDays }}',
 eulaUri = '{{ eulaUri }}'
 WHERE 

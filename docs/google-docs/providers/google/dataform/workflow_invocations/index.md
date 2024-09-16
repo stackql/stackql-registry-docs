@@ -91,12 +91,7 @@ projectsId,
 repositoriesId,
 compilationResult,
 workflowConfig,
-name,
-invocationConfig,
-state,
-invocationTiming,
-resolvedCompilationResult,
-dataEncryptionState
+invocationConfig
 )
 SELECT 
 '{{ locationsId }}',
@@ -104,12 +99,7 @@ SELECT
 '{{ repositoriesId }}',
 '{{ compilationResult }}',
 '{{ workflowConfig }}',
-'{{ name }}',
-'{{ invocationConfig }}',
-'{{ state }}',
-'{{ invocationTiming }}',
-'{{ resolvedCompilationResult }}',
-'{{ dataEncryptionState }}'
+'{{ invocationConfig }}'
 ;
 ```
 </TabItem>
@@ -122,18 +112,24 @@ SELECT
       value: '{{ compilationResult }}'
     - name: workflowConfig
       value: '{{ workflowConfig }}'
-    - name: name
-      value: '{{ name }}'
     - name: invocationConfig
-      value: '{{ invocationConfig }}'
-    - name: state
-      value: '{{ state }}'
-    - name: invocationTiming
-      value: '{{ invocationTiming }}'
-    - name: resolvedCompilationResult
-      value: '{{ resolvedCompilationResult }}'
-    - name: dataEncryptionState
-      value: '{{ dataEncryptionState }}'
+      value:
+        - name: includedTargets
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: includedTags
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: transitiveDependenciesIncluded
+          value: '{{ transitiveDependenciesIncluded }}'
+        - name: transitiveDependentsIncluded
+          value: '{{ transitiveDependentsIncluded }}'
+        - name: fullyRefreshIncrementalTablesEnabled
+          value: '{{ fullyRefreshIncrementalTablesEnabled }}'
+        - name: serviceAccount
+          value: '{{ serviceAccount }}'
 
 ```
 </TabItem>

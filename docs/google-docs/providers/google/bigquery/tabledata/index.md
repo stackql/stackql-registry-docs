@@ -80,7 +80,6 @@ INSERT INTO google.bigquery.tabledata (
 +tableId,
 projectId,
 ignoreUnknownValues,
-kind,
 rows,
 skipInvalidRows,
 templateSuffix,
@@ -91,7 +90,6 @@ SELECT
 '{{ +tableId }}',
 '{{ projectId }}',
 true|false,
-'{{ kind }}',
 '{{ rows }}',
 true|false,
 '{{ templateSuffix }}',
@@ -106,14 +104,12 @@ true|false,
   props:
     - name: ignoreUnknownValues
       value: '{{ ignoreUnknownValues }}'
-    - name: kind
-      value: '{{ kind }}'
     - name: rows
       value:
-        - - name: insertId
-            value: '{{ insertId }}'
-          - name: json
-            value: '{{ json }}'
+        - name: insertId
+          value: '{{ insertId }}'
+        - name: json
+          value: []
     - name: skipInvalidRows
       value: '{{ skipInvalidRows }}'
     - name: templateSuffix

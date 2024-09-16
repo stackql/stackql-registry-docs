@@ -63,7 +63,6 @@ Updates a <code>environments_security_actions_config</code> resource.
 /*+ update */
 UPDATE google.apigee.environments_security_actions_config
 SET 
-updateTime = '{{ updateTime }}',
 name = '{{ name }}',
 enabled = true|false
 WHERE 

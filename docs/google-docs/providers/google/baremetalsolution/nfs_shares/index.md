@@ -92,10 +92,6 @@ INSERT INTO google.baremetalsolution.nfs_shares (
 locationsId,
 projectsId,
 name,
-nfsShareId,
-id,
-state,
-volume,
 allowedClients,
 labels,
 requestedSizeGib,
@@ -106,10 +102,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ nfsShareId }}',
-'{{ id }}',
-'{{ state }}',
-'{{ volume }}',
 '{{ allowedClients }}',
 '{{ labels }}',
 '{{ requestedSizeGib }}',
@@ -125,16 +117,10 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: nfsShareId
-      value: '{{ nfsShareId }}'
-    - name: id
-      value: '{{ id }}'
-    - name: state
-      value: '{{ state }}'
-    - name: volume
-      value: '{{ volume }}'
     - name: allowedClients
-      value: '{{ allowedClients }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: labels
       value: '{{ labels }}'
     - name: requestedSizeGib
@@ -157,10 +143,6 @@ Updates a <code>nfs_shares</code> resource.
 UPDATE google.baremetalsolution.nfs_shares
 SET 
 name = '{{ name }}',
-nfsShareId = '{{ nfsShareId }}',
-id = '{{ id }}',
-state = '{{ state }}',
-volume = '{{ volume }}',
 allowedClients = '{{ allowedClients }}',
 labels = '{{ labels }}',
 requestedSizeGib = '{{ requestedSizeGib }}',

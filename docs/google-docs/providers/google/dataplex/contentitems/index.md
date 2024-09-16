@@ -92,11 +92,7 @@ INSERT INTO google.dataplex.contentitems (
 lakesId,
 locationsId,
 projectsId,
-name,
-uid,
 path,
-createTime,
-updateTime,
 labels,
 description,
 dataText,
@@ -107,11 +103,7 @@ SELECT
 '{{ lakesId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
 '{{ path }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ dataText }}',
@@ -125,16 +117,8 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: path
       value: '{{ path }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
@@ -142,9 +126,13 @@ SELECT
     - name: dataText
       value: '{{ dataText }}'
     - name: sqlScript
-      value: '{{ sqlScript }}'
+      value:
+        - name: engine
+          value: '{{ engine }}'
     - name: notebook
-      value: '{{ notebook }}'
+      value:
+        - name: kernelType
+          value: '{{ kernelType }}'
 
 ```
 </TabItem>
@@ -158,11 +146,7 @@ Updates a <code>contentitems</code> resource.
 /*+ update */
 UPDATE google.dataplex.contentitems
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
 path = '{{ path }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 dataText = '{{ dataText }}',

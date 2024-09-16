@@ -151,11 +151,7 @@ Use the following StackQL query and manifest file to create a new <code>intercon
 INSERT INTO google.compute.interconnect_attachments (
 project,
 region,
-kind,
 description,
-selfLink,
-id,
-creationTimestamp,
 name,
 interconnect,
 router,
@@ -195,11 +191,7 @@ configurationConstraints
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
 '{{ description }}',
-'{{ selfLink }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ interconnect }}',
 '{{ router }}',
@@ -243,16 +235,8 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: interconnect
@@ -266,7 +250,9 @@ true|false,
     - name: mtu
       value: '{{ mtu }}'
     - name: privateInterconnectInfo
-      value: '{{ privateInterconnectInfo }}'
+      value:
+        - name: tag8021q
+          value: '{{ tag8021q }}'
     - name: operationalStatus
       value: '{{ operationalStatus }}'
     - name: cloudRouterIpAddress
@@ -284,11 +270,19 @@ true|false,
     - name: edgeAvailabilityDomain
       value: '{{ edgeAvailabilityDomain }}'
     - name: candidateSubnets
-      value: '{{ candidateSubnets }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: bandwidth
       value: '{{ bandwidth }}'
     - name: partnerMetadata
-      value: '{{ partnerMetadata }}'
+      value:
+        - name: partnerName
+          value: '{{ partnerName }}'
+        - name: interconnectName
+          value: '{{ interconnectName }}'
+        - name: portalUrl
+          value: '{{ portalUrl }}'
     - name: labels
       value: '{{ labels }}'
     - name: labelFingerprint
@@ -300,7 +294,9 @@ true|false,
     - name: encryption
       value: '{{ encryption }}'
     - name: ipsecInternalAddresses
-      value: '{{ ipsecInternalAddresses }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: dataplaneVersion
       value: '{{ dataplaneVersion }}'
     - name: satisfiesPzs
@@ -312,7 +308,9 @@ true|false,
     - name: customerRouterIpv6Address
       value: '{{ customerRouterIpv6Address }}'
     - name: candidateIpv6Subnets
-      value: '{{ candidateIpv6Subnets }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: cloudRouterIpv6InterfaceId
       value: '{{ cloudRouterIpv6InterfaceId }}'
     - name: customerRouterIpv6InterfaceId
@@ -322,7 +320,13 @@ true|false,
     - name: remoteService
       value: '{{ remoteService }}'
     - name: configurationConstraints
-      value: '{{ configurationConstraints }}'
+      value:
+        - name: bgpMd5
+          value: '{{ bgpMd5 }}'
+        - name: bgpPeerAsnRanges
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -336,11 +340,7 @@ Updates a <code>interconnect_attachments</code> resource.
 /*+ update */
 UPDATE google.compute.interconnect_attachments
 SET 
-kind = '{{ kind }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 interconnect = '{{ interconnect }}',
 router = '{{ router }}',

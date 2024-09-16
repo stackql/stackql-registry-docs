@@ -115,7 +115,15 @@ SELECT
     - name: phraseSetId
       value: '{{ phraseSetId }}'
     - name: phraseSet
-      value: '{{ phraseSet }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: phrases
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: boost
+          value: '{{ boost }}'
 
 ```
 </TabItem>
@@ -131,17 +139,7 @@ UPDATE google.speech.phrase_sets
 SET 
 name = '{{ name }}',
 phrases = '{{ phrases }}',
-boost = number,
-kmsKeyName = '{{ kmsKeyName }}',
-kmsKeyVersionName = '{{ kmsKeyVersionName }}',
-uid = '{{ uid }}',
-displayName = '{{ displayName }}',
-state = '{{ state }}',
-deleteTime = '{{ deleteTime }}',
-expireTime = '{{ expireTime }}',
-annotations = '{{ annotations }}',
-etag = '{{ etag }}',
-reconciling = true|false
+boost = number
 WHERE 
 locationsId = '{{ locationsId }}'
 AND phraseSetsId = '{{ phraseSetsId }}'

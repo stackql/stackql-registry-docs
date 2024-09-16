@@ -87,10 +87,7 @@ INSERT INTO google.cloudresourcemanager.tag_values (
 name,
 parent,
 shortName,
-namespacedName,
 description,
-createTime,
-updateTime,
 etag
 )
 SELECT 
@@ -98,10 +95,7 @@ SELECT
 '{{ name }}',
 '{{ parent }}',
 '{{ shortName }}',
-'{{ namespacedName }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ etag }}'
 ;
 ```
@@ -117,14 +111,8 @@ SELECT
       value: '{{ parent }}'
     - name: shortName
       value: '{{ shortName }}'
-    - name: namespacedName
-      value: '{{ namespacedName }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: etag
       value: '{{ etag }}'
 
@@ -143,10 +131,7 @@ SET
 name = '{{ name }}',
 parent = '{{ parent }}',
 shortName = '{{ shortName }}',
-namespacedName = '{{ namespacedName }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 etag = '{{ etag }}'
 WHERE 
 tagValuesId = '{{ tagValuesId }}';

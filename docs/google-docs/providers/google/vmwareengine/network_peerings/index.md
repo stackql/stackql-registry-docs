@@ -102,40 +102,28 @@ Use the following StackQL query and manifest file to create a new <code>network_
 INSERT INTO google.vmwareengine.network_peerings (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 peerNetwork,
 exportCustomRoutes,
 importCustomRoutes,
 exchangeSubnetRoutes,
 exportCustomRoutesWithPublicIp,
 importCustomRoutesWithPublicIp,
-state,
-stateDetails,
 peerMtu,
 peerNetworkType,
-uid,
 vmwareEngineNetwork,
 description
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ peerNetwork }}',
 true|false,
 true|false,
 true|false,
 true|false,
 true|false,
-'{{ state }}',
-'{{ stateDetails }}',
 '{{ peerMtu }}',
 '{{ peerNetworkType }}',
-'{{ uid }}',
 '{{ vmwareEngineNetwork }}',
 '{{ description }}'
 ;
@@ -146,12 +134,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: peerNetwork
       value: '{{ peerNetwork }}'
     - name: exportCustomRoutes
@@ -164,16 +146,10 @@ true|false,
       value: '{{ exportCustomRoutesWithPublicIp }}'
     - name: importCustomRoutesWithPublicIp
       value: '{{ importCustomRoutesWithPublicIp }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateDetails
-      value: '{{ stateDetails }}'
     - name: peerMtu
       value: '{{ peerMtu }}'
     - name: peerNetworkType
       value: '{{ peerNetworkType }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: vmwareEngineNetwork
       value: '{{ vmwareEngineNetwork }}'
     - name: description
@@ -191,20 +167,14 @@ Updates a <code>network_peerings</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.network_peerings
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 peerNetwork = '{{ peerNetwork }}',
 exportCustomRoutes = true|false,
 importCustomRoutes = true|false,
 exchangeSubnetRoutes = true|false,
 exportCustomRoutesWithPublicIp = true|false,
 importCustomRoutesWithPublicIp = true|false,
-state = '{{ state }}',
-stateDetails = '{{ stateDetails }}',
 peerMtu = '{{ peerMtu }}',
 peerNetworkType = '{{ peerNetworkType }}',
-uid = '{{ uid }}',
 vmwareEngineNetwork = '{{ vmwareEngineNetwork }}',
 description = '{{ description }}'
 WHERE 

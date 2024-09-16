@@ -97,10 +97,7 @@ locationsId,
 metadataStoresId,
 projectsId,
 description,
-updateTime,
 displayName,
-parentContexts,
-createTime,
 labels,
 name,
 schemaTitle,
@@ -113,10 +110,7 @@ SELECT
 '{{ metadataStoresId }}',
 '{{ projectsId }}',
 '{{ description }}',
-'{{ updateTime }}',
 '{{ displayName }}',
-'{{ parentContexts }}',
-'{{ createTime }}',
 '{{ labels }}',
 '{{ name }}',
 '{{ schemaTitle }}',
@@ -133,14 +127,8 @@ SELECT
   props:
     - name: description
       value: '{{ description }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: parentContexts
-      value: '{{ parentContexts }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: name
@@ -167,10 +155,7 @@ Updates a <code>contexts</code> resource.
 UPDATE google.aiplatform.contexts
 SET 
 description = '{{ description }}',
-updateTime = '{{ updateTime }}',
 displayName = '{{ displayName }}',
-parentContexts = '{{ parentContexts }}',
-createTime = '{{ createTime }}',
 labels = '{{ labels }}',
 name = '{{ name }}',
 schemaTitle = '{{ schemaTitle }}',

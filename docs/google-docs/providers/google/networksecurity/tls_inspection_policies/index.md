@@ -92,8 +92,6 @@ locationsId,
 projectsId,
 name,
 description,
-createTime,
-updateTime,
 caPool,
 trustConfig,
 excludePublicCaSet,
@@ -106,8 +104,6 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ caPool }}',
 '{{ trustConfig }}',
 true|false,
@@ -126,10 +122,6 @@ true|false,
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: caPool
       value: '{{ caPool }}'
     - name: trustConfig
@@ -141,7 +133,9 @@ true|false,
     - name: tlsFeatureProfile
       value: '{{ tlsFeatureProfile }}'
     - name: customTlsFeatures
-      value: '{{ customTlsFeatures }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -157,8 +151,6 @@ UPDATE google.networksecurity.tls_inspection_policies
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 caPool = '{{ caPool }}',
 trustConfig = '{{ trustConfig }}',
 excludePublicCaSet = true|false,

@@ -122,47 +122,31 @@ Use the following StackQL query and manifest file to create a new <code>endpoint
 INSERT INTO google.aiplatform.endpoints (
 locationsId,
 projectsId,
-dedicatedEndpointDns,
 displayName,
 trafficSplit,
 predictRequestResponseLoggingConfig,
-updateTime,
 privateServiceConnectConfig,
 encryptionSpec,
 etag,
-name,
 enablePrivateServiceConnect,
-modelDeploymentMonitoringJob,
 labels,
-deployedModels,
-satisfiesPzs,
 network,
-satisfiesPzi,
 description,
-createTime,
 dedicatedEndpointEnabled
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ dedicatedEndpointDns }}',
 '{{ displayName }}',
 '{{ trafficSplit }}',
 '{{ predictRequestResponseLoggingConfig }}',
-'{{ updateTime }}',
 '{{ privateServiceConnectConfig }}',
 '{{ encryptionSpec }}',
 '{{ etag }}',
-'{{ name }}',
 true|false,
-'{{ modelDeploymentMonitoringJob }}',
 '{{ labels }}',
-'{{ deployedModels }}',
-true|false,
 '{{ network }}',
-true|false,
 '{{ description }}',
-'{{ createTime }}',
 true|false
 ;
 ```
@@ -172,42 +156,42 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: dedicatedEndpointDns
-      value: '{{ dedicatedEndpointDns }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: trafficSplit
       value: '{{ trafficSplit }}'
     - name: predictRequestResponseLoggingConfig
-      value: '{{ predictRequestResponseLoggingConfig }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: samplingRate
+          value: '{{ samplingRate }}'
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: bigqueryDestination
+          value:
+            - name: outputUri
+              value: '{{ outputUri }}'
     - name: privateServiceConnectConfig
-      value: '{{ privateServiceConnectConfig }}'
+      value:
+        - name: enablePrivateServiceConnect
+          value: '{{ enablePrivateServiceConnect }}'
+        - name: projectAllowlist
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: etag
       value: '{{ etag }}'
-    - name: name
-      value: '{{ name }}'
     - name: enablePrivateServiceConnect
       value: '{{ enablePrivateServiceConnect }}'
-    - name: modelDeploymentMonitoringJob
-      value: '{{ modelDeploymentMonitoringJob }}'
     - name: labels
       value: '{{ labels }}'
-    - name: deployedModels
-      value: '{{ deployedModels }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
     - name: network
       value: '{{ network }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: dedicatedEndpointEnabled
       value: '{{ dedicatedEndpointEnabled }}'
 
@@ -223,24 +207,16 @@ Updates a <code>endpoints</code> resource.
 /*+ update */
 UPDATE google.aiplatform.endpoints
 SET 
-dedicatedEndpointDns = '{{ dedicatedEndpointDns }}',
 displayName = '{{ displayName }}',
 trafficSplit = '{{ trafficSplit }}',
 predictRequestResponseLoggingConfig = '{{ predictRequestResponseLoggingConfig }}',
-updateTime = '{{ updateTime }}',
 privateServiceConnectConfig = '{{ privateServiceConnectConfig }}',
 encryptionSpec = '{{ encryptionSpec }}',
 etag = '{{ etag }}',
-name = '{{ name }}',
 enablePrivateServiceConnect = true|false,
-modelDeploymentMonitoringJob = '{{ modelDeploymentMonitoringJob }}',
 labels = '{{ labels }}',
-deployedModels = '{{ deployedModels }}',
-satisfiesPzs = true|false,
 network = '{{ network }}',
-satisfiesPzi = true|false,
 description = '{{ description }}',
-createTime = '{{ createTime }}',
 dedicatedEndpointEnabled = true|false
 WHERE 
 endpointsId = '{{ endpointsId }}'

@@ -88,8 +88,6 @@ locationsId,
 projectsId,
 name,
 description,
-createTime,
-updateTime,
 labels,
 sni,
 clientCertificate,
@@ -100,8 +98,6 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ sni }}',
 '{{ clientCertificate }}',
@@ -118,18 +114,24 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: sni
       value: '{{ sni }}'
     - name: clientCertificate
-      value: '{{ clientCertificate }}'
+      value:
+        - name: grpcEndpoint
+          value:
+            - name: targetUri
+              value: '{{ targetUri }}'
+        - name: certificateProviderInstance
+          value:
+            - name: pluginInstance
+              value: '{{ pluginInstance }}'
     - name: serverValidationCa
-      value: '{{ serverValidationCa }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -145,8 +147,6 @@ UPDATE google.networksecurity.client_tls_policies
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 sni = '{{ sni }}',
 clientCertificate = '{{ clientCertificate }}',

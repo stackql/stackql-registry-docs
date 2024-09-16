@@ -92,13 +92,10 @@ locationsId,
 projectsId,
 name,
 description,
-createTime,
-updateTime,
 labels,
 hostname,
 matcher,
-certificates,
-state
+certificates
 )
 SELECT 
 '{{ certificateMapsId }}',
@@ -106,13 +103,10 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ hostname }}',
 '{{ matcher }}',
-'{{ certificates }}',
-'{{ state }}'
+'{{ certificates }}'
 ;
 ```
 </TabItem>
@@ -125,10 +119,6 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: hostname
@@ -136,9 +126,9 @@ SELECT
     - name: matcher
       value: '{{ matcher }}'
     - name: certificates
-      value: '{{ certificates }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -154,13 +144,10 @@ UPDATE google.certificatemanager.certificate_map_entries
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 hostname = '{{ hostname }}',
 matcher = '{{ matcher }}',
-certificates = '{{ certificates }}',
-state = '{{ state }}'
+certificates = '{{ certificates }}'
 WHERE 
 certificateMapEntriesId = '{{ certificateMapEntriesId }}'
 AND certificateMapsId = '{{ certificateMapsId }}'

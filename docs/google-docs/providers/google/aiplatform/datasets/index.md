@@ -104,17 +104,10 @@ Use the following StackQL query and manifest file to create a new <code>datasets
 INSERT INTO google.aiplatform.datasets (
 ,
 metadataSchemaUri,
-updateTime,
-satisfiesPzi,
-metadataArtifact,
 description,
-createTime,
-satisfiesPzs,
 metadata,
 etag,
 displayName,
-dataItemCount,
-name,
 labels,
 modelReference,
 encryptionSpec,
@@ -123,17 +116,10 @@ savedQueries
 SELECT 
 '{{  }}',
 '{{ metadataSchemaUri }}',
-'{{ updateTime }}',
-true|false,
-'{{ metadataArtifact }}',
 '{{ description }}',
-'{{ createTime }}',
-true|false,
 '{{ metadata }}',
 '{{ etag }}',
 '{{ displayName }}',
-'{{ dataItemCount }}',
-'{{ name }}',
 '{{ labels }}',
 '{{ modelReference }}',
 '{{ encryptionSpec }}',
@@ -148,36 +134,26 @@ true|false,
   props:
     - name: metadataSchemaUri
       value: '{{ metadataSchemaUri }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: metadataArtifact
-      value: '{{ metadataArtifact }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
     - name: metadata
       value: '{{ metadata }}'
     - name: etag
       value: '{{ etag }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: dataItemCount
-      value: '{{ dataItemCount }}'
-    - name: name
-      value: '{{ name }}'
     - name: labels
       value: '{{ labels }}'
     - name: modelReference
       value: '{{ modelReference }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: savedQueries
-      value: '{{ savedQueries }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -192,17 +168,10 @@ Updates a <code>datasets</code> resource.
 UPDATE google.aiplatform.datasets
 SET 
 metadataSchemaUri = '{{ metadataSchemaUri }}',
-updateTime = '{{ updateTime }}',
-satisfiesPzi = true|false,
-metadataArtifact = '{{ metadataArtifact }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-satisfiesPzs = true|false,
 metadata = '{{ metadata }}',
 etag = '{{ etag }}',
 displayName = '{{ displayName }}',
-dataItemCount = '{{ dataItemCount }}',
-name = '{{ name }}',
 labels = '{{ labels }}',
 modelReference = '{{ modelReference }}',
 encryptionSpec = '{{ encryptionSpec }}',

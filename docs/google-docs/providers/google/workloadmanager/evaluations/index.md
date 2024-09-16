@@ -97,10 +97,6 @@ name,
 description,
 resourceFilter,
 ruleNames,
-ruleVersions,
-resourceStatus,
-createTime,
-updateTime,
 labels,
 schedule,
 customRulesBucket,
@@ -113,10 +109,6 @@ SELECT
 '{{ description }}',
 '{{ resourceFilter }}',
 '{{ ruleNames }}',
-'{{ ruleVersions }}',
-'{{ resourceStatus }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ schedule }}',
 '{{ customRulesBucket }}',
@@ -134,17 +126,27 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: resourceFilter
-      value: '{{ resourceFilter }}'
+      value:
+        - name: scopes
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: resourceIdPatterns
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: inclusionLabels
+          value: '{{ inclusionLabels }}'
+        - name: gceInstanceFilter
+          value:
+            - name: serviceAccounts
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: ruleNames
-      value: '{{ ruleNames }}'
-    - name: ruleVersions
-      value: '{{ ruleVersions }}'
-    - name: resourceStatus
-      value: '{{ resourceStatus }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
     - name: schedule
@@ -152,7 +154,11 @@ SELECT
     - name: customRulesBucket
       value: '{{ customRulesBucket }}'
     - name: bigQueryDestination
-      value: '{{ bigQueryDestination }}'
+      value:
+        - name: destinationDataset
+          value: '{{ destinationDataset }}'
+        - name: createNewResultsTable
+          value: '{{ createNewResultsTable }}'
 
 ```
 </TabItem>

@@ -122,8 +122,6 @@ state,
 lastModifierEmail,
 overrideValidTime,
 expiryNotificationDuration,
-createTime,
-updateTime,
 certificateId,
 decryptedCredential
 )
@@ -143,8 +141,6 @@ SELECT
 '{{ lastModifierEmail }}',
 '{{ overrideValidTime }}',
 '{{ expiryNotificationDuration }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ certificateId }}',
 '{{ decryptedCredential }}'
 ;
@@ -180,15 +176,123 @@ SELECT
     - name: overrideValidTime
       value: '{{ overrideValidTime }}'
     - name: expiryNotificationDuration
-      value: '{{ expiryNotificationDuration }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: format
+          value: '{{ format }}'
     - name: certificateId
       value: '{{ certificateId }}'
     - name: decryptedCredential
-      value: '{{ decryptedCredential }}'
+      value:
+        - name: credentialType
+          value: '{{ credentialType }}'
+        - name: serviceAccountCredentials
+          value:
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
+            - name: scope
+              value: '{{ scope }}'
+        - name: authToken
+          value:
+            - name: token
+              value: '{{ token }}'
+            - name: type
+              value: '{{ type }}'
+        - name: oauth2ClientCredentials
+          value:
+            - name: accessToken
+              value:
+                - name: accessToken
+                  value: '{{ accessToken }}'
+                - name: refreshTokenExpireTime
+                  value: '{{ refreshTokenExpireTime }}'
+                - name: tokenType
+                  value: '{{ tokenType }}'
+                - name: refreshToken
+                  value: '{{ refreshToken }}'
+                - name: accessTokenExpireTime
+                  value: '{{ accessTokenExpireTime }}'
+            - name: tokenEndpoint
+              value: '{{ tokenEndpoint }}'
+            - name: clientId
+              value: '{{ clientId }}'
+            - name: clientSecret
+              value: '{{ clientSecret }}'
+            - name: tokenParams
+              value:
+                - name: entries
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: keyType
+                  value: '{{ keyType }}'
+                - name: valueType
+                  value: '{{ valueType }}'
+            - name: requestType
+              value: '{{ requestType }}'
+            - name: scope
+              value: '{{ scope }}'
+        - name: oauth2AuthorizationCode
+          value:
+            - name: authCode
+              value: '{{ authCode }}'
+            - name: clientId
+              value: '{{ clientId }}'
+            - name: scope
+              value: '{{ scope }}'
+            - name: clientSecret
+              value: '{{ clientSecret }}'
+            - name: applyReauthPolicy
+              value: '{{ applyReauthPolicy }}'
+            - name: authEndpoint
+              value: '{{ authEndpoint }}'
+            - name: tokenEndpoint
+              value: '{{ tokenEndpoint }}'
+            - name: requestType
+              value: '{{ requestType }}'
+        - name: jwt
+          value:
+            - name: jwtHeader
+              value: '{{ jwtHeader }}'
+            - name: secret
+              value: '{{ secret }}'
+            - name: jwt
+              value: '{{ jwt }}'
+            - name: jwtPayload
+              value: '{{ jwtPayload }}'
+        - name: oidcToken
+          value:
+            - name: tokenExpireTime
+              value: '{{ tokenExpireTime }}'
+            - name: audience
+              value: '{{ audience }}'
+            - name: serviceAccountEmail
+              value: '{{ serviceAccountEmail }}'
+            - name: token
+              value: '{{ token }}'
+        - name: oauth2ResourceOwnerCredentials
+          value:
+            - name: scope
+              value: '{{ scope }}'
+            - name: requestType
+              value: '{{ requestType }}'
+            - name: clientId
+              value: '{{ clientId }}'
+            - name: username
+              value: '{{ username }}'
+            - name: password
+              value: '{{ password }}'
+            - name: clientSecret
+              value: '{{ clientSecret }}'
+            - name: tokenEndpoint
+              value: '{{ tokenEndpoint }}'
+        - name: usernameAndPassword
+          value:
+            - name: username
+              value: '{{ username }}'
+            - name: password
+              value: '{{ password }}'
 
 ```
 </TabItem>
@@ -215,8 +319,6 @@ state = '{{ state }}',
 lastModifierEmail = '{{ lastModifierEmail }}',
 overrideValidTime = '{{ overrideValidTime }}',
 expiryNotificationDuration = '{{ expiryNotificationDuration }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 certificateId = '{{ certificateId }}',
 decryptedCredential = '{{ decryptedCredential }}'
 WHERE 

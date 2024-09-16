@@ -79,8 +79,6 @@ INSERT INTO google.rapidmigrationassessment.annotations (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 type
 )
@@ -88,8 +86,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ type }}'
 ;
@@ -102,10 +98,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: type

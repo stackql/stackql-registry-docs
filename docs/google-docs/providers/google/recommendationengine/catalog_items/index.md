@@ -91,7 +91,6 @@ INSERT INTO google.recommendationengine.catalog_items (
 catalogsId,
 locationsId,
 projectsId,
-id,
 categoryHierarchies,
 title,
 description,
@@ -105,7 +104,6 @@ SELECT
 '{{ catalogsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ id }}',
 '{{ categoryHierarchies }}',
 '{{ title }}',
 '{{ description }}',
@@ -122,24 +120,56 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: id
-      value: '{{ id }}'
     - name: categoryHierarchies
-      value: '{{ categoryHierarchies }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: title
       value: '{{ title }}'
     - name: description
       value: '{{ description }}'
     - name: itemAttributes
-      value: '{{ itemAttributes }}'
+      value:
+        - name: categoricalFeatures
+          value: '{{ categoricalFeatures }}'
+        - name: numericalFeatures
+          value: '{{ numericalFeatures }}'
     - name: languageCode
       value: '{{ languageCode }}'
     - name: tags
-      value: '{{ tags }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: itemGroupId
       value: '{{ itemGroupId }}'
     - name: productMetadata
-      value: '{{ productMetadata }}'
+      value:
+        - name: exactPrice
+          value:
+            - name: displayPrice
+              value: '{{ displayPrice }}'
+            - name: originalPrice
+              value: '{{ originalPrice }}'
+        - name: priceRange
+          value:
+            - name: min
+              value: '{{ min }}'
+            - name: max
+              value: '{{ max }}'
+        - name: costs
+          value: '{{ costs }}'
+        - name: currencyCode
+          value: '{{ currencyCode }}'
+        - name: stockState
+          value: '{{ stockState }}'
+        - name: availableQuantity
+          value: '{{ availableQuantity }}'
+        - name: canonicalProductUri
+          value: '{{ canonicalProductUri }}'
+        - name: images
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -153,7 +183,6 @@ Updates a <code>catalog_items</code> resource.
 /*+ update */
 UPDATE google.recommendationengine.catalog_items
 SET 
-id = '{{ id }}',
 categoryHierarchies = '{{ categoryHierarchies }}',
 title = '{{ title }}',
 description = '{{ description }}',

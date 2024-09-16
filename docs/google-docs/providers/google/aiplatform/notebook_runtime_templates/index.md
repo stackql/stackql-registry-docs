@@ -115,14 +115,11 @@ displayName,
 labels,
 eucConfig,
 encryptionSpec,
-isDefault,
 serviceAccount,
 networkSpec,
-createTime,
 idleShutdownConfig,
 etag,
 dataPersistentDiskSpec,
-updateTime,
 networkTags
 )
 SELECT 
@@ -137,14 +134,11 @@ SELECT
 '{{ labels }}',
 '{{ eucConfig }}',
 '{{ encryptionSpec }}',
-true|false,
 '{{ serviceAccount }}',
 '{{ networkSpec }}',
-'{{ createTime }}',
 '{{ idleShutdownConfig }}',
 '{{ etag }}',
 '{{ dataPersistentDiskSpec }}',
-'{{ updateTime }}',
 '{{ networkTags }}'
 ;
 ```
@@ -155,11 +149,31 @@ true|false,
 - name: your_resource_model_name
   props:
     - name: machineSpec
-      value: '{{ machineSpec }}'
+      value:
+        - name: acceleratorCount
+          value: '{{ acceleratorCount }}'
+        - name: reservationAffinity
+          value:
+            - name: key
+              value: '{{ key }}'
+            - name: reservationAffinityType
+              value: '{{ reservationAffinityType }}'
+            - name: values
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: tpuTopology
+          value: '{{ tpuTopology }}'
+        - name: acceleratorType
+          value: '{{ acceleratorType }}'
+        - name: machineType
+          value: '{{ machineType }}'
     - name: notebookRuntimeType
       value: '{{ notebookRuntimeType }}'
     - name: shieldedVmConfig
-      value: '{{ shieldedVmConfig }}'
+      value:
+        - name: enableSecureBoot
+          value: '{{ enableSecureBoot }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -169,27 +183,41 @@ true|false,
     - name: labels
       value: '{{ labels }}'
     - name: eucConfig
-      value: '{{ eucConfig }}'
+      value:
+        - name: eucDisabled
+          value: '{{ eucDisabled }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
-    - name: isDefault
-      value: '{{ isDefault }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: serviceAccount
       value: '{{ serviceAccount }}'
     - name: networkSpec
-      value: '{{ networkSpec }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: subnetwork
+          value: '{{ subnetwork }}'
+        - name: enableInternetAccess
+          value: '{{ enableInternetAccess }}'
+        - name: network
+          value: '{{ network }}'
     - name: idleShutdownConfig
-      value: '{{ idleShutdownConfig }}'
+      value:
+        - name: idleTimeout
+          value: '{{ idleTimeout }}'
+        - name: idleShutdownDisabled
+          value: '{{ idleShutdownDisabled }}'
     - name: etag
       value: '{{ etag }}'
     - name: dataPersistentDiskSpec
-      value: '{{ dataPersistentDiskSpec }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: diskType
+          value: '{{ diskType }}'
+        - name: diskSizeGb
+          value: '{{ diskSizeGb }}'
     - name: networkTags
-      value: '{{ networkTags }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -212,14 +240,11 @@ displayName = '{{ displayName }}',
 labels = '{{ labels }}',
 eucConfig = '{{ eucConfig }}',
 encryptionSpec = '{{ encryptionSpec }}',
-isDefault = true|false,
 serviceAccount = '{{ serviceAccount }}',
 networkSpec = '{{ networkSpec }}',
-createTime = '{{ createTime }}',
 idleShutdownConfig = '{{ idleShutdownConfig }}',
 etag = '{{ etag }}',
 dataPersistentDiskSpec = '{{ dataPersistentDiskSpec }}',
-updateTime = '{{ updateTime }}',
 networkTags = '{{ networkTags }}'
 WHERE 
 locationsId = '{{ locationsId }}'

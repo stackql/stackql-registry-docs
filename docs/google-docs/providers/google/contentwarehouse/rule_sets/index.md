@@ -99,7 +99,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: rules
-      value: '{{ rules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: description
       value: '{{ description }}'
     - name: name

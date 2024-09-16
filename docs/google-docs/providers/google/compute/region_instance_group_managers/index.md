@@ -131,9 +131,6 @@ Use the following StackQL query and manifest file to create a new <code>region_i
 INSERT INTO google.compute.region_instance_group_managers (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 zone,
@@ -150,7 +147,6 @@ currentActions,
 status,
 targetSize,
 listManagedInstancesResults,
-selfLink,
 autoHealingPolicies,
 updatePolicy,
 namedPorts,
@@ -162,9 +158,6 @@ satisfiesPzs
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ zone }}',
@@ -181,7 +174,6 @@ SELECT
 '{{ status }}',
 '{{ targetSize }}',
 '{{ listManagedInstancesResults }}',
-'{{ selfLink }}',
 '{{ autoHealingPolicies }}',
 '{{ updatePolicy }}',
 '{{ namedPorts }}',
@@ -197,12 +189,6 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -212,41 +198,137 @@ true|false
     - name: region
       value: '{{ region }}'
     - name: distributionPolicy
-      value: '{{ distributionPolicy }}'
+      value:
+        - name: zones
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: targetShape
+          value: '{{ targetShape }}'
     - name: instanceTemplate
       value: '{{ instanceTemplate }}'
     - name: versions
-      value: '{{ versions }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: allInstancesConfig
-      value: '{{ allInstancesConfig }}'
+      value:
+        - name: properties
+          value:
+            - name: metadata
+              value: '{{ metadata }}'
+            - name: labels
+              value: '{{ labels }}'
     - name: instanceGroup
       value: '{{ instanceGroup }}'
     - name: targetPools
-      value: '{{ targetPools }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: baseInstanceName
       value: '{{ baseInstanceName }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
     - name: currentActions
-      value: '{{ currentActions }}'
+      value:
+        - name: none
+          value: '{{ none }}'
+        - name: creating
+          value: '{{ creating }}'
+        - name: creatingWithoutRetries
+          value: '{{ creatingWithoutRetries }}'
+        - name: verifying
+          value: '{{ verifying }}'
+        - name: recreating
+          value: '{{ recreating }}'
+        - name: deleting
+          value: '{{ deleting }}'
+        - name: abandoning
+          value: '{{ abandoning }}'
+        - name: restarting
+          value: '{{ restarting }}'
+        - name: refreshing
+          value: '{{ refreshing }}'
+        - name: suspending
+          value: '{{ suspending }}'
+        - name: resuming
+          value: '{{ resuming }}'
+        - name: stopping
+          value: '{{ stopping }}'
+        - name: starting
+          value: '{{ starting }}'
     - name: status
-      value: '{{ status }}'
+      value:
+        - name: isStable
+          value: '{{ isStable }}'
+        - name: allInstancesConfig
+          value:
+            - name: effective
+              value: '{{ effective }}'
+            - name: currentRevision
+              value: '{{ currentRevision }}'
+        - name: versionTarget
+          value:
+            - name: isReached
+              value: '{{ isReached }}'
+        - name: stateful
+          value:
+            - name: hasStatefulConfig
+              value: '{{ hasStatefulConfig }}'
+            - name: perInstanceConfigs
+              value:
+                - name: allEffective
+                  value: '{{ allEffective }}'
+        - name: autoscaler
+          value: '{{ autoscaler }}'
     - name: targetSize
       value: '{{ targetSize }}'
     - name: listManagedInstancesResults
       value: '{{ listManagedInstancesResults }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: autoHealingPolicies
-      value: '{{ autoHealingPolicies }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: updatePolicy
-      value: '{{ updatePolicy }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: instanceRedistributionType
+          value: '{{ instanceRedistributionType }}'
+        - name: minimalAction
+          value: '{{ minimalAction }}'
+        - name: mostDisruptiveAllowedAction
+          value: '{{ mostDisruptiveAllowedAction }}'
+        - name: maxSurge
+          value:
+            - name: fixed
+              value: '{{ fixed }}'
+            - name: percent
+              value: '{{ percent }}'
+            - name: calculated
+              value: '{{ calculated }}'
+        - name: replacementMethod
+          value: '{{ replacementMethod }}'
     - name: namedPorts
-      value: '{{ namedPorts }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: statefulPolicy
-      value: '{{ statefulPolicy }}'
+      value:
+        - name: preservedState
+          value:
+            - name: disks
+              value: '{{ disks }}'
+            - name: internalIPs
+              value: '{{ internalIPs }}'
+            - name: externalIPs
+              value: '{{ externalIPs }}'
     - name: instanceLifecyclePolicy
-      value: '{{ instanceLifecyclePolicy }}'
+      value:
+        - name: forceUpdateOnRepair
+          value: '{{ forceUpdateOnRepair }}'
+        - name: defaultActionOnFailure
+          value: '{{ defaultActionOnFailure }}'
     - name: satisfiesPzi
       value: '{{ satisfiesPzi }}'
     - name: satisfiesPzs
@@ -264,9 +346,6 @@ Updates a <code>region_instance_group_managers</code> resource.
 /*+ update */
 UPDATE google.compute.region_instance_group_managers
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 zone = '{{ zone }}',
@@ -283,7 +362,6 @@ currentActions = '{{ currentActions }}',
 status = '{{ status }}',
 targetSize = '{{ targetSize }}',
 listManagedInstancesResults = '{{ listManagedInstancesResults }}',
-selfLink = '{{ selfLink }}',
 autoHealingPolicies = '{{ autoHealingPolicies }}',
 updatePolicy = '{{ updatePolicy }}',
 namedPorts = '{{ namedPorts }}',

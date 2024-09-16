@@ -64,10 +64,7 @@ Replaces all fields in the specified <code>billing_info</code> resource.
 /*+ update */
 REPLACE google.cloudbilling.billing_info
 SET 
-name = '{{ name }}',
-projectId = '{{ projectId }}',
-billingAccountName = '{{ billingAccountName }}',
-billingEnabled = true|false
+billingAccountName = '{{ billingAccountName }}'
 WHERE 
 projectsId = '{{ projectsId }}';
 ```

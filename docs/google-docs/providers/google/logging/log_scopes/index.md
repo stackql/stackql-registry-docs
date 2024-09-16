@@ -90,20 +90,14 @@ Use the following StackQL query and manifest file to create a new <code>log_scop
 INSERT INTO google.logging.log_scopes (
 foldersId,
 locationsId,
-name,
 resourceNames,
-description,
-createTime,
-updateTime
+description
 )
 SELECT 
 '{{ foldersId }}',
 '{{ locationsId }}',
-'{{ name }}',
 '{{ resourceNames }}',
-'{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -112,16 +106,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: resourceNames
-      value: '{{ resourceNames }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>
@@ -135,11 +125,8 @@ Updates a <code>log_scopes</code> resource.
 /*+ update */
 UPDATE google.logging.log_scopes
 SET 
-name = '{{ name }}',
 resourceNames = '{{ resourceNames }}',
-description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}'
+description = '{{ description }}'
 WHERE 
 foldersId = '{{ foldersId }}'
 AND locationsId = '{{ locationsId }}'

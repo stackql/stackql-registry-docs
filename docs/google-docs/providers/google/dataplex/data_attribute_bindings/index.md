@@ -92,10 +92,6 @@ Use the following StackQL query and manifest file to create a new <code>data_att
 INSERT INTO google.dataplex.data_attribute_bindings (
 locationsId,
 projectsId,
-name,
-uid,
-createTime,
-updateTime,
 description,
 displayName,
 labels,
@@ -107,10 +103,6 @@ paths
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ displayName }}',
 '{{ labels }}',
@@ -126,14 +118,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: displayName
@@ -145,9 +129,13 @@ SELECT
     - name: resource
       value: '{{ resource }}'
     - name: attributes
-      value: '{{ attributes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: paths
-      value: '{{ paths }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -161,10 +149,6 @@ Updates a <code>data_attribute_bindings</code> resource.
 /*+ update */
 UPDATE google.dataplex.data_attribute_bindings
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 displayName = '{{ displayName }}',
 labels = '{{ labels }}',

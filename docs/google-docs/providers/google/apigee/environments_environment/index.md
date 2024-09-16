@@ -48,13 +48,10 @@ SET
 deploymentType = '{{ deploymentType }}',
 forwardProxyUri = '{{ forwardProxyUri }}',
 description = '{{ description }}',
-state = '{{ state }}',
 nodeConfig = '{{ nodeConfig }}',
 properties = '{{ properties }}',
 name = '{{ name }}',
-createdAt = '{{ createdAt }}',
 hasAttachedFlowHooks = true|false,
-lastModifiedAt = '{{ lastModifiedAt }}',
 type = '{{ type }}',
 displayName = '{{ displayName }}',
 apiProxyType = '{{ apiProxyType }}'

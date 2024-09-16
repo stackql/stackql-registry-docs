@@ -77,14 +77,9 @@ Updates a <code>groups</code> resource.
 UPDATE google.networkconnectivity.groups
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
-uid = '{{ uid }}',
-state = '{{ state }}',
-autoAccept = '{{ autoAccept }}',
-routeTable = '{{ routeTable }}'
+autoAccept = '{{ autoAccept }}'
 WHERE 
 groupsId = '{{ groupsId }}'
 AND hubsId = '{{ hubsId }}'

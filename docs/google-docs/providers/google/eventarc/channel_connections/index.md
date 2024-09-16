@@ -82,20 +82,14 @@ INSERT INTO google.eventarc.channel_connections (
 locationsId,
 projectsId,
 name,
-uid,
 channel,
-createTime,
-updateTime,
 activationToken
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ uid }}',
 '{{ channel }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ activationToken }}'
 ;
 ```
@@ -107,14 +101,8 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: channel
       value: '{{ channel }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: activationToken
       value: '{{ activationToken }}'
 

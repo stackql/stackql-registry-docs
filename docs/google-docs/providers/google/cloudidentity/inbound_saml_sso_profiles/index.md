@@ -78,7 +78,6 @@ Use the following StackQL query and manifest file to create a new <code>inbound_
 /*+ create */
 INSERT INTO google.cloudidentity.inbound_saml_sso_profiles (
 ,
-name,
 customer,
 displayName,
 idpConfig,
@@ -86,7 +85,6 @@ spConfig
 )
 SELECT 
 '{{  }}',
-'{{ name }}',
 '{{ customer }}',
 '{{ displayName }}',
 '{{ idpConfig }}',
@@ -99,16 +97,22 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: customer
       value: '{{ customer }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: idpConfig
-      value: '{{ idpConfig }}'
+      value:
+        - name: entityId
+          value: '{{ entityId }}'
+        - name: singleSignOnServiceUri
+          value: '{{ singleSignOnServiceUri }}'
+        - name: logoutRedirectUri
+          value: '{{ logoutRedirectUri }}'
+        - name: changePasswordUri
+          value: '{{ changePasswordUri }}'
     - name: spConfig
-      value: '{{ spConfig }}'
+      value: []
 
 ```
 </TabItem>
@@ -122,7 +126,6 @@ Updates a <code>inbound_saml_sso_profiles</code> resource.
 /*+ update */
 UPDATE google.cloudidentity.inbound_saml_sso_profiles
 SET 
-name = '{{ name }}',
 customer = '{{ customer }}',
 displayName = '{{ displayName }}',
 idpConfig = '{{ idpConfig }}',

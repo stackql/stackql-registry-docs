@@ -88,7 +88,39 @@ SELECT
     - name: feedId
       value: '{{ feedId }}'
     - name: feed
-      value: '{{ feed }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: assetNames
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: assetTypes
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: contentType
+          value: '{{ contentType }}'
+        - name: feedOutputConfig
+          value:
+            - name: pubsubDestination
+              value:
+                - name: topic
+                  value: '{{ topic }}'
+        - name: condition
+          value:
+            - name: expression
+              value: '{{ expression }}'
+            - name: title
+              value: '{{ title }}'
+            - name: description
+              value: '{{ description }}'
+            - name: location
+              value: '{{ location }}'
+        - name: relationshipTypes
+          value:
+            - name: type
+              value: '{{ type }}'
 
 ```
 </TabItem>

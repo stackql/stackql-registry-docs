@@ -117,10 +117,7 @@ revenueShareType,
 consumptionPricingType,
 currencyCode,
 startTime,
-name,
 setupFee,
-lastModifiedAt,
-createdAt,
 displayName,
 apiproduct,
 description,
@@ -140,10 +137,7 @@ SELECT
 '{{ consumptionPricingType }}',
 '{{ currencyCode }}',
 '{{ startTime }}',
-'{{ name }}',
 '{{ setupFee }}',
-'{{ lastModifiedAt }}',
-'{{ createdAt }}',
 '{{ displayName }}',
 '{{ apiproduct }}',
 '{{ description }}',
@@ -159,13 +153,23 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: consumptionPricingRates
-      value: '{{ consumptionPricingRates }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: billingPeriod
       value: '{{ billingPeriod }}'
     - name: revenueShareRates
-      value: '{{ revenueShareRates }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: fixedRecurringFee
-      value: '{{ fixedRecurringFee }}'
+      value:
+        - name: nanos
+          value: '{{ nanos }}'
+        - name: currencyCode
+          value: '{{ currencyCode }}'
+        - name: units
+          value: '{{ units }}'
     - name: state
       value: '{{ state }}'
     - name: revenueShareType
@@ -176,14 +180,6 @@ SELECT
       value: '{{ currencyCode }}'
     - name: startTime
       value: '{{ startTime }}'
-    - name: name
-      value: '{{ name }}'
-    - name: setupFee
-      value: '{{ setupFee }}'
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: apiproduct
@@ -218,10 +214,7 @@ revenueShareType = '{{ revenueShareType }}',
 consumptionPricingType = '{{ consumptionPricingType }}',
 currencyCode = '{{ currencyCode }}',
 startTime = '{{ startTime }}',
-name = '{{ name }}',
 setupFee = '{{ setupFee }}',
-lastModifiedAt = '{{ lastModifiedAt }}',
-createdAt = '{{ createdAt }}',
 displayName = '{{ displayName }}',
 apiproduct = '{{ apiproduct }}',
 description = '{{ description }}',

@@ -92,7 +92,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: sasUserIds
-      value: '{{ sasUserIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: name
       value: '{{ name }}'
     - name: displayName

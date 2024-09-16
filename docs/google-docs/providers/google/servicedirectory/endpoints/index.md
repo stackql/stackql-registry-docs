@@ -90,8 +90,7 @@ name,
 address,
 port,
 annotations,
-network,
-uid
+network
 )
 SELECT 
 '{{ locationsId }}',
@@ -102,8 +101,7 @@ SELECT
 '{{ address }}',
 '{{ port }}',
 '{{ annotations }}',
-'{{ network }}',
-'{{ uid }}'
+'{{ network }}'
 ;
 ```
 </TabItem>
@@ -122,8 +120,6 @@ SELECT
       value: '{{ annotations }}'
     - name: network
       value: '{{ network }}'
-    - name: uid
-      value: '{{ uid }}'
 
 ```
 </TabItem>
@@ -141,8 +137,7 @@ name = '{{ name }}',
 address = '{{ address }}',
 port = '{{ port }}',
 annotations = '{{ annotations }}',
-network = '{{ network }}',
-uid = '{{ uid }}'
+network = '{{ network }}'
 WHERE 
 endpointsId = '{{ endpointsId }}'
 AND locationsId = '{{ locationsId }}'

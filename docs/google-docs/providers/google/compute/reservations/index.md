@@ -103,10 +103,6 @@ Use the following StackQL query and manifest file to create a new <code>reservat
 INSERT INTO google.compute.reservations (
 project,
 zone,
-kind,
-id,
-creationTimestamp,
-selfLink,
 zone,
 description,
 name,
@@ -123,10 +119,6 @@ resourceStatus
 SELECT 
 '{{ project }}',
 '{{ zone }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
-'{{ selfLink }}',
 '{{ zone }}',
 '{{ description }}',
 '{{ name }}',
@@ -147,14 +139,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: zone
       value: '{{ zone }}'
     - name: description
@@ -162,9 +146,45 @@ true|false,
     - name: name
       value: '{{ name }}'
     - name: specificReservation
-      value: '{{ specificReservation }}'
+      value:
+        - name: instanceProperties
+          value:
+            - name: machineType
+              value: '{{ machineType }}'
+            - name: guestAccelerators
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: minCpuPlatform
+              value: '{{ minCpuPlatform }}'
+            - name: localSsds
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: locationHint
+              value: '{{ locationHint }}'
+        - name: count
+          value: '{{ count }}'
+        - name: inUseCount
+          value: '{{ inUseCount }}'
+        - name: assuredCount
+          value: '{{ assuredCount }}'
+        - name: sourceInstanceTemplate
+          value: '{{ sourceInstanceTemplate }}'
     - name: aggregateReservation
-      value: '{{ aggregateReservation }}'
+      value:
+        - name: vmFamily
+          value: '{{ vmFamily }}'
+        - name: reservedResources
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: inUseResources
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: workloadType
+          value: '{{ workloadType }}'
     - name: commitment
       value: '{{ commitment }}'
     - name: specificReservationRequired
@@ -172,13 +192,21 @@ true|false,
     - name: status
       value: '{{ status }}'
     - name: shareSettings
-      value: '{{ shareSettings }}'
+      value:
+        - name: shareType
+          value: '{{ shareType }}'
+        - name: projectMap
+          value: '{{ projectMap }}'
     - name: satisfiesPzs
       value: '{{ satisfiesPzs }}'
     - name: resourcePolicies
       value: '{{ resourcePolicies }}'
     - name: resourceStatus
-      value: '{{ resourceStatus }}'
+      value:
+        - name: specificSkuAllocation
+          value:
+            - name: sourceInstanceTemplateId
+              value: '{{ sourceInstanceTemplateId }}'
 
 ```
 </TabItem>
@@ -192,10 +220,6 @@ Updates a <code>reservations</code> resource.
 /*+ update */
 UPDATE google.compute.reservations
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
-selfLink = '{{ selfLink }}',
 zone = '{{ zone }}',
 description = '{{ description }}',
 name = '{{ name }}',

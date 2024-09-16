@@ -86,9 +86,6 @@ locationsId,
 organizationsId,
 name,
 description,
-createTime,
-updateTime,
-etag,
 labels,
 threatPreventionProfile
 )
@@ -97,9 +94,6 @@ SELECT
 '{{ organizationsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ etag }}',
 '{{ labels }}',
 '{{ threatPreventionProfile }}'
 ;
@@ -114,12 +108,6 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: etag
-      value: '{{ etag }}'
     - name: labels
       value: '{{ labels }}'
     - name: threatPreventionProfile
@@ -139,9 +127,6 @@ UPDATE google.networksecurity.security_profile_groups
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-etag = '{{ etag }}',
 labels = '{{ labels }}',
 threatPreventionProfile = '{{ threatPreventionProfile }}'
 WHERE 

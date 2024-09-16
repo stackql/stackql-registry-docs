@@ -116,7 +116,25 @@ true|false
     - name: instanceConfigId
       value: '{{ instanceConfigId }}'
     - name: instanceConfig
-      value: '{{ instanceConfig }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: replicas
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: baseConfig
+          value: '{{ baseConfig }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: etag
+          value: '{{ etag }}'
+        - name: leaderOptions
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: validateOnly
       value: '{{ validateOnly }}'
 

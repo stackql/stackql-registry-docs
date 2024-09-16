@@ -105,10 +105,8 @@ Use the following StackQL query and manifest file to create a new <code>backup_r
 INSERT INTO google.sqladmin.backup_runs (
 instance,
 project,
-kind,
 status,
 enqueuedTime,
-id,
 startTime,
 endTime,
 error,
@@ -116,21 +114,17 @@ type,
 description,
 windowStartTime,
 instance,
-selfLink,
 location,
 diskEncryptionConfiguration,
 diskEncryptionStatus,
 backupKind,
-timeZone,
-maxChargeableBytes
+timeZone
 )
 SELECT 
 '{{ instance }}',
 '{{ project }}',
-'{{ kind }}',
 '{{ status }}',
 '{{ enqueuedTime }}',
-'{{ id }}',
 '{{ startTime }}',
 '{{ endTime }}',
 '{{ error }}',
@@ -138,13 +132,11 @@ SELECT
 '{{ description }}',
 '{{ windowStartTime }}',
 '{{ instance }}',
-'{{ selfLink }}',
 '{{ location }}',
 '{{ diskEncryptionConfiguration }}',
 '{{ diskEncryptionStatus }}',
 '{{ backupKind }}',
-'{{ timeZone }}',
-'{{ maxChargeableBytes }}'
+'{{ timeZone }}'
 ;
 ```
 </TabItem>
@@ -153,20 +145,20 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
     - name: status
       value: '{{ status }}'
     - name: enqueuedTime
       value: '{{ enqueuedTime }}'
-    - name: id
-      value: '{{ id }}'
     - name: startTime
       value: '{{ startTime }}'
     - name: endTime
       value: '{{ endTime }}'
     - name: error
-      value: '{{ error }}'
+      value:
+        - name: code
+          value: '{{ code }}'
+        - name: message
+          value: '{{ message }}'
     - name: type
       value: '{{ type }}'
     - name: description
@@ -175,20 +167,20 @@ SELECT
       value: '{{ windowStartTime }}'
     - name: instance
       value: '{{ instance }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: location
       value: '{{ location }}'
     - name: diskEncryptionConfiguration
-      value: '{{ diskEncryptionConfiguration }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: diskEncryptionStatus
-      value: '{{ diskEncryptionStatus }}'
+      value:
+        - name: kmsKeyVersionName
+          value: '{{ kmsKeyVersionName }}'
     - name: backupKind
       value: '{{ backupKind }}'
     - name: timeZone
       value: '{{ timeZone }}'
-    - name: maxChargeableBytes
-      value: '{{ maxChargeableBytes }}'
 
 ```
 </TabItem>

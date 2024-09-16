@@ -73,13 +73,10 @@ Updates a <code>settings</code> resource.
 /*+ update */
 UPDATE google.logging.settings
 SET 
-name = '{{ name }}',
 kmsKeyName = '{{ kmsKeyName }}',
-kmsServiceAccountId = '{{ kmsServiceAccountId }}',
 storageLocation = '{{ storageLocation }}',
 disableDefaultSink = true|false,
-defaultSinkConfig = '{{ defaultSinkConfig }}',
-loggingServiceAccountId = '{{ loggingServiceAccountId }}'
+defaultSinkConfig = '{{ defaultSinkConfig }}'
 WHERE 
 foldersId = '{{ foldersId }}';
 ```

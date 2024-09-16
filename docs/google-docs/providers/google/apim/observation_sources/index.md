@@ -80,19 +80,13 @@ INSERT INTO google.apim.observation_sources (
 locationsId,
 projectsId,
 gclbObservationSource,
-name,
-state,
-createTime,
-updateTime
+name
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ gclbObservationSource }}',
-'{{ name }}',
-'{{ state }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ name }}'
 ;
 ```
 </TabItem>
@@ -102,15 +96,13 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: gclbObservationSource
-      value: '{{ gclbObservationSource }}'
+      value:
+        - name: pscNetworkConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: name
       value: '{{ name }}'
-    - name: state
-      value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>

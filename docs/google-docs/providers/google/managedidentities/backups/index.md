@@ -84,24 +84,12 @@ Use the following StackQL query and manifest file to create a new <code>backups<
 INSERT INTO google.managedidentities.backups (
 domainsId,
 projectsId,
-name,
-labels,
-createTime,
-updateTime,
-type,
-state,
-statusMessage
+labels
 )
 SELECT 
 '{{ domainsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ type }}',
-'{{ state }}',
-'{{ statusMessage }}'
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -110,20 +98,8 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: type
-      value: '{{ type }}'
-    - name: state
-      value: '{{ state }}'
-    - name: statusMessage
-      value: '{{ statusMessage }}'
 
 ```
 </TabItem>
@@ -137,13 +113,7 @@ Updates a <code>backups</code> resource.
 /*+ update */
 UPDATE google.managedidentities.backups
 SET 
-name = '{{ name }}',
-labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-type = '{{ type }}',
-state = '{{ state }}',
-statusMessage = '{{ statusMessage }}'
+labels = '{{ labels }}'
 WHERE 
 backupsId = '{{ backupsId }}'
 AND domainsId = '{{ domainsId }}'

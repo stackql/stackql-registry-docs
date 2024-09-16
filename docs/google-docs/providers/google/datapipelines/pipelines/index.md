@@ -95,10 +95,7 @@ INSERT INTO google.datapipelines.pipelines (
 locationsId,
 projectsId,
 pipelineSources,
-createTime,
 displayName,
-lastUpdateTime,
-jobCount,
 workload,
 type,
 scheduleInfo,
@@ -110,10 +107,7 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ pipelineSources }}',
-'{{ createTime }}',
 '{{ displayName }}',
-'{{ lastUpdateTime }}',
-'{{ jobCount }}',
 '{{ workload }}',
 '{{ type }}',
 '{{ scheduleInfo }}',
@@ -130,20 +124,132 @@ SELECT
   props:
     - name: pipelineSources
       value: '{{ pipelineSources }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: lastUpdateTime
-      value: '{{ lastUpdateTime }}'
-    - name: jobCount
-      value: '{{ jobCount }}'
     - name: workload
-      value: '{{ workload }}'
+      value:
+        - name: dataflowFlexTemplateRequest
+          value:
+            - name: projectId
+              value: '{{ projectId }}'
+            - name: location
+              value: '{{ location }}'
+            - name: launchParameter
+              value:
+                - name: transformNameMappings
+                  value: '{{ transformNameMappings }}'
+                - name: environment
+                  value:
+                    - name: kmsKeyName
+                      value: '{{ kmsKeyName }}'
+                    - name: network
+                      value: '{{ network }}'
+                    - name: machineType
+                      value: '{{ machineType }}'
+                    - name: ipConfiguration
+                      value: '{{ ipConfiguration }}'
+                    - name: subnetwork
+                      value: '{{ subnetwork }}'
+                    - name: tempLocation
+                      value: '{{ tempLocation }}'
+                    - name: numWorkers
+                      value: '{{ numWorkers }}'
+                    - name: workerZone
+                      value: '{{ workerZone }}'
+                    - name: additionalUserLabels
+                      value: '{{ additionalUserLabels }}'
+                    - name: flexrsGoal
+                      value: '{{ flexrsGoal }}'
+                    - name: additionalExperiments
+                      value:
+                        - name: type
+                          value: '{{ type }}'
+                    - name: serviceAccountEmail
+                      value: '{{ serviceAccountEmail }}'
+                    - name: maxWorkers
+                      value: '{{ maxWorkers }}'
+                    - name: workerRegion
+                      value: '{{ workerRegion }}'
+                    - name: enableStreamingEngine
+                      value: '{{ enableStreamingEngine }}'
+                    - name: zone
+                      value: '{{ zone }}'
+                - name: parameters
+                  value: '{{ parameters }}'
+                - name: jobName
+                  value: '{{ jobName }}'
+                - name: launchOptions
+                  value: '{{ launchOptions }}'
+                - name: update
+                  value: '{{ update }}'
+                - name: containerSpecGcsPath
+                  value: '{{ containerSpecGcsPath }}'
+            - name: validateOnly
+              value: '{{ validateOnly }}'
+        - name: dataflowLaunchTemplateRequest
+          value:
+            - name: gcsPath
+              value: '{{ gcsPath }}'
+            - name: validateOnly
+              value: '{{ validateOnly }}'
+            - name: location
+              value: '{{ location }}'
+            - name: projectId
+              value: '{{ projectId }}'
+            - name: launchParameters
+              value:
+                - name: parameters
+                  value: '{{ parameters }}'
+                - name: update
+                  value: '{{ update }}'
+                - name: environment
+                  value:
+                    - name: numWorkers
+                      value: '{{ numWorkers }}'
+                    - name: serviceAccountEmail
+                      value: '{{ serviceAccountEmail }}'
+                    - name: kmsKeyName
+                      value: '{{ kmsKeyName }}'
+                    - name: subnetwork
+                      value: '{{ subnetwork }}'
+                    - name: workerZone
+                      value: '{{ workerZone }}'
+                    - name: additionalExperiments
+                      value:
+                        - name: type
+                          value: '{{ type }}'
+                    - name: ipConfiguration
+                      value: '{{ ipConfiguration }}'
+                    - name: enableStreamingEngine
+                      value: '{{ enableStreamingEngine }}'
+                    - name: workerRegion
+                      value: '{{ workerRegion }}'
+                    - name: machineType
+                      value: '{{ machineType }}'
+                    - name: zone
+                      value: '{{ zone }}'
+                    - name: maxWorkers
+                      value: '{{ maxWorkers }}'
+                    - name: tempLocation
+                      value: '{{ tempLocation }}'
+                    - name: network
+                      value: '{{ network }}'
+                    - name: additionalUserLabels
+                      value: '{{ additionalUserLabels }}'
+                    - name: bypassTempDirValidation
+                      value: '{{ bypassTempDirValidation }}'
+                - name: transformNameMapping
+                  value: '{{ transformNameMapping }}'
+                - name: jobName
+                  value: '{{ jobName }}'
     - name: type
       value: '{{ type }}'
     - name: scheduleInfo
-      value: '{{ scheduleInfo }}'
+      value:
+        - name: timeZone
+          value: '{{ timeZone }}'
+        - name: schedule
+          value: '{{ schedule }}'
     - name: schedulerServiceAccountEmail
       value: '{{ schedulerServiceAccountEmail }}'
     - name: state
@@ -164,10 +270,7 @@ Updates a <code>pipelines</code> resource.
 UPDATE google.datapipelines.pipelines
 SET 
 pipelineSources = '{{ pipelineSources }}',
-createTime = '{{ createTime }}',
 displayName = '{{ displayName }}',
-lastUpdateTime = '{{ lastUpdateTime }}',
-jobCount = '{{ jobCount }}',
 workload = '{{ workload }}',
 type = '{{ type }}',
 scheduleInfo = '{{ scheduleInfo }}',

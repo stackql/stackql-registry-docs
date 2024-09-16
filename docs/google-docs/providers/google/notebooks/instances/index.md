@@ -115,44 +115,18 @@ Use the following StackQL query and manifest file to create a new <code>instance
 INSERT INTO google.notebooks.instances (
 locationsId,
 projectsId,
-name,
 gceSetup,
-proxyUri,
 instanceOwners,
-creator,
-state,
-upgradeHistory,
-id,
-healthState,
-healthInfo,
-createTime,
-updateTime,
 disableProxyAccess,
-labels,
-thirdPartyProxyUrl,
-satisfiesPzs,
-satisfiesPzi
+labels
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ gceSetup }}',
-'{{ proxyUri }}',
 '{{ instanceOwners }}',
-'{{ creator }}',
-'{{ state }}',
-'{{ upgradeHistory }}',
-'{{ id }}',
-'{{ healthState }}',
-'{{ healthInfo }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 true|false,
-'{{ labels }}',
-'{{ thirdPartyProxyUrl }}',
-true|false,
-true|false
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -161,40 +135,84 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: gceSetup
-      value: '{{ gceSetup }}'
-    - name: proxyUri
-      value: '{{ proxyUri }}'
+      value:
+        - name: machineType
+          value: '{{ machineType }}'
+        - name: minCpuPlatform
+          value: '{{ minCpuPlatform }}'
+        - name: acceleratorConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: serviceAccounts
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: vmImage
+          value:
+            - name: project
+              value: '{{ project }}'
+            - name: name
+              value: '{{ name }}'
+            - name: family
+              value: '{{ family }}'
+        - name: containerImage
+          value:
+            - name: repository
+              value: '{{ repository }}'
+            - name: tag
+              value: '{{ tag }}'
+        - name: bootDisk
+          value:
+            - name: diskSizeGb
+              value: '{{ diskSizeGb }}'
+            - name: diskType
+              value: '{{ diskType }}'
+            - name: diskEncryption
+              value: '{{ diskEncryption }}'
+            - name: kmsKey
+              value: '{{ kmsKey }}'
+        - name: dataDisks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: shieldedInstanceConfig
+          value:
+            - name: enableSecureBoot
+              value: '{{ enableSecureBoot }}'
+            - name: enableVtpm
+              value: '{{ enableVtpm }}'
+            - name: enableIntegrityMonitoring
+              value: '{{ enableIntegrityMonitoring }}'
+        - name: networkInterfaces
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: disablePublicIp
+          value: '{{ disablePublicIp }}'
+        - name: tags
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: metadata
+          value: '{{ metadata }}'
+        - name: enableIpForwarding
+          value: '{{ enableIpForwarding }}'
+        - name: gpuDriverConfig
+          value:
+            - name: enableGpuDriver
+              value: '{{ enableGpuDriver }}'
+            - name: customGpuDriverPath
+              value: '{{ customGpuDriverPath }}'
     - name: instanceOwners
-      value: '{{ instanceOwners }}'
-    - name: creator
-      value: '{{ creator }}'
-    - name: state
-      value: '{{ state }}'
-    - name: upgradeHistory
-      value: '{{ upgradeHistory }}'
-    - name: id
-      value: '{{ id }}'
-    - name: healthState
-      value: '{{ healthState }}'
-    - name: healthInfo
-      value: '{{ healthInfo }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: disableProxyAccess
       value: '{{ disableProxyAccess }}'
     - name: labels
       value: '{{ labels }}'
-    - name: thirdPartyProxyUrl
-      value: '{{ thirdPartyProxyUrl }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>
@@ -208,23 +226,10 @@ Updates a <code>instances</code> resource.
 /*+ update */
 UPDATE google.notebooks.instances
 SET 
-name = '{{ name }}',
 gceSetup = '{{ gceSetup }}',
-proxyUri = '{{ proxyUri }}',
 instanceOwners = '{{ instanceOwners }}',
-creator = '{{ creator }}',
-state = '{{ state }}',
-upgradeHistory = '{{ upgradeHistory }}',
-id = '{{ id }}',
-healthState = '{{ healthState }}',
-healthInfo = '{{ healthInfo }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 disableProxyAccess = true|false,
-labels = '{{ labels }}',
-thirdPartyProxyUrl = '{{ thirdPartyProxyUrl }}',
-satisfiesPzs = true|false,
-satisfiesPzi = true|false
+labels = '{{ labels }}'
 WHERE 
 instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'

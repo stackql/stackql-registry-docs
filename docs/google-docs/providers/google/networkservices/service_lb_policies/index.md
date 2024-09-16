@@ -87,8 +87,6 @@ INSERT INTO google.networkservices.service_lb_policies (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 description,
 loadBalancingAlgorithm,
@@ -99,8 +97,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ loadBalancingAlgorithm }}',
@@ -116,10 +112,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
@@ -127,9 +119,13 @@ SELECT
     - name: loadBalancingAlgorithm
       value: '{{ loadBalancingAlgorithm }}'
     - name: autoCapacityDrain
-      value: '{{ autoCapacityDrain }}'
+      value:
+        - name: enable
+          value: '{{ enable }}'
     - name: failoverConfig
-      value: '{{ failoverConfig }}'
+      value:
+        - name: failoverHealthThreshold
+          value: '{{ failoverHealthThreshold }}'
 
 ```
 </TabItem>
@@ -144,8 +140,6 @@ Updates a <code>service_lb_policies</code> resource.
 UPDATE google.networkservices.service_lb_policies
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 loadBalancingAlgorithm = '{{ loadBalancingAlgorithm }}',

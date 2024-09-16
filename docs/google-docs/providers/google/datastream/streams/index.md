@@ -97,9 +97,6 @@ Use the following StackQL query and manifest file to create a new <code>streams<
 INSERT INTO google.datastream.streams (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 labels,
 displayName,
 sourceConfig,
@@ -107,16 +104,11 @@ destinationConfig,
 state,
 backfillAll,
 backfillNone,
-errors,
-customerManagedEncryptionKey,
-lastRecoveryTime
+customerManagedEncryptionKey
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
 '{{ sourceConfig }}',
@@ -124,9 +116,7 @@ SELECT
 '{{ state }}',
 '{{ backfillAll }}',
 '{{ backfillNone }}',
-'{{ errors }}',
-'{{ customerManagedEncryptionKey }}',
-'{{ lastRecoveryTime }}'
+'{{ customerManagedEncryptionKey }}'
 ;
 ```
 </TabItem>
@@ -135,32 +125,122 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: sourceConfig
-      value: '{{ sourceConfig }}'
+      value:
+        - name: sourceConnectionProfile
+          value: '{{ sourceConnectionProfile }}'
+        - name: oracleSourceConfig
+          value:
+            - name: includeObjects
+              value:
+                - name: oracleSchemas
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: maxConcurrentCdcTasks
+              value: '{{ maxConcurrentCdcTasks }}'
+            - name: maxConcurrentBackfillTasks
+              value: '{{ maxConcurrentBackfillTasks }}'
+            - name: dropLargeObjects
+              value: []
+            - name: streamLargeObjects
+              value: []
+        - name: mysqlSourceConfig
+          value:
+            - name: includeObjects
+              value:
+                - name: mysqlDatabases
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: maxConcurrentCdcTasks
+              value: '{{ maxConcurrentCdcTasks }}'
+            - name: maxConcurrentBackfillTasks
+              value: '{{ maxConcurrentBackfillTasks }}'
+        - name: postgresqlSourceConfig
+          value:
+            - name: includeObjects
+              value:
+                - name: postgresqlSchemas
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: replicationSlot
+              value: '{{ replicationSlot }}'
+            - name: publication
+              value: '{{ publication }}'
+            - name: maxConcurrentBackfillTasks
+              value: '{{ maxConcurrentBackfillTasks }}'
+        - name: sqlServerSourceConfig
+          value:
+            - name: includeObjects
+              value:
+                - name: schemas
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: maxConcurrentCdcTasks
+              value: '{{ maxConcurrentCdcTasks }}'
+            - name: maxConcurrentBackfillTasks
+              value: '{{ maxConcurrentBackfillTasks }}'
+            - name: transactionLogs
+              value: []
+            - name: changeTables
+              value: []
     - name: destinationConfig
-      value: '{{ destinationConfig }}'
+      value:
+        - name: destinationConnectionProfile
+          value: '{{ destinationConnectionProfile }}'
+        - name: gcsDestinationConfig
+          value:
+            - name: path
+              value: '{{ path }}'
+            - name: fileRotationMb
+              value: '{{ fileRotationMb }}'
+            - name: fileRotationInterval
+              value: '{{ fileRotationInterval }}'
+            - name: avroFileFormat
+              value: []
+            - name: jsonFileFormat
+              value:
+                - name: schemaFileFormat
+                  value: '{{ schemaFileFormat }}'
+                - name: compression
+                  value: '{{ compression }}'
+        - name: bigqueryDestinationConfig
+          value:
+            - name: singleTargetDataset
+              value:
+                - name: datasetId
+                  value: '{{ datasetId }}'
+            - name: sourceHierarchyDatasets
+              value:
+                - name: datasetTemplate
+                  value:
+                    - name: location
+                      value: '{{ location }}'
+                    - name: datasetIdPrefix
+                      value: '{{ datasetIdPrefix }}'
+                    - name: kmsKeyName
+                      value: '{{ kmsKeyName }}'
+            - name: dataFreshness
+              value: '{{ dataFreshness }}'
+            - name: merge
+              value: []
+            - name: appendOnly
+              value: []
     - name: state
       value: '{{ state }}'
     - name: backfillAll
-      value: '{{ backfillAll }}'
+      value: []
     - name: backfillNone
-      value: '{{ backfillNone }}'
-    - name: errors
-      value: '{{ errors }}'
+      value: []
     - name: customerManagedEncryptionKey
       value: '{{ customerManagedEncryptionKey }}'
-    - name: lastRecoveryTime
-      value: '{{ lastRecoveryTime }}'
 
 ```
 </TabItem>
@@ -174,9 +254,6 @@ Updates a <code>streams</code> resource.
 /*+ update */
 UPDATE google.datastream.streams
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
 sourceConfig = '{{ sourceConfig }}',
@@ -184,9 +261,7 @@ destinationConfig = '{{ destinationConfig }}',
 state = '{{ state }}',
 backfillAll = '{{ backfillAll }}',
 backfillNone = '{{ backfillNone }}',
-errors = '{{ errors }}',
-customerManagedEncryptionKey = '{{ customerManagedEncryptionKey }}',
-lastRecoveryTime = '{{ lastRecoveryTime }}'
+customerManagedEncryptionKey = '{{ customerManagedEncryptionKey }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

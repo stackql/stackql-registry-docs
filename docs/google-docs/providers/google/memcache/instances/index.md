@@ -124,18 +124,9 @@ nodeCount,
 nodeConfig,
 memcacheVersion,
 parameters,
-memcacheNodes,
-createTime,
-updateTime,
-state,
-memcacheFullVersion,
 instanceMessages,
-discoveryEndpoint,
 maintenancePolicy,
-maintenanceSchedule,
-reservedIpRangeId,
-satisfiesPzs,
-satisfiesPzi
+reservedIpRangeId
 )
 SELECT 
 '{{ locationsId }}',
@@ -149,18 +140,9 @@ SELECT
 '{{ nodeConfig }}',
 '{{ memcacheVersion }}',
 '{{ parameters }}',
-'{{ memcacheNodes }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ state }}',
-'{{ memcacheFullVersion }}',
 '{{ instanceMessages }}',
-'{{ discoveryEndpoint }}',
 '{{ maintenancePolicy }}',
-'{{ maintenanceSchedule }}',
-'{{ reservedIpRangeId }}',
-true|false,
-true|false
+'{{ reservedIpRangeId }}'
 ;
 ```
 </TabItem>
@@ -178,39 +160,39 @@ true|false
     - name: authorizedNetwork
       value: '{{ authorizedNetwork }}'
     - name: zones
-      value: '{{ zones }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: nodeCount
       value: '{{ nodeCount }}'
     - name: nodeConfig
-      value: '{{ nodeConfig }}'
+      value:
+        - name: cpuCount
+          value: '{{ cpuCount }}'
+        - name: memorySizeMb
+          value: '{{ memorySizeMb }}'
     - name: memcacheVersion
       value: '{{ memcacheVersion }}'
     - name: parameters
-      value: '{{ parameters }}'
-    - name: memcacheNodes
-      value: '{{ memcacheNodes }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: memcacheFullVersion
-      value: '{{ memcacheFullVersion }}'
+      value:
+        - name: params
+          value: '{{ params }}'
     - name: instanceMessages
-      value: '{{ instanceMessages }}'
-    - name: discoveryEndpoint
-      value: '{{ discoveryEndpoint }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: maintenancePolicy
-      value: '{{ maintenancePolicy }}'
-    - name: maintenanceSchedule
-      value: '{{ maintenanceSchedule }}'
+      value:
+        - name: description
+          value: '{{ description }}'
+        - name: weeklyMaintenanceWindow
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: reservedIpRangeId
-      value: '{{ reservedIpRangeId }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -233,18 +215,9 @@ nodeCount = '{{ nodeCount }}',
 nodeConfig = '{{ nodeConfig }}',
 memcacheVersion = '{{ memcacheVersion }}',
 parameters = '{{ parameters }}',
-memcacheNodes = '{{ memcacheNodes }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-state = '{{ state }}',
-memcacheFullVersion = '{{ memcacheFullVersion }}',
 instanceMessages = '{{ instanceMessages }}',
-discoveryEndpoint = '{{ discoveryEndpoint }}',
 maintenancePolicy = '{{ maintenancePolicy }}',
-maintenanceSchedule = '{{ maintenanceSchedule }}',
-reservedIpRangeId = '{{ reservedIpRangeId }}',
-satisfiesPzs = true|false,
-satisfiesPzi = true|false
+reservedIpRangeId = '{{ reservedIpRangeId }}'
 WHERE 
 instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'

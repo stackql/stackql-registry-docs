@@ -101,9 +101,6 @@ Use the following StackQL query and manifest file to create a new <code>node_tem
 INSERT INTO google.compute.node_templates (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 nodeType,
@@ -111,7 +108,6 @@ nodeAffinityLabels,
 status,
 statusMessage,
 region,
-selfLink,
 nodeTypeFlexibility,
 serverBinding,
 disks,
@@ -121,9 +117,6 @@ cpuOvercommitType
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ nodeType }}',
@@ -131,7 +124,6 @@ SELECT
 '{{ status }}',
 '{{ statusMessage }}',
 '{{ region }}',
-'{{ selfLink }}',
 '{{ nodeTypeFlexibility }}',
 '{{ serverBinding }}',
 '{{ disks }}',
@@ -145,12 +137,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -165,16 +151,26 @@ SELECT
       value: '{{ statusMessage }}'
     - name: region
       value: '{{ region }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: nodeTypeFlexibility
-      value: '{{ nodeTypeFlexibility }}'
+      value:
+        - name: cpus
+          value: '{{ cpus }}'
+        - name: memory
+          value: '{{ memory }}'
+        - name: localSsd
+          value: '{{ localSsd }}'
     - name: serverBinding
-      value: '{{ serverBinding }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: disks
-      value: '{{ disks }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: accelerators
-      value: '{{ accelerators }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: cpuOvercommitType
       value: '{{ cpuOvercommitType }}'
 

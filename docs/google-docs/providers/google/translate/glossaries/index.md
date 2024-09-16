@@ -90,9 +90,6 @@ name,
 languagePair,
 languageCodesSet,
 inputConfig,
-entryCount,
-submitTime,
-endTime,
 displayName
 )
 SELECT 
@@ -102,9 +99,6 @@ SELECT
 '{{ languagePair }}',
 '{{ languageCodesSet }}',
 '{{ inputConfig }}',
-'{{ entryCount }}',
-'{{ submitTime }}',
-'{{ endTime }}',
 '{{ displayName }}'
 ;
 ```
@@ -117,17 +111,23 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: languagePair
-      value: '{{ languagePair }}'
+      value:
+        - name: sourceLanguageCode
+          value: '{{ sourceLanguageCode }}'
+        - name: targetLanguageCode
+          value: '{{ targetLanguageCode }}'
     - name: languageCodesSet
-      value: '{{ languageCodesSet }}'
+      value:
+        - name: languageCodes
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: inputConfig
-      value: '{{ inputConfig }}'
-    - name: entryCount
-      value: '{{ entryCount }}'
-    - name: submitTime
-      value: '{{ submitTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
+      value:
+        - name: gcsSource
+          value:
+            - name: inputUri
+              value: '{{ inputUri }}'
     - name: displayName
       value: '{{ displayName }}'
 
@@ -147,9 +147,6 @@ name = '{{ name }}',
 languagePair = '{{ languagePair }}',
 languageCodesSet = '{{ languageCodesSet }}',
 inputConfig = '{{ inputConfig }}',
-entryCount = '{{ entryCount }}',
-submitTime = '{{ submitTime }}',
-endTime = '{{ endTime }}',
 displayName = '{{ displayName }}'
 WHERE 
 glossariesId = '{{ glossariesId }}'

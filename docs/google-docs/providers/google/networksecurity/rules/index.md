@@ -94,8 +94,6 @@ locationsId,
 projectsId,
 basicProfile,
 name,
-createTime,
-updateTime,
 enabled,
 priority,
 description,
@@ -109,8 +107,6 @@ SELECT
 '{{ projectsId }}',
 '{{ basicProfile }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 true|false,
 '{{ priority }}',
 '{{ description }}',
@@ -129,10 +125,6 @@ true|false
       value: '{{ basicProfile }}'
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: enabled
       value: '{{ enabled }}'
     - name: priority
@@ -160,8 +152,6 @@ UPDATE google.networksecurity.rules
 SET 
 basicProfile = '{{ basicProfile }}',
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 enabled = true|false,
 priority = '{{ priority }}',
 description = '{{ description }}',

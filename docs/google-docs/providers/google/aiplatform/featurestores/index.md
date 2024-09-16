@@ -96,30 +96,18 @@ locationsId,
 projectsId,
 onlineStorageTtlDays,
 encryptionSpec,
-name,
-state,
-createTime,
 labels,
 etag,
-onlineServingConfig,
-satisfiesPzs,
-updateTime,
-satisfiesPzi
+onlineServingConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ onlineStorageTtlDays }}',
 '{{ encryptionSpec }}',
-'{{ name }}',
-'{{ state }}',
-'{{ createTime }}',
 '{{ labels }}',
 '{{ etag }}',
-'{{ onlineServingConfig }}',
-true|false,
-'{{ updateTime }}',
-true|false
+'{{ onlineServingConfig }}'
 ;
 ```
 </TabItem>
@@ -131,25 +119,25 @@ true|false
     - name: onlineStorageTtlDays
       value: '{{ onlineStorageTtlDays }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
-    - name: name
-      value: '{{ name }}'
-    - name: state
-      value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: labels
       value: '{{ labels }}'
     - name: etag
       value: '{{ etag }}'
     - name: onlineServingConfig
-      value: '{{ onlineServingConfig }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
+      value:
+        - name: scaling
+          value:
+            - name: cpuUtilizationTarget
+              value: '{{ cpuUtilizationTarget }}'
+            - name: maxNodeCount
+              value: '{{ maxNodeCount }}'
+            - name: minNodeCount
+              value: '{{ minNodeCount }}'
+        - name: fixedNodeCount
+          value: '{{ fixedNodeCount }}'
 
 ```
 </TabItem>
@@ -165,15 +153,9 @@ UPDATE google.aiplatform.featurestores
 SET 
 onlineStorageTtlDays = '{{ onlineStorageTtlDays }}',
 encryptionSpec = '{{ encryptionSpec }}',
-name = '{{ name }}',
-state = '{{ state }}',
-createTime = '{{ createTime }}',
 labels = '{{ labels }}',
 etag = '{{ etag }}',
-onlineServingConfig = '{{ onlineServingConfig }}',
-satisfiesPzs = true|false,
-updateTime = '{{ updateTime }}',
-satisfiesPzi = true|false
+onlineServingConfig = '{{ onlineServingConfig }}'
 WHERE 
 featurestoresId = '{{ featurestoresId }}'
 AND locationsId = '{{ locationsId }}'

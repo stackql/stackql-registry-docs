@@ -77,20 +77,12 @@ Use the following StackQL query and manifest file to create a new <code>comments
 INSERT INTO google.cloudsupport.comments (
 parent,
 parentType,
-plainTextBody,
-body,
-createTime,
-name,
-creator
+body
 )
 SELECT 
 '{{ parent }}',
 '{{ parentType }}',
-'{{ plainTextBody }}',
-'{{ body }}',
-'{{ createTime }}',
-'{{ name }}',
-'{{ creator }}'
+'{{ body }}'
 ;
 ```
 </TabItem>
@@ -99,16 +91,8 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: plainTextBody
-      value: '{{ plainTextBody }}'
     - name: body
       value: '{{ body }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: name
-      value: '{{ name }}'
-    - name: creator
-      value: '{{ creator }}'
 
 ```
 </TabItem>

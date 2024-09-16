@@ -92,11 +92,7 @@ name,
 displayName,
 description,
 attributes,
-createTime,
-updateTime,
-scope,
-uid,
-state
+scope
 )
 SELECT 
 '{{ locationsId }}',
@@ -105,11 +101,7 @@ SELECT
 '{{ displayName }}',
 '{{ description }}',
 '{{ attributes }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ scope }}',
-'{{ uid }}',
-'{{ state }}'
+'{{ scope }}'
 ;
 ```
 </TabItem>
@@ -125,17 +117,31 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: attributes
-      value: '{{ attributes }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: criticality
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: environment
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: developerOwners
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: operatorOwners
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: businessOwners
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: scope
-      value: '{{ scope }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -153,11 +159,7 @@ name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 attributes = '{{ attributes }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-scope = '{{ scope }}',
-uid = '{{ uid }}',
-state = '{{ state }}'
+scope = '{{ scope }}'
 WHERE 
 applicationsId = '{{ applicationsId }}'
 AND locationsId = '{{ locationsId }}'

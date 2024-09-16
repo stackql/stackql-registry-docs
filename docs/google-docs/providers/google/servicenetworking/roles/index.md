@@ -70,7 +70,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: policyBinding
-      value: '{{ policyBinding }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: consumerNetwork
       value: '{{ consumerNetwork }}'
 

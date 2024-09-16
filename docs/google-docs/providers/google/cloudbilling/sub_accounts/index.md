@@ -75,19 +75,13 @@ Use the following StackQL query and manifest file to create a new <code>sub_acco
 /*+ create */
 INSERT INTO google.cloudbilling.sub_accounts (
 billingAccountsId,
-name,
-open,
 displayName,
-masterBillingAccount,
-parent
+masterBillingAccount
 )
 SELECT 
 '{{ billingAccountsId }}',
-'{{ name }}',
-true|false,
 '{{ displayName }}',
-'{{ masterBillingAccount }}',
-'{{ parent }}'
+'{{ masterBillingAccount }}'
 ;
 ```
 </TabItem>
@@ -96,16 +90,10 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: open
-      value: '{{ open }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: masterBillingAccount
       value: '{{ masterBillingAccount }}'
-    - name: parent
-      value: '{{ parent }}'
 
 ```
 </TabItem>

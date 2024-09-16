@@ -90,7 +90,6 @@ Use the following StackQL query and manifest file to create a new <code>security
 INSERT INTO google.compute.security_policies_rule (
 project,
 securityPolicy,
-kind,
 description,
 priority,
 match,
@@ -105,7 +104,6 @@ preconfiguredWafConfig
 SELECT 
 '{{ project }}',
 '{{ securityPolicy }}',
-'{{ kind }}',
 '{{ description }}',
 '{{ priority }}',
 '{{ match }}',
@@ -124,28 +122,122 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
     - name: description
       value: '{{ description }}'
     - name: priority
       value: '{{ priority }}'
     - name: match
-      value: '{{ match }}'
+      value:
+        - name: expr
+          value:
+            - name: expression
+              value: '{{ expression }}'
+            - name: title
+              value: '{{ title }}'
+            - name: description
+              value: '{{ description }}'
+            - name: location
+              value: '{{ location }}'
+        - name: exprOptions
+          value:
+            - name: recaptchaOptions
+              value:
+                - name: actionTokenSiteKeys
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: sessionTokenSiteKeys
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+        - name: versionedExpr
+          value: '{{ versionedExpr }}'
+        - name: config
+          value:
+            - name: srcIpRanges
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: networkMatch
-      value: '{{ networkMatch }}'
+      value:
+        - name: userDefinedFields
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: srcIpRanges
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: destIpRanges
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: ipProtocols
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: srcPorts
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: destPorts
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: srcRegionCodes
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: srcAsns
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: format
+              value: '{{ format }}'
     - name: action
       value: '{{ action }}'
     - name: preview
       value: '{{ preview }}'
     - name: rateLimitOptions
-      value: '{{ rateLimitOptions }}'
+      value:
+        - name: rateLimitThreshold
+          value:
+            - name: count
+              value: '{{ count }}'
+            - name: intervalSec
+              value: '{{ intervalSec }}'
+        - name: conformAction
+          value: '{{ conformAction }}'
+        - name: exceedAction
+          value: '{{ exceedAction }}'
+        - name: exceedRedirectOptions
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: target
+              value: '{{ target }}'
+        - name: enforceOnKey
+          value: '{{ enforceOnKey }}'
+        - name: enforceOnKeyName
+          value: '{{ enforceOnKeyName }}'
+        - name: enforceOnKeyConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: banDurationSec
+          value: '{{ banDurationSec }}'
     - name: headerAction
-      value: '{{ headerAction }}'
-    - name: redirectOptions
-      value: '{{ redirectOptions }}'
+      value:
+        - name: requestHeadersToAdds
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: preconfiguredWafConfig
-      value: '{{ preconfiguredWafConfig }}'
+      value:
+        - name: exclusions
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>

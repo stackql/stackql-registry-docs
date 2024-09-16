@@ -88,7 +88,6 @@ locationsId,
 projectsId,
 name,
 template,
-templateDisplayName,
 column,
 fields
 )
@@ -98,7 +97,6 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ template }}',
-'{{ templateDisplayName }}',
 '{{ column }}',
 '{{ fields }}'
 ;
@@ -113,8 +111,6 @@ SELECT
       value: '{{ name }}'
     - name: template
       value: '{{ template }}'
-    - name: templateDisplayName
-      value: '{{ templateDisplayName }}'
     - name: column
       value: '{{ column }}'
     - name: fields
@@ -134,7 +130,6 @@ UPDATE google.datacatalog.tags
 SET 
 name = '{{ name }}',
 template = '{{ template }}',
-templateDisplayName = '{{ templateDisplayName }}',
 column = '{{ column }}',
 fields = '{{ fields }}'
 WHERE 

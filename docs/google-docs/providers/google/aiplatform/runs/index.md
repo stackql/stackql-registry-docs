@@ -107,7 +107,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: requests
-      value: '{{ requests }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -121,9 +123,6 @@ Updates a <code>runs</code> resource.
 /*+ update */
 UPDATE google.aiplatform.runs
 SET 
-createTime = '{{ createTime }}',
-name = '{{ name }}',
-updateTime = '{{ updateTime }}',
 displayName = '{{ displayName }}',
 etag = '{{ etag }}',
 description = '{{ description }}',

@@ -103,12 +103,8 @@ Use the following StackQL query and manifest file to create a new <code>machine_
 /*+ create */
 INSERT INTO google.compute.machine_images (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 sourceInstance,
 status,
 sourceInstanceProperties,
@@ -119,17 +115,12 @@ machineImageEncryptionKey,
 guestFlush,
 sourceDiskEncryptionKeys,
 totalStorageBytes,
-satisfiesPzs,
-satisfiesPzi
+satisfiesPzs
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ sourceInstance }}',
 '{{ status }}',
 '{{ sourceInstanceProperties }}',
@@ -140,7 +131,6 @@ SELECT
 true|false,
 '{{ sourceDiskEncryptionKeys }}',
 '{{ totalStorageBytes }}',
-true|false,
 true|false
 ;
 ```
@@ -150,42 +140,208 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: sourceInstance
       value: '{{ sourceInstance }}'
     - name: status
       value: '{{ status }}'
     - name: sourceInstanceProperties
-      value: '{{ sourceInstanceProperties }}'
+      value:
+        - name: description
+          value: '{{ description }}'
+        - name: tags
+          value:
+            - name: items
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: fingerprint
+              value: '{{ fingerprint }}'
+        - name: machineType
+          value: '{{ machineType }}'
+        - name: canIpForward
+          value: '{{ canIpForward }}'
+        - name: networkInterfaces
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: disks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: metadata
+          value:
+            - name: fingerprint
+              value: '{{ fingerprint }}'
+            - name: items
+              value:
+                - name: key
+                  value: '{{ key }}'
+                - name: value
+                  value: '{{ value }}'
+        - name: serviceAccounts
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: scheduling
+          value:
+            - name: onHostMaintenance
+              value: '{{ onHostMaintenance }}'
+            - name: automaticRestart
+              value: '{{ automaticRestart }}'
+            - name: preemptible
+              value: '{{ preemptible }}'
+            - name: nodeAffinities
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: minNodeCpus
+              value: '{{ minNodeCpus }}'
+            - name: locationHint
+              value: '{{ locationHint }}'
+            - name: availabilityDomain
+              value: '{{ availabilityDomain }}'
+            - name: provisioningModel
+              value: '{{ provisioningModel }}'
+            - name: instanceTerminationAction
+              value: '{{ instanceTerminationAction }}'
+            - name: maxRunDuration
+              value:
+                - name: seconds
+                  value: '{{ seconds }}'
+                - name: nanos
+                  value: '{{ nanos }}'
+            - name: terminationTime
+              value: '{{ terminationTime }}'
+            - name: onInstanceStopAction
+              value:
+                - name: discardLocalSsd
+                  value: '{{ discardLocalSsd }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: guestAccelerators
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: minCpuPlatform
+          value: '{{ minCpuPlatform }}'
+        - name: deletionProtection
+          value: '{{ deletionProtection }}'
+        - name: keyRevocationActionType
+          value: '{{ keyRevocationActionType }}'
     - name: instanceProperties
-      value: '{{ instanceProperties }}'
+      value:
+        - name: description
+          value: '{{ description }}'
+        - name: resourceManagerTags
+          value: '{{ resourceManagerTags }}'
+        - name: machineType
+          value: '{{ machineType }}'
+        - name: canIpForward
+          value: '{{ canIpForward }}'
+        - name: networkInterfaces
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: disks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: serviceAccounts
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: guestAccelerators
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: minCpuPlatform
+          value: '{{ minCpuPlatform }}'
+        - name: reservationAffinity
+          value:
+            - name: consumeReservationType
+              value: '{{ consumeReservationType }}'
+            - name: key
+              value: '{{ key }}'
+            - name: values
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: shieldedInstanceConfig
+          value:
+            - name: enableSecureBoot
+              value: '{{ enableSecureBoot }}'
+            - name: enableVtpm
+              value: '{{ enableVtpm }}'
+            - name: enableIntegrityMonitoring
+              value: '{{ enableIntegrityMonitoring }}'
+        - name: resourcePolicies
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: confidentialInstanceConfig
+          value:
+            - name: enableConfidentialCompute
+              value: '{{ enableConfidentialCompute }}'
+            - name: confidentialInstanceType
+              value: '{{ confidentialInstanceType }}'
+        - name: privateIpv6GoogleAccess
+          value: '{{ privateIpv6GoogleAccess }}'
+        - name: advancedMachineFeatures
+          value:
+            - name: enableNestedVirtualization
+              value: '{{ enableNestedVirtualization }}'
+            - name: threadsPerCore
+              value: '{{ threadsPerCore }}'
+            - name: visibleCoreCount
+              value: '{{ visibleCoreCount }}'
+            - name: enableUefiNetworking
+              value: '{{ enableUefiNetworking }}'
+            - name: performanceMonitoringUnit
+              value: '{{ performanceMonitoringUnit }}'
+            - name: turboMode
+              value: '{{ turboMode }}'
+        - name: networkPerformanceConfig
+          value:
+            - name: totalEgressBandwidthTier
+              value: '{{ totalEgressBandwidthTier }}'
+        - name: keyRevocationActionType
+          value: '{{ keyRevocationActionType }}'
     - name: savedDisks
-      value: '{{ savedDisks }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: storageLocations
-      value: '{{ storageLocations }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: machineImageEncryptionKey
-      value: '{{ machineImageEncryptionKey }}'
+      value:
+        - name: rawKey
+          value: '{{ rawKey }}'
+        - name: rsaEncryptedKey
+          value: '{{ rsaEncryptedKey }}'
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
+        - name: sha256
+          value: '{{ sha256 }}'
+        - name: kmsKeyServiceAccount
+          value: '{{ kmsKeyServiceAccount }}'
     - name: guestFlush
       value: '{{ guestFlush }}'
     - name: sourceDiskEncryptionKeys
-      value: '{{ sourceDiskEncryptionKeys }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: totalStorageBytes
       value: '{{ totalStorageBytes }}'
     - name: satisfiesPzs
       value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

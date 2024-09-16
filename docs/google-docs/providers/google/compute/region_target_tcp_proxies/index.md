@@ -89,12 +89,8 @@ Use the following StackQL query and manifest file to create a new <code>region_t
 INSERT INTO google.compute.region_target_tcp_proxies (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 service,
 proxyHeader,
 proxyBind,
@@ -103,12 +99,8 @@ region
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ service }}',
 '{{ proxyHeader }}',
 true|false,
@@ -121,18 +113,10 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: service
       value: '{{ service }}'
     - name: proxyHeader

@@ -91,9 +91,6 @@ projectsId,
 vmware,
 aws,
 azure,
-name,
-createTime,
-updateTime,
 labels,
 description,
 encryption
@@ -104,9 +101,6 @@ SELECT
 '{{ vmware }}',
 '{{ aws }}',
 '{{ azure }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ encryption }}'
@@ -119,23 +113,63 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: vmware
-      value: '{{ vmware }}'
+      value:
+        - name: username
+          value: '{{ username }}'
+        - name: password
+          value: '{{ password }}'
+        - name: vcenterIp
+          value: '{{ vcenterIp }}'
+        - name: thumbprint
+          value: '{{ thumbprint }}'
+        - name: resolvedVcenterHost
+          value: '{{ resolvedVcenterHost }}'
     - name: aws
-      value: '{{ aws }}'
+      value:
+        - name: accessKeyCreds
+          value:
+            - name: accessKeyId
+              value: '{{ accessKeyId }}'
+            - name: secretAccessKey
+              value: '{{ secretAccessKey }}'
+            - name: sessionToken
+              value: '{{ sessionToken }}'
+        - name: awsRegion
+          value: '{{ awsRegion }}'
+        - name: inventoryTagList
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: inventorySecurityGroupNames
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: migrationResourcesUserTags
+          value: '{{ migrationResourcesUserTags }}'
     - name: azure
-      value: '{{ azure }}'
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: clientSecretCreds
+          value:
+            - name: tenantId
+              value: '{{ tenantId }}'
+            - name: clientId
+              value: '{{ clientId }}'
+            - name: clientSecret
+              value: '{{ clientSecret }}'
+        - name: subscriptionId
+          value: '{{ subscriptionId }}'
+        - name: azureLocation
+          value: '{{ azureLocation }}'
+        - name: migrationResourcesUserTags
+          value: '{{ migrationResourcesUserTags }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
     - name: encryption
-      value: '{{ encryption }}'
+      value:
+        - name: kmsKey
+          value: '{{ kmsKey }}'
 
 ```
 </TabItem>
@@ -152,9 +186,6 @@ SET
 vmware = '{{ vmware }}',
 aws = '{{ aws }}',
 azure = '{{ azure }}',
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 encryption = '{{ encryption }}'

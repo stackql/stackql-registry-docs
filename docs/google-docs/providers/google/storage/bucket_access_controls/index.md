@@ -108,11 +108,8 @@ email,
 entity,
 entityId,
 etag,
-id,
-kind,
 projectTeam,
-role,
-selfLink
+role
 )
 SELECT 
 '{{ bucket }}',
@@ -122,11 +119,8 @@ SELECT
 '{{ entity }}',
 '{{ entityId }}',
 '{{ etag }}',
-'{{ id }}',
-'{{ kind }}',
 '{{ projectTeam }}',
-'{{ role }}',
-'{{ selfLink }}'
+'{{ role }}'
 ;
 ```
 </TabItem>
@@ -147,10 +141,6 @@ SELECT
       value: '{{ entityId }}'
     - name: etag
       value: '{{ etag }}'
-    - name: id
-      value: '{{ id }}'
-    - name: kind
-      value: '{{ kind }}'
     - name: projectTeam
       value:
         - name: projectNumber
@@ -159,8 +149,6 @@ SELECT
           value: '{{ team }}'
     - name: role
       value: '{{ role }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
 
 ```
 </TabItem>
@@ -180,11 +168,8 @@ email = '{{ email }}',
 entity = '{{ entity }}',
 entityId = '{{ entityId }}',
 etag = '{{ etag }}',
-id = '{{ id }}',
-kind = '{{ kind }}',
 projectTeam = '{{ projectTeam }}',
-role = '{{ role }}',
-selfLink = '{{ selfLink }}'
+role = '{{ role }}'
 WHERE 
 bucket = '{{ bucket }}'
 AND entity = '{{ entity }}';
@@ -204,11 +189,8 @@ email = '{{ email }}',
 entity = '{{ entity }}',
 entityId = '{{ entityId }}',
 etag = '{{ etag }}',
-id = '{{ id }}',
-kind = '{{ kind }}',
 projectTeam = '{{ projectTeam }}',
-role = '{{ role }}',
-selfLink = '{{ selfLink }}'
+role = '{{ role }}'
 WHERE 
 bucket = '{{ bucket }}'
 AND entity = '{{ entity }}';

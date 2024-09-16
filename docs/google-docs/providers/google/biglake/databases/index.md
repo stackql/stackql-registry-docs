@@ -87,11 +87,6 @@ catalogsId,
 locationsId,
 projectsId,
 hiveOptions,
-name,
-createTime,
-updateTime,
-deleteTime,
-expireTime,
 type
 )
 SELECT 
@@ -99,11 +94,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ hiveOptions }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
-'{{ expireTime }}',
 '{{ type }}'
 ;
 ```
@@ -114,17 +104,11 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: hiveOptions
-      value: '{{ hiveOptions }}'
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
+      value:
+        - name: locationUri
+          value: '{{ locationUri }}'
+        - name: parameters
+          value: '{{ parameters }}'
     - name: type
       value: '{{ type }}'
 
@@ -141,11 +125,6 @@ Updates a <code>databases</code> resource.
 UPDATE google.biglake.databases
 SET 
 hiveOptions = '{{ hiveOptions }}',
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
-expireTime = '{{ expireTime }}',
 type = '{{ type }}'
 WHERE 
 catalogsId = '{{ catalogsId }}'

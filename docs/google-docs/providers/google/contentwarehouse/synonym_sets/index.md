@@ -97,7 +97,9 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: synonyms
-      value: '{{ synonyms }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: context
       value: '{{ context }}'
 

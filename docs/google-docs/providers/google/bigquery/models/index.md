@@ -102,26 +102,13 @@ Updates a <code>models</code> resource.
 UPDATE google.bigquery.models
 SET 
 bestTrialId = '{{ bestTrialId }}',
-creationTime = '{{ creationTime }}',
-defaultTrialId = '{{ defaultTrialId }}',
 description = '{{ description }}',
 encryptionConfiguration = '{{ encryptionConfiguration }}',
-etag = '{{ etag }}',
 expirationTime = '{{ expirationTime }}',
-featureColumns = '{{ featureColumns }}',
 friendlyName = '{{ friendlyName }}',
-hparamSearchSpaces = '{{ hparamSearchSpaces }}',
-hparamTrials = '{{ hparamTrials }}',
-labelColumns = '{{ labelColumns }}',
 labels = '{{ labels }}',
-lastModifiedTime = '{{ lastModifiedTime }}',
-location = '{{ location }}',
 modelReference = '{{ modelReference }}',
-modelType = '{{ modelType }}',
-optimalTrialIds = '{{ optimalTrialIds }}',
-remoteModelInfo = '{{ remoteModelInfo }}',
-trainingRuns = '{{ trainingRuns }}',
-transformColumns = '{{ transformColumns }}'
+trainingRuns = '{{ trainingRuns }}'
 WHERE 
 +datasetId = '{{ +datasetId }}'
 AND +modelId = '{{ +modelId }}'

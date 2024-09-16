@@ -99,38 +99,26 @@ Use the following StackQL query and manifest file to create a new <code>apps</co
 /*+ create */
 INSERT INTO google.appengine.apps (
 ,
-name,
-id,
 dispatchRules,
 authDomain,
 locationId,
-codeBucket,
 defaultCookieExpiration,
 servingStatus,
-defaultHostname,
-defaultBucket,
 serviceAccount,
 iap,
-gcrDomain,
 databaseType,
 featureSettings,
 generatedCustomerMetadata
 )
 SELECT 
 '{{  }}',
-'{{ name }}',
-'{{ id }}',
 '{{ dispatchRules }}',
 '{{ authDomain }}',
 '{{ locationId }}',
-'{{ codeBucket }}',
 '{{ defaultCookieExpiration }}',
 '{{ servingStatus }}',
-'{{ defaultHostname }}',
-'{{ defaultBucket }}',
 '{{ serviceAccount }}',
 '{{ iap }}',
-'{{ gcrDomain }}',
 '{{ databaseType }}',
 '{{ featureSettings }}',
 '{{ generatedCustomerMetadata }}'
@@ -142,36 +130,36 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: id
-      value: '{{ id }}'
     - name: dispatchRules
-      value: '{{ dispatchRules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: authDomain
       value: '{{ authDomain }}'
     - name: locationId
       value: '{{ locationId }}'
-    - name: codeBucket
-      value: '{{ codeBucket }}'
     - name: defaultCookieExpiration
       value: '{{ defaultCookieExpiration }}'
     - name: servingStatus
       value: '{{ servingStatus }}'
-    - name: defaultHostname
-      value: '{{ defaultHostname }}'
-    - name: defaultBucket
-      value: '{{ defaultBucket }}'
     - name: serviceAccount
       value: '{{ serviceAccount }}'
     - name: iap
-      value: '{{ iap }}'
-    - name: gcrDomain
-      value: '{{ gcrDomain }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: oauth2ClientId
+          value: '{{ oauth2ClientId }}'
+        - name: oauth2ClientSecret
+          value: '{{ oauth2ClientSecret }}'
     - name: databaseType
       value: '{{ databaseType }}'
     - name: featureSettings
-      value: '{{ featureSettings }}'
+      value:
+        - name: splitHealthChecks
+          value: '{{ splitHealthChecks }}'
+        - name: useContainerOptimizedOs
+          value: '{{ useContainerOptimizedOs }}'
     - name: generatedCustomerMetadata
       value: '{{ generatedCustomerMetadata }}'
 
@@ -187,19 +175,13 @@ Updates a <code>apps</code> resource.
 /*+ update */
 UPDATE google.appengine.apps
 SET 
-name = '{{ name }}',
-id = '{{ id }}',
 dispatchRules = '{{ dispatchRules }}',
 authDomain = '{{ authDomain }}',
 locationId = '{{ locationId }}',
-codeBucket = '{{ codeBucket }}',
 defaultCookieExpiration = '{{ defaultCookieExpiration }}',
 servingStatus = '{{ servingStatus }}',
-defaultHostname = '{{ defaultHostname }}',
-defaultBucket = '{{ defaultBucket }}',
 serviceAccount = '{{ serviceAccount }}',
 iap = '{{ iap }}',
-gcrDomain = '{{ gcrDomain }}',
 databaseType = '{{ databaseType }}',
 featureSettings = '{{ featureSettings }}',
 generatedCustomerMetadata = '{{ generatedCustomerMetadata }}'

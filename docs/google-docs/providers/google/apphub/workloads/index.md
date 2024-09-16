@@ -97,14 +97,8 @@ projectsId,
 name,
 displayName,
 description,
-workloadReference,
-workloadProperties,
 discoveredWorkload,
-attributes,
-createTime,
-updateTime,
-uid,
-state
+attributes
 )
 SELECT 
 '{{ applicationsId }}',
@@ -113,14 +107,8 @@ SELECT
 '{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ workloadReference }}',
-'{{ workloadProperties }}',
 '{{ discoveredWorkload }}',
-'{{ attributes }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ uid }}',
-'{{ state }}'
+'{{ attributes }}'
 ;
 ```
 </TabItem>
@@ -135,22 +123,30 @@ SELECT
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: workloadReference
-      value: '{{ workloadReference }}'
-    - name: workloadProperties
-      value: '{{ workloadProperties }}'
     - name: discoveredWorkload
       value: '{{ discoveredWorkload }}'
     - name: attributes
-      value: '{{ attributes }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: criticality
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: environment
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: developerOwners
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: operatorOwners
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: businessOwners
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -167,14 +163,8 @@ SET
 name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-workloadReference = '{{ workloadReference }}',
-workloadProperties = '{{ workloadProperties }}',
 discoveredWorkload = '{{ discoveredWorkload }}',
-attributes = '{{ attributes }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-uid = '{{ uid }}',
-state = '{{ state }}'
+attributes = '{{ attributes }}'
 WHERE 
 applicationsId = '{{ applicationsId }}'
 AND locationsId = '{{ locationsId }}'

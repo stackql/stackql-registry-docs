@@ -85,7 +85,9 @@ true|false
     - name: type
       value: '{{ type }}'
     - name: placeIds
-      value: '{{ placeIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: addTime
       value: '{{ addTime }}'
     - name: allowMissing

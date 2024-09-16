@@ -105,11 +105,6 @@ Use the following StackQL query and manifest file to create a new <code>future_r
 INSERT INTO google.compute.future_reservations (
 project,
 zone,
-kind,
-id,
-creationTimestamp,
-selfLink,
-selfLinkWithId,
 zone,
 description,
 name,
@@ -126,11 +121,6 @@ autoDeleteAutoCreatedReservations
 SELECT 
 '{{ project }}',
 '{{ zone }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
-'{{ selfLink }}',
-'{{ selfLinkWithId }}',
 '{{ zone }}',
 '{{ description }}',
 '{{ name }}',
@@ -151,16 +141,6 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: selfLinkWithId
-      value: '{{ selfLinkWithId }}'
     - name: zone
       value: '{{ zone }}'
     - name: description
@@ -168,21 +148,87 @@ true|false
     - name: name
       value: '{{ name }}'
     - name: specificSkuProperties
-      value: '{{ specificSkuProperties }}'
+      value:
+        - name: instanceProperties
+          value:
+            - name: machineType
+              value: '{{ machineType }}'
+            - name: guestAccelerators
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: minCpuPlatform
+              value: '{{ minCpuPlatform }}'
+            - name: localSsds
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: locationHint
+              value: '{{ locationHint }}'
+        - name: totalCount
+          value: '{{ totalCount }}'
+        - name: sourceInstanceTemplate
+          value: '{{ sourceInstanceTemplate }}'
     - name: timeWindow
-      value: '{{ timeWindow }}'
+      value:
+        - name: startTime
+          value: '{{ startTime }}'
+        - name: endTime
+          value: '{{ endTime }}'
+        - name: duration
+          value:
+            - name: seconds
+              value: '{{ seconds }}'
+            - name: nanos
+              value: '{{ nanos }}'
     - name: shareSettings
-      value: '{{ shareSettings }}'
+      value:
+        - name: shareType
+          value: '{{ shareType }}'
+        - name: projectMap
+          value: '{{ projectMap }}'
     - name: namePrefix
       value: '{{ namePrefix }}'
     - name: status
-      value: '{{ status }}'
+      value:
+        - name: procurementStatus
+          value: '{{ procurementStatus }}'
+        - name: lockTime
+          value: '{{ lockTime }}'
+        - name: autoCreatedReservations
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: fulfilledCount
+          value: '{{ fulfilledCount }}'
+        - name: specificSkuProperties
+          value:
+            - name: sourceInstanceTemplateId
+              value: '{{ sourceInstanceTemplateId }}'
+        - name: amendmentStatus
+          value: '{{ amendmentStatus }}'
+        - name: lastKnownGoodState
+          value:
+            - name: futureReservationSpecs
+              value: []
+            - name: procurementStatus
+              value: '{{ procurementStatus }}'
+            - name: namePrefix
+              value: '{{ namePrefix }}'
+            - name: description
+              value: '{{ description }}'
+            - name: lockTime
+              value: '{{ lockTime }}'
+            - name: existingMatchingUsageInfo
+              value:
+                - name: count
+                  value: '{{ count }}'
+                - name: timestamp
+                  value: '{{ timestamp }}'
     - name: planningStatus
       value: '{{ planningStatus }}'
     - name: autoCreatedReservationsDeleteTime
       value: '{{ autoCreatedReservationsDeleteTime }}'
-    - name: autoCreatedReservationsDuration
-      value: '{{ autoCreatedReservationsDuration }}'
     - name: autoDeleteAutoCreatedReservations
       value: '{{ autoDeleteAutoCreatedReservations }}'
 
@@ -198,11 +244,6 @@ Updates a <code>future_reservations</code> resource.
 /*+ update */
 UPDATE google.compute.future_reservations
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
-selfLink = '{{ selfLink }}',
-selfLinkWithId = '{{ selfLinkWithId }}',
 zone = '{{ zone }}',
 description = '{{ description }}',
 name = '{{ name }}',

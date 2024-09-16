@@ -128,67 +128,19 @@ INSERT INTO google.gkebackup.backups (
 backupPlansId,
 locationsId,
 projectsId,
-name,
-uid,
-createTime,
-updateTime,
-manual,
 labels,
 deleteLockDays,
-deleteLockExpireTime,
 retainDays,
-retainExpireTime,
-encryptionKey,
-allNamespaces,
-selectedNamespaces,
-selectedApplications,
-containsVolumeData,
-containsSecrets,
-clusterMetadata,
-state,
-stateReason,
-completeTime,
-resourceCount,
-volumeCount,
-sizeBytes,
-etag,
-description,
-podCount,
-configBackupSizeBytes,
-permissiveMode
+description
 )
 SELECT 
 '{{ backupPlansId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-true|false,
 '{{ labels }}',
 '{{ deleteLockDays }}',
-'{{ deleteLockExpireTime }}',
 '{{ retainDays }}',
-'{{ retainExpireTime }}',
-'{{ encryptionKey }}',
-true|false,
-'{{ selectedNamespaces }}',
-'{{ selectedApplications }}',
-true|false,
-true|false,
-'{{ clusterMetadata }}',
-'{{ state }}',
-'{{ stateReason }}',
-'{{ completeTime }}',
-'{{ resourceCount }}',
-'{{ volumeCount }}',
-'{{ sizeBytes }}',
-'{{ etag }}',
-'{{ description }}',
-'{{ podCount }}',
-'{{ configBackupSizeBytes }}',
-true|false
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -197,62 +149,14 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: manual
-      value: '{{ manual }}'
     - name: labels
       value: '{{ labels }}'
     - name: deleteLockDays
       value: '{{ deleteLockDays }}'
-    - name: deleteLockExpireTime
-      value: '{{ deleteLockExpireTime }}'
     - name: retainDays
       value: '{{ retainDays }}'
-    - name: retainExpireTime
-      value: '{{ retainExpireTime }}'
-    - name: encryptionKey
-      value: '{{ encryptionKey }}'
-    - name: allNamespaces
-      value: '{{ allNamespaces }}'
-    - name: selectedNamespaces
-      value: '{{ selectedNamespaces }}'
-    - name: selectedApplications
-      value: '{{ selectedApplications }}'
-    - name: containsVolumeData
-      value: '{{ containsVolumeData }}'
-    - name: containsSecrets
-      value: '{{ containsSecrets }}'
-    - name: clusterMetadata
-      value: '{{ clusterMetadata }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateReason
-      value: '{{ stateReason }}'
-    - name: completeTime
-      value: '{{ completeTime }}'
-    - name: resourceCount
-      value: '{{ resourceCount }}'
-    - name: volumeCount
-      value: '{{ volumeCount }}'
-    - name: sizeBytes
-      value: '{{ sizeBytes }}'
-    - name: etag
-      value: '{{ etag }}'
     - name: description
       value: '{{ description }}'
-    - name: podCount
-      value: '{{ podCount }}'
-    - name: configBackupSizeBytes
-      value: '{{ configBackupSizeBytes }}'
-    - name: permissiveMode
-      value: '{{ permissiveMode }}'
 
 ```
 </TabItem>
@@ -266,34 +170,10 @@ Updates a <code>backups</code> resource.
 /*+ update */
 UPDATE google.gkebackup.backups
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-manual = true|false,
 labels = '{{ labels }}',
 deleteLockDays = '{{ deleteLockDays }}',
-deleteLockExpireTime = '{{ deleteLockExpireTime }}',
 retainDays = '{{ retainDays }}',
-retainExpireTime = '{{ retainExpireTime }}',
-encryptionKey = '{{ encryptionKey }}',
-allNamespaces = true|false,
-selectedNamespaces = '{{ selectedNamespaces }}',
-selectedApplications = '{{ selectedApplications }}',
-containsVolumeData = true|false,
-containsSecrets = true|false,
-clusterMetadata = '{{ clusterMetadata }}',
-state = '{{ state }}',
-stateReason = '{{ stateReason }}',
-completeTime = '{{ completeTime }}',
-resourceCount = '{{ resourceCount }}',
-volumeCount = '{{ volumeCount }}',
-sizeBytes = '{{ sizeBytes }}',
-etag = '{{ etag }}',
-description = '{{ description }}',
-podCount = '{{ podCount }}',
-configBackupSizeBytes = '{{ configBackupSizeBytes }}',
-permissiveMode = true|false
+description = '{{ description }}'
 WHERE 
 backupPlansId = '{{ backupPlansId }}'
 AND backupsId = '{{ backupsId }}'

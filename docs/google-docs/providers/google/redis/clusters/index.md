@@ -116,53 +116,35 @@ INSERT INTO google.redis.clusters (
 locationsId,
 projectsId,
 name,
-createTime,
-state,
-uid,
 replicaCount,
 authorizationMode,
 transitEncryptionMode,
-sizeGb,
 shardCount,
 pscConfigs,
-discoveryEndpoints,
-pscConnections,
-stateInfo,
 nodeType,
 persistenceConfig,
 redisConfigs,
-preciseSizeGb,
 zoneDistributionConfig,
 crossClusterReplicationConfig,
 deletionProtectionEnabled,
-maintenancePolicy,
-maintenanceSchedule
+maintenancePolicy
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ state }}',
-'{{ uid }}',
 '{{ replicaCount }}',
 '{{ authorizationMode }}',
 '{{ transitEncryptionMode }}',
-'{{ sizeGb }}',
 '{{ shardCount }}',
 '{{ pscConfigs }}',
-'{{ discoveryEndpoints }}',
-'{{ pscConnections }}',
-'{{ stateInfo }}',
 '{{ nodeType }}',
 '{{ persistenceConfig }}',
 '{{ redisConfigs }}',
-number,
 '{{ zoneDistributionConfig }}',
 '{{ crossClusterReplicationConfig }}',
 true|false,
-'{{ maintenancePolicy }}',
-'{{ maintenanceSchedule }}'
+'{{ maintenancePolicy }}'
 ;
 ```
 </TabItem>
@@ -173,48 +155,62 @@ true|false,
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: replicaCount
       value: '{{ replicaCount }}'
     - name: authorizationMode
       value: '{{ authorizationMode }}'
     - name: transitEncryptionMode
       value: '{{ transitEncryptionMode }}'
-    - name: sizeGb
-      value: '{{ sizeGb }}'
     - name: shardCount
       value: '{{ shardCount }}'
     - name: pscConfigs
-      value: '{{ pscConfigs }}'
-    - name: discoveryEndpoints
-      value: '{{ discoveryEndpoints }}'
-    - name: pscConnections
-      value: '{{ pscConnections }}'
-    - name: stateInfo
-      value: '{{ stateInfo }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: nodeType
       value: '{{ nodeType }}'
     - name: persistenceConfig
-      value: '{{ persistenceConfig }}'
+      value:
+        - name: mode
+          value: '{{ mode }}'
+        - name: rdbConfig
+          value:
+            - name: rdbSnapshotPeriod
+              value: '{{ rdbSnapshotPeriod }}'
+            - name: rdbSnapshotStartTime
+              value: '{{ rdbSnapshotStartTime }}'
+        - name: aofConfig
+          value:
+            - name: appendFsync
+              value: '{{ appendFsync }}'
     - name: redisConfigs
       value: '{{ redisConfigs }}'
-    - name: preciseSizeGb
-      value: '{{ preciseSizeGb }}'
     - name: zoneDistributionConfig
-      value: '{{ zoneDistributionConfig }}'
+      value:
+        - name: mode
+          value: '{{ mode }}'
+        - name: zone
+          value: '{{ zone }}'
     - name: crossClusterReplicationConfig
-      value: '{{ crossClusterReplicationConfig }}'
+      value:
+        - name: clusterRole
+          value: '{{ clusterRole }}'
+        - name: primaryCluster
+          value:
+            - name: cluster
+              value: '{{ cluster }}'
+        - name: secondaryClusters
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: deletionProtectionEnabled
       value: '{{ deletionProtectionEnabled }}'
     - name: maintenancePolicy
-      value: '{{ maintenancePolicy }}'
-    - name: maintenanceSchedule
-      value: '{{ maintenanceSchedule }}'
+      value:
+        - name: weeklyMaintenanceWindow
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -229,27 +225,18 @@ Updates a <code>clusters</code> resource.
 UPDATE google.redis.clusters
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-state = '{{ state }}',
-uid = '{{ uid }}',
 replicaCount = '{{ replicaCount }}',
 authorizationMode = '{{ authorizationMode }}',
 transitEncryptionMode = '{{ transitEncryptionMode }}',
-sizeGb = '{{ sizeGb }}',
 shardCount = '{{ shardCount }}',
 pscConfigs = '{{ pscConfigs }}',
-discoveryEndpoints = '{{ discoveryEndpoints }}',
-pscConnections = '{{ pscConnections }}',
-stateInfo = '{{ stateInfo }}',
 nodeType = '{{ nodeType }}',
 persistenceConfig = '{{ persistenceConfig }}',
 redisConfigs = '{{ redisConfigs }}',
-preciseSizeGb = number,
 zoneDistributionConfig = '{{ zoneDistributionConfig }}',
 crossClusterReplicationConfig = '{{ crossClusterReplicationConfig }}',
 deletionProtectionEnabled = true|false,
-maintenancePolicy = '{{ maintenancePolicy }}',
-maintenanceSchedule = '{{ maintenanceSchedule }}'
+maintenancePolicy = '{{ maintenancePolicy }}'
 WHERE 
 clustersId = '{{ clustersId }}'
 AND locationsId = '{{ locationsId }}'

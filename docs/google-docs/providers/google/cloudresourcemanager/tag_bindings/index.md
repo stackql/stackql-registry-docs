@@ -74,14 +74,12 @@ Use the following StackQL query and manifest file to create a new <code>tag_bind
 /*+ create */
 INSERT INTO google.cloudresourcemanager.tag_bindings (
 ,
-name,
 parent,
 tagValue,
 tagValueNamespacedName
 )
 SELECT 
 '{{  }}',
-'{{ name }}',
 '{{ parent }}',
 '{{ tagValue }}',
 '{{ tagValueNamespacedName }}'
@@ -93,8 +91,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: parent
       value: '{{ parent }}'
     - name: tagValue

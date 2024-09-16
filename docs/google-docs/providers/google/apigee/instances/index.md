@@ -101,41 +101,27 @@ Use the following StackQL query and manifest file to create a new <code>instance
 /*+ create */
 INSERT INTO google.apigee.instances (
 organizationsId,
-serviceAttachment,
-runtimeVersion,
 accessLoggingConfig,
 ipRange,
-host,
-lastModifiedAt,
 name,
 displayName,
 description,
 location,
 peeringCidrRange,
-port,
 diskEncryptionKeyName,
-state,
-consumerAcceptList,
-createdAt
+consumerAcceptList
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ serviceAttachment }}',
-'{{ runtimeVersion }}',
 '{{ accessLoggingConfig }}',
 '{{ ipRange }}',
-'{{ host }}',
-'{{ lastModifiedAt }}',
 '{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ location }}',
 '{{ peeringCidrRange }}',
-'{{ port }}',
 '{{ diskEncryptionKeyName }}',
-'{{ state }}',
-'{{ consumerAcceptList }}',
-'{{ createdAt }}'
+'{{ consumerAcceptList }}'
 ;
 ```
 </TabItem>
@@ -144,18 +130,14 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: serviceAttachment
-      value: '{{ serviceAttachment }}'
-    - name: runtimeVersion
-      value: '{{ runtimeVersion }}'
     - name: accessLoggingConfig
-      value: '{{ accessLoggingConfig }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: filter
+          value: '{{ filter }}'
     - name: ipRange
       value: '{{ ipRange }}'
-    - name: host
-      value: '{{ host }}'
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
     - name: name
       value: '{{ name }}'
     - name: displayName
@@ -166,16 +148,12 @@ SELECT
       value: '{{ location }}'
     - name: peeringCidrRange
       value: '{{ peeringCidrRange }}'
-    - name: port
-      value: '{{ port }}'
     - name: diskEncryptionKeyName
       value: '{{ diskEncryptionKeyName }}'
-    - name: state
-      value: '{{ state }}'
     - name: consumerAcceptList
-      value: '{{ consumerAcceptList }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -189,22 +167,15 @@ Updates a <code>instances</code> resource.
 /*+ update */
 UPDATE google.apigee.instances
 SET 
-serviceAttachment = '{{ serviceAttachment }}',
-runtimeVersion = '{{ runtimeVersion }}',
 accessLoggingConfig = '{{ accessLoggingConfig }}',
 ipRange = '{{ ipRange }}',
-host = '{{ host }}',
-lastModifiedAt = '{{ lastModifiedAt }}',
 name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 location = '{{ location }}',
 peeringCidrRange = '{{ peeringCidrRange }}',
-port = '{{ port }}',
 diskEncryptionKeyName = '{{ diskEncryptionKeyName }}',
-state = '{{ state }}',
-consumerAcceptList = '{{ consumerAcceptList }}',
-createdAt = '{{ createdAt }}'
+consumerAcceptList = '{{ consumerAcceptList }}'
 WHERE 
 instancesId = '{{ instancesId }}'
 AND organizationsId = '{{ organizationsId }}';

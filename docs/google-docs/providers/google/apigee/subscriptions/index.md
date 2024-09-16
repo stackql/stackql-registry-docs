@@ -82,20 +82,14 @@ INSERT INTO google.apigee.subscriptions (
 developersId,
 organizationsId,
 apiproduct,
-lastModifiedAt,
-createdAt,
 startTime,
-name,
 endTime
 )
 SELECT 
 '{{ developersId }}',
 '{{ organizationsId }}',
 '{{ apiproduct }}',
-'{{ lastModifiedAt }}',
-'{{ createdAt }}',
 '{{ startTime }}',
-'{{ name }}',
 '{{ endTime }}'
 ;
 ```
@@ -107,14 +101,8 @@ SELECT
   props:
     - name: apiproduct
       value: '{{ apiproduct }}'
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
     - name: startTime
       value: '{{ startTime }}'
-    - name: name
-      value: '{{ name }}'
     - name: endTime
       value: '{{ endTime }}'
 

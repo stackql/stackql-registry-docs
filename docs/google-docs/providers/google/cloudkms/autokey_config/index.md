@@ -63,8 +63,7 @@ Updates a <code>autokey_config</code> resource.
 UPDATE google.cloudkms.autokey_config
 SET 
 name = '{{ name }}',
-keyProject = '{{ keyProject }}',
-state = '{{ state }}'
+keyProject = '{{ keyProject }}'
 WHERE 
 foldersId = '{{ foldersId }}';
 ```

@@ -82,9 +82,6 @@ Use the following StackQL query and manifest file to create a new <code>groups</
 INSERT INTO google.migrationcenter.groups (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 labels,
 displayName,
 description
@@ -92,9 +89,6 @@ description
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
 '{{ description }}'
@@ -106,12 +100,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
@@ -131,9 +119,6 @@ Updates a <code>groups</code> resource.
 /*+ update */
 UPDATE google.migrationcenter.groups
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}'

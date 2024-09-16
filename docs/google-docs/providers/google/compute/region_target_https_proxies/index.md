@@ -108,12 +108,8 @@ Use the following StackQL query and manifest file to create a new <code>region_t
 INSERT INTO google.compute.region_target_https_proxies (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 urlMap,
 sslCertificates,
 certificateMap,
@@ -130,12 +126,8 @@ tlsEarlyData
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ urlMap }}',
 '{{ sslCertificates }}',
 '{{ certificateMap }}',
@@ -156,22 +148,16 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: urlMap
       value: '{{ urlMap }}'
     - name: sslCertificates
-      value: '{{ sslCertificates }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: certificateMap
       value: '{{ certificateMap }}'
     - name: quicOverride
@@ -205,12 +191,8 @@ Updates a <code>region_target_https_proxies</code> resource.
 /*+ update */
 UPDATE google.compute.region_target_https_proxies
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 urlMap = '{{ urlMap }}',
 sslCertificates = '{{ sslCertificates }}',
 certificateMap = '{{ certificateMap }}',

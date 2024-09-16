@@ -107,9 +107,6 @@ loggingConfig,
 schedule,
 eventStream,
 status,
-creationTime,
-lastModificationTime,
-deletionTime,
 latestOperationName
 )
 SELECT 
@@ -124,9 +121,6 @@ SELECT
 '{{ schedule }}',
 '{{ eventStream }}',
 '{{ status }}',
-'{{ creationTime }}',
-'{{ lastModificationTime }}',
-'{{ deletionTime }}',
 '{{ latestOperationName }}'
 ;
 ```
@@ -143,25 +137,205 @@ SELECT
     - name: projectId
       value: '{{ projectId }}'
     - name: transferSpec
-      value: '{{ transferSpec }}'
+      value:
+        - name: gcsDataSink
+          value:
+            - name: bucketName
+              value: '{{ bucketName }}'
+            - name: path
+              value: '{{ path }}'
+            - name: managedFolderTransferEnabled
+              value: '{{ managedFolderTransferEnabled }}'
+        - name: posixDataSink
+          value:
+            - name: rootDirectory
+              value: '{{ rootDirectory }}'
+        - name: awsS3DataSource
+          value:
+            - name: bucketName
+              value: '{{ bucketName }}'
+            - name: awsAccessKey
+              value:
+                - name: accessKeyId
+                  value: '{{ accessKeyId }}'
+                - name: secretAccessKey
+                  value: '{{ secretAccessKey }}'
+            - name: path
+              value: '{{ path }}'
+            - name: roleArn
+              value: '{{ roleArn }}'
+            - name: cloudfrontDomain
+              value: '{{ cloudfrontDomain }}'
+            - name: credentialsSecret
+              value: '{{ credentialsSecret }}'
+            - name: managedPrivateNetwork
+              value: '{{ managedPrivateNetwork }}'
+        - name: httpDataSource
+          value:
+            - name: listUrl
+              value: '{{ listUrl }}'
+        - name: azureBlobStorageDataSource
+          value:
+            - name: storageAccount
+              value: '{{ storageAccount }}'
+            - name: azureCredentials
+              value:
+                - name: sasToken
+                  value: '{{ sasToken }}'
+            - name: container
+              value: '{{ container }}'
+            - name: path
+              value: '{{ path }}'
+            - name: credentialsSecret
+              value: '{{ credentialsSecret }}'
+        - name: awsS3CompatibleDataSource
+          value:
+            - name: bucketName
+              value: '{{ bucketName }}'
+            - name: path
+              value: '{{ path }}'
+            - name: endpoint
+              value: '{{ endpoint }}'
+            - name: region
+              value: '{{ region }}'
+            - name: s3Metadata
+              value:
+                - name: authMethod
+                  value: '{{ authMethod }}'
+                - name: requestModel
+                  value: '{{ requestModel }}'
+                - name: protocol
+                  value: '{{ protocol }}'
+                - name: listApi
+                  value: '{{ listApi }}'
+        - name: hdfsDataSource
+          value:
+            - name: path
+              value: '{{ path }}'
+        - name: objectConditions
+          value:
+            - name: minTimeElapsedSinceLastModification
+              value: '{{ minTimeElapsedSinceLastModification }}'
+            - name: maxTimeElapsedSinceLastModification
+              value: '{{ maxTimeElapsedSinceLastModification }}'
+            - name: includePrefixes
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: excludePrefixes
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: lastModifiedSince
+              value: '{{ lastModifiedSince }}'
+            - name: lastModifiedBefore
+              value: '{{ lastModifiedBefore }}'
+        - name: transferOptions
+          value:
+            - name: overwriteObjectsAlreadyExistingInSink
+              value: '{{ overwriteObjectsAlreadyExistingInSink }}'
+            - name: deleteObjectsUniqueInSink
+              value: '{{ deleteObjectsUniqueInSink }}'
+            - name: deleteObjectsFromSourceAfterTransfer
+              value: '{{ deleteObjectsFromSourceAfterTransfer }}'
+            - name: overwriteWhen
+              value: '{{ overwriteWhen }}'
+            - name: metadataOptions
+              value:
+                - name: symlink
+                  value: '{{ symlink }}'
+                - name: mode
+                  value: '{{ mode }}'
+                - name: gid
+                  value: '{{ gid }}'
+                - name: uid
+                  value: '{{ uid }}'
+                - name: acl
+                  value: '{{ acl }}'
+                - name: storageClass
+                  value: '{{ storageClass }}'
+                - name: temporaryHold
+                  value: '{{ temporaryHold }}'
+                - name: kmsKey
+                  value: '{{ kmsKey }}'
+                - name: timeCreated
+                  value: '{{ timeCreated }}'
+        - name: transferManifest
+          value:
+            - name: location
+              value: '{{ location }}'
+        - name: sourceAgentPoolName
+          value: '{{ sourceAgentPoolName }}'
+        - name: sinkAgentPoolName
+          value: '{{ sinkAgentPoolName }}'
     - name: replicationSpec
-      value: '{{ replicationSpec }}'
+      value: []
     - name: notificationConfig
-      value: '{{ notificationConfig }}'
+      value:
+        - name: pubsubTopic
+          value: '{{ pubsubTopic }}'
+        - name: eventTypes
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
+        - name: payloadFormat
+          value: '{{ payloadFormat }}'
     - name: loggingConfig
-      value: '{{ loggingConfig }}'
+      value:
+        - name: logActions
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
+        - name: logActionStates
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
+        - name: enableOnpremGcsTransferLogs
+          value: '{{ enableOnpremGcsTransferLogs }}'
     - name: schedule
-      value: '{{ schedule }}'
+      value:
+        - name: scheduleStartDate
+          value:
+            - name: year
+              value: '{{ year }}'
+            - name: month
+              value: '{{ month }}'
+            - name: day
+              value: '{{ day }}'
+        - name: startTimeOfDay
+          value:
+            - name: hours
+              value: '{{ hours }}'
+            - name: minutes
+              value: '{{ minutes }}'
+            - name: seconds
+              value: '{{ seconds }}'
+            - name: nanos
+              value: '{{ nanos }}'
+        - name: repeatInterval
+          value: '{{ repeatInterval }}'
     - name: eventStream
-      value: '{{ eventStream }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: eventStreamStartTime
+          value: '{{ eventStreamStartTime }}'
+        - name: eventStreamExpirationTime
+          value: '{{ eventStreamExpirationTime }}'
     - name: status
       value: '{{ status }}'
-    - name: creationTime
-      value: '{{ creationTime }}'
-    - name: lastModificationTime
-      value: '{{ lastModificationTime }}'
-    - name: deletionTime
-      value: '{{ deletionTime }}'
     - name: latestOperationName
       value: '{{ latestOperationName }}'
 

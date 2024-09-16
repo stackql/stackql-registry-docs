@@ -104,7 +104,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: requests
-      value: '{{ requests }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -125,8 +127,6 @@ resourceType = '{{ resourceType }}',
 scope = '{{ scope }}',
 resourceLabelsSelector = '{{ resourceLabelsSelector }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 cloudProvider = '{{ cloudProvider }}',
 sensitiveDataProtectionMapping = '{{ sensitiveDataProtectionMapping }}'
 WHERE 

@@ -91,9 +91,6 @@ INSERT INTO google.networkservices.grpc_routes (
 locationsId,
 projectsId,
 name,
-selfLink,
-createTime,
-updateTime,
 labels,
 description,
 hostnames,
@@ -105,9 +102,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ selfLink }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ hostnames }}',
@@ -124,24 +118,26 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
     - name: hostnames
-      value: '{{ hostnames }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: meshes
-      value: '{{ meshes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: gateways
-      value: '{{ gateways }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: rules
-      value: '{{ rules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -156,9 +152,6 @@ Updates a <code>grpc_routes</code> resource.
 UPDATE google.networkservices.grpc_routes
 SET 
 name = '{{ name }}',
-selfLink = '{{ selfLink }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 hostnames = '{{ hostnames }}',

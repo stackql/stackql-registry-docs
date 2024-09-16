@@ -108,48 +108,36 @@ Use the following StackQL query and manifest file to create a new <code>instant_
 INSERT INTO google.compute.instant_snapshots (
 project,
 zone,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 status,
 sourceDisk,
 sourceDiskId,
 diskSizeGb,
-selfLink,
-selfLinkWithId,
 labels,
 labelFingerprint,
 zone,
 region,
 satisfiesPzs,
 architecture,
-resourceStatus,
-satisfiesPzi
+resourceStatus
 )
 SELECT 
 '{{ project }}',
 '{{ zone }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ status }}',
 '{{ sourceDisk }}',
 '{{ sourceDiskId }}',
 '{{ diskSizeGb }}',
-'{{ selfLink }}',
-'{{ selfLinkWithId }}',
 '{{ labels }}',
 '{{ labelFingerprint }}',
 '{{ zone }}',
 '{{ region }}',
 true|false,
 '{{ architecture }}',
-'{{ resourceStatus }}',
-true|false
+'{{ resourceStatus }}'
 ;
 ```
 </TabItem>
@@ -158,12 +146,6 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -176,10 +158,6 @@ true|false
       value: '{{ sourceDiskId }}'
     - name: diskSizeGb
       value: '{{ diskSizeGb }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: selfLinkWithId
-      value: '{{ selfLinkWithId }}'
     - name: labels
       value: '{{ labels }}'
     - name: labelFingerprint
@@ -193,9 +171,9 @@ true|false
     - name: architecture
       value: '{{ architecture }}'
     - name: resourceStatus
-      value: '{{ resourceStatus }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
+      value:
+        - name: storageSizeBytes
+          value: '{{ storageSizeBytes }}'
 
 ```
 </TabItem>

@@ -77,15 +77,13 @@ INSERT INTO google.servicedirectory.namespaces (
 locationsId,
 projectsId,
 name,
-labels,
-uid
+labels
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ labels }}',
-'{{ uid }}'
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -98,8 +96,6 @@ SELECT
       value: '{{ name }}'
     - name: labels
       value: '{{ labels }}'
-    - name: uid
-      value: '{{ uid }}'
 
 ```
 </TabItem>
@@ -114,8 +110,7 @@ Updates a <code>namespaces</code> resource.
 UPDATE google.servicedirectory.namespaces
 SET 
 name = '{{ name }}',
-labels = '{{ labels }}',
-uid = '{{ uid }}'
+labels = '{{ labels }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND namespacesId = '{{ namespacesId }}'

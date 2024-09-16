@@ -81,8 +81,6 @@ INSERT INTO google.networksecurity.gateway_security_policies (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 description,
 tlsInspectionPolicy
 )
@@ -90,8 +88,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ tlsInspectionPolicy }}'
 ;
@@ -104,10 +100,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: tlsInspectionPolicy
@@ -126,8 +118,6 @@ Updates a <code>gateway_security_policies</code> resource.
 UPDATE google.networksecurity.gateway_security_policies
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 tlsInspectionPolicy = '{{ tlsInspectionPolicy }}'
 WHERE 

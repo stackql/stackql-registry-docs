@@ -75,7 +75,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: childContexts
-      value: '{{ childContexts }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>

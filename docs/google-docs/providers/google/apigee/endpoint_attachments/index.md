@@ -80,20 +80,14 @@ Use the following StackQL query and manifest file to create a new <code>endpoint
 INSERT INTO google.apigee.endpoint_attachments (
 organizationsId,
 name,
-connectionState,
 serviceAttachment,
-location,
-state,
-host
+location
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ name }}',
-'{{ connectionState }}',
 '{{ serviceAttachment }}',
-'{{ location }}',
-'{{ state }}',
-'{{ host }}'
+'{{ location }}'
 ;
 ```
 </TabItem>
@@ -104,16 +98,10 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: connectionState
-      value: '{{ connectionState }}'
     - name: serviceAttachment
       value: '{{ serviceAttachment }}'
     - name: location
       value: '{{ location }}'
-    - name: state
-      value: '{{ state }}'
-    - name: host
-      value: '{{ host }}'
 
 ```
 </TabItem>

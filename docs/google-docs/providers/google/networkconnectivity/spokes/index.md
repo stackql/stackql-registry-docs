@@ -102,8 +102,6 @@ INSERT INTO google.networkconnectivity.spokes (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 description,
 hub,
@@ -111,18 +109,12 @@ group,
 linkedVpnTunnels,
 linkedInterconnectAttachments,
 linkedRouterApplianceInstances,
-linkedVpcNetwork,
-uniqueId,
-state,
-reasons,
-spokeType
+linkedVpcNetwork
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ hub }}',
@@ -130,11 +122,7 @@ SELECT
 '{{ linkedVpnTunnels }}',
 '{{ linkedInterconnectAttachments }}',
 '{{ linkedRouterApplianceInstances }}',
-'{{ linkedVpcNetwork }}',
-'{{ uniqueId }}',
-'{{ state }}',
-'{{ reasons }}',
-'{{ spokeType }}'
+'{{ linkedVpcNetwork }}'
 ;
 ```
 </TabItem>
@@ -145,10 +133,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
@@ -158,21 +142,53 @@ SELECT
     - name: group
       value: '{{ group }}'
     - name: linkedVpnTunnels
-      value: '{{ linkedVpnTunnels }}'
+      value:
+        - name: uris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: siteToSiteDataTransfer
+          value: '{{ siteToSiteDataTransfer }}'
+        - name: includeImportRanges
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: linkedInterconnectAttachments
-      value: '{{ linkedInterconnectAttachments }}'
+      value:
+        - name: uris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: siteToSiteDataTransfer
+          value: '{{ siteToSiteDataTransfer }}'
+        - name: includeImportRanges
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: linkedRouterApplianceInstances
-      value: '{{ linkedRouterApplianceInstances }}'
+      value:
+        - name: instances
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: siteToSiteDataTransfer
+          value: '{{ siteToSiteDataTransfer }}'
+        - name: includeImportRanges
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: linkedVpcNetwork
-      value: '{{ linkedVpcNetwork }}'
-    - name: uniqueId
-      value: '{{ uniqueId }}'
-    - name: state
-      value: '{{ state }}'
-    - name: reasons
-      value: '{{ reasons }}'
-    - name: spokeType
-      value: '{{ spokeType }}'
+      value:
+        - name: uri
+          value: '{{ uri }}'
+        - name: excludeExportRanges
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: includeExportRanges
+          value:
+            - name: type
+              value: '{{ type }}'
 
 ```
 </TabItem>
@@ -187,8 +203,6 @@ Updates a <code>spokes</code> resource.
 UPDATE google.networkconnectivity.spokes
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 hub = '{{ hub }}',
@@ -196,11 +210,7 @@ group = '{{ group }}',
 linkedVpnTunnels = '{{ linkedVpnTunnels }}',
 linkedInterconnectAttachments = '{{ linkedInterconnectAttachments }}',
 linkedRouterApplianceInstances = '{{ linkedRouterApplianceInstances }}',
-linkedVpcNetwork = '{{ linkedVpcNetwork }}',
-uniqueId = '{{ uniqueId }}',
-state = '{{ state }}',
-reasons = '{{ reasons }}',
-spokeType = '{{ spokeType }}'
+linkedVpcNetwork = '{{ linkedVpcNetwork }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

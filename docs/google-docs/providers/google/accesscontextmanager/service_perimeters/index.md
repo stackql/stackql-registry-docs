@@ -118,9 +118,35 @@ true|false
     - name: perimeterType
       value: '{{ perimeterType }}'
     - name: status
-      value: '{{ status }}'
-    - name: spec
-      value: '{{ spec }}'
+      value:
+        - name: resources
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: accessLevels
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: restrictedServices
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: vpcAccessibleServices
+          value:
+            - name: enableRestriction
+              value: '{{ enableRestriction }}'
+            - name: allowedServices
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: ingressPolicies
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: egressPolicies
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: useExplicitDryRunSpec
       value: '{{ useExplicitDryRunSpec }}'
 

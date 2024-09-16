@@ -91,8 +91,7 @@ spec,
 retentionDuration,
 encryptionConfig,
 fullBackupSpec,
-incrementalBackupSpec,
-updateTime
+incrementalBackupSpec
 )
 SELECT 
 '{{ databasesId }}',
@@ -103,8 +102,7 @@ SELECT
 '{{ retentionDuration }}',
 '{{ encryptionConfig }}',
 '{{ fullBackupSpec }}',
-'{{ incrementalBackupSpec }}',
-'{{ updateTime }}'
+'{{ incrementalBackupSpec }}'
 ;
 ```
 </TabItem>
@@ -116,17 +114,27 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: spec
-      value: '{{ spec }}'
+      value:
+        - name: cronSpec
+          value:
+            - name: text
+              value: '{{ text }}'
     - name: retentionDuration
       value: '{{ retentionDuration }}'
     - name: encryptionConfig
-      value: '{{ encryptionConfig }}'
+      value:
+        - name: encryptionType
+          value: '{{ encryptionType }}'
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
+        - name: kmsKeyNames
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: fullBackupSpec
-      value: '{{ fullBackupSpec }}'
+      value: []
     - name: incrementalBackupSpec
-      value: '{{ incrementalBackupSpec }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value: []
 
 ```
 </TabItem>
@@ -145,8 +153,7 @@ spec = '{{ spec }}',
 retentionDuration = '{{ retentionDuration }}',
 encryptionConfig = '{{ encryptionConfig }}',
 fullBackupSpec = '{{ fullBackupSpec }}',
-incrementalBackupSpec = '{{ incrementalBackupSpec }}',
-updateTime = '{{ updateTime }}'
+incrementalBackupSpec = '{{ incrementalBackupSpec }}'
 WHERE 
 backupSchedulesId = '{{ backupSchedulesId }}'
 AND databasesId = '{{ databasesId }}'

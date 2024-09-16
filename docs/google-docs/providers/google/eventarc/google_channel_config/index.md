@@ -64,7 +64,6 @@ Updates a <code>google_channel_config</code> resource.
 UPDATE google.eventarc.google_channel_config
 SET 
 name = '{{ name }}',
-updateTime = '{{ updateTime }}',
 cryptoKeyName = '{{ cryptoKeyName }}'
 WHERE 
 locationsId = '{{ locationsId }}'

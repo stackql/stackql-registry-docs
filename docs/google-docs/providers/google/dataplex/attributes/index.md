@@ -96,15 +96,10 @@ INSERT INTO google.dataplex.attributes (
 dataTaxonomiesId,
 locationsId,
 projectsId,
-name,
-uid,
-createTime,
-updateTime,
 description,
 displayName,
 labels,
 parentId,
-attributeCount,
 etag,
 resourceAccessSpec,
 dataAccessSpec
@@ -113,15 +108,10 @@ SELECT
 '{{ dataTaxonomiesId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ displayName }}',
 '{{ labels }}',
 '{{ parentId }}',
-'{{ attributeCount }}',
 '{{ etag }}',
 '{{ resourceAccessSpec }}',
 '{{ dataAccessSpec }}'
@@ -133,14 +123,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: displayName
@@ -149,14 +131,28 @@ SELECT
       value: '{{ labels }}'
     - name: parentId
       value: '{{ parentId }}'
-    - name: attributeCount
-      value: '{{ attributeCount }}'
     - name: etag
       value: '{{ etag }}'
     - name: resourceAccessSpec
-      value: '{{ resourceAccessSpec }}'
+      value:
+        - name: readers
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: writers
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: owners
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: dataAccessSpec
-      value: '{{ dataAccessSpec }}'
+      value:
+        - name: readers
+          value:
+            - name: type
+              value: '{{ type }}'
 
 ```
 </TabItem>
@@ -170,15 +166,10 @@ Updates a <code>attributes</code> resource.
 /*+ update */
 UPDATE google.dataplex.attributes
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 displayName = '{{ displayName }}',
 labels = '{{ labels }}',
 parentId = '{{ parentId }}',
-attributeCount = '{{ attributeCount }}',
 etag = '{{ etag }}',
 resourceAccessSpec = '{{ resourceAccessSpec }}',
 dataAccessSpec = '{{ dataAccessSpec }}'

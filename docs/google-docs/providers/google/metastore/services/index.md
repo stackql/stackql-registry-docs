@@ -129,20 +129,12 @@ locationsId,
 projectsId,
 hiveMetastoreConfig,
 name,
-createTime,
-updateTime,
 labels,
 network,
-endpointUri,
 port,
-state,
-stateMessage,
-artifactGcsUri,
 tier,
 metadataIntegration,
 maintenanceWindow,
-uid,
-metadataManagementActivity,
 releaseChannel,
 encryptionConfig,
 networkConfig,
@@ -157,20 +149,12 @@ SELECT
 '{{ projectsId }}',
 '{{ hiveMetastoreConfig }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ network }}',
-'{{ endpointUri }}',
 '{{ port }}',
-'{{ state }}',
-'{{ stateMessage }}',
-'{{ artifactGcsUri }}',
 '{{ tier }}',
 '{{ metadataIntegration }}',
 '{{ maintenanceWindow }}',
-'{{ uid }}',
-'{{ metadataManagementActivity }}',
 '{{ releaseChannel }}',
 '{{ encryptionConfig }}',
 '{{ networkConfig }}',
@@ -188,51 +172,91 @@ true|false
 - name: your_resource_model_name
   props:
     - name: hiveMetastoreConfig
-      value: '{{ hiveMetastoreConfig }}'
+      value:
+        - name: version
+          value: '{{ version }}'
+        - name: configOverrides
+          value: '{{ configOverrides }}'
+        - name: kerberosConfig
+          value:
+            - name: keytab
+              value:
+                - name: cloudSecret
+                  value: '{{ cloudSecret }}'
+            - name: principal
+              value: '{{ principal }}'
+            - name: krb5ConfigGcsUri
+              value: '{{ krb5ConfigGcsUri }}'
+        - name: endpointProtocol
+          value: '{{ endpointProtocol }}'
+        - name: auxiliaryVersions
+          value: '{{ auxiliaryVersions }}'
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: network
       value: '{{ network }}'
-    - name: endpointUri
-      value: '{{ endpointUri }}'
     - name: port
       value: '{{ port }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateMessage
-      value: '{{ stateMessage }}'
-    - name: artifactGcsUri
-      value: '{{ artifactGcsUri }}'
     - name: tier
       value: '{{ tier }}'
     - name: metadataIntegration
-      value: '{{ metadataIntegration }}'
+      value:
+        - name: dataCatalogConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
     - name: maintenanceWindow
-      value: '{{ maintenanceWindow }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: metadataManagementActivity
-      value: '{{ metadataManagementActivity }}'
+      value:
+        - name: hourOfDay
+          value: '{{ hourOfDay }}'
+        - name: dayOfWeek
+          value: '{{ dayOfWeek }}'
     - name: releaseChannel
       value: '{{ releaseChannel }}'
     - name: encryptionConfig
-      value: '{{ encryptionConfig }}'
+      value:
+        - name: kmsKey
+          value: '{{ kmsKey }}'
     - name: networkConfig
-      value: '{{ networkConfig }}'
+      value:
+        - name: consumers
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: databaseType
       value: '{{ databaseType }}'
     - name: telemetryConfig
-      value: '{{ telemetryConfig }}'
+      value:
+        - name: logFormat
+          value: '{{ logFormat }}'
     - name: scalingConfig
-      value: '{{ scalingConfig }}'
+      value:
+        - name: instanceSize
+          value: '{{ instanceSize }}'
+        - name: scalingFactor
+          value: '{{ scalingFactor }}'
+        - name: autoscalingConfig
+          value:
+            - name: autoscalingEnabled
+              value: '{{ autoscalingEnabled }}'
+            - name: limitConfig
+              value:
+                - name: maxScalingFactor
+                  value: '{{ maxScalingFactor }}'
+                - name: minScalingFactor
+                  value: '{{ minScalingFactor }}'
     - name: scheduledBackup
-      value: '{{ scheduledBackup }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: cronSchedule
+          value: '{{ cronSchedule }}'
+        - name: timeZone
+          value: '{{ timeZone }}'
+        - name: backupLocation
+          value: '{{ backupLocation }}'
     - name: deletionProtection
       value: '{{ deletionProtection }}'
 
@@ -250,20 +274,12 @@ UPDATE google.metastore.services
 SET 
 hiveMetastoreConfig = '{{ hiveMetastoreConfig }}',
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 network = '{{ network }}',
-endpointUri = '{{ endpointUri }}',
 port = '{{ port }}',
-state = '{{ state }}',
-stateMessage = '{{ stateMessage }}',
-artifactGcsUri = '{{ artifactGcsUri }}',
 tier = '{{ tier }}',
 metadataIntegration = '{{ metadataIntegration }}',
 maintenanceWindow = '{{ maintenanceWindow }}',
-uid = '{{ uid }}',
-metadataManagementActivity = '{{ metadataManagementActivity }}',
 releaseChannel = '{{ releaseChannel }}',
 encryptionConfig = '{{ encryptionConfig }}',
 networkConfig = '{{ networkConfig }}',

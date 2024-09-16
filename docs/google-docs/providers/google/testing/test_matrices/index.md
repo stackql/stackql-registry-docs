@@ -105,7 +105,6 @@ resultStorage,
 state,
 timestamp,
 invalidMatrixDetails,
-extendedInvalidMatrixDetails,
 flakyTestAttempts,
 outcomeSummary,
 failFast
@@ -122,7 +121,6 @@ SELECT
 '{{ state }}',
 '{{ timestamp }}',
 '{{ invalidMatrixDetails }}',
-'{{ extendedInvalidMatrixDetails }}',
 '{{ flakyTestAttempts }}',
 '{{ outcomeSummary }}',
 true|false
@@ -139,23 +137,227 @@ true|false
     - name: projectId
       value: '{{ projectId }}'
     - name: clientInfo
-      value: '{{ clientInfo }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: clientInfoDetails
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: testSpecification
-      value: '{{ testSpecification }}'
+      value:
+        - name: testTimeout
+          value: '{{ testTimeout }}'
+        - name: testSetup
+          value:
+            - name: filesToPush
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: directoriesToPull
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: initialSetupApks
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: additionalApks
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: account
+              value:
+                - name: googleAuto
+                  value: []
+            - name: networkProfile
+              value: '{{ networkProfile }}'
+            - name: environmentVariables
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: systrace
+              value:
+                - name: durationSeconds
+                  value: '{{ durationSeconds }}'
+            - name: dontAutograntPermissions
+              value: '{{ dontAutograntPermissions }}'
+        - name: iosTestSetup
+          value:
+            - name: networkProfile
+              value: '{{ networkProfile }}'
+            - name: additionalIpas
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: pushFiles
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: pullDirectories
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: androidInstrumentationTest
+          value:
+            - name: appApk
+              value:
+                - name: gcsPath
+                  value: '{{ gcsPath }}'
+            - name: appBundle
+              value: []
+            - name: appPackageId
+              value: '{{ appPackageId }}'
+            - name: testPackageId
+              value: '{{ testPackageId }}'
+            - name: testRunnerClass
+              value: '{{ testRunnerClass }}'
+            - name: testTargets
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: orchestratorOption
+              value: '{{ orchestratorOption }}'
+            - name: shardingOption
+              value:
+                - name: uniformSharding
+                  value:
+                    - name: numShards
+                      value: '{{ numShards }}'
+                - name: manualSharding
+                  value:
+                    - name: testTargetsForShard
+                      value:
+                        - name: $ref
+                          value: '{{ $ref }}'
+                - name: smartSharding
+                  value:
+                    - name: targetedShardDuration
+                      value: '{{ targetedShardDuration }}'
+        - name: androidRoboTest
+          value:
+            - name: appPackageId
+              value: '{{ appPackageId }}'
+            - name: appInitialActivity
+              value: '{{ appInitialActivity }}'
+            - name: maxDepth
+              value: '{{ maxDepth }}'
+            - name: maxSteps
+              value: '{{ maxSteps }}'
+            - name: roboDirectives
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: roboMode
+              value: '{{ roboMode }}'
+            - name: startingIntents
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: androidTestLoop
+          value:
+            - name: appPackageId
+              value: '{{ appPackageId }}'
+            - name: scenarios
+              value:
+                - name: type
+                  value: '{{ type }}'
+                - name: format
+                  value: '{{ format }}'
+            - name: scenarioLabels
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: iosXcTest
+          value:
+            - name: xcodeVersion
+              value: '{{ xcodeVersion }}'
+            - name: appBundleId
+              value: '{{ appBundleId }}'
+            - name: testSpecialEntitlements
+              value: '{{ testSpecialEntitlements }}'
+        - name: iosTestLoop
+          value:
+            - name: scenarios
+              value:
+                - name: type
+                  value: '{{ type }}'
+                - name: format
+                  value: '{{ format }}'
+            - name: appBundleId
+              value: '{{ appBundleId }}'
+        - name: iosRoboTest
+          value:
+            - name: appBundleId
+              value: '{{ appBundleId }}'
+        - name: disableVideoRecording
+          value: '{{ disableVideoRecording }}'
+        - name: disablePerformanceMetrics
+          value: '{{ disablePerformanceMetrics }}'
     - name: environmentMatrix
-      value: '{{ environmentMatrix }}'
+      value:
+        - name: androidMatrix
+          value:
+            - name: androidModelIds
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: androidVersionIds
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: locales
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: orientations
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: androidDeviceList
+          value:
+            - name: androidDevices
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: iosDeviceList
+          value:
+            - name: iosDevices
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: testExecutions
-      value: '{{ testExecutions }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: resultStorage
-      value: '{{ resultStorage }}'
+      value:
+        - name: googleCloudStorage
+          value:
+            - name: gcsPath
+              value: '{{ gcsPath }}'
+        - name: toolResultsHistory
+          value:
+            - name: projectId
+              value: '{{ projectId }}'
+            - name: historyId
+              value: '{{ historyId }}'
+        - name: toolResultsExecution
+          value:
+            - name: projectId
+              value: '{{ projectId }}'
+            - name: historyId
+              value: '{{ historyId }}'
+            - name: executionId
+              value: '{{ executionId }}'
+        - name: resultsUrl
+          value: '{{ resultsUrl }}'
     - name: state
       value: '{{ state }}'
     - name: timestamp
       value: '{{ timestamp }}'
     - name: invalidMatrixDetails
       value: '{{ invalidMatrixDetails }}'
-    - name: extendedInvalidMatrixDetails
-      value: '{{ extendedInvalidMatrixDetails }}'
     - name: flakyTestAttempts
       value: '{{ flakyTestAttempts }}'
     - name: outcomeSummary

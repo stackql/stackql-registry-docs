@@ -73,14 +73,12 @@ Use the following StackQL query and manifest file to create a new <code>keystore
 INSERT INTO google.apigee.keystores (
 environmentsId,
 organizationsId,
-name,
-aliases
+name
 )
 SELECT 
 '{{ environmentsId }}',
 '{{ organizationsId }}',
-'{{ name }}',
-'{{ aliases }}'
+'{{ name }}'
 ;
 ```
 </TabItem>
@@ -91,8 +89,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: aliases
-      value: '{{ aliases }}'
 
 ```
 </TabItem>

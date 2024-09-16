@@ -79,49 +79,25 @@ INSERT INTO google.privateca.certificate_authorities (
 caPoolsId,
 locationsId,
 projectsId,
-name,
 type,
 config,
 lifetime,
 keySpec,
 subordinateConfig,
-tier,
-state,
-pemCaCertificates,
-caCertificateDescriptions,
 gcsBucket,
-accessUrls,
-createTime,
-updateTime,
-deleteTime,
-expireTime,
-labels,
-satisfiesPzs,
-satisfiesPzi
+labels
 )
 SELECT 
 '{{ caPoolsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ type }}',
 '{{ config }}',
 '{{ lifetime }}',
 '{{ keySpec }}',
 '{{ subordinateConfig }}',
-'{{ tier }}',
-'{{ state }}',
-'{{ pemCaCertificates }}',
-'{{ caCertificateDescriptions }}',
 '{{ gcsBucket }}',
-'{{ accessUrls }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
-'{{ expireTime }}',
-'{{ labels }}',
-true|false,
-true|false
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -130,44 +106,180 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: type
       value: '{{ type }}'
     - name: config
-      value: '{{ config }}'
+      value:
+        - name: subjectConfig
+          value:
+            - name: subject
+              value:
+                - name: commonName
+                  value: '{{ commonName }}'
+                - name: countryCode
+                  value: '{{ countryCode }}'
+                - name: organization
+                  value: '{{ organization }}'
+                - name: organizationalUnit
+                  value: '{{ organizationalUnit }}'
+                - name: locality
+                  value: '{{ locality }}'
+                - name: province
+                  value: '{{ province }}'
+                - name: streetAddress
+                  value: '{{ streetAddress }}'
+                - name: postalCode
+                  value: '{{ postalCode }}'
+            - name: subjectAltName
+              value:
+                - name: dnsNames
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: uris
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: emailAddresses
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: ipAddresses
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: customSans
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+        - name: x509Config
+          value:
+            - name: keyUsage
+              value:
+                - name: baseKeyUsage
+                  value:
+                    - name: digitalSignature
+                      value: '{{ digitalSignature }}'
+                    - name: contentCommitment
+                      value: '{{ contentCommitment }}'
+                    - name: keyEncipherment
+                      value: '{{ keyEncipherment }}'
+                    - name: dataEncipherment
+                      value: '{{ dataEncipherment }}'
+                    - name: keyAgreement
+                      value: '{{ keyAgreement }}'
+                    - name: certSign
+                      value: '{{ certSign }}'
+                    - name: crlSign
+                      value: '{{ crlSign }}'
+                    - name: encipherOnly
+                      value: '{{ encipherOnly }}'
+                    - name: decipherOnly
+                      value: '{{ decipherOnly }}'
+                - name: extendedKeyUsage
+                  value:
+                    - name: serverAuth
+                      value: '{{ serverAuth }}'
+                    - name: clientAuth
+                      value: '{{ clientAuth }}'
+                    - name: codeSigning
+                      value: '{{ codeSigning }}'
+                    - name: emailProtection
+                      value: '{{ emailProtection }}'
+                    - name: timeStamping
+                      value: '{{ timeStamping }}'
+                    - name: ocspSigning
+                      value: '{{ ocspSigning }}'
+                - name: unknownExtendedKeyUsages
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: caOptions
+              value:
+                - name: isCa
+                  value: '{{ isCa }}'
+                - name: maxIssuerPathLength
+                  value: '{{ maxIssuerPathLength }}'
+            - name: policyIds
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: aiaOcspServers
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: nameConstraints
+              value:
+                - name: critical
+                  value: '{{ critical }}'
+                - name: permittedDnsNames
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: excludedDnsNames
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: permittedIpRanges
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: excludedIpRanges
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: permittedEmailAddresses
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: excludedEmailAddresses
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: permittedUris
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: excludedUris
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+            - name: additionalExtensions
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: publicKey
+          value:
+            - name: key
+              value: '{{ key }}'
+            - name: format
+              value: '{{ format }}'
+        - name: subjectKeyId
+          value:
+            - name: keyId
+              value: '{{ keyId }}'
     - name: lifetime
       value: '{{ lifetime }}'
     - name: keySpec
-      value: '{{ keySpec }}'
+      value:
+        - name: cloudKmsKeyVersion
+          value: '{{ cloudKmsKeyVersion }}'
+        - name: algorithm
+          value: '{{ algorithm }}'
     - name: subordinateConfig
-      value: '{{ subordinateConfig }}'
-    - name: tier
-      value: '{{ tier }}'
-    - name: state
-      value: '{{ state }}'
-    - name: pemCaCertificates
-      value: '{{ pemCaCertificates }}'
-    - name: caCertificateDescriptions
-      value: '{{ caCertificateDescriptions }}'
+      value:
+        - name: certificateAuthority
+          value: '{{ certificateAuthority }}'
+        - name: pemIssuerChain
+          value:
+            - name: pemCertificates
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: gcsBucket
       value: '{{ gcsBucket }}'
-    - name: accessUrls
-      value: '{{ accessUrls }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>
@@ -181,25 +293,13 @@ Updates a <code>certificate_authorities</code> resource.
 /*+ update */
 UPDATE google.privateca.certificate_authorities
 SET 
-name = '{{ name }}',
 type = '{{ type }}',
 config = '{{ config }}',
 lifetime = '{{ lifetime }}',
 keySpec = '{{ keySpec }}',
 subordinateConfig = '{{ subordinateConfig }}',
-tier = '{{ tier }}',
-state = '{{ state }}',
-pemCaCertificates = '{{ pemCaCertificates }}',
-caCertificateDescriptions = '{{ caCertificateDescriptions }}',
 gcsBucket = '{{ gcsBucket }}',
-accessUrls = '{{ accessUrls }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
-expireTime = '{{ expireTime }}',
-labels = '{{ labels }}',
-satisfiesPzs = true|false,
-satisfiesPzi = true|false
+labels = '{{ labels }}'
 WHERE 
 caPoolsId = '{{ caPoolsId }}'
 AND certificateAuthoritiesId = '{{ certificateAuthoritiesId }}'

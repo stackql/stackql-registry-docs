@@ -94,15 +94,21 @@ SELECT
     - name: consumerSecret
       value: '{{ consumerSecret }}'
     - name: attributes
-      value: '{{ attributes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: apiProducts
-      value: '{{ apiProducts }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: status
       value: '{{ status }}'
     - name: issuedAt
       value: '{{ issuedAt }}'
     - name: scopes
-      value: '{{ scopes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: expiresAt
       value: '{{ expiresAt }}'
 

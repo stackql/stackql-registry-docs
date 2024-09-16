@@ -119,9 +119,13 @@ SELECT
     - name: category
       value: '{{ category }}'
     - name: allowedValues
-      value: '{{ allowedValues }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: consentDefaultValues
-      value: '{{ consentDefaultValues }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: dataMappingDefaultValue
       value: '{{ dataMappingDefaultValue }}'
 

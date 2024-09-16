@@ -122,9 +122,6 @@ Use the following StackQL query and manifest file to create a new <code>subnetwo
 INSERT INTO google.compute.subnetworks (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 network,
@@ -132,7 +129,6 @@ ipCidrRange,
 reservedInternalRange,
 gatewayAddress,
 region,
-selfLink,
 privateIpGoogleAccess,
 secondaryIpRanges,
 fingerprint,
@@ -151,9 +147,6 @@ ipv6AccessType
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ network }}',
@@ -161,7 +154,6 @@ SELECT
 '{{ reservedInternalRange }}',
 '{{ gatewayAddress }}',
 '{{ region }}',
-'{{ selfLink }}',
 true|false,
 '{{ secondaryIpRanges }}',
 '{{ fingerprint }}',
@@ -184,12 +176,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -204,12 +190,12 @@ true|false,
       value: '{{ gatewayAddress }}'
     - name: region
       value: '{{ region }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: privateIpGoogleAccess
       value: '{{ privateIpGoogleAccess }}'
     - name: secondaryIpRanges
-      value: '{{ secondaryIpRanges }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
     - name: enableFlowLogs
@@ -229,7 +215,21 @@ true|false,
     - name: state
       value: '{{ state }}'
     - name: logConfig
-      value: '{{ logConfig }}'
+      value:
+        - name: enable
+          value: '{{ enable }}'
+        - name: aggregationInterval
+          value: '{{ aggregationInterval }}'
+        - name: flowSampling
+          value: '{{ flowSampling }}'
+        - name: metadata
+          value: '{{ metadata }}'
+        - name: metadataFields
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: filterExpr
+          value: '{{ filterExpr }}'
     - name: stackType
       value: '{{ stackType }}'
     - name: ipv6AccessType
@@ -247,9 +247,6 @@ Updates a <code>subnetworks</code> resource.
 /*+ update */
 UPDATE google.compute.subnetworks
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 network = '{{ network }}',
@@ -257,7 +254,6 @@ ipCidrRange = '{{ ipCidrRange }}',
 reservedInternalRange = '{{ reservedInternalRange }}',
 gatewayAddress = '{{ gatewayAddress }}',
 region = '{{ region }}',
-selfLink = '{{ selfLink }}',
 privateIpGoogleAccess = true|false,
 secondaryIpRanges = '{{ secondaryIpRanges }}',
 fingerprint = '{{ fingerprint }}',

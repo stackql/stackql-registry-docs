@@ -99,18 +99,14 @@ foldersId,
 validateTime,
 languageTag,
 notificationCategorySubscriptions,
-email,
-validationState,
-name
+email
 )
 SELECT 
 '{{ foldersId }}',
 '{{ validateTime }}',
 '{{ languageTag }}',
 '{{ notificationCategorySubscriptions }}',
-'{{ email }}',
-'{{ validationState }}',
-'{{ name }}'
+'{{ email }}'
 ;
 ```
 </TabItem>
@@ -124,13 +120,15 @@ SELECT
     - name: languageTag
       value: '{{ languageTag }}'
     - name: notificationCategorySubscriptions
-      value: '{{ notificationCategorySubscriptions }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: email
       value: '{{ email }}'
-    - name: validationState
-      value: '{{ validationState }}'
-    - name: name
-      value: '{{ name }}'
 
 ```
 </TabItem>
@@ -147,9 +145,7 @@ SET
 validateTime = '{{ validateTime }}',
 languageTag = '{{ languageTag }}',
 notificationCategorySubscriptions = '{{ notificationCategorySubscriptions }}',
-email = '{{ email }}',
-validationState = '{{ validationState }}',
-name = '{{ name }}'
+email = '{{ email }}'
 WHERE 
 contactsId = '{{ contactsId }}'
 AND foldersId = '{{ foldersId }}';

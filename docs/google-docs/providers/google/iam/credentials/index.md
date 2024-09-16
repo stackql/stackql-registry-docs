@@ -82,7 +82,6 @@ oauthClientsId,
 projectsId,
 name,
 disabled,
-clientSecret,
 displayName
 )
 SELECT 
@@ -91,7 +90,6 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 true|false,
-'{{ clientSecret }}',
 '{{ displayName }}'
 ;
 ```
@@ -105,8 +103,6 @@ true|false,
       value: '{{ name }}'
     - name: disabled
       value: '{{ disabled }}'
-    - name: clientSecret
-      value: '{{ clientSecret }}'
     - name: displayName
       value: '{{ displayName }}'
 
@@ -124,7 +120,6 @@ UPDATE google.iam.credentials
 SET 
 name = '{{ name }}',
 disabled = true|false,
-clientSecret = '{{ clientSecret }}',
 displayName = '{{ displayName }}'
 WHERE 
 credentialsId = '{{ credentialsId }}'

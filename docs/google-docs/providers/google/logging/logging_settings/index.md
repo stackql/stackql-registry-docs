@@ -70,13 +70,10 @@ Updates a <code>logging_settings</code> resource.
 /*+ update */
 UPDATE google.logging.logging_settings
 SET 
-name = '{{ name }}',
 kmsKeyName = '{{ kmsKeyName }}',
-kmsServiceAccountId = '{{ kmsServiceAccountId }}',
 storageLocation = '{{ storageLocation }}',
 disableDefaultSink = true|false,
-defaultSinkConfig = '{{ defaultSinkConfig }}',
-loggingServiceAccountId = '{{ loggingServiceAccountId }}'
+defaultSinkConfig = '{{ defaultSinkConfig }}'
 WHERE 
 name = '{{ name }}';
 ```

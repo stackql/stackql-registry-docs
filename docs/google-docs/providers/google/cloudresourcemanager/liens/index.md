@@ -83,8 +83,7 @@ name,
 parent,
 restrictions,
 reason,
-origin,
-createTime
+origin
 )
 SELECT 
 '{{  }}',
@@ -92,8 +91,7 @@ SELECT
 '{{ parent }}',
 '{{ restrictions }}',
 '{{ reason }}',
-'{{ origin }}',
-'{{ createTime }}'
+'{{ origin }}'
 ;
 ```
 </TabItem>
@@ -107,13 +105,13 @@ SELECT
     - name: parent
       value: '{{ parent }}'
     - name: restrictions
-      value: '{{ restrictions }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: reason
       value: '{{ reason }}'
     - name: origin
       value: '{{ origin }}'
-    - name: createTime
-      value: '{{ createTime }}'
 
 ```
 </TabItem>

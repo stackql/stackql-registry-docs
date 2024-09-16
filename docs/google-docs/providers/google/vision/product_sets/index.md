@@ -80,17 +80,13 @@ INSERT INTO google.vision.product_sets (
 locationsId,
 projectsId,
 name,
-displayName,
-indexTime,
-indexError
+displayName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ displayName }}',
-'{{ indexTime }}',
-'{{ indexError }}'
+'{{ displayName }}'
 ;
 ```
 </TabItem>
@@ -103,10 +99,6 @@ SELECT
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: indexTime
-      value: '{{ indexTime }}'
-    - name: indexError
-      value: '{{ indexError }}'
 
 ```
 </TabItem>
@@ -121,9 +113,7 @@ Updates a <code>product_sets</code> resource.
 UPDATE google.vision.product_sets
 SET 
 name = '{{ name }}',
-displayName = '{{ displayName }}',
-indexTime = '{{ indexTime }}',
-indexError = '{{ indexError }}'
+displayName = '{{ displayName }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND productSetsId = '{{ productSetsId }}'

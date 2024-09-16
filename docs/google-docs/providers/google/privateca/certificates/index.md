@@ -100,38 +100,22 @@ INSERT INTO google.privateca.certificates (
 caPoolsId,
 locationsId,
 projectsId,
-name,
 pemCsr,
 config,
-issuerCertificateAuthority,
 lifetime,
 certificateTemplate,
 subjectMode,
-revocationDetails,
-pemCertificate,
-certificateDescription,
-pemCertificateChain,
-createTime,
-updateTime,
 labels
 )
 SELECT 
 '{{ caPoolsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ pemCsr }}',
 '{{ config }}',
-'{{ issuerCertificateAuthority }}',
 '{{ lifetime }}',
 '{{ certificateTemplate }}',
 '{{ subjectMode }}',
-'{{ revocationDetails }}',
-'{{ pemCertificate }}',
-'{{ certificateDescription }}',
-'{{ pemCertificateChain }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}'
 ;
 ```
@@ -141,32 +125,164 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: pemCsr
       value: '{{ pemCsr }}'
     - name: config
-      value: '{{ config }}'
-    - name: issuerCertificateAuthority
-      value: '{{ issuerCertificateAuthority }}'
+      value:
+        - name: subjectConfig
+          value:
+            - name: subject
+              value:
+                - name: commonName
+                  value: '{{ commonName }}'
+                - name: countryCode
+                  value: '{{ countryCode }}'
+                - name: organization
+                  value: '{{ organization }}'
+                - name: organizationalUnit
+                  value: '{{ organizationalUnit }}'
+                - name: locality
+                  value: '{{ locality }}'
+                - name: province
+                  value: '{{ province }}'
+                - name: streetAddress
+                  value: '{{ streetAddress }}'
+                - name: postalCode
+                  value: '{{ postalCode }}'
+            - name: subjectAltName
+              value:
+                - name: dnsNames
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: uris
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: emailAddresses
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: ipAddresses
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: customSans
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+        - name: x509Config
+          value:
+            - name: keyUsage
+              value:
+                - name: baseKeyUsage
+                  value:
+                    - name: digitalSignature
+                      value: '{{ digitalSignature }}'
+                    - name: contentCommitment
+                      value: '{{ contentCommitment }}'
+                    - name: keyEncipherment
+                      value: '{{ keyEncipherment }}'
+                    - name: dataEncipherment
+                      value: '{{ dataEncipherment }}'
+                    - name: keyAgreement
+                      value: '{{ keyAgreement }}'
+                    - name: certSign
+                      value: '{{ certSign }}'
+                    - name: crlSign
+                      value: '{{ crlSign }}'
+                    - name: encipherOnly
+                      value: '{{ encipherOnly }}'
+                    - name: decipherOnly
+                      value: '{{ decipherOnly }}'
+                - name: extendedKeyUsage
+                  value:
+                    - name: serverAuth
+                      value: '{{ serverAuth }}'
+                    - name: clientAuth
+                      value: '{{ clientAuth }}'
+                    - name: codeSigning
+                      value: '{{ codeSigning }}'
+                    - name: emailProtection
+                      value: '{{ emailProtection }}'
+                    - name: timeStamping
+                      value: '{{ timeStamping }}'
+                    - name: ocspSigning
+                      value: '{{ ocspSigning }}'
+                - name: unknownExtendedKeyUsages
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: caOptions
+              value:
+                - name: isCa
+                  value: '{{ isCa }}'
+                - name: maxIssuerPathLength
+                  value: '{{ maxIssuerPathLength }}'
+            - name: policyIds
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: aiaOcspServers
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: nameConstraints
+              value:
+                - name: critical
+                  value: '{{ critical }}'
+                - name: permittedDnsNames
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: excludedDnsNames
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: permittedIpRanges
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: excludedIpRanges
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: permittedEmailAddresses
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: excludedEmailAddresses
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: permittedUris
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: excludedUris
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+            - name: additionalExtensions
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: publicKey
+          value:
+            - name: key
+              value: '{{ key }}'
+            - name: format
+              value: '{{ format }}'
+        - name: subjectKeyId
+          value:
+            - name: keyId
+              value: '{{ keyId }}'
     - name: lifetime
       value: '{{ lifetime }}'
     - name: certificateTemplate
       value: '{{ certificateTemplate }}'
     - name: subjectMode
       value: '{{ subjectMode }}'
-    - name: revocationDetails
-      value: '{{ revocationDetails }}'
-    - name: pemCertificate
-      value: '{{ pemCertificate }}'
-    - name: certificateDescription
-      value: '{{ certificateDescription }}'
-    - name: pemCertificateChain
-      value: '{{ pemCertificateChain }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
 
@@ -182,19 +298,11 @@ Updates a <code>certificates</code> resource.
 /*+ update */
 UPDATE google.privateca.certificates
 SET 
-name = '{{ name }}',
 pemCsr = '{{ pemCsr }}',
 config = '{{ config }}',
-issuerCertificateAuthority = '{{ issuerCertificateAuthority }}',
 lifetime = '{{ lifetime }}',
 certificateTemplate = '{{ certificateTemplate }}',
 subjectMode = '{{ subjectMode }}',
-revocationDetails = '{{ revocationDetails }}',
-pemCertificate = '{{ pemCertificate }}',
-certificateDescription = '{{ certificateDescription }}',
-pemCertificateChain = '{{ pemCertificateChain }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}'
 WHERE 
 caPoolsId = '{{ caPoolsId }}'

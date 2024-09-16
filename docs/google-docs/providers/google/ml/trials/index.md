@@ -95,31 +95,19 @@ INSERT INTO google.ml.trials (
 locationsId,
 projectsId,
 studiesId,
-name,
 state,
 parameters,
 finalMeasurement,
-measurements,
-startTime,
-endTime,
-clientId,
-trialInfeasible,
-infeasibleReason
+measurements
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ studiesId }}',
-'{{ name }}',
 '{{ state }}',
 '{{ parameters }}',
 '{{ finalMeasurement }}',
-'{{ measurements }}',
-'{{ startTime }}',
-'{{ endTime }}',
-'{{ clientId }}',
-true|false,
-'{{ infeasibleReason }}'
+'{{ measurements }}'
 ;
 ```
 </TabItem>
@@ -128,26 +116,26 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: state
       value: '{{ state }}'
     - name: parameters
-      value: '{{ parameters }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: finalMeasurement
-      value: '{{ finalMeasurement }}'
+      value:
+        - name: elapsedTime
+          value: '{{ elapsedTime }}'
+        - name: stepCount
+          value: '{{ stepCount }}'
+        - name: metrics
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: measurements
-      value: '{{ measurements }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: clientId
-      value: '{{ clientId }}'
-    - name: trialInfeasible
-      value: '{{ trialInfeasible }}'
-    - name: infeasibleReason
-      value: '{{ infeasibleReason }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

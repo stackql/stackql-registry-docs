@@ -157,9 +157,7 @@ encryption,
 etag,
 hierarchicalNamespace,
 iamConfiguration,
-id,
 ipFilter,
-kind,
 labels,
 lifecycle,
 autoclass,
@@ -174,7 +172,6 @@ projectNumber,
 retentionPolicy,
 objectRetention,
 rpo,
-selfLink,
 softDeletePolicy,
 storageClass,
 timeCreated,
@@ -198,9 +195,7 @@ true|false,
 '{{ etag }}',
 '{{ hierarchicalNamespace }}',
 '{{ iamConfiguration }}',
-'{{ id }}',
 '{{ ipFilter }}',
-'{{ kind }}',
 '{{ labels }}',
 '{{ lifecycle }}',
 '{{ autoclass }}',
@@ -215,7 +210,6 @@ true|false,
 '{{ retentionPolicy }}',
 '{{ objectRetention }}',
 '{{ rpo }}',
-'{{ selfLink }}',
 '{{ softDeletePolicy }}',
 '{{ storageClass }}',
 '{{ timeCreated }}',
@@ -235,29 +229,41 @@ true|false
 - name: your_resource_model_name
   props:
     - name: acl
-      value: '{{ acl }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: billing
       value:
         - name: requesterPays
           value: '{{ requesterPays }}'
     - name: cors
       value:
-        - - name: maxAgeSeconds
-            value: '{{ maxAgeSeconds }}'
-          - name: method
-            value: '{{ method }}'
-          - name: origin
-            value: '{{ origin }}'
-          - name: responseHeader
-            value: '{{ responseHeader }}'
+        - name: maxAgeSeconds
+          value: '{{ maxAgeSeconds }}'
+        - name: method
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: origin
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: responseHeader
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: customPlacementConfig
       value:
         - name: dataLocations
-          value: '{{ dataLocations }}'
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: defaultEventBasedHold
       value: '{{ defaultEventBasedHold }}'
     - name: defaultObjectAcl
-      value: '{{ defaultObjectAcl }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: encryption
       value:
         - name: defaultKmsKeyName
@@ -284,8 +290,6 @@ true|false
               value: '{{ lockedTime }}'
         - name: publicAccessPrevention
           value: '{{ publicAccessPrevention }}'
-    - name: id
-      value: '{{ id }}'
     - name: ipFilter
       value:
         - name: mode
@@ -293,53 +297,61 @@ true|false
         - name: publicNetworkSource
           value:
             - name: allowedIpCidrRanges
-              value: '{{ allowedIpCidrRanges }}'
+              value:
+                - name: type
+                  value: '{{ type }}'
         - name: vpcNetworkSources
           value:
-            - - name: network
-                value: '{{ network }}'
-              - name: allowedIpCidrRanges
-                value: '{{ allowedIpCidrRanges }}'
-    - name: kind
-      value: '{{ kind }}'
+            - name: network
+              value: '{{ network }}'
+            - name: allowedIpCidrRanges
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
     - name: lifecycle
       value:
         - name: rule
           value:
-            - - name: action
-                value:
-                  - name: storageClass
-                    value: '{{ storageClass }}'
-                  - name: type
-                    value: '{{ type }}'
-              - name: condition
-                value:
-                  - name: age
-                    value: '{{ age }}'
-                  - name: createdBefore
-                    value: '{{ createdBefore }}'
-                  - name: customTimeBefore
-                    value: '{{ customTimeBefore }}'
-                  - name: daysSinceCustomTime
-                    value: '{{ daysSinceCustomTime }}'
-                  - name: daysSinceNoncurrentTime
-                    value: '{{ daysSinceNoncurrentTime }}'
-                  - name: isLive
-                    value: '{{ isLive }}'
-                  - name: matchesPattern
-                    value: '{{ matchesPattern }}'
-                  - name: matchesPrefix
-                    value: '{{ matchesPrefix }}'
-                  - name: matchesSuffix
-                    value: '{{ matchesSuffix }}'
-                  - name: matchesStorageClass
-                    value: '{{ matchesStorageClass }}'
-                  - name: noncurrentTimeBefore
-                    value: '{{ noncurrentTimeBefore }}'
-                  - name: numNewerVersions
-                    value: '{{ numNewerVersions }}'
+            - name: action
+              value:
+                - name: storageClass
+                  value: '{{ storageClass }}'
+                - name: type
+                  value: '{{ type }}'
+            - name: condition
+              value:
+                - name: age
+                  value: '{{ age }}'
+                - name: createdBefore
+                  value: '{{ createdBefore }}'
+                - name: customTimeBefore
+                  value: '{{ customTimeBefore }}'
+                - name: daysSinceCustomTime
+                  value: '{{ daysSinceCustomTime }}'
+                - name: daysSinceNoncurrentTime
+                  value: '{{ daysSinceNoncurrentTime }}'
+                - name: isLive
+                  value: '{{ isLive }}'
+                - name: matchesPattern
+                  value: '{{ matchesPattern }}'
+                - name: matchesPrefix
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: matchesSuffix
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: matchesStorageClass
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: noncurrentTimeBefore
+                  value: '{{ noncurrentTimeBefore }}'
+                - name: numNewerVersions
+                  value: '{{ numNewerVersions }}'
     - name: autoclass
       value:
         - name: enabled
@@ -388,8 +400,6 @@ true|false
           value: '{{ mode }}'
     - name: rpo
       value: '{{ rpo }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: softDeletePolicy
       value:
         - name: retentionDurationSeconds
@@ -443,9 +453,7 @@ encryption = '{{ encryption }}',
 etag = '{{ etag }}',
 hierarchicalNamespace = '{{ hierarchicalNamespace }}',
 iamConfiguration = '{{ iamConfiguration }}',
-id = '{{ id }}',
 ipFilter = '{{ ipFilter }}',
-kind = '{{ kind }}',
 labels = '{{ labels }}',
 lifecycle = '{{ lifecycle }}',
 autoclass = '{{ autoclass }}',
@@ -460,7 +468,6 @@ projectNumber = '{{ projectNumber }}',
 retentionPolicy = '{{ retentionPolicy }}',
 objectRetention = '{{ objectRetention }}',
 rpo = '{{ rpo }}',
-selfLink = '{{ selfLink }}',
 softDeletePolicy = '{{ softDeletePolicy }}',
 storageClass = '{{ storageClass }}',
 timeCreated = '{{ timeCreated }}',
@@ -493,9 +500,7 @@ encryption = '{{ encryption }}',
 etag = '{{ etag }}',
 hierarchicalNamespace = '{{ hierarchicalNamespace }}',
 iamConfiguration = '{{ iamConfiguration }}',
-id = '{{ id }}',
 ipFilter = '{{ ipFilter }}',
-kind = '{{ kind }}',
 labels = '{{ labels }}',
 lifecycle = '{{ lifecycle }}',
 autoclass = '{{ autoclass }}',
@@ -510,7 +515,6 @@ projectNumber = '{{ projectNumber }}',
 retentionPolicy = '{{ retentionPolicy }}',
 objectRetention = '{{ objectRetention }}',
 rpo = '{{ rpo }}',
-selfLink = '{{ selfLink }}',
 softDeletePolicy = '{{ softDeletePolicy }}',
 storageClass = '{{ storageClass }}',
 timeCreated = '{{ timeCreated }}',

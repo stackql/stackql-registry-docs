@@ -76,15 +76,11 @@ Use the following StackQL query and manifest file to create a new <code>identity
 INSERT INTO google.iap.identity_aware_proxy_clients (
 brandsId,
 projectsId,
-name,
-secret,
 displayName
 )
 SELECT 
 '{{ brandsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ secret }}',
 '{{ displayName }}'
 ;
 ```
@@ -94,10 +90,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: secret
-      value: '{{ secret }}'
     - name: displayName
       value: '{{ displayName }}'
 

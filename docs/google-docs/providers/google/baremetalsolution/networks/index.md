@@ -93,8 +93,6 @@ Updates a <code>networks</code> resource.
 /*+ update */
 UPDATE google.baremetalsolution.networks
 SET 
-name = '{{ name }}',
-id = '{{ id }}',
 type = '{{ type }}',
 ipAddress = '{{ ipAddress }}',
 macAddress = '{{ macAddress }}',
@@ -108,8 +106,7 @@ servicesCidr = '{{ servicesCidr }}',
 reservations = '{{ reservations }}',
 pod = '{{ pod }}',
 mountPoints = '{{ mountPoints }}',
-jumboFramesEnabled = true|false,
-gatewayIp = '{{ gatewayIp }}'
+jumboFramesEnabled = true|false
 WHERE 
 locationsId = '{{ locationsId }}'
 AND networksId = '{{ networksId }}'

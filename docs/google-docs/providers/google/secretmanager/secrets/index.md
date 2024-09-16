@@ -94,9 +94,7 @@ Use the following StackQL query and manifest file to create a new <code>secrets<
 /*+ create */
 INSERT INTO google.secretmanager.secrets (
 projectsId,
-name,
 replication,
-createTime,
 labels,
 topics,
 expireTime,
@@ -110,9 +108,7 @@ customerManagedEncryption
 )
 SELECT 
 '{{ projectsId }}',
-'{{ name }}',
 '{{ replication }}',
-'{{ createTime }}',
 '{{ labels }}',
 '{{ topics }}',
 '{{ expireTime }}',
@@ -131,16 +127,26 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: replication
-      value: '{{ replication }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: automatic
+          value:
+            - name: customerManagedEncryption
+              value:
+                - name: kmsKeyName
+                  value: '{{ kmsKeyName }}'
+        - name: userManaged
+          value:
+            - name: replicas
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: labels
       value: '{{ labels }}'
     - name: topics
-      value: '{{ topics }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: expireTime
       value: '{{ expireTime }}'
     - name: ttl
@@ -148,15 +154,17 @@ SELECT
     - name: etag
       value: '{{ etag }}'
     - name: rotation
-      value: '{{ rotation }}'
+      value:
+        - name: nextRotationTime
+          value: '{{ nextRotationTime }}'
+        - name: rotationPeriod
+          value: '{{ rotationPeriod }}'
     - name: versionAliases
       value: '{{ versionAliases }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: versionDestroyTtl
       value: '{{ versionDestroyTtl }}'
-    - name: customerManagedEncryption
-      value: '{{ customerManagedEncryption }}'
 
 ```
 </TabItem>
@@ -170,9 +178,7 @@ Updates a <code>secrets</code> resource.
 /*+ update */
 UPDATE google.secretmanager.secrets
 SET 
-name = '{{ name }}',
 replication = '{{ replication }}',
-createTime = '{{ createTime }}',
 labels = '{{ labels }}',
 topics = '{{ topics }}',
 expireTime = '{{ expireTime }}',

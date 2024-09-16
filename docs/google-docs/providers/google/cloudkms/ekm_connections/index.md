@@ -82,8 +82,6 @@ Use the following StackQL query and manifest file to create a new <code>ekm_conn
 INSERT INTO google.cloudkms.ekm_connections (
 locationsId,
 projectsId,
-name,
-createTime,
 serviceResolvers,
 etag,
 keyManagementMode,
@@ -92,8 +90,6 @@ cryptoSpacePath
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
 '{{ serviceResolvers }}',
 '{{ etag }}',
 '{{ keyManagementMode }}',
@@ -106,12 +102,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: serviceResolvers
-      value: '{{ serviceResolvers }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: etag
       value: '{{ etag }}'
     - name: keyManagementMode
@@ -131,8 +125,6 @@ Updates a <code>ekm_connections</code> resource.
 /*+ update */
 UPDATE google.cloudkms.ekm_connections
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
 serviceResolvers = '{{ serviceResolvers }}',
 etag = '{{ etag }}',
 keyManagementMode = '{{ keyManagementMode }}',

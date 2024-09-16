@@ -60,7 +60,6 @@ Updates a <code>groups_security_settings</code> resource.
 /*+ update */
 UPDATE google.cloudidentity.groups_security_settings
 SET 
-name = '{{ name }}',
 memberRestriction = '{{ memberRestriction }}'
 WHERE 
 groupsId = '{{ groupsId }}';

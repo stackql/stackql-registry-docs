@@ -82,22 +82,14 @@ Use the following StackQL query and manifest file to create a new <code>studies<
 INSERT INTO google.aiplatform.studies (
 locationsId,
 projectsId,
-name,
 displayName,
-createTime,
-studySpec,
-state,
-inactiveReason
+studySpec
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ displayName }}',
-'{{ createTime }}',
-'{{ studySpec }}',
-'{{ state }}',
-'{{ inactiveReason }}'
+'{{ studySpec }}'
 ;
 ```
 </TabItem>
@@ -106,18 +98,64 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: studySpec
-      value: '{{ studySpec }}'
-    - name: state
-      value: '{{ state }}'
-    - name: inactiveReason
-      value: '{{ inactiveReason }}'
+      value:
+        - name: metrics
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: observationNoise
+          value: '{{ observationNoise }}'
+        - name: parameters
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: decayCurveStoppingSpec
+          value:
+            - name: useElapsedDuration
+              value: '{{ useElapsedDuration }}'
+        - name: convexAutomatedStoppingSpec
+          value:
+            - name: useElapsedDuration
+              value: '{{ useElapsedDuration }}'
+            - name: minStepCount
+              value: '{{ minStepCount }}'
+            - name: maxStepCount
+              value: '{{ maxStepCount }}'
+            - name: learningRateParameterName
+              value: '{{ learningRateParameterName }}'
+            - name: updateAllStoppedTrials
+              value: '{{ updateAllStoppedTrials }}'
+            - name: minMeasurementCount
+              value: '{{ minMeasurementCount }}'
+        - name: algorithm
+          value: '{{ algorithm }}'
+        - name: medianAutomatedStoppingSpec
+          value:
+            - name: useElapsedDuration
+              value: '{{ useElapsedDuration }}'
+        - name: measurementSelectionType
+          value: '{{ measurementSelectionType }}'
+        - name: studyStoppingConfig
+          value:
+            - name: minNumTrials
+              value: '{{ minNumTrials }}'
+            - name: shouldStopAsap
+              value: '{{ shouldStopAsap }}'
+            - name: maxNumTrialsNoProgress
+              value: '{{ maxNumTrialsNoProgress }}'
+            - name: maximumRuntimeConstraint
+              value:
+                - name: maxDuration
+                  value: '{{ maxDuration }}'
+                - name: endTime
+                  value: '{{ endTime }}'
+            - name: maxDurationNoProgress
+              value: '{{ maxDurationNoProgress }}'
+            - name: maxNumTrials
+              value: '{{ maxNumTrials }}'
 
 ```
 </TabItem>

@@ -87,8 +87,6 @@ Use the following StackQL query and manifest file to create a new <code>autoscal
 INSERT INTO google.dataproc.autoscaling_policies (
 projectsId,
 regionsId,
-id,
-name,
 basicAlgorithm,
 workerConfig,
 secondaryWorkerConfig,
@@ -97,8 +95,6 @@ labels
 SELECT 
 '{{ projectsId }}',
 '{{ regionsId }}',
-'{{ id }}',
-'{{ name }}',
 '{{ basicAlgorithm }}',
 '{{ workerConfig }}',
 '{{ secondaryWorkerConfig }}',
@@ -111,16 +107,44 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: id
-      value: '{{ id }}'
-    - name: name
-      value: '{{ name }}'
     - name: basicAlgorithm
-      value: '{{ basicAlgorithm }}'
+      value:
+        - name: yarnConfig
+          value:
+            - name: gracefulDecommissionTimeout
+              value: '{{ gracefulDecommissionTimeout }}'
+            - name: scaleUpFactor
+              value: '{{ scaleUpFactor }}'
+            - name: scaleDownFactor
+              value: '{{ scaleDownFactor }}'
+            - name: scaleUpMinWorkerFraction
+              value: '{{ scaleUpMinWorkerFraction }}'
+            - name: scaleDownMinWorkerFraction
+              value: '{{ scaleDownMinWorkerFraction }}'
+        - name: sparkStandaloneConfig
+          value:
+            - name: gracefulDecommissionTimeout
+              value: '{{ gracefulDecommissionTimeout }}'
+            - name: scaleUpFactor
+              value: '{{ scaleUpFactor }}'
+            - name: scaleDownFactor
+              value: '{{ scaleDownFactor }}'
+            - name: scaleUpMinWorkerFraction
+              value: '{{ scaleUpMinWorkerFraction }}'
+            - name: scaleDownMinWorkerFraction
+              value: '{{ scaleDownMinWorkerFraction }}'
+            - name: removeOnlyIdleWorkers
+              value: '{{ removeOnlyIdleWorkers }}'
+        - name: cooldownPeriod
+          value: '{{ cooldownPeriod }}'
     - name: workerConfig
-      value: '{{ workerConfig }}'
-    - name: secondaryWorkerConfig
-      value: '{{ secondaryWorkerConfig }}'
+      value:
+        - name: minInstances
+          value: '{{ minInstances }}'
+        - name: maxInstances
+          value: '{{ maxInstances }}'
+        - name: weight
+          value: '{{ weight }}'
     - name: labels
       value: '{{ labels }}'
 
@@ -136,8 +160,6 @@ Replaces all fields in the specified <code>autoscaling_policies</code> resource.
 /*+ update */
 REPLACE google.dataproc.autoscaling_policies
 SET 
-id = '{{ id }}',
-name = '{{ name }}',
 basicAlgorithm = '{{ basicAlgorithm }}',
 workerConfig = '{{ workerConfig }}',
 secondaryWorkerConfig = '{{ secondaryWorkerConfig }}',

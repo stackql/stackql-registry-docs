@@ -97,19 +97,13 @@ Use the following StackQL query and manifest file to create a new <code>views</c
 INSERT INTO google.logging.views (
 parent,
 parentType,
-name,
 description,
-createTime,
-updateTime,
 filter
 )
 SELECT 
 '{{ parent }}',
 '{{ parentType }}',
-'{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ filter }}'
 ;
 ```
@@ -119,14 +113,8 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: filter
       value: '{{ filter }}'
 
@@ -142,10 +130,7 @@ Updates a <code>views</code> resource.
 /*+ update */
 UPDATE google.logging.views
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 filter = '{{ filter }}'
 WHERE 
 bucketsId = '{{ bucketsId }}'

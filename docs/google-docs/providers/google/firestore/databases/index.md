@@ -109,43 +109,25 @@ Use the following StackQL query and manifest file to create a new <code>database
 INSERT INTO google.firestore.databases (
 projectsId,
 name,
-uid,
-createTime,
-updateTime,
-deleteTime,
 locationId,
 type,
 concurrencyMode,
-versionRetentionPeriod,
-earliestVersionTime,
 pointInTimeRecoveryEnablement,
 appEngineIntegrationMode,
-keyPrefix,
 deleteProtectionState,
 cmekConfig,
-previousId,
-sourceInfo,
 etag
 )
 SELECT 
 '{{ projectsId }}',
 '{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ locationId }}',
 '{{ type }}',
 '{{ concurrencyMode }}',
-'{{ versionRetentionPeriod }}',
-'{{ earliestVersionTime }}',
 '{{ pointInTimeRecoveryEnablement }}',
 '{{ appEngineIntegrationMode }}',
-'{{ keyPrefix }}',
 '{{ deleteProtectionState }}',
 '{{ cmekConfig }}',
-'{{ previousId }}',
-'{{ sourceInfo }}',
 '{{ etag }}'
 ;
 ```
@@ -157,38 +139,22 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: locationId
       value: '{{ locationId }}'
     - name: type
       value: '{{ type }}'
     - name: concurrencyMode
       value: '{{ concurrencyMode }}'
-    - name: versionRetentionPeriod
-      value: '{{ versionRetentionPeriod }}'
-    - name: earliestVersionTime
-      value: '{{ earliestVersionTime }}'
     - name: pointInTimeRecoveryEnablement
       value: '{{ pointInTimeRecoveryEnablement }}'
     - name: appEngineIntegrationMode
       value: '{{ appEngineIntegrationMode }}'
-    - name: keyPrefix
-      value: '{{ keyPrefix }}'
     - name: deleteProtectionState
       value: '{{ deleteProtectionState }}'
     - name: cmekConfig
-      value: '{{ cmekConfig }}'
-    - name: previousId
-      value: '{{ previousId }}'
-    - name: sourceInfo
-      value: '{{ sourceInfo }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: etag
       value: '{{ etag }}'
 
@@ -205,22 +171,13 @@ Updates a <code>databases</code> resource.
 UPDATE google.firestore.databases
 SET 
 name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
 locationId = '{{ locationId }}',
 type = '{{ type }}',
 concurrencyMode = '{{ concurrencyMode }}',
-versionRetentionPeriod = '{{ versionRetentionPeriod }}',
-earliestVersionTime = '{{ earliestVersionTime }}',
 pointInTimeRecoveryEnablement = '{{ pointInTimeRecoveryEnablement }}',
 appEngineIntegrationMode = '{{ appEngineIntegrationMode }}',
-keyPrefix = '{{ keyPrefix }}',
 deleteProtectionState = '{{ deleteProtectionState }}',
 cmekConfig = '{{ cmekConfig }}',
-previousId = '{{ previousId }}',
-sourceInfo = '{{ sourceInfo }}',
 etag = '{{ etag }}'
 WHERE 
 databasesId = '{{ databasesId }}'

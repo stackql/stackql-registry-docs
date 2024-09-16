@@ -103,13 +103,10 @@ organizationsId,
 deploymentType,
 forwardProxyUri,
 description,
-state,
 nodeConfig,
 properties,
 name,
-createdAt,
 hasAttachedFlowHooks,
-lastModifiedAt,
 type,
 displayName,
 apiProxyType
@@ -119,13 +116,10 @@ SELECT
 '{{ deploymentType }}',
 '{{ forwardProxyUri }}',
 '{{ description }}',
-'{{ state }}',
 '{{ nodeConfig }}',
 '{{ properties }}',
 '{{ name }}',
-'{{ createdAt }}',
 true|false,
-'{{ lastModifiedAt }}',
 '{{ type }}',
 '{{ displayName }}',
 '{{ apiProxyType }}'
@@ -143,20 +137,22 @@ true|false,
       value: '{{ forwardProxyUri }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
     - name: nodeConfig
-      value: '{{ nodeConfig }}'
+      value:
+        - name: minNodeCount
+          value: '{{ minNodeCount }}'
+        - name: maxNodeCount
+          value: '{{ maxNodeCount }}'
     - name: properties
-      value: '{{ properties }}'
+      value:
+        - name: property
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: name
       value: '{{ name }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
     - name: hasAttachedFlowHooks
       value: '{{ hasAttachedFlowHooks }}'
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
     - name: type
       value: '{{ type }}'
     - name: displayName
@@ -179,13 +175,10 @@ SET
 deploymentType = '{{ deploymentType }}',
 forwardProxyUri = '{{ forwardProxyUri }}',
 description = '{{ description }}',
-state = '{{ state }}',
 nodeConfig = '{{ nodeConfig }}',
 properties = '{{ properties }}',
 name = '{{ name }}',
-createdAt = '{{ createdAt }}',
 hasAttachedFlowHooks = true|false,
-lastModifiedAt = '{{ lastModifiedAt }}',
 type = '{{ type }}',
 displayName = '{{ displayName }}',
 apiProxyType = '{{ apiProxyType }}'

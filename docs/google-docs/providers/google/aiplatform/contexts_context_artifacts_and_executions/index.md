@@ -76,9 +76,13 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: artifacts
-      value: '{{ artifacts }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: executions
-      value: '{{ executions }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>

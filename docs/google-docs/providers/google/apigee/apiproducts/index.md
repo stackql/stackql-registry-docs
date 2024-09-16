@@ -157,13 +157,19 @@ SELECT
     - name: displayName
       value: '{{ displayName }}'
     - name: scopes
-      value: '{{ scopes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: apiResources
-      value: '{{ apiResources }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: quotaInterval
       value: '{{ quotaInterval }}'
     - name: proxies
-      value: '{{ proxies }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: createdAt
       value: '{{ createdAt }}'
     - name: approvalType
@@ -171,9 +177,15 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: attributes
-      value: '{{ attributes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: grpcOperationGroup
-      value: '{{ grpcOperationGroup }}'
+      value:
+        - name: operationConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: quotaTimeUnit
       value: '{{ quotaTimeUnit }}'
     - name: description
@@ -183,11 +195,25 @@ SELECT
     - name: lastModifiedAt
       value: '{{ lastModifiedAt }}'
     - name: environments
-      value: '{{ environments }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: graphqlOperationGroup
-      value: '{{ graphqlOperationGroup }}'
+      value:
+        - name: operationConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: operationConfigType
+          value: '{{ operationConfigType }}'
     - name: operationGroup
-      value: '{{ operationGroup }}'
+      value:
+        - name: operationConfigType
+          value: '{{ operationConfigType }}'
+        - name: operationConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: quotaCounterScope
       value: '{{ quotaCounterScope }}'
 

@@ -87,28 +87,20 @@ Use the following StackQL query and manifest file to create a new <code>licenses
 /*+ create */
 INSERT INTO google.compute.licenses (
 project,
-kind,
 name,
 chargesUseFee,
-id,
 licenseCode,
-creationTimestamp,
 description,
 transferable,
-selfLink,
 resourceRequirements
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
 '{{ name }}',
 true|false,
-'{{ id }}',
 '{{ licenseCode }}',
-'{{ creationTimestamp }}',
 '{{ description }}',
 true|false,
-'{{ selfLink }}',
 '{{ resourceRequirements }}'
 ;
 ```
@@ -118,26 +110,22 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
     - name: name
       value: '{{ name }}'
     - name: chargesUseFee
       value: '{{ chargesUseFee }}'
-    - name: id
-      value: '{{ id }}'
     - name: licenseCode
       value: '{{ licenseCode }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: description
       value: '{{ description }}'
     - name: transferable
       value: '{{ transferable }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: resourceRequirements
-      value: '{{ resourceRequirements }}'
+      value:
+        - name: minGuestCpuCount
+          value: '{{ minGuestCpuCount }}'
+        - name: minMemoryMb
+          value: '{{ minMemoryMb }}'
 
 ```
 </TabItem>

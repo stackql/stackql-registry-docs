@@ -97,35 +97,19 @@ INSERT INTO google.beyondcorp.app_gateways (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 displayName,
-uid,
 type,
-state,
-uri,
-allocatedConnections,
-hostType,
-satisfiesPzs,
-satisfiesPzi
+hostType
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
-'{{ uid }}',
 '{{ type }}',
-'{{ state }}',
-'{{ uri }}',
-'{{ allocatedConnections }}',
-'{{ hostType }}',
-true|false,
-true|false
+'{{ hostType }}'
 ;
 ```
 </TabItem>
@@ -136,30 +120,14 @@ true|false
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: type
       value: '{{ type }}'
-    - name: state
-      value: '{{ state }}'
-    - name: uri
-      value: '{{ uri }}'
-    - name: allocatedConnections
-      value: '{{ allocatedConnections }}'
     - name: hostType
       value: '{{ hostType }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

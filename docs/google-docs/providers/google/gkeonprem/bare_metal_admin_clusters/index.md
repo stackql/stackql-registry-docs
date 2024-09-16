@@ -132,27 +132,15 @@ locationsId,
 projectsId,
 name,
 description,
-uid,
 bareMetalVersion,
-state,
-endpoint,
-reconciling,
-createTime,
-updateTime,
-deleteTime,
-localName,
 etag,
 annotations,
 networkConfig,
 controlPlane,
 loadBalancer,
 storage,
-fleet,
 clusterOperations,
-status,
 maintenanceConfig,
-maintenanceStatus,
-validationCheck,
 nodeConfig,
 proxy,
 securityConfig,
@@ -165,27 +153,15 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ uid }}',
 '{{ bareMetalVersion }}',
-'{{ state }}',
-'{{ endpoint }}',
-true|false,
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
-'{{ localName }}',
 '{{ etag }}',
 '{{ annotations }}',
 '{{ networkConfig }}',
 '{{ controlPlane }}',
 '{{ loadBalancer }}',
 '{{ storage }}',
-'{{ fleet }}',
 '{{ clusterOperations }}',
-'{{ status }}',
 '{{ maintenanceConfig }}',
-'{{ maintenanceStatus }}',
-'{{ validationCheck }}',
 '{{ nodeConfig }}',
 '{{ proxy }}',
 '{{ securityConfig }}',
@@ -204,60 +180,122 @@ true|false,
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: bareMetalVersion
       value: '{{ bareMetalVersion }}'
-    - name: state
-      value: '{{ state }}'
-    - name: endpoint
-      value: '{{ endpoint }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: localName
-      value: '{{ localName }}'
     - name: etag
       value: '{{ etag }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: networkConfig
-      value: '{{ networkConfig }}'
+      value:
+        - name: islandModeCidr
+          value:
+            - name: serviceAddressCidrBlocks
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: podAddressCidrBlocks
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: controlPlane
-      value: '{{ controlPlane }}'
+      value:
+        - name: controlPlaneNodePoolConfig
+          value:
+            - name: nodePoolConfig
+              value:
+                - name: nodeConfigs
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: operatingSystem
+                  value: '{{ operatingSystem }}'
+                - name: taints
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: labels
+                  value: '{{ labels }}'
+                - name: kubeletConfig
+                  value:
+                    - name: registryPullQps
+                      value: '{{ registryPullQps }}'
+                    - name: registryBurst
+                      value: '{{ registryBurst }}'
+                    - name: serializeImagePullsDisabled
+                      value: '{{ serializeImagePullsDisabled }}'
+        - name: apiServerArgs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: loadBalancer
-      value: '{{ loadBalancer }}'
+      value:
+        - name: vipConfig
+          value:
+            - name: controlPlaneVip
+              value: '{{ controlPlaneVip }}'
+        - name: portConfig
+          value:
+            - name: controlPlaneLoadBalancerPort
+              value: '{{ controlPlaneLoadBalancerPort }}'
+        - name: manualLbConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
     - name: storage
-      value: '{{ storage }}'
-    - name: fleet
-      value: '{{ fleet }}'
+      value:
+        - name: lvpShareConfig
+          value:
+            - name: lvpConfig
+              value:
+                - name: path
+                  value: '{{ path }}'
+                - name: storageClass
+                  value: '{{ storageClass }}'
+            - name: sharedPathPvCount
+              value: '{{ sharedPathPvCount }}'
     - name: clusterOperations
-      value: '{{ clusterOperations }}'
-    - name: status
-      value: '{{ status }}'
+      value:
+        - name: enableApplicationLogs
+          value: '{{ enableApplicationLogs }}'
     - name: maintenanceConfig
-      value: '{{ maintenanceConfig }}'
-    - name: maintenanceStatus
-      value: '{{ maintenanceStatus }}'
-    - name: validationCheck
-      value: '{{ validationCheck }}'
+      value:
+        - name: maintenanceAddressCidrBlocks
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: nodeConfig
-      value: '{{ nodeConfig }}'
+      value:
+        - name: maxPodsPerNode
+          value: '{{ maxPodsPerNode }}'
     - name: proxy
-      value: '{{ proxy }}'
+      value:
+        - name: uri
+          value: '{{ uri }}'
+        - name: noProxy
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: securityConfig
-      value: '{{ securityConfig }}'
+      value:
+        - name: authorization
+          value:
+            - name: adminUsers
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: nodeAccessConfig
-      value: '{{ nodeAccessConfig }}'
+      value:
+        - name: loginUser
+          value: '{{ loginUser }}'
     - name: osEnvironmentConfig
-      value: '{{ osEnvironmentConfig }}'
+      value:
+        - name: packageRepoExcluded
+          value: '{{ packageRepoExcluded }}'
     - name: binaryAuthorization
-      value: '{{ binaryAuthorization }}'
+      value:
+        - name: evaluationMode
+          value: '{{ evaluationMode }}'
 
 ```
 </TabItem>
@@ -273,27 +311,15 @@ UPDATE google.gkeonprem.bare_metal_admin_clusters
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-uid = '{{ uid }}',
 bareMetalVersion = '{{ bareMetalVersion }}',
-state = '{{ state }}',
-endpoint = '{{ endpoint }}',
-reconciling = true|false,
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
-localName = '{{ localName }}',
 etag = '{{ etag }}',
 annotations = '{{ annotations }}',
 networkConfig = '{{ networkConfig }}',
 controlPlane = '{{ controlPlane }}',
 loadBalancer = '{{ loadBalancer }}',
 storage = '{{ storage }}',
-fleet = '{{ fleet }}',
 clusterOperations = '{{ clusterOperations }}',
-status = '{{ status }}',
 maintenanceConfig = '{{ maintenanceConfig }}',
-maintenanceStatus = '{{ maintenanceStatus }}',
-validationCheck = '{{ validationCheck }}',
 nodeConfig = '{{ nodeConfig }}',
 proxy = '{{ proxy }}',
 securityConfig = '{{ securityConfig }}',

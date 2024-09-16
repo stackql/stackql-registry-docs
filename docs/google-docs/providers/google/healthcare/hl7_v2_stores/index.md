@@ -111,11 +111,35 @@ true|false
     - name: name
       value: '{{ name }}'
     - name: parserConfig
-      value: '{{ parserConfig }}'
+      value:
+        - name: allowNullHeader
+          value: '{{ allowNullHeader }}'
+        - name: segmentTerminator
+          value: '{{ segmentTerminator }}'
+        - name: schema
+          value:
+            - name: schematizedParsingType
+              value: '{{ schematizedParsingType }}'
+            - name: schemas
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: types
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: ignoreMinOccurs
+              value: '{{ ignoreMinOccurs }}'
+            - name: unexpectedSegmentHandling
+              value: '{{ unexpectedSegmentHandling }}'
+        - name: version
+          value: '{{ version }}'
     - name: labels
       value: '{{ labels }}'
     - name: notificationConfigs
-      value: '{{ notificationConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: rejectDuplicateMessage
       value: '{{ rejectDuplicateMessage }}'
 

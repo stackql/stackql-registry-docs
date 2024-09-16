@@ -101,14 +101,7 @@ description,
 osPolicies,
 instanceFilter,
 rollout,
-revisionId,
-revisionCreateTime,
-etag,
-rolloutState,
-baseline,
-deleted,
-reconciling,
-uid
+etag
 )
 SELECT 
 '{{ locationsId }}',
@@ -118,14 +111,7 @@ SELECT
 '{{ osPolicies }}',
 '{{ instanceFilter }}',
 '{{ rollout }}',
-'{{ revisionId }}',
-'{{ revisionCreateTime }}',
-'{{ etag }}',
-'{{ rolloutState }}',
-true|false,
-true|false,
-true|false,
-'{{ uid }}'
+'{{ etag }}'
 ;
 ```
 </TabItem>
@@ -139,27 +125,37 @@ true|false,
     - name: description
       value: '{{ description }}'
     - name: osPolicies
-      value: '{{ osPolicies }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: instanceFilter
-      value: '{{ instanceFilter }}'
+      value:
+        - name: all
+          value: '{{ all }}'
+        - name: inclusionLabels
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: exclusionLabels
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: inventories
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: rollout
-      value: '{{ rollout }}'
-    - name: revisionId
-      value: '{{ revisionId }}'
-    - name: revisionCreateTime
-      value: '{{ revisionCreateTime }}'
+      value:
+        - name: disruptionBudget
+          value:
+            - name: fixed
+              value: '{{ fixed }}'
+            - name: percent
+              value: '{{ percent }}'
+        - name: minWaitDuration
+          value: '{{ minWaitDuration }}'
     - name: etag
       value: '{{ etag }}'
-    - name: rolloutState
-      value: '{{ rolloutState }}'
-    - name: baseline
-      value: '{{ baseline }}'
-    - name: deleted
-      value: '{{ deleted }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
-    - name: uid
-      value: '{{ uid }}'
 
 ```
 </TabItem>
@@ -178,14 +174,7 @@ description = '{{ description }}',
 osPolicies = '{{ osPolicies }}',
 instanceFilter = '{{ instanceFilter }}',
 rollout = '{{ rollout }}',
-revisionId = '{{ revisionId }}',
-revisionCreateTime = '{{ revisionCreateTime }}',
-etag = '{{ etag }}',
-rolloutState = '{{ rolloutState }}',
-baseline = true|false,
-deleted = true|false,
-reconciling = true|false,
-uid = '{{ uid }}'
+etag = '{{ etag }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND osPolicyAssignmentsId = '{{ osPolicyAssignmentsId }}'

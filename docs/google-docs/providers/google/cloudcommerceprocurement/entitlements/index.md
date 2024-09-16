@@ -115,31 +115,16 @@ Updates a <code>entitlements</code> resource.
 UPDATE google.cloudcommerceprocurement.entitlements
 SET 
 provider = '{{ provider }}',
-offer = '{{ offer }}',
-orderId = '{{ orderId }}',
 inputProperties = '{{ inputProperties }}',
-subscriptionEndTime = '{{ subscriptionEndTime }}',
-newPendingOffer = '{{ newPendingOffer }}',
 product = '{{ product }}',
 messageToUser = '{{ messageToUser }}',
-offerDuration = '{{ offerDuration }}',
-createTime = '{{ createTime }}',
-offerEndTime = '{{ offerEndTime }}',
 consumers = '{{ consumers }}',
 plan = '{{ plan }}',
-entitlementBenefitIds = '{{ entitlementBenefitIds }}',
 account = '{{ account }}',
 usageReportingId = '{{ usageReportingId }}',
-cancellationReason = '{{ cancellationReason }}',
-newOfferEndTime = '{{ newOfferEndTime }}',
-productExternalName = '{{ productExternalName }}',
 state = '{{ state }}',
-newPendingOfferDuration = '{{ newPendingOfferDuration }}',
-quoteExternalName = '{{ quoteExternalName }}',
-newOfferStartTime = '{{ newOfferStartTime }}',
 name = '{{ name }}',
-newPendingPlan = '{{ newPendingPlan }}',
-updateTime = '{{ updateTime }}'
+newPendingPlan = '{{ newPendingPlan }}'
 WHERE 
 entitlementsId = '{{ entitlementsId }}'
 AND providersId = '{{ providersId }}';

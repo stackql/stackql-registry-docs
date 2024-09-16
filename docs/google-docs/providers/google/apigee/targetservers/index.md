@@ -111,7 +111,35 @@ true|false,
 - name: your_resource_model_name
   props:
     - name: sSLInfo
-      value: '{{ sSLInfo }}'
+      value:
+        - name: commonName
+          value:
+            - name: value
+              value: '{{ value }}'
+            - name: wildcardMatch
+              value: '{{ wildcardMatch }}'
+        - name: ciphers
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: clientAuthEnabled
+          value: '{{ clientAuthEnabled }}'
+        - name: ignoreValidationErrors
+          value: '{{ ignoreValidationErrors }}'
+        - name: enforce
+          value: '{{ enforce }}'
+        - name: trustStore
+          value: '{{ trustStore }}'
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: keyAlias
+          value: '{{ keyAlias }}'
+        - name: keyStore
+          value: '{{ keyStore }}'
+        - name: protocols
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: host
       value: '{{ host }}'
     - name: name

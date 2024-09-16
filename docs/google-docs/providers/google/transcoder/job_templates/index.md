@@ -96,7 +96,51 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: config
-      value: '{{ config }}'
+      value:
+        - name: inputs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: editList
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: elementaryStreams
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: muxStreams
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: manifests
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: output
+          value:
+            - name: uri
+              value: '{{ uri }}'
+        - name: adBreaks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: pubsubDestination
+          value:
+            - name: topic
+              value: '{{ topic }}'
+        - name: spriteSheets
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: overlays
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: encryptions
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: labels
       value: '{{ labels }}'
 

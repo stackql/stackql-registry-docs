@@ -115,9 +115,6 @@ name,
 displayName,
 description,
 filter,
-createTime,
-updateTime,
-mostRecentEditor,
 type,
 expiryTime
 )
@@ -127,9 +124,6 @@ SELECT
 '{{ displayName }}',
 '{{ description }}',
 '{{ filter }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ mostRecentEditor }}',
 '{{ type }}',
 '{{ expiryTime }}'
 ;
@@ -148,12 +142,6 @@ SELECT
       value: '{{ description }}'
     - name: filter
       value: '{{ filter }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: mostRecentEditor
-      value: '{{ mostRecentEditor }}'
     - name: type
       value: '{{ type }}'
     - name: expiryTime
@@ -175,9 +163,6 @@ name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 filter = '{{ filter }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-mostRecentEditor = '{{ mostRecentEditor }}',
 type = '{{ type }}',
 expiryTime = '{{ expiryTime }}'
 WHERE 

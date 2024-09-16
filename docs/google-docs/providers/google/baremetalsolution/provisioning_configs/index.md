@@ -100,17 +100,13 @@ Use the following StackQL query and manifest file to create a new <code>provisio
 INSERT INTO google.baremetalsolution.provisioning_configs (
 locationsId,
 projectsId,
-name,
 instances,
 networks,
 volumes,
 ticketId,
 handoverServiceAccount,
 email,
-state,
 location,
-updateTime,
-cloudConsoleUri,
 vpcScEnabled,
 statusMessage,
 customId,
@@ -119,17 +115,13 @@ pod
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ instances }}',
 '{{ networks }}',
 '{{ volumes }}',
 '{{ ticketId }}',
 '{{ handoverServiceAccount }}',
 '{{ email }}',
-'{{ state }}',
 '{{ location }}',
-'{{ updateTime }}',
-'{{ cloudConsoleUri }}',
 true|false,
 '{{ statusMessage }}',
 '{{ customId }}',
@@ -142,28 +134,26 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: instances
-      value: '{{ instances }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: networks
-      value: '{{ networks }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: volumes
-      value: '{{ volumes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: ticketId
       value: '{{ ticketId }}'
     - name: handoverServiceAccount
       value: '{{ handoverServiceAccount }}'
     - name: email
       value: '{{ email }}'
-    - name: state
-      value: '{{ state }}'
     - name: location
       value: '{{ location }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: cloudConsoleUri
-      value: '{{ cloudConsoleUri }}'
     - name: vpcScEnabled
       value: '{{ vpcScEnabled }}'
     - name: statusMessage
@@ -185,17 +175,13 @@ Updates a <code>provisioning_configs</code> resource.
 /*+ update */
 UPDATE google.baremetalsolution.provisioning_configs
 SET 
-name = '{{ name }}',
 instances = '{{ instances }}',
 networks = '{{ networks }}',
 volumes = '{{ volumes }}',
 ticketId = '{{ ticketId }}',
 handoverServiceAccount = '{{ handoverServiceAccount }}',
 email = '{{ email }}',
-state = '{{ state }}',
 location = '{{ location }}',
-updateTime = '{{ updateTime }}',
-cloudConsoleUri = '{{ cloudConsoleUri }}',
 vpcScEnabled = true|false,
 statusMessage = '{{ statusMessage }}',
 customId = '{{ customId }}',

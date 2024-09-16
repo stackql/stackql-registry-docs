@@ -93,7 +93,6 @@ gitCommitish,
 codeCompilationConfig,
 cronSchedule,
 timeZone,
-recentScheduledReleaseRecords,
 releaseCompilationResult,
 disabled
 )
@@ -106,7 +105,6 @@ SELECT
 '{{ codeCompilationConfig }}',
 '{{ cronSchedule }}',
 '{{ timeZone }}',
-'{{ recentScheduledReleaseRecords }}',
 '{{ releaseCompilationResult }}',
 true|false
 ;
@@ -122,13 +120,31 @@ true|false
     - name: gitCommitish
       value: '{{ gitCommitish }}'
     - name: codeCompilationConfig
-      value: '{{ codeCompilationConfig }}'
+      value:
+        - name: defaultDatabase
+          value: '{{ defaultDatabase }}'
+        - name: defaultSchema
+          value: '{{ defaultSchema }}'
+        - name: defaultLocation
+          value: '{{ defaultLocation }}'
+        - name: assertionSchema
+          value: '{{ assertionSchema }}'
+        - name: vars
+          value: '{{ vars }}'
+        - name: databaseSuffix
+          value: '{{ databaseSuffix }}'
+        - name: schemaSuffix
+          value: '{{ schemaSuffix }}'
+        - name: tablePrefix
+          value: '{{ tablePrefix }}'
+        - name: defaultNotebookRuntimeOptions
+          value:
+            - name: gcsOutputBucket
+              value: '{{ gcsOutputBucket }}'
     - name: cronSchedule
       value: '{{ cronSchedule }}'
     - name: timeZone
       value: '{{ timeZone }}'
-    - name: recentScheduledReleaseRecords
-      value: '{{ recentScheduledReleaseRecords }}'
     - name: releaseCompilationResult
       value: '{{ releaseCompilationResult }}'
     - name: disabled
@@ -151,7 +167,6 @@ gitCommitish = '{{ gitCommitish }}',
 codeCompilationConfig = '{{ codeCompilationConfig }}',
 cronSchedule = '{{ cronSchedule }}',
 timeZone = '{{ timeZone }}',
-recentScheduledReleaseRecords = '{{ recentScheduledReleaseRecords }}',
 releaseCompilationResult = '{{ releaseCompilationResult }}',
 disabled = true|false
 WHERE 

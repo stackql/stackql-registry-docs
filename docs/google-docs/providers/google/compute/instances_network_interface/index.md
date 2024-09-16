@@ -45,7 +45,6 @@ Updates a <code>instances_network_interface</code> resource.
 /*+ update */
 UPDATE google.compute.instances_network_interface
 SET 
-kind = '{{ kind }}',
 network = '{{ network }}',
 subnetwork = '{{ subnetwork }}',
 networkIP = '{{ networkIP }}',

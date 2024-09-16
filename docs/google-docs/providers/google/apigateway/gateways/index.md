@@ -86,26 +86,16 @@ Use the following StackQL query and manifest file to create a new <code>gateways
 INSERT INTO google.apigateway.gateways (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 labels,
 displayName,
-apiConfig,
-state,
-defaultHostname
+apiConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
-'{{ apiConfig }}',
-'{{ state }}',
-'{{ defaultHostname }}'
+'{{ apiConfig }}'
 ;
 ```
 </TabItem>
@@ -114,22 +104,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: apiConfig
       value: '{{ apiConfig }}'
-    - name: state
-      value: '{{ state }}'
-    - name: defaultHostname
-      value: '{{ defaultHostname }}'
 
 ```
 </TabItem>
@@ -143,14 +123,9 @@ Updates a <code>gateways</code> resource.
 /*+ update */
 UPDATE google.apigateway.gateways
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
-apiConfig = '{{ apiConfig }}',
-state = '{{ state }}',
-defaultHostname = '{{ defaultHostname }}'
+apiConfig = '{{ apiConfig }}'
 WHERE 
 gatewaysId = '{{ gatewaysId }}'
 AND locationsId = '{{ locationsId }}'

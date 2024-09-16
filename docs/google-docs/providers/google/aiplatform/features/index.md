@@ -96,15 +96,12 @@ featureGroupsId,
 locationsId,
 projectsId,
 labels,
-createTime,
 versionColumnName,
 valueType,
 disableMonitoring,
 etag,
 description,
-updateTime,
 name,
-monitoringStatsAnomalies,
 pointOfContact
 )
 SELECT 
@@ -112,15 +109,12 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ labels }}',
-'{{ createTime }}',
 '{{ versionColumnName }}',
 '{{ valueType }}',
 true|false,
 '{{ etag }}',
 '{{ description }}',
-'{{ updateTime }}',
 '{{ name }}',
-'{{ monitoringStatsAnomalies }}',
 '{{ pointOfContact }}'
 ;
 ```
@@ -132,8 +126,6 @@ true|false,
   props:
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: versionColumnName
       value: '{{ versionColumnName }}'
     - name: valueType
@@ -144,12 +136,8 @@ true|false,
       value: '{{ etag }}'
     - name: description
       value: '{{ description }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: name
       value: '{{ name }}'
-    - name: monitoringStatsAnomalies
-      value: '{{ monitoringStatsAnomalies }}'
     - name: pointOfContact
       value: '{{ pointOfContact }}'
 
@@ -166,15 +154,12 @@ Updates a <code>features</code> resource.
 UPDATE google.aiplatform.features
 SET 
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
 versionColumnName = '{{ versionColumnName }}',
 valueType = '{{ valueType }}',
 disableMonitoring = true|false,
 etag = '{{ etag }}',
 description = '{{ description }}',
-updateTime = '{{ updateTime }}',
 name = '{{ name }}',
-monitoringStatsAnomalies = '{{ monitoringStatsAnomalies }}',
 pointOfContact = '{{ pointOfContact }}'
 WHERE 
 featureGroupsId = '{{ featureGroupsId }}'

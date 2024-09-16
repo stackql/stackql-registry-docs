@@ -100,13 +100,8 @@ Use the following StackQL query and manifest file to create a new <code>network_
 INSERT INTO google.compute.network_attachments (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
-selfLinkWithId,
 region,
 connectionPreference,
 connectionEndpoints,
@@ -119,13 +114,8 @@ network
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
-'{{ selfLinkWithId }}',
 '{{ region }}',
 '{{ connectionPreference }}',
 '{{ connectionEndpoints }}',
@@ -142,32 +132,30 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: selfLinkWithId
-      value: '{{ selfLinkWithId }}'
     - name: region
       value: '{{ region }}'
     - name: connectionPreference
       value: '{{ connectionPreference }}'
     - name: connectionEndpoints
-      value: '{{ connectionEndpoints }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: subnetworks
-      value: '{{ subnetworks }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: producerRejectLists
-      value: '{{ producerRejectLists }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: producerAcceptLists
-      value: '{{ producerAcceptLists }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
     - name: network
@@ -185,13 +173,8 @@ Updates a <code>network_attachments</code> resource.
 /*+ update */
 UPDATE google.compute.network_attachments
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
-selfLinkWithId = '{{ selfLinkWithId }}',
 region = '{{ region }}',
 connectionPreference = '{{ connectionPreference }}',
 connectionEndpoints = '{{ connectionEndpoints }}',

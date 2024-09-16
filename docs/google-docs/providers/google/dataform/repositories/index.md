@@ -97,7 +97,6 @@ INSERT INTO google.dataform.repositories (
 locationsId,
 projectsId,
 name,
-createTime,
 displayName,
 gitRemoteSettings,
 npmrcEnvironmentVariablesSecretVersion,
@@ -105,14 +104,12 @@ workspaceCompilationOverrides,
 labels,
 setAuthenticatedUserAdmin,
 serviceAccount,
-kmsKeyName,
-dataEncryptionState
+kmsKeyName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
 '{{ displayName }}',
 '{{ gitRemoteSettings }}',
 '{{ npmrcEnvironmentVariablesSecretVersion }}',
@@ -120,8 +117,7 @@ SELECT
 '{{ labels }}',
 true|false,
 '{{ serviceAccount }}',
-'{{ kmsKeyName }}',
-'{{ dataEncryptionState }}'
+'{{ kmsKeyName }}'
 ;
 ```
 </TabItem>
@@ -132,16 +128,32 @@ true|false,
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: gitRemoteSettings
-      value: '{{ gitRemoteSettings }}'
+      value:
+        - name: url
+          value: '{{ url }}'
+        - name: defaultBranch
+          value: '{{ defaultBranch }}'
+        - name: authenticationTokenSecretVersion
+          value: '{{ authenticationTokenSecretVersion }}'
+        - name: sshAuthenticationConfig
+          value:
+            - name: userPrivateKeySecretVersion
+              value: '{{ userPrivateKeySecretVersion }}'
+            - name: hostPublicKey
+              value: '{{ hostPublicKey }}'
     - name: npmrcEnvironmentVariablesSecretVersion
       value: '{{ npmrcEnvironmentVariablesSecretVersion }}'
     - name: workspaceCompilationOverrides
-      value: '{{ workspaceCompilationOverrides }}'
+      value:
+        - name: defaultDatabase
+          value: '{{ defaultDatabase }}'
+        - name: schemaSuffix
+          value: '{{ schemaSuffix }}'
+        - name: tablePrefix
+          value: '{{ tablePrefix }}'
     - name: labels
       value: '{{ labels }}'
     - name: setAuthenticatedUserAdmin
@@ -150,8 +162,6 @@ true|false,
       value: '{{ serviceAccount }}'
     - name: kmsKeyName
       value: '{{ kmsKeyName }}'
-    - name: dataEncryptionState
-      value: '{{ dataEncryptionState }}'
 
 ```
 </TabItem>
@@ -166,7 +176,6 @@ Updates a <code>repositories</code> resource.
 UPDATE google.dataform.repositories
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
 displayName = '{{ displayName }}',
 gitRemoteSettings = '{{ gitRemoteSettings }}',
 npmrcEnvironmentVariablesSecretVersion = '{{ npmrcEnvironmentVariablesSecretVersion }}',
@@ -174,8 +183,7 @@ workspaceCompilationOverrides = '{{ workspaceCompilationOverrides }}',
 labels = '{{ labels }}',
 setAuthenticatedUserAdmin = true|false,
 serviceAccount = '{{ serviceAccount }}',
-kmsKeyName = '{{ kmsKeyName }}',
-dataEncryptionState = '{{ dataEncryptionState }}'
+kmsKeyName = '{{ kmsKeyName }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

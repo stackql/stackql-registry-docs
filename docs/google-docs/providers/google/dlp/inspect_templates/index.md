@@ -117,7 +117,53 @@ SELECT
     - name: locationId
       value: '{{ locationId }}'
     - name: inspectTemplate
-      value: '{{ inspectTemplate }}'
+      value:
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: description
+          value: '{{ description }}'
+        - name: inspectConfig
+          value:
+            - name: limits
+              value:
+                - name: maxFindingsPerItem
+                  value: '{{ maxFindingsPerItem }}'
+                - name: maxFindingsPerRequest
+                  value: '{{ maxFindingsPerRequest }}'
+                - name: maxFindingsPerInfoType
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: contentOptions
+              value:
+                - name: enum
+                  value: '{{ enum }}'
+                - name: type
+                  value: '{{ type }}'
+                - name: enumDescriptions
+                  value: '{{ enumDescriptions }}'
+            - name: includeQuote
+              value: '{{ includeQuote }}'
+            - name: customInfoTypes
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: minLikelihoodPerInfoType
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: infoTypes
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: minLikelihood
+              value: '{{ minLikelihood }}'
+            - name: excludeInfoTypes
+              value: '{{ excludeInfoTypes }}'
+            - name: ruleSet
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
 
 ```
 </TabItem>

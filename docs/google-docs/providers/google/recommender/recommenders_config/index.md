@@ -76,11 +76,9 @@ Updates a <code>recommenders_config</code> resource.
 /*+ update */
 UPDATE google.recommender.recommenders_config
 SET 
-revisionId = '{{ revisionId }}',
 name = '{{ name }}',
 annotations = '{{ annotations }}',
 recommenderGenerationConfig = '{{ recommenderGenerationConfig }}',
-updateTime = '{{ updateTime }}',
 displayName = '{{ displayName }}',
 etag = '{{ etag }}'
 WHERE 

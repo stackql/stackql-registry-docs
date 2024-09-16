@@ -99,7 +99,6 @@ Use the following StackQL query and manifest file to create a new <code>develope
 INSERT INTO google.apigee.developers (
 organizationsId,
 userName,
-lastModifiedAt,
 apps,
 companies,
 developerId,
@@ -107,16 +106,12 @@ attributes,
 lastName,
 firstName,
 accessType,
-status,
 appFamily,
-organizationName,
-email,
-createdAt
+email
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ userName }}',
-'{{ lastModifiedAt }}',
 '{{ apps }}',
 '{{ companies }}',
 '{{ developerId }}',
@@ -124,11 +119,8 @@ SELECT
 '{{ lastName }}',
 '{{ firstName }}',
 '{{ accessType }}',
-'{{ status }}',
 '{{ appFamily }}',
-'{{ organizationName }}',
-'{{ email }}',
-'{{ createdAt }}'
+'{{ email }}'
 ;
 ```
 </TabItem>
@@ -139,32 +131,30 @@ SELECT
   props:
     - name: userName
       value: '{{ userName }}'
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
     - name: apps
-      value: '{{ apps }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: companies
-      value: '{{ companies }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: developerId
       value: '{{ developerId }}'
     - name: attributes
-      value: '{{ attributes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: lastName
       value: '{{ lastName }}'
     - name: firstName
       value: '{{ firstName }}'
     - name: accessType
       value: '{{ accessType }}'
-    - name: status
-      value: '{{ status }}'
     - name: appFamily
       value: '{{ appFamily }}'
-    - name: organizationName
-      value: '{{ organizationName }}'
     - name: email
       value: '{{ email }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
 
 ```
 </TabItem>
@@ -179,7 +169,6 @@ Replaces all fields in the specified <code>developers</code> resource.
 REPLACE google.apigee.developers
 SET 
 userName = '{{ userName }}',
-lastModifiedAt = '{{ lastModifiedAt }}',
 apps = '{{ apps }}',
 companies = '{{ companies }}',
 developerId = '{{ developerId }}',
@@ -187,11 +176,8 @@ attributes = '{{ attributes }}',
 lastName = '{{ lastName }}',
 firstName = '{{ firstName }}',
 accessType = '{{ accessType }}',
-status = '{{ status }}',
 appFamily = '{{ appFamily }}',
-organizationName = '{{ organizationName }}',
-email = '{{ email }}',
-createdAt = '{{ createdAt }}'
+email = '{{ email }}'
 WHERE 
 developersId = '{{ developersId }}'
 AND organizationsId = '{{ organizationsId }}';

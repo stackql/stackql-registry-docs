@@ -102,32 +102,26 @@ Use the following StackQL query and manifest file to create a new <code>apps</co
 INSERT INTO google.apigee.apps (
 appgroupsId,
 organizationsId,
-createdAt,
 apiProducts,
 attributes,
 keyExpiresIn,
 appGroup,
-credentials,
 scopes,
 status,
 name,
-lastModifiedAt,
 callbackUrl,
 appId
 )
 SELECT 
 '{{ appgroupsId }}',
 '{{ organizationsId }}',
-'{{ createdAt }}',
 '{{ apiProducts }}',
 '{{ attributes }}',
 '{{ keyExpiresIn }}',
 '{{ appGroup }}',
-'{{ credentials }}',
 '{{ scopes }}',
 '{{ status }}',
 '{{ name }}',
-'{{ lastModifiedAt }}',
 '{{ callbackUrl }}',
 '{{ appId }}'
 ;
@@ -138,26 +132,26 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: createdAt
-      value: '{{ createdAt }}'
     - name: apiProducts
-      value: '{{ apiProducts }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: attributes
-      value: '{{ attributes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: keyExpiresIn
       value: '{{ keyExpiresIn }}'
     - name: appGroup
       value: '{{ appGroup }}'
-    - name: credentials
-      value: '{{ credentials }}'
     - name: scopes
-      value: '{{ scopes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: status
       value: '{{ status }}'
     - name: name
       value: '{{ name }}'
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
     - name: callbackUrl
       value: '{{ callbackUrl }}'
     - name: appId
@@ -175,16 +169,13 @@ Replaces all fields in the specified <code>apps</code> resource.
 /*+ update */
 REPLACE google.apigee.apps
 SET 
-createdAt = '{{ createdAt }}',
 apiProducts = '{{ apiProducts }}',
 attributes = '{{ attributes }}',
 keyExpiresIn = '{{ keyExpiresIn }}',
 appGroup = '{{ appGroup }}',
-credentials = '{{ credentials }}',
 scopes = '{{ scopes }}',
 status = '{{ status }}',
 name = '{{ name }}',
-lastModifiedAt = '{{ lastModifiedAt }}',
 callbackUrl = '{{ callbackUrl }}',
 appId = '{{ appId }}'
 WHERE 

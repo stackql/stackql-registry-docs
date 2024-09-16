@@ -101,25 +101,19 @@ Use the following StackQL query and manifest file to create a new <code>saved_qu
 INSERT INTO google.logging.saved_queries (
 foldersId,
 locationsId,
-name,
 displayName,
 description,
 loggingQuery,
 opsAnalyticsQuery,
-createTime,
-updateTime,
 visibility
 )
 SELECT 
 '{{ foldersId }}',
 '{{ locationsId }}',
-'{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ loggingQuery }}',
 '{{ opsAnalyticsQuery }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ visibility }}'
 ;
 ```
@@ -129,20 +123,26 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
     - name: loggingQuery
-      value: '{{ loggingQuery }}'
+      value:
+        - name: filter
+          value: '{{ filter }}'
+        - name: summaryFields
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: summaryFieldStart
+          value: '{{ summaryFieldStart }}'
+        - name: summaryFieldEnd
+          value: '{{ summaryFieldEnd }}'
     - name: opsAnalyticsQuery
-      value: '{{ opsAnalyticsQuery }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: sqlQueryText
+          value: '{{ sqlQueryText }}'
     - name: visibility
       value: '{{ visibility }}'
 
@@ -158,13 +158,10 @@ Updates a <code>saved_queries</code> resource.
 /*+ update */
 UPDATE google.logging.saved_queries
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 loggingQuery = '{{ loggingQuery }}',
 opsAnalyticsQuery = '{{ opsAnalyticsQuery }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 visibility = '{{ visibility }}'
 WHERE 
 foldersId = '{{ foldersId }}'

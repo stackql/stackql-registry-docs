@@ -112,16 +112,9 @@ description,
 buildConfig,
 serviceConfig,
 eventTrigger,
-state,
-updateTime,
 labels,
-stateMessages,
 environment,
-upgradeInfo,
-url,
-kmsKeyName,
-satisfiesPzs,
-createTime
+kmsKeyName
 )
 SELECT 
 '{{ locationsId }}',
@@ -131,16 +124,9 @@ SELECT
 '{{ buildConfig }}',
 '{{ serviceConfig }}',
 '{{ eventTrigger }}',
-'{{ state }}',
-'{{ updateTime }}',
 '{{ labels }}',
-'{{ stateMessages }}',
 '{{ environment }}',
-'{{ upgradeInfo }}',
-'{{ url }}',
-'{{ kmsKeyName }}',
-true|false,
-'{{ createTime }}'
+'{{ kmsKeyName }}'
 ;
 ```
 </TabItem>
@@ -154,31 +140,119 @@ true|false,
     - name: description
       value: '{{ description }}'
     - name: buildConfig
-      value: '{{ buildConfig }}'
+      value:
+        - name: automaticUpdatePolicy
+          value: []
+        - name: onDeployUpdatePolicy
+          value: []
+        - name: runtime
+          value: '{{ runtime }}'
+        - name: entryPoint
+          value: '{{ entryPoint }}'
+        - name: source
+          value:
+            - name: storageSource
+              value:
+                - name: bucket
+                  value: '{{ bucket }}'
+                - name: object
+                  value: '{{ object }}'
+                - name: generation
+                  value: '{{ generation }}'
+                - name: sourceUploadUrl
+                  value: '{{ sourceUploadUrl }}'
+            - name: repoSource
+              value:
+                - name: branchName
+                  value: '{{ branchName }}'
+                - name: tagName
+                  value: '{{ tagName }}'
+                - name: commitSha
+                  value: '{{ commitSha }}'
+                - name: projectId
+                  value: '{{ projectId }}'
+                - name: repoName
+                  value: '{{ repoName }}'
+                - name: dir
+                  value: '{{ dir }}'
+            - name: gitUri
+              value: '{{ gitUri }}'
+        - name: workerPool
+          value: '{{ workerPool }}'
+        - name: environmentVariables
+          value: '{{ environmentVariables }}'
+        - name: dockerRegistry
+          value: '{{ dockerRegistry }}'
+        - name: dockerRepository
+          value: '{{ dockerRepository }}'
+        - name: serviceAccount
+          value: '{{ serviceAccount }}'
+        - name: sourceToken
+          value: '{{ sourceToken }}'
     - name: serviceConfig
-      value: '{{ serviceConfig }}'
+      value:
+        - name: timeoutSeconds
+          value: '{{ timeoutSeconds }}'
+        - name: availableMemory
+          value: '{{ availableMemory }}'
+        - name: availableCpu
+          value: '{{ availableCpu }}'
+        - name: environmentVariables
+          value: '{{ environmentVariables }}'
+        - name: maxInstanceCount
+          value: '{{ maxInstanceCount }}'
+        - name: minInstanceCount
+          value: '{{ minInstanceCount }}'
+        - name: vpcConnector
+          value: '{{ vpcConnector }}'
+        - name: vpcConnectorEgressSettings
+          value: '{{ vpcConnectorEgressSettings }}'
+        - name: ingressSettings
+          value: '{{ ingressSettings }}'
+        - name: serviceAccountEmail
+          value: '{{ serviceAccountEmail }}'
+        - name: allTrafficOnLatestRevision
+          value: '{{ allTrafficOnLatestRevision }}'
+        - name: secretEnvironmentVariables
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: secretVolumes
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: maxInstanceRequestConcurrency
+          value: '{{ maxInstanceRequestConcurrency }}'
+        - name: securityLevel
+          value: '{{ securityLevel }}'
+        - name: binaryAuthorizationPolicy
+          value: '{{ binaryAuthorizationPolicy }}'
     - name: eventTrigger
-      value: '{{ eventTrigger }}'
-    - name: state
-      value: '{{ state }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: triggerRegion
+          value: '{{ triggerRegion }}'
+        - name: eventType
+          value: '{{ eventType }}'
+        - name: eventFilters
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: pubsubTopic
+          value: '{{ pubsubTopic }}'
+        - name: serviceAccountEmail
+          value: '{{ serviceAccountEmail }}'
+        - name: retryPolicy
+          value: '{{ retryPolicy }}'
+        - name: channel
+          value: '{{ channel }}'
+        - name: service
+          value: '{{ service }}'
     - name: labels
       value: '{{ labels }}'
-    - name: stateMessages
-      value: '{{ stateMessages }}'
     - name: environment
       value: '{{ environment }}'
-    - name: upgradeInfo
-      value: '{{ upgradeInfo }}'
-    - name: url
-      value: '{{ url }}'
     - name: kmsKeyName
       value: '{{ kmsKeyName }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: createTime
-      value: '{{ createTime }}'
 
 ```
 </TabItem>
@@ -197,16 +271,9 @@ description = '{{ description }}',
 buildConfig = '{{ buildConfig }}',
 serviceConfig = '{{ serviceConfig }}',
 eventTrigger = '{{ eventTrigger }}',
-state = '{{ state }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
-stateMessages = '{{ stateMessages }}',
 environment = '{{ environment }}',
-upgradeInfo = '{{ upgradeInfo }}',
-url = '{{ url }}',
-kmsKeyName = '{{ kmsKeyName }}',
-satisfiesPzs = true|false,
-createTime = '{{ createTime }}'
+kmsKeyName = '{{ kmsKeyName }}'
 WHERE 
 functionsId = '{{ functionsId }}'
 AND locationsId = '{{ locationsId }}'

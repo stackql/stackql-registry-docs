@@ -98,38 +98,18 @@ Use the following StackQL query and manifest file to create a new <code>custom_j
 INSERT INTO google.aiplatform.custom_jobs (
 locationsId,
 projectsId,
-satisfiesPzs,
 displayName,
 encryptionSpec,
-webAccessUris,
-updateTime,
-state,
-error,
-satisfiesPzi,
-createTime,
 labels,
-name,
-jobSpec,
-endTime,
-startTime
+jobSpec
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-true|false,
 '{{ displayName }}',
 '{{ encryptionSpec }}',
-'{{ webAccessUris }}',
-'{{ updateTime }}',
-'{{ state }}',
-'{{ error }}',
-true|false,
-'{{ createTime }}',
 '{{ labels }}',
-'{{ name }}',
-'{{ jobSpec }}',
-'{{ endTime }}',
-'{{ startTime }}'
+'{{ jobSpec }}'
 ;
 ```
 </TabItem>
@@ -138,34 +118,62 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
-    - name: webAccessUris
-      value: '{{ webAccessUris }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: error
-      value: '{{ error }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: labels
       value: '{{ labels }}'
-    - name: name
-      value: '{{ name }}'
     - name: jobSpec
-      value: '{{ jobSpec }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: startTime
-      value: '{{ startTime }}'
+      value:
+        - name: workerPoolSpecs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: tensorboard
+          value: '{{ tensorboard }}'
+        - name: experimentRun
+          value: '{{ experimentRun }}'
+        - name: reservedIpRanges
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: scheduling
+          value:
+            - name: timeout
+              value: '{{ timeout }}'
+            - name: disableRetries
+              value: '{{ disableRetries }}'
+            - name: strategy
+              value: '{{ strategy }}'
+            - name: restartJobOnWorkerRestart
+              value: '{{ restartJobOnWorkerRestart }}'
+            - name: maxWaitDuration
+              value: '{{ maxWaitDuration }}'
+        - name: protectedArtifactLocationId
+          value: '{{ protectedArtifactLocationId }}'
+        - name: serviceAccount
+          value: '{{ serviceAccount }}'
+        - name: baseOutputDirectory
+          value:
+            - name: outputUriPrefix
+              value: '{{ outputUriPrefix }}'
+        - name: enableWebAccess
+          value: '{{ enableWebAccess }}'
+        - name: experiment
+          value: '{{ experiment }}'
+        - name: models
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: persistentResourceId
+          value: '{{ persistentResourceId }}'
+        - name: network
+          value: '{{ network }}'
+        - name: enableDashboardAccess
+          value: '{{ enableDashboardAccess }}'
 
 ```
 </TabItem>

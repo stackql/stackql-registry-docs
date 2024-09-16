@@ -111,7 +111,19 @@ SELECT
     - name: instancePartitionId
       value: '{{ instancePartitionId }}'
     - name: instancePartition
-      value: '{{ instancePartition }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: config
+          value: '{{ config }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: nodeCount
+          value: '{{ nodeCount }}'
+        - name: processingUnits
+          value: '{{ processingUnits }}'
+        - name: etag
+          value: '{{ etag }}'
 
 ```
 </TabItem>

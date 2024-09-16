@@ -80,18 +80,12 @@ Use the following StackQL query and manifest file to create a new <code>replays<
 INSERT INTO google.policysimulator.replays (
 foldersId,
 locationsId,
-name,
-config,
-state,
-resultsSummary
+config
 )
 SELECT 
 '{{ foldersId }}',
 '{{ locationsId }}',
-'{{ name }}',
-'{{ config }}',
-'{{ state }}',
-'{{ resultsSummary }}'
+'{{ config }}'
 ;
 ```
 </TabItem>
@@ -100,14 +94,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: config
-      value: '{{ config }}'
-    - name: state
-      value: '{{ state }}'
-    - name: resultsSummary
-      value: '{{ resultsSummary }}'
+      value:
+        - name: policyOverlay
+          value: '{{ policyOverlay }}'
+        - name: logSource
+          value: '{{ logSource }}'
 
 ```
 </TabItem>

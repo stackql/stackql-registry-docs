@@ -98,7 +98,9 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: sasUserIds
-      value: '{{ sasUserIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: displayName
       value: '{{ displayName }}'
 

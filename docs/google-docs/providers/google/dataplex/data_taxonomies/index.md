@@ -90,30 +90,18 @@ Use the following StackQL query and manifest file to create a new <code>data_tax
 INSERT INTO google.dataplex.data_taxonomies (
 locationsId,
 projectsId,
-name,
-uid,
-createTime,
-updateTime,
 description,
 displayName,
 labels,
-attributeCount,
-etag,
-classCount
+etag
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ displayName }}',
 '{{ labels }}',
-'{{ attributeCount }}',
-'{{ etag }}',
-'{{ classCount }}'
+'{{ etag }}'
 ;
 ```
 </TabItem>
@@ -122,26 +110,14 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: labels
       value: '{{ labels }}'
-    - name: attributeCount
-      value: '{{ attributeCount }}'
     - name: etag
       value: '{{ etag }}'
-    - name: classCount
-      value: '{{ classCount }}'
 
 ```
 </TabItem>
@@ -155,16 +131,10 @@ Updates a <code>data_taxonomies</code> resource.
 /*+ update */
 UPDATE google.dataplex.data_taxonomies
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 displayName = '{{ displayName }}',
 labels = '{{ labels }}',
-attributeCount = '{{ attributeCount }}',
-etag = '{{ etag }}',
-classCount = '{{ classCount }}'
+etag = '{{ etag }}'
 WHERE 
 dataTaxonomiesId = '{{ dataTaxonomiesId }}'
 AND locationsId = '{{ locationsId }}'

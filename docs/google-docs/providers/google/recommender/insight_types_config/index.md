@@ -77,11 +77,9 @@ Updates a <code>insight_types_config</code> resource.
 UPDATE google.recommender.insight_types_config
 SET 
 name = '{{ name }}',
-updateTime = '{{ updateTime }}',
 annotations = '{{ annotations }}',
 etag = '{{ etag }}',
 displayName = '{{ displayName }}',
-revisionId = '{{ revisionId }}',
 insightTypeGenerationConfig = '{{ insightTypeGenerationConfig }}'
 WHERE 
 insightTypesId = '{{ insightTypesId }}'

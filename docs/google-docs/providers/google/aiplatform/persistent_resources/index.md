@@ -103,18 +103,10 @@ Use the following StackQL query and manifest file to create a new <code>persiste
 INSERT INTO google.aiplatform.persistent_resources (
 locationsId,
 projectsId,
-updateTime,
 resourcePools,
-error,
-satisfiesPzs,
 displayName,
 network,
 resourceRuntimeSpec,
-createTime,
-resourceRuntime,
-state,
-satisfiesPzi,
-startTime,
 labels,
 reservedIpRanges,
 name,
@@ -123,18 +115,10 @@ encryptionSpec
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ updateTime }}',
 '{{ resourcePools }}',
-'{{ error }}',
-true|false,
 '{{ displayName }}',
 '{{ network }}',
 '{{ resourceRuntimeSpec }}',
-'{{ createTime }}',
-'{{ resourceRuntime }}',
-'{{ state }}',
-true|false,
-'{{ startTime }}',
 '{{ labels }}',
 '{{ reservedIpRanges }}',
 '{{ name }}',
@@ -147,38 +131,50 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: resourcePools
-      value: '{{ resourcePools }}'
-    - name: error
-      value: '{{ error }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: network
       value: '{{ network }}'
     - name: resourceRuntimeSpec
-      value: '{{ resourceRuntimeSpec }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: resourceRuntime
-      value: '{{ resourceRuntime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: startTime
-      value: '{{ startTime }}'
+      value:
+        - name: serviceAccountSpec
+          value:
+            - name: enableCustomServiceAccount
+              value: '{{ enableCustomServiceAccount }}'
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
+        - name: raySpec
+          value:
+            - name: resourcePoolImages
+              value: '{{ resourcePoolImages }}'
+            - name: rayMetricSpec
+              value:
+                - name: disabled
+                  value: '{{ disabled }}'
+            - name: imageUri
+              value: '{{ imageUri }}'
+            - name: rayLogsSpec
+              value:
+                - name: disabled
+                  value: '{{ disabled }}'
+            - name: headNodeResourcePoolId
+              value: '{{ headNodeResourcePoolId }}'
     - name: labels
       value: '{{ labels }}'
     - name: reservedIpRanges
-      value: '{{ reservedIpRanges }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: name
       value: '{{ name }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
 
 ```
 </TabItem>
@@ -192,18 +188,10 @@ Updates a <code>persistent_resources</code> resource.
 /*+ update */
 UPDATE google.aiplatform.persistent_resources
 SET 
-updateTime = '{{ updateTime }}',
 resourcePools = '{{ resourcePools }}',
-error = '{{ error }}',
-satisfiesPzs = true|false,
 displayName = '{{ displayName }}',
 network = '{{ network }}',
 resourceRuntimeSpec = '{{ resourceRuntimeSpec }}',
-createTime = '{{ createTime }}',
-resourceRuntime = '{{ resourceRuntime }}',
-state = '{{ state }}',
-satisfiesPzi = true|false,
-startTime = '{{ startTime }}',
 labels = '{{ labels }}',
 reservedIpRanges = '{{ reservedIpRanges }}',
 name = '{{ name }}',

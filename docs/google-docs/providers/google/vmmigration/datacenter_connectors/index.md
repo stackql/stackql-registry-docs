@@ -100,39 +100,17 @@ INSERT INTO google.vmmigration.datacenter_connectors (
 locationsId,
 projectsId,
 sourcesId,
-createTime,
-updateTime,
-name,
 registrationId,
 serviceAccount,
-version,
-bucket,
-state,
-stateTime,
-error,
-applianceInfrastructureVersion,
-applianceSoftwareVersion,
-availableVersions,
-upgradeStatus
+version
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ sourcesId }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ name }}',
 '{{ registrationId }}',
 '{{ serviceAccount }}',
-'{{ version }}',
-'{{ bucket }}',
-'{{ state }}',
-'{{ stateTime }}',
-'{{ error }}',
-'{{ applianceInfrastructureVersion }}',
-'{{ applianceSoftwareVersion }}',
-'{{ availableVersions }}',
-'{{ upgradeStatus }}'
+'{{ version }}'
 ;
 ```
 </TabItem>
@@ -141,34 +119,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: name
-      value: '{{ name }}'
     - name: registrationId
       value: '{{ registrationId }}'
     - name: serviceAccount
       value: '{{ serviceAccount }}'
     - name: version
       value: '{{ version }}'
-    - name: bucket
-      value: '{{ bucket }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateTime
-      value: '{{ stateTime }}'
-    - name: error
-      value: '{{ error }}'
-    - name: applianceInfrastructureVersion
-      value: '{{ applianceInfrastructureVersion }}'
-    - name: applianceSoftwareVersion
-      value: '{{ applianceSoftwareVersion }}'
-    - name: availableVersions
-      value: '{{ availableVersions }}'
-    - name: upgradeStatus
-      value: '{{ upgradeStatus }}'
 
 ```
 </TabItem>

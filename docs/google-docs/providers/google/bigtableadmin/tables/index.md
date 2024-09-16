@@ -115,9 +115,29 @@ SELECT
     - name: tableId
       value: '{{ tableId }}'
     - name: table
-      value: '{{ table }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: columnFamilies
+          value: '{{ columnFamilies }}'
+        - name: granularity
+          value: '{{ granularity }}'
+        - name: changeStreamConfig
+          value:
+            - name: retentionPeriod
+              value: '{{ retentionPeriod }}'
+        - name: deletionProtection
+          value: '{{ deletionProtection }}'
+        - name: automatedBackupPolicy
+          value:
+            - name: retentionPeriod
+              value: '{{ retentionPeriod }}'
+            - name: frequency
+              value: '{{ frequency }}'
     - name: initialSplits
-      value: '{{ initialSplits }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -132,13 +152,10 @@ Updates a <code>tables</code> resource.
 UPDATE google.bigtableadmin.tables
 SET 
 name = '{{ name }}',
-clusterStates = '{{ clusterStates }}',
 columnFamilies = '{{ columnFamilies }}',
 granularity = '{{ granularity }}',
-restoreInfo = '{{ restoreInfo }}',
 changeStreamConfig = '{{ changeStreamConfig }}',
 deletionProtection = true|false,
-stats = '{{ stats }}',
 automatedBackupPolicy = '{{ automatedBackupPolicy }}'
 WHERE 
 instancesId = '{{ instancesId }}'

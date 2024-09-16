@@ -98,37 +98,21 @@ Use the following StackQL query and manifest file to create a new <code>endpoint
 INSERT INTO google.ids.endpoints (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 labels,
 network,
-endpointForwardingRule,
-endpointIp,
 description,
 severity,
 threatExceptions,
-state,
-trafficLogs,
-satisfiesPzs,
-satisfiesPzi
+trafficLogs
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ network }}',
-'{{ endpointForwardingRule }}',
-'{{ endpointIp }}',
 '{{ description }}',
 '{{ severity }}',
 '{{ threatExceptions }}',
-'{{ state }}',
-true|false,
-true|false,
 true|false
 ;
 ```
@@ -138,34 +122,20 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: network
       value: '{{ network }}'
-    - name: endpointForwardingRule
-      value: '{{ endpointForwardingRule }}'
-    - name: endpointIp
-      value: '{{ endpointIp }}'
     - name: description
       value: '{{ description }}'
     - name: severity
       value: '{{ severity }}'
     - name: threatExceptions
-      value: '{{ threatExceptions }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: trafficLogs
       value: '{{ trafficLogs }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>
@@ -179,20 +149,12 @@ Updates a <code>endpoints</code> resource.
 /*+ update */
 UPDATE google.ids.endpoints
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 network = '{{ network }}',
-endpointForwardingRule = '{{ endpointForwardingRule }}',
-endpointIp = '{{ endpointIp }}',
 description = '{{ description }}',
 severity = '{{ severity }}',
 threatExceptions = '{{ threatExceptions }}',
-state = '{{ state }}',
-trafficLogs = true|false,
-satisfiesPzs = true|false,
-satisfiesPzi = true|false
+trafficLogs = true|false
 WHERE 
 endpointsId = '{{ endpointsId }}'
 AND locationsId = '{{ locationsId }}'

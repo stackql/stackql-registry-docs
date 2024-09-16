@@ -84,13 +84,7 @@ name = '{{ name }}',
 matchingOrder = '{{ matchingOrder }}',
 maxSuggestions = '{{ maxSuggestions }}',
 minPrefixLength = '{{ minPrefixLength }}',
-autoLearning = true|false,
-suggestionsInputConfig = '{{ suggestionsInputConfig }}',
-lastSuggestionsImportOperation = '{{ lastSuggestionsImportOperation }}',
-denylistInputConfig = '{{ denylistInputConfig }}',
-lastDenylistImportOperation = '{{ lastDenylistImportOperation }}',
-allowlistInputConfig = '{{ allowlistInputConfig }}',
-lastAllowlistImportOperation = '{{ lastAllowlistImportOperation }}'
+autoLearning = true|false
 WHERE 
 catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'

@@ -119,7 +119,169 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: jobTrigger
-      value: '{{ jobTrigger }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: triggers
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: status
+          value: '{{ status }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: description
+          value: '{{ description }}'
+        - name: inspectJob
+          value:
+            - name: storageConfig
+              value:
+                - name: hybridOptions
+                  value:
+                    - name: requiredFindingLabelKeys
+                      value:
+                        - name: type
+                          value: '{{ type }}'
+                    - name: labels
+                      value: '{{ labels }}'
+                    - name: description
+                      value: '{{ description }}'
+                    - name: tableOptions
+                      value:
+                        - name: identifyingFields
+                          value:
+                            - name: $ref
+                              value: '{{ $ref }}'
+                - name: timespanConfig
+                  value:
+                    - name: startTime
+                      value: '{{ startTime }}'
+                    - name: timestampField
+                      value:
+                        - name: name
+                          value: '{{ name }}'
+                    - name: endTime
+                      value: '{{ endTime }}'
+                    - name: enableAutoPopulationOfTimespanConfig
+                      value: '{{ enableAutoPopulationOfTimespanConfig }}'
+                - name: datastoreOptions
+                  value:
+                    - name: partitionId
+                      value:
+                        - name: namespaceId
+                          value: '{{ namespaceId }}'
+                        - name: projectId
+                          value: '{{ projectId }}'
+                - name: cloudStorageOptions
+                  value:
+                    - name: bytesLimitPerFilePercent
+                      value: '{{ bytesLimitPerFilePercent }}'
+                    - name: filesLimitPercent
+                      value: '{{ filesLimitPercent }}'
+                    - name: fileSet
+                      value:
+                        - name: regexFileSet
+                          value:
+                            - name: excludeRegex
+                              value:
+                                - name: type
+                                  value: '{{ type }}'
+                            - name: includeRegex
+                              value:
+                                - name: type
+                                  value: '{{ type }}'
+                            - name: bucketName
+                              value: '{{ bucketName }}'
+                        - name: url
+                          value: '{{ url }}'
+                    - name: bytesLimitPerFile
+                      value: '{{ bytesLimitPerFile }}'
+                    - name: fileTypes
+                      value:
+                        - name: enumDescriptions
+                          value: '{{ enumDescriptions }}'
+                        - name: enum
+                          value: '{{ enum }}'
+                        - name: type
+                          value: '{{ type }}'
+                    - name: sampleMethod
+                      value: '{{ sampleMethod }}'
+                - name: bigQueryOptions
+                  value:
+                    - name: includedFields
+                      value:
+                        - name: $ref
+                          value: '{{ $ref }}'
+                    - name: identifyingFields
+                      value:
+                        - name: $ref
+                          value: '{{ $ref }}'
+                    - name: tableReference
+                      value:
+                        - name: tableId
+                          value: '{{ tableId }}'
+                        - name: projectId
+                          value: '{{ projectId }}'
+                        - name: datasetId
+                          value: '{{ datasetId }}'
+                    - name: excludedFields
+                      value:
+                        - name: $ref
+                          value: '{{ $ref }}'
+                    - name: rowsLimitPercent
+                      value: '{{ rowsLimitPercent }}'
+                    - name: rowsLimit
+                      value: '{{ rowsLimit }}'
+                    - name: sampleMethod
+                      value: '{{ sampleMethod }}'
+            - name: inspectTemplateName
+              value: '{{ inspectTemplateName }}'
+            - name: actions
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: inspectConfig
+              value:
+                - name: limits
+                  value:
+                    - name: maxFindingsPerItem
+                      value: '{{ maxFindingsPerItem }}'
+                    - name: maxFindingsPerRequest
+                      value: '{{ maxFindingsPerRequest }}'
+                    - name: maxFindingsPerInfoType
+                      value:
+                        - name: $ref
+                          value: '{{ $ref }}'
+                - name: contentOptions
+                  value:
+                    - name: enum
+                      value: '{{ enum }}'
+                    - name: type
+                      value: '{{ type }}'
+                    - name: enumDescriptions
+                      value: '{{ enumDescriptions }}'
+                - name: includeQuote
+                  value: '{{ includeQuote }}'
+                - name: customInfoTypes
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: minLikelihoodPerInfoType
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: infoTypes
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: minLikelihood
+                  value: '{{ minLikelihood }}'
+                - name: excludeInfoTypes
+                  value: '{{ excludeInfoTypes }}'
+                - name: ruleSet
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
     - name: triggerId
       value: '{{ triggerId }}'
     - name: locationId

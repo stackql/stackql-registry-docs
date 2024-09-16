@@ -97,9 +97,7 @@ projectsId,
 name,
 state,
 userPseudoId,
-turns,
-startTime,
-endTime
+turns
 )
 SELECT 
 '{{ dataStoresId }}',
@@ -108,9 +106,7 @@ SELECT
 '{{ name }}',
 '{{ state }}',
 '{{ userPseudoId }}',
-'{{ turns }}',
-'{{ startTime }}',
-'{{ endTime }}'
+'{{ turns }}'
 ;
 ```
 </TabItem>
@@ -126,11 +122,9 @@ SELECT
     - name: userPseudoId
       value: '{{ userPseudoId }}'
     - name: turns
-      value: '{{ turns }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -147,9 +141,7 @@ SET
 name = '{{ name }}',
 state = '{{ state }}',
 userPseudoId = '{{ userPseudoId }}',
-turns = '{{ turns }}',
-startTime = '{{ startTime }}',
-endTime = '{{ endTime }}'
+turns = '{{ turns }}'
 WHERE 
 dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'

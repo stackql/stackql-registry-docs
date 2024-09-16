@@ -73,7 +73,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: healthChecks
-      value: '{{ healthChecks }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

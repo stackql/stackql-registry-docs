@@ -128,68 +128,40 @@ Use the following StackQL query and manifest file to create a new <code>batch_pr
 INSERT INTO google.aiplatform.batch_prediction_jobs (
 locationsId,
 projectsId,
-createTime,
 disableContainerLogging,
-completionStats,
 displayName,
-satisfiesPzs,
 labels,
-error,
 generateExplanation,
 explanationSpec,
 serviceAccount,
 manualBatchTuningParameters,
 dedicatedResources,
-resourcesConsumed,
-name,
 model,
-endTime,
 unmanagedContainerModel,
-updateTime,
 instanceConfig,
 outputConfig,
-outputInfo,
 inputConfig,
-modelVersionId,
-state,
-satisfiesPzi,
-partialFailures,
 modelParameters,
-encryptionSpec,
-startTime
+encryptionSpec
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ createTime }}',
 true|false,
-'{{ completionStats }}',
 '{{ displayName }}',
-true|false,
 '{{ labels }}',
-'{{ error }}',
 true|false,
 '{{ explanationSpec }}',
 '{{ serviceAccount }}',
 '{{ manualBatchTuningParameters }}',
 '{{ dedicatedResources }}',
-'{{ resourcesConsumed }}',
-'{{ name }}',
 '{{ model }}',
-'{{ endTime }}',
 '{{ unmanagedContainerModel }}',
-'{{ updateTime }}',
 '{{ instanceConfig }}',
 '{{ outputConfig }}',
-'{{ outputInfo }}',
 '{{ inputConfig }}',
-'{{ modelVersionId }}',
-'{{ state }}',
-true|false,
-'{{ partialFailures }}',
 '{{ modelParameters }}',
-'{{ encryptionSpec }}',
-'{{ startTime }}'
+'{{ encryptionSpec }}'
 ;
 ```
 </TabItem>
@@ -198,64 +170,214 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: createTime
-      value: '{{ createTime }}'
     - name: disableContainerLogging
       value: '{{ disableContainerLogging }}'
-    - name: completionStats
-      value: '{{ completionStats }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
     - name: labels
       value: '{{ labels }}'
-    - name: error
-      value: '{{ error }}'
     - name: generateExplanation
       value: '{{ generateExplanation }}'
     - name: explanationSpec
-      value: '{{ explanationSpec }}'
+      value:
+        - name: metadata
+          value:
+            - name: outputs
+              value: '{{ outputs }}'
+            - name: featureAttributionsSchemaUri
+              value: '{{ featureAttributionsSchemaUri }}'
+            - name: inputs
+              value: '{{ inputs }}'
+            - name: latentSpaceSource
+              value: '{{ latentSpaceSource }}'
+        - name: parameters
+          value:
+            - name: topK
+              value: '{{ topK }}'
+            - name: examples
+              value:
+                - name: nearestNeighborSearchConfig
+                  value: '{{ nearestNeighborSearchConfig }}'
+                - name: neighborCount
+                  value: '{{ neighborCount }}'
+                - name: exampleGcsSource
+                  value:
+                    - name: dataFormat
+                      value: '{{ dataFormat }}'
+                    - name: gcsSource
+                      value:
+                        - name: uris
+                          value:
+                            - name: type
+                              value: '{{ type }}'
+                - name: presets
+                  value:
+                    - name: modality
+                      value: '{{ modality }}'
+                    - name: query
+                      value: '{{ query }}'
+            - name: sampledShapleyAttribution
+              value:
+                - name: pathCount
+                  value: '{{ pathCount }}'
+            - name: xraiAttribution
+              value:
+                - name: smoothGradConfig
+                  value:
+                    - name: featureNoiseSigma
+                      value:
+                        - name: noiseSigma
+                          value:
+                            - name: $ref
+                              value: '{{ $ref }}'
+                    - name: noisySampleCount
+                      value: '{{ noisySampleCount }}'
+                    - name: noiseSigma
+                      value: '{{ noiseSigma }}'
+                - name: stepCount
+                  value: '{{ stepCount }}'
+                - name: blurBaselineConfig
+                  value:
+                    - name: maxBlurSigma
+                      value: '{{ maxBlurSigma }}'
+            - name: outputIndices
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: integratedGradientsAttribution
+              value:
+                - name: stepCount
+                  value: '{{ stepCount }}'
     - name: serviceAccount
       value: '{{ serviceAccount }}'
     - name: manualBatchTuningParameters
-      value: '{{ manualBatchTuningParameters }}'
+      value:
+        - name: batchSize
+          value: '{{ batchSize }}'
     - name: dedicatedResources
-      value: '{{ dedicatedResources }}'
-    - name: resourcesConsumed
-      value: '{{ resourcesConsumed }}'
-    - name: name
-      value: '{{ name }}'
+      value:
+        - name: maxReplicaCount
+          value: '{{ maxReplicaCount }}'
+        - name: machineSpec
+          value:
+            - name: acceleratorCount
+              value: '{{ acceleratorCount }}'
+            - name: reservationAffinity
+              value:
+                - name: key
+                  value: '{{ key }}'
+                - name: reservationAffinityType
+                  value: '{{ reservationAffinityType }}'
+                - name: values
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+            - name: tpuTopology
+              value: '{{ tpuTopology }}'
+            - name: acceleratorType
+              value: '{{ acceleratorType }}'
+            - name: machineType
+              value: '{{ machineType }}'
+        - name: startingReplicaCount
+          value: '{{ startingReplicaCount }}'
     - name: model
       value: '{{ model }}'
-    - name: endTime
-      value: '{{ endTime }}'
     - name: unmanagedContainerModel
-      value: '{{ unmanagedContainerModel }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: predictSchemata
+          value:
+            - name: predictionSchemaUri
+              value: '{{ predictionSchemaUri }}'
+            - name: instanceSchemaUri
+              value: '{{ instanceSchemaUri }}'
+            - name: parametersSchemaUri
+              value: '{{ parametersSchemaUri }}'
+        - name: containerSpec
+          value:
+            - name: startupProbe
+              value:
+                - name: timeoutSeconds
+                  value: '{{ timeoutSeconds }}'
+                - name: periodSeconds
+                  value: '{{ periodSeconds }}'
+                - name: exec
+                  value:
+                    - name: command
+                      value:
+                        - name: type
+                          value: '{{ type }}'
+            - name: imageUri
+              value: '{{ imageUri }}'
+            - name: grpcPorts
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: command
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: sharedMemorySizeMb
+              value: '{{ sharedMemorySizeMb }}'
+            - name: deploymentTimeout
+              value: '{{ deploymentTimeout }}'
+            - name: healthRoute
+              value: '{{ healthRoute }}'
+            - name: predictRoute
+              value: '{{ predictRoute }}'
+            - name: args
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: env
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: ports
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: artifactUri
+          value: '{{ artifactUri }}'
     - name: instanceConfig
-      value: '{{ instanceConfig }}'
+      value:
+        - name: keyField
+          value: '{{ keyField }}'
+        - name: instanceType
+          value: '{{ instanceType }}'
+        - name: excludedFields
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: includedFields
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: outputConfig
-      value: '{{ outputConfig }}'
-    - name: outputInfo
-      value: '{{ outputInfo }}'
+      value:
+        - name: bigqueryDestination
+          value:
+            - name: outputUri
+              value: '{{ outputUri }}'
+        - name: predictionsFormat
+          value: '{{ predictionsFormat }}'
+        - name: gcsDestination
+          value:
+            - name: outputUriPrefix
+              value: '{{ outputUriPrefix }}'
     - name: inputConfig
-      value: '{{ inputConfig }}'
-    - name: modelVersionId
-      value: '{{ modelVersionId }}'
-    - name: state
-      value: '{{ state }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: partialFailures
-      value: '{{ partialFailures }}'
+      value:
+        - name: bigquerySource
+          value:
+            - name: inputUri
+              value: '{{ inputUri }}'
+        - name: instancesFormat
+          value: '{{ instancesFormat }}'
     - name: modelParameters
       value: '{{ modelParameters }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
-    - name: startTime
-      value: '{{ startTime }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
 
 ```
 </TabItem>

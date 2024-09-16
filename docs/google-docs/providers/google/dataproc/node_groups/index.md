@@ -104,9 +104,55 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: roles
-      value: '{{ roles }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: nodeGroupConfig
-      value: '{{ nodeGroupConfig }}'
+      value:
+        - name: numInstances
+          value: '{{ numInstances }}'
+        - name: imageUri
+          value: '{{ imageUri }}'
+        - name: machineTypeUri
+          value: '{{ machineTypeUri }}'
+        - name: diskConfig
+          value:
+            - name: bootDiskType
+              value: '{{ bootDiskType }}'
+            - name: bootDiskSizeGb
+              value: '{{ bootDiskSizeGb }}'
+            - name: numLocalSsds
+              value: '{{ numLocalSsds }}'
+            - name: localSsdInterface
+              value: '{{ localSsdInterface }}'
+            - name: bootDiskProvisionedIops
+              value: '{{ bootDiskProvisionedIops }}'
+            - name: bootDiskProvisionedThroughput
+              value: '{{ bootDiskProvisionedThroughput }}'
+        - name: preemptibility
+          value: '{{ preemptibility }}'
+        - name: accelerators
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: minCpuPlatform
+          value: '{{ minCpuPlatform }}'
+        - name: minNumInstances
+          value: '{{ minNumInstances }}'
+        - name: instanceFlexibilityPolicy
+          value:
+            - name: instanceSelectionList
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: startupConfig
+          value:
+            - name: requiredRegistrationFraction
+              value: '{{ requiredRegistrationFraction }}'
     - name: labels
       value: '{{ labels }}'
 

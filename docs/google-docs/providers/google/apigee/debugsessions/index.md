@@ -87,7 +87,6 @@ environmentsId,
 organizationsId,
 revisionsId,
 filter,
-createTime,
 timeout,
 count,
 validity,
@@ -100,7 +99,6 @@ SELECT
 '{{ organizationsId }}',
 '{{ revisionsId }}',
 '{{ filter }}',
-'{{ createTime }}',
 '{{ timeout }}',
 '{{ count }}',
 '{{ validity }}',
@@ -116,8 +114,6 @@ SELECT
   props:
     - name: filter
       value: '{{ filter }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: timeout
       value: '{{ timeout }}'
     - name: count

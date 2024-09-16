@@ -115,7 +115,6 @@ rolloutConfig,
 rolloutState,
 rolloutFailureReason,
 result,
-createTime,
 startTime,
 endTime,
 lastUpdateTime,
@@ -136,7 +135,6 @@ SELECT
 '{{ rolloutState }}',
 '{{ rolloutFailureReason }}',
 '{{ result }}',
-'{{ createTime }}',
 '{{ startTime }}',
 '{{ endTime }}',
 '{{ lastUpdateTime }}',
@@ -159,17 +157,43 @@ SELECT
     - name: state
       value: '{{ state }}'
     - name: definition
-      value: '{{ definition }}'
+      value:
+        - name: condition
+          value: '{{ condition }}'
+        - name: versionVariants
+          value:
+            - name: variants
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: rolloutConfig
-      value: '{{ rolloutConfig }}'
+      value:
+        - name: rolloutSteps
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: rolloutCondition
+          value: '{{ rolloutCondition }}'
+        - name: failureCondition
+          value: '{{ failureCondition }}'
     - name: rolloutState
-      value: '{{ rolloutState }}'
+      value:
+        - name: step
+          value: '{{ step }}'
+        - name: stepIndex
+          value: '{{ stepIndex }}'
+        - name: startTime
+          value: '{{ startTime }}'
     - name: rolloutFailureReason
       value: '{{ rolloutFailureReason }}'
     - name: result
-      value: '{{ result }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: versionMetrics
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: lastUpdateTime
+          value: '{{ lastUpdateTime }}'
     - name: startTime
       value: '{{ startTime }}'
     - name: endTime
@@ -179,7 +203,9 @@ SELECT
     - name: experimentLength
       value: '{{ experimentLength }}'
     - name: variantsHistory
-      value: '{{ variantsHistory }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -202,7 +228,6 @@ rolloutConfig = '{{ rolloutConfig }}',
 rolloutState = '{{ rolloutState }}',
 rolloutFailureReason = '{{ rolloutFailureReason }}',
 result = '{{ result }}',
-createTime = '{{ createTime }}',
 startTime = '{{ startTime }}',
 endTime = '{{ endTime }}',
 lastUpdateTime = '{{ lastUpdateTime }}',

@@ -79,18 +79,14 @@ Use the following StackQL query and manifest file to create a new <code>datacoll
 INSERT INTO google.apigee.datacollectors (
 organizationsId,
 type,
-createdAt,
 description,
-name,
-lastModifiedAt
+name
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ type }}',
-'{{ createdAt }}',
 '{{ description }}',
-'{{ name }}',
-'{{ lastModifiedAt }}'
+'{{ name }}'
 ;
 ```
 </TabItem>
@@ -101,14 +97,10 @@ SELECT
   props:
     - name: type
       value: '{{ type }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
     - name: description
       value: '{{ description }}'
     - name: name
       value: '{{ name }}'
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
 
 ```
 </TabItem>
@@ -123,10 +115,8 @@ Updates a <code>datacollectors</code> resource.
 UPDATE google.apigee.datacollectors
 SET 
 type = '{{ type }}',
-createdAt = '{{ createdAt }}',
 description = '{{ description }}',
-name = '{{ name }}',
-lastModifiedAt = '{{ lastModifiedAt }}'
+name = '{{ name }}'
 WHERE 
 datacollectorsId = '{{ datacollectorsId }}'
 AND organizationsId = '{{ organizationsId }}';

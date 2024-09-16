@@ -94,31 +94,25 @@ INSERT INTO google.iam.oauth_clients (
 locationsId,
 projectsId,
 name,
-state,
 disabled,
-clientId,
 displayName,
 description,
 clientType,
 allowedGrantTypes,
 allowedScopes,
-allowedRedirectUris,
-expireTime
+allowedRedirectUris
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ state }}',
 true|false,
-'{{ clientId }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ clientType }}',
 '{{ allowedGrantTypes }}',
 '{{ allowedScopes }}',
-'{{ allowedRedirectUris }}',
-'{{ expireTime }}'
+'{{ allowedRedirectUris }}'
 ;
 ```
 </TabItem>
@@ -129,12 +123,8 @@ true|false,
   props:
     - name: name
       value: '{{ name }}'
-    - name: state
-      value: '{{ state }}'
     - name: disabled
       value: '{{ disabled }}'
-    - name: clientId
-      value: '{{ clientId }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
@@ -142,13 +132,21 @@ true|false,
     - name: clientType
       value: '{{ clientType }}'
     - name: allowedGrantTypes
-      value: '{{ allowedGrantTypes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: allowedScopes
-      value: '{{ allowedScopes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: allowedRedirectUris
-      value: '{{ allowedRedirectUris }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -163,16 +161,13 @@ Updates a <code>oauth_clients</code> resource.
 UPDATE google.iam.oauth_clients
 SET 
 name = '{{ name }}',
-state = '{{ state }}',
 disabled = true|false,
-clientId = '{{ clientId }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 clientType = '{{ clientType }}',
 allowedGrantTypes = '{{ allowedGrantTypes }}',
 allowedScopes = '{{ allowedScopes }}',
-allowedRedirectUris = '{{ allowedRedirectUris }}',
-expireTime = '{{ expireTime }}'
+allowedRedirectUris = '{{ allowedRedirectUris }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND oauthClientsId = '{{ oauthClientsId }}'

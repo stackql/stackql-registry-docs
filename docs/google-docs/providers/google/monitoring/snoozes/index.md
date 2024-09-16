@@ -97,9 +97,17 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: criteria
-      value: '{{ criteria }}'
+      value:
+        - name: policies
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: interval
-      value: '{{ interval }}'
+      value:
+        - name: endTime
+          value: '{{ endTime }}'
+        - name: startTime
+          value: '{{ startTime }}'
     - name: displayName
       value: '{{ displayName }}'
 

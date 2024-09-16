@@ -93,8 +93,6 @@ projectsId,
 name,
 displayName,
 description,
-createTime,
-updateTime,
 state,
 labels,
 annotations,
@@ -107,8 +105,6 @@ SELECT
 '{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ state }}',
 '{{ labels }}',
 '{{ annotations }}',
@@ -127,10 +123,6 @@ SELECT
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: state
       value: '{{ state }}'
     - name: labels
@@ -155,8 +147,6 @@ SET
 name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 state = '{{ state }}',
 labels = '{{ labels }}',
 annotations = '{{ annotations }}',

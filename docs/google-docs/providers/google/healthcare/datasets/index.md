@@ -100,7 +100,9 @@ SELECT
     - name: timeZone
       value: '{{ timeZone }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
 
 ```
 </TabItem>

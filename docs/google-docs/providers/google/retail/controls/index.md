@@ -87,7 +87,6 @@ projectsId,
 rule,
 name,
 displayName,
-associatedServingConfigIds,
 solutionTypes,
 searchSolutionUseCase
 )
@@ -98,7 +97,6 @@ SELECT
 '{{ rule }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ associatedServingConfigIds }}',
 '{{ solutionTypes }}',
 '{{ searchSolutionUseCase }}'
 ;
@@ -110,17 +108,117 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: rule
-      value: '{{ rule }}'
+      value:
+        - name: boostAction
+          value:
+            - name: boost
+              value: '{{ boost }}'
+            - name: productsFilter
+              value: '{{ productsFilter }}'
+        - name: redirectAction
+          value:
+            - name: redirectUri
+              value: '{{ redirectUri }}'
+        - name: onewaySynonymsAction
+          value:
+            - name: queryTerms
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: synonyms
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: onewayTerms
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: doNotAssociateAction
+          value:
+            - name: queryTerms
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: doNotAssociateTerms
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: terms
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: replacementAction
+          value:
+            - name: queryTerms
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: replacementTerm
+              value: '{{ replacementTerm }}'
+            - name: term
+              value: '{{ term }}'
+        - name: ignoreAction
+          value:
+            - name: ignoreTerms
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: filterAction
+          value:
+            - name: filter
+              value: '{{ filter }}'
+        - name: twowaySynonymsAction
+          value:
+            - name: synonyms
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: forceReturnFacetAction
+          value:
+            - name: facetPositionAdjustments
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: removeFacetAction
+          value:
+            - name: attributeNames
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: condition
+          value:
+            - name: queryTerms
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: activeTimeRange
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: pageCategories
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: name
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: associatedServingConfigIds
-      value: '{{ associatedServingConfigIds }}'
     - name: solutionTypes
-      value: '{{ solutionTypes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: searchSolutionUseCase
-      value: '{{ searchSolutionUseCase }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
 
 ```
 </TabItem>
@@ -137,7 +235,6 @@ SET
 rule = '{{ rule }}',
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-associatedServingConfigIds = '{{ associatedServingConfigIds }}',
 solutionTypes = '{{ solutionTypes }}',
 searchSolutionUseCase = '{{ searchSolutionUseCase }}'
 WHERE 

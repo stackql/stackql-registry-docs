@@ -86,7 +86,6 @@ INSERT INTO google.cloudidentity.inbound_sso_assignments (
 ,
 targetGroup,
 targetOrgUnit,
-name,
 customer,
 rank,
 ssoMode,
@@ -97,7 +96,6 @@ SELECT
 '{{  }}',
 '{{ targetGroup }}',
 '{{ targetOrgUnit }}',
-'{{ name }}',
 '{{ customer }}',
 '{{ rank }}',
 '{{ ssoMode }}',
@@ -115,8 +113,6 @@ SELECT
       value: '{{ targetGroup }}'
     - name: targetOrgUnit
       value: '{{ targetOrgUnit }}'
-    - name: name
-      value: '{{ name }}'
     - name: customer
       value: '{{ customer }}'
     - name: rank
@@ -124,9 +120,13 @@ SELECT
     - name: ssoMode
       value: '{{ ssoMode }}'
     - name: samlSsoInfo
-      value: '{{ samlSsoInfo }}'
+      value:
+        - name: inboundSamlSsoProfile
+          value: '{{ inboundSamlSsoProfile }}'
     - name: signInBehavior
-      value: '{{ signInBehavior }}'
+      value:
+        - name: redirectCondition
+          value: '{{ redirectCondition }}'
 
 ```
 </TabItem>
@@ -142,7 +142,6 @@ UPDATE google.cloudidentity.inbound_sso_assignments
 SET 
 targetGroup = '{{ targetGroup }}',
 targetOrgUnit = '{{ targetOrgUnit }}',
-name = '{{ name }}',
 customer = '{{ customer }}',
 rank = '{{ rank }}',
 ssoMode = '{{ ssoMode }}',

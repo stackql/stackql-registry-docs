@@ -84,14 +84,11 @@ graphqlEndpointUrl,
 anonAllowed,
 apiProductName,
 requireCallbackUrl,
-siteId,
 title,
 description,
 graphqlSchema,
-modified,
 graphqlSchemaDisplayName,
 published,
-id,
 imageUrl,
 specId,
 visibility,
@@ -105,14 +102,11 @@ SELECT
 true|false,
 '{{ apiProductName }}',
 true|false,
-'{{ siteId }}',
 '{{ title }}',
 '{{ description }}',
 '{{ graphqlSchema }}',
-'{{ modified }}',
 '{{ graphqlSchemaDisplayName }}',
 true|false,
-'{{ id }}',
 '{{ imageUrl }}',
 '{{ specId }}',
 true|false,
@@ -134,22 +128,16 @@ true|false,
       value: '{{ apiProductName }}'
     - name: requireCallbackUrl
       value: '{{ requireCallbackUrl }}'
-    - name: siteId
-      value: '{{ siteId }}'
     - name: title
       value: '{{ title }}'
     - name: description
       value: '{{ description }}'
     - name: graphqlSchema
       value: '{{ graphqlSchema }}'
-    - name: modified
-      value: '{{ modified }}'
     - name: graphqlSchemaDisplayName
       value: '{{ graphqlSchemaDisplayName }}'
     - name: published
       value: '{{ published }}'
-    - name: id
-      value: '{{ id }}'
     - name: imageUrl
       value: '{{ imageUrl }}'
     - name: specId
@@ -159,7 +147,9 @@ true|false,
     - name: edgeAPIProductName
       value: '{{ edgeAPIProductName }}'
     - name: categoryIds
-      value: '{{ categoryIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -177,14 +167,11 @@ graphqlEndpointUrl = '{{ graphqlEndpointUrl }}',
 anonAllowed = true|false,
 apiProductName = '{{ apiProductName }}',
 requireCallbackUrl = true|false,
-siteId = '{{ siteId }}',
 title = '{{ title }}',
 description = '{{ description }}',
 graphqlSchema = '{{ graphqlSchema }}',
-modified = '{{ modified }}',
 graphqlSchemaDisplayName = '{{ graphqlSchemaDisplayName }}',
 published = true|false,
-id = '{{ id }}',
 imageUrl = '{{ imageUrl }}',
 specId = '{{ specId }}',
 visibility = true|false,

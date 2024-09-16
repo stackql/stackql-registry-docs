@@ -129,7 +129,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: dimensions
-      value: '{{ dimensions }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: limit
       value: '{{ limit }}'
     - name: csvDelimiter
@@ -145,7 +147,9 @@ SELECT
     - name: timeRange
       value: '{{ timeRange }}'
     - name: metrics
-      value: '{{ metrics }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: groupByTimeUnit
       value: '{{ groupByTimeUnit }}'
     - name: reportDefinitionId

@@ -105,14 +105,10 @@ INSERT INTO google.clouddeploy.targets (
 locationsId,
 projectsId,
 name,
-targetId,
-uid,
 description,
 annotations,
 labels,
 requireApproval,
-createTime,
-updateTime,
 gke,
 anthosCluster,
 run,
@@ -126,14 +122,10 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ targetId }}',
-'{{ uid }}',
 '{{ description }}',
 '{{ annotations }}',
 '{{ labels }}',
 true|false,
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ gke }}',
 '{{ anthosCluster }}',
 '{{ run }}',
@@ -152,10 +144,6 @@ true|false,
   props:
     - name: name
       value: '{{ name }}'
-    - name: targetId
-      value: '{{ targetId }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: description
       value: '{{ description }}'
     - name: annotations
@@ -164,24 +152,38 @@ true|false,
       value: '{{ labels }}'
     - name: requireApproval
       value: '{{ requireApproval }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: gke
-      value: '{{ gke }}'
+      value:
+        - name: cluster
+          value: '{{ cluster }}'
+        - name: internalIp
+          value: '{{ internalIp }}'
+        - name: proxyUrl
+          value: '{{ proxyUrl }}'
     - name: anthosCluster
-      value: '{{ anthosCluster }}'
+      value:
+        - name: membership
+          value: '{{ membership }}'
     - name: run
-      value: '{{ run }}'
+      value:
+        - name: location
+          value: '{{ location }}'
     - name: multiTarget
-      value: '{{ multiTarget }}'
+      value:
+        - name: targetIds
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: customTarget
-      value: '{{ customTarget }}'
+      value:
+        - name: customTargetType
+          value: '{{ customTargetType }}'
     - name: etag
       value: '{{ etag }}'
     - name: executionConfigs
-      value: '{{ executionConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: deployParameters
       value: '{{ deployParameters }}'
 
@@ -198,14 +200,10 @@ Updates a <code>targets</code> resource.
 UPDATE google.clouddeploy.targets
 SET 
 name = '{{ name }}',
-targetId = '{{ targetId }}',
-uid = '{{ uid }}',
 description = '{{ description }}',
 annotations = '{{ annotations }}',
 labels = '{{ labels }}',
 requireApproval = true|false,
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 gke = '{{ gke }}',
 anthosCluster = '{{ anthosCluster }}',
 run = '{{ run }}',

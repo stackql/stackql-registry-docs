@@ -110,15 +110,25 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: dryRunSpec
-      value: '{{ dryRunSpec }}'
+      value:
+        - name: inheritFromParent
+          value: '{{ inheritFromParent }}'
+        - name: etag
+          value: '{{ etag }}'
+        - name: reset
+          value: '{{ reset }}'
+        - name: rules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: etag
       value: '{{ etag }}'
     - name: name
       value: '{{ name }}'
-    - name: spec
-      value: '{{ spec }}'
     - name: alternate
-      value: '{{ alternate }}'
+      value:
+        - name: launch
+          value: '{{ launch }}'
 
 ```
 </TabItem>

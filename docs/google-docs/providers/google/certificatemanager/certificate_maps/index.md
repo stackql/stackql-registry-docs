@@ -84,20 +84,14 @@ locationsId,
 projectsId,
 name,
 description,
-createTime,
-updateTime,
-labels,
-gclbTargets
+labels
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ labels }}',
-'{{ gclbTargets }}'
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -110,14 +104,8 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: gclbTargets
-      value: '{{ gclbTargets }}'
 
 ```
 </TabItem>
@@ -133,10 +121,7 @@ UPDATE google.certificatemanager.certificate_maps
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-labels = '{{ labels }}',
-gclbTargets = '{{ gclbTargets }}'
+labels = '{{ labels }}'
 WHERE 
 certificateMapsId = '{{ certificateMapsId }}'
 AND locationsId = '{{ locationsId }}'

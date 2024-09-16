@@ -84,23 +84,15 @@ INSERT INTO google.aiplatform.metadata_stores (
 locationsId,
 projectsId,
 dataplexConfig,
-state,
-name,
-createTime,
 description,
-encryptionSpec,
-updateTime
+encryptionSpec
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ dataplexConfig }}',
-'{{ state }}',
-'{{ name }}',
-'{{ createTime }}',
 '{{ description }}',
-'{{ encryptionSpec }}',
-'{{ updateTime }}'
+'{{ encryptionSpec }}'
 ;
 ```
 </TabItem>
@@ -110,19 +102,15 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: dataplexConfig
-      value: '{{ dataplexConfig }}'
-    - name: state
-      value: '{{ state }}'
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: enabledPipelinesLineage
+          value: '{{ enabledPipelinesLineage }}'
     - name: description
       value: '{{ description }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
 
 ```
 </TabItem>

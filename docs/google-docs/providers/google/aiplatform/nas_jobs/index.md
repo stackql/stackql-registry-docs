@@ -100,40 +100,20 @@ Use the following StackQL query and manifest file to create a new <code>nas_jobs
 INSERT INTO google.aiplatform.nas_jobs (
 locationsId,
 projectsId,
-createTime,
 encryptionSpec,
-startTime,
-error,
-satisfiesPzi,
 nasJobSpec,
-satisfiesPzs,
-nasJobOutput,
 displayName,
-endTime,
-updateTime,
 enableRestrictedImageTraining,
-labels,
-name,
-state
+labels
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ createTime }}',
 '{{ encryptionSpec }}',
-'{{ startTime }}',
-'{{ error }}',
-true|false,
 '{{ nasJobSpec }}',
-true|false,
-'{{ nasJobOutput }}',
 '{{ displayName }}',
-'{{ endTime }}',
-'{{ updateTime }}',
 true|false,
-'{{ labels }}',
-'{{ name }}',
-'{{ state }}'
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -142,36 +122,94 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: createTime
-      value: '{{ createTime }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: error
-      value: '{{ error }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: nasJobSpec
-      value: '{{ nasJobSpec }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: nasJobOutput
-      value: '{{ nasJobOutput }}'
+      value:
+        - name: multiTrialAlgorithmSpec
+          value:
+            - name: trainTrialSpec
+              value:
+                - name: frequency
+                  value: '{{ frequency }}'
+                - name: trainTrialJobSpec
+                  value:
+                    - name: workerPoolSpecs
+                      value:
+                        - name: $ref
+                          value: '{{ $ref }}'
+                    - name: tensorboard
+                      value: '{{ tensorboard }}'
+                    - name: experimentRun
+                      value: '{{ experimentRun }}'
+                    - name: reservedIpRanges
+                      value:
+                        - name: type
+                          value: '{{ type }}'
+                    - name: scheduling
+                      value:
+                        - name: timeout
+                          value: '{{ timeout }}'
+                        - name: disableRetries
+                          value: '{{ disableRetries }}'
+                        - name: strategy
+                          value: '{{ strategy }}'
+                        - name: restartJobOnWorkerRestart
+                          value: '{{ restartJobOnWorkerRestart }}'
+                        - name: maxWaitDuration
+                          value: '{{ maxWaitDuration }}'
+                    - name: protectedArtifactLocationId
+                      value: '{{ protectedArtifactLocationId }}'
+                    - name: serviceAccount
+                      value: '{{ serviceAccount }}'
+                    - name: baseOutputDirectory
+                      value:
+                        - name: outputUriPrefix
+                          value: '{{ outputUriPrefix }}'
+                    - name: enableWebAccess
+                      value: '{{ enableWebAccess }}'
+                    - name: experiment
+                      value: '{{ experiment }}'
+                    - name: models
+                      value:
+                        - name: type
+                          value: '{{ type }}'
+                    - name: persistentResourceId
+                      value: '{{ persistentResourceId }}'
+                    - name: network
+                      value: '{{ network }}'
+                    - name: enableDashboardAccess
+                      value: '{{ enableDashboardAccess }}'
+                - name: maxParallelTrialCount
+                  value: '{{ maxParallelTrialCount }}'
+            - name: searchTrialSpec
+              value:
+                - name: maxParallelTrialCount
+                  value: '{{ maxParallelTrialCount }}'
+                - name: maxTrialCount
+                  value: '{{ maxTrialCount }}'
+                - name: maxFailedTrialCount
+                  value: '{{ maxFailedTrialCount }}'
+            - name: multiTrialAlgorithm
+              value: '{{ multiTrialAlgorithm }}'
+            - name: metric
+              value:
+                - name: goal
+                  value: '{{ goal }}'
+                - name: metricId
+                  value: '{{ metricId }}'
+        - name: searchSpaceSpec
+          value: '{{ searchSpaceSpec }}'
+        - name: resumeNasJobId
+          value: '{{ resumeNasJobId }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: enableRestrictedImageTraining
       value: '{{ enableRestrictedImageTraining }}'
     - name: labels
       value: '{{ labels }}'
-    - name: name
-      value: '{{ name }}'
-    - name: state
-      value: '{{ state }}'
 
 ```
 </TabItem>

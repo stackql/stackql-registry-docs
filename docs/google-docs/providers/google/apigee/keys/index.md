@@ -95,10 +95,7 @@ appsId,
 organizationsId,
 attributes,
 expiresInSeconds,
-issuedAt,
 consumerKey,
-expiresAt,
-apiProducts,
 consumerSecret,
 status,
 scopes
@@ -109,10 +106,7 @@ SELECT
 '{{ organizationsId }}',
 '{{ attributes }}',
 '{{ expiresInSeconds }}',
-'{{ issuedAt }}',
 '{{ consumerKey }}',
-'{{ expiresAt }}',
-'{{ apiProducts }}',
 '{{ consumerSecret }}',
 '{{ status }}',
 '{{ scopes }}'
@@ -125,23 +119,21 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: attributes
-      value: '{{ attributes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: expiresInSeconds
       value: '{{ expiresInSeconds }}'
-    - name: issuedAt
-      value: '{{ issuedAt }}'
     - name: consumerKey
       value: '{{ consumerKey }}'
-    - name: expiresAt
-      value: '{{ expiresAt }}'
-    - name: apiProducts
-      value: '{{ apiProducts }}'
     - name: consumerSecret
       value: '{{ consumerSecret }}'
     - name: status
       value: '{{ status }}'
     - name: scopes
-      value: '{{ scopes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>

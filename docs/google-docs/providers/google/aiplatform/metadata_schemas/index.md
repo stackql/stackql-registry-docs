@@ -85,9 +85,7 @@ projectsId,
 schemaType,
 schema,
 description,
-schemaVersion,
-name,
-createTime
+schemaVersion
 )
 SELECT 
 '{{ locationsId }}',
@@ -96,9 +94,7 @@ SELECT
 '{{ schemaType }}',
 '{{ schema }}',
 '{{ description }}',
-'{{ schemaVersion }}',
-'{{ name }}',
-'{{ createTime }}'
+'{{ schemaVersion }}'
 ;
 ```
 </TabItem>
@@ -115,10 +111,6 @@ SELECT
       value: '{{ description }}'
     - name: schemaVersion
       value: '{{ schemaVersion }}'
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
 
 ```
 </TabItem>

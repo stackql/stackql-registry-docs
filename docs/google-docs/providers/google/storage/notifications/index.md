@@ -88,11 +88,8 @@ bucket,
 custom_attributes,
 etag,
 event_types,
-id,
-kind,
 object_name_prefix,
 payload_format,
-selfLink,
 topic
 )
 SELECT 
@@ -100,11 +97,8 @@ SELECT
 '{{ custom_attributes }}',
 '{{ etag }}',
 '{{ event_types }}',
-'{{ id }}',
-'{{ kind }}',
 '{{ object_name_prefix }}',
 '{{ payload_format }}',
-'{{ selfLink }}',
 '{{ topic }}'
 ;
 ```
@@ -119,17 +113,13 @@ SELECT
     - name: etag
       value: '{{ etag }}'
     - name: event_types
-      value: '{{ event_types }}'
-    - name: id
-      value: '{{ id }}'
-    - name: kind
-      value: '{{ kind }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: object_name_prefix
       value: '{{ object_name_prefix }}'
     - name: payload_format
       value: '{{ payload_format }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: topic
       value: '{{ topic }}'
 

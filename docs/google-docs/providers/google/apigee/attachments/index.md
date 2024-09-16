@@ -81,16 +81,12 @@ Use the following StackQL query and manifest file to create a new <code>attachme
 INSERT INTO google.apigee.attachments (
 envgroupsId,
 organizationsId,
-createdAt,
-environmentGroupId,
 environment,
 name
 )
 SELECT 
 '{{ envgroupsId }}',
 '{{ organizationsId }}',
-'{{ createdAt }}',
-'{{ environmentGroupId }}',
 '{{ environment }}',
 '{{ name }}'
 ;
@@ -101,10 +97,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: createdAt
-      value: '{{ createdAt }}'
-    - name: environmentGroupId
-      value: '{{ environmentGroupId }}'
     - name: environment
       value: '{{ environment }}'
     - name: name

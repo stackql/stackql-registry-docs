@@ -87,7 +87,6 @@ instancesId,
 projectsId,
 name,
 location,
-state,
 serveNodes,
 clusterConfig,
 defaultStorageType,
@@ -98,7 +97,6 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ location }}',
-'{{ state }}',
 '{{ serveNodes }}',
 '{{ clusterConfig }}',
 '{{ defaultStorageType }}',
@@ -115,16 +113,30 @@ SELECT
       value: '{{ name }}'
     - name: location
       value: '{{ location }}'
-    - name: state
-      value: '{{ state }}'
     - name: serveNodes
       value: '{{ serveNodes }}'
     - name: clusterConfig
-      value: '{{ clusterConfig }}'
+      value:
+        - name: clusterAutoscalingConfig
+          value:
+            - name: autoscalingLimits
+              value:
+                - name: minServeNodes
+                  value: '{{ minServeNodes }}'
+                - name: maxServeNodes
+                  value: '{{ maxServeNodes }}'
+            - name: autoscalingTargets
+              value:
+                - name: cpuUtilizationPercent
+                  value: '{{ cpuUtilizationPercent }}'
+                - name: storageUtilizationGibPerNode
+                  value: '{{ storageUtilizationGibPerNode }}'
     - name: defaultStorageType
       value: '{{ defaultStorageType }}'
     - name: encryptionConfig
-      value: '{{ encryptionConfig }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
 
 ```
 </TabItem>
@@ -140,7 +152,6 @@ REPLACE google.bigtableadmin.clusters
 SET 
 name = '{{ name }}',
 location = '{{ location }}',
-state = '{{ state }}',
 serveNodes = '{{ serveNodes }}',
 clusterConfig = '{{ clusterConfig }}',
 defaultStorageType = '{{ defaultStorageType }}',

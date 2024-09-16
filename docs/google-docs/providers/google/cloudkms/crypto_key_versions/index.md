@@ -114,44 +114,16 @@ cryptoKeysId,
 keyRingsId,
 locationsId,
 projectsId,
-name,
 state,
-protectionLevel,
-algorithm,
-attestation,
-createTime,
-generateTime,
-destroyTime,
-destroyEventTime,
-importJob,
-importTime,
-importFailureReason,
-generationFailureReason,
-externalDestructionFailureReason,
-externalProtectionLevelOptions,
-reimportEligible
+externalProtectionLevelOptions
 )
 SELECT 
 '{{ cryptoKeysId }}',
 '{{ keyRingsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ state }}',
-'{{ protectionLevel }}',
-'{{ algorithm }}',
-'{{ attestation }}',
-'{{ createTime }}',
-'{{ generateTime }}',
-'{{ destroyTime }}',
-'{{ destroyEventTime }}',
-'{{ importJob }}',
-'{{ importTime }}',
-'{{ importFailureReason }}',
-'{{ generationFailureReason }}',
-'{{ externalDestructionFailureReason }}',
-'{{ externalProtectionLevelOptions }}',
-true|false
+'{{ externalProtectionLevelOptions }}'
 ;
 ```
 </TabItem>
@@ -160,38 +132,14 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: state
       value: '{{ state }}'
-    - name: protectionLevel
-      value: '{{ protectionLevel }}'
-    - name: algorithm
-      value: '{{ algorithm }}'
-    - name: attestation
-      value: '{{ attestation }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: generateTime
-      value: '{{ generateTime }}'
-    - name: destroyTime
-      value: '{{ destroyTime }}'
-    - name: destroyEventTime
-      value: '{{ destroyEventTime }}'
-    - name: importJob
-      value: '{{ importJob }}'
-    - name: importTime
-      value: '{{ importTime }}'
-    - name: importFailureReason
-      value: '{{ importFailureReason }}'
-    - name: generationFailureReason
-      value: '{{ generationFailureReason }}'
-    - name: externalDestructionFailureReason
-      value: '{{ externalDestructionFailureReason }}'
     - name: externalProtectionLevelOptions
-      value: '{{ externalProtectionLevelOptions }}'
-    - name: reimportEligible
-      value: '{{ reimportEligible }}'
+      value:
+        - name: externalKeyUri
+          value: '{{ externalKeyUri }}'
+        - name: ekmConnectionKeyPath
+          value: '{{ ekmConnectionKeyPath }}'
 
 ```
 </TabItem>
@@ -205,22 +153,8 @@ Updates a <code>crypto_key_versions</code> resource.
 /*+ update */
 UPDATE google.cloudkms.crypto_key_versions
 SET 
-name = '{{ name }}',
 state = '{{ state }}',
-protectionLevel = '{{ protectionLevel }}',
-algorithm = '{{ algorithm }}',
-attestation = '{{ attestation }}',
-createTime = '{{ createTime }}',
-generateTime = '{{ generateTime }}',
-destroyTime = '{{ destroyTime }}',
-destroyEventTime = '{{ destroyEventTime }}',
-importJob = '{{ importJob }}',
-importTime = '{{ importTime }}',
-importFailureReason = '{{ importFailureReason }}',
-generationFailureReason = '{{ generationFailureReason }}',
-externalDestructionFailureReason = '{{ externalDestructionFailureReason }}',
-externalProtectionLevelOptions = '{{ externalProtectionLevelOptions }}',
-reimportEligible = true|false
+externalProtectionLevelOptions = '{{ externalProtectionLevelOptions }}'
 WHERE 
 cryptoKeyVersionsId = '{{ cryptoKeyVersionsId }}'
 AND cryptoKeysId = '{{ cryptoKeysId }}'

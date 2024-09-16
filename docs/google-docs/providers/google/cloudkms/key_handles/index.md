@@ -75,14 +75,12 @@ INSERT INTO google.cloudkms.key_handles (
 locationsId,
 projectsId,
 name,
-kmsKey,
 resourceTypeSelector
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ kmsKey }}',
 '{{ resourceTypeSelector }}'
 ;
 ```
@@ -94,8 +92,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: kmsKey
-      value: '{{ kmsKey }}'
     - name: resourceTypeSelector
       value: '{{ resourceTypeSelector }}'
 

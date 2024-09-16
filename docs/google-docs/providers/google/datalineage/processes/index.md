@@ -103,7 +103,11 @@ SELECT
     - name: displayName
       value: '{{ displayName }}'
     - name: origin
-      value: '{{ origin }}'
+      value:
+        - name: sourceType
+          value: '{{ sourceType }}'
+        - name: name
+          value: '{{ name }}'
     - name: attributes
       value: '{{ attributes }}'
 

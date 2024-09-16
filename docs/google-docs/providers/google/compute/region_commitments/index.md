@@ -111,13 +111,9 @@ Use the following StackQL query and manifest file to create a new <code>region_c
 INSERT INTO google.compute.region_commitments (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 region,
-selfLink,
 status,
 statusMessage,
 plan,
@@ -136,13 +132,9 @@ existingReservations
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ region }}',
-'{{ selfLink }}',
 '{{ status }}',
 '{{ statusMessage }}',
 '{{ plan }}',
@@ -165,20 +157,12 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: region
       value: '{{ region }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: status
       value: '{{ status }}'
     - name: statusMessage
@@ -190,23 +174,37 @@ true|false,
     - name: endTimestamp
       value: '{{ endTimestamp }}'
     - name: resources
-      value: '{{ resources }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: type
       value: '{{ type }}'
     - name: reservations
-      value: '{{ reservations }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: category
       value: '{{ category }}'
     - name: licenseResource
-      value: '{{ licenseResource }}'
+      value:
+        - name: license
+          value: '{{ license }}'
+        - name: amount
+          value: '{{ amount }}'
+        - name: coresPerLicense
+          value: '{{ coresPerLicense }}'
     - name: autoRenew
       value: '{{ autoRenew }}'
     - name: mergeSourceCommitments
-      value: '{{ mergeSourceCommitments }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: splitSourceCommitment
       value: '{{ splitSourceCommitment }}'
     - name: existingReservations
-      value: '{{ existingReservations }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -220,13 +218,9 @@ Updates a <code>region_commitments</code> resource.
 /*+ update */
 UPDATE google.compute.region_commitments
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 region = '{{ region }}',
-selfLink = '{{ selfLink }}',
 status = '{{ status }}',
 statusMessage = '{{ statusMessage }}',
 plan = '{{ plan }}',

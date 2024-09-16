@@ -92,30 +92,12 @@ Use the following StackQL query and manifest file to create a new <code>jobs</co
 INSERT INTO google.bigquery.jobs (
 projectId,
 configuration,
-etag,
-id,
-jobCreationReason,
-jobReference,
-kind,
-principal_subject,
-selfLink,
-statistics,
-status,
-user_email
+jobReference
 )
 SELECT 
 '{{ projectId }}',
 '{{ configuration }}',
-'{{ etag }}',
-'{{ id }}',
-'{{ jobCreationReason }}',
-'{{ jobReference }}',
-'{{ kind }}',
-'{{ principal_subject }}',
-'{{ selfLink }}',
-'{{ statistics }}',
-'{{ status }}',
-'{{ user_email }}'
+'{{ jobReference }}'
 ;
 ```
 </TabItem>
@@ -125,27 +107,277 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: configuration
-      value: '{{ configuration }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: id
-      value: '{{ id }}'
-    - name: jobCreationReason
-      value: '{{ jobCreationReason }}'
+      value:
+        - name: copy
+          value:
+            - name: createDisposition
+              value: '{{ createDisposition }}'
+            - name: destinationEncryptionConfiguration
+              value:
+                - name: kmsKeyName
+                  value: '{{ kmsKeyName }}'
+            - name: destinationExpirationTime
+              value: '{{ destinationExpirationTime }}'
+            - name: destinationTable
+              value:
+                - name: datasetId
+                  value: '{{ datasetId }}'
+                - name: projectId
+                  value: '{{ projectId }}'
+                - name: tableId
+                  value: '{{ tableId }}'
+            - name: operationType
+              value: '{{ operationType }}'
+            - name: sourceTables
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: writeDisposition
+              value: '{{ writeDisposition }}'
+        - name: dryRun
+          value: '{{ dryRun }}'
+        - name: extract
+          value:
+            - name: compression
+              value: '{{ compression }}'
+            - name: destinationFormat
+              value: '{{ destinationFormat }}'
+            - name: destinationUri
+              value: '{{ destinationUri }}'
+            - name: destinationUris
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: fieldDelimiter
+              value: '{{ fieldDelimiter }}'
+            - name: modelExtractOptions
+              value:
+                - name: trialId
+                  value: '{{ trialId }}'
+            - name: printHeader
+              value: '{{ printHeader }}'
+            - name: sourceModel
+              value:
+                - name: datasetId
+                  value: '{{ datasetId }}'
+                - name: modelId
+                  value: '{{ modelId }}'
+                - name: projectId
+                  value: '{{ projectId }}'
+            - name: useAvroLogicalTypes
+              value: '{{ useAvroLogicalTypes }}'
+        - name: jobTimeoutMs
+          value: '{{ jobTimeoutMs }}'
+        - name: jobType
+          value: '{{ jobType }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: load
+          value:
+            - name: allowJaggedRows
+              value: '{{ allowJaggedRows }}'
+            - name: allowQuotedNewlines
+              value: '{{ allowQuotedNewlines }}'
+            - name: autodetect
+              value: '{{ autodetect }}'
+            - name: clustering
+              value:
+                - name: fields
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+            - name: columnNameCharacterMap
+              value: '{{ columnNameCharacterMap }}'
+            - name: connectionProperties
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: copyFilesOnly
+              value: '{{ copyFilesOnly }}'
+            - name: createDisposition
+              value: '{{ createDisposition }}'
+            - name: createSession
+              value: '{{ createSession }}'
+            - name: decimalTargetTypes
+              value:
+                - name: enum
+                  value: '{{ enum }}'
+                - name: enumDescriptions
+                  value: '{{ enumDescriptions }}'
+                - name: type
+                  value: '{{ type }}'
+            - name: destinationTableProperties
+              value:
+                - name: description
+                  value: '{{ description }}'
+                - name: expirationTime
+                  value: '{{ expirationTime }}'
+                - name: friendlyName
+                  value: '{{ friendlyName }}'
+                - name: labels
+                  value: '{{ labels }}'
+            - name: encoding
+              value: '{{ encoding }}'
+            - name: fieldDelimiter
+              value: '{{ fieldDelimiter }}'
+            - name: fileSetSpecType
+              value: '{{ fileSetSpecType }}'
+            - name: hivePartitioningOptions
+              value:
+                - name: mode
+                  value: '{{ mode }}'
+                - name: requirePartitionFilter
+                  value: '{{ requirePartitionFilter }}'
+                - name: sourceUriPrefix
+                  value: '{{ sourceUriPrefix }}'
+            - name: ignoreUnknownValues
+              value: '{{ ignoreUnknownValues }}'
+            - name: jsonExtension
+              value: '{{ jsonExtension }}'
+            - name: maxBadRecords
+              value: '{{ maxBadRecords }}'
+            - name: nullMarker
+              value: '{{ nullMarker }}'
+            - name: parquetOptions
+              value:
+                - name: enableListInference
+                  value: '{{ enableListInference }}'
+                - name: enumAsString
+                  value: '{{ enumAsString }}'
+                - name: mapTargetType
+                  value: '{{ mapTargetType }}'
+            - name: preserveAsciiControlCharacters
+              value: '{{ preserveAsciiControlCharacters }}'
+            - name: projectionFields
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: quote
+              value: '{{ quote }}'
+            - name: rangePartitioning
+              value:
+                - name: field
+                  value: '{{ field }}'
+                - name: range
+                  value:
+                    - name: end
+                      value: '{{ end }}'
+                    - name: interval
+                      value: '{{ interval }}'
+                    - name: start
+                      value: '{{ start }}'
+            - name: referenceFileSchemaUri
+              value: '{{ referenceFileSchemaUri }}'
+            - name: schema
+              value:
+                - name: fields
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: foreignTypeInfo
+                  value:
+                    - name: typeSystem
+                      value: '{{ typeSystem }}'
+            - name: schemaInline
+              value: '{{ schemaInline }}'
+            - name: schemaInlineFormat
+              value: '{{ schemaInlineFormat }}'
+            - name: schemaUpdateOptions
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: skipLeadingRows
+              value: '{{ skipLeadingRows }}'
+            - name: sourceFormat
+              value: '{{ sourceFormat }}'
+            - name: sourceUris
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: timePartitioning
+              value:
+                - name: expirationMs
+                  value: '{{ expirationMs }}'
+                - name: field
+                  value: '{{ field }}'
+                - name: requirePartitionFilter
+                  value: '{{ requirePartitionFilter }}'
+                - name: type
+                  value: '{{ type }}'
+            - name: useAvroLogicalTypes
+              value: '{{ useAvroLogicalTypes }}'
+            - name: writeDisposition
+              value: '{{ writeDisposition }}'
+        - name: query
+          value:
+            - name: allowLargeResults
+              value: '{{ allowLargeResults }}'
+            - name: connectionProperties
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: continuous
+              value: '{{ continuous }}'
+            - name: createDisposition
+              value: '{{ createDisposition }}'
+            - name: createSession
+              value: '{{ createSession }}'
+            - name: defaultDataset
+              value:
+                - name: datasetId
+                  value: '{{ datasetId }}'
+                - name: projectId
+                  value: '{{ projectId }}'
+            - name: flattenResults
+              value: '{{ flattenResults }}'
+            - name: maximumBillingTier
+              value: '{{ maximumBillingTier }}'
+            - name: maximumBytesBilled
+              value: '{{ maximumBytesBilled }}'
+            - name: parameterMode
+              value: '{{ parameterMode }}'
+            - name: preserveNulls
+              value: '{{ preserveNulls }}'
+            - name: priority
+              value: '{{ priority }}'
+            - name: query
+              value: '{{ query }}'
+            - name: queryParameters
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: schemaUpdateOptions
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: scriptOptions
+              value:
+                - name: keyResultStatement
+                  value: '{{ keyResultStatement }}'
+                - name: statementByteBudget
+                  value: '{{ statementByteBudget }}'
+                - name: statementTimeoutMs
+                  value: '{{ statementTimeoutMs }}'
+            - name: tableDefinitions
+              value: '{{ tableDefinitions }}'
+            - name: useLegacySql
+              value: '{{ useLegacySql }}'
+            - name: useQueryCache
+              value: '{{ useQueryCache }}'
+            - name: userDefinedFunctionResources
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: writeDisposition
+              value: '{{ writeDisposition }}'
     - name: jobReference
-      value: '{{ jobReference }}'
-    - name: kind
-      value: '{{ kind }}'
-    - name: principal_subject
-      value: '{{ principal_subject }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: statistics
-      value: '{{ statistics }}'
-    - name: status
-      value: '{{ status }}'
-    - name: user_email
-      value: '{{ user_email }}'
+      value:
+        - name: jobId
+          value: '{{ jobId }}'
+        - name: location
+          value: '{{ location }}'
+        - name: projectId
+          value: '{{ projectId }}'
 
 ```
 </TabItem>

@@ -93,8 +93,6 @@ projectsId,
 name,
 displayName,
 description,
-createTime,
-updateTime,
 availability,
 recommendedVersion,
 recommendedDeployment,
@@ -107,8 +105,6 @@ SELECT
 '{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ availability }}',
 '{{ recommendedVersion }}',
 '{{ recommendedDeployment }}',
@@ -128,10 +124,6 @@ SELECT
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: availability
       value: '{{ availability }}'
     - name: recommendedVersion
@@ -158,8 +150,6 @@ SET
 name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 availability = '{{ availability }}',
 recommendedVersion = '{{ recommendedVersion }}',
 recommendedDeployment = '{{ recommendedDeployment }}',

@@ -116,18 +116,10 @@ UPDATE google.gkeonprem.vmware_admin_clusters
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-uid = '{{ uid }}',
 etag = '{{ etag }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 annotations = '{{ annotations }}',
-state = '{{ state }}',
-endpoint = '{{ endpoint }}',
-reconciling = true|false,
-localName = '{{ localName }}',
 bootstrapClusterMembership = '{{ bootstrapClusterMembership }}',
 onPremVersion = '{{ onPremVersion }}',
-fleet = '{{ fleet }}',
 imageType = '{{ imageType }}',
 vcenter = '{{ vcenter }}',
 networkConfig = '{{ networkConfig }}',
@@ -136,11 +128,8 @@ controlPlaneNode = '{{ controlPlaneNode }}',
 addonNode = '{{ addonNode }}',
 antiAffinityGroups = '{{ antiAffinityGroups }}',
 autoRepairConfig = '{{ autoRepairConfig }}',
-status = '{{ status }}',
 platformConfig = '{{ platformConfig }}',
-preparedSecrets = '{{ preparedSecrets }}',
-authorization = '{{ authorization }}',
-validationCheck = '{{ validationCheck }}'
+authorization = '{{ authorization }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

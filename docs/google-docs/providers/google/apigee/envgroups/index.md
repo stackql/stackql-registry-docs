@@ -78,19 +78,13 @@ Use the following StackQL query and manifest file to create a new <code>envgroup
 /*+ create */
 INSERT INTO google.apigee.envgroups (
 organizationsId,
-lastModifiedAt,
-state,
 name,
-hostnames,
-createdAt
+hostnames
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ lastModifiedAt }}',
-'{{ state }}',
 '{{ name }}',
-'{{ hostnames }}',
-'{{ createdAt }}'
+'{{ hostnames }}'
 ;
 ```
 </TabItem>
@@ -99,16 +93,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
-    - name: state
-      value: '{{ state }}'
     - name: name
       value: '{{ name }}'
     - name: hostnames
-      value: '{{ hostnames }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -122,11 +112,8 @@ Updates a <code>envgroups</code> resource.
 /*+ update */
 UPDATE google.apigee.envgroups
 SET 
-lastModifiedAt = '{{ lastModifiedAt }}',
-state = '{{ state }}',
 name = '{{ name }}',
-hostnames = '{{ hostnames }}',
-createdAt = '{{ createdAt }}'
+hostnames = '{{ hostnames }}'
 WHERE 
 envgroupsId = '{{ envgroupsId }}'
 AND organizationsId = '{{ organizationsId }}';

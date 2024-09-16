@@ -96,31 +96,17 @@ Use the following StackQL query and manifest file to create a new <code>processo
 INSERT INTO google.documentai.processors (
 locationsId,
 projectsId,
-state,
-createTime,
 defaultProcessorVersion,
-processorVersionAliases,
-satisfiesPzs,
 displayName,
-processEndpoint,
 kmsKeyName,
-satisfiesPzi,
-name,
 type
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ state }}',
-'{{ createTime }}',
 '{{ defaultProcessorVersion }}',
-'{{ processorVersionAliases }}',
-true|false,
 '{{ displayName }}',
-'{{ processEndpoint }}',
 '{{ kmsKeyName }}',
-true|false,
-'{{ name }}',
 '{{ type }}'
 ;
 ```
@@ -130,26 +116,12 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: state
-      value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: defaultProcessorVersion
       value: '{{ defaultProcessorVersion }}'
-    - name: processorVersionAliases
-      value: '{{ processorVersionAliases }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: processEndpoint
-      value: '{{ processEndpoint }}'
     - name: kmsKeyName
       value: '{{ kmsKeyName }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: name
-      value: '{{ name }}'
     - name: type
       value: '{{ type }}'
 

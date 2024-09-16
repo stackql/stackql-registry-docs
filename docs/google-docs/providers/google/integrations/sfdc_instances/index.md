@@ -98,10 +98,7 @@ description,
 serviceAuthority,
 displayName,
 sfdcOrgId,
-deleteTime,
-name,
-createTime,
-updateTime
+name
 )
 SELECT 
 '{{ locationsId }}',
@@ -111,10 +108,7 @@ SELECT
 '{{ serviceAuthority }}',
 '{{ displayName }}',
 '{{ sfdcOrgId }}',
-'{{ deleteTime }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ name }}'
 ;
 ```
 </TabItem>
@@ -124,7 +118,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: authConfigId
-      value: '{{ authConfigId }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: description
       value: '{{ description }}'
     - name: serviceAuthority
@@ -133,14 +129,8 @@ SELECT
       value: '{{ displayName }}'
     - name: sfdcOrgId
       value: '{{ sfdcOrgId }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>
@@ -159,10 +149,7 @@ description = '{{ description }}',
 serviceAuthority = '{{ serviceAuthority }}',
 displayName = '{{ displayName }}',
 sfdcOrgId = '{{ sfdcOrgId }}',
-deleteTime = '{{ deleteTime }}',
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}'
+name = '{{ name }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

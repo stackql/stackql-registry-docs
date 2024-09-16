@@ -81,13 +81,9 @@ REPLACE google.iamv2.policies
 SET 
 name = '{{ name }}',
 uid = '{{ uid }}',
-kind = '{{ kind }}',
 displayName = '{{ displayName }}',
 annotations = '{{ annotations }}',
 etag = '{{ etag }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
 rules = '{{ rules }}'
 WHERE 
 policiesId = '{{ policiesId }}'

@@ -104,7 +104,115 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: job
-      value: '{{ job }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: description
+          value: '{{ description }}'
+        - name: state
+          value: '{{ state }}'
+        - name: schedule
+          value: '{{ schedule }}'
+        - name: modelVersion
+          value: '{{ modelVersion }}'
+        - name: evaluationJobConfig
+          value:
+            - name: imageClassificationConfig
+              value:
+                - name: annotationSpecSet
+                  value: '{{ annotationSpecSet }}'
+                - name: allowMultiLabel
+                  value: '{{ allowMultiLabel }}'
+                - name: answerAggregationType
+                  value: '{{ answerAggregationType }}'
+            - name: boundingPolyConfig
+              value:
+                - name: annotationSpecSet
+                  value: '{{ annotationSpecSet }}'
+                - name: instructionMessage
+                  value: '{{ instructionMessage }}'
+            - name: textClassificationConfig
+              value:
+                - name: allowMultiLabel
+                  value: '{{ allowMultiLabel }}'
+                - name: annotationSpecSet
+                  value: '{{ annotationSpecSet }}'
+                - name: sentimentConfig
+                  value:
+                    - name: enableLabelSentimentSelection
+                      value: '{{ enableLabelSentimentSelection }}'
+            - name: inputConfig
+              value:
+                - name: textMetadata
+                  value:
+                    - name: languageCode
+                      value: '{{ languageCode }}'
+                - name: gcsSource
+                  value:
+                    - name: inputUri
+                      value: '{{ inputUri }}'
+                    - name: mimeType
+                      value: '{{ mimeType }}'
+                - name: bigquerySource
+                  value:
+                    - name: inputUri
+                      value: '{{ inputUri }}'
+                - name: dataType
+                  value: '{{ dataType }}'
+                - name: annotationType
+                  value: '{{ annotationType }}'
+                - name: classificationMetadata
+                  value:
+                    - name: isMultiLabel
+                      value: '{{ isMultiLabel }}'
+            - name: evaluationConfig
+              value:
+                - name: boundingBoxEvaluationOptions
+                  value:
+                    - name: iouThreshold
+                      value: '{{ iouThreshold }}'
+            - name: humanAnnotationConfig
+              value:
+                - name: instruction
+                  value: '{{ instruction }}'
+                - name: annotatedDatasetDisplayName
+                  value: '{{ annotatedDatasetDisplayName }}'
+                - name: annotatedDatasetDescription
+                  value: '{{ annotatedDatasetDescription }}'
+                - name: labelGroup
+                  value: '{{ labelGroup }}'
+                - name: languageCode
+                  value: '{{ languageCode }}'
+                - name: replicaCount
+                  value: '{{ replicaCount }}'
+                - name: questionDuration
+                  value: '{{ questionDuration }}'
+                - name: contributorEmails
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: userEmailAddress
+                  value: '{{ userEmailAddress }}'
+            - name: bigqueryImportKeys
+              value: '{{ bigqueryImportKeys }}'
+            - name: exampleCount
+              value: '{{ exampleCount }}'
+            - name: exampleSamplePercentage
+              value: '{{ exampleSamplePercentage }}'
+            - name: evaluationJobAlertConfig
+              value:
+                - name: email
+                  value: '{{ email }}'
+                - name: minAcceptableMeanAveragePrecision
+                  value: '{{ minAcceptableMeanAveragePrecision }}'
+        - name: annotationSpecSet
+          value: '{{ annotationSpecSet }}'
+        - name: labelMissingGroundTruth
+          value: '{{ labelMissingGroundTruth }}'
+        - name: attempts
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -126,8 +234,7 @@ modelVersion = '{{ modelVersion }}',
 evaluationJobConfig = '{{ evaluationJobConfig }}',
 annotationSpecSet = '{{ annotationSpecSet }}',
 labelMissingGroundTruth = true|false,
-attempts = '{{ attempts }}',
-createTime = '{{ createTime }}'
+attempts = '{{ attempts }}'
 WHERE 
 evaluationJobsId = '{{ evaluationJobsId }}'
 AND projectsId = '{{ projectsId }}';

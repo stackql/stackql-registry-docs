@@ -88,16 +88,10 @@ Updates a <code>data_sources</code> resource.
 /*+ update */
 UPDATE google.backupdr.data_sources
 SET 
-name = '{{ name }}',
-state = '{{ state }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 backupCount = '{{ backupCount }}',
 etag = '{{ etag }}',
 totalStoredBytes = '{{ totalStoredBytes }}',
-configState = '{{ configState }}',
-backupConfigInfo = '{{ backupConfigInfo }}',
 dataSourceGcpResource = '{{ dataSourceGcpResource }}',
 dataSourceBackupApplianceApplication = '{{ dataSourceBackupApplianceApplication }}'
 WHERE 

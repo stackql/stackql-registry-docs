@@ -117,14 +117,12 @@ lastUsedTime,
 components,
 sharedWith,
 author,
-updateTime,
 categories,
 description,
 visibility,
 displayName,
 tags,
-usageCount,
-createTime
+usageCount
 )
 SELECT 
 '{{ locationsId }}',
@@ -137,14 +135,12 @@ SELECT
 '{{ components }}',
 '{{ sharedWith }}',
 '{{ author }}',
-'{{ updateTime }}',
 '{{ categories }}',
 '{{ description }}',
 '{{ visibility }}',
 '{{ displayName }}',
 '{{ tags }}',
-'{{ usageCount }}',
-'{{ createTime }}'
+'{{ usageCount }}'
 ;
 ```
 </TabItem>
@@ -156,7 +152,85 @@ SELECT
     - name: usageInfo
       value: '{{ usageInfo }}'
     - name: templateBundle
-      value: '{{ templateBundle }}'
+      value:
+        - name: subIntegrationVersionTemplates
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: integrationVersionTemplate
+          value:
+            - name: key
+              value: '{{ key }}'
+            - name: integrationVersion
+              value:
+                - name: integrationParametersInternal
+                  value:
+                    - name: parameters
+                      value:
+                        - name: $ref
+                          value: '{{ $ref }}'
+                - name: runAsServiceAccount
+                  value: '{{ runAsServiceAccount }}'
+                - name: userLabel
+                  value: '{{ userLabel }}'
+                - name: cloudLoggingDetails
+                  value:
+                    - name: cloudLoggingSeverity
+                      value: '{{ cloudLoggingSeverity }}'
+                    - name: enableCloudLogging
+                      value: '{{ enableCloudLogging }}'
+                - name: integrationParameters
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: integrationConfigParameters
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: teardown
+                  value:
+                    - name: teardownTaskConfigs
+                      value:
+                        - name: $ref
+                          value: '{{ $ref }}'
+                - name: taskConfigsInternal
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: triggerConfigsInternal
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: triggerConfigs
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: lockHolder
+                  value: '{{ lockHolder }}'
+                - name: createdFromTemplate
+                  value: '{{ createdFromTemplate }}'
+                - name: errorCatcherConfigs
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: lastModifierEmail
+                  value: '{{ lastModifierEmail }}'
+                - name: enableVariableMasking
+                  value: '{{ enableVariableMasking }}'
+                - name: taskConfigs
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: origin
+                  value: '{{ origin }}'
+                - name: description
+                  value: '{{ description }}'
+                - name: databasePersistencePolicy
+                  value: '{{ databasePersistencePolicy }}'
+                - name: parentTemplateId
+                  value: '{{ parentTemplateId }}'
+                - name: snapshotNumber
+                  value: '{{ snapshotNumber }}'
     - name: docLink
       value: '{{ docLink }}'
     - name: name
@@ -164,15 +238,23 @@ SELECT
     - name: lastUsedTime
       value: '{{ lastUsedTime }}'
     - name: components
-      value: '{{ components }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: sharedWith
-      value: '{{ sharedWith }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: author
       value: '{{ author }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: categories
-      value: '{{ categories }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: description
       value: '{{ description }}'
     - name: visibility
@@ -180,11 +262,11 @@ SELECT
     - name: displayName
       value: '{{ displayName }}'
     - name: tags
-      value: '{{ tags }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: usageCount
       value: '{{ usageCount }}'
-    - name: createTime
-      value: '{{ createTime }}'
 
 ```
 </TabItem>
@@ -206,14 +288,12 @@ lastUsedTime = '{{ lastUsedTime }}',
 components = '{{ components }}',
 sharedWith = '{{ sharedWith }}',
 author = '{{ author }}',
-updateTime = '{{ updateTime }}',
 categories = '{{ categories }}',
 description = '{{ description }}',
 visibility = '{{ visibility }}',
 displayName = '{{ displayName }}',
 tags = '{{ tags }}',
-usageCount = '{{ usageCount }}',
-createTime = '{{ createTime }}'
+usageCount = '{{ usageCount }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

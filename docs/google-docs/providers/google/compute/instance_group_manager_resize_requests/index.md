@@ -96,35 +96,25 @@ INSERT INTO google.compute.instance_group_manager_resize_requests (
 instanceGroupManager,
 project,
 zone,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 zone,
 resizeBy,
 requestedRunDuration,
 state,
-status,
-selfLink,
-selfLinkWithId
+status
 )
 SELECT 
 '{{ instanceGroupManager }}',
 '{{ project }}',
 '{{ zone }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ zone }}',
 '{{ resizeBy }}',
 '{{ requestedRunDuration }}',
 '{{ state }}',
-'{{ status }}',
-'{{ selfLink }}',
-'{{ selfLinkWithId }}'
+'{{ status }}'
 ;
 ```
 </TabItem>
@@ -133,12 +123,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -148,15 +132,75 @@ SELECT
     - name: resizeBy
       value: '{{ resizeBy }}'
     - name: requestedRunDuration
-      value: '{{ requestedRunDuration }}'
+      value:
+        - name: seconds
+          value: '{{ seconds }}'
+        - name: nanos
+          value: '{{ nanos }}'
     - name: state
       value: '{{ state }}'
     - name: status
-      value: '{{ status }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: selfLinkWithId
-      value: '{{ selfLinkWithId }}'
+      value:
+        - name: error
+          value:
+            - name: errors
+              value:
+                - name: code
+                  value: '{{ code }}'
+                - name: location
+                  value: '{{ location }}'
+                - name: message
+                  value: '{{ message }}'
+                - name: errorDetails
+                  value:
+                    - name: errorInfo
+                      value:
+                        - name: reason
+                          value: '{{ reason }}'
+                        - name: domain
+                          value: '{{ domain }}'
+                        - name: metadatas
+                          value: '{{ metadatas }}'
+                    - name: quotaInfo
+                      value:
+                        - name: metricName
+                          value: '{{ metricName }}'
+                        - name: limitName
+                          value: '{{ limitName }}'
+                        - name: dimensions
+                          value: '{{ dimensions }}'
+                        - name: limit
+                          value: '{{ limit }}'
+                        - name: futureLimit
+                          value: '{{ futureLimit }}'
+                        - name: rolloutStatus
+                          value: '{{ rolloutStatus }}'
+                    - name: help
+                      value:
+                        - name: links
+                          value:
+                            - name: $ref
+                              value: '{{ $ref }}'
+                    - name: localizedMessage
+                      value:
+                        - name: locale
+                          value: '{{ locale }}'
+                        - name: message
+                          value: '{{ message }}'
+        - name: lastAttempt
+          value:
+            - name: error
+              value:
+                - name: errors
+                  value:
+                    - name: code
+                      value: '{{ code }}'
+                    - name: location
+                      value: '{{ location }}'
+                    - name: message
+                      value: '{{ message }}'
+                    - name: errorDetails
+                      value: []
 
 ```
 </TabItem>

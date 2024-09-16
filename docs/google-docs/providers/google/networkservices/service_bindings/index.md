@@ -85,10 +85,7 @@ locationsId,
 projectsId,
 name,
 description,
-createTime,
-updateTime,
 service,
-serviceId,
 labels
 )
 SELECT 
@@ -96,10 +93,7 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ service }}',
-'{{ serviceId }}',
 '{{ labels }}'
 ;
 ```
@@ -113,14 +107,8 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: service
       value: '{{ service }}'
-    - name: serviceId
-      value: '{{ serviceId }}'
     - name: labels
       value: '{{ labels }}'
 

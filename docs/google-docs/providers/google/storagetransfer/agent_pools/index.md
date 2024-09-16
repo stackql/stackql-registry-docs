@@ -78,14 +78,12 @@ INSERT INTO google.storagetransfer.agent_pools (
 projectsId,
 name,
 displayName,
-state,
 bandwidthLimit
 )
 SELECT 
 '{{ projectsId }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ state }}',
 '{{ bandwidthLimit }}'
 ;
 ```
@@ -99,10 +97,10 @@ SELECT
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: state
-      value: '{{ state }}'
     - name: bandwidthLimit
-      value: '{{ bandwidthLimit }}'
+      value:
+        - name: limitMbps
+          value: '{{ limitMbps }}'
 
 ```
 </TabItem>
@@ -118,7 +116,6 @@ UPDATE google.storagetransfer.agent_pools
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-state = '{{ state }}',
 bandwidthLimit = '{{ bandwidthLimit }}'
 WHERE 
 agentPoolsId = '{{ agentPoolsId }}'

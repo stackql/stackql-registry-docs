@@ -82,9 +82,6 @@ Use the following StackQL query and manifest file to create a new <code>backup_s
 INSERT INTO google.firestore.backup_schedules (
 databasesId,
 projectsId,
-name,
-createTime,
-updateTime,
 retention,
 dailyRecurrence,
 weeklyRecurrence
@@ -92,9 +89,6 @@ weeklyRecurrence
 SELECT 
 '{{ databasesId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ retention }}',
 '{{ dailyRecurrence }}',
 '{{ weeklyRecurrence }}'
@@ -106,18 +100,14 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: retention
       value: '{{ retention }}'
     - name: dailyRecurrence
-      value: '{{ dailyRecurrence }}'
+      value: []
     - name: weeklyRecurrence
-      value: '{{ weeklyRecurrence }}'
+      value:
+        - name: day
+          value: '{{ day }}'
 
 ```
 </TabItem>
@@ -131,9 +121,6 @@ Updates a <code>backup_schedules</code> resource.
 /*+ update */
 UPDATE google.firestore.backup_schedules
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 retention = '{{ retention }}',
 dailyRecurrence = '{{ dailyRecurrence }}',
 weeklyRecurrence = '{{ weeklyRecurrence }}'

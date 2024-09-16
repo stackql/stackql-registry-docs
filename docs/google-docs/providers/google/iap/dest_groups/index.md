@@ -97,9 +97,13 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: cidrs
-      value: '{{ cidrs }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: fqdns
-      value: '{{ fqdns }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>

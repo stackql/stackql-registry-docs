@@ -74,17 +74,13 @@ Use the following StackQL query and manifest file to create a new <code>brands</
 /*+ create */
 INSERT INTO google.iap.brands (
 projectsId,
-name,
 supportEmail,
-applicationTitle,
-orgInternalOnly
+applicationTitle
 )
 SELECT 
 '{{ projectsId }}',
-'{{ name }}',
 '{{ supportEmail }}',
-'{{ applicationTitle }}',
-true|false
+'{{ applicationTitle }}'
 ;
 ```
 </TabItem>
@@ -93,14 +89,10 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: supportEmail
       value: '{{ supportEmail }}'
     - name: applicationTitle
       value: '{{ applicationTitle }}'
-    - name: orgInternalOnly
-      value: '{{ orgInternalOnly }}'
 
 ```
 </TabItem>

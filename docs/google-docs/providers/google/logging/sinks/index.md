@@ -120,37 +120,27 @@ Use the following StackQL query and manifest file to create a new <code>sinks</c
 /*+ create */
 INSERT INTO google.logging.sinks (
 foldersId,
-name,
-resourceName,
 destination,
 filter,
 description,
 disabled,
 exclusions,
 outputVersionFormat,
-writerIdentity,
 includeChildren,
 interceptChildren,
-bigqueryOptions,
-createTime,
-updateTime
+bigqueryOptions
 )
 SELECT 
 '{{ foldersId }}',
-'{{ name }}',
-'{{ resourceName }}',
 '{{ destination }}',
 '{{ filter }}',
 '{{ description }}',
 true|false,
 '{{ exclusions }}',
 '{{ outputVersionFormat }}',
-'{{ writerIdentity }}',
 true|false,
 true|false,
-'{{ bigqueryOptions }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ bigqueryOptions }}'
 ;
 ```
 </TabItem>
@@ -159,10 +149,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: resourceName
-      value: '{{ resourceName }}'
     - name: destination
       value: '{{ destination }}'
     - name: filter
@@ -172,21 +158,19 @@ true|false,
     - name: disabled
       value: '{{ disabled }}'
     - name: exclusions
-      value: '{{ exclusions }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: outputVersionFormat
       value: '{{ outputVersionFormat }}'
-    - name: writerIdentity
-      value: '{{ writerIdentity }}'
     - name: includeChildren
       value: '{{ includeChildren }}'
     - name: interceptChildren
       value: '{{ interceptChildren }}'
     - name: bigqueryOptions
-      value: '{{ bigqueryOptions }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: usePartitionedTables
+          value: '{{ usePartitionedTables }}'
 
 ```
 </TabItem>
@@ -200,20 +184,15 @@ Updates a <code>sinks</code> resource.
 /*+ update */
 UPDATE google.logging.sinks
 SET 
-name = '{{ name }}',
-resourceName = '{{ resourceName }}',
 destination = '{{ destination }}',
 filter = '{{ filter }}',
 description = '{{ description }}',
 disabled = true|false,
 exclusions = '{{ exclusions }}',
 outputVersionFormat = '{{ outputVersionFormat }}',
-writerIdentity = '{{ writerIdentity }}',
 includeChildren = true|false,
 interceptChildren = true|false,
-bigqueryOptions = '{{ bigqueryOptions }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}'
+bigqueryOptions = '{{ bigqueryOptions }}'
 WHERE 
 foldersId = '{{ foldersId }}'
 AND sinksId = '{{ sinksId }}';
@@ -227,20 +206,15 @@ Replaces all fields in the specified <code>sinks</code> resource.
 /*+ update */
 REPLACE google.logging.sinks
 SET 
-name = '{{ name }}',
-resourceName = '{{ resourceName }}',
 destination = '{{ destination }}',
 filter = '{{ filter }}',
 description = '{{ description }}',
 disabled = true|false,
 exclusions = '{{ exclusions }}',
 outputVersionFormat = '{{ outputVersionFormat }}',
-writerIdentity = '{{ writerIdentity }}',
 includeChildren = true|false,
 interceptChildren = true|false,
-bigqueryOptions = '{{ bigqueryOptions }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}'
+bigqueryOptions = '{{ bigqueryOptions }}'
 WHERE 
 sinkName = '{{ sinkName }}';
 ```

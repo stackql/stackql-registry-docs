@@ -94,34 +94,20 @@ Use the following StackQL query and manifest file to create a new <code>restore_
 INSERT INTO google.gkebackup.restore_plans (
 locationsId,
 projectsId,
-name,
-uid,
-createTime,
-updateTime,
 description,
 backupPlan,
 cluster,
 restoreConfig,
-labels,
-etag,
-state,
-stateReason
+labels
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ backupPlan }}',
 '{{ cluster }}',
 '{{ restoreConfig }}',
-'{{ labels }}',
-'{{ etag }}',
-'{{ state }}',
-'{{ stateReason }}'
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -130,14 +116,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: backupPlan
@@ -145,15 +123,63 @@ SELECT
     - name: cluster
       value: '{{ cluster }}'
     - name: restoreConfig
-      value: '{{ restoreConfig }}'
+      value:
+        - name: volumeDataRestorePolicy
+          value: '{{ volumeDataRestorePolicy }}'
+        - name: clusterResourceConflictPolicy
+          value: '{{ clusterResourceConflictPolicy }}'
+        - name: namespacedResourceRestoreMode
+          value: '{{ namespacedResourceRestoreMode }}'
+        - name: clusterResourceRestoreScope
+          value:
+            - name: selectedGroupKinds
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: excludedGroupKinds
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: allGroupKinds
+              value: '{{ allGroupKinds }}'
+            - name: noGroupKinds
+              value: '{{ noGroupKinds }}'
+        - name: allNamespaces
+          value: '{{ allNamespaces }}'
+        - name: selectedNamespaces
+          value:
+            - name: namespaces
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: selectedApplications
+          value:
+            - name: namespacedNames
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: noNamespaces
+          value: '{{ noNamespaces }}'
+        - name: substitutionRules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: transformationRules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: volumeDataRestorePolicyBindings
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: restoreOrder
+          value:
+            - name: groupKindDependencies
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: labels
       value: '{{ labels }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateReason
-      value: '{{ stateReason }}'
 
 ```
 </TabItem>
@@ -167,18 +193,11 @@ Updates a <code>restore_plans</code> resource.
 /*+ update */
 UPDATE google.gkebackup.restore_plans
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 backupPlan = '{{ backupPlan }}',
 cluster = '{{ cluster }}',
 restoreConfig = '{{ restoreConfig }}',
-labels = '{{ labels }}',
-etag = '{{ etag }}',
-state = '{{ state }}',
-stateReason = '{{ stateReason }}'
+labels = '{{ labels }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

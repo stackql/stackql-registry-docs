@@ -57,13 +57,9 @@ policiesId,
 policiesId1,
 name,
 uid,
-kind,
 displayName,
 annotations,
 etag,
-createTime,
-updateTime,
-deleteTime,
 rules
 )
 SELECT 
@@ -71,13 +67,9 @@ SELECT
 '{{ policiesId1 }}',
 '{{ name }}',
 '{{ uid }}',
-'{{ kind }}',
 '{{ displayName }}',
 '{{ annotations }}',
 '{{ etag }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ rules }}'
 ;
 ```
@@ -91,22 +83,16 @@ SELECT
       value: '{{ name }}'
     - name: uid
       value: '{{ uid }}'
-    - name: kind
-      value: '{{ kind }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: etag
       value: '{{ etag }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: rules
-      value: '{{ rules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
