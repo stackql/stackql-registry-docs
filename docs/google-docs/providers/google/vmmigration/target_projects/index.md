@@ -80,20 +80,14 @@ Use the following StackQL query and manifest file to create a new <code>target_p
 INSERT INTO google.vmmigration.target_projects (
 locationsId,
 projectsId,
-name,
 project,
-description,
-createTime,
-updateTime
+description
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ project }}',
-'{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -102,16 +96,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: project
       value: '{{ project }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>
@@ -125,11 +113,8 @@ Updates a <code>target_projects</code> resource.
 /*+ update */
 UPDATE google.vmmigration.target_projects
 SET 
-name = '{{ name }}',
 project = '{{ project }}',
-description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}'
+description = '{{ description }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

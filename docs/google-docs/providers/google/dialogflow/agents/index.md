@@ -176,7 +176,9 @@ true|false,
     - name: defaultLanguageCode
       value: '{{ defaultLanguageCode }}'
     - name: supportedLanguageCodes
-      value: '{{ supportedLanguageCodes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: timeZone
       value: '{{ timeZone }}'
     - name: description
@@ -184,7 +186,9 @@ true|false,
     - name: avatarUri
       value: '{{ avatarUri }}'
     - name: speechToTextSettings
-      value: '{{ speechToTextSettings }}'
+      value:
+        - name: enableSpeechAdaptation
+          value: '{{ enableSpeechAdaptation }}'
     - name: startFlow
       value: '{{ startFlow }}'
     - name: securitySettings
@@ -198,19 +202,81 @@ true|false,
     - name: locked
       value: '{{ locked }}'
     - name: advancedSettings
-      value: '{{ advancedSettings }}'
+      value:
+        - name: audioExportGcsDestination
+          value:
+            - name: uri
+              value: '{{ uri }}'
+        - name: speechSettings
+          value:
+            - name: endpointerSensitivity
+              value: '{{ endpointerSensitivity }}'
+            - name: noSpeechTimeout
+              value: '{{ noSpeechTimeout }}'
+            - name: useTimeoutBasedEndpointing
+              value: '{{ useTimeoutBasedEndpointing }}'
+            - name: models
+              value: '{{ models }}'
+        - name: dtmfSettings
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+            - name: maxDigits
+              value: '{{ maxDigits }}'
+            - name: finishDigit
+              value: '{{ finishDigit }}'
+            - name: interdigitTimeoutDuration
+              value: '{{ interdigitTimeoutDuration }}'
+            - name: endpointingTimeoutDuration
+              value: '{{ endpointingTimeoutDuration }}'
+        - name: loggingSettings
+          value:
+            - name: enableStackdriverLogging
+              value: '{{ enableStackdriverLogging }}'
+            - name: enableInteractionLogging
+              value: '{{ enableInteractionLogging }}'
+            - name: enableConsentBasedRedaction
+              value: '{{ enableConsentBasedRedaction }}'
     - name: gitIntegrationSettings
-      value: '{{ gitIntegrationSettings }}'
+      value:
+        - name: githubSettings
+          value:
+            - name: displayName
+              value: '{{ displayName }}'
+            - name: repositoryUri
+              value: '{{ repositoryUri }}'
+            - name: trackingBranch
+              value: '{{ trackingBranch }}'
+            - name: accessToken
+              value: '{{ accessToken }}'
+            - name: branches
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: textToSpeechSettings
-      value: '{{ textToSpeechSettings }}'
+      value:
+        - name: synthesizeSpeechConfigs
+          value: '{{ synthesizeSpeechConfigs }}'
     - name: genAppBuilderSettings
-      value: '{{ genAppBuilderSettings }}'
+      value:
+        - name: engine
+          value: '{{ engine }}'
     - name: answerFeedbackSettings
-      value: '{{ answerFeedbackSettings }}'
+      value:
+        - name: enableAnswerFeedback
+          value: '{{ enableAnswerFeedback }}'
     - name: personalizationSettings
-      value: '{{ personalizationSettings }}'
+      value:
+        - name: defaultEndUserMetadata
+          value: '{{ defaultEndUserMetadata }}'
     - name: clientCertificateSettings
-      value: '{{ clientCertificateSettings }}'
+      value:
+        - name: sslCertificate
+          value: '{{ sslCertificate }}'
+        - name: privateKey
+          value: '{{ privateKey }}'
+        - name: passphrase
+          value: '{{ passphrase }}'
 
 ```
 </TabItem>

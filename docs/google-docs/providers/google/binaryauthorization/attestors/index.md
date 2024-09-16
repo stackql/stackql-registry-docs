@@ -82,7 +82,6 @@ projectsId,
 name,
 description,
 userOwnedGrafeasNote,
-updateTime,
 etag
 )
 SELECT 
@@ -90,7 +89,6 @@ SELECT
 '{{ name }}',
 '{{ description }}',
 '{{ userOwnedGrafeasNote }}',
-'{{ updateTime }}',
 '{{ etag }}'
 ;
 ```
@@ -105,9 +103,13 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: userOwnedGrafeasNote
-      value: '{{ userOwnedGrafeasNote }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: noteReference
+          value: '{{ noteReference }}'
+        - name: publicKeys
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: etag
       value: '{{ etag }}'
 
@@ -126,7 +128,6 @@ SET
 name = '{{ name }}',
 description = '{{ description }}',
 userOwnedGrafeasNote = '{{ userOwnedGrafeasNote }}',
-updateTime = '{{ updateTime }}',
 etag = '{{ etag }}'
 WHERE 
 attestorsId = '{{ attestorsId }}'

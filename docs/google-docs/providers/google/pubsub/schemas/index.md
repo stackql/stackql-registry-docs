@@ -83,17 +83,13 @@ INSERT INTO google.pubsub.schemas (
 projectsId,
 name,
 type,
-definition,
-revisionId,
-revisionCreateTime
+definition
 )
 SELECT 
 '{{ projectsId }}',
 '{{ name }}',
 '{{ type }}',
-'{{ definition }}',
-'{{ revisionId }}',
-'{{ revisionCreateTime }}'
+'{{ definition }}'
 ;
 ```
 </TabItem>
@@ -108,10 +104,6 @@ SELECT
       value: '{{ type }}'
     - name: definition
       value: '{{ definition }}'
-    - name: revisionId
-      value: '{{ revisionId }}'
-    - name: revisionCreateTime
-      value: '{{ revisionCreateTime }}'
 
 ```
 </TabItem>

@@ -90,10 +90,7 @@ projectsId,
 name,
 displayName,
 description,
-policyTagCount,
-taxonomyTimestamps,
-activatedPolicyTypes,
-service
+activatedPolicyTypes
 )
 SELECT 
 '{{ locationsId }}',
@@ -101,10 +98,7 @@ SELECT
 '{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ policyTagCount }}',
-'{{ taxonomyTimestamps }}',
-'{{ activatedPolicyTypes }}',
-'{{ service }}'
+'{{ activatedPolicyTypes }}'
 ;
 ```
 </TabItem>
@@ -119,14 +113,14 @@ SELECT
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: policyTagCount
-      value: '{{ policyTagCount }}'
-    - name: taxonomyTimestamps
-      value: '{{ taxonomyTimestamps }}'
     - name: activatedPolicyTypes
-      value: '{{ activatedPolicyTypes }}'
-    - name: service
-      value: '{{ service }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
 
 ```
 </TabItem>
@@ -143,10 +137,7 @@ SET
 name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-policyTagCount = '{{ policyTagCount }}',
-taxonomyTimestamps = '{{ taxonomyTimestamps }}',
-activatedPolicyTypes = '{{ activatedPolicyTypes }}',
-service = '{{ service }}'
+activatedPolicyTypes = '{{ activatedPolicyTypes }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

@@ -106,9 +106,7 @@ eeoText,
 websiteUri,
 careerSiteUri,
 imageUri,
-keywordSearchableJobCustomAttributes,
-derivedInfo,
-suspended
+keywordSearchableJobCustomAttributes
 )
 SELECT 
 '{{ projectsId }}',
@@ -123,9 +121,7 @@ true|false,
 '{{ websiteUri }}',
 '{{ careerSiteUri }}',
 '{{ imageUri }}',
-'{{ keywordSearchableJobCustomAttributes }}',
-'{{ derivedInfo }}',
-true|false
+'{{ keywordSearchableJobCustomAttributes }}'
 ;
 ```
 </TabItem>
@@ -155,11 +151,9 @@ true|false
     - name: imageUri
       value: '{{ imageUri }}'
     - name: keywordSearchableJobCustomAttributes
-      value: '{{ keywordSearchableJobCustomAttributes }}'
-    - name: derivedInfo
-      value: '{{ derivedInfo }}'
-    - name: suspended
-      value: '{{ suspended }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -183,9 +177,7 @@ eeoText = '{{ eeoText }}',
 websiteUri = '{{ websiteUri }}',
 careerSiteUri = '{{ careerSiteUri }}',
 imageUri = '{{ imageUri }}',
-keywordSearchableJobCustomAttributes = '{{ keywordSearchableJobCustomAttributes }}',
-derivedInfo = '{{ derivedInfo }}',
-suspended = true|false
+keywordSearchableJobCustomAttributes = '{{ keywordSearchableJobCustomAttributes }}'
 WHERE 
 companiesId = '{{ companiesId }}'
 AND projectsId = '{{ projectsId }}'

@@ -91,7 +91,6 @@ foldersId,
 name,
 description,
 pubsubTopic,
-serviceAccount,
 streamingConfig
 )
 SELECT 
@@ -99,7 +98,6 @@ SELECT
 '{{ name }}',
 '{{ description }}',
 '{{ pubsubTopic }}',
-'{{ serviceAccount }}',
 '{{ streamingConfig }}'
 ;
 ```
@@ -115,10 +113,10 @@ SELECT
       value: '{{ description }}'
     - name: pubsubTopic
       value: '{{ pubsubTopic }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
     - name: streamingConfig
-      value: '{{ streamingConfig }}'
+      value:
+        - name: filter
+          value: '{{ filter }}'
 
 ```
 </TabItem>
@@ -135,7 +133,6 @@ SET
 name = '{{ name }}',
 description = '{{ description }}',
 pubsubTopic = '{{ pubsubTopic }}',
-serviceAccount = '{{ serviceAccount }}',
 streamingConfig = '{{ streamingConfig }}'
 WHERE 
 foldersId = '{{ foldersId }}'

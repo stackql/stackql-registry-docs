@@ -87,8 +87,6 @@ INSERT INTO google.certificatemanager.trust_configs (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 description,
 etag,
@@ -99,8 +97,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ etag }}',
@@ -116,10 +112,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
@@ -127,9 +119,13 @@ SELECT
     - name: etag
       value: '{{ etag }}'
     - name: trustStores
-      value: '{{ trustStores }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: allowlistedCertificates
-      value: '{{ allowlistedCertificates }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -144,8 +140,6 @@ Updates a <code>trust_configs</code> resource.
 UPDATE google.certificatemanager.trust_configs
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 etag = '{{ etag }}',

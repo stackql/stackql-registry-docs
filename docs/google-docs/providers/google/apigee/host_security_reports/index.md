@@ -132,9 +132,13 @@ SELECT
     - name: limit
       value: '{{ limit }}'
     - name: metrics
-      value: '{{ metrics }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: dimensions
-      value: '{{ dimensions }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: groupByTimeUnit
       value: '{{ groupByTimeUnit }}'
     - name: mimeType

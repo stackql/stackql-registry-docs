@@ -107,9 +107,6 @@ INSERT INTO google.networkservices.gateways (
 locationsId,
 projectsId,
 name,
-selfLink,
-createTime,
-updateTime,
 labels,
 description,
 type,
@@ -129,9 +126,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ selfLink }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ type }}',
@@ -156,12 +150,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
@@ -169,15 +157,23 @@ SELECT
     - name: type
       value: '{{ type }}'
     - name: addresses
-      value: '{{ addresses }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: ports
-      value: '{{ ports }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: format
+          value: '{{ format }}'
     - name: scope
       value: '{{ scope }}'
     - name: serverTlsPolicy
       value: '{{ serverTlsPolicy }}'
     - name: certificateUrls
-      value: '{{ certificateUrls }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: gatewaySecurityPolicy
       value: '{{ gatewaySecurityPolicy }}'
     - name: network
@@ -204,9 +200,6 @@ Updates a <code>gateways</code> resource.
 UPDATE google.networkservices.gateways
 SET 
 name = '{{ name }}',
-selfLink = '{{ selfLink }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 type = '{{ type }}',

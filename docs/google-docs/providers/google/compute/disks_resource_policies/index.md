@@ -73,7 +73,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: resourcePolicies
-      value: '{{ resourcePolicies }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>

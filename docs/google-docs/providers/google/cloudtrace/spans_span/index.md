@@ -104,21 +104,63 @@ true|false,
     - name: parentSpanId
       value: '{{ parentSpanId }}'
     - name: displayName
-      value: '{{ displayName }}'
+      value:
+        - name: value
+          value: '{{ value }}'
+        - name: truncatedByteCount
+          value: '{{ truncatedByteCount }}'
     - name: startTime
       value: '{{ startTime }}'
     - name: endTime
       value: '{{ endTime }}'
     - name: attributes
-      value: '{{ attributes }}'
+      value:
+        - name: attributeMap
+          value: '{{ attributeMap }}'
+        - name: droppedAttributesCount
+          value: '{{ droppedAttributesCount }}'
     - name: stackTrace
-      value: '{{ stackTrace }}'
+      value:
+        - name: stackFrames
+          value:
+            - name: frame
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: droppedFramesCount
+              value: '{{ droppedFramesCount }}'
+        - name: stackTraceHashId
+          value: '{{ stackTraceHashId }}'
     - name: timeEvents
-      value: '{{ timeEvents }}'
+      value:
+        - name: timeEvent
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: droppedAnnotationsCount
+          value: '{{ droppedAnnotationsCount }}'
+        - name: droppedMessageEventsCount
+          value: '{{ droppedMessageEventsCount }}'
     - name: links
-      value: '{{ links }}'
+      value:
+        - name: link
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: droppedLinksCount
+          value: '{{ droppedLinksCount }}'
     - name: status
-      value: '{{ status }}'
+      value:
+        - name: code
+          value: '{{ code }}'
+        - name: message
+          value: '{{ message }}'
+        - name: details
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: additionalProperties
+              value: '{{ additionalProperties }}'
     - name: sameProcessAsParentSpan
       value: '{{ sameProcessAsParentSpan }}'
     - name: childSpanCount

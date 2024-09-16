@@ -86,7 +86,69 @@ SELECT
     - name: clusterId
       value: '{{ clusterId }}'
     - name: addonsConfig
-      value: '{{ addonsConfig }}'
+      value:
+        - name: httpLoadBalancing
+          value:
+            - name: disabled
+              value: '{{ disabled }}'
+        - name: horizontalPodAutoscaling
+          value:
+            - name: disabled
+              value: '{{ disabled }}'
+        - name: kubernetesDashboard
+          value:
+            - name: disabled
+              value: '{{ disabled }}'
+        - name: networkPolicyConfig
+          value:
+            - name: disabled
+              value: '{{ disabled }}'
+        - name: cloudRunConfig
+          value:
+            - name: disabled
+              value: '{{ disabled }}'
+            - name: loadBalancerType
+              value: '{{ loadBalancerType }}'
+        - name: dnsCacheConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: configConnectorConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: gcePersistentDiskCsiDriverConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: gcpFilestoreCsiDriverConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: gkeBackupAgentConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: gcsFuseCsiDriverConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: statefulHaConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: rayOperatorConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+            - name: rayClusterLoggingConfig
+              value:
+                - name: enabled
+                  value: '{{ enabled }}'
+            - name: rayClusterMonitoringConfig
+              value:
+                - name: enabled
+                  value: '{{ enabled }}'
     - name: name
       value: '{{ name }}'
 

@@ -100,12 +100,8 @@ projectsId,
 runsId,
 tensorboardsId,
 description,
-createTime,
 pluginName,
 pluginData,
-metadata,
-updateTime,
-name,
 valueType,
 etag,
 displayName
@@ -117,12 +113,8 @@ SELECT
 '{{ runsId }}',
 '{{ tensorboardsId }}',
 '{{ description }}',
-'{{ createTime }}',
 '{{ pluginName }}',
 '{{ pluginData }}',
-'{{ metadata }}',
-'{{ updateTime }}',
-'{{ name }}',
 '{{ valueType }}',
 '{{ etag }}',
 '{{ displayName }}'
@@ -136,18 +128,10 @@ SELECT
   props:
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: pluginName
       value: '{{ pluginName }}'
     - name: pluginData
       value: '{{ pluginData }}'
-    - name: metadata
-      value: '{{ metadata }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: name
-      value: '{{ name }}'
     - name: valueType
       value: '{{ valueType }}'
     - name: etag
@@ -168,12 +152,8 @@ Updates a <code>time_series</code> resource.
 UPDATE google.aiplatform.time_series
 SET 
 description = '{{ description }}',
-createTime = '{{ createTime }}',
 pluginName = '{{ pluginName }}',
 pluginData = '{{ pluginData }}',
-metadata = '{{ metadata }}',
-updateTime = '{{ updateTime }}',
-name = '{{ name }}',
 valueType = '{{ valueType }}',
 etag = '{{ etag }}',
 displayName = '{{ displayName }}'

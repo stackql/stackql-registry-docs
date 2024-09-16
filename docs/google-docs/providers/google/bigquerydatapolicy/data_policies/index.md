@@ -83,7 +83,6 @@ locationsId,
 projectsId,
 policyTag,
 dataMaskingPolicy,
-name,
 dataPolicyType,
 dataPolicyId
 )
@@ -92,7 +91,6 @@ SELECT
 '{{ projectsId }}',
 '{{ policyTag }}',
 '{{ dataMaskingPolicy }}',
-'{{ name }}',
 '{{ dataPolicyType }}',
 '{{ dataPolicyId }}'
 ;
@@ -106,9 +104,11 @@ SELECT
     - name: policyTag
       value: '{{ policyTag }}'
     - name: dataMaskingPolicy
-      value: '{{ dataMaskingPolicy }}'
-    - name: name
-      value: '{{ name }}'
+      value:
+        - name: predefinedExpression
+          value: '{{ predefinedExpression }}'
+        - name: routine
+          value: '{{ routine }}'
     - name: dataPolicyType
       value: '{{ dataPolicyType }}'
     - name: dataPolicyId
@@ -128,7 +128,6 @@ UPDATE google.bigquerydatapolicy.data_policies
 SET 
 policyTag = '{{ policyTag }}',
 dataMaskingPolicy = '{{ dataMaskingPolicy }}',
-name = '{{ name }}',
 dataPolicyType = '{{ dataPolicyType }}',
 dataPolicyId = '{{ dataPolicyId }}'
 WHERE 

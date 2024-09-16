@@ -92,30 +92,22 @@ Use the following StackQL query and manifest file to create a new <code>target_i
 INSERT INTO google.compute.target_instances (
 project,
 zone,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 zone,
 natPolicy,
 instance,
-selfLink,
 network,
 securityPolicy
 )
 SELECT 
 '{{ project }}',
 '{{ zone }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ zone }}',
 '{{ natPolicy }}',
 '{{ instance }}',
-'{{ selfLink }}',
 '{{ network }}',
 '{{ securityPolicy }}'
 ;
@@ -126,12 +118,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -142,8 +128,6 @@ SELECT
       value: '{{ natPolicy }}'
     - name: instance
       value: '{{ instance }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: network
       value: '{{ network }}'
     - name: securityPolicy

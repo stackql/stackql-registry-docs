@@ -110,19 +110,12 @@ projectsId,
 encryptionSpec,
 network,
 displayName,
-publicEndpointDomainName,
-deployedIndexes,
 publicEndpointEnabled,
-name,
 enablePrivateServiceConnect,
-satisfiesPzs,
 etag,
 labels,
-satisfiesPzi,
 privateServiceConnectConfig,
-createTime,
-description,
-updateTime
+description
 )
 SELECT 
 '{{ locationsId }}',
@@ -130,19 +123,12 @@ SELECT
 '{{ encryptionSpec }}',
 '{{ network }}',
 '{{ displayName }}',
-'{{ publicEndpointDomainName }}',
-'{{ deployedIndexes }}',
-true|false,
-'{{ name }}',
 true|false,
 true|false,
 '{{ etag }}',
 '{{ labels }}',
-true|false,
 '{{ privateServiceConnectConfig }}',
-'{{ createTime }}',
-'{{ description }}',
-'{{ updateTime }}'
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -152,37 +138,31 @@ true|false,
 - name: your_resource_model_name
   props:
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: network
       value: '{{ network }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: publicEndpointDomainName
-      value: '{{ publicEndpointDomainName }}'
-    - name: deployedIndexes
-      value: '{{ deployedIndexes }}'
     - name: publicEndpointEnabled
       value: '{{ publicEndpointEnabled }}'
-    - name: name
-      value: '{{ name }}'
     - name: enablePrivateServiceConnect
       value: '{{ enablePrivateServiceConnect }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
     - name: etag
       value: '{{ etag }}'
     - name: labels
       value: '{{ labels }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
     - name: privateServiceConnectConfig
-      value: '{{ privateServiceConnectConfig }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: enablePrivateServiceConnect
+          value: '{{ enablePrivateServiceConnect }}'
+        - name: projectAllowlist
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: description
       value: '{{ description }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>
@@ -199,19 +179,12 @@ SET
 encryptionSpec = '{{ encryptionSpec }}',
 network = '{{ network }}',
 displayName = '{{ displayName }}',
-publicEndpointDomainName = '{{ publicEndpointDomainName }}',
-deployedIndexes = '{{ deployedIndexes }}',
 publicEndpointEnabled = true|false,
-name = '{{ name }}',
 enablePrivateServiceConnect = true|false,
-satisfiesPzs = true|false,
 etag = '{{ etag }}',
 labels = '{{ labels }}',
-satisfiesPzi = true|false,
 privateServiceConnectConfig = '{{ privateServiceConnectConfig }}',
-createTime = '{{ createTime }}',
-description = '{{ description }}',
-updateTime = '{{ updateTime }}'
+description = '{{ description }}'
 WHERE 
 indexEndpointsId = '{{ indexEndpointsId }}'
 AND locationsId = '{{ locationsId }}'

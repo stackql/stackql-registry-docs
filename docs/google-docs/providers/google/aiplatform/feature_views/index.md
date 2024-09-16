@@ -98,14 +98,10 @@ INSERT INTO google.aiplatform.feature_views (
 featureOnlineStoresId,
 locationsId,
 projectsId,
-satisfiesPzs,
-createTime,
 etag,
-satisfiesPzi,
 labels,
 bigQuerySource,
 name,
-updateTime,
 featureRegistrySource,
 indexConfig,
 vertexRagSource,
@@ -115,14 +111,10 @@ SELECT
 '{{ featureOnlineStoresId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-true|false,
-'{{ createTime }}',
 '{{ etag }}',
-true|false,
 '{{ labels }}',
 '{{ bigQuerySource }}',
 '{{ name }}',
-'{{ updateTime }}',
 '{{ featureRegistrySource }}',
 '{{ indexConfig }}',
 '{{ vertexRagSource }}',
@@ -135,30 +127,58 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: etag
       value: '{{ etag }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
     - name: labels
       value: '{{ labels }}'
     - name: bigQuerySource
-      value: '{{ bigQuerySource }}'
+      value:
+        - name: entityIdColumns
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: uri
+          value: '{{ uri }}'
     - name: name
       value: '{{ name }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: featureRegistrySource
-      value: '{{ featureRegistrySource }}'
+      value:
+        - name: featureGroups
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: projectNumber
+          value: '{{ projectNumber }}'
     - name: indexConfig
-      value: '{{ indexConfig }}'
+      value:
+        - name: bruteForceConfig
+          value: []
+        - name: embeddingDimension
+          value: '{{ embeddingDimension }}'
+        - name: distanceMeasureType
+          value: '{{ distanceMeasureType }}'
+        - name: crowdingColumn
+          value: '{{ crowdingColumn }}'
+        - name: filterColumns
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: treeAhConfig
+          value:
+            - name: leafNodeEmbeddingCount
+              value: '{{ leafNodeEmbeddingCount }}'
+        - name: embeddingColumn
+          value: '{{ embeddingColumn }}'
     - name: vertexRagSource
-      value: '{{ vertexRagSource }}'
+      value:
+        - name: uri
+          value: '{{ uri }}'
+        - name: ragCorpusId
+          value: '{{ ragCorpusId }}'
     - name: syncConfig
-      value: '{{ syncConfig }}'
+      value:
+        - name: cron
+          value: '{{ cron }}'
 
 ```
 </TabItem>
@@ -172,14 +192,10 @@ Updates a <code>feature_views</code> resource.
 /*+ update */
 UPDATE google.aiplatform.feature_views
 SET 
-satisfiesPzs = true|false,
-createTime = '{{ createTime }}',
 etag = '{{ etag }}',
-satisfiesPzi = true|false,
 labels = '{{ labels }}',
 bigQuerySource = '{{ bigQuerySource }}',
 name = '{{ name }}',
-updateTime = '{{ updateTime }}',
 featureRegistrySource = '{{ featureRegistrySource }}',
 indexConfig = '{{ indexConfig }}',
 vertexRagSource = '{{ vertexRagSource }}',

@@ -81,17 +81,13 @@ INSERT INTO google.apigee.apicategories (
 organizationsId,
 sitesId,
 siteId,
-id,
-name,
-updateTime
+name
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ sitesId }}',
 '{{ siteId }}',
-'{{ id }}',
-'{{ name }}',
-'{{ updateTime }}'
+'{{ name }}'
 ;
 ```
 </TabItem>
@@ -102,12 +98,8 @@ SELECT
   props:
     - name: siteId
       value: '{{ siteId }}'
-    - name: id
-      value: '{{ id }}'
     - name: name
       value: '{{ name }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>
@@ -122,9 +114,7 @@ Updates a <code>apicategories</code> resource.
 UPDATE google.apigee.apicategories
 SET 
 siteId = '{{ siteId }}',
-id = '{{ id }}',
-name = '{{ name }}',
-updateTime = '{{ updateTime }}'
+name = '{{ name }}'
 WHERE 
 apicategoriesId = '{{ apicategoriesId }}'
 AND organizationsId = '{{ organizationsId }}'

@@ -94,30 +94,22 @@ locationsId,
 projectsId,
 name,
 description,
-createTime,
 jupyterSession,
 sparkConnectSession,
-creator,
 labels,
 runtimeConfig,
-environmentConfig,
-updateTime,
-uuid
+environmentConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
 '{{ jupyterSession }}',
 '{{ sparkConnectSession }}',
-'{{ creator }}',
 '{{ labels }}',
 '{{ runtimeConfig }}',
-'{{ environmentConfig }}',
-'{{ updateTime }}',
-'{{ uuid }}'
+'{{ environmentConfig }}'
 ;
 ```
 </TabItem>
@@ -130,24 +122,72 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: jupyterSession
-      value: '{{ jupyterSession }}'
+      value:
+        - name: kernel
+          value: '{{ kernel }}'
+        - name: displayName
+          value: '{{ displayName }}'
     - name: sparkConnectSession
-      value: '{{ sparkConnectSession }}'
-    - name: creator
-      value: '{{ creator }}'
+      value: []
     - name: labels
       value: '{{ labels }}'
     - name: runtimeConfig
-      value: '{{ runtimeConfig }}'
+      value:
+        - name: version
+          value: '{{ version }}'
+        - name: containerImage
+          value: '{{ containerImage }}'
+        - name: properties
+          value: '{{ properties }}'
+        - name: repositoryConfig
+          value:
+            - name: pypiRepositoryConfig
+              value:
+                - name: pypiRepository
+                  value: '{{ pypiRepository }}'
+        - name: autotuningConfig
+          value:
+            - name: scenarios
+              value:
+                - name: type
+                  value: '{{ type }}'
+                - name: enumDescriptions
+                  value: '{{ enumDescriptions }}'
+                - name: enum
+                  value: '{{ enum }}'
+        - name: cohort
+          value: '{{ cohort }}'
     - name: environmentConfig
-      value: '{{ environmentConfig }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: uuid
-      value: '{{ uuid }}'
+      value:
+        - name: executionConfig
+          value:
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
+            - name: networkUri
+              value: '{{ networkUri }}'
+            - name: subnetworkUri
+              value: '{{ subnetworkUri }}'
+            - name: networkTags
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: kmsKey
+              value: '{{ kmsKey }}'
+            - name: idleTtl
+              value: '{{ idleTtl }}'
+            - name: ttl
+              value: '{{ ttl }}'
+            - name: stagingBucket
+              value: '{{ stagingBucket }}'
+        - name: peripheralsConfig
+          value:
+            - name: metastoreService
+              value: '{{ metastoreService }}'
+            - name: sparkHistoryServerConfig
+              value:
+                - name: dataprocCluster
+                  value: '{{ dataprocCluster }}'
 
 ```
 </TabItem>
@@ -163,15 +203,11 @@ UPDATE google.dataproc.session_templates
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
 jupyterSession = '{{ jupyterSession }}',
 sparkConnectSession = '{{ sparkConnectSession }}',
-creator = '{{ creator }}',
 labels = '{{ labels }}',
 runtimeConfig = '{{ runtimeConfig }}',
-environmentConfig = '{{ environmentConfig }}',
-updateTime = '{{ updateTime }}',
-uuid = '{{ uuid }}'
+environmentConfig = '{{ environmentConfig }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

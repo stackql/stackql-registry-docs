@@ -99,17 +99,11 @@ INSERT INTO google.dataplex.tasks (
 lakesId,
 locationsId,
 projectsId,
-name,
-uid,
-createTime,
-updateTime,
 description,
 displayName,
-state,
 labels,
 triggerSpec,
 executionSpec,
-executionStatus,
 spark,
 notebook
 )
@@ -117,17 +111,11 @@ SELECT
 '{{ lakesId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ displayName }}',
-'{{ state }}',
 '{{ labels }}',
 '{{ triggerSpec }}',
 '{{ executionSpec }}',
-'{{ executionStatus }}',
 '{{ spark }}',
 '{{ notebook }}'
 ;
@@ -138,32 +126,100 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: state
-      value: '{{ state }}'
     - name: labels
       value: '{{ labels }}'
     - name: triggerSpec
-      value: '{{ triggerSpec }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: startTime
+          value: '{{ startTime }}'
+        - name: disabled
+          value: '{{ disabled }}'
+        - name: maxRetries
+          value: '{{ maxRetries }}'
+        - name: schedule
+          value: '{{ schedule }}'
     - name: executionSpec
-      value: '{{ executionSpec }}'
-    - name: executionStatus
-      value: '{{ executionStatus }}'
+      value:
+        - name: args
+          value: '{{ args }}'
+        - name: serviceAccount
+          value: '{{ serviceAccount }}'
+        - name: project
+          value: '{{ project }}'
+        - name: maxJobExecutionLifetime
+          value: '{{ maxJobExecutionLifetime }}'
+        - name: kmsKey
+          value: '{{ kmsKey }}'
     - name: spark
-      value: '{{ spark }}'
+      value:
+        - name: mainJarFileUri
+          value: '{{ mainJarFileUri }}'
+        - name: mainClass
+          value: '{{ mainClass }}'
+        - name: pythonScriptFile
+          value: '{{ pythonScriptFile }}'
+        - name: sqlScriptFile
+          value: '{{ sqlScriptFile }}'
+        - name: sqlScript
+          value: '{{ sqlScript }}'
+        - name: fileUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: archiveUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: infrastructureSpec
+          value:
+            - name: batch
+              value:
+                - name: executorsCount
+                  value: '{{ executorsCount }}'
+                - name: maxExecutorsCount
+                  value: '{{ maxExecutorsCount }}'
+            - name: containerImage
+              value:
+                - name: image
+                  value: '{{ image }}'
+                - name: javaJars
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: pythonPackages
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: properties
+                  value: '{{ properties }}'
+            - name: vpcNetwork
+              value:
+                - name: network
+                  value: '{{ network }}'
+                - name: subNetwork
+                  value: '{{ subNetwork }}'
+                - name: networkTags
+                  value:
+                    - name: type
+                      value: '{{ type }}'
     - name: notebook
-      value: '{{ notebook }}'
+      value:
+        - name: notebook
+          value: '{{ notebook }}'
+        - name: fileUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: archiveUris
+          value:
+            - name: type
+              value: '{{ type }}'
 
 ```
 </TabItem>
@@ -177,17 +233,11 @@ Updates a <code>tasks</code> resource.
 /*+ update */
 UPDATE google.dataplex.tasks
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 displayName = '{{ displayName }}',
-state = '{{ state }}',
 labels = '{{ labels }}',
 triggerSpec = '{{ triggerSpec }}',
 executionSpec = '{{ executionSpec }}',
-executionStatus = '{{ executionStatus }}',
 spark = '{{ spark }}',
 notebook = '{{ notebook }}'
 WHERE 

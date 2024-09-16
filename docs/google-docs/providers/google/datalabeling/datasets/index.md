@@ -99,7 +99,25 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: dataset
-      value: '{{ dataset }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: description
+          value: '{{ description }}'
+        - name: inputConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: blockingResources
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: dataItemCount
+          value: '{{ dataItemCount }}'
+        - name: lastMigrateTime
+          value: '{{ lastMigrateTime }}'
 
 ```
 </TabItem>

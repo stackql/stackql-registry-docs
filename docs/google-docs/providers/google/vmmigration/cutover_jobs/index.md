@@ -94,35 +94,13 @@ INSERT INTO google.vmmigration.cutover_jobs (
 locationsId,
 migratingVmsId,
 projectsId,
-sourcesId,
-computeEngineTargetDetails,
-computeEngineDisksTargetDetails,
-createTime,
-endTime,
-name,
-state,
-stateTime,
-progressPercent,
-error,
-stateMessage,
-steps
+sourcesId
 )
 SELECT 
 '{{ locationsId }}',
 '{{ migratingVmsId }}',
 '{{ projectsId }}',
-'{{ sourcesId }}',
-'{{ computeEngineTargetDetails }}',
-'{{ computeEngineDisksTargetDetails }}',
-'{{ createTime }}',
-'{{ endTime }}',
-'{{ name }}',
-'{{ state }}',
-'{{ stateTime }}',
-'{{ progressPercent }}',
-'{{ error }}',
-'{{ stateMessage }}',
-'{{ steps }}'
+'{{ sourcesId }}'
 ;
 ```
 </TabItem>
@@ -130,29 +108,7 @@ SELECT
 
 ```yaml
 - name: your_resource_model_name
-  props:
-    - name: computeEngineTargetDetails
-      value: '{{ computeEngineTargetDetails }}'
-    - name: computeEngineDisksTargetDetails
-      value: '{{ computeEngineDisksTargetDetails }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: name
-      value: '{{ name }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateTime
-      value: '{{ stateTime }}'
-    - name: progressPercent
-      value: '{{ progressPercent }}'
-    - name: error
-      value: '{{ error }}'
-    - name: stateMessage
-      value: '{{ stateMessage }}'
-    - name: steps
-      value: '{{ steps }}'
+  props: []
 
 ```
 </TabItem>

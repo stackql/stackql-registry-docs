@@ -90,28 +90,12 @@ Use the following StackQL query and manifest file to create a new <code>dataset_
 INSERT INTO google.aiplatform.dataset_versions (
 datasetsId,
 etag,
-satisfiesPzi,
-createTime,
-updateTime,
-bigQueryDatasetName,
-modelReference,
-name,
-metadata,
-displayName,
-satisfiesPzs
+displayName
 )
 SELECT 
 '{{ datasetsId }}',
 '{{ etag }}',
-true|false,
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ bigQueryDatasetName }}',
-'{{ modelReference }}',
-'{{ name }}',
-'{{ metadata }}',
-'{{ displayName }}',
-true|false
+'{{ displayName }}'
 ;
 ```
 </TabItem>
@@ -122,24 +106,8 @@ true|false
   props:
     - name: etag
       value: '{{ etag }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: bigQueryDatasetName
-      value: '{{ bigQueryDatasetName }}'
-    - name: modelReference
-      value: '{{ modelReference }}'
-    - name: name
-      value: '{{ name }}'
-    - name: metadata
-      value: '{{ metadata }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
 
 ```
 </TabItem>
@@ -154,15 +122,7 @@ Updates a <code>dataset_versions</code> resource.
 UPDATE google.aiplatform.dataset_versions
 SET 
 etag = '{{ etag }}',
-satisfiesPzi = true|false,
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-bigQueryDatasetName = '{{ bigQueryDatasetName }}',
-modelReference = '{{ modelReference }}',
-name = '{{ name }}',
-metadata = '{{ metadata }}',
-displayName = '{{ displayName }}',
-satisfiesPzs = true|false
+displayName = '{{ displayName }}'
 WHERE 
 datasetVersionsId = '{{ datasetVersionsId }}'
 AND datasetsId = '{{ datasetsId }}';

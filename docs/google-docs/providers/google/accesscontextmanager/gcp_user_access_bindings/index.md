@@ -112,15 +112,33 @@ SELECT
     - name: groupKey
       value: '{{ groupKey }}'
     - name: accessLevels
-      value: '{{ accessLevels }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: dryRunAccessLevels
-      value: '{{ dryRunAccessLevels }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: reauthSettings
-      value: '{{ reauthSettings }}'
+      value:
+        - name: reauthMethod
+          value: '{{ reauthMethod }}'
+        - name: sessionLength
+          value: '{{ sessionLength }}'
+        - name: maxInactivity
+          value: '{{ maxInactivity }}'
+        - name: useOidcMaxAge
+          value: '{{ useOidcMaxAge }}'
+        - name: sessionLengthEnabled
+          value: '{{ sessionLengthEnabled }}'
     - name: restrictedClientApplications
-      value: '{{ restrictedClientApplications }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: scopedAccessSettings
-      value: '{{ scopedAccessSettings }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

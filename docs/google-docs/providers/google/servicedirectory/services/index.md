@@ -82,18 +82,14 @@ locationsId,
 namespacesId,
 projectsId,
 name,
-annotations,
-endpoints,
-uid
+annotations
 )
 SELECT 
 '{{ locationsId }}',
 '{{ namespacesId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ annotations }}',
-'{{ endpoints }}',
-'{{ uid }}'
+'{{ annotations }}'
 ;
 ```
 </TabItem>
@@ -106,10 +102,6 @@ SELECT
       value: '{{ name }}'
     - name: annotations
       value: '{{ annotations }}'
-    - name: endpoints
-      value: '{{ endpoints }}'
-    - name: uid
-      value: '{{ uid }}'
 
 ```
 </TabItem>
@@ -124,9 +116,7 @@ Updates a <code>services</code> resource.
 UPDATE google.servicedirectory.services
 SET 
 name = '{{ name }}',
-annotations = '{{ annotations }}',
-endpoints = '{{ endpoints }}',
-uid = '{{ uid }}'
+annotations = '{{ annotations }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND namespacesId = '{{ namespacesId }}'

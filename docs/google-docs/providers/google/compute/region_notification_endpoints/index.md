@@ -85,24 +85,16 @@ Use the following StackQL query and manifest file to create a new <code>region_n
 INSERT INTO google.compute.region_notification_endpoints (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 region,
 grpcSettings
 )
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ region }}',
 '{{ grpcSettings }}'
 ;
@@ -113,22 +105,28 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: region
       value: '{{ region }}'
     - name: grpcSettings
-      value: '{{ grpcSettings }}'
+      value:
+        - name: endpoint
+          value: '{{ endpoint }}'
+        - name: retryDurationSec
+          value: '{{ retryDurationSec }}'
+        - name: payloadName
+          value: '{{ payloadName }}'
+        - name: authority
+          value: '{{ authority }}'
+        - name: resendInterval
+          value:
+            - name: seconds
+              value: '{{ seconds }}'
+            - name: nanos
+              value: '{{ nanos }}'
 
 ```
 </TabItem>

@@ -85,8 +85,7 @@ taxonomiesId,
 name,
 displayName,
 description,
-parentPolicyTag,
-childPolicyTags
+parentPolicyTag
 )
 SELECT 
 '{{ locationsId }}',
@@ -95,8 +94,7 @@ SELECT
 '{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ parentPolicyTag }}',
-'{{ childPolicyTags }}'
+'{{ parentPolicyTag }}'
 ;
 ```
 </TabItem>
@@ -113,8 +111,6 @@ SELECT
       value: '{{ description }}'
     - name: parentPolicyTag
       value: '{{ parentPolicyTag }}'
-    - name: childPolicyTags
-      value: '{{ childPolicyTags }}'
 
 ```
 </TabItem>
@@ -131,8 +127,7 @@ SET
 name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-parentPolicyTag = '{{ parentPolicyTag }}',
-childPolicyTags = '{{ childPolicyTags }}'
+parentPolicyTag = '{{ parentPolicyTag }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND policyTagsId = '{{ policyTagsId }}'

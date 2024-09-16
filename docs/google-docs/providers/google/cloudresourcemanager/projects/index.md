@@ -93,29 +93,17 @@ Use the following StackQL query and manifest file to create a new <code>projects
 /*+ create */
 INSERT INTO google.cloudresourcemanager.projects (
 ,
-name,
 parent,
 projectId,
-state,
 displayName,
-createTime,
-updateTime,
-deleteTime,
-etag,
 labels,
 tags
 )
 SELECT 
 '{{  }}',
-'{{ name }}',
 '{{ parent }}',
 '{{ projectId }}',
-'{{ state }}',
 '{{ displayName }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
-'{{ etag }}',
 '{{ labels }}',
 '{{ tags }}'
 ;
@@ -126,24 +114,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: parent
       value: '{{ parent }}'
     - name: projectId
       value: '{{ projectId }}'
-    - name: state
-      value: '{{ state }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: etag
-      value: '{{ etag }}'
     - name: labels
       value: '{{ labels }}'
     - name: tags
@@ -161,15 +137,9 @@ Updates a <code>projects</code> resource.
 /*+ update */
 UPDATE google.cloudresourcemanager.projects
 SET 
-name = '{{ name }}',
 parent = '{{ parent }}',
 projectId = '{{ projectId }}',
-state = '{{ state }}',
 displayName = '{{ displayName }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
-etag = '{{ etag }}',
 labels = '{{ labels }}',
 tags = '{{ tags }}'
 WHERE 

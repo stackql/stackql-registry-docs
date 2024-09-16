@@ -130,7 +130,6 @@ Use the following StackQL query and manifest file to create a new <code>jobs</co
 /*+ create */
 INSERT INTO google.dataflow.jobs (
 projectId,
-id,
 projectId,
 name,
 type,
@@ -141,7 +140,6 @@ currentState,
 currentStateTime,
 requestedState,
 executionInfo,
-createTime,
 replaceJobId,
 transformNameMapping,
 clientRequestId,
@@ -155,13 +153,10 @@ jobMetadata,
 startTime,
 createdFromSnapshotId,
 satisfiesPzs,
-runtimeUpdatableParams,
-satisfiesPzi,
-serviceResources
+runtimeUpdatableParams
 )
 SELECT 
 '{{ projectId }}',
-'{{ id }}',
 '{{ projectId }}',
 '{{ name }}',
 '{{ type }}',
@@ -172,7 +167,6 @@ SELECT
 '{{ currentStateTime }}',
 '{{ requestedState }}',
 '{{ executionInfo }}',
-'{{ createTime }}',
 '{{ replaceJobId }}',
 '{{ transformNameMapping }}',
 '{{ clientRequestId }}',
@@ -186,9 +180,7 @@ SELECT
 '{{ startTime }}',
 '{{ createdFromSnapshotId }}',
 true|false,
-'{{ runtimeUpdatableParams }}',
-true|false,
-'{{ serviceResources }}'
+'{{ runtimeUpdatableParams }}'
 ;
 ```
 </TabItem>
@@ -197,8 +189,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: id
-      value: '{{ id }}'
     - name: projectId
       value: '{{ projectId }}'
     - name: name
@@ -206,9 +196,63 @@ true|false,
     - name: type
       value: '{{ type }}'
     - name: environment
-      value: '{{ environment }}'
+      value:
+        - name: tempStoragePrefix
+          value: '{{ tempStoragePrefix }}'
+        - name: clusterManagerApiService
+          value: '{{ clusterManagerApiService }}'
+        - name: experiments
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: serviceOptions
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: serviceKmsKeyName
+          value: '{{ serviceKmsKeyName }}'
+        - name: workerPools
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: userAgent
+          value: '{{ userAgent }}'
+        - name: version
+          value: '{{ version }}'
+        - name: dataset
+          value: '{{ dataset }}'
+        - name: sdkPipelineOptions
+          value: '{{ sdkPipelineOptions }}'
+        - name: internalExperiments
+          value: '{{ internalExperiments }}'
+        - name: serviceAccountEmail
+          value: '{{ serviceAccountEmail }}'
+        - name: flexResourceSchedulingGoal
+          value: '{{ flexResourceSchedulingGoal }}'
+        - name: workerRegion
+          value: '{{ workerRegion }}'
+        - name: workerZone
+          value: '{{ workerZone }}'
+        - name: debugOptions
+          value:
+            - name: enableHotKeyLogging
+              value: '{{ enableHotKeyLogging }}'
+            - name: dataSampling
+              value:
+                - name: behaviors
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                    - name: enumDescriptions
+                      value: '{{ enumDescriptions }}'
+                    - name: enum
+                      value: '{{ enum }}'
+        - name: streamingMode
+          value: '{{ streamingMode }}'
     - name: steps
-      value: '{{ steps }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: stepsLocation
       value: '{{ stepsLocation }}'
     - name: currentState
@@ -218,9 +262,9 @@ true|false,
     - name: requestedState
       value: '{{ requestedState }}'
     - name: executionInfo
-      value: '{{ executionInfo }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: stages
+          value: '{{ stages }}'
     - name: replaceJobId
       value: '{{ replaceJobId }}'
     - name: transformNameMapping
@@ -230,17 +274,69 @@ true|false,
     - name: replacedByJobId
       value: '{{ replacedByJobId }}'
     - name: tempFiles
-      value: '{{ tempFiles }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
     - name: location
       value: '{{ location }}'
     - name: pipelineDescription
-      value: '{{ pipelineDescription }}'
+      value:
+        - name: originalPipelineTransform
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: executionPipelineStage
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: displayData
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: stepNamesHash
+          value: '{{ stepNamesHash }}'
     - name: stageStates
-      value: '{{ stageStates }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: jobMetadata
-      value: '{{ jobMetadata }}'
+      value:
+        - name: sdkVersion
+          value:
+            - name: version
+              value: '{{ version }}'
+            - name: versionDisplayName
+              value: '{{ versionDisplayName }}'
+            - name: sdkSupportStatus
+              value: '{{ sdkSupportStatus }}'
+        - name: spannerDetails
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: bigqueryDetails
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: bigTableDetails
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: pubsubDetails
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: fileDetails
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: datastoreDetails
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: userDisplayProperties
+          value: '{{ userDisplayProperties }}'
     - name: startTime
       value: '{{ startTime }}'
     - name: createdFromSnapshotId
@@ -248,11 +344,13 @@ true|false,
     - name: satisfiesPzs
       value: '{{ satisfiesPzs }}'
     - name: runtimeUpdatableParams
-      value: '{{ runtimeUpdatableParams }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: serviceResources
-      value: '{{ serviceResources }}'
+      value:
+        - name: maxNumWorkers
+          value: '{{ maxNumWorkers }}'
+        - name: minNumWorkers
+          value: '{{ minNumWorkers }}'
+        - name: workerUtilizationHint
+          value: '{{ workerUtilizationHint }}'
 
 ```
 </TabItem>
@@ -266,7 +364,6 @@ Replaces all fields in the specified <code>jobs</code> resource.
 /*+ update */
 REPLACE google.dataflow.jobs
 SET 
-id = '{{ id }}',
 projectId = '{{ projectId }}',
 name = '{{ name }}',
 type = '{{ type }}',
@@ -277,7 +374,6 @@ currentState = '{{ currentState }}',
 currentStateTime = '{{ currentStateTime }}',
 requestedState = '{{ requestedState }}',
 executionInfo = '{{ executionInfo }}',
-createTime = '{{ createTime }}',
 replaceJobId = '{{ replaceJobId }}',
 transformNameMapping = '{{ transformNameMapping }}',
 clientRequestId = '{{ clientRequestId }}',
@@ -291,9 +387,7 @@ jobMetadata = '{{ jobMetadata }}',
 startTime = '{{ startTime }}',
 createdFromSnapshotId = '{{ createdFromSnapshotId }}',
 satisfiesPzs = true|false,
-runtimeUpdatableParams = '{{ runtimeUpdatableParams }}',
-satisfiesPzi = true|false,
-serviceResources = '{{ serviceResources }}'
+runtimeUpdatableParams = '{{ runtimeUpdatableParams }}'
 WHERE 
 jobId = '{{ jobId }}'
 AND projectId = '{{ projectId }}';

@@ -93,30 +93,22 @@ INSERT INTO google.networkconnectivity.service_connection_policies (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 description,
 network,
 serviceClass,
-infrastructure,
 pscConfig,
-pscConnections,
 etag
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ network }}',
 '{{ serviceClass }}',
-'{{ infrastructure }}',
 '{{ pscConfig }}',
-'{{ pscConnections }}',
 '{{ etag }}'
 ;
 ```
@@ -128,10 +120,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
@@ -140,12 +128,20 @@ SELECT
       value: '{{ network }}'
     - name: serviceClass
       value: '{{ serviceClass }}'
-    - name: infrastructure
-      value: '{{ infrastructure }}'
     - name: pscConfig
-      value: '{{ pscConfig }}'
-    - name: pscConnections
-      value: '{{ pscConnections }}'
+      value:
+        - name: subnetworks
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: limit
+          value: '{{ limit }}'
+        - name: producerInstanceLocation
+          value: '{{ producerInstanceLocation }}'
+        - name: allowedGoogleProducersResourceHierarchyLevel
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: etag
       value: '{{ etag }}'
 
@@ -162,15 +158,11 @@ Updates a <code>service_connection_policies</code> resource.
 UPDATE google.networkconnectivity.service_connection_policies
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 network = '{{ network }}',
 serviceClass = '{{ serviceClass }}',
-infrastructure = '{{ infrastructure }}',
 pscConfig = '{{ pscConfig }}',
-pscConnections = '{{ pscConnections }}',
 etag = '{{ etag }}'
 WHERE 
 locationsId = '{{ locationsId }}'

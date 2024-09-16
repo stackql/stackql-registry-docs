@@ -108,12 +108,8 @@ Use the following StackQL query and manifest file to create a new <code>service_
 INSERT INTO google.compute.service_attachments (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 region,
 producerForwardingRule,
 targetService,
@@ -131,12 +127,8 @@ reconcileConnections
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ region }}',
 '{{ producerForwardingRule }}',
 '{{ targetService }}',
@@ -158,18 +150,10 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: region
       value: '{{ region }}'
     - name: producerForwardingRule
@@ -179,21 +163,35 @@ true|false
     - name: connectionPreference
       value: '{{ connectionPreference }}'
     - name: connectedEndpoints
-      value: '{{ connectedEndpoints }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: natSubnets
-      value: '{{ natSubnets }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: enableProxyProtocol
       value: '{{ enableProxyProtocol }}'
     - name: consumerRejectLists
-      value: '{{ consumerRejectLists }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: consumerAcceptLists
-      value: '{{ consumerAcceptLists }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: pscServiceAttachmentId
-      value: '{{ pscServiceAttachmentId }}'
+      value:
+        - name: high
+          value: '{{ high }}'
+        - name: low
+          value: '{{ low }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
     - name: domainNames
-      value: '{{ domainNames }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: reconcileConnections
       value: '{{ reconcileConnections }}'
 
@@ -209,12 +207,8 @@ Updates a <code>service_attachments</code> resource.
 /*+ update */
 UPDATE google.compute.service_attachments
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 region = '{{ region }}',
 producerForwardingRule = '{{ producerForwardingRule }}',
 targetService = '{{ targetService }}',

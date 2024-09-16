@@ -97,26 +97,19 @@ state,
 category,
 externalUri,
 sourceProperties,
-securityMarks,
 eventTime,
-createTime,
 severity,
 canonicalName,
 mute,
 findingClass,
 indicator,
 vulnerability,
-muteUpdateTime,
-externalSystems,
 mitreAttack,
 access,
 connections,
 muteInitiator,
-muteInfo,
 processes,
-contacts,
 compliances,
-parentDisplayName,
 description,
 exfiltration,
 iamBindings,
@@ -153,26 +146,19 @@ SELECT
 '{{ category }}',
 '{{ externalUri }}',
 '{{ sourceProperties }}',
-'{{ securityMarks }}',
 '{{ eventTime }}',
-'{{ createTime }}',
 '{{ severity }}',
 '{{ canonicalName }}',
 '{{ mute }}',
 '{{ findingClass }}',
 '{{ indicator }}',
 '{{ vulnerability }}',
-'{{ muteUpdateTime }}',
-'{{ externalSystems }}',
 '{{ mitreAttack }}',
 '{{ access }}',
 '{{ connections }}',
 '{{ muteInitiator }}',
-'{{ muteInfo }}',
 '{{ processes }}',
-'{{ contacts }}',
 '{{ compliances }}',
-'{{ parentDisplayName }}',
 '{{ description }}',
 '{{ exfiltration }}',
 '{{ iamBindings }}',
@@ -220,12 +206,8 @@ SELECT
       value: '{{ externalUri }}'
     - name: sourceProperties
       value: '{{ sourceProperties }}'
-    - name: securityMarks
-      value: '{{ securityMarks }}'
     - name: eventTime
       value: '{{ eventTime }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: severity
       value: '{{ severity }}'
     - name: canonicalName
@@ -235,81 +217,415 @@ SELECT
     - name: findingClass
       value: '{{ findingClass }}'
     - name: indicator
-      value: '{{ indicator }}'
+      value:
+        - name: ipAddresses
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: domains
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: signatures
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: uris
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: vulnerability
-      value: '{{ vulnerability }}'
-    - name: muteUpdateTime
-      value: '{{ muteUpdateTime }}'
-    - name: externalSystems
-      value: '{{ externalSystems }}'
+      value:
+        - name: cve
+          value:
+            - name: references
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: cvssv3
+              value:
+                - name: baseScore
+                  value: '{{ baseScore }}'
+                - name: attackVector
+                  value: '{{ attackVector }}'
+                - name: attackComplexity
+                  value: '{{ attackComplexity }}'
+                - name: privilegesRequired
+                  value: '{{ privilegesRequired }}'
+                - name: userInteraction
+                  value: '{{ userInteraction }}'
+                - name: scope
+                  value: '{{ scope }}'
+                - name: confidentialityImpact
+                  value: '{{ confidentialityImpact }}'
+                - name: integrityImpact
+                  value: '{{ integrityImpact }}'
+                - name: availabilityImpact
+                  value: '{{ availabilityImpact }}'
+            - name: upstreamFixAvailable
+              value: '{{ upstreamFixAvailable }}'
+            - name: impact
+              value: '{{ impact }}'
+            - name: exploitationActivity
+              value: '{{ exploitationActivity }}'
+            - name: observedInTheWild
+              value: '{{ observedInTheWild }}'
+            - name: zeroDay
+              value: '{{ zeroDay }}'
+            - name: exploitReleaseDate
+              value: '{{ exploitReleaseDate }}'
+            - name: firstExploitationDate
+              value: '{{ firstExploitationDate }}'
+        - name: offendingPackage
+          value:
+            - name: packageName
+              value: '{{ packageName }}'
+            - name: cpeUri
+              value: '{{ cpeUri }}'
+            - name: packageType
+              value: '{{ packageType }}'
+            - name: packageVersion
+              value: '{{ packageVersion }}'
+        - name: securityBulletin
+          value:
+            - name: bulletinId
+              value: '{{ bulletinId }}'
+            - name: submissionTime
+              value: '{{ submissionTime }}'
+            - name: suggestedUpgradeVersion
+              value: '{{ suggestedUpgradeVersion }}'
     - name: mitreAttack
-      value: '{{ mitreAttack }}'
+      value:
+        - name: primaryTactic
+          value: '{{ primaryTactic }}'
+        - name: primaryTechniques
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
+        - name: additionalTactics
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
+        - name: additionalTechniques
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
+        - name: version
+          value: '{{ version }}'
     - name: access
-      value: '{{ access }}'
+      value:
+        - name: principalEmail
+          value: '{{ principalEmail }}'
+        - name: callerIp
+          value: '{{ callerIp }}'
+        - name: callerIpGeo
+          value:
+            - name: regionCode
+              value: '{{ regionCode }}'
+        - name: userAgentFamily
+          value: '{{ userAgentFamily }}'
+        - name: userAgent
+          value: '{{ userAgent }}'
+        - name: serviceName
+          value: '{{ serviceName }}'
+        - name: methodName
+          value: '{{ methodName }}'
+        - name: principalSubject
+          value: '{{ principalSubject }}'
+        - name: serviceAccountKeyName
+          value: '{{ serviceAccountKeyName }}'
+        - name: serviceAccountDelegationInfo
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: userName
+          value: '{{ userName }}'
     - name: connections
-      value: '{{ connections }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: muteInitiator
       value: '{{ muteInitiator }}'
-    - name: muteInfo
-      value: '{{ muteInfo }}'
     - name: processes
-      value: '{{ processes }}'
-    - name: contacts
-      value: '{{ contacts }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: compliances
-      value: '{{ compliances }}'
-    - name: parentDisplayName
-      value: '{{ parentDisplayName }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: description
       value: '{{ description }}'
     - name: exfiltration
-      value: '{{ exfiltration }}'
+      value:
+        - name: sources
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: targets
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: totalExfiltratedBytes
+          value: '{{ totalExfiltratedBytes }}'
     - name: iamBindings
-      value: '{{ iamBindings }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: nextSteps
       value: '{{ nextSteps }}'
     - name: moduleName
       value: '{{ moduleName }}'
     - name: containers
-      value: '{{ containers }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: kubernetes
-      value: '{{ kubernetes }}'
+      value:
+        - name: pods
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: nodes
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: nodePools
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: roles
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: bindings
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: accessReviews
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: objects
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: database
-      value: '{{ database }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: userName
+          value: '{{ userName }}'
+        - name: query
+          value: '{{ query }}'
+        - name: grantees
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: version
+          value: '{{ version }}'
     - name: attackExposure
-      value: '{{ attackExposure }}'
+      value:
+        - name: score
+          value: '{{ score }}'
+        - name: latestCalculationTime
+          value: '{{ latestCalculationTime }}'
+        - name: attackExposureResult
+          value: '{{ attackExposureResult }}'
+        - name: state
+          value: '{{ state }}'
+        - name: exposedHighValueResourcesCount
+          value: '{{ exposedHighValueResourcesCount }}'
+        - name: exposedMediumValueResourcesCount
+          value: '{{ exposedMediumValueResourcesCount }}'
+        - name: exposedLowValueResourcesCount
+          value: '{{ exposedLowValueResourcesCount }}'
     - name: files
-      value: '{{ files }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: cloudDlpInspection
-      value: '{{ cloudDlpInspection }}'
+      value:
+        - name: inspectJob
+          value: '{{ inspectJob }}'
+        - name: infoType
+          value: '{{ infoType }}'
+        - name: infoTypeCount
+          value: '{{ infoTypeCount }}'
+        - name: fullScan
+          value: '{{ fullScan }}'
     - name: cloudDlpDataProfile
-      value: '{{ cloudDlpDataProfile }}'
+      value:
+        - name: dataProfile
+          value: '{{ dataProfile }}'
+        - name: parentType
+          value: '{{ parentType }}'
     - name: kernelRootkit
-      value: '{{ kernelRootkit }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: unexpectedCodeModification
+          value: '{{ unexpectedCodeModification }}'
+        - name: unexpectedReadOnlyDataModification
+          value: '{{ unexpectedReadOnlyDataModification }}'
+        - name: unexpectedFtraceHandler
+          value: '{{ unexpectedFtraceHandler }}'
+        - name: unexpectedKprobeHandler
+          value: '{{ unexpectedKprobeHandler }}'
+        - name: unexpectedKernelCodePages
+          value: '{{ unexpectedKernelCodePages }}'
+        - name: unexpectedSystemCallHandler
+          value: '{{ unexpectedSystemCallHandler }}'
+        - name: unexpectedInterruptHandler
+          value: '{{ unexpectedInterruptHandler }}'
+        - name: unexpectedProcessesInRunqueue
+          value: '{{ unexpectedProcessesInRunqueue }}'
     - name: orgPolicies
-      value: '{{ orgPolicies }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: application
-      value: '{{ application }}'
+      value:
+        - name: baseUri
+          value: '{{ baseUri }}'
+        - name: fullUri
+          value: '{{ fullUri }}'
     - name: backupDisasterRecovery
-      value: '{{ backupDisasterRecovery }}'
+      value:
+        - name: backupTemplate
+          value: '{{ backupTemplate }}'
+        - name: policies
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: host
+          value: '{{ host }}'
+        - name: applications
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: storagePool
+          value: '{{ storagePool }}'
+        - name: policyOptions
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: profile
+          value: '{{ profile }}'
+        - name: appliance
+          value: '{{ appliance }}'
+        - name: backupType
+          value: '{{ backupType }}'
+        - name: backupCreateTime
+          value: '{{ backupCreateTime }}'
     - name: securityPosture
-      value: '{{ securityPosture }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: revisionId
+          value: '{{ revisionId }}'
+        - name: postureDeploymentResource
+          value: '{{ postureDeploymentResource }}'
+        - name: postureDeployment
+          value: '{{ postureDeployment }}'
+        - name: changedPolicy
+          value: '{{ changedPolicy }}'
+        - name: policySet
+          value: '{{ policySet }}'
+        - name: policy
+          value: '{{ policy }}'
+        - name: policyDriftDetails
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: logEntries
-      value: '{{ logEntries }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: loadBalancers
-      value: '{{ loadBalancers }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: cloudArmor
-      value: '{{ cloudArmor }}'
+      value:
+        - name: securityPolicy
+          value:
+            - name: name
+              value: '{{ name }}'
+            - name: type
+              value: '{{ type }}'
+            - name: preview
+              value: '{{ preview }}'
+        - name: requests
+          value:
+            - name: ratio
+              value: '{{ ratio }}'
+            - name: shortTermAllowed
+              value: '{{ shortTermAllowed }}'
+            - name: longTermAllowed
+              value: '{{ longTermAllowed }}'
+            - name: longTermDenied
+              value: '{{ longTermDenied }}'
+        - name: adaptiveProtection
+          value:
+            - name: confidence
+              value: '{{ confidence }}'
+        - name: attack
+          value:
+            - name: volumePps
+              value: '{{ volumePps }}'
+            - name: volumeBps
+              value: '{{ volumeBps }}'
+            - name: classification
+              value: '{{ classification }}'
+        - name: threatVector
+          value: '{{ threatVector }}'
+        - name: duration
+          value: '{{ duration }}'
     - name: notebook
-      value: '{{ notebook }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: service
+          value: '{{ service }}'
+        - name: lastAuthor
+          value: '{{ lastAuthor }}'
+        - name: notebookUpdateTime
+          value: '{{ notebookUpdateTime }}'
     - name: toxicCombination
-      value: '{{ toxicCombination }}'
+      value:
+        - name: attackExposureScore
+          value: '{{ attackExposureScore }}'
+        - name: relatedFindings
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: groupMemberships
-      value: '{{ groupMemberships }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: dataAccessEvents
-      value: '{{ dataAccessEvents }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: dataFlowEvents
-      value: '{{ dataFlowEvents }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -330,26 +646,19 @@ state = '{{ state }}',
 category = '{{ category }}',
 externalUri = '{{ externalUri }}',
 sourceProperties = '{{ sourceProperties }}',
-securityMarks = '{{ securityMarks }}',
 eventTime = '{{ eventTime }}',
-createTime = '{{ createTime }}',
 severity = '{{ severity }}',
 canonicalName = '{{ canonicalName }}',
 mute = '{{ mute }}',
 findingClass = '{{ findingClass }}',
 indicator = '{{ indicator }}',
 vulnerability = '{{ vulnerability }}',
-muteUpdateTime = '{{ muteUpdateTime }}',
-externalSystems = '{{ externalSystems }}',
 mitreAttack = '{{ mitreAttack }}',
 access = '{{ access }}',
 connections = '{{ connections }}',
 muteInitiator = '{{ muteInitiator }}',
-muteInfo = '{{ muteInfo }}',
 processes = '{{ processes }}',
-contacts = '{{ contacts }}',
 compliances = '{{ compliances }}',
-parentDisplayName = '{{ parentDisplayName }}',
 description = '{{ description }}',
 exfiltration = '{{ exfiltration }}',
 iamBindings = '{{ iamBindings }}',

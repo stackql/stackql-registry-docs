@@ -97,7 +97,11 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: samplingConfig
-      value: '{{ samplingConfig }}'
+      value:
+        - name: sampler
+          value: '{{ sampler }}'
+        - name: samplingRate
+          value: '{{ samplingRate }}'
     - name: apiProxy
       value: '{{ apiProxy }}'
 

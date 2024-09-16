@@ -84,8 +84,7 @@ responsePolicy,
 ruleName,
 dnsName,
 localData,
-behavior,
-kind
+behavior
 )
 SELECT 
 '{{ project }}',
@@ -93,8 +92,7 @@ SELECT
 '{{ ruleName }}',
 '{{ dnsName }}',
 '{{ localData }}',
-'{{ behavior }}',
-'{{ kind }}'
+'{{ behavior }}'
 ;
 ```
 </TabItem>
@@ -108,11 +106,13 @@ SELECT
     - name: dnsName
       value: '{{ dnsName }}'
     - name: localData
-      value: '{{ localData }}'
+      value:
+        - name: localDatas
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: behavior
       value: '{{ behavior }}'
-    - name: kind
-      value: '{{ kind }}'
 
 ```
 </TabItem>
@@ -129,8 +129,7 @@ SET
 ruleName = '{{ ruleName }}',
 dnsName = '{{ dnsName }}',
 localData = '{{ localData }}',
-behavior = '{{ behavior }}',
-kind = '{{ kind }}'
+behavior = '{{ behavior }}'
 WHERE 
 project = '{{ project }}'
 AND responsePolicy = '{{ responsePolicy }}'
@@ -148,8 +147,7 @@ SET
 ruleName = '{{ ruleName }}',
 dnsName = '{{ dnsName }}',
 localData = '{{ localData }}',
-behavior = '{{ behavior }}',
-kind = '{{ kind }}'
+behavior = '{{ behavior }}'
 WHERE 
 project = '{{ project }}'
 AND responsePolicy = '{{ responsePolicy }}'

@@ -87,10 +87,6 @@ parent,
 parentType,
 name,
 description,
-createTime,
-creator,
-lastUpdateTime,
-lastUpdater,
 labels,
 content
 )
@@ -99,10 +95,6 @@ SELECT
 '{{ parentType }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ creator }}',
-'{{ lastUpdateTime }}',
-'{{ lastUpdater }}',
 '{{ labels }}',
 '{{ content }}'
 ;
@@ -117,18 +109,50 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: creator
-      value: '{{ creator }}'
-    - name: lastUpdateTime
-      value: '{{ lastUpdateTime }}'
-    - name: lastUpdater
-      value: '{{ lastUpdater }}'
     - name: labels
       value: '{{ labels }}'
     - name: content
-      value: '{{ content }}'
+      value:
+        - name: iamPolicyAnalysisQuery
+          value:
+            - name: scope
+              value: '{{ scope }}'
+            - name: resourceSelector
+              value:
+                - name: fullResourceName
+                  value: '{{ fullResourceName }}'
+            - name: identitySelector
+              value:
+                - name: identity
+                  value: '{{ identity }}'
+            - name: accessSelector
+              value:
+                - name: roles
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: permissions
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+            - name: options
+              value:
+                - name: expandGroups
+                  value: '{{ expandGroups }}'
+                - name: expandRoles
+                  value: '{{ expandRoles }}'
+                - name: expandResources
+                  value: '{{ expandResources }}'
+                - name: outputResourceEdges
+                  value: '{{ outputResourceEdges }}'
+                - name: outputGroupEdges
+                  value: '{{ outputGroupEdges }}'
+                - name: analyzeServiceAccountImpersonation
+                  value: '{{ analyzeServiceAccountImpersonation }}'
+            - name: conditionContext
+              value:
+                - name: accessTime
+                  value: '{{ accessTime }}'
 
 ```
 </TabItem>
@@ -144,10 +168,6 @@ UPDATE google.cloudasset.saved_queries
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-creator = '{{ creator }}',
-lastUpdateTime = '{{ lastUpdateTime }}',
-lastUpdater = '{{ lastUpdater }}',
 labels = '{{ labels }}',
 content = '{{ content }}'
 WHERE 

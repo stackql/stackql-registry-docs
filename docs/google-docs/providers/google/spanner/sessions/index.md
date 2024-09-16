@@ -113,7 +113,13 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: sessionTemplate
-      value: '{{ sessionTemplate }}'
+      value:
+        - name: labels
+          value: '{{ labels }}'
+        - name: creatorRole
+          value: '{{ creatorRole }}'
+        - name: multiplexed
+          value: '{{ multiplexed }}'
     - name: sessionCount
       value: '{{ sessionCount }}'
 

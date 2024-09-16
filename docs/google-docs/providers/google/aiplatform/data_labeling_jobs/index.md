@@ -106,46 +106,32 @@ Use the following StackQL query and manifest file to create a new <code>data_lab
 INSERT INTO google.aiplatform.data_labeling_jobs (
 locationsId,
 projectsId,
-createTime,
 displayName,
 encryptionSpec,
 labelerCount,
 annotationLabels,
-updateTime,
 inputsSchemaUri,
 inputs,
 datasets,
 labels,
-name,
-state,
-currentSpend,
 activeLearningConfig,
-labelingProgress,
 instructionUri,
-specialistPools,
-error
+specialistPools
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ createTime }}',
 '{{ displayName }}',
 '{{ encryptionSpec }}',
 '{{ labelerCount }}',
 '{{ annotationLabels }}',
-'{{ updateTime }}',
 '{{ inputsSchemaUri }}',
 '{{ inputs }}',
 '{{ datasets }}',
 '{{ labels }}',
-'{{ name }}',
-'{{ state }}',
-'{{ currentSpend }}',
 '{{ activeLearningConfig }}',
-'{{ labelingProgress }}',
 '{{ instructionUri }}',
-'{{ specialistPools }}',
-'{{ error }}'
+'{{ specialistPools }}'
 ;
 ```
 </TabItem>
@@ -154,42 +140,50 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: createTime
-      value: '{{ createTime }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: labelerCount
       value: '{{ labelerCount }}'
     - name: annotationLabels
       value: '{{ annotationLabels }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: inputsSchemaUri
       value: '{{ inputsSchemaUri }}'
     - name: inputs
       value: '{{ inputs }}'
     - name: datasets
-      value: '{{ datasets }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
-    - name: name
-      value: '{{ name }}'
-    - name: state
-      value: '{{ state }}'
-    - name: currentSpend
-      value: '{{ currentSpend }}'
     - name: activeLearningConfig
-      value: '{{ activeLearningConfig }}'
-    - name: labelingProgress
-      value: '{{ labelingProgress }}'
+      value:
+        - name: sampleConfig
+          value:
+            - name: sampleStrategy
+              value: '{{ sampleStrategy }}'
+            - name: followingBatchSamplePercentage
+              value: '{{ followingBatchSamplePercentage }}'
+            - name: initialBatchSamplePercentage
+              value: '{{ initialBatchSamplePercentage }}'
+        - name: maxDataItemCount
+          value: '{{ maxDataItemCount }}'
+        - name: trainingConfig
+          value:
+            - name: timeoutTrainingMilliHours
+              value: '{{ timeoutTrainingMilliHours }}'
+        - name: maxDataItemPercentage
+          value: '{{ maxDataItemPercentage }}'
     - name: instructionUri
       value: '{{ instructionUri }}'
     - name: specialistPools
-      value: '{{ specialistPools }}'
-    - name: error
-      value: '{{ error }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>

@@ -85,21 +85,15 @@ INSERT INTO google.iam.keys (
 locationsId,
 providersId,
 workforcePoolsId,
-name,
 keyData,
-state,
-use,
-expireTime
+use
 )
 SELECT 
 '{{ locationsId }}',
 '{{ providersId }}',
 '{{ workforcePoolsId }}',
-'{{ name }}',
 '{{ keyData }}',
-'{{ state }}',
-'{{ use }}',
-'{{ expireTime }}'
+'{{ use }}'
 ;
 ```
 </TabItem>
@@ -108,16 +102,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: keyData
-      value: '{{ keyData }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: keySpec
+          value: '{{ keySpec }}'
     - name: use
       value: '{{ use }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
 
 ```
 </TabItem>

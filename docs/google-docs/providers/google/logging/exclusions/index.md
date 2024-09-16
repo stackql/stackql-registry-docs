@@ -100,21 +100,15 @@ Use the following StackQL query and manifest file to create a new <code>exclusio
 /*+ create */
 INSERT INTO google.logging.exclusions (
 foldersId,
-name,
 description,
 filter,
-disabled,
-createTime,
-updateTime
+disabled
 )
 SELECT 
 '{{ foldersId }}',
-'{{ name }}',
 '{{ description }}',
 '{{ filter }}',
-true|false,
-'{{ createTime }}',
-'{{ updateTime }}'
+true|false
 ;
 ```
 </TabItem>
@@ -123,18 +117,12 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: filter
       value: '{{ filter }}'
     - name: disabled
       value: '{{ disabled }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>
@@ -148,12 +136,9 @@ Updates a <code>exclusions</code> resource.
 /*+ update */
 UPDATE google.logging.exclusions
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
 filter = '{{ filter }}',
-disabled = true|false,
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}'
+disabled = true|false
 WHERE 
 name = '{{ name }}';
 ```

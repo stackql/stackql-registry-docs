@@ -91,7 +91,21 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: annotationSpecSet
-      value: '{{ annotationSpecSet }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: description
+          value: '{{ description }}'
+        - name: annotationSpecs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: blockingResources
+          value:
+            - name: type
+              value: '{{ type }}'
 
 ```
 </TabItem>

@@ -111,7 +111,9 @@ SELECT
     - name: apiScope
       value: '{{ apiScope }}'
     - name: fields
-      value: '{{ fields }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: state
       value: '{{ state }}'
 

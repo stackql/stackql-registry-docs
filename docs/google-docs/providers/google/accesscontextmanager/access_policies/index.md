@@ -81,16 +81,14 @@ INSERT INTO google.accesscontextmanager.access_policies (
 name,
 parent,
 title,
-scopes,
-etag
+scopes
 )
 SELECT 
 '{{  }}',
 '{{ name }}',
 '{{ parent }}',
 '{{ title }}',
-'{{ scopes }}',
-'{{ etag }}'
+'{{ scopes }}'
 ;
 ```
 </TabItem>
@@ -106,9 +104,9 @@ SELECT
     - name: title
       value: '{{ title }}'
     - name: scopes
-      value: '{{ scopes }}'
-    - name: etag
-      value: '{{ etag }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -125,8 +123,7 @@ SET
 name = '{{ name }}',
 parent = '{{ parent }}',
 title = '{{ title }}',
-scopes = '{{ scopes }}',
-etag = '{{ etag }}'
+scopes = '{{ scopes }}'
 WHERE 
 accessPoliciesId = '{{ accessPoliciesId }}';
 ```

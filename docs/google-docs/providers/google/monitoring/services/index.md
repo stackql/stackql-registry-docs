@@ -144,29 +144,87 @@ SELECT
     - name: displayName
       value: '{{ displayName }}'
     - name: custom
-      value: '{{ custom }}'
+      value: []
     - name: appEngine
-      value: '{{ appEngine }}'
+      value:
+        - name: moduleId
+          value: '{{ moduleId }}'
     - name: cloudEndpoints
-      value: '{{ cloudEndpoints }}'
+      value:
+        - name: service
+          value: '{{ service }}'
     - name: clusterIstio
-      value: '{{ clusterIstio }}'
+      value:
+        - name: location
+          value: '{{ location }}'
+        - name: clusterName
+          value: '{{ clusterName }}'
+        - name: serviceNamespace
+          value: '{{ serviceNamespace }}'
+        - name: serviceName
+          value: '{{ serviceName }}'
     - name: meshIstio
-      value: '{{ meshIstio }}'
+      value:
+        - name: meshUid
+          value: '{{ meshUid }}'
+        - name: serviceNamespace
+          value: '{{ serviceNamespace }}'
+        - name: serviceName
+          value: '{{ serviceName }}'
     - name: istioCanonicalService
-      value: '{{ istioCanonicalService }}'
+      value:
+        - name: meshUid
+          value: '{{ meshUid }}'
+        - name: canonicalServiceNamespace
+          value: '{{ canonicalServiceNamespace }}'
+        - name: canonicalService
+          value: '{{ canonicalService }}'
     - name: cloudRun
-      value: '{{ cloudRun }}'
+      value:
+        - name: serviceName
+          value: '{{ serviceName }}'
+        - name: location
+          value: '{{ location }}'
     - name: gkeNamespace
-      value: '{{ gkeNamespace }}'
+      value:
+        - name: location
+          value: '{{ location }}'
+        - name: clusterName
+          value: '{{ clusterName }}'
+        - name: namespaceName
+          value: '{{ namespaceName }}'
     - name: gkeWorkload
-      value: '{{ gkeWorkload }}'
+      value:
+        - name: location
+          value: '{{ location }}'
+        - name: clusterName
+          value: '{{ clusterName }}'
+        - name: namespaceName
+          value: '{{ namespaceName }}'
+        - name: topLevelControllerType
+          value: '{{ topLevelControllerType }}'
+        - name: topLevelControllerName
+          value: '{{ topLevelControllerName }}'
     - name: gkeService
-      value: '{{ gkeService }}'
+      value:
+        - name: location
+          value: '{{ location }}'
+        - name: clusterName
+          value: '{{ clusterName }}'
+        - name: namespaceName
+          value: '{{ namespaceName }}'
+        - name: serviceName
+          value: '{{ serviceName }}'
     - name: basicService
-      value: '{{ basicService }}'
+      value:
+        - name: serviceType
+          value: '{{ serviceType }}'
+        - name: serviceLabels
+          value: '{{ serviceLabels }}'
     - name: telemetry
-      value: '{{ telemetry }}'
+      value:
+        - name: resourceName
+          value: '{{ resourceName }}'
     - name: userLabels
       value: '{{ userLabels }}'
 

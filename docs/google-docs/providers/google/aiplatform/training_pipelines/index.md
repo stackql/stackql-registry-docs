@@ -104,44 +104,28 @@ Use the following StackQL query and manifest file to create a new <code>training
 INSERT INTO google.aiplatform.training_pipelines (
 locationsId,
 projectsId,
-createTime,
-startTime,
 trainingTaskDefinition,
 inputDataConfig,
-trainingTaskMetadata,
 parentModel,
-endTime,
 modelToUpload,
-updateTime,
 labels,
 modelId,
-state,
 encryptionSpec,
 trainingTaskInputs,
-displayName,
-name,
-error
+displayName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ createTime }}',
-'{{ startTime }}',
 '{{ trainingTaskDefinition }}',
 '{{ inputDataConfig }}',
-'{{ trainingTaskMetadata }}',
 '{{ parentModel }}',
-'{{ endTime }}',
 '{{ modelToUpload }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ modelId }}',
-'{{ state }}',
 '{{ encryptionSpec }}',
 '{{ trainingTaskInputs }}',
-'{{ displayName }}',
-'{{ name }}',
-'{{ error }}'
+'{{ displayName }}'
 ;
 ```
 </TabItem>
@@ -150,40 +134,254 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: startTime
-      value: '{{ startTime }}'
     - name: trainingTaskDefinition
       value: '{{ trainingTaskDefinition }}'
     - name: inputDataConfig
-      value: '{{ inputDataConfig }}'
-    - name: trainingTaskMetadata
-      value: '{{ trainingTaskMetadata }}'
+      value:
+        - name: stratifiedSplit
+          value:
+            - name: key
+              value: '{{ key }}'
+            - name: trainingFraction
+              value: '{{ trainingFraction }}'
+            - name: testFraction
+              value: '{{ testFraction }}'
+            - name: validationFraction
+              value: '{{ validationFraction }}'
+        - name: timestampSplit
+          value:
+            - name: validationFraction
+              value: '{{ validationFraction }}'
+            - name: key
+              value: '{{ key }}'
+            - name: trainingFraction
+              value: '{{ trainingFraction }}'
+            - name: testFraction
+              value: '{{ testFraction }}'
+        - name: predefinedSplit
+          value:
+            - name: key
+              value: '{{ key }}'
+        - name: gcsDestination
+          value:
+            - name: outputUriPrefix
+              value: '{{ outputUriPrefix }}'
+        - name: datasetId
+          value: '{{ datasetId }}'
+        - name: filterSplit
+          value:
+            - name: validationFilter
+              value: '{{ validationFilter }}'
+            - name: testFilter
+              value: '{{ testFilter }}'
+            - name: trainingFilter
+              value: '{{ trainingFilter }}'
+        - name: annotationsFilter
+          value: '{{ annotationsFilter }}'
+        - name: fractionSplit
+          value:
+            - name: trainingFraction
+              value: '{{ trainingFraction }}'
+            - name: validationFraction
+              value: '{{ validationFraction }}'
+            - name: testFraction
+              value: '{{ testFraction }}'
+        - name: bigqueryDestination
+          value:
+            - name: outputUri
+              value: '{{ outputUri }}'
+        - name: savedQueryId
+          value: '{{ savedQueryId }}'
+        - name: persistMlUseAssignment
+          value: '{{ persistMlUseAssignment }}'
+        - name: annotationSchemaUri
+          value: '{{ annotationSchemaUri }}'
     - name: parentModel
       value: '{{ parentModel }}'
-    - name: endTime
-      value: '{{ endTime }}'
     - name: modelToUpload
-      value: '{{ modelToUpload }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: dataStats
+          value:
+            - name: testAnnotationsCount
+              value: '{{ testAnnotationsCount }}'
+            - name: trainingAnnotationsCount
+              value: '{{ trainingAnnotationsCount }}'
+            - name: trainingDataItemsCount
+              value: '{{ trainingDataItemsCount }}'
+            - name: testDataItemsCount
+              value: '{{ testDataItemsCount }}'
+            - name: validationDataItemsCount
+              value: '{{ validationDataItemsCount }}'
+            - name: validationAnnotationsCount
+              value: '{{ validationAnnotationsCount }}'
+        - name: containerSpec
+          value:
+            - name: startupProbe
+              value:
+                - name: timeoutSeconds
+                  value: '{{ timeoutSeconds }}'
+                - name: periodSeconds
+                  value: '{{ periodSeconds }}'
+                - name: exec
+                  value:
+                    - name: command
+                      value:
+                        - name: type
+                          value: '{{ type }}'
+            - name: imageUri
+              value: '{{ imageUri }}'
+            - name: grpcPorts
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: command
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: sharedMemorySizeMb
+              value: '{{ sharedMemorySizeMb }}'
+            - name: deploymentTimeout
+              value: '{{ deploymentTimeout }}'
+            - name: healthRoute
+              value: '{{ healthRoute }}'
+            - name: predictRoute
+              value: '{{ predictRoute }}'
+            - name: args
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: env
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: ports
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: versionAliases
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: baseModelSource
+          value:
+            - name: modelGardenSource
+              value:
+                - name: publicModelName
+                  value: '{{ publicModelName }}'
+            - name: genieSource
+              value:
+                - name: baseModelUri
+                  value: '{{ baseModelUri }}'
+        - name: etag
+          value: '{{ etag }}'
+        - name: predictSchemata
+          value:
+            - name: predictionSchemaUri
+              value: '{{ predictionSchemaUri }}'
+            - name: instanceSchemaUri
+              value: '{{ instanceSchemaUri }}'
+            - name: parametersSchemaUri
+              value: '{{ parametersSchemaUri }}'
+        - name: metadata
+          value: '{{ metadata }}'
+        - name: metadataSchemaUri
+          value: '{{ metadataSchemaUri }}'
+        - name: artifactUri
+          value: '{{ artifactUri }}'
+        - name: explanationSpec
+          value:
+            - name: metadata
+              value:
+                - name: outputs
+                  value: '{{ outputs }}'
+                - name: featureAttributionsSchemaUri
+                  value: '{{ featureAttributionsSchemaUri }}'
+                - name: inputs
+                  value: '{{ inputs }}'
+                - name: latentSpaceSource
+                  value: '{{ latentSpaceSource }}'
+            - name: parameters
+              value:
+                - name: topK
+                  value: '{{ topK }}'
+                - name: examples
+                  value:
+                    - name: nearestNeighborSearchConfig
+                      value: '{{ nearestNeighborSearchConfig }}'
+                    - name: neighborCount
+                      value: '{{ neighborCount }}'
+                    - name: exampleGcsSource
+                      value:
+                        - name: dataFormat
+                          value: '{{ dataFormat }}'
+                        - name: gcsSource
+                          value:
+                            - name: uris
+                              value:
+                                - name: type
+                                  value: '{{ type }}'
+                    - name: presets
+                      value:
+                        - name: modality
+                          value: '{{ modality }}'
+                        - name: query
+                          value: '{{ query }}'
+                - name: sampledShapleyAttribution
+                  value:
+                    - name: pathCount
+                      value: '{{ pathCount }}'
+                - name: xraiAttribution
+                  value:
+                    - name: smoothGradConfig
+                      value:
+                        - name: featureNoiseSigma
+                          value:
+                            - name: noiseSigma
+                              value:
+                                - name: $ref
+                                  value: '{{ $ref }}'
+                        - name: noisySampleCount
+                          value: '{{ noisySampleCount }}'
+                        - name: noiseSigma
+                          value: '{{ noiseSigma }}'
+                    - name: stepCount
+                      value: '{{ stepCount }}'
+                    - name: blurBaselineConfig
+                      value:
+                        - name: maxBlurSigma
+                          value: '{{ maxBlurSigma }}'
+                - name: outputIndices
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: integratedGradientsAttribution
+                  value:
+                    - name: stepCount
+                      value: '{{ stepCount }}'
+        - name: description
+          value: '{{ description }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: versionDescription
+          value: '{{ versionDescription }}'
+        - name: pipelineJob
+          value: '{{ pipelineJob }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: encryptionSpec
+          value:
+            - name: kmsKeyName
+              value: '{{ kmsKeyName }}'
+        - name: name
+          value: '{{ name }}'
     - name: labels
       value: '{{ labels }}'
     - name: modelId
       value: '{{ modelId }}'
-    - name: state
-      value: '{{ state }}'
-    - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
     - name: trainingTaskInputs
       value: '{{ trainingTaskInputs }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: name
-      value: '{{ name }}'
-    - name: error
-      value: '{{ error }}'
 
 ```
 </TabItem>

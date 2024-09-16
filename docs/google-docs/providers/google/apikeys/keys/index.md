@@ -92,30 +92,16 @@ Use the following StackQL query and manifest file to create a new <code>keys</co
 INSERT INTO google.apikeys.keys (
 locationsId,
 projectsId,
-name,
-etag,
-createTime,
 annotations,
-uid,
-keyString,
 restrictions,
-displayName,
-updateTime,
-deleteTime
+displayName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ etag }}',
-'{{ createTime }}',
 '{{ annotations }}',
-'{{ uid }}',
-'{{ keyString }}',
 '{{ restrictions }}',
-'{{ displayName }}',
-'{{ updateTime }}',
-'{{ deleteTime }}'
+'{{ displayName }}'
 ;
 ```
 </TabItem>
@@ -124,26 +110,40 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: annotations
       value: '{{ annotations }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: keyString
-      value: '{{ keyString }}'
     - name: restrictions
-      value: '{{ restrictions }}'
+      value:
+        - name: serverKeyRestrictions
+          value:
+            - name: allowedIps
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: apiTargets
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: iosKeyRestrictions
+          value:
+            - name: allowedBundleIds
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: androidKeyRestrictions
+          value:
+            - name: allowedApplications
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: browserKeyRestrictions
+          value:
+            - name: allowedReferrers
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
 
 ```
 </TabItem>
@@ -157,16 +157,9 @@ Updates a <code>keys</code> resource.
 /*+ update */
 UPDATE google.apikeys.keys
 SET 
-name = '{{ name }}',
-etag = '{{ etag }}',
-createTime = '{{ createTime }}',
 annotations = '{{ annotations }}',
-uid = '{{ uid }}',
-keyString = '{{ keyString }}',
 restrictions = '{{ restrictions }}',
-displayName = '{{ displayName }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}'
+displayName = '{{ displayName }}'
 WHERE 
 keysId = '{{ keysId }}'
 AND locationsId = '{{ locationsId }}'

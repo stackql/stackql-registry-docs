@@ -138,19 +138,15 @@ INSERT INTO google.datacatalog.entries (
 entryGroupsId,
 locationsId,
 projectsId,
-name,
 linkedResource,
 fullyQualifiedName,
 type,
 userSpecifiedType,
-integratedSystem,
 userSpecifiedSystem,
 sqlDatabaseSystemSpec,
 lookerSystemSpec,
 cloudBigtableSystemSpec,
 gcsFilesetSpec,
-bigqueryTableSpec,
-bigqueryDateShardedSpec,
 databaseTableSpec,
 dataSourceConnectionSpec,
 routineSpec,
@@ -165,27 +161,21 @@ businessContext,
 schema,
 sourceSystemTimestamps,
 usageSignal,
-labels,
-dataSource,
-personalDetails
+labels
 )
 SELECT 
 '{{ entryGroupsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ linkedResource }}',
 '{{ fullyQualifiedName }}',
 '{{ type }}',
 '{{ userSpecifiedType }}',
-'{{ integratedSystem }}',
 '{{ userSpecifiedSystem }}',
 '{{ sqlDatabaseSystemSpec }}',
 '{{ lookerSystemSpec }}',
 '{{ cloudBigtableSystemSpec }}',
 '{{ gcsFilesetSpec }}',
-'{{ bigqueryTableSpec }}',
-'{{ bigqueryDateShardedSpec }}',
 '{{ databaseTableSpec }}',
 '{{ dataSourceConnectionSpec }}',
 '{{ routineSpec }}',
@@ -200,9 +190,7 @@ SELECT
 '{{ schema }}',
 '{{ sourceSystemTimestamps }}',
 '{{ usageSignal }}',
-'{{ labels }}',
-'{{ dataSource }}',
-'{{ personalDetails }}'
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -211,8 +199,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: linkedResource
       value: '{{ linkedResource }}'
     - name: fullyQualifiedName
@@ -221,56 +207,190 @@ SELECT
       value: '{{ type }}'
     - name: userSpecifiedType
       value: '{{ userSpecifiedType }}'
-    - name: integratedSystem
-      value: '{{ integratedSystem }}'
     - name: userSpecifiedSystem
       value: '{{ userSpecifiedSystem }}'
     - name: sqlDatabaseSystemSpec
-      value: '{{ sqlDatabaseSystemSpec }}'
+      value:
+        - name: sqlEngine
+          value: '{{ sqlEngine }}'
+        - name: databaseVersion
+          value: '{{ databaseVersion }}'
+        - name: instanceHost
+          value: '{{ instanceHost }}'
     - name: lookerSystemSpec
-      value: '{{ lookerSystemSpec }}'
+      value:
+        - name: parentInstanceId
+          value: '{{ parentInstanceId }}'
+        - name: parentInstanceDisplayName
+          value: '{{ parentInstanceDisplayName }}'
+        - name: parentModelId
+          value: '{{ parentModelId }}'
+        - name: parentModelDisplayName
+          value: '{{ parentModelDisplayName }}'
+        - name: parentViewId
+          value: '{{ parentViewId }}'
+        - name: parentViewDisplayName
+          value: '{{ parentViewDisplayName }}'
     - name: cloudBigtableSystemSpec
-      value: '{{ cloudBigtableSystemSpec }}'
+      value:
+        - name: instanceDisplayName
+          value: '{{ instanceDisplayName }}'
     - name: gcsFilesetSpec
-      value: '{{ gcsFilesetSpec }}'
-    - name: bigqueryTableSpec
-      value: '{{ bigqueryTableSpec }}'
-    - name: bigqueryDateShardedSpec
-      value: '{{ bigqueryDateShardedSpec }}'
+      value:
+        - name: filePatterns
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: databaseTableSpec
-      value: '{{ databaseTableSpec }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: databaseViewSpec
+          value:
+            - name: viewType
+              value: '{{ viewType }}'
+            - name: baseTable
+              value: '{{ baseTable }}'
+            - name: sqlQuery
+              value: '{{ sqlQuery }}'
     - name: dataSourceConnectionSpec
-      value: '{{ dataSourceConnectionSpec }}'
+      value:
+        - name: bigqueryConnectionSpec
+          value:
+            - name: connectionType
+              value: '{{ connectionType }}'
+            - name: cloudSql
+              value:
+                - name: instanceId
+                  value: '{{ instanceId }}'
+                - name: database
+                  value: '{{ database }}'
+                - name: type
+                  value: '{{ type }}'
+            - name: hasCredential
+              value: '{{ hasCredential }}'
     - name: routineSpec
-      value: '{{ routineSpec }}'
+      value:
+        - name: routineType
+          value: '{{ routineType }}'
+        - name: language
+          value: '{{ language }}'
+        - name: routineArguments
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: returnType
+          value: '{{ returnType }}'
+        - name: definitionBody
+          value: '{{ definitionBody }}'
+        - name: bigqueryRoutineSpec
+          value:
+            - name: importedLibraries
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: datasetSpec
-      value: '{{ datasetSpec }}'
+      value:
+        - name: vertexDatasetSpec
+          value:
+            - name: dataItemCount
+              value: '{{ dataItemCount }}'
+            - name: dataType
+              value: '{{ dataType }}'
     - name: filesetSpec
-      value: '{{ filesetSpec }}'
+      value:
+        - name: dataplexFileset
+          value:
+            - name: dataplexSpec
+              value:
+                - name: asset
+                  value: '{{ asset }}'
+                - name: dataFormat
+                  value:
+                    - name: avro
+                      value:
+                        - name: text
+                          value: '{{ text }}'
+                    - name: thrift
+                      value:
+                        - name: text
+                          value: '{{ text }}'
+                    - name: protobuf
+                      value:
+                        - name: text
+                          value: '{{ text }}'
+                    - name: parquet
+                      value: []
+                    - name: orc
+                      value: []
+                    - name: csv
+                      value: []
+                - name: compressionFormat
+                  value: '{{ compressionFormat }}'
+                - name: projectId
+                  value: '{{ projectId }}'
     - name: serviceSpec
-      value: '{{ serviceSpec }}'
+      value:
+        - name: cloudBigtableInstanceSpec
+          value:
+            - name: cloudBigtableClusterSpecs
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: modelSpec
-      value: '{{ modelSpec }}'
+      value:
+        - name: vertexModelSpec
+          value:
+            - name: versionId
+              value: '{{ versionId }}'
+            - name: versionAliases
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: versionDescription
+              value: '{{ versionDescription }}'
+            - name: vertexModelSourceInfo
+              value:
+                - name: sourceType
+                  value: '{{ sourceType }}'
+                - name: copy
+                  value: '{{ copy }}'
+            - name: containerImageUri
+              value: '{{ containerImageUri }}'
     - name: featureOnlineStoreSpec
-      value: '{{ featureOnlineStoreSpec }}'
+      value: []
     - name: displayName
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
     - name: businessContext
-      value: '{{ businessContext }}'
+      value:
+        - name: entryOverview
+          value:
+            - name: overview
+              value: '{{ overview }}'
+        - name: contacts
+          value:
+            - name: people
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: schema
-      value: '{{ schema }}'
+      value:
+        - name: columns
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: sourceSystemTimestamps
-      value: '{{ sourceSystemTimestamps }}'
+      value: []
     - name: usageSignal
-      value: '{{ usageSignal }}'
+      value:
+        - name: commonUsageWithinTimeRange
+          value: '{{ commonUsageWithinTimeRange }}'
+        - name: favoriteCount
+          value: '{{ favoriteCount }}'
     - name: labels
       value: '{{ labels }}'
-    - name: dataSource
-      value: '{{ dataSource }}'
-    - name: personalDetails
-      value: '{{ personalDetails }}'
 
 ```
 </TabItem>
@@ -284,19 +404,15 @@ Updates a <code>entries</code> resource.
 /*+ update */
 UPDATE google.datacatalog.entries
 SET 
-name = '{{ name }}',
 linkedResource = '{{ linkedResource }}',
 fullyQualifiedName = '{{ fullyQualifiedName }}',
 type = '{{ type }}',
 userSpecifiedType = '{{ userSpecifiedType }}',
-integratedSystem = '{{ integratedSystem }}',
 userSpecifiedSystem = '{{ userSpecifiedSystem }}',
 sqlDatabaseSystemSpec = '{{ sqlDatabaseSystemSpec }}',
 lookerSystemSpec = '{{ lookerSystemSpec }}',
 cloudBigtableSystemSpec = '{{ cloudBigtableSystemSpec }}',
 gcsFilesetSpec = '{{ gcsFilesetSpec }}',
-bigqueryTableSpec = '{{ bigqueryTableSpec }}',
-bigqueryDateShardedSpec = '{{ bigqueryDateShardedSpec }}',
 databaseTableSpec = '{{ databaseTableSpec }}',
 dataSourceConnectionSpec = '{{ dataSourceConnectionSpec }}',
 routineSpec = '{{ routineSpec }}',
@@ -311,9 +427,7 @@ businessContext = '{{ businessContext }}',
 schema = '{{ schema }}',
 sourceSystemTimestamps = '{{ sourceSystemTimestamps }}',
 usageSignal = '{{ usageSignal }}',
-labels = '{{ labels }}',
-dataSource = '{{ dataSource }}',
-personalDetails = '{{ personalDetails }}'
+labels = '{{ labels }}'
 WHERE 
 entriesId = '{{ entriesId }}'
 AND entryGroupsId = '{{ entryGroupsId }}'

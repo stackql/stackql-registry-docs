@@ -81,19 +81,15 @@ Use the following StackQL query and manifest file to create a new <code>policies
 INSERT INTO google.binaryauthorization.policies (
 platformsId,
 projectsId,
-name,
 description,
 gkePolicy,
-updateTime,
 etag
 )
 SELECT 
 '{{ platformsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ description }}',
 '{{ gkePolicy }}',
-'{{ updateTime }}',
 '{{ etag }}'
 ;
 ```
@@ -103,14 +99,20 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: gkePolicy
-      value: '{{ gkePolicy }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: imageAllowlist
+          value:
+            - name: allowPattern
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: checkSets
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: etag
       value: '{{ etag }}'
 
@@ -126,10 +128,8 @@ Replaces all fields in the specified <code>policies</code> resource.
 /*+ update */
 REPLACE google.binaryauthorization.policies
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
 gkePolicy = '{{ gkePolicy }}',
-updateTime = '{{ updateTime }}',
 etag = '{{ etag }}'
 WHERE 
 platformsId = '{{ platformsId }}'

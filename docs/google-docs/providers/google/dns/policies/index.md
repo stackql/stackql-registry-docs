@@ -85,25 +85,21 @@ Use the following StackQL query and manifest file to create a new <code>policies
 /*+ create */
 INSERT INTO google.dns.policies (
 project,
-id,
 name,
 enableInboundForwarding,
 description,
 networks,
 alternativeNameServerConfig,
-enableLogging,
-kind
+enableLogging
 )
 SELECT 
 '{{ project }}',
-'{{ id }}',
 '{{ name }}',
 true|false,
 '{{ description }}',
 '{{ networks }}',
 '{{ alternativeNameServerConfig }}',
-true|false,
-'{{ kind }}'
+true|false
 ;
 ```
 </TabItem>
@@ -112,8 +108,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: id
-      value: '{{ id }}'
     - name: name
       value: '{{ name }}'
     - name: enableInboundForwarding
@@ -121,13 +115,17 @@ true|false,
     - name: description
       value: '{{ description }}'
     - name: networks
-      value: '{{ networks }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: alternativeNameServerConfig
-      value: '{{ alternativeNameServerConfig }}'
+      value:
+        - name: targetNameServers
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: enableLogging
       value: '{{ enableLogging }}'
-    - name: kind
-      value: '{{ kind }}'
 
 ```
 </TabItem>
@@ -141,14 +139,12 @@ Updates a <code>policies</code> resource.
 /*+ update */
 UPDATE google.dns.policies
 SET 
-id = '{{ id }}',
 name = '{{ name }}',
 enableInboundForwarding = true|false,
 description = '{{ description }}',
 networks = '{{ networks }}',
 alternativeNameServerConfig = '{{ alternativeNameServerConfig }}',
-enableLogging = true|false,
-kind = '{{ kind }}'
+enableLogging = true|false
 WHERE 
 policy = '{{ policy }}'
 AND project = '{{ project }}';
@@ -162,14 +158,12 @@ Replaces all fields in the specified <code>policies</code> resource.
 /*+ update */
 REPLACE google.dns.policies
 SET 
-id = '{{ id }}',
 name = '{{ name }}',
 enableInboundForwarding = true|false,
 description = '{{ description }}',
 networks = '{{ networks }}',
 alternativeNameServerConfig = '{{ alternativeNameServerConfig }}',
-enableLogging = true|false,
-kind = '{{ kind }}'
+enableLogging = true|false
 WHERE 
 policy = '{{ policy }}'
 AND project = '{{ project }}';

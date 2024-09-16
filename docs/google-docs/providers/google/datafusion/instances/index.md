@@ -141,7 +141,6 @@ Use the following StackQL query and manifest file to create a new <code>instance
 INSERT INTO google.datafusion.instances (
 locationsId,
 projectsId,
-name,
 description,
 type,
 enableStackdriverLogging,
@@ -150,29 +149,14 @@ privateInstance,
 networkConfig,
 labels,
 options,
-createTime,
-updateTime,
-state,
-stateMessage,
-serviceEndpoint,
 zone,
 version,
-serviceAccount,
 displayName,
-availableVersion,
-apiEndpoint,
-gcsBucket,
-accelerators,
-p4ServiceAccount,
-tenantProjectId,
 dataprocServiceAccount,
 enableRbac,
 cryptoKeyConfig,
-disabledReason,
 eventPublishConfig,
 enableZoneSeparation,
-satisfiesPzs,
-workforceIdentityServiceEndpoint,
 patchRevision,
 dataplexDataLineageIntegrationEnabled,
 maintenancePolicy
@@ -180,7 +164,6 @@ maintenancePolicy
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ description }}',
 '{{ type }}',
 true|false,
@@ -189,29 +172,14 @@ true|false,
 '{{ networkConfig }}',
 '{{ labels }}',
 '{{ options }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ state }}',
-'{{ stateMessage }}',
-'{{ serviceEndpoint }}',
 '{{ zone }}',
 '{{ version }}',
-'{{ serviceAccount }}',
 '{{ displayName }}',
-'{{ availableVersion }}',
-'{{ apiEndpoint }}',
-'{{ gcsBucket }}',
-'{{ accelerators }}',
-'{{ p4ServiceAccount }}',
-'{{ tenantProjectId }}',
 '{{ dataprocServiceAccount }}',
 true|false,
 '{{ cryptoKeyConfig }}',
-'{{ disabledReason }}',
 '{{ eventPublishConfig }}',
 true|false,
-true|false,
-'{{ workforceIdentityServiceEndpoint }}',
 '{{ patchRevision }}',
 true|false,
 '{{ maintenancePolicy }}'
@@ -223,8 +191,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: type
@@ -236,63 +202,63 @@ true|false,
     - name: privateInstance
       value: '{{ privateInstance }}'
     - name: networkConfig
-      value: '{{ networkConfig }}'
+      value:
+        - name: network
+          value: '{{ network }}'
+        - name: ipAllocation
+          value: '{{ ipAllocation }}'
+        - name: connectionType
+          value: '{{ connectionType }}'
+        - name: privateServiceConnectConfig
+          value:
+            - name: networkAttachment
+              value: '{{ networkAttachment }}'
+            - name: unreachableCidrBlock
+              value: '{{ unreachableCidrBlock }}'
     - name: labels
       value: '{{ labels }}'
     - name: options
       value: '{{ options }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateMessage
-      value: '{{ stateMessage }}'
-    - name: serviceEndpoint
-      value: '{{ serviceEndpoint }}'
     - name: zone
       value: '{{ zone }}'
     - name: version
       value: '{{ version }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: availableVersion
-      value: '{{ availableVersion }}'
-    - name: apiEndpoint
-      value: '{{ apiEndpoint }}'
-    - name: gcsBucket
-      value: '{{ gcsBucket }}'
-    - name: accelerators
-      value: '{{ accelerators }}'
-    - name: p4ServiceAccount
-      value: '{{ p4ServiceAccount }}'
-    - name: tenantProjectId
-      value: '{{ tenantProjectId }}'
     - name: dataprocServiceAccount
       value: '{{ dataprocServiceAccount }}'
     - name: enableRbac
       value: '{{ enableRbac }}'
     - name: cryptoKeyConfig
-      value: '{{ cryptoKeyConfig }}'
-    - name: disabledReason
-      value: '{{ disabledReason }}'
+      value:
+        - name: keyReference
+          value: '{{ keyReference }}'
     - name: eventPublishConfig
-      value: '{{ eventPublishConfig }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: topic
+          value: '{{ topic }}'
     - name: enableZoneSeparation
       value: '{{ enableZoneSeparation }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: workforceIdentityServiceEndpoint
-      value: '{{ workforceIdentityServiceEndpoint }}'
     - name: patchRevision
       value: '{{ patchRevision }}'
     - name: dataplexDataLineageIntegrationEnabled
       value: '{{ dataplexDataLineageIntegrationEnabled }}'
     - name: maintenancePolicy
-      value: '{{ maintenancePolicy }}'
+      value:
+        - name: maintenanceWindow
+          value:
+            - name: recurringTimeWindow
+              value:
+                - name: window
+                  value:
+                    - name: startTime
+                      value: '{{ startTime }}'
+                    - name: endTime
+                      value: '{{ endTime }}'
+                - name: recurrence
+                  value: '{{ recurrence }}'
 
 ```
 </TabItem>
@@ -306,7 +272,6 @@ Updates a <code>instances</code> resource.
 /*+ update */
 UPDATE google.datafusion.instances
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
 type = '{{ type }}',
 enableStackdriverLogging = true|false,
@@ -315,29 +280,14 @@ privateInstance = true|false,
 networkConfig = '{{ networkConfig }}',
 labels = '{{ labels }}',
 options = '{{ options }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-state = '{{ state }}',
-stateMessage = '{{ stateMessage }}',
-serviceEndpoint = '{{ serviceEndpoint }}',
 zone = '{{ zone }}',
 version = '{{ version }}',
-serviceAccount = '{{ serviceAccount }}',
 displayName = '{{ displayName }}',
-availableVersion = '{{ availableVersion }}',
-apiEndpoint = '{{ apiEndpoint }}',
-gcsBucket = '{{ gcsBucket }}',
-accelerators = '{{ accelerators }}',
-p4ServiceAccount = '{{ p4ServiceAccount }}',
-tenantProjectId = '{{ tenantProjectId }}',
 dataprocServiceAccount = '{{ dataprocServiceAccount }}',
 enableRbac = true|false,
 cryptoKeyConfig = '{{ cryptoKeyConfig }}',
-disabledReason = '{{ disabledReason }}',
 eventPublishConfig = '{{ eventPublishConfig }}',
 enableZoneSeparation = true|false,
-satisfiesPzs = true|false,
-workforceIdentityServiceEndpoint = '{{ workforceIdentityServiceEndpoint }}',
 patchRevision = '{{ patchRevision }}',
 dataplexDataLineageIntegrationEnabled = true|false,
 maintenancePolicy = '{{ maintenancePolicy }}'

@@ -87,13 +87,10 @@ UPDATE google.securitycenter.custom_modules
 SET 
 name = '{{ name }}',
 config = '{{ config }}',
-ancestorModule = '{{ ancestorModule }}',
 enablementState = '{{ enablementState }}',
 type = '{{ type }}',
 displayName = '{{ displayName }}',
-description = '{{ description }}',
-updateTime = '{{ updateTime }}',
-lastEditor = '{{ lastEditor }}'
+description = '{{ description }}'
 WHERE 
 customModulesId = '{{ customModulesId }}'
 AND foldersId = '{{ foldersId }}';

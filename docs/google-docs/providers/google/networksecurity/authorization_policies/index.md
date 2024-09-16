@@ -86,8 +86,6 @@ locationsId,
 projectsId,
 name,
 description,
-createTime,
-updateTime,
 labels,
 action,
 rules
@@ -97,8 +95,6 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ action }}',
 '{{ rules }}'
@@ -114,16 +110,14 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: action
       value: '{{ action }}'
     - name: rules
-      value: '{{ rules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -139,8 +133,6 @@ UPDATE google.networksecurity.authorization_policies
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 action = '{{ action }}',
 rules = '{{ rules }}'

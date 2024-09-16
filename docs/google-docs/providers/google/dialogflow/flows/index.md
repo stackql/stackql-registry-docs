@@ -140,19 +140,103 @@ true|false
     - name: description
       value: '{{ description }}'
     - name: transitionRoutes
-      value: '{{ transitionRoutes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: eventHandlers
-      value: '{{ eventHandlers }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: transitionRouteGroups
-      value: '{{ transitionRouteGroups }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: nluSettings
-      value: '{{ nluSettings }}'
+      value:
+        - name: modelType
+          value: '{{ modelType }}'
+        - name: classificationThreshold
+          value: '{{ classificationThreshold }}'
+        - name: modelTrainingMode
+          value: '{{ modelTrainingMode }}'
     - name: advancedSettings
-      value: '{{ advancedSettings }}'
+      value:
+        - name: audioExportGcsDestination
+          value:
+            - name: uri
+              value: '{{ uri }}'
+        - name: speechSettings
+          value:
+            - name: endpointerSensitivity
+              value: '{{ endpointerSensitivity }}'
+            - name: noSpeechTimeout
+              value: '{{ noSpeechTimeout }}'
+            - name: useTimeoutBasedEndpointing
+              value: '{{ useTimeoutBasedEndpointing }}'
+            - name: models
+              value: '{{ models }}'
+        - name: dtmfSettings
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+            - name: maxDigits
+              value: '{{ maxDigits }}'
+            - name: finishDigit
+              value: '{{ finishDigit }}'
+            - name: interdigitTimeoutDuration
+              value: '{{ interdigitTimeoutDuration }}'
+            - name: endpointingTimeoutDuration
+              value: '{{ endpointingTimeoutDuration }}'
+        - name: loggingSettings
+          value:
+            - name: enableStackdriverLogging
+              value: '{{ enableStackdriverLogging }}'
+            - name: enableInteractionLogging
+              value: '{{ enableInteractionLogging }}'
+            - name: enableConsentBasedRedaction
+              value: '{{ enableConsentBasedRedaction }}'
     - name: knowledgeConnectorSettings
-      value: '{{ knowledgeConnectorSettings }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: triggerFulfillment
+          value:
+            - name: messages
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: webhook
+              value: '{{ webhook }}'
+            - name: returnPartialResponses
+              value: '{{ returnPartialResponses }}'
+            - name: tag
+              value: '{{ tag }}'
+            - name: setParameterActions
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: conditionalCases
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: enableGenerativeFallback
+              value: '{{ enableGenerativeFallback }}'
+        - name: targetPage
+          value: '{{ targetPage }}'
+        - name: targetFlow
+          value: '{{ targetFlow }}'
+        - name: dataStoreConnections
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: multiLanguageSettings
-      value: '{{ multiLanguageSettings }}'
+      value:
+        - name: enableMultiLanguageDetection
+          value: '{{ enableMultiLanguageDetection }}'
+        - name: supportedResponseLanguageCodes
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: locked
       value: '{{ locked }}'
 

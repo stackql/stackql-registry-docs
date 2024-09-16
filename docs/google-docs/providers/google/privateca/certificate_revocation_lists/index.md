@@ -80,15 +80,6 @@ Updates a <code>certificate_revocation_lists</code> resource.
 /*+ update */
 UPDATE google.privateca.certificate_revocation_lists
 SET 
-name = '{{ name }}',
-sequenceNumber = '{{ sequenceNumber }}',
-revokedCertificates = '{{ revokedCertificates }}',
-pemCrl = '{{ pemCrl }}',
-accessUrl = '{{ accessUrl }}',
-state = '{{ state }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-revisionId = '{{ revisionId }}',
 labels = '{{ labels }}'
 WHERE 
 caPoolsId = '{{ caPoolsId }}'

@@ -84,24 +84,16 @@ Use the following StackQL query and manifest file to create a new <code>apis</co
 INSERT INTO google.apigateway.apis (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 labels,
 displayName,
-managedService,
-state
+managedService
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
-'{{ managedService }}',
-'{{ state }}'
+'{{ managedService }}'
 ;
 ```
 </TabItem>
@@ -110,20 +102,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: managedService
       value: '{{ managedService }}'
-    - name: state
-      value: '{{ state }}'
 
 ```
 </TabItem>
@@ -137,13 +121,9 @@ Updates a <code>apis</code> resource.
 /*+ update */
 UPDATE google.apigateway.apis
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
-managedService = '{{ managedService }}',
-state = '{{ state }}'
+managedService = '{{ managedService }}'
 WHERE 
 apisId = '{{ apisId }}'
 AND locationsId = '{{ locationsId }}'

@@ -110,23 +110,9 @@ INSERT INTO google.gkebackup.restores (
 locationsId,
 projectsId,
 restorePlansId,
-name,
-uid,
-createTime,
-updateTime,
 description,
 backup,
-cluster,
-restoreConfig,
 labels,
-state,
-stateReason,
-completeTime,
-resourcesRestoredCount,
-resourcesExcludedCount,
-resourcesFailedCount,
-volumesRestoredCount,
-etag,
 filter,
 volumeDataRestorePolicyOverrides
 )
@@ -134,23 +120,9 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ restorePlansId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ backup }}',
-'{{ cluster }}',
-'{{ restoreConfig }}',
 '{{ labels }}',
-'{{ state }}',
-'{{ stateReason }}',
-'{{ completeTime }}',
-'{{ resourcesRestoredCount }}',
-'{{ resourcesExcludedCount }}',
-'{{ resourcesFailedCount }}',
-'{{ volumesRestoredCount }}',
-'{{ etag }}',
 '{{ filter }}',
 '{{ volumeDataRestorePolicyOverrides }}'
 ;
@@ -161,44 +133,26 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: backup
       value: '{{ backup }}'
-    - name: cluster
-      value: '{{ cluster }}'
-    - name: restoreConfig
-      value: '{{ restoreConfig }}'
     - name: labels
       value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateReason
-      value: '{{ stateReason }}'
-    - name: completeTime
-      value: '{{ completeTime }}'
-    - name: resourcesRestoredCount
-      value: '{{ resourcesRestoredCount }}'
-    - name: resourcesExcludedCount
-      value: '{{ resourcesExcludedCount }}'
-    - name: resourcesFailedCount
-      value: '{{ resourcesFailedCount }}'
-    - name: volumesRestoredCount
-      value: '{{ volumesRestoredCount }}'
-    - name: etag
-      value: '{{ etag }}'
     - name: filter
-      value: '{{ filter }}'
+      value:
+        - name: inclusionFilters
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: exclusionFilters
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: volumeDataRestorePolicyOverrides
-      value: '{{ volumeDataRestorePolicyOverrides }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -212,23 +166,9 @@ Updates a <code>restores</code> resource.
 /*+ update */
 UPDATE google.gkebackup.restores
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 backup = '{{ backup }}',
-cluster = '{{ cluster }}',
-restoreConfig = '{{ restoreConfig }}',
 labels = '{{ labels }}',
-state = '{{ state }}',
-stateReason = '{{ stateReason }}',
-completeTime = '{{ completeTime }}',
-resourcesRestoredCount = '{{ resourcesRestoredCount }}',
-resourcesExcludedCount = '{{ resourcesExcludedCount }}',
-resourcesFailedCount = '{{ resourcesFailedCount }}',
-volumesRestoredCount = '{{ volumesRestoredCount }}',
-etag = '{{ etag }}',
 filter = '{{ filter }}',
 volumeDataRestorePolicyOverrides = '{{ volumeDataRestorePolicyOverrides }}'
 WHERE 

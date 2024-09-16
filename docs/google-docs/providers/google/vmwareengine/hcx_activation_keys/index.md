@@ -79,22 +79,12 @@ Use the following StackQL query and manifest file to create a new <code>hcx_acti
 INSERT INTO google.vmwareengine.hcx_activation_keys (
 locationsId,
 privateCloudsId,
-projectsId,
-name,
-createTime,
-state,
-activationKey,
-uid
+projectsId
 )
 SELECT 
 '{{ locationsId }}',
 '{{ privateCloudsId }}',
-'{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ state }}',
-'{{ activationKey }}',
-'{{ uid }}'
+'{{ projectsId }}'
 ;
 ```
 </TabItem>
@@ -102,17 +92,7 @@ SELECT
 
 ```yaml
 - name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: activationKey
-      value: '{{ activationKey }}'
-    - name: uid
-      value: '{{ uid }}'
+  props: []
 
 ```
 </TabItem>

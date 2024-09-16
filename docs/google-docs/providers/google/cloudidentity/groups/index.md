@@ -90,27 +90,19 @@ Use the following StackQL query and manifest file to create a new <code>groups</
 /*+ create */
 INSERT INTO google.cloudidentity.groups (
 ,
-name,
 groupKey,
-additionalGroupKeys,
 parent,
 displayName,
 description,
-createTime,
-updateTime,
 labels,
 dynamicGroupMetadata
 )
 SELECT 
 '{{  }}',
-'{{ name }}',
 '{{ groupKey }}',
-'{{ additionalGroupKeys }}',
 '{{ parent }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ dynamicGroupMetadata }}'
 ;
@@ -121,26 +113,24 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: groupKey
-      value: '{{ groupKey }}'
-    - name: additionalGroupKeys
-      value: '{{ additionalGroupKeys }}'
+      value:
+        - name: namespace
+          value: '{{ namespace }}'
     - name: parent
       value: '{{ parent }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: dynamicGroupMetadata
-      value: '{{ dynamicGroupMetadata }}'
+      value:
+        - name: queries
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -154,14 +144,10 @@ Updates a <code>groups</code> resource.
 /*+ update */
 UPDATE google.cloudidentity.groups
 SET 
-name = '{{ name }}',
 groupKey = '{{ groupKey }}',
-additionalGroupKeys = '{{ additionalGroupKeys }}',
 parent = '{{ parent }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 dynamicGroupMetadata = '{{ dynamicGroupMetadata }}'
 WHERE 

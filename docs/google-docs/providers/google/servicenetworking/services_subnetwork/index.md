@@ -112,7 +112,9 @@ true|false,
     - name: useCustomComputeIdempotencyWindow
       value: '{{ useCustomComputeIdempotencyWindow }}'
     - name: subnetworkUsers
-      value: '{{ subnetworkUsers }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: outsideAllocationPublicIpRange
       value: '{{ outsideAllocationPublicIpRange }}'
     - name: role
@@ -124,9 +126,13 @@ true|false,
     - name: description
       value: '{{ description }}'
     - name: secondaryIpRangeSpecs
-      value: '{{ secondaryIpRangeSpecs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: requestedRanges
-      value: '{{ requestedRanges }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: consumer
       value: '{{ consumer }}'
     - name: skipRequestedAddressValidation

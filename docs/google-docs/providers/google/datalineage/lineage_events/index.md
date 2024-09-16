@@ -106,7 +106,9 @@ SELECT
     - name: startTime
       value: '{{ startTime }}'
     - name: links
-      value: '{{ links }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: name
       value: '{{ name }}'
     - name: endTime

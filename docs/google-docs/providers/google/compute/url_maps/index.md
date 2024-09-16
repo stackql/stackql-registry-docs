@@ -103,12 +103,8 @@ Use the following StackQL query and manifest file to create a new <code>url_maps
 /*+ create */
 INSERT INTO google.compute.url_maps (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 hostRules,
 pathMatchers,
 tests,
@@ -122,12 +118,8 @@ region
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ hostRules }}',
 '{{ pathMatchers }}',
 '{{ tests }}',
@@ -146,34 +138,136 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: hostRules
-      value: '{{ hostRules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: pathMatchers
-      value: '{{ pathMatchers }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: tests
-      value: '{{ tests }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: defaultService
       value: '{{ defaultService }}'
     - name: defaultRouteAction
-      value: '{{ defaultRouteAction }}'
+      value:
+        - name: weightedBackendServices
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: urlRewrite
+          value:
+            - name: pathPrefixRewrite
+              value: '{{ pathPrefixRewrite }}'
+            - name: hostRewrite
+              value: '{{ hostRewrite }}'
+            - name: pathTemplateRewrite
+              value: '{{ pathTemplateRewrite }}'
+        - name: timeout
+          value:
+            - name: seconds
+              value: '{{ seconds }}'
+            - name: nanos
+              value: '{{ nanos }}'
+        - name: retryPolicy
+          value:
+            - name: retryConditions
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: numRetries
+              value: '{{ numRetries }}'
+        - name: requestMirrorPolicy
+          value:
+            - name: backendService
+              value: '{{ backendService }}'
+        - name: corsPolicy
+          value:
+            - name: allowOrigins
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: allowOriginRegexes
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: allowMethods
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: allowHeaders
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: exposeHeaders
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: maxAge
+              value: '{{ maxAge }}'
+            - name: allowCredentials
+              value: '{{ allowCredentials }}'
+            - name: disabled
+              value: '{{ disabled }}'
+        - name: faultInjectionPolicy
+          value:
+            - name: delay
+              value:
+                - name: percentage
+                  value: '{{ percentage }}'
+            - name: abort
+              value:
+                - name: httpStatus
+                  value: '{{ httpStatus }}'
+                - name: percentage
+                  value: '{{ percentage }}'
     - name: defaultUrlRedirect
-      value: '{{ defaultUrlRedirect }}'
+      value:
+        - name: hostRedirect
+          value: '{{ hostRedirect }}'
+        - name: pathRedirect
+          value: '{{ pathRedirect }}'
+        - name: prefixRedirect
+          value: '{{ prefixRedirect }}'
+        - name: redirectResponseCode
+          value: '{{ redirectResponseCode }}'
+        - name: httpsRedirect
+          value: '{{ httpsRedirect }}'
+        - name: stripQuery
+          value: '{{ stripQuery }}'
     - name: headerAction
-      value: '{{ headerAction }}'
+      value:
+        - name: requestHeadersToRemove
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: requestHeadersToAdd
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: responseHeadersToRemove
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: responseHeadersToAdd
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: defaultCustomErrorResponsePolicy
-      value: '{{ defaultCustomErrorResponsePolicy }}'
+      value:
+        - name: errorResponseRules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: errorService
+          value: '{{ errorService }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
     - name: region
@@ -191,12 +285,8 @@ Updates a <code>url_maps</code> resource.
 /*+ update */
 UPDATE google.compute.url_maps
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 hostRules = '{{ hostRules }}',
 pathMatchers = '{{ pathMatchers }}',
 tests = '{{ tests }}',
@@ -220,12 +310,8 @@ Replaces all fields in the specified <code>url_maps</code> resource.
 /*+ update */
 REPLACE google.compute.url_maps
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 hostRules = '{{ hostRules }}',
 pathMatchers = '{{ pathMatchers }}',
 tests = '{{ tests }}',

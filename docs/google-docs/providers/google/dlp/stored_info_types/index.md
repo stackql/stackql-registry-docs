@@ -111,7 +111,53 @@ SELECT
     - name: locationId
       value: '{{ locationId }}'
     - name: config
-      value: '{{ config }}'
+      value:
+        - name: dictionary
+          value:
+            - name: cloudStoragePath
+              value:
+                - name: path
+                  value: '{{ path }}'
+            - name: wordList
+              value:
+                - name: words
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+        - name: description
+          value: '{{ description }}'
+        - name: regex
+          value:
+            - name: pattern
+              value: '{{ pattern }}'
+            - name: groupIndexes
+              value:
+                - name: type
+                  value: '{{ type }}'
+                - name: format
+                  value: '{{ format }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: largeCustomDictionary
+          value:
+            - name: cloudStorageFileSet
+              value:
+                - name: url
+                  value: '{{ url }}'
+            - name: bigQueryField
+              value:
+                - name: field
+                  value:
+                    - name: name
+                      value: '{{ name }}'
+                - name: table
+                  value:
+                    - name: tableId
+                      value: '{{ tableId }}'
+                    - name: projectId
+                      value: '{{ projectId }}'
+                    - name: datasetId
+                      value: '{{ datasetId }}'
 
 ```
 </TabItem>

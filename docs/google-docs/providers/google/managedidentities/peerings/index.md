@@ -84,25 +84,15 @@ Use the following StackQL query and manifest file to create a new <code>peerings
 /*+ create */
 INSERT INTO google.managedidentities.peerings (
 projectsId,
-name,
 labels,
 authorizedNetwork,
-domainResource,
-createTime,
-updateTime,
-state,
-statusMessage
+domainResource
 )
 SELECT 
 '{{ projectsId }}',
-'{{ name }}',
 '{{ labels }}',
 '{{ authorizedNetwork }}',
-'{{ domainResource }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ state }}',
-'{{ statusMessage }}'
+'{{ domainResource }}'
 ;
 ```
 </TabItem>
@@ -111,22 +101,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: labels
       value: '{{ labels }}'
     - name: authorizedNetwork
       value: '{{ authorizedNetwork }}'
     - name: domainResource
       value: '{{ domainResource }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: statusMessage
-      value: '{{ statusMessage }}'
 
 ```
 </TabItem>
@@ -140,14 +120,9 @@ Updates a <code>peerings</code> resource.
 /*+ update */
 UPDATE google.managedidentities.peerings
 SET 
-name = '{{ name }}',
 labels = '{{ labels }}',
 authorizedNetwork = '{{ authorizedNetwork }}',
-domainResource = '{{ domainResource }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-state = '{{ state }}',
-statusMessage = '{{ statusMessage }}'
+domainResource = '{{ domainResource }}'
 WHERE 
 peeringsId = '{{ peeringsId }}'
 AND projectsId = '{{ projectsId }}';

@@ -132,12 +132,9 @@ INSERT INTO google.datamigration.migration_jobs (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 displayName,
 state,
-phase,
 type,
 dumpPath,
 dumpFlags,
@@ -146,11 +143,8 @@ destination,
 reverseSshConnectivity,
 vpcPeeringConnectivity,
 staticIpConnectivity,
-duration,
-error,
 sourceDatabase,
 destinationDatabase,
-endTime,
 conversionWorkspace,
 filter,
 cmekKeyName,
@@ -162,12 +156,9 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
 '{{ state }}',
-'{{ phase }}',
 '{{ type }}',
 '{{ dumpPath }}',
 '{{ dumpFlags }}',
@@ -176,11 +167,8 @@ SELECT
 '{{ reverseSshConnectivity }}',
 '{{ vpcPeeringConnectivity }}',
 '{{ staticIpConnectivity }}',
-'{{ duration }}',
-'{{ error }}',
 '{{ sourceDatabase }}',
 '{{ destinationDatabase }}',
-'{{ endTime }}',
 '{{ conversionWorkspace }}',
 '{{ filter }}',
 '{{ cmekKeyName }}',
@@ -197,54 +185,74 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: state
       value: '{{ state }}'
-    - name: phase
-      value: '{{ phase }}'
     - name: type
       value: '{{ type }}'
     - name: dumpPath
       value: '{{ dumpPath }}'
     - name: dumpFlags
-      value: '{{ dumpFlags }}'
+      value:
+        - name: dumpFlags
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: source
       value: '{{ source }}'
     - name: destination
       value: '{{ destination }}'
     - name: reverseSshConnectivity
-      value: '{{ reverseSshConnectivity }}'
+      value:
+        - name: vmIp
+          value: '{{ vmIp }}'
+        - name: vmPort
+          value: '{{ vmPort }}'
+        - name: vm
+          value: '{{ vm }}'
+        - name: vpc
+          value: '{{ vpc }}'
     - name: vpcPeeringConnectivity
-      value: '{{ vpcPeeringConnectivity }}'
+      value:
+        - name: vpc
+          value: '{{ vpc }}'
     - name: staticIpConnectivity
-      value: '{{ staticIpConnectivity }}'
-    - name: duration
-      value: '{{ duration }}'
-    - name: error
-      value: '{{ error }}'
+      value: []
     - name: sourceDatabase
-      value: '{{ sourceDatabase }}'
-    - name: destinationDatabase
-      value: '{{ destinationDatabase }}'
-    - name: endTime
-      value: '{{ endTime }}'
+      value:
+        - name: provider
+          value: '{{ provider }}'
+        - name: engine
+          value: '{{ engine }}'
     - name: conversionWorkspace
-      value: '{{ conversionWorkspace }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: commitId
+          value: '{{ commitId }}'
     - name: filter
       value: '{{ filter }}'
     - name: cmekKeyName
       value: '{{ cmekKeyName }}'
     - name: performanceConfig
-      value: '{{ performanceConfig }}'
+      value:
+        - name: dumpParallelLevel
+          value: '{{ dumpParallelLevel }}'
     - name: sqlserverHomogeneousMigrationJobConfig
-      value: '{{ sqlserverHomogeneousMigrationJobConfig }}'
+      value:
+        - name: backupFilePattern
+          value: '{{ backupFilePattern }}'
+        - name: databaseBackups
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: useDiffBackup
+          value: '{{ useDiffBackup }}'
+        - name: promoteWhenReady
+          value: '{{ promoteWhenReady }}'
     - name: dumpType
       value: '{{ dumpType }}'
 
@@ -261,12 +269,9 @@ Updates a <code>migration_jobs</code> resource.
 UPDATE google.datamigration.migration_jobs
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
 state = '{{ state }}',
-phase = '{{ phase }}',
 type = '{{ type }}',
 dumpPath = '{{ dumpPath }}',
 dumpFlags = '{{ dumpFlags }}',
@@ -275,11 +280,8 @@ destination = '{{ destination }}',
 reverseSshConnectivity = '{{ reverseSshConnectivity }}',
 vpcPeeringConnectivity = '{{ vpcPeeringConnectivity }}',
 staticIpConnectivity = '{{ staticIpConnectivity }}',
-duration = '{{ duration }}',
-error = '{{ error }}',
 sourceDatabase = '{{ sourceDatabase }}',
 destinationDatabase = '{{ destinationDatabase }}',
-endTime = '{{ endTime }}',
 conversionWorkspace = '{{ conversionWorkspace }}',
 filter = '{{ filter }}',
 cmekKeyName = '{{ cmekKeyName }}',

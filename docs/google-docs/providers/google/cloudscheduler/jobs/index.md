@@ -108,11 +108,6 @@ appEngineHttpTarget,
 httpTarget,
 schedule,
 timeZone,
-userUpdateTime,
-state,
-status,
-scheduleTime,
-lastAttemptTime,
 retryConfig,
 attemptDeadline
 )
@@ -126,11 +121,6 @@ SELECT
 '{{ httpTarget }}',
 '{{ schedule }}',
 '{{ timeZone }}',
-'{{ userUpdateTime }}',
-'{{ state }}',
-'{{ status }}',
-'{{ scheduleTime }}',
-'{{ lastAttemptTime }}',
 '{{ retryConfig }}',
 '{{ attemptDeadline }}'
 ;
@@ -146,27 +136,71 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: pubsubTarget
-      value: '{{ pubsubTarget }}'
+      value:
+        - name: topicName
+          value: '{{ topicName }}'
+        - name: data
+          value: '{{ data }}'
+        - name: attributes
+          value: '{{ attributes }}'
     - name: appEngineHttpTarget
-      value: '{{ appEngineHttpTarget }}'
+      value:
+        - name: httpMethod
+          value: '{{ httpMethod }}'
+        - name: appEngineRouting
+          value:
+            - name: service
+              value: '{{ service }}'
+            - name: version
+              value: '{{ version }}'
+            - name: instance
+              value: '{{ instance }}'
+            - name: host
+              value: '{{ host }}'
+        - name: relativeUri
+          value: '{{ relativeUri }}'
+        - name: headers
+          value: '{{ headers }}'
+        - name: body
+          value: '{{ body }}'
     - name: httpTarget
-      value: '{{ httpTarget }}'
+      value:
+        - name: uri
+          value: '{{ uri }}'
+        - name: httpMethod
+          value: '{{ httpMethod }}'
+        - name: headers
+          value: '{{ headers }}'
+        - name: body
+          value: '{{ body }}'
+        - name: oauthToken
+          value:
+            - name: serviceAccountEmail
+              value: '{{ serviceAccountEmail }}'
+            - name: scope
+              value: '{{ scope }}'
+        - name: oidcToken
+          value:
+            - name: serviceAccountEmail
+              value: '{{ serviceAccountEmail }}'
+            - name: audience
+              value: '{{ audience }}'
     - name: schedule
       value: '{{ schedule }}'
     - name: timeZone
       value: '{{ timeZone }}'
-    - name: userUpdateTime
-      value: '{{ userUpdateTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: status
-      value: '{{ status }}'
-    - name: scheduleTime
-      value: '{{ scheduleTime }}'
-    - name: lastAttemptTime
-      value: '{{ lastAttemptTime }}'
     - name: retryConfig
-      value: '{{ retryConfig }}'
+      value:
+        - name: retryCount
+          value: '{{ retryCount }}'
+        - name: maxRetryDuration
+          value: '{{ maxRetryDuration }}'
+        - name: minBackoffDuration
+          value: '{{ minBackoffDuration }}'
+        - name: maxBackoffDuration
+          value: '{{ maxBackoffDuration }}'
+        - name: maxDoublings
+          value: '{{ maxDoublings }}'
     - name: attemptDeadline
       value: '{{ attemptDeadline }}'
 
@@ -189,11 +223,6 @@ appEngineHttpTarget = '{{ appEngineHttpTarget }}',
 httpTarget = '{{ httpTarget }}',
 schedule = '{{ schedule }}',
 timeZone = '{{ timeZone }}',
-userUpdateTime = '{{ userUpdateTime }}',
-state = '{{ state }}',
-status = '{{ status }}',
-scheduleTime = '{{ scheduleTime }}',
-lastAttemptTime = '{{ lastAttemptTime }}',
 retryConfig = '{{ retryConfig }}',
 attemptDeadline = '{{ attemptDeadline }}'
 WHERE 

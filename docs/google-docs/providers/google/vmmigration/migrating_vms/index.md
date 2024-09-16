@@ -124,27 +124,11 @@ projectsId,
 sourcesId,
 computeEngineTargetDefaults,
 computeEngineDisksTargetDefaults,
-vmwareSourceVmDetails,
-awsSourceVmDetails,
-azureSourceVmDetails,
-name,
 sourceVmId,
 displayName,
 description,
 policy,
-createTime,
-updateTime,
-lastSync,
-state,
-stateTime,
-currentSyncInfo,
-lastReplicationCycle,
-group,
-labels,
-recentCloneJobs,
-error,
-recentCutoverJobs,
-cutoverForecast
+labels
 )
 SELECT 
 '{{ locationsId }}',
@@ -152,27 +136,11 @@ SELECT
 '{{ sourcesId }}',
 '{{ computeEngineTargetDefaults }}',
 '{{ computeEngineDisksTargetDefaults }}',
-'{{ vmwareSourceVmDetails }}',
-'{{ awsSourceVmDetails }}',
-'{{ azureSourceVmDetails }}',
-'{{ name }}',
 '{{ sourceVmId }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ policy }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ lastSync }}',
-'{{ state }}',
-'{{ stateTime }}',
-'{{ currentSyncInfo }}',
-'{{ lastReplicationCycle }}',
-'{{ group }}',
-'{{ labels }}',
-'{{ recentCloneJobs }}',
-'{{ error }}',
-'{{ recentCutoverJobs }}',
-'{{ cutoverForecast }}'
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -182,17 +150,123 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: computeEngineTargetDefaults
-      value: '{{ computeEngineTargetDefaults }}'
+      value:
+        - name: vmName
+          value: '{{ vmName }}'
+        - name: targetProject
+          value: '{{ targetProject }}'
+        - name: zone
+          value: '{{ zone }}'
+        - name: machineTypeSeries
+          value: '{{ machineTypeSeries }}'
+        - name: machineType
+          value: '{{ machineType }}'
+        - name: networkTags
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: networkInterfaces
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: serviceAccount
+          value: '{{ serviceAccount }}'
+        - name: diskType
+          value: '{{ diskType }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: licenseType
+          value: '{{ licenseType }}'
+        - name: computeScheduling
+          value:
+            - name: onHostMaintenance
+              value: '{{ onHostMaintenance }}'
+            - name: restartType
+              value: '{{ restartType }}'
+            - name: nodeAffinities
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: minNodeCpus
+              value: '{{ minNodeCpus }}'
+        - name: secureBoot
+          value: '{{ secureBoot }}'
+        - name: enableVtpm
+          value: '{{ enableVtpm }}'
+        - name: enableIntegrityMonitoring
+          value: '{{ enableIntegrityMonitoring }}'
+        - name: metadata
+          value: '{{ metadata }}'
+        - name: additionalLicenses
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: hostname
+          value: '{{ hostname }}'
+        - name: encryption
+          value:
+            - name: kmsKey
+              value: '{{ kmsKey }}'
+        - name: bootConversion
+          value: '{{ bootConversion }}'
     - name: computeEngineDisksTargetDefaults
-      value: '{{ computeEngineDisksTargetDefaults }}'
-    - name: vmwareSourceVmDetails
-      value: '{{ vmwareSourceVmDetails }}'
-    - name: awsSourceVmDetails
-      value: '{{ awsSourceVmDetails }}'
-    - name: azureSourceVmDetails
-      value: '{{ azureSourceVmDetails }}'
-    - name: name
-      value: '{{ name }}'
+      value:
+        - name: zone
+          value: '{{ zone }}'
+        - name: disksTargetDefaults
+          value: []
+        - name: vmTargetDefaults
+          value:
+            - name: vmName
+              value: '{{ vmName }}'
+            - name: machineTypeSeries
+              value: '{{ machineTypeSeries }}'
+            - name: machineType
+              value: '{{ machineType }}'
+            - name: networkTags
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: networkInterfaces
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
+            - name: secureBoot
+              value: '{{ secureBoot }}'
+            - name: enableVtpm
+              value: '{{ enableVtpm }}'
+            - name: enableIntegrityMonitoring
+              value: '{{ enableIntegrityMonitoring }}'
+            - name: metadata
+              value: '{{ metadata }}'
+            - name: additionalLicenses
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: hostname
+              value: '{{ hostname }}'
+            - name: labels
+              value: '{{ labels }}'
+            - name: bootDiskDefaults
+              value:
+                - name: image
+                  value:
+                    - name: sourceImage
+                      value: '{{ sourceImage }}'
+                - name: diskName
+                  value: '{{ diskName }}'
+                - name: diskType
+                  value: '{{ diskType }}'
+                - name: deviceName
+                  value: '{{ deviceName }}'
+        - name: targetProject
+          value: '{{ targetProject }}'
+        - name: disks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: sourceVmId
       value: '{{ sourceVmId }}'
     - name: displayName
@@ -200,33 +274,13 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: policy
-      value: '{{ policy }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: lastSync
-      value: '{{ lastSync }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateTime
-      value: '{{ stateTime }}'
-    - name: currentSyncInfo
-      value: '{{ currentSyncInfo }}'
-    - name: lastReplicationCycle
-      value: '{{ lastReplicationCycle }}'
-    - name: group
-      value: '{{ group }}'
+      value:
+        - name: idleDuration
+          value: '{{ idleDuration }}'
+        - name: skipOsAdaptation
+          value: '{{ skipOsAdaptation }}'
     - name: labels
       value: '{{ labels }}'
-    - name: recentCloneJobs
-      value: '{{ recentCloneJobs }}'
-    - name: error
-      value: '{{ error }}'
-    - name: recentCutoverJobs
-      value: '{{ recentCutoverJobs }}'
-    - name: cutoverForecast
-      value: '{{ cutoverForecast }}'
 
 ```
 </TabItem>
@@ -242,27 +296,11 @@ UPDATE google.vmmigration.migrating_vms
 SET 
 computeEngineTargetDefaults = '{{ computeEngineTargetDefaults }}',
 computeEngineDisksTargetDefaults = '{{ computeEngineDisksTargetDefaults }}',
-vmwareSourceVmDetails = '{{ vmwareSourceVmDetails }}',
-awsSourceVmDetails = '{{ awsSourceVmDetails }}',
-azureSourceVmDetails = '{{ azureSourceVmDetails }}',
-name = '{{ name }}',
 sourceVmId = '{{ sourceVmId }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 policy = '{{ policy }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-lastSync = '{{ lastSync }}',
-state = '{{ state }}',
-stateTime = '{{ stateTime }}',
-currentSyncInfo = '{{ currentSyncInfo }}',
-lastReplicationCycle = '{{ lastReplicationCycle }}',
-group = '{{ group }}',
-labels = '{{ labels }}',
-recentCloneJobs = '{{ recentCloneJobs }}',
-error = '{{ error }}',
-recentCutoverJobs = '{{ recentCutoverJobs }}',
-cutoverForecast = '{{ cutoverForecast }}'
+labels = '{{ labels }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND migratingVmsId = '{{ migratingVmsId }}'

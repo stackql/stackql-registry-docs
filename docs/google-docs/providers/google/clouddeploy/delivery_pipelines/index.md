@@ -94,14 +94,10 @@ INSERT INTO google.clouddeploy.delivery_pipelines (
 locationsId,
 projectsId,
 name,
-uid,
 description,
 annotations,
 labels,
-createTime,
-updateTime,
 serialPipeline,
-condition,
 etag,
 suspended
 )
@@ -109,14 +105,10 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ uid }}',
 '{{ description }}',
 '{{ annotations }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ serialPipeline }}',
-'{{ condition }}',
 '{{ etag }}',
 true|false
 ;
@@ -129,22 +121,18 @@ true|false
   props:
     - name: name
       value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: description
       value: '{{ description }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: serialPipeline
-      value: '{{ serialPipeline }}'
-    - name: condition
-      value: '{{ condition }}'
+      value:
+        - name: stages
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: etag
       value: '{{ etag }}'
     - name: suspended
@@ -163,14 +151,10 @@ Updates a <code>delivery_pipelines</code> resource.
 UPDATE google.clouddeploy.delivery_pipelines
 SET 
 name = '{{ name }}',
-uid = '{{ uid }}',
 description = '{{ description }}',
 annotations = '{{ annotations }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 serialPipeline = '{{ serialPipeline }}',
-condition = '{{ condition }}',
 etag = '{{ etag }}',
 suspended = true|false
 WHERE 

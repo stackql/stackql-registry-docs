@@ -96,7 +96,6 @@ Use the following StackQL query and manifest file to create a new <code>firewall
 /*+ create */
 INSERT INTO google.compute.firewall_policies_rule (
 firewallPolicy,
-kind,
 ruleName,
 description,
 priority,
@@ -114,7 +113,6 @@ disabled
 )
 SELECT 
 '{{ firewallPolicy }}',
-'{{ kind }}',
 '{{ ruleName }}',
 '{{ description }}',
 '{{ priority }}',
@@ -137,8 +135,6 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
     - name: ruleName
       value: '{{ ruleName }}'
     - name: description
@@ -146,7 +142,55 @@ true|false
     - name: priority
       value: '{{ priority }}'
     - name: match
-      value: '{{ match }}'
+      value:
+        - name: srcIpRanges
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: destIpRanges
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: layer4Configs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: srcSecureTags
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: destAddressGroups
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: srcAddressGroups
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: srcFqdns
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: destFqdns
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: srcRegionCodes
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: destRegionCodes
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: destThreatIntelligences
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: srcThreatIntelligences
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: action
       value: '{{ action }}'
     - name: securityProfileGroup
@@ -156,15 +200,21 @@ true|false
     - name: direction
       value: '{{ direction }}'
     - name: targetResources
-      value: '{{ targetResources }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: enableLogging
       value: '{{ enableLogging }}'
     - name: ruleTupleCount
       value: '{{ ruleTupleCount }}'
     - name: targetServiceAccounts
-      value: '{{ targetServiceAccounts }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: targetSecureTags
-      value: '{{ targetSecureTags }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: disabled
       value: '{{ disabled }}'
 

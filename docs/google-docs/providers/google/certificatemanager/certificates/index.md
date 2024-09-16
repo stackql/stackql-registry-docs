@@ -94,14 +94,9 @@ locationsId,
 projectsId,
 name,
 description,
-createTime,
-updateTime,
 labels,
 selfManaged,
 managed,
-sanDnsnames,
-pemCertificate,
-expireTime,
 scope
 )
 SELECT 
@@ -109,14 +104,9 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ selfManaged }}',
 '{{ managed }}',
-'{{ sanDnsnames }}',
-'{{ pemCertificate }}',
-'{{ expireTime }}',
 '{{ scope }}'
 ;
 ```
@@ -130,22 +120,26 @@ SELECT
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: selfManaged
-      value: '{{ selfManaged }}'
+      value:
+        - name: pemCertificate
+          value: '{{ pemCertificate }}'
+        - name: pemPrivateKey
+          value: '{{ pemPrivateKey }}'
     - name: managed
-      value: '{{ managed }}'
-    - name: sanDnsnames
-      value: '{{ sanDnsnames }}'
-    - name: pemCertificate
-      value: '{{ pemCertificate }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
+      value:
+        - name: domains
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: dnsAuthorizations
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: issuanceConfig
+          value: '{{ issuanceConfig }}'
     - name: scope
       value: '{{ scope }}'
 
@@ -163,14 +157,9 @@ UPDATE google.certificatemanager.certificates
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 selfManaged = '{{ selfManaged }}',
 managed = '{{ managed }}',
-sanDnsnames = '{{ sanDnsnames }}',
-pemCertificate = '{{ pemCertificate }}',
-expireTime = '{{ expireTime }}',
 scope = '{{ scope }}'
 WHERE 
 certificatesId = '{{ certificatesId }}'

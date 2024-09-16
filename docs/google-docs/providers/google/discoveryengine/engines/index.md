@@ -96,11 +96,8 @@ locationsId,
 projectsId,
 chatEngineConfig,
 searchEngineConfig,
-chatEngineMetadata,
 name,
 displayName,
-createTime,
-updateTime,
 dataStoreIds,
 solutionType,
 industryVertical,
@@ -112,11 +109,8 @@ SELECT
 '{{ projectsId }}',
 '{{ chatEngineConfig }}',
 '{{ searchEngineConfig }}',
-'{{ chatEngineMetadata }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ dataStoreIds }}',
 '{{ solutionType }}',
 '{{ industryVertical }}',
@@ -130,27 +124,47 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: chatEngineConfig
-      value: '{{ chatEngineConfig }}'
+      value:
+        - name: agentCreationConfig
+          value:
+            - name: business
+              value: '{{ business }}'
+            - name: defaultLanguageCode
+              value: '{{ defaultLanguageCode }}'
+            - name: timeZone
+              value: '{{ timeZone }}'
+            - name: location
+              value: '{{ location }}'
+        - name: dialogflowAgentToLink
+          value: '{{ dialogflowAgentToLink }}'
     - name: searchEngineConfig
-      value: '{{ searchEngineConfig }}'
-    - name: chatEngineMetadata
-      value: '{{ chatEngineMetadata }}'
+      value:
+        - name: searchTier
+          value: '{{ searchTier }}'
+        - name: searchAddOns
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
     - name: name
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: dataStoreIds
-      value: '{{ dataStoreIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: solutionType
       value: '{{ solutionType }}'
     - name: industryVertical
       value: '{{ industryVertical }}'
     - name: commonConfig
-      value: '{{ commonConfig }}'
+      value:
+        - name: companyName
+          value: '{{ companyName }}'
 
 ```
 </TabItem>
@@ -166,11 +180,8 @@ UPDATE google.discoveryengine.engines
 SET 
 chatEngineConfig = '{{ chatEngineConfig }}',
 searchEngineConfig = '{{ searchEngineConfig }}',
-chatEngineMetadata = '{{ chatEngineMetadata }}',
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 dataStoreIds = '{{ dataStoreIds }}',
 solutionType = '{{ solutionType }}',
 industryVertical = '{{ industryVertical }}',

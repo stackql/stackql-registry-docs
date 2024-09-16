@@ -124,13 +124,23 @@ SELECT
     - name: userId
       value: '{{ userId }}'
     - name: userSignature
-      value: '{{ userSignature }}'
-    - name: guardianSignature
-      value: '{{ guardianSignature }}'
-    - name: witnessSignature
-      value: '{{ witnessSignature }}'
+      value:
+        - name: userId
+          value: '{{ userId }}'
+        - name: image
+          value:
+            - name: rawBytes
+              value: '{{ rawBytes }}'
+            - name: gcsUri
+              value: '{{ gcsUri }}'
+        - name: metadata
+          value: '{{ metadata }}'
+        - name: signatureTime
+          value: '{{ signatureTime }}'
     - name: consentContentScreenshots
-      value: '{{ consentContentScreenshots }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: consentContentVersion
       value: '{{ consentContentVersion }}'
     - name: metadata

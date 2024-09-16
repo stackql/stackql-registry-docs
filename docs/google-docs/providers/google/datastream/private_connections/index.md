@@ -85,25 +85,15 @@ Use the following StackQL query and manifest file to create a new <code>private_
 INSERT INTO google.datastream.private_connections (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 labels,
 displayName,
-state,
-error,
 vpcPeeringConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
-'{{ state }}',
-'{{ error }}',
 '{{ vpcPeeringConfig }}'
 ;
 ```
@@ -113,22 +103,16 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: state
-      value: '{{ state }}'
-    - name: error
-      value: '{{ error }}'
     - name: vpcPeeringConfig
-      value: '{{ vpcPeeringConfig }}'
+      value:
+        - name: vpc
+          value: '{{ vpc }}'
+        - name: subnet
+          value: '{{ subnet }}'
 
 ```
 </TabItem>

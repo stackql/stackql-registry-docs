@@ -103,8 +103,6 @@ Use the following StackQL query and manifest file to create a new <code>notebook
 INSERT INTO google.aiplatform.notebook_execution_jobs (
 locationsId,
 projectsId,
-updateTime,
-createTime,
 notebookRuntimeTemplateResourceName,
 executionTimeout,
 gcsOutputUri,
@@ -113,19 +111,13 @@ encryptionSpec,
 displayName,
 dataformRepositorySource,
 executionUser,
-scheduleResourceName,
-name,
 gcsNotebookSource,
 labels,
-directNotebookSource,
-status,
-jobState
+directNotebookSource
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ updateTime }}',
-'{{ createTime }}',
 '{{ notebookRuntimeTemplateResourceName }}',
 '{{ executionTimeout }}',
 '{{ gcsOutputUri }}',
@@ -134,13 +126,9 @@ SELECT
 '{{ displayName }}',
 '{{ dataformRepositorySource }}',
 '{{ executionUser }}',
-'{{ scheduleResourceName }}',
-'{{ name }}',
 '{{ gcsNotebookSource }}',
 '{{ labels }}',
-'{{ directNotebookSource }}',
-'{{ status }}',
-'{{ jobState }}'
+'{{ directNotebookSource }}'
 ;
 ```
 </TabItem>
@@ -149,10 +137,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: notebookRuntimeTemplateResourceName
       value: '{{ notebookRuntimeTemplateResourceName }}'
     - name: executionTimeout
@@ -162,27 +146,31 @@ SELECT
     - name: serviceAccount
       value: '{{ serviceAccount }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: dataformRepositorySource
-      value: '{{ dataformRepositorySource }}'
+      value:
+        - name: commitSha
+          value: '{{ commitSha }}'
+        - name: dataformRepositoryResourceName
+          value: '{{ dataformRepositoryResourceName }}'
     - name: executionUser
       value: '{{ executionUser }}'
-    - name: scheduleResourceName
-      value: '{{ scheduleResourceName }}'
-    - name: name
-      value: '{{ name }}'
     - name: gcsNotebookSource
-      value: '{{ gcsNotebookSource }}'
+      value:
+        - name: generation
+          value: '{{ generation }}'
+        - name: uri
+          value: '{{ uri }}'
     - name: labels
       value: '{{ labels }}'
     - name: directNotebookSource
-      value: '{{ directNotebookSource }}'
-    - name: status
-      value: '{{ status }}'
-    - name: jobState
-      value: '{{ jobState }}'
+      value:
+        - name: content
+          value: '{{ content }}'
 
 ```
 </TabItem>

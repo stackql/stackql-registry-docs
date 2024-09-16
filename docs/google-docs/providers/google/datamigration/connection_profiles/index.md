@@ -99,8 +99,6 @@ INSERT INTO google.datamigration.connection_profiles (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 state,
 displayName,
@@ -110,15 +108,12 @@ sqlserver,
 oracle,
 cloudsql,
 alloydb,
-error,
 provider
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ state }}',
 '{{ displayName }}',
@@ -128,7 +123,6 @@ SELECT
 '{{ oracle }}',
 '{{ cloudsql }}',
 '{{ alloydb }}',
-'{{ error }}',
 '{{ provider }}'
 ;
 ```
@@ -140,10 +134,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: state
@@ -151,19 +141,193 @@ SELECT
     - name: displayName
       value: '{{ displayName }}'
     - name: mysql
-      value: '{{ mysql }}'
+      value:
+        - name: host
+          value: '{{ host }}'
+        - name: port
+          value: '{{ port }}'
+        - name: username
+          value: '{{ username }}'
+        - name: password
+          value: '{{ password }}'
+        - name: ssl
+          value:
+            - name: clientKey
+              value: '{{ clientKey }}'
+            - name: clientCertificate
+              value: '{{ clientCertificate }}'
+            - name: caCertificate
+              value: '{{ caCertificate }}'
+        - name: cloudSqlId
+          value: '{{ cloudSqlId }}'
     - name: postgresql
-      value: '{{ postgresql }}'
+      value:
+        - name: host
+          value: '{{ host }}'
+        - name: port
+          value: '{{ port }}'
+        - name: username
+          value: '{{ username }}'
+        - name: password
+          value: '{{ password }}'
+        - name: cloudSqlId
+          value: '{{ cloudSqlId }}'
+        - name: alloydbClusterId
+          value: '{{ alloydbClusterId }}'
+        - name: staticIpConnectivity
+          value: []
+        - name: privateServiceConnectConnectivity
+          value:
+            - name: serviceAttachment
+              value: '{{ serviceAttachment }}'
     - name: sqlserver
-      value: '{{ sqlserver }}'
+      value:
+        - name: host
+          value: '{{ host }}'
+        - name: port
+          value: '{{ port }}'
+        - name: username
+          value: '{{ username }}'
+        - name: password
+          value: '{{ password }}'
+        - name: cloudSqlId
+          value: '{{ cloudSqlId }}'
+        - name: backups
+          value:
+            - name: gcsBucket
+              value: '{{ gcsBucket }}'
+            - name: gcsPrefix
+              value: '{{ gcsPrefix }}'
+        - name: forwardSshConnectivity
+          value:
+            - name: hostname
+              value: '{{ hostname }}'
+            - name: username
+              value: '{{ username }}'
+            - name: port
+              value: '{{ port }}'
+            - name: password
+              value: '{{ password }}'
+            - name: privateKey
+              value: '{{ privateKey }}'
+        - name: privateConnectivity
+          value:
+            - name: privateConnection
+              value: '{{ privateConnection }}'
     - name: oracle
-      value: '{{ oracle }}'
+      value:
+        - name: host
+          value: '{{ host }}'
+        - name: port
+          value: '{{ port }}'
+        - name: username
+          value: '{{ username }}'
+        - name: password
+          value: '{{ password }}'
+        - name: databaseService
+          value: '{{ databaseService }}'
+        - name: staticServiceIpConnectivity
+          value: []
+        - name: oracleAsmConfig
+          value:
+            - name: hostname
+              value: '{{ hostname }}'
+            - name: port
+              value: '{{ port }}'
+            - name: username
+              value: '{{ username }}'
+            - name: password
+              value: '{{ password }}'
+            - name: asmService
+              value: '{{ asmService }}'
     - name: cloudsql
-      value: '{{ cloudsql }}'
+      value:
+        - name: settings
+          value:
+            - name: databaseVersion
+              value: '{{ databaseVersion }}'
+            - name: userLabels
+              value: '{{ userLabels }}'
+            - name: tier
+              value: '{{ tier }}'
+            - name: storageAutoResizeLimit
+              value: '{{ storageAutoResizeLimit }}'
+            - name: activationPolicy
+              value: '{{ activationPolicy }}'
+            - name: ipConfig
+              value:
+                - name: enableIpv4
+                  value: '{{ enableIpv4 }}'
+                - name: privateNetwork
+                  value: '{{ privateNetwork }}'
+                - name: allocatedIpRange
+                  value: '{{ allocatedIpRange }}'
+                - name: requireSsl
+                  value: '{{ requireSsl }}'
+                - name: authorizedNetworks
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: autoStorageIncrease
+              value: '{{ autoStorageIncrease }}'
+            - name: databaseFlags
+              value: '{{ databaseFlags }}'
+            - name: dataDiskType
+              value: '{{ dataDiskType }}'
+            - name: dataDiskSizeGb
+              value: '{{ dataDiskSizeGb }}'
+            - name: zone
+              value: '{{ zone }}'
+            - name: secondaryZone
+              value: '{{ secondaryZone }}'
+            - name: sourceId
+              value: '{{ sourceId }}'
+            - name: rootPassword
+              value: '{{ rootPassword }}'
+            - name: collation
+              value: '{{ collation }}'
+            - name: cmekKeyName
+              value: '{{ cmekKeyName }}'
+            - name: availabilityType
+              value: '{{ availabilityType }}'
+            - name: edition
+              value: '{{ edition }}'
+            - name: dataCacheConfig
+              value:
+                - name: dataCacheEnabled
+                  value: '{{ dataCacheEnabled }}'
     - name: alloydb
-      value: '{{ alloydb }}'
-    - name: error
-      value: '{{ error }}'
+      value:
+        - name: clusterId
+          value: '{{ clusterId }}'
+        - name: settings
+          value:
+            - name: initialUser
+              value:
+                - name: user
+                  value: '{{ user }}'
+                - name: password
+                  value: '{{ password }}'
+            - name: vpcNetwork
+              value: '{{ vpcNetwork }}'
+            - name: labels
+              value: '{{ labels }}'
+            - name: primaryInstanceSettings
+              value:
+                - name: machineConfig
+                  value:
+                    - name: cpuCount
+                      value: '{{ cpuCount }}'
+                - name: databaseFlags
+                  value: '{{ databaseFlags }}'
+                - name: labels
+                  value: '{{ labels }}'
+            - name: encryptionConfig
+              value:
+                - name: kmsKeyName
+                  value: '{{ kmsKeyName }}'
+            - name: databaseVersion
+              value: '{{ databaseVersion }}'
     - name: provider
       value: '{{ provider }}'
 
@@ -180,8 +344,6 @@ Updates a <code>connection_profiles</code> resource.
 UPDATE google.datamigration.connection_profiles
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 state = '{{ state }}',
 displayName = '{{ displayName }}',
@@ -191,7 +353,6 @@ sqlserver = '{{ sqlserver }}',
 oracle = '{{ oracle }}',
 cloudsql = '{{ cloudsql }}',
 alloydb = '{{ alloydb }}',
-error = '{{ error }}',
 provider = '{{ provider }}'
 WHERE 
 connectionProfilesId = '{{ connectionProfilesId }}'

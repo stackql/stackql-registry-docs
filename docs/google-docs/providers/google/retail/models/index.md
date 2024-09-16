@@ -108,17 +108,10 @@ projectsId,
 name,
 displayName,
 trainingState,
-servingState,
-createTime,
-updateTime,
 type,
 optimizationObjective,
 periodicTuningState,
-lastTuneTime,
-tuningOperation,
-dataState,
 filteringOption,
-servingConfigLists,
 modelFeaturesConfig
 )
 SELECT 
@@ -128,17 +121,10 @@ SELECT
 '{{ name }}',
 '{{ displayName }}',
 '{{ trainingState }}',
-'{{ servingState }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ type }}',
 '{{ optimizationObjective }}',
 '{{ periodicTuningState }}',
-'{{ lastTuneTime }}',
-'{{ tuningOperation }}',
-'{{ dataState }}',
 '{{ filteringOption }}',
-'{{ servingConfigLists }}',
 '{{ modelFeaturesConfig }}'
 ;
 ```
@@ -154,30 +140,20 @@ SELECT
       value: '{{ displayName }}'
     - name: trainingState
       value: '{{ trainingState }}'
-    - name: servingState
-      value: '{{ servingState }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: type
       value: '{{ type }}'
     - name: optimizationObjective
       value: '{{ optimizationObjective }}'
     - name: periodicTuningState
       value: '{{ periodicTuningState }}'
-    - name: lastTuneTime
-      value: '{{ lastTuneTime }}'
-    - name: tuningOperation
-      value: '{{ tuningOperation }}'
-    - name: dataState
-      value: '{{ dataState }}'
     - name: filteringOption
       value: '{{ filteringOption }}'
-    - name: servingConfigLists
-      value: '{{ servingConfigLists }}'
     - name: modelFeaturesConfig
-      value: '{{ modelFeaturesConfig }}'
+      value:
+        - name: frequentlyBoughtTogetherConfig
+          value:
+            - name: contextProductsType
+              value: '{{ contextProductsType }}'
 
 ```
 </TabItem>
@@ -194,17 +170,10 @@ SET
 name = '{{ name }}',
 displayName = '{{ displayName }}',
 trainingState = '{{ trainingState }}',
-servingState = '{{ servingState }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 type = '{{ type }}',
 optimizationObjective = '{{ optimizationObjective }}',
 periodicTuningState = '{{ periodicTuningState }}',
-lastTuneTime = '{{ lastTuneTime }}',
-tuningOperation = '{{ tuningOperation }}',
-dataState = '{{ dataState }}',
 filteringOption = '{{ filteringOption }}',
-servingConfigLists = '{{ servingConfigLists }}',
 modelFeaturesConfig = '{{ modelFeaturesConfig }}'
 WHERE 
 catalogsId = '{{ catalogsId }}'

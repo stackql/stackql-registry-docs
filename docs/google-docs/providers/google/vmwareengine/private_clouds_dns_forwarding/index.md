@@ -66,9 +66,6 @@ Updates a <code>private_clouds_dns_forwarding</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.private_clouds_dns_forwarding
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 forwardingRules = '{{ forwardingRules }}'
 WHERE 
 locationsId = '{{ locationsId }}'

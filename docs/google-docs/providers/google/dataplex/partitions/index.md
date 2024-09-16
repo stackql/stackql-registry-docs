@@ -83,7 +83,6 @@ lakesId,
 locationsId,
 projectsId,
 zonesId,
-name,
 values,
 location,
 etag
@@ -94,7 +93,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ zonesId }}',
-'{{ name }}',
 '{{ values }}',
 '{{ location }}',
 '{{ etag }}'
@@ -106,10 +104,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: values
-      value: '{{ values }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: location
       value: '{{ location }}'
     - name: etag

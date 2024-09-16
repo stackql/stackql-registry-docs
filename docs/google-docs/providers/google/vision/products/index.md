@@ -113,7 +113,9 @@ SELECT
     - name: productCategory
       value: '{{ productCategory }}'
     - name: productLabels
-      value: '{{ productLabels }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

@@ -46,7 +46,6 @@ Updates a <code>entities_entities_with_conditions</code> resource.
 /*+ update */
 UPDATE google.connectors.entities_entities_with_conditions
 SET 
-name = '{{ name }}',
 fields = '{{ fields }}'
 WHERE 
 connectionsId = '{{ connectionsId }}'

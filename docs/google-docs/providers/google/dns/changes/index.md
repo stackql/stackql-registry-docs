@@ -85,10 +85,8 @@ project,
 additions,
 deletions,
 startTime,
-id,
 status,
-isServing,
-kind
+isServing
 )
 SELECT 
 '{{ managedZone }}',
@@ -96,10 +94,8 @@ SELECT
 '{{ additions }}',
 '{{ deletions }}',
 '{{ startTime }}',
-'{{ id }}',
 '{{ status }}',
-true|false,
-'{{ kind }}'
+true|false
 ;
 ```
 </TabItem>
@@ -109,19 +105,19 @@ true|false,
 - name: your_resource_model_name
   props:
     - name: additions
-      value: '{{ additions }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: deletions
-      value: '{{ deletions }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: startTime
       value: '{{ startTime }}'
-    - name: id
-      value: '{{ id }}'
     - name: status
       value: '{{ status }}'
     - name: isServing
       value: '{{ isServing }}'
-    - name: kind
-      value: '{{ kind }}'
 
 ```
 </TabItem>

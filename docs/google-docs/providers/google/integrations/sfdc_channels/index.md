@@ -96,11 +96,8 @@ locationsId,
 projectsId,
 sfdcInstancesId,
 name,
-updateTime,
 description,
-deleteTime,
 displayName,
-createTime,
 lastReplayId,
 channelTopic,
 isActive
@@ -110,11 +107,8 @@ SELECT
 '{{ projectsId }}',
 '{{ sfdcInstancesId }}',
 '{{ name }}',
-'{{ updateTime }}',
 '{{ description }}',
-'{{ deleteTime }}',
 '{{ displayName }}',
-'{{ createTime }}',
 '{{ lastReplayId }}',
 '{{ channelTopic }}',
 true|false
@@ -128,16 +122,10 @@ true|false
   props:
     - name: name
       value: '{{ name }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: lastReplayId
       value: '{{ lastReplayId }}'
     - name: channelTopic
@@ -158,11 +146,8 @@ Updates a <code>sfdc_channels</code> resource.
 UPDATE google.integrations.sfdc_channels
 SET 
 name = '{{ name }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
-deleteTime = '{{ deleteTime }}',
 displayName = '{{ displayName }}',
-createTime = '{{ createTime }}',
 lastReplayId = '{{ lastReplayId }}',
 channelTopic = '{{ channelTopic }}',
 isActive = true|false

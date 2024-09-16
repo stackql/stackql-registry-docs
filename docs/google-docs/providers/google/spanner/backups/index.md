@@ -110,21 +110,7 @@ projectsId,
 database,
 versionTime,
 expireTime,
-name,
-createTime,
-sizeBytes,
-freeableSizeBytes,
-exclusiveSizeBytes,
-state,
-referencingDatabases,
-encryptionInfo,
-encryptionInformation,
-databaseDialect,
-referencingBackups,
-maxExpireTime,
-backupSchedules,
-incrementalBackupChainId,
-oldestVersionTime
+name
 )
 SELECT 
 '{{ instancesId }}',
@@ -132,21 +118,7 @@ SELECT
 '{{ database }}',
 '{{ versionTime }}',
 '{{ expireTime }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ sizeBytes }}',
-'{{ freeableSizeBytes }}',
-'{{ exclusiveSizeBytes }}',
-'{{ state }}',
-'{{ referencingDatabases }}',
-'{{ encryptionInfo }}',
-'{{ encryptionInformation }}',
-'{{ databaseDialect }}',
-'{{ referencingBackups }}',
-'{{ maxExpireTime }}',
-'{{ backupSchedules }}',
-'{{ incrementalBackupChainId }}',
-'{{ oldestVersionTime }}'
+'{{ name }}'
 ;
 ```
 </TabItem>
@@ -163,34 +135,6 @@ SELECT
       value: '{{ expireTime }}'
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: sizeBytes
-      value: '{{ sizeBytes }}'
-    - name: freeableSizeBytes
-      value: '{{ freeableSizeBytes }}'
-    - name: exclusiveSizeBytes
-      value: '{{ exclusiveSizeBytes }}'
-    - name: state
-      value: '{{ state }}'
-    - name: referencingDatabases
-      value: '{{ referencingDatabases }}'
-    - name: encryptionInfo
-      value: '{{ encryptionInfo }}'
-    - name: encryptionInformation
-      value: '{{ encryptionInformation }}'
-    - name: databaseDialect
-      value: '{{ databaseDialect }}'
-    - name: referencingBackups
-      value: '{{ referencingBackups }}'
-    - name: maxExpireTime
-      value: '{{ maxExpireTime }}'
-    - name: backupSchedules
-      value: '{{ backupSchedules }}'
-    - name: incrementalBackupChainId
-      value: '{{ incrementalBackupChainId }}'
-    - name: oldestVersionTime
-      value: '{{ oldestVersionTime }}'
 
 ```
 </TabItem>
@@ -207,21 +151,7 @@ SET
 database = '{{ database }}',
 versionTime = '{{ versionTime }}',
 expireTime = '{{ expireTime }}',
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-sizeBytes = '{{ sizeBytes }}',
-freeableSizeBytes = '{{ freeableSizeBytes }}',
-exclusiveSizeBytes = '{{ exclusiveSizeBytes }}',
-state = '{{ state }}',
-referencingDatabases = '{{ referencingDatabases }}',
-encryptionInfo = '{{ encryptionInfo }}',
-encryptionInformation = '{{ encryptionInformation }}',
-databaseDialect = '{{ databaseDialect }}',
-referencingBackups = '{{ referencingBackups }}',
-maxExpireTime = '{{ maxExpireTime }}',
-backupSchedules = '{{ backupSchedules }}',
-incrementalBackupChainId = '{{ incrementalBackupChainId }}',
-oldestVersionTime = '{{ oldestVersionTime }}'
+name = '{{ name }}'
 WHERE 
 backupsId = '{{ backupsId }}'
 AND instancesId = '{{ instancesId }}'

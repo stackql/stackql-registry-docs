@@ -121,15 +121,27 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: multiClusterRoutingUseAny
-      value: '{{ multiClusterRoutingUseAny }}'
+      value:
+        - name: clusterIds
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: singleClusterRouting
-      value: '{{ singleClusterRouting }}'
+      value:
+        - name: clusterId
+          value: '{{ clusterId }}'
+        - name: allowTransactionalWrites
+          value: '{{ allowTransactionalWrites }}'
     - name: priority
       value: '{{ priority }}'
     - name: standardIsolation
-      value: '{{ standardIsolation }}'
+      value:
+        - name: priority
+          value: '{{ priority }}'
     - name: dataBoostIsolationReadOnly
-      value: '{{ dataBoostIsolationReadOnly }}'
+      value:
+        - name: computeBillingOwner
+          value: '{{ computeBillingOwner }}'
 
 ```
 </TabItem>

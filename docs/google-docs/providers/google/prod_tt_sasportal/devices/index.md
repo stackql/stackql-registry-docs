@@ -113,7 +113,6 @@ Use the following StackQL query and manifest file to create a new <code>devices<
 INSERT INTO google.prod_tt_sasportal.devices (
 nodesId,
 displayName,
-currentChannels,
 activeConfig,
 deviceMetadata,
 preloadedConfig,
@@ -127,7 +126,6 @@ grantRangeAllowlists
 SELECT 
 '{{ nodesId }}',
 '{{ displayName }}',
-'{{ currentChannels }}',
 '{{ activeConfig }}',
 '{{ deviceMetadata }}',
 '{{ preloadedConfig }}',
@@ -147,14 +145,82 @@ SELECT
   props:
     - name: displayName
       value: '{{ displayName }}'
-    - name: currentChannels
-      value: '{{ currentChannels }}'
     - name: activeConfig
-      value: '{{ activeConfig }}'
+      value:
+        - name: state
+          value: '{{ state }}'
+        - name: installationParams
+          value:
+            - name: verticalAccuracy
+              value: '{{ verticalAccuracy }}'
+            - name: antennaAzimuth
+              value: '{{ antennaAzimuth }}'
+            - name: antennaModel
+              value: '{{ antennaModel }}'
+            - name: horizontalAccuracy
+              value: '{{ horizontalAccuracy }}'
+            - name: height
+              value: '{{ height }}'
+            - name: latitude
+              value: '{{ latitude }}'
+            - name: indoorDeployment
+              value: '{{ indoorDeployment }}'
+            - name: longitude
+              value: '{{ longitude }}'
+            - name: heightType
+              value: '{{ heightType }}'
+            - name: cpeCbsdIndication
+              value: '{{ cpeCbsdIndication }}'
+            - name: antennaDowntilt
+              value: '{{ antennaDowntilt }}'
+            - name: eirpCapability
+              value: '{{ eirpCapability }}'
+            - name: antennaGain
+              value: '{{ antennaGain }}'
+            - name: antennaBeamwidth
+              value: '{{ antennaBeamwidth }}'
+        - name: model
+          value:
+            - name: name
+              value: '{{ name }}'
+            - name: hardwareVersion
+              value: '{{ hardwareVersion }}'
+            - name: vendor
+              value: '{{ vendor }}'
+            - name: firmwareVersion
+              value: '{{ firmwareVersion }}'
+            - name: softwareVersion
+              value: '{{ softwareVersion }}'
+        - name: isSigned
+          value: '{{ isSigned }}'
+        - name: airInterface
+          value:
+            - name: radioTechnology
+              value: '{{ radioTechnology }}'
+            - name: supportedSpec
+              value: '{{ supportedSpec }}'
+        - name: measurementCapabilities
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enum
+              value: '{{ enum }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+        - name: userId
+          value: '{{ userId }}'
+        - name: callSign
+          value: '{{ callSign }}'
+        - name: category
+          value: '{{ category }}'
     - name: deviceMetadata
-      value: '{{ deviceMetadata }}'
-    - name: preloadedConfig
-      value: '{{ preloadedConfig }}'
+      value:
+        - name: antennaModel
+          value: '{{ antennaModel }}'
+        - name: commonChannelGroup
+          value: '{{ commonChannelGroup }}'
+        - name: interferenceCoordinationGroup
+          value: '{{ interferenceCoordinationGroup }}'
     - name: state
       value: '{{ state }}'
     - name: name
@@ -162,11 +228,15 @@ SELECT
     - name: fccId
       value: '{{ fccId }}'
     - name: grants
-      value: '{{ grants }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: serialNumber
       value: '{{ serialNumber }}'
     - name: grantRangeAllowlists
-      value: '{{ grantRangeAllowlists }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -181,7 +251,6 @@ Updates a <code>devices</code> resource.
 UPDATE google.prod_tt_sasportal.devices
 SET 
 displayName = '{{ displayName }}',
-currentChannels = '{{ currentChannels }}',
 activeConfig = '{{ activeConfig }}',
 deviceMetadata = '{{ deviceMetadata }}',
 preloadedConfig = '{{ preloadedConfig }}',

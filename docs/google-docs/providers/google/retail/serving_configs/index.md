@@ -176,25 +176,45 @@ true|false,
     - name: priceRerankingLevel
       value: '{{ priceRerankingLevel }}'
     - name: facetControlIds
-      value: '{{ facetControlIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: dynamicFacetSpec
-      value: '{{ dynamicFacetSpec }}'
+      value:
+        - name: mode
+          value: '{{ mode }}'
     - name: boostControlIds
-      value: '{{ boostControlIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: filterControlIds
-      value: '{{ filterControlIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: redirectControlIds
-      value: '{{ redirectControlIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: twowaySynonymsControlIds
-      value: '{{ twowaySynonymsControlIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: onewaySynonymsControlIds
-      value: '{{ onewaySynonymsControlIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: doNotAssociateControlIds
-      value: '{{ doNotAssociateControlIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: replacementControlIds
-      value: '{{ replacementControlIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: ignoreControlIds
-      value: '{{ ignoreControlIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: diversityLevel
       value: '{{ diversityLevel }}'
     - name: diversityType
@@ -204,9 +224,17 @@ true|false,
     - name: ignoreRecsDenylist
       value: '{{ ignoreRecsDenylist }}'
     - name: personalizationSpec
-      value: '{{ personalizationSpec }}'
+      value:
+        - name: mode
+          value: '{{ mode }}'
     - name: solutionTypes
-      value: '{{ solutionTypes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
 
 ```
 </TabItem>

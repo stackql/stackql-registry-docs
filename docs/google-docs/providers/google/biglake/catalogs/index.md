@@ -78,21 +78,11 @@ Use the following StackQL query and manifest file to create a new <code>catalogs
 /*+ create */
 INSERT INTO google.biglake.catalogs (
 locationsId,
-projectsId,
-name,
-createTime,
-updateTime,
-deleteTime,
-expireTime
+projectsId
 )
 SELECT 
 '{{ locationsId }}',
-'{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
-'{{ expireTime }}'
+'{{ projectsId }}'
 ;
 ```
 </TabItem>
@@ -100,17 +90,7 @@ SELECT
 
 ```yaml
 - name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
+  props: []
 
 ```
 </TabItem>

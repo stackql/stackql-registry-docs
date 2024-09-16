@@ -91,13 +91,9 @@ INSERT INTO google.clouddeploy.custom_target_types (
 locationsId,
 projectsId,
 name,
-customTargetTypeId,
-uid,
 description,
 annotations,
 labels,
-createTime,
-updateTime,
 etag,
 customActions
 )
@@ -105,13 +101,9 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ customTargetTypeId }}',
-'{{ uid }}',
 '{{ description }}',
 '{{ annotations }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ etag }}',
 '{{ customActions }}'
 ;
@@ -124,24 +116,24 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: customTargetTypeId
-      value: '{{ customTargetTypeId }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: description
       value: '{{ description }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: etag
       value: '{{ etag }}'
     - name: customActions
-      value: '{{ customActions }}'
+      value:
+        - name: renderAction
+          value: '{{ renderAction }}'
+        - name: deployAction
+          value: '{{ deployAction }}'
+        - name: includeSkaffoldModules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -156,13 +148,9 @@ Updates a <code>custom_target_types</code> resource.
 UPDATE google.clouddeploy.custom_target_types
 SET 
 name = '{{ name }}',
-customTargetTypeId = '{{ customTargetTypeId }}',
-uid = '{{ uid }}',
 description = '{{ description }}',
 annotations = '{{ annotations }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 etag = '{{ etag }}',
 customActions = '{{ customActions }}'
 WHERE 

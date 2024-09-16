@@ -91,30 +91,16 @@ INSERT INTO google.vmmigration.utilization_reports (
 locationsId,
 projectsId,
 sourcesId,
-name,
 displayName,
-state,
-stateTime,
-error,
-createTime,
 timeFrame,
-frameEndTime,
-vmCount,
 vms
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ sourcesId }}',
-'{{ name }}',
 '{{ displayName }}',
-'{{ state }}',
-'{{ stateTime }}',
-'{{ error }}',
-'{{ createTime }}',
 '{{ timeFrame }}',
-'{{ frameEndTime }}',
-'{{ vmCount }}',
 '{{ vms }}'
 ;
 ```
@@ -124,26 +110,14 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateTime
-      value: '{{ stateTime }}'
-    - name: error
-      value: '{{ error }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: timeFrame
       value: '{{ timeFrame }}'
-    - name: frameEndTime
-      value: '{{ frameEndTime }}'
-    - name: vmCount
-      value: '{{ vmCount }}'
     - name: vms
-      value: '{{ vms }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

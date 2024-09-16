@@ -99,37 +99,25 @@ INSERT INTO google.eventarc.triggers (
 locationsId,
 projectsId,
 name,
-uid,
-createTime,
-updateTime,
 eventFilters,
 serviceAccount,
 destination,
 transport,
 labels,
 channel,
-conditions,
-eventDataContentType,
-satisfiesPzs,
-etag
+eventDataContentType
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ eventFilters }}',
 '{{ serviceAccount }}',
 '{{ destination }}',
 '{{ transport }}',
 '{{ labels }}',
 '{{ channel }}',
-'{{ conditions }}',
-'{{ eventDataContentType }}',
-true|false,
-'{{ etag }}'
+'{{ eventDataContentType }}'
 ;
 ```
 </TabItem>
@@ -140,32 +128,58 @@ true|false,
   props:
     - name: name
       value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: eventFilters
-      value: '{{ eventFilters }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: serviceAccount
       value: '{{ serviceAccount }}'
     - name: destination
-      value: '{{ destination }}'
+      value:
+        - name: cloudRun
+          value:
+            - name: service
+              value: '{{ service }}'
+            - name: path
+              value: '{{ path }}'
+            - name: region
+              value: '{{ region }}'
+        - name: cloudFunction
+          value: '{{ cloudFunction }}'
+        - name: gke
+          value:
+            - name: cluster
+              value: '{{ cluster }}'
+            - name: location
+              value: '{{ location }}'
+            - name: namespace
+              value: '{{ namespace }}'
+            - name: service
+              value: '{{ service }}'
+            - name: path
+              value: '{{ path }}'
+        - name: workflow
+          value: '{{ workflow }}'
+        - name: httpEndpoint
+          value:
+            - name: uri
+              value: '{{ uri }}'
+        - name: networkConfig
+          value:
+            - name: networkAttachment
+              value: '{{ networkAttachment }}'
     - name: transport
-      value: '{{ transport }}'
+      value:
+        - name: pubsub
+          value:
+            - name: topic
+              value: '{{ topic }}'
     - name: labels
       value: '{{ labels }}'
     - name: channel
       value: '{{ channel }}'
-    - name: conditions
-      value: '{{ conditions }}'
     - name: eventDataContentType
       value: '{{ eventDataContentType }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: etag
-      value: '{{ etag }}'
 
 ```
 </TabItem>
@@ -180,19 +194,13 @@ Updates a <code>triggers</code> resource.
 UPDATE google.eventarc.triggers
 SET 
 name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 eventFilters = '{{ eventFilters }}',
 serviceAccount = '{{ serviceAccount }}',
 destination = '{{ destination }}',
 transport = '{{ transport }}',
 labels = '{{ labels }}',
 channel = '{{ channel }}',
-conditions = '{{ conditions }}',
-eventDataContentType = '{{ eventDataContentType }}',
-satisfiesPzs = true|false,
-etag = '{{ etag }}'
+eventDataContentType = '{{ eventDataContentType }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

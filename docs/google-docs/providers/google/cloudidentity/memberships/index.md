@@ -87,23 +87,13 @@ Use the following StackQL query and manifest file to create a new <code>membersh
 /*+ create */
 INSERT INTO google.cloudidentity.memberships (
 groupsId,
-name,
 preferredMemberKey,
-createTime,
-updateTime,
-roles,
-type,
-deliverySetting
+roles
 )
 SELECT 
 '{{ groupsId }}',
-'{{ name }}',
 '{{ preferredMemberKey }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ roles }}',
-'{{ type }}',
-'{{ deliverySetting }}'
+'{{ roles }}'
 ;
 ```
 </TabItem>
@@ -112,20 +102,14 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: preferredMemberKey
-      value: '{{ preferredMemberKey }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: namespace
+          value: '{{ namespace }}'
     - name: roles
-      value: '{{ roles }}'
-    - name: type
-      value: '{{ type }}'
-    - name: deliverySetting
-      value: '{{ deliverySetting }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

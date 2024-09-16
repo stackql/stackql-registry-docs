@@ -93,32 +93,20 @@ Use the following StackQL query and manifest file to create a new <code>security
 INSERT INTO google.apigee.security_profiles (
 organizationsId,
 name,
-maxScore,
-revisionCreateTime,
 displayName,
 profileConfig,
 environments,
-revisionPublishTime,
-minScore,
 description,
-scoringConfigs,
-revisionId,
-revisionUpdateTime
+scoringConfigs
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ name }}',
-'{{ maxScore }}',
-'{{ revisionCreateTime }}',
 '{{ displayName }}',
 '{{ profileConfig }}',
 '{{ environments }}',
-'{{ revisionPublishTime }}',
-'{{ minScore }}',
 '{{ description }}',
-'{{ scoringConfigs }}',
-'{{ revisionId }}',
-'{{ revisionUpdateTime }}'
+'{{ scoringConfigs }}'
 ;
 ```
 </TabItem>
@@ -129,28 +117,24 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: maxScore
-      value: '{{ maxScore }}'
-    - name: revisionCreateTime
-      value: '{{ revisionCreateTime }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: profileConfig
-      value: '{{ profileConfig }}'
+      value:
+        - name: categories
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: environments
-      value: '{{ environments }}'
-    - name: revisionPublishTime
-      value: '{{ revisionPublishTime }}'
-    - name: minScore
-      value: '{{ minScore }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: description
       value: '{{ description }}'
     - name: scoringConfigs
-      value: '{{ scoringConfigs }}'
-    - name: revisionId
-      value: '{{ revisionId }}'
-    - name: revisionUpdateTime
-      value: '{{ revisionUpdateTime }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -165,17 +149,11 @@ Updates a <code>security_profiles</code> resource.
 UPDATE google.apigee.security_profiles
 SET 
 name = '{{ name }}',
-maxScore = '{{ maxScore }}',
-revisionCreateTime = '{{ revisionCreateTime }}',
 displayName = '{{ displayName }}',
 profileConfig = '{{ profileConfig }}',
 environments = '{{ environments }}',
-revisionPublishTime = '{{ revisionPublishTime }}',
-minScore = '{{ minScore }}',
 description = '{{ description }}',
-scoringConfigs = '{{ scoringConfigs }}',
-revisionId = '{{ revisionId }}',
-revisionUpdateTime = '{{ revisionUpdateTime }}'
+scoringConfigs = '{{ scoringConfigs }}'
 WHERE 
 organizationsId = '{{ organizationsId }}'
 AND securityProfilesId = '{{ securityProfilesId }}';

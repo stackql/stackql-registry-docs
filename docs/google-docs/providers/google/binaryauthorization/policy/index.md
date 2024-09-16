@@ -78,7 +78,6 @@ Replaces all fields in the specified <code>policy</code> resource.
 /*+ update */
 REPLACE google.binaryauthorization.policy
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
 globalPolicyEvaluationMode = '{{ globalPolicyEvaluationMode }}',
 admissionWhitelistPatterns = '{{ admissionWhitelistPatterns }}',
@@ -87,7 +86,6 @@ kubernetesNamespaceAdmissionRules = '{{ kubernetesNamespaceAdmissionRules }}',
 kubernetesServiceAccountAdmissionRules = '{{ kubernetesServiceAccountAdmissionRules }}',
 istioServiceIdentityAdmissionRules = '{{ istioServiceIdentityAdmissionRules }}',
 defaultAdmissionRule = '{{ defaultAdmissionRule }}',
-updateTime = '{{ updateTime }}',
 etag = '{{ etag }}'
 WHERE 
 projectsId = '{{ projectsId }}';

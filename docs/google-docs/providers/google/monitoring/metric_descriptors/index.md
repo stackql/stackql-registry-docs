@@ -127,7 +127,9 @@ SELECT
     - name: type
       value: '{{ type }}'
     - name: labels
-      value: '{{ labels }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: metricKind
       value: '{{ metricKind }}'
     - name: valueType
@@ -139,11 +141,27 @@ SELECT
     - name: displayName
       value: '{{ displayName }}'
     - name: metadata
-      value: '{{ metadata }}'
+      value:
+        - name: launchStage
+          value: '{{ launchStage }}'
+        - name: samplePeriod
+          value: '{{ samplePeriod }}'
+        - name: ingestDelay
+          value: '{{ ingestDelay }}'
+        - name: timeSeriesResourceHierarchyLevel
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
     - name: launchStage
       value: '{{ launchStage }}'
     - name: monitoredResourceTypes
-      value: '{{ monitoredResourceTypes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>

@@ -79,21 +79,13 @@ Use the following StackQL query and manifest file to create a new <code>indexes<
 /*+ create */
 INSERT INTO google.datastore.indexes (
 projectId,
-projectId,
-indexId,
-kind,
 ancestor,
-properties,
-state
+properties
 )
 SELECT 
 '{{ projectId }}',
-'{{ projectId }}',
-'{{ indexId }}',
-'{{ kind }}',
 '{{ ancestor }}',
-'{{ properties }}',
-'{{ state }}'
+'{{ properties }}'
 ;
 ```
 </TabItem>
@@ -102,18 +94,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: projectId
-      value: '{{ projectId }}'
-    - name: indexId
-      value: '{{ indexId }}'
-    - name: kind
-      value: '{{ kind }}'
     - name: ancestor
       value: '{{ ancestor }}'
     - name: properties
-      value: '{{ properties }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

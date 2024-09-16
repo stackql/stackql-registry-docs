@@ -96,10 +96,6 @@ Use the following StackQL query and manifest file to create a new <code>resource
 INSERT INTO google.compute.resource_policies (
 project,
 region,
-kind,
-id,
-creationTimestamp,
-selfLink,
 region,
 description,
 name,
@@ -113,10 +109,6 @@ resourceStatus
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
-'{{ selfLink }}',
 '{{ region }}',
 '{{ description }}',
 '{{ name }}',
@@ -134,14 +126,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: region
       value: '{{ region }}'
     - name: description
@@ -149,17 +133,81 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: snapshotSchedulePolicy
-      value: '{{ snapshotSchedulePolicy }}'
+      value:
+        - name: schedule
+          value:
+            - name: hourlySchedule
+              value:
+                - name: hoursInCycle
+                  value: '{{ hoursInCycle }}'
+                - name: startTime
+                  value: '{{ startTime }}'
+                - name: duration
+                  value: '{{ duration }}'
+            - name: dailySchedule
+              value:
+                - name: daysInCycle
+                  value: '{{ daysInCycle }}'
+                - name: startTime
+                  value: '{{ startTime }}'
+                - name: duration
+                  value: '{{ duration }}'
+            - name: weeklySchedule
+              value:
+                - name: dayOfWeeks
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+        - name: retentionPolicy
+          value:
+            - name: maxRetentionDays
+              value: '{{ maxRetentionDays }}'
+            - name: onSourceDiskDelete
+              value: '{{ onSourceDiskDelete }}'
+        - name: snapshotProperties
+          value:
+            - name: labels
+              value: '{{ labels }}'
+            - name: storageLocations
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: guestFlush
+              value: '{{ guestFlush }}'
+            - name: chainName
+              value: '{{ chainName }}'
     - name: groupPlacementPolicy
-      value: '{{ groupPlacementPolicy }}'
+      value:
+        - name: vmCount
+          value: '{{ vmCount }}'
+        - name: availabilityDomainCount
+          value: '{{ availabilityDomainCount }}'
+        - name: collocation
+          value: '{{ collocation }}'
     - name: instanceSchedulePolicy
-      value: '{{ instanceSchedulePolicy }}'
+      value:
+        - name: vmStartSchedule
+          value:
+            - name: schedule
+              value: '{{ schedule }}'
+        - name: timeZone
+          value: '{{ timeZone }}'
+        - name: startTime
+          value: '{{ startTime }}'
+        - name: expirationTime
+          value: '{{ expirationTime }}'
     - name: diskConsistencyGroupPolicy
-      value: '{{ diskConsistencyGroupPolicy }}'
+      value: []
     - name: status
       value: '{{ status }}'
     - name: resourceStatus
-      value: '{{ resourceStatus }}'
+      value:
+        - name: instanceSchedulePolicy
+          value:
+            - name: nextRunStartTime
+              value: '{{ nextRunStartTime }}'
+            - name: lastRunStartTime
+              value: '{{ lastRunStartTime }}'
 
 ```
 </TabItem>
@@ -173,10 +221,6 @@ Updates a <code>resource_policies</code> resource.
 /*+ update */
 UPDATE google.compute.resource_policies
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
-selfLink = '{{ selfLink }}',
 region = '{{ region }}',
 description = '{{ description }}',
 name = '{{ name }}',

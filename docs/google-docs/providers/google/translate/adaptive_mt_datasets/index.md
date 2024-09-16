@@ -88,9 +88,7 @@ name,
 displayName,
 sourceLanguageCode,
 targetLanguageCode,
-exampleCount,
-createTime,
-updateTime
+exampleCount
 )
 SELECT 
 '{{ locationsId }}',
@@ -99,9 +97,7 @@ SELECT
 '{{ displayName }}',
 '{{ sourceLanguageCode }}',
 '{{ targetLanguageCode }}',
-'{{ exampleCount }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ exampleCount }}'
 ;
 ```
 </TabItem>
@@ -120,10 +116,6 @@ SELECT
       value: '{{ targetLanguageCode }}'
     - name: exampleCount
       value: '{{ exampleCount }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>

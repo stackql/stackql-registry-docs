@@ -95,33 +95,23 @@ INSERT INTO google.aiplatform.feature_online_stores (
 locationsId,
 projectsId,
 dedicatedServingEndpoint,
-updateTime,
 etag,
-satisfiesPzs,
 labels,
-createTime,
 optimized,
 name,
 bigtable,
-state,
-encryptionSpec,
-satisfiesPzi
+encryptionSpec
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ dedicatedServingEndpoint }}',
-'{{ updateTime }}',
 '{{ etag }}',
-true|false,
 '{{ labels }}',
-'{{ createTime }}',
 '{{ optimized }}',
 '{{ name }}',
 '{{ bigtable }}',
-'{{ state }}',
-'{{ encryptionSpec }}',
-true|false
+'{{ encryptionSpec }}'
 ;
 ```
 </TabItem>
@@ -131,29 +121,37 @@ true|false
 - name: your_resource_model_name
   props:
     - name: dedicatedServingEndpoint
-      value: '{{ dedicatedServingEndpoint }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: privateServiceConnectConfig
+          value:
+            - name: enablePrivateServiceConnect
+              value: '{{ enablePrivateServiceConnect }}'
+            - name: projectAllowlist
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: etag
       value: '{{ etag }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: optimized
-      value: '{{ optimized }}'
+      value: []
     - name: name
       value: '{{ name }}'
     - name: bigtable
-      value: '{{ bigtable }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: autoScaling
+          value:
+            - name: cpuUtilizationTarget
+              value: '{{ cpuUtilizationTarget }}'
+            - name: minNodeCount
+              value: '{{ minNodeCount }}'
+            - name: maxNodeCount
+              value: '{{ maxNodeCount }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
 
 ```
 </TabItem>
@@ -168,17 +166,12 @@ Updates a <code>feature_online_stores</code> resource.
 UPDATE google.aiplatform.feature_online_stores
 SET 
 dedicatedServingEndpoint = '{{ dedicatedServingEndpoint }}',
-updateTime = '{{ updateTime }}',
 etag = '{{ etag }}',
-satisfiesPzs = true|false,
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
 optimized = '{{ optimized }}',
 name = '{{ name }}',
 bigtable = '{{ bigtable }}',
-state = '{{ state }}',
-encryptionSpec = '{{ encryptionSpec }}',
-satisfiesPzi = true|false
+encryptionSpec = '{{ encryptionSpec }}'
 WHERE 
 featureOnlineStoresId = '{{ featureOnlineStoresId }}'
 AND locationsId = '{{ locationsId }}'

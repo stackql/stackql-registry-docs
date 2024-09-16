@@ -102,17 +102,14 @@ parentType,
 timeZone,
 subscriberEmailAddresses,
 creator,
-createTime,
 name,
 languageCode,
 testCase,
 classification,
 description,
 priority,
-state,
 escalated,
 displayName,
-updateTime,
 contactEmail
 )
 SELECT 
@@ -121,17 +118,14 @@ SELECT
 '{{ timeZone }}',
 '{{ subscriberEmailAddresses }}',
 '{{ creator }}',
-'{{ createTime }}',
 '{{ name }}',
 '{{ languageCode }}',
 true|false,
 '{{ classification }}',
 '{{ description }}',
 '{{ priority }}',
-'{{ state }}',
 true|false,
 '{{ displayName }}',
-'{{ updateTime }}',
 '{{ contactEmail }}'
 ;
 ```
@@ -144,11 +138,15 @@ true|false,
     - name: timeZone
       value: '{{ timeZone }}'
     - name: subscriberEmailAddresses
-      value: '{{ subscriberEmailAddresses }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: creator
-      value: '{{ creator }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: email
+          value: '{{ email }}'
+        - name: displayName
+          value: '{{ displayName }}'
     - name: name
       value: '{{ name }}'
     - name: languageCode
@@ -156,19 +154,17 @@ true|false,
     - name: testCase
       value: '{{ testCase }}'
     - name: classification
-      value: '{{ classification }}'
+      value:
+        - name: displayName
+          value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
     - name: priority
       value: '{{ priority }}'
-    - name: state
-      value: '{{ state }}'
     - name: escalated
       value: '{{ escalated }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: contactEmail
       value: '{{ contactEmail }}'
 
@@ -187,17 +183,14 @@ SET
 timeZone = '{{ timeZone }}',
 subscriberEmailAddresses = '{{ subscriberEmailAddresses }}',
 creator = '{{ creator }}',
-createTime = '{{ createTime }}',
 name = '{{ name }}',
 languageCode = '{{ languageCode }}',
 testCase = true|false,
 classification = '{{ classification }}',
 description = '{{ description }}',
 priority = '{{ priority }}',
-state = '{{ state }}',
 escalated = true|false,
 displayName = '{{ displayName }}',
-updateTime = '{{ updateTime }}',
 contactEmail = '{{ contactEmail }}'
 WHERE 
 name = '{{ name }}';

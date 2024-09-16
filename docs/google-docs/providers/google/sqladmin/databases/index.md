@@ -89,26 +89,22 @@ Use the following StackQL query and manifest file to create a new <code>database
 INSERT INTO google.sqladmin.databases (
 instance,
 project,
-kind,
 charset,
 collation,
 etag,
 name,
 instance,
-selfLink,
 project,
 sqlserverDatabaseDetails
 )
 SELECT 
 '{{ instance }}',
 '{{ project }}',
-'{{ kind }}',
 '{{ charset }}',
 '{{ collation }}',
 '{{ etag }}',
 '{{ name }}',
 '{{ instance }}',
-'{{ selfLink }}',
 '{{ project }}',
 '{{ sqlserverDatabaseDetails }}'
 ;
@@ -119,8 +115,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
     - name: charset
       value: '{{ charset }}'
     - name: collation
@@ -131,12 +125,14 @@ SELECT
       value: '{{ name }}'
     - name: instance
       value: '{{ instance }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: project
       value: '{{ project }}'
     - name: sqlserverDatabaseDetails
-      value: '{{ sqlserverDatabaseDetails }}'
+      value:
+        - name: compatibilityLevel
+          value: '{{ compatibilityLevel }}'
+        - name: recoveryModel
+          value: '{{ recoveryModel }}'
 
 ```
 </TabItem>
@@ -150,13 +146,11 @@ Updates a <code>databases</code> resource.
 /*+ update */
 UPDATE google.sqladmin.databases
 SET 
-kind = '{{ kind }}',
 charset = '{{ charset }}',
 collation = '{{ collation }}',
 etag = '{{ etag }}',
 name = '{{ name }}',
 instance = '{{ instance }}',
-selfLink = '{{ selfLink }}',
 project = '{{ project }}',
 sqlserverDatabaseDetails = '{{ sqlserverDatabaseDetails }}'
 WHERE 
@@ -173,13 +167,11 @@ Replaces all fields in the specified <code>databases</code> resource.
 /*+ update */
 REPLACE google.sqladmin.databases
 SET 
-kind = '{{ kind }}',
 charset = '{{ charset }}',
 collation = '{{ collation }}',
 etag = '{{ etag }}',
 name = '{{ name }}',
 instance = '{{ instance }}',
-selfLink = '{{ selfLink }}',
 project = '{{ project }}',
 sqlserverDatabaseDetails = '{{ sqlserverDatabaseDetails }}'
 WHERE 

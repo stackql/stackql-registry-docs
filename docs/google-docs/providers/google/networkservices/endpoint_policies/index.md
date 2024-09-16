@@ -93,8 +93,6 @@ INSERT INTO google.networkservices.endpoint_policies (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 type,
 authorizationPolicy,
@@ -108,8 +106,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ type }}',
 '{{ authorizationPolicy }}',
@@ -128,10 +124,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: type
@@ -139,9 +131,21 @@ SELECT
     - name: authorizationPolicy
       value: '{{ authorizationPolicy }}'
     - name: endpointMatcher
-      value: '{{ endpointMatcher }}'
+      value:
+        - name: metadataLabelMatcher
+          value:
+            - name: metadataLabelMatchCriteria
+              value: '{{ metadataLabelMatchCriteria }}'
+            - name: metadataLabels
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: trafficPortSelector
-      value: '{{ trafficPortSelector }}'
+      value:
+        - name: ports
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: description
       value: '{{ description }}'
     - name: serverTlsPolicy
@@ -162,8 +166,6 @@ Updates a <code>endpoint_policies</code> resource.
 UPDATE google.networkservices.endpoint_policies
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 type = '{{ type }}',
 authorizationPolicy = '{{ authorizationPolicy }}',

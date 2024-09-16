@@ -87,11 +87,7 @@ projectsId,
 servicesId,
 databaseDump,
 name,
-description,
-createTime,
-updateTime,
-endTime,
-state
+description
 )
 SELECT 
 '{{ locationsId }}',
@@ -99,11 +95,7 @@ SELECT
 '{{ servicesId }}',
 '{{ databaseDump }}',
 '{{ name }}',
-'{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ endTime }}',
-'{{ state }}'
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -113,19 +105,19 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: databaseDump
-      value: '{{ databaseDump }}'
+      value:
+        - name: databaseType
+          value: '{{ databaseType }}'
+        - name: gcsUri
+          value: '{{ gcsUri }}'
+        - name: sourceDatabase
+          value: '{{ sourceDatabase }}'
+        - name: type
+          value: '{{ type }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: state
-      value: '{{ state }}'
 
 ```
 </TabItem>
@@ -141,11 +133,7 @@ UPDATE google.metastore.metadata_imports
 SET 
 databaseDump = '{{ databaseDump }}',
 name = '{{ name }}',
-description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-endTime = '{{ endTime }}',
-state = '{{ state }}'
+description = '{{ description }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND metadataImportsId = '{{ metadataImportsId }}'

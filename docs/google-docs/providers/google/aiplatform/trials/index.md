@@ -98,36 +98,12 @@ Use the following StackQL query and manifest file to create a new <code>trials</
 INSERT INTO google.aiplatform.trials (
 locationsId,
 projectsId,
-studiesId,
-state,
-startTime,
-finalMeasurement,
-clientId,
-id,
-measurements,
-webAccessUris,
-parameters,
-endTime,
-infeasibleReason,
-name,
-customJob
+studiesId
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ studiesId }}',
-'{{ state }}',
-'{{ startTime }}',
-'{{ finalMeasurement }}',
-'{{ clientId }}',
-'{{ id }}',
-'{{ measurements }}',
-'{{ webAccessUris }}',
-'{{ parameters }}',
-'{{ endTime }}',
-'{{ infeasibleReason }}',
-'{{ name }}',
-'{{ customJob }}'
+'{{ studiesId }}'
 ;
 ```
 </TabItem>
@@ -135,31 +111,7 @@ SELECT
 
 ```yaml
 - name: your_resource_model_name
-  props:
-    - name: state
-      value: '{{ state }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: finalMeasurement
-      value: '{{ finalMeasurement }}'
-    - name: clientId
-      value: '{{ clientId }}'
-    - name: id
-      value: '{{ id }}'
-    - name: measurements
-      value: '{{ measurements }}'
-    - name: webAccessUris
-      value: '{{ webAccessUris }}'
-    - name: parameters
-      value: '{{ parameters }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: infeasibleReason
-      value: '{{ infeasibleReason }}'
-    - name: name
-      value: '{{ name }}'
-    - name: customJob
-      value: '{{ customJob }}'
+  props: []
 
 ```
 </TabItem>

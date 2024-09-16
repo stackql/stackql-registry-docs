@@ -103,40 +103,24 @@ INSERT INTO google.dataproc.sessions (
 locationsId,
 projectsId,
 name,
-uuid,
-createTime,
 jupyterSession,
 sparkConnectSession,
-runtimeInfo,
-state,
-stateMessage,
-stateTime,
-creator,
 labels,
 runtimeConfig,
 environmentConfig,
 user,
-stateHistory,
 sessionTemplate
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ uuid }}',
-'{{ createTime }}',
 '{{ jupyterSession }}',
 '{{ sparkConnectSession }}',
-'{{ runtimeInfo }}',
-'{{ state }}',
-'{{ stateMessage }}',
-'{{ stateTime }}',
-'{{ creator }}',
 '{{ labels }}',
 '{{ runtimeConfig }}',
 '{{ environmentConfig }}',
 '{{ user }}',
-'{{ stateHistory }}',
 '{{ sessionTemplate }}'
 ;
 ```
@@ -148,34 +132,74 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: uuid
-      value: '{{ uuid }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: jupyterSession
-      value: '{{ jupyterSession }}'
+      value:
+        - name: kernel
+          value: '{{ kernel }}'
+        - name: displayName
+          value: '{{ displayName }}'
     - name: sparkConnectSession
-      value: '{{ sparkConnectSession }}'
-    - name: runtimeInfo
-      value: '{{ runtimeInfo }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateMessage
-      value: '{{ stateMessage }}'
-    - name: stateTime
-      value: '{{ stateTime }}'
-    - name: creator
-      value: '{{ creator }}'
+      value: []
     - name: labels
       value: '{{ labels }}'
     - name: runtimeConfig
-      value: '{{ runtimeConfig }}'
+      value:
+        - name: version
+          value: '{{ version }}'
+        - name: containerImage
+          value: '{{ containerImage }}'
+        - name: properties
+          value: '{{ properties }}'
+        - name: repositoryConfig
+          value:
+            - name: pypiRepositoryConfig
+              value:
+                - name: pypiRepository
+                  value: '{{ pypiRepository }}'
+        - name: autotuningConfig
+          value:
+            - name: scenarios
+              value:
+                - name: type
+                  value: '{{ type }}'
+                - name: enumDescriptions
+                  value: '{{ enumDescriptions }}'
+                - name: enum
+                  value: '{{ enum }}'
+        - name: cohort
+          value: '{{ cohort }}'
     - name: environmentConfig
-      value: '{{ environmentConfig }}'
+      value:
+        - name: executionConfig
+          value:
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
+            - name: networkUri
+              value: '{{ networkUri }}'
+            - name: subnetworkUri
+              value: '{{ subnetworkUri }}'
+            - name: networkTags
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: kmsKey
+              value: '{{ kmsKey }}'
+            - name: idleTtl
+              value: '{{ idleTtl }}'
+            - name: ttl
+              value: '{{ ttl }}'
+            - name: stagingBucket
+              value: '{{ stagingBucket }}'
+        - name: peripheralsConfig
+          value:
+            - name: metastoreService
+              value: '{{ metastoreService }}'
+            - name: sparkHistoryServerConfig
+              value:
+                - name: dataprocCluster
+                  value: '{{ dataprocCluster }}'
     - name: user
       value: '{{ user }}'
-    - name: stateHistory
-      value: '{{ stateHistory }}'
     - name: sessionTemplate
       value: '{{ sessionTemplate }}'
 

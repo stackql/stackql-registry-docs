@@ -154,8 +154,6 @@ Use the following StackQL query and manifest file to create a new <code>versions
 INSERT INTO google.appengine.versions (
 appsId,
 servicesId,
-name,
-id,
 automaticScaling,
 basicScaling,
 manualScaling,
@@ -173,9 +171,6 @@ appEngineApis,
 betaSettings,
 env,
 servingStatus,
-createdBy,
-createTime,
-diskUsageBytes,
 runtimeApiVersion,
 runtimeMainExecutablePath,
 serviceAccount,
@@ -191,7 +186,6 @@ readinessCheck,
 livenessCheck,
 nobuildFilesRegex,
 deployment,
-versionUrl,
 endpointsApiService,
 entrypoint,
 vpcAccessConnector,
@@ -200,8 +194,6 @@ generatedCustomerMetadata
 SELECT 
 '{{ appsId }}',
 '{{ servicesId }}',
-'{{ name }}',
-'{{ id }}',
 '{{ automaticScaling }}',
 '{{ basicScaling }}',
 '{{ manualScaling }}',
@@ -219,9 +211,6 @@ true|false,
 '{{ betaSettings }}',
 '{{ env }}',
 '{{ servingStatus }}',
-'{{ createdBy }}',
-'{{ createTime }}',
-'{{ diskUsageBytes }}',
 '{{ runtimeApiVersion }}',
 '{{ runtimeMainExecutablePath }}',
 '{{ serviceAccount }}',
@@ -237,7 +226,6 @@ true|false,
 '{{ livenessCheck }}',
 '{{ nobuildFilesRegex }}',
 '{{ deployment }}',
-'{{ versionUrl }}',
 '{{ endpointsApiService }}',
 '{{ entrypoint }}',
 '{{ vpcAccessConnector }}',
@@ -250,26 +238,120 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: id
-      value: '{{ id }}'
     - name: automaticScaling
-      value: '{{ automaticScaling }}'
+      value:
+        - name: coolDownPeriod
+          value: '{{ coolDownPeriod }}'
+        - name: cpuUtilization
+          value:
+            - name: aggregationWindowLength
+              value: '{{ aggregationWindowLength }}'
+            - name: targetUtilization
+              value: '{{ targetUtilization }}'
+        - name: maxConcurrentRequests
+          value: '{{ maxConcurrentRequests }}'
+        - name: maxIdleInstances
+          value: '{{ maxIdleInstances }}'
+        - name: maxTotalInstances
+          value: '{{ maxTotalInstances }}'
+        - name: maxPendingLatency
+          value: '{{ maxPendingLatency }}'
+        - name: minIdleInstances
+          value: '{{ minIdleInstances }}'
+        - name: minTotalInstances
+          value: '{{ minTotalInstances }}'
+        - name: minPendingLatency
+          value: '{{ minPendingLatency }}'
+        - name: requestUtilization
+          value:
+            - name: targetRequestCountPerSecond
+              value: '{{ targetRequestCountPerSecond }}'
+            - name: targetConcurrentRequests
+              value: '{{ targetConcurrentRequests }}'
+        - name: diskUtilization
+          value:
+            - name: targetWriteBytesPerSecond
+              value: '{{ targetWriteBytesPerSecond }}'
+            - name: targetWriteOpsPerSecond
+              value: '{{ targetWriteOpsPerSecond }}'
+            - name: targetReadBytesPerSecond
+              value: '{{ targetReadBytesPerSecond }}'
+            - name: targetReadOpsPerSecond
+              value: '{{ targetReadOpsPerSecond }}'
+        - name: networkUtilization
+          value:
+            - name: targetSentBytesPerSecond
+              value: '{{ targetSentBytesPerSecond }}'
+            - name: targetSentPacketsPerSecond
+              value: '{{ targetSentPacketsPerSecond }}'
+            - name: targetReceivedBytesPerSecond
+              value: '{{ targetReceivedBytesPerSecond }}'
+            - name: targetReceivedPacketsPerSecond
+              value: '{{ targetReceivedPacketsPerSecond }}'
+        - name: standardSchedulerSettings
+          value:
+            - name: targetCpuUtilization
+              value: '{{ targetCpuUtilization }}'
+            - name: targetThroughputUtilization
+              value: '{{ targetThroughputUtilization }}'
+            - name: minInstances
+              value: '{{ minInstances }}'
+            - name: maxInstances
+              value: '{{ maxInstances }}'
     - name: basicScaling
-      value: '{{ basicScaling }}'
+      value:
+        - name: idleTimeout
+          value: '{{ idleTimeout }}'
+        - name: maxInstances
+          value: '{{ maxInstances }}'
     - name: manualScaling
-      value: '{{ manualScaling }}'
+      value:
+        - name: instances
+          value: '{{ instances }}'
     - name: inboundServices
-      value: '{{ inboundServices }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: instanceClass
       value: '{{ instanceClass }}'
     - name: network
-      value: '{{ network }}'
+      value:
+        - name: forwardedPorts
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: instanceTag
+          value: '{{ instanceTag }}'
+        - name: name
+          value: '{{ name }}'
+        - name: subnetworkName
+          value: '{{ subnetworkName }}'
+        - name: sessionAffinity
+          value: '{{ sessionAffinity }}'
+        - name: instanceIpMode
+          value: '{{ instanceIpMode }}'
     - name: zones
-      value: '{{ zones }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: resources
-      value: '{{ resources }}'
+      value:
+        - name: cpu
+          value: '{{ cpu }}'
+        - name: diskGb
+          value: '{{ diskGb }}'
+        - name: memoryGb
+          value: '{{ memoryGb }}'
+        - name: volumes
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: kmsKeyReference
+          value: '{{ kmsKeyReference }}'
     - name: runtime
       value: '{{ runtime }}'
     - name: runtimeChannel
@@ -279,7 +361,11 @@ true|false,
     - name: vm
       value: '{{ vm }}'
     - name: flexibleRuntimeSettings
-      value: '{{ flexibleRuntimeSettings }}'
+      value:
+        - name: operatingSystem
+          value: '{{ operatingSystem }}'
+        - name: runtimeVersion
+          value: '{{ runtimeVersion }}'
     - name: appEngineApis
       value: '{{ appEngineApis }}'
     - name: betaSettings
@@ -288,12 +374,6 @@ true|false,
       value: '{{ env }}'
     - name: servingStatus
       value: '{{ servingStatus }}'
-    - name: createdBy
-      value: '{{ createdBy }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: diskUsageBytes
-      value: '{{ diskUsageBytes }}'
     - name: runtimeApiVersion
       value: '{{ runtimeApiVersion }}'
     - name: runtimeMainExecutablePath
@@ -301,13 +381,29 @@ true|false,
     - name: serviceAccount
       value: '{{ serviceAccount }}'
     - name: handlers
-      value: '{{ handlers }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: errorHandlers
-      value: '{{ errorHandlers }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: libraries
-      value: '{{ libraries }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: apiConfig
-      value: '{{ apiConfig }}'
+      value:
+        - name: authFailAction
+          value: '{{ authFailAction }}'
+        - name: login
+          value: '{{ login }}'
+        - name: script
+          value: '{{ script }}'
+        - name: securityLevel
+          value: '{{ securityLevel }}'
+        - name: url
+          value: '{{ url }}'
     - name: envVariables
       value: '{{ envVariables }}'
     - name: buildEnvVariables
@@ -315,23 +411,95 @@ true|false,
     - name: defaultExpiration
       value: '{{ defaultExpiration }}'
     - name: healthCheck
-      value: '{{ healthCheck }}'
+      value:
+        - name: disableHealthCheck
+          value: '{{ disableHealthCheck }}'
+        - name: host
+          value: '{{ host }}'
+        - name: healthyThreshold
+          value: '{{ healthyThreshold }}'
+        - name: unhealthyThreshold
+          value: '{{ unhealthyThreshold }}'
+        - name: restartThreshold
+          value: '{{ restartThreshold }}'
+        - name: checkInterval
+          value: '{{ checkInterval }}'
+        - name: timeout
+          value: '{{ timeout }}'
     - name: readinessCheck
-      value: '{{ readinessCheck }}'
+      value:
+        - name: path
+          value: '{{ path }}'
+        - name: host
+          value: '{{ host }}'
+        - name: failureThreshold
+          value: '{{ failureThreshold }}'
+        - name: successThreshold
+          value: '{{ successThreshold }}'
+        - name: checkInterval
+          value: '{{ checkInterval }}'
+        - name: timeout
+          value: '{{ timeout }}'
+        - name: appStartTimeout
+          value: '{{ appStartTimeout }}'
     - name: livenessCheck
-      value: '{{ livenessCheck }}'
+      value:
+        - name: path
+          value: '{{ path }}'
+        - name: host
+          value: '{{ host }}'
+        - name: failureThreshold
+          value: '{{ failureThreshold }}'
+        - name: successThreshold
+          value: '{{ successThreshold }}'
+        - name: checkInterval
+          value: '{{ checkInterval }}'
+        - name: timeout
+          value: '{{ timeout }}'
+        - name: initialDelay
+          value: '{{ initialDelay }}'
     - name: nobuildFilesRegex
       value: '{{ nobuildFilesRegex }}'
     - name: deployment
-      value: '{{ deployment }}'
-    - name: versionUrl
-      value: '{{ versionUrl }}'
+      value:
+        - name: files
+          value: '{{ files }}'
+        - name: container
+          value:
+            - name: image
+              value: '{{ image }}'
+        - name: zip
+          value:
+            - name: sourceUrl
+              value: '{{ sourceUrl }}'
+            - name: filesCount
+              value: '{{ filesCount }}'
+        - name: cloudBuildOptions
+          value:
+            - name: appYamlPath
+              value: '{{ appYamlPath }}'
+            - name: cloudBuildTimeout
+              value: '{{ cloudBuildTimeout }}'
     - name: endpointsApiService
-      value: '{{ endpointsApiService }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: configId
+          value: '{{ configId }}'
+        - name: rolloutStrategy
+          value: '{{ rolloutStrategy }}'
+        - name: disableTraceSampling
+          value: '{{ disableTraceSampling }}'
     - name: entrypoint
-      value: '{{ entrypoint }}'
+      value:
+        - name: shell
+          value: '{{ shell }}'
     - name: vpcAccessConnector
-      value: '{{ vpcAccessConnector }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: egressSetting
+          value: '{{ egressSetting }}'
     - name: generatedCustomerMetadata
       value: '{{ generatedCustomerMetadata }}'
 
@@ -347,8 +515,6 @@ Updates a <code>versions</code> resource.
 /*+ update */
 UPDATE google.appengine.versions
 SET 
-name = '{{ name }}',
-id = '{{ id }}',
 automaticScaling = '{{ automaticScaling }}',
 basicScaling = '{{ basicScaling }}',
 manualScaling = '{{ manualScaling }}',
@@ -366,9 +532,6 @@ appEngineApis = true|false,
 betaSettings = '{{ betaSettings }}',
 env = '{{ env }}',
 servingStatus = '{{ servingStatus }}',
-createdBy = '{{ createdBy }}',
-createTime = '{{ createTime }}',
-diskUsageBytes = '{{ diskUsageBytes }}',
 runtimeApiVersion = '{{ runtimeApiVersion }}',
 runtimeMainExecutablePath = '{{ runtimeMainExecutablePath }}',
 serviceAccount = '{{ serviceAccount }}',
@@ -384,7 +547,6 @@ readinessCheck = '{{ readinessCheck }}',
 livenessCheck = '{{ livenessCheck }}',
 nobuildFilesRegex = '{{ nobuildFilesRegex }}',
 deployment = '{{ deployment }}',
-versionUrl = '{{ versionUrl }}',
 endpointsApiService = '{{ endpointsApiService }}',
 entrypoint = '{{ entrypoint }}',
 vpcAccessConnector = '{{ vpcAccessConnector }}',

@@ -109,8 +109,6 @@ Updates a <code>volumes</code> resource.
 /*+ update */
 UPDATE google.baremetalsolution.volumes
 SET 
-name = '{{ name }}',
-id = '{{ id }}',
 storageType = '{{ storageType }}',
 state = '{{ state }}',
 requestedSizeGib = '{{ requestedSizeGib }}',
@@ -125,14 +123,9 @@ snapshotAutoDeleteBehavior = '{{ snapshotAutoDeleteBehavior }}',
 labels = '{{ labels }}',
 snapshotEnabled = true|false,
 pod = '{{ pod }}',
-protocol = '{{ protocol }}',
-bootVolume = true|false,
 performanceTier = '{{ performanceTier }}',
 notes = '{{ notes }}',
-workloadProfile = '{{ workloadProfile }}',
-expireTime = '{{ expireTime }}',
-instances = '{{ instances }}',
-attached = true|false
+workloadProfile = '{{ workloadProfile }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

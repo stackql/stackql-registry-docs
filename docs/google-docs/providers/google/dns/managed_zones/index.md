@@ -106,7 +106,6 @@ project,
 name,
 dnsName,
 description,
-id,
 nameServers,
 creationTime,
 dnssecConfig,
@@ -118,15 +117,13 @@ labels,
 peeringConfig,
 reverseLookupConfig,
 serviceDirectoryConfig,
-cloudLoggingConfig,
-kind
+cloudLoggingConfig
 )
 SELECT 
 '{{ project }}',
 '{{ name }}',
 '{{ dnsName }}',
 '{{ description }}',
-'{{ id }}',
 '{{ nameServers }}',
 '{{ creationTime }}',
 '{{ dnssecConfig }}',
@@ -138,8 +135,7 @@ SELECT
 '{{ peeringConfig }}',
 '{{ reverseLookupConfig }}',
 '{{ serviceDirectoryConfig }}',
-'{{ cloudLoggingConfig }}',
-'{{ kind }}'
+'{{ cloudLoggingConfig }}'
 ;
 ```
 </TabItem>
@@ -154,34 +150,66 @@ SELECT
       value: '{{ dnsName }}'
     - name: description
       value: '{{ description }}'
-    - name: id
-      value: '{{ id }}'
     - name: nameServers
-      value: '{{ nameServers }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: creationTime
       value: '{{ creationTime }}'
     - name: dnssecConfig
-      value: '{{ dnssecConfig }}'
+      value:
+        - name: state
+          value: '{{ state }}'
+        - name: defaultKeySpecs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: nonExistence
+          value: '{{ nonExistence }}'
     - name: nameServerSet
       value: '{{ nameServerSet }}'
     - name: visibility
       value: '{{ visibility }}'
     - name: privateVisibilityConfig
-      value: '{{ privateVisibilityConfig }}'
+      value:
+        - name: networks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: gkeClusters
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: forwardingConfig
-      value: '{{ forwardingConfig }}'
+      value:
+        - name: targetNameServers
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: labels
       value: '{{ labels }}'
     - name: peeringConfig
-      value: '{{ peeringConfig }}'
+      value:
+        - name: targetNetwork
+          value:
+            - name: networkUrl
+              value: '{{ networkUrl }}'
+            - name: deactivateTime
+              value: '{{ deactivateTime }}'
     - name: reverseLookupConfig
-      value: '{{ reverseLookupConfig }}'
+      value: []
     - name: serviceDirectoryConfig
-      value: '{{ serviceDirectoryConfig }}'
+      value:
+        - name: namespace
+          value:
+            - name: namespaceUrl
+              value: '{{ namespaceUrl }}'
+            - name: deletionTime
+              value: '{{ deletionTime }}'
     - name: cloudLoggingConfig
-      value: '{{ cloudLoggingConfig }}'
-    - name: kind
-      value: '{{ kind }}'
+      value:
+        - name: enableLogging
+          value: '{{ enableLogging }}'
 
 ```
 </TabItem>
@@ -198,7 +226,6 @@ SET
 name = '{{ name }}',
 dnsName = '{{ dnsName }}',
 description = '{{ description }}',
-id = '{{ id }}',
 nameServers = '{{ nameServers }}',
 creationTime = '{{ creationTime }}',
 dnssecConfig = '{{ dnssecConfig }}',
@@ -210,8 +237,7 @@ labels = '{{ labels }}',
 peeringConfig = '{{ peeringConfig }}',
 reverseLookupConfig = '{{ reverseLookupConfig }}',
 serviceDirectoryConfig = '{{ serviceDirectoryConfig }}',
-cloudLoggingConfig = '{{ cloudLoggingConfig }}',
-kind = '{{ kind }}'
+cloudLoggingConfig = '{{ cloudLoggingConfig }}'
 WHERE 
 managedZone = '{{ managedZone }}'
 AND project = '{{ project }}';
@@ -228,7 +254,6 @@ SET
 name = '{{ name }}',
 dnsName = '{{ dnsName }}',
 description = '{{ description }}',
-id = '{{ id }}',
 nameServers = '{{ nameServers }}',
 creationTime = '{{ creationTime }}',
 dnssecConfig = '{{ dnssecConfig }}',
@@ -240,8 +265,7 @@ labels = '{{ labels }}',
 peeringConfig = '{{ peeringConfig }}',
 reverseLookupConfig = '{{ reverseLookupConfig }}',
 serviceDirectoryConfig = '{{ serviceDirectoryConfig }}',
-cloudLoggingConfig = '{{ cloudLoggingConfig }}',
-kind = '{{ kind }}'
+cloudLoggingConfig = '{{ cloudLoggingConfig }}'
 WHERE 
 managedZone = '{{ managedZone }}'
 AND project = '{{ project }}';

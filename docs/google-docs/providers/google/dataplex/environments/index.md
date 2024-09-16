@@ -96,35 +96,21 @@ INSERT INTO google.dataplex.environments (
 lakesId,
 locationsId,
 projectsId,
-name,
 displayName,
-uid,
-createTime,
-updateTime,
 labels,
 description,
-state,
 infrastructureSpec,
-sessionSpec,
-sessionStatus,
-endpoints
+sessionSpec
 )
 SELECT 
 '{{ lakesId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
-'{{ state }}',
 '{{ infrastructureSpec }}',
-'{{ sessionSpec }}',
-'{{ sessionStatus }}',
-'{{ endpoints }}'
+'{{ sessionSpec }}'
 ;
 ```
 </TabItem>
@@ -133,30 +119,42 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
     - name: infrastructureSpec
-      value: '{{ infrastructureSpec }}'
+      value:
+        - name: compute
+          value:
+            - name: diskSizeGb
+              value: '{{ diskSizeGb }}'
+            - name: nodeCount
+              value: '{{ nodeCount }}'
+            - name: maxNodeCount
+              value: '{{ maxNodeCount }}'
+        - name: osImage
+          value:
+            - name: imageVersion
+              value: '{{ imageVersion }}'
+            - name: javaLibraries
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: pythonPackages
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: properties
+              value: '{{ properties }}'
     - name: sessionSpec
-      value: '{{ sessionSpec }}'
-    - name: sessionStatus
-      value: '{{ sessionStatus }}'
-    - name: endpoints
-      value: '{{ endpoints }}'
+      value:
+        - name: maxIdleDuration
+          value: '{{ maxIdleDuration }}'
+        - name: enableFastStartup
+          value: '{{ enableFastStartup }}'
 
 ```
 </TabItem>
@@ -170,18 +168,11 @@ Updates a <code>environments</code> resource.
 /*+ update */
 UPDATE google.dataplex.environments
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
-state = '{{ state }}',
 infrastructureSpec = '{{ infrastructureSpec }}',
-sessionSpec = '{{ sessionSpec }}',
-sessionStatus = '{{ sessionStatus }}',
-endpoints = '{{ endpoints }}'
+sessionSpec = '{{ sessionSpec }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'
 AND lakesId = '{{ lakesId }}'

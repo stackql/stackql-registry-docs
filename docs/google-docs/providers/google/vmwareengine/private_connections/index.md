@@ -96,36 +96,20 @@ Use the following StackQL query and manifest file to create a new <code>private_
 INSERT INTO google.vmwareengine.private_connections (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 description,
-state,
 vmwareEngineNetwork,
-vmwareEngineNetworkCanonical,
 type,
-peeringId,
 routingMode,
-uid,
-serviceNetwork,
-peeringState
+serviceNetwork
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
-'{{ state }}',
 '{{ vmwareEngineNetwork }}',
-'{{ vmwareEngineNetworkCanonical }}',
 '{{ type }}',
-'{{ peeringId }}',
 '{{ routingMode }}',
-'{{ uid }}',
-'{{ serviceNetwork }}',
-'{{ peeringState }}'
+'{{ serviceNetwork }}'
 ;
 ```
 </TabItem>
@@ -134,32 +118,16 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
     - name: vmwareEngineNetwork
       value: '{{ vmwareEngineNetwork }}'
-    - name: vmwareEngineNetworkCanonical
-      value: '{{ vmwareEngineNetworkCanonical }}'
     - name: type
       value: '{{ type }}'
-    - name: peeringId
-      value: '{{ peeringId }}'
     - name: routingMode
       value: '{{ routingMode }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: serviceNetwork
       value: '{{ serviceNetwork }}'
-    - name: peeringState
-      value: '{{ peeringState }}'
 
 ```
 </TabItem>
@@ -173,19 +141,11 @@ Updates a <code>private_connections</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.private_connections
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
-state = '{{ state }}',
 vmwareEngineNetwork = '{{ vmwareEngineNetwork }}',
-vmwareEngineNetworkCanonical = '{{ vmwareEngineNetworkCanonical }}',
 type = '{{ type }}',
-peeringId = '{{ peeringId }}',
 routingMode = '{{ routingMode }}',
-uid = '{{ uid }}',
-serviceNetwork = '{{ serviceNetwork }}',
-peeringState = '{{ peeringState }}'
+serviceNetwork = '{{ serviceNetwork }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND privateConnectionsId = '{{ privateConnectionsId }}'

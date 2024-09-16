@@ -119,7 +119,6 @@ activeConfig,
 grants,
 grantRangeAllowlists,
 deviceMetadata,
-currentChannels,
 fccId,
 state,
 name
@@ -133,7 +132,6 @@ SELECT
 '{{ grants }}',
 '{{ grantRangeAllowlists }}',
 '{{ deviceMetadata }}',
-'{{ currentChannels }}',
 '{{ fccId }}',
 '{{ state }}',
 '{{ name }}'
@@ -148,19 +146,91 @@ SELECT
     - name: displayName
       value: '{{ displayName }}'
     - name: preloadedConfig
-      value: '{{ preloadedConfig }}'
+      value:
+        - name: installationParams
+          value:
+            - name: antennaDowntilt
+              value: '{{ antennaDowntilt }}'
+            - name: verticalAccuracy
+              value: '{{ verticalAccuracy }}'
+            - name: heightType
+              value: '{{ heightType }}'
+            - name: antennaGain
+              value: '{{ antennaGain }}'
+            - name: antennaModel
+              value: '{{ antennaModel }}'
+            - name: longitude
+              value: '{{ longitude }}'
+            - name: indoorDeployment
+              value: '{{ indoorDeployment }}'
+            - name: eirpCapability
+              value: '{{ eirpCapability }}'
+            - name: height
+              value: '{{ height }}'
+            - name: horizontalAccuracy
+              value: '{{ horizontalAccuracy }}'
+            - name: antennaAzimuth
+              value: '{{ antennaAzimuth }}'
+            - name: antennaBeamwidth
+              value: '{{ antennaBeamwidth }}'
+            - name: cpeCbsdIndication
+              value: '{{ cpeCbsdIndication }}'
+            - name: latitude
+              value: '{{ latitude }}'
+        - name: userId
+          value: '{{ userId }}'
+        - name: airInterface
+          value:
+            - name: radioTechnology
+              value: '{{ radioTechnology }}'
+            - name: supportedSpec
+              value: '{{ supportedSpec }}'
+        - name: category
+          value: '{{ category }}'
+        - name: measurementCapabilities
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enum
+              value: '{{ enum }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+        - name: isSigned
+          value: '{{ isSigned }}'
+        - name: state
+          value: '{{ state }}'
+        - name: callSign
+          value: '{{ callSign }}'
+        - name: model
+          value:
+            - name: hardwareVersion
+              value: '{{ hardwareVersion }}'
+            - name: vendor
+              value: '{{ vendor }}'
+            - name: firmwareVersion
+              value: '{{ firmwareVersion }}'
+            - name: name
+              value: '{{ name }}'
+            - name: softwareVersion
+              value: '{{ softwareVersion }}'
     - name: serialNumber
       value: '{{ serialNumber }}'
-    - name: activeConfig
-      value: '{{ activeConfig }}'
     - name: grants
-      value: '{{ grants }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: grantRangeAllowlists
-      value: '{{ grantRangeAllowlists }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: deviceMetadata
-      value: '{{ deviceMetadata }}'
-    - name: currentChannels
-      value: '{{ currentChannels }}'
+      value:
+        - name: commonChannelGroup
+          value: '{{ commonChannelGroup }}'
+        - name: interferenceCoordinationGroup
+          value: '{{ interferenceCoordinationGroup }}'
+        - name: antennaModel
+          value: '{{ antennaModel }}'
     - name: fccId
       value: '{{ fccId }}'
     - name: state
@@ -187,7 +257,6 @@ activeConfig = '{{ activeConfig }}',
 grants = '{{ grants }}',
 grantRangeAllowlists = '{{ grantRangeAllowlists }}',
 deviceMetadata = '{{ deviceMetadata }}',
-currentChannels = '{{ currentChannels }}',
 fccId = '{{ fccId }}',
 state = '{{ state }}',
 name = '{{ name }}'

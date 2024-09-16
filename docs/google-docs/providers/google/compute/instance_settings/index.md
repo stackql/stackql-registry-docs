@@ -65,7 +65,6 @@ Updates a <code>instance_settings</code> resource.
 /*+ update */
 UPDATE google.compute.instance_settings
 SET 
-kind = '{{ kind }}',
 fingerprint = '{{ fingerprint }}',
 metadata = '{{ metadata }}',
 zone = '{{ zone }}'

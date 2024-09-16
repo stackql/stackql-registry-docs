@@ -115,7 +115,49 @@ SELECT
     - name: instanceId
       value: '{{ instanceId }}'
     - name: instance
-      value: '{{ instance }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: config
+          value: '{{ config }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: nodeCount
+          value: '{{ nodeCount }}'
+        - name: processingUnits
+          value: '{{ processingUnits }}'
+        - name: autoscalingConfig
+          value:
+            - name: autoscalingLimits
+              value:
+                - name: minNodes
+                  value: '{{ minNodes }}'
+                - name: minProcessingUnits
+                  value: '{{ minProcessingUnits }}'
+                - name: maxNodes
+                  value: '{{ maxNodes }}'
+                - name: maxProcessingUnits
+                  value: '{{ maxProcessingUnits }}'
+            - name: autoscalingTargets
+              value:
+                - name: highPriorityCpuUtilizationPercent
+                  value: '{{ highPriorityCpuUtilizationPercent }}'
+                - name: storageUtilizationPercent
+                  value: '{{ storageUtilizationPercent }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: instanceType
+          value: '{{ instanceType }}'
+        - name: endpointUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: freeInstanceMetadata
+          value:
+            - name: expireBehavior
+              value: '{{ expireBehavior }}'
+        - name: edition
+          value: '{{ edition }}'
 
 ```
 </TabItem>

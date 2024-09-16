@@ -104,9 +104,7 @@ name,
 displayName,
 industryVertical,
 solutionTypes,
-defaultSchemaId,
 contentConfig,
-createTime,
 workspaceConfig,
 documentProcessingConfig,
 startingSchema,
@@ -119,9 +117,7 @@ SELECT
 '{{ displayName }}',
 '{{ industryVertical }}',
 '{{ solutionTypes }}',
-'{{ defaultSchemaId }}',
 '{{ contentConfig }}',
-'{{ createTime }}',
 '{{ workspaceConfig }}',
 '{{ documentProcessingConfig }}',
 '{{ startingSchema }}',
@@ -141,21 +137,61 @@ SELECT
     - name: industryVertical
       value: '{{ industryVertical }}'
     - name: solutionTypes
-      value: '{{ solutionTypes }}'
-    - name: defaultSchemaId
-      value: '{{ defaultSchemaId }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: contentConfig
       value: '{{ contentConfig }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: workspaceConfig
-      value: '{{ workspaceConfig }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: dasherCustomerId
+          value: '{{ dasherCustomerId }}'
     - name: documentProcessingConfig
-      value: '{{ documentProcessingConfig }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: chunkingConfig
+          value:
+            - name: layoutBasedChunkingConfig
+              value:
+                - name: chunkSize
+                  value: '{{ chunkSize }}'
+                - name: includeAncestorHeadings
+                  value: '{{ includeAncestorHeadings }}'
+        - name: defaultParsingConfig
+          value:
+            - name: digitalParsingConfig
+              value: []
+            - name: ocrParsingConfig
+              value:
+                - name: enhancedDocumentElements
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: useNativeText
+                  value: '{{ useNativeText }}'
+            - name: layoutParsingConfig
+              value: []
+        - name: parsingConfigOverrides
+          value: '{{ parsingConfigOverrides }}'
     - name: startingSchema
-      value: '{{ startingSchema }}'
+      value:
+        - name: structSchema
+          value: '{{ structSchema }}'
+        - name: jsonSchema
+          value: '{{ jsonSchema }}'
+        - name: name
+          value: '{{ name }}'
     - name: servingConfigDataStore
-      value: '{{ servingConfigDataStore }}'
+      value:
+        - name: disabledForServing
+          value: '{{ disabledForServing }}'
 
 ```
 </TabItem>
@@ -173,9 +209,7 @@ name = '{{ name }}',
 displayName = '{{ displayName }}',
 industryVertical = '{{ industryVertical }}',
 solutionTypes = '{{ solutionTypes }}',
-defaultSchemaId = '{{ defaultSchemaId }}',
 contentConfig = '{{ contentConfig }}',
-createTime = '{{ createTime }}',
 workspaceConfig = '{{ workspaceConfig }}',
 documentProcessingConfig = '{{ documentProcessingConfig }}',
 startingSchema = '{{ startingSchema }}',

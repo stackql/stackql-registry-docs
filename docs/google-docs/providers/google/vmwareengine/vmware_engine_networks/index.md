@@ -88,27 +88,15 @@ Use the following StackQL query and manifest file to create a new <code>vmware_e
 INSERT INTO google.vmwareengine.vmware_engine_networks (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 description,
-vpcNetworks,
-state,
 type,
-uid,
 etag
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
-'{{ vpcNetworks }}',
-'{{ state }}',
 '{{ type }}',
-'{{ uid }}',
 '{{ etag }}'
 ;
 ```
@@ -118,22 +106,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
-    - name: vpcNetworks
-      value: '{{ vpcNetworks }}'
-    - name: state
-      value: '{{ state }}'
     - name: type
       value: '{{ type }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: etag
       value: '{{ etag }}'
 
@@ -149,14 +125,8 @@ Updates a <code>vmware_engine_networks</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.vmware_engine_networks
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
-vpcNetworks = '{{ vpcNetworks }}',
-state = '{{ state }}',
 type = '{{ type }}',
-uid = '{{ uid }}',
 etag = '{{ etag }}'
 WHERE 
 locationsId = '{{ locationsId }}'

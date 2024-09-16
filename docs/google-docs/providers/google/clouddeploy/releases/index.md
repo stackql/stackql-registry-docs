@@ -116,26 +116,14 @@ deliveryPipelinesId,
 locationsId,
 projectsId,
 name,
-uid,
 description,
 annotations,
 labels,
-abandoned,
-createTime,
-renderStartTime,
-renderEndTime,
 skaffoldConfigUri,
 skaffoldConfigPath,
 buildArtifacts,
-deliveryPipelineSnapshot,
-targetSnapshots,
-customTargetTypeSnapshots,
-renderState,
 etag,
 skaffoldVersion,
-targetArtifacts,
-targetRenders,
-condition,
 deployParameters
 )
 SELECT 
@@ -143,26 +131,14 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ uid }}',
 '{{ description }}',
 '{{ annotations }}',
 '{{ labels }}',
-true|false,
-'{{ createTime }}',
-'{{ renderStartTime }}',
-'{{ renderEndTime }}',
 '{{ skaffoldConfigUri }}',
 '{{ skaffoldConfigPath }}',
 '{{ buildArtifacts }}',
-'{{ deliveryPipelineSnapshot }}',
-'{{ targetSnapshots }}',
-'{{ customTargetTypeSnapshots }}',
-'{{ renderState }}',
 '{{ etag }}',
 '{{ skaffoldVersion }}',
-'{{ targetArtifacts }}',
-'{{ targetRenders }}',
-'{{ condition }}',
 '{{ deployParameters }}'
 ;
 ```
@@ -174,46 +150,24 @@ true|false,
   props:
     - name: name
       value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: description
       value: '{{ description }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: labels
       value: '{{ labels }}'
-    - name: abandoned
-      value: '{{ abandoned }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: renderStartTime
-      value: '{{ renderStartTime }}'
-    - name: renderEndTime
-      value: '{{ renderEndTime }}'
     - name: skaffoldConfigUri
       value: '{{ skaffoldConfigUri }}'
     - name: skaffoldConfigPath
       value: '{{ skaffoldConfigPath }}'
     - name: buildArtifacts
-      value: '{{ buildArtifacts }}'
-    - name: deliveryPipelineSnapshot
-      value: '{{ deliveryPipelineSnapshot }}'
-    - name: targetSnapshots
-      value: '{{ targetSnapshots }}'
-    - name: customTargetTypeSnapshots
-      value: '{{ customTargetTypeSnapshots }}'
-    - name: renderState
-      value: '{{ renderState }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: etag
       value: '{{ etag }}'
     - name: skaffoldVersion
       value: '{{ skaffoldVersion }}'
-    - name: targetArtifacts
-      value: '{{ targetArtifacts }}'
-    - name: targetRenders
-      value: '{{ targetRenders }}'
-    - name: condition
-      value: '{{ condition }}'
     - name: deployParameters
       value: '{{ deployParameters }}'
 

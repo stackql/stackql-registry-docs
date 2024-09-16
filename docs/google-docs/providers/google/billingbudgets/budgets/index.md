@@ -87,7 +87,6 @@ billingAccountsId,
 ownershipScope,
 thresholdRules,
 notificationsRule,
-name,
 displayName,
 budgetFilter,
 amount,
@@ -98,7 +97,6 @@ SELECT
 '{{ ownershipScope }}',
 '{{ thresholdRules }}',
 '{{ notificationsRule }}',
-'{{ name }}',
 '{{ displayName }}',
 '{{ budgetFilter }}',
 '{{ amount }}',
@@ -114,17 +112,75 @@ SELECT
     - name: ownershipScope
       value: '{{ ownershipScope }}'
     - name: thresholdRules
-      value: '{{ thresholdRules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: notificationsRule
-      value: '{{ notificationsRule }}'
-    - name: name
-      value: '{{ name }}'
+      value:
+        - name: pubsubTopic
+          value: '{{ pubsubTopic }}'
+        - name: disableDefaultIamRecipients
+          value: '{{ disableDefaultIamRecipients }}'
+        - name: enableProjectLevelRecipients
+          value: '{{ enableProjectLevelRecipients }}'
+        - name: schemaVersion
+          value: '{{ schemaVersion }}'
+        - name: monitoringNotificationChannels
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: budgetFilter
-      value: '{{ budgetFilter }}'
+      value:
+        - name: calendarPeriod
+          value: '{{ calendarPeriod }}'
+        - name: projects
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: creditTypesTreatment
+          value: '{{ creditTypesTreatment }}'
+        - name: creditTypes
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: resourceAncestors
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: subaccounts
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: services
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: customPeriod
+          value:
+            - name: endDate
+              value:
+                - name: year
+                  value: '{{ year }}'
+                - name: month
+                  value: '{{ month }}'
+                - name: day
+                  value: '{{ day }}'
     - name: amount
-      value: '{{ amount }}'
+      value:
+        - name: specifiedAmount
+          value:
+            - name: currencyCode
+              value: '{{ currencyCode }}'
+            - name: nanos
+              value: '{{ nanos }}'
+            - name: units
+              value: '{{ units }}'
+        - name: lastPeriodAmount
+          value: []
     - name: etag
       value: '{{ etag }}'
 
@@ -143,7 +199,6 @@ SET
 ownershipScope = '{{ ownershipScope }}',
 thresholdRules = '{{ thresholdRules }}',
 notificationsRule = '{{ notificationsRule }}',
-name = '{{ name }}',
 displayName = '{{ displayName }}',
 budgetFilter = '{{ budgetFilter }}',
 amount = '{{ amount }}',

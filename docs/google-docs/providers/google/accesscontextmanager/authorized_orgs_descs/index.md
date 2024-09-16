@@ -108,7 +108,9 @@ SELECT
     - name: authorizationDirection
       value: '{{ authorizationDirection }}'
     - name: orgs
-      value: '{{ orgs }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>

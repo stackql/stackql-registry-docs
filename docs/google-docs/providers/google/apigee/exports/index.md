@@ -117,7 +117,11 @@ SELECT
     - name: outputFormat
       value: '{{ outputFormat }}'
     - name: dateRange
-      value: '{{ dateRange }}'
+      value:
+        - name: end
+          value: '{{ end }}'
+        - name: start
+          value: '{{ start }}'
     - name: datastoreName
       value: '{{ datastoreName }}'
     - name: description

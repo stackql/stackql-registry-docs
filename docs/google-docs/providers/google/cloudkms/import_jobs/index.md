@@ -90,31 +90,15 @@ INSERT INTO google.cloudkms.import_jobs (
 keyRingsId,
 locationsId,
 projectsId,
-name,
 importMethod,
-protectionLevel,
-createTime,
-generateTime,
-expireTime,
-expireEventTime,
-state,
-publicKey,
-attestation
+protectionLevel
 )
 SELECT 
 '{{ keyRingsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ importMethod }}',
-'{{ protectionLevel }}',
-'{{ createTime }}',
-'{{ generateTime }}',
-'{{ expireTime }}',
-'{{ expireEventTime }}',
-'{{ state }}',
-'{{ publicKey }}',
-'{{ attestation }}'
+'{{ protectionLevel }}'
 ;
 ```
 </TabItem>
@@ -123,26 +107,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: importMethod
       value: '{{ importMethod }}'
     - name: protectionLevel
       value: '{{ protectionLevel }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: generateTime
-      value: '{{ generateTime }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
-    - name: expireEventTime
-      value: '{{ expireEventTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: publicKey
-      value: '{{ publicKey }}'
-    - name: attestation
-      value: '{{ attestation }}'
 
 ```
 </TabItem>

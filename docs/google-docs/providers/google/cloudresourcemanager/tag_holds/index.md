@@ -76,19 +76,15 @@ Use the following StackQL query and manifest file to create a new <code>tag_hold
 /*+ create */
 INSERT INTO google.cloudresourcemanager.tag_holds (
 tagValuesId,
-name,
 holder,
 origin,
-helpLink,
-createTime
+helpLink
 )
 SELECT 
 '{{ tagValuesId }}',
-'{{ name }}',
 '{{ holder }}',
 '{{ origin }}',
-'{{ helpLink }}',
-'{{ createTime }}'
+'{{ helpLink }}'
 ;
 ```
 </TabItem>
@@ -97,16 +93,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: holder
       value: '{{ holder }}'
     - name: origin
       value: '{{ origin }}'
     - name: helpLink
       value: '{{ helpLink }}'
-    - name: createTime
-      value: '{{ createTime }}'
 
 ```
 </TabItem>

@@ -116,7 +116,35 @@ SELECT
     - name: configId
       value: '{{ configId }}'
     - name: discoveryConfig
-      value: '{{ discoveryConfig }}'
+      value:
+        - name: targets
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: status
+          value: '{{ status }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: inspectTemplates
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: name
+          value: '{{ name }}'
+        - name: actions
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: orgConfig
+          value:
+            - name: projectId
+              value: '{{ projectId }}'
+            - name: location
+              value:
+                - name: folderId
+                  value: '{{ folderId }}'
+                - name: organizationId
+                  value: '{{ organizationId }}'
 
 ```
 </TabItem>

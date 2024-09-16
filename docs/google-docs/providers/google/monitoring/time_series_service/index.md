@@ -68,7 +68,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: timeSeries
-      value: '{{ timeSeries }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

@@ -97,7 +97,11 @@ SELECT
     - name: contentType
       value: '{{ contentType }}'
     - name: extensions
-      value: '{{ extensions }}'
+      value:
+        - name: additionalProperties
+          value: '{{ additionalProperties }}'
+        - name: type
+          value: '{{ type }}'
     - name: data
       value: '{{ data }}'
 

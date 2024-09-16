@@ -109,7 +109,15 @@ SELECT
     - name: instanceId
       value: '{{ instanceId }}'
     - name: instance
-      value: '{{ instance }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: type
+          value: '{{ type }}'
+        - name: labels
+          value: '{{ labels }}'
     - name: clusters
       value: '{{ clusters }}'
 
@@ -127,12 +135,8 @@ REPLACE google.bigtableadmin.instances
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-state = '{{ state }}',
 type = '{{ type }}',
-labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-satisfiesPzs = true|false,
-satisfiesPzi = true|false
+labels = '{{ labels }}'
 WHERE 
 instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}';

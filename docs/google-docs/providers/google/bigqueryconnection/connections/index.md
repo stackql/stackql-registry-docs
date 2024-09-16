@@ -100,7 +100,6 @@ Use the following StackQL query and manifest file to create a new <code>connecti
 INSERT INTO google.bigqueryconnection.connections (
 locationsId,
 projectsId,
-name,
 friendlyName,
 description,
 cloudSql,
@@ -111,15 +110,11 @@ cloudResource,
 spark,
 salesforceDataCloud,
 configuration,
-creationTime,
-lastModifiedTime,
-hasCredential,
 kmsKeyName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ friendlyName }}',
 '{{ description }}',
 '{{ cloudSql }}',
@@ -130,9 +125,6 @@ SELECT
 '{{ spark }}',
 '{{ salesforceDataCloud }}',
 '{{ configuration }}',
-'{{ creationTime }}',
-'{{ lastModifiedTime }}',
-true|false,
 '{{ kmsKeyName }}'
 ;
 ```
@@ -142,34 +134,102 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: friendlyName
       value: '{{ friendlyName }}'
     - name: description
       value: '{{ description }}'
     - name: cloudSql
-      value: '{{ cloudSql }}'
+      value:
+        - name: instanceId
+          value: '{{ instanceId }}'
+        - name: database
+          value: '{{ database }}'
+        - name: type
+          value: '{{ type }}'
+        - name: credential
+          value:
+            - name: username
+              value: '{{ username }}'
+            - name: password
+              value: '{{ password }}'
     - name: aws
-      value: '{{ aws }}'
+      value:
+        - name: accessRole
+          value:
+            - name: iamRoleId
+              value: '{{ iamRoleId }}'
+            - name: identity
+              value: '{{ identity }}'
     - name: azure
-      value: '{{ azure }}'
+      value:
+        - name: customerTenantId
+          value: '{{ customerTenantId }}'
+        - name: redirectUri
+          value: '{{ redirectUri }}'
+        - name: federatedApplicationClientId
+          value: '{{ federatedApplicationClientId }}'
     - name: cloudSpanner
-      value: '{{ cloudSpanner }}'
+      value:
+        - name: database
+          value: '{{ database }}'
+        - name: useParallelism
+          value: '{{ useParallelism }}'
+        - name: maxParallelism
+          value: '{{ maxParallelism }}'
+        - name: useServerlessAnalytics
+          value: '{{ useServerlessAnalytics }}'
+        - name: useDataBoost
+          value: '{{ useDataBoost }}'
+        - name: databaseRole
+          value: '{{ databaseRole }}'
     - name: cloudResource
-      value: '{{ cloudResource }}'
+      value: []
     - name: spark
-      value: '{{ spark }}'
+      value:
+        - name: metastoreServiceConfig
+          value:
+            - name: metastoreService
+              value: '{{ metastoreService }}'
+        - name: sparkHistoryServerConfig
+          value:
+            - name: dataprocCluster
+              value: '{{ dataprocCluster }}'
     - name: salesforceDataCloud
-      value: '{{ salesforceDataCloud }}'
+      value:
+        - name: instanceUri
+          value: '{{ instanceUri }}'
+        - name: tenantId
+          value: '{{ tenantId }}'
     - name: configuration
-      value: '{{ configuration }}'
-    - name: creationTime
-      value: '{{ creationTime }}'
-    - name: lastModifiedTime
-      value: '{{ lastModifiedTime }}'
-    - name: hasCredential
-      value: '{{ hasCredential }}'
+      value:
+        - name: connectorId
+          value: '{{ connectorId }}'
+        - name: endpoint
+          value:
+            - name: hostPort
+              value: '{{ hostPort }}'
+        - name: authentication
+          value:
+            - name: usernamePassword
+              value:
+                - name: username
+                  value: '{{ username }}'
+                - name: password
+                  value:
+                    - name: plaintext
+                      value: '{{ plaintext }}'
+        - name: network
+          value:
+            - name: privateServiceConnect
+              value:
+                - name: networkAttachment
+                  value: '{{ networkAttachment }}'
+        - name: asset
+          value:
+            - name: database
+              value: '{{ database }}'
+            - name: googleCloudResource
+              value: '{{ googleCloudResource }}'
     - name: kmsKeyName
       value: '{{ kmsKeyName }}'
 
@@ -185,7 +245,6 @@ Updates a <code>connections</code> resource.
 /*+ update */
 UPDATE google.bigqueryconnection.connections
 SET 
-name = '{{ name }}',
 friendlyName = '{{ friendlyName }}',
 description = '{{ description }}',
 cloudSql = '{{ cloudSql }}',
@@ -196,9 +255,6 @@ cloudResource = '{{ cloudResource }}',
 spark = '{{ spark }}',
 salesforceDataCloud = '{{ salesforceDataCloud }}',
 configuration = '{{ configuration }}',
-creationTime = '{{ creationTime }}',
-lastModifiedTime = '{{ lastModifiedTime }}',
-hasCredential = true|false,
 kmsKeyName = '{{ kmsKeyName }}'
 WHERE 
 connectionsId = '{{ connectionsId }}'

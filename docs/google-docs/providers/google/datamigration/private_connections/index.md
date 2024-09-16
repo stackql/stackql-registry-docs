@@ -86,24 +86,16 @@ INSERT INTO google.datamigration.private_connections (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 displayName,
-state,
-error,
 vpcPeeringConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
-'{{ state }}',
-'{{ error }}',
 '{{ vpcPeeringConfig }}'
 ;
 ```
@@ -115,20 +107,16 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: state
-      value: '{{ state }}'
-    - name: error
-      value: '{{ error }}'
     - name: vpcPeeringConfig
-      value: '{{ vpcPeeringConfig }}'
+      value:
+        - name: vpcName
+          value: '{{ vpcName }}'
+        - name: subnet
+          value: '{{ subnet }}'
 
 ```
 </TabItem>

@@ -88,27 +88,19 @@ INSERT INTO google.vmwareengine.logging_servers (
 locationsId,
 privateCloudsId,
 projectsId,
-name,
-createTime,
-updateTime,
 hostname,
 port,
 protocol,
-sourceType,
-uid
+sourceType
 )
 SELECT 
 '{{ locationsId }}',
 '{{ privateCloudsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ hostname }}',
 '{{ port }}',
 '{{ protocol }}',
-'{{ sourceType }}',
-'{{ uid }}'
+'{{ sourceType }}'
 ;
 ```
 </TabItem>
@@ -117,12 +109,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: hostname
       value: '{{ hostname }}'
     - name: port
@@ -131,8 +117,6 @@ SELECT
       value: '{{ protocol }}'
     - name: sourceType
       value: '{{ sourceType }}'
-    - name: uid
-      value: '{{ uid }}'
 
 ```
 </TabItem>
@@ -146,14 +130,10 @@ Updates a <code>logging_servers</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.logging_servers
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 hostname = '{{ hostname }}',
 port = '{{ port }}',
 protocol = '{{ protocol }}',
-sourceType = '{{ sourceType }}',
-uid = '{{ uid }}'
+sourceType = '{{ sourceType }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND loggingServersId = '{{ loggingServersId }}'

@@ -104,20 +104,9 @@ INSERT INTO google.workflowexecutions.executions (
 locationsId,
 projectsId,
 workflowsId,
-name,
-createTime,
-startTime,
-endTime,
-duration,
-state,
 argument,
-result,
-error,
-workflowRevisionId,
 callLogLevel,
-status,
 labels,
-stateError,
 disableConcurrencyQuotaOverflowBuffering,
 executionHistoryLevel
 )
@@ -125,20 +114,9 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ workflowsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ startTime }}',
-'{{ endTime }}',
-'{{ duration }}',
-'{{ state }}',
 '{{ argument }}',
-'{{ result }}',
-'{{ error }}',
-'{{ workflowRevisionId }}',
 '{{ callLogLevel }}',
-'{{ status }}',
 '{{ labels }}',
-'{{ stateError }}',
 true|false,
 '{{ executionHistoryLevel }}'
 ;
@@ -149,34 +127,12 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: duration
-      value: '{{ duration }}'
-    - name: state
-      value: '{{ state }}'
     - name: argument
       value: '{{ argument }}'
-    - name: result
-      value: '{{ result }}'
-    - name: error
-      value: '{{ error }}'
-    - name: workflowRevisionId
-      value: '{{ workflowRevisionId }}'
     - name: callLogLevel
       value: '{{ callLogLevel }}'
-    - name: status
-      value: '{{ status }}'
     - name: labels
       value: '{{ labels }}'
-    - name: stateError
-      value: '{{ stateError }}'
     - name: disableConcurrencyQuotaOverflowBuffering
       value: '{{ disableConcurrencyQuotaOverflowBuffering }}'
     - name: executionHistoryLevel

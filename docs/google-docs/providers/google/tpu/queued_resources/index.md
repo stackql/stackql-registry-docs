@@ -86,25 +86,19 @@ Use the following StackQL query and manifest file to create a new <code>queued_r
 INSERT INTO google.tpu.queued_resources (
 locationsId,
 projectsId,
-name,
-createTime,
 tpu,
 spot,
 guaranteed,
 queueingPolicy,
-state,
 reservationName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
 '{{ tpu }}',
 '{{ spot }}',
 '{{ guaranteed }}',
 '{{ queueingPolicy }}',
-'{{ state }}',
 '{{ reservationName }}'
 ;
 ```
@@ -114,20 +108,34 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: tpu
-      value: '{{ tpu }}'
+      value:
+        - name: nodeSpec
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: spot
-      value: '{{ spot }}'
+      value: []
     - name: guaranteed
-      value: '{{ guaranteed }}'
+      value:
+        - name: minDuration
+          value: '{{ minDuration }}'
     - name: queueingPolicy
-      value: '{{ queueingPolicy }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: validUntilDuration
+          value: '{{ validUntilDuration }}'
+        - name: validUntilTime
+          value: '{{ validUntilTime }}'
+        - name: validAfterDuration
+          value: '{{ validAfterDuration }}'
+        - name: validAfterTime
+          value: '{{ validAfterTime }}'
+        - name: validInterval
+          value:
+            - name: startTime
+              value: '{{ startTime }}'
+            - name: endTime
+              value: '{{ endTime }}'
     - name: reservationName
       value: '{{ reservationName }}'
 

@@ -102,7 +102,23 @@ SELECT
     - name: roleId
       value: '{{ roleId }}'
     - name: role
-      value: '{{ role }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: title
+          value: '{{ title }}'
+        - name: description
+          value: '{{ description }}'
+        - name: includedPermissions
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: stage
+          value: '{{ stage }}'
+        - name: etag
+          value: '{{ etag }}'
+        - name: deleted
+          value: '{{ deleted }}'
 
 ```
 </TabItem>

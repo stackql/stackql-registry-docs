@@ -62,13 +62,9 @@ Use the following StackQL query and manifest file to create a new <code>buckets_
 INSERT INTO google.logging.buckets_async (
 foldersId,
 locationsId,
-name,
 description,
-createTime,
-updateTime,
 retentionDays,
 locked,
-lifecycleState,
 analyticsEnabled,
 restrictedFields,
 indexConfigs,
@@ -77,13 +73,9 @@ cmekSettings
 SELECT 
 '{{ foldersId }}',
 '{{ locationsId }}',
-'{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ retentionDays }}',
 true|false,
-'{{ lifecycleState }}',
 true|false,
 '{{ restrictedFields }}',
 '{{ indexConfigs }}',
@@ -96,28 +88,26 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: retentionDays
       value: '{{ retentionDays }}'
     - name: locked
       value: '{{ locked }}'
-    - name: lifecycleState
-      value: '{{ lifecycleState }}'
     - name: analyticsEnabled
       value: '{{ analyticsEnabled }}'
     - name: restrictedFields
-      value: '{{ restrictedFields }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: indexConfigs
-      value: '{{ indexConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: cmekSettings
-      value: '{{ cmekSettings }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
 
 ```
 </TabItem>
@@ -131,13 +121,9 @@ Updates a <code>buckets_async</code> resource.
 /*+ update */
 UPDATE google.logging.buckets_async
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 retentionDays = '{{ retentionDays }}',
 locked = true|false,
-lifecycleState = '{{ lifecycleState }}',
 analyticsEnabled = true|false,
 restrictedFields = '{{ restrictedFields }}',
 indexConfigs = '{{ indexConfigs }}',

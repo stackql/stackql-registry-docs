@@ -92,32 +92,20 @@ Use the following StackQL query and manifest file to create a new <code>sources<
 INSERT INTO google.migrationcenter.sources (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 displayName,
 description,
 type,
 priority,
-managed,
-pendingFrameCount,
-errorFrameCount,
-state
+managed
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ type }}',
 '{{ priority }}',
-true|false,
-'{{ pendingFrameCount }}',
-'{{ errorFrameCount }}',
-'{{ state }}'
+true|false
 ;
 ```
 </TabItem>
@@ -126,12 +114,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
@@ -142,12 +124,6 @@ true|false,
       value: '{{ priority }}'
     - name: managed
       value: '{{ managed }}'
-    - name: pendingFrameCount
-      value: '{{ pendingFrameCount }}'
-    - name: errorFrameCount
-      value: '{{ errorFrameCount }}'
-    - name: state
-      value: '{{ state }}'
 
 ```
 </TabItem>
@@ -161,17 +137,11 @@ Updates a <code>sources</code> resource.
 /*+ update */
 UPDATE google.migrationcenter.sources
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
 type = '{{ type }}',
 priority = '{{ priority }}',
-managed = true|false,
-pendingFrameCount = '{{ pendingFrameCount }}',
-errorFrameCount = '{{ errorFrameCount }}',
-state = '{{ state }}'
+managed = true|false
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

@@ -80,19 +80,15 @@ INSERT INTO google.bigqueryreservation.assignments (
 locationsId,
 projectsId,
 reservationsId,
-name,
 assignee,
-jobType,
-state
+jobType
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ reservationsId }}',
-'{{ name }}',
 '{{ assignee }}',
-'{{ jobType }}',
-'{{ state }}'
+'{{ jobType }}'
 ;
 ```
 </TabItem>
@@ -101,14 +97,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: assignee
       value: '{{ assignee }}'
     - name: jobType
       value: '{{ jobType }}'
-    - name: state
-      value: '{{ state }}'
 
 ```
 </TabItem>
@@ -122,10 +114,8 @@ Updates a <code>assignments</code> resource.
 /*+ update */
 UPDATE google.bigqueryreservation.assignments
 SET 
-name = '{{ name }}',
 assignee = '{{ assignee }}',
-jobType = '{{ jobType }}',
-state = '{{ state }}'
+jobType = '{{ jobType }}'
 WHERE 
 assignmentsId = '{{ assignmentsId }}'
 AND locationsId = '{{ locationsId }}'

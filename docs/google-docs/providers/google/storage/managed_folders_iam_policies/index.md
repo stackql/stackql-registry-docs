@@ -85,7 +85,6 @@ REPLACE google.storage.managed_folders_iam_policies
 SET 
 bindings = '{{ bindings }}',
 etag = '{{ etag }}',
-kind = '{{ kind }}',
 resourceId = '{{ resourceId }}',
 version = '{{ version }}'
 WHERE 

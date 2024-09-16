@@ -77,14 +77,12 @@ Use the following StackQL query and manifest file to create a new <code>domain_m
 INSERT INTO google.appengine.domain_mappings (
 appsId,
 name,
-id,
 sslSettings,
 resourceRecords
 )
 SELECT 
 '{{ appsId }}',
 '{{ name }}',
-'{{ id }}',
 '{{ sslSettings }}',
 '{{ resourceRecords }}'
 ;
@@ -97,12 +95,18 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: id
-      value: '{{ id }}'
     - name: sslSettings
-      value: '{{ sslSettings }}'
+      value:
+        - name: certificateId
+          value: '{{ certificateId }}'
+        - name: sslManagementType
+          value: '{{ sslManagementType }}'
+        - name: pendingManagedCertificateId
+          value: '{{ pendingManagedCertificateId }}'
     - name: resourceRecords
-      value: '{{ resourceRecords }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -117,7 +121,6 @@ Updates a <code>domain_mappings</code> resource.
 UPDATE google.appengine.domain_mappings
 SET 
 name = '{{ name }}',
-id = '{{ id }}',
 sslSettings = '{{ sslSettings }}',
 resourceRecords = '{{ resourceRecords }}'
 WHERE 

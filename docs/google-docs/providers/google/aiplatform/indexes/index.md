@@ -101,38 +101,24 @@ Use the following StackQL query and manifest file to create a new <code>indexes<
 INSERT INTO google.aiplatform.indexes (
 locationsId,
 projectsId,
-indexStats,
-satisfiesPzi,
-satisfiesPzs,
-name,
 indexUpdateMethod,
 encryptionSpec,
-createTime,
 metadata,
 metadataSchemaUri,
 description,
-deployedIndexes,
 displayName,
-updateTime,
 labels,
 etag
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ indexStats }}',
-true|false,
-true|false,
-'{{ name }}',
 '{{ indexUpdateMethod }}',
 '{{ encryptionSpec }}',
-'{{ createTime }}',
 '{{ metadata }}',
 '{{ metadataSchemaUri }}',
 '{{ description }}',
-'{{ deployedIndexes }}',
 '{{ displayName }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ etag }}'
 ;
@@ -143,32 +129,20 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: indexStats
-      value: '{{ indexStats }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: name
-      value: '{{ name }}'
     - name: indexUpdateMethod
       value: '{{ indexUpdateMethod }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: metadata
       value: '{{ metadata }}'
     - name: metadataSchemaUri
       value: '{{ metadataSchemaUri }}'
     - name: description
       value: '{{ description }}'
-    - name: deployedIndexes
-      value: '{{ deployedIndexes }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: etag
@@ -186,19 +160,12 @@ Updates a <code>indexes</code> resource.
 /*+ update */
 UPDATE google.aiplatform.indexes
 SET 
-indexStats = '{{ indexStats }}',
-satisfiesPzi = true|false,
-satisfiesPzs = true|false,
-name = '{{ name }}',
 indexUpdateMethod = '{{ indexUpdateMethod }}',
 encryptionSpec = '{{ encryptionSpec }}',
-createTime = '{{ createTime }}',
 metadata = '{{ metadata }}',
 metadataSchemaUri = '{{ metadataSchemaUri }}',
 description = '{{ description }}',
-deployedIndexes = '{{ deployedIndexes }}',
 displayName = '{{ displayName }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 etag = '{{ etag }}'
 WHERE 

@@ -66,7 +66,6 @@ Updates a <code>bi_reservation</code> resource.
 UPDATE google.bigqueryreservation.bi_reservation
 SET 
 name = '{{ name }}',
-updateTime = '{{ updateTime }}',
 size = '{{ size }}',
 preferredTables = '{{ preferredTables }}'
 WHERE 

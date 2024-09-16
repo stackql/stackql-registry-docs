@@ -142,7 +142,11 @@ true|false,
     - name: enableUpdateCreate
       value: '{{ enableUpdateCreate }}'
     - name: notificationConfig
-      value: '{{ notificationConfig }}'
+      value:
+        - name: pubsubTopic
+          value: '{{ pubsubTopic }}'
+        - name: sendForBulkImport
+          value: '{{ sendForBulkImport }}'
     - name: disableReferentialIntegrity
       value: '{{ disableReferentialIntegrity }}'
     - name: disableResourceVersioning
@@ -152,15 +156,31 @@ true|false,
     - name: version
       value: '{{ version }}'
     - name: streamConfigs
-      value: '{{ streamConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: validationConfig
-      value: '{{ validationConfig }}'
+      value:
+        - name: disableProfileValidation
+          value: '{{ disableProfileValidation }}'
+        - name: enabledImplementationGuides
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: disableRequiredFieldValidation
+          value: '{{ disableRequiredFieldValidation }}'
+        - name: disableReferenceTypeValidation
+          value: '{{ disableReferenceTypeValidation }}'
+        - name: disableFhirpathValidation
+          value: '{{ disableFhirpathValidation }}'
     - name: defaultSearchHandlingStrict
       value: '{{ defaultSearchHandlingStrict }}'
     - name: complexDataTypeReferenceParsing
       value: '{{ complexDataTypeReferenceParsing }}'
     - name: notificationConfigs
-      value: '{{ notificationConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

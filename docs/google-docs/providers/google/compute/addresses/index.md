@@ -111,16 +111,12 @@ Use the following StackQL query and manifest file to create a new <code>addresse
 INSERT INTO google.compute.addresses (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 address,
 prefixLength,
 status,
 region,
-selfLink,
 users,
 networkTier,
 labels,
@@ -135,16 +131,12 @@ ipv6EndpointType
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ address }}',
 '{{ prefixLength }}',
 '{{ status }}',
 '{{ region }}',
-'{{ selfLink }}',
 '{{ users }}',
 '{{ networkTier }}',
 '{{ labels }}',
@@ -163,12 +155,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -181,10 +167,10 @@ SELECT
       value: '{{ status }}'
     - name: region
       value: '{{ region }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: users
-      value: '{{ users }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: networkTier
       value: '{{ networkTier }}'
     - name: labels

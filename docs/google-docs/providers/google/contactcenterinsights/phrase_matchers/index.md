@@ -92,14 +92,10 @@ Use the following StackQL query and manifest file to create a new <code>phrase_m
 INSERT INTO google.contactcenterinsights.phrase_matchers (
 locationsId,
 projectsId,
-activationUpdateTime,
 name,
 displayName,
-revisionCreateTime,
 roleMatch,
-updateTime,
 phraseMatchRuleGroups,
-revisionId,
 active,
 type,
 versionTag
@@ -107,14 +103,10 @@ versionTag
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ activationUpdateTime }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ revisionCreateTime }}',
 '{{ roleMatch }}',
-'{{ updateTime }}',
 '{{ phraseMatchRuleGroups }}',
-'{{ revisionId }}',
 true|false,
 '{{ type }}',
 '{{ versionTag }}'
@@ -126,22 +118,16 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: activationUpdateTime
-      value: '{{ activationUpdateTime }}'
     - name: name
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: revisionCreateTime
-      value: '{{ revisionCreateTime }}'
     - name: roleMatch
       value: '{{ roleMatch }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: phraseMatchRuleGroups
-      value: '{{ phraseMatchRuleGroups }}'
-    - name: revisionId
-      value: '{{ revisionId }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: active
       value: '{{ active }}'
     - name: type
@@ -161,14 +147,10 @@ Updates a <code>phrase_matchers</code> resource.
 /*+ update */
 UPDATE google.contactcenterinsights.phrase_matchers
 SET 
-activationUpdateTime = '{{ activationUpdateTime }}',
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-revisionCreateTime = '{{ revisionCreateTime }}',
 roleMatch = '{{ roleMatch }}',
-updateTime = '{{ updateTime }}',
 phraseMatchRuleGroups = '{{ phraseMatchRuleGroups }}',
-revisionId = '{{ revisionId }}',
 active = true|false,
 type = '{{ type }}',
 versionTag = '{{ versionTag }}'

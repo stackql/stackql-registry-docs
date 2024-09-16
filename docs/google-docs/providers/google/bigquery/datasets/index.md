@@ -131,7 +131,6 @@ Use the following StackQL query and manifest file to create a new <code>datasets
 INSERT INTO google.bigquery.datasets (
 projectId,
 access,
-creationTime,
 datasetReference,
 defaultCollation,
 defaultEncryptionConfiguration,
@@ -139,32 +138,20 @@ defaultPartitionExpirationMs,
 defaultRoundingMode,
 defaultTableExpirationMs,
 description,
-etag,
 externalCatalogDatasetOptions,
 externalDatasetReference,
 friendlyName,
-id,
 isCaseInsensitive,
-kind,
 labels,
-lastModifiedTime,
-linkedDatasetMetadata,
 linkedDatasetSource,
 location,
 maxTimeTravelHours,
 resourceTags,
-restrictions,
-satisfiesPzi,
-satisfiesPzs,
-selfLink,
-storageBillingModel,
-tags,
-type
+storageBillingModel
 )
 SELECT 
 '{{ projectId }}',
 '{{ access }}',
-'{{ creationTime }}',
 '{{ datasetReference }}',
 '{{ defaultCollation }}',
 '{{ defaultEncryptionConfiguration }}',
@@ -172,27 +159,16 @@ SELECT
 '{{ defaultRoundingMode }}',
 '{{ defaultTableExpirationMs }}',
 '{{ description }}',
-'{{ etag }}',
 '{{ externalCatalogDatasetOptions }}',
 '{{ externalDatasetReference }}',
 '{{ friendlyName }}',
-'{{ id }}',
 true|false,
-'{{ kind }}',
 '{{ labels }}',
-'{{ lastModifiedTime }}',
-'{{ linkedDatasetMetadata }}',
 '{{ linkedDatasetSource }}',
 '{{ location }}',
 '{{ maxTimeTravelHours }}',
 '{{ resourceTags }}',
-'{{ restrictions }}',
-true|false,
-true|false,
-'{{ selfLink }}',
-'{{ storageBillingModel }}',
-'{{ tags }}',
-'{{ type }}'
+'{{ storageBillingModel }}'
 ;
 ```
 </TabItem>
@@ -203,32 +179,56 @@ true|false,
   props:
     - name: access
       value:
-        - - name: dataset
-            value: '{{ dataset }}'
-          - name: domain
-            value: '{{ domain }}'
-          - name: groupByEmail
-            value: '{{ groupByEmail }}'
-          - name: iamMember
-            value: '{{ iamMember }}'
-          - name: role
-            value: '{{ role }}'
-          - name: routine
-            value: '{{ routine }}'
-          - name: specialGroup
-            value: '{{ specialGroup }}'
-          - name: userByEmail
-            value: '{{ userByEmail }}'
-          - name: view
-            value: '{{ view }}'
-    - name: creationTime
-      value: '{{ creationTime }}'
-    - name: datasetReference
-      value: '{{ datasetReference }}'
+        - name: dataset
+          value:
+            - name: dataset
+              value:
+                - name: datasetId
+                  value: '{{ datasetId }}'
+                - name: projectId
+                  value: '{{ projectId }}'
+            - name: targetTypes
+              value:
+                - name: enum
+                  value: '{{ enum }}'
+                - name: enumDescriptions
+                  value: '{{ enumDescriptions }}'
+                - name: type
+                  value: '{{ type }}'
+        - name: domain
+          value: '{{ domain }}'
+        - name: groupByEmail
+          value: '{{ groupByEmail }}'
+        - name: iamMember
+          value: '{{ iamMember }}'
+        - name: role
+          value: '{{ role }}'
+        - name: routine
+          value:
+            - name: datasetId
+              value: '{{ datasetId }}'
+            - name: projectId
+              value: '{{ projectId }}'
+            - name: routineId
+              value: '{{ routineId }}'
+        - name: specialGroup
+          value: '{{ specialGroup }}'
+        - name: userByEmail
+          value: '{{ userByEmail }}'
+        - name: view
+          value:
+            - name: datasetId
+              value: '{{ datasetId }}'
+            - name: projectId
+              value: '{{ projectId }}'
+            - name: tableId
+              value: '{{ tableId }}'
     - name: defaultCollation
       value: '{{ defaultCollation }}'
     - name: defaultEncryptionConfiguration
-      value: '{{ defaultEncryptionConfiguration }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: defaultPartitionExpirationMs
       value: '{{ defaultPartitionExpirationMs }}'
     - name: defaultRoundingMode
@@ -237,52 +237,34 @@ true|false,
       value: '{{ defaultTableExpirationMs }}'
     - name: description
       value: '{{ description }}'
-    - name: etag
-      value: '{{ etag }}'
     - name: externalCatalogDatasetOptions
-      value: '{{ externalCatalogDatasetOptions }}'
+      value:
+        - name: defaultStorageLocationUri
+          value: '{{ defaultStorageLocationUri }}'
+        - name: parameters
+          value: '{{ parameters }}'
     - name: externalDatasetReference
-      value: '{{ externalDatasetReference }}'
+      value:
+        - name: connection
+          value: '{{ connection }}'
+        - name: externalSource
+          value: '{{ externalSource }}'
     - name: friendlyName
       value: '{{ friendlyName }}'
-    - name: id
-      value: '{{ id }}'
     - name: isCaseInsensitive
       value: '{{ isCaseInsensitive }}'
-    - name: kind
-      value: '{{ kind }}'
     - name: labels
       value: '{{ labels }}'
-    - name: lastModifiedTime
-      value: '{{ lastModifiedTime }}'
-    - name: linkedDatasetMetadata
-      value: '{{ linkedDatasetMetadata }}'
     - name: linkedDatasetSource
-      value: '{{ linkedDatasetSource }}'
+      value: []
     - name: location
       value: '{{ location }}'
     - name: maxTimeTravelHours
       value: '{{ maxTimeTravelHours }}'
     - name: resourceTags
       value: '{{ resourceTags }}'
-    - name: restrictions
-      value: '{{ restrictions }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: storageBillingModel
       value: '{{ storageBillingModel }}'
-    - name: tags
-      value:
-        - - name: tagKey
-            value: '{{ tagKey }}'
-          - name: tagValue
-            value: '{{ tagValue }}'
-    - name: type
-      value: '{{ type }}'
 
 ```
 </TabItem>
@@ -297,7 +279,6 @@ Updates a <code>datasets</code> resource.
 UPDATE google.bigquery.datasets
 SET 
 access = '{{ access }}',
-creationTime = '{{ creationTime }}',
 datasetReference = '{{ datasetReference }}',
 defaultCollation = '{{ defaultCollation }}',
 defaultEncryptionConfiguration = '{{ defaultEncryptionConfiguration }}',
@@ -305,27 +286,16 @@ defaultPartitionExpirationMs = '{{ defaultPartitionExpirationMs }}',
 defaultRoundingMode = '{{ defaultRoundingMode }}',
 defaultTableExpirationMs = '{{ defaultTableExpirationMs }}',
 description = '{{ description }}',
-etag = '{{ etag }}',
 externalCatalogDatasetOptions = '{{ externalCatalogDatasetOptions }}',
 externalDatasetReference = '{{ externalDatasetReference }}',
 friendlyName = '{{ friendlyName }}',
-id = '{{ id }}',
 isCaseInsensitive = true|false,
-kind = '{{ kind }}',
 labels = '{{ labels }}',
-lastModifiedTime = '{{ lastModifiedTime }}',
-linkedDatasetMetadata = '{{ linkedDatasetMetadata }}',
 linkedDatasetSource = '{{ linkedDatasetSource }}',
 location = '{{ location }}',
 maxTimeTravelHours = '{{ maxTimeTravelHours }}',
 resourceTags = '{{ resourceTags }}',
-restrictions = '{{ restrictions }}',
-satisfiesPzi = true|false,
-satisfiesPzs = true|false,
-selfLink = '{{ selfLink }}',
-storageBillingModel = '{{ storageBillingModel }}',
-tags = '{{ tags }}',
-type = '{{ type }}'
+storageBillingModel = '{{ storageBillingModel }}'
 WHERE 
 +datasetId = '{{ +datasetId }}'
 AND projectId = '{{ projectId }}';
@@ -340,7 +310,6 @@ Replaces all fields in the specified <code>datasets</code> resource.
 REPLACE google.bigquery.datasets
 SET 
 access = '{{ access }}',
-creationTime = '{{ creationTime }}',
 datasetReference = '{{ datasetReference }}',
 defaultCollation = '{{ defaultCollation }}',
 defaultEncryptionConfiguration = '{{ defaultEncryptionConfiguration }}',
@@ -348,27 +317,16 @@ defaultPartitionExpirationMs = '{{ defaultPartitionExpirationMs }}',
 defaultRoundingMode = '{{ defaultRoundingMode }}',
 defaultTableExpirationMs = '{{ defaultTableExpirationMs }}',
 description = '{{ description }}',
-etag = '{{ etag }}',
 externalCatalogDatasetOptions = '{{ externalCatalogDatasetOptions }}',
 externalDatasetReference = '{{ externalDatasetReference }}',
 friendlyName = '{{ friendlyName }}',
-id = '{{ id }}',
 isCaseInsensitive = true|false,
-kind = '{{ kind }}',
 labels = '{{ labels }}',
-lastModifiedTime = '{{ lastModifiedTime }}',
-linkedDatasetMetadata = '{{ linkedDatasetMetadata }}',
 linkedDatasetSource = '{{ linkedDatasetSource }}',
 location = '{{ location }}',
 maxTimeTravelHours = '{{ maxTimeTravelHours }}',
 resourceTags = '{{ resourceTags }}',
-restrictions = '{{ restrictions }}',
-satisfiesPzi = true|false,
-satisfiesPzs = true|false,
-selfLink = '{{ selfLink }}',
-storageBillingModel = '{{ storageBillingModel }}',
-tags = '{{ tags }}',
-type = '{{ type }}'
+storageBillingModel = '{{ storageBillingModel }}'
 WHERE 
 +datasetId = '{{ +datasetId }}'
 AND projectId = '{{ projectId }}';

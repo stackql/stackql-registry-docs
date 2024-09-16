@@ -123,25 +123,12 @@ locationsId,
 projectsId,
 terraformBlueprint,
 name,
-createTime,
-updateTime,
 labels,
-state,
-latestRevision,
-stateDetail,
-errorCode,
-deleteResults,
-deleteBuild,
-deleteLogs,
-tfErrors,
-errorLogs,
 artifactsGcsBucket,
 serviceAccount,
 importExistingResources,
 workerPool,
-lockState,
 tfVersionConstraint,
-tfVersion,
 quotaValidation,
 annotations
 )
@@ -150,25 +137,12 @@ SELECT
 '{{ projectsId }}',
 '{{ terraformBlueprint }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
-'{{ state }}',
-'{{ latestRevision }}',
-'{{ stateDetail }}',
-'{{ errorCode }}',
-'{{ deleteResults }}',
-'{{ deleteBuild }}',
-'{{ deleteLogs }}',
-'{{ tfErrors }}',
-'{{ errorLogs }}',
 '{{ artifactsGcsBucket }}',
 '{{ serviceAccount }}',
 true|false,
 '{{ workerPool }}',
-'{{ lockState }}',
 '{{ tfVersionConstraint }}',
-'{{ tfVersion }}',
 '{{ quotaValidation }}',
 '{{ annotations }}'
 ;
@@ -180,33 +154,23 @@ true|false,
 - name: your_resource_model_name
   props:
     - name: terraformBlueprint
-      value: '{{ terraformBlueprint }}'
+      value:
+        - name: gcsSource
+          value: '{{ gcsSource }}'
+        - name: gitSource
+          value:
+            - name: repo
+              value: '{{ repo }}'
+            - name: directory
+              value: '{{ directory }}'
+            - name: ref
+              value: '{{ ref }}'
+        - name: inputValues
+          value: '{{ inputValues }}'
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
-    - name: latestRevision
-      value: '{{ latestRevision }}'
-    - name: stateDetail
-      value: '{{ stateDetail }}'
-    - name: errorCode
-      value: '{{ errorCode }}'
-    - name: deleteResults
-      value: '{{ deleteResults }}'
-    - name: deleteBuild
-      value: '{{ deleteBuild }}'
-    - name: deleteLogs
-      value: '{{ deleteLogs }}'
-    - name: tfErrors
-      value: '{{ tfErrors }}'
-    - name: errorLogs
-      value: '{{ errorLogs }}'
     - name: artifactsGcsBucket
       value: '{{ artifactsGcsBucket }}'
     - name: serviceAccount
@@ -215,12 +179,8 @@ true|false,
       value: '{{ importExistingResources }}'
     - name: workerPool
       value: '{{ workerPool }}'
-    - name: lockState
-      value: '{{ lockState }}'
     - name: tfVersionConstraint
       value: '{{ tfVersionConstraint }}'
-    - name: tfVersion
-      value: '{{ tfVersion }}'
     - name: quotaValidation
       value: '{{ quotaValidation }}'
     - name: annotations
@@ -240,25 +200,12 @@ UPDATE google.config.deployments
 SET 
 terraformBlueprint = '{{ terraformBlueprint }}',
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
-state = '{{ state }}',
-latestRevision = '{{ latestRevision }}',
-stateDetail = '{{ stateDetail }}',
-errorCode = '{{ errorCode }}',
-deleteResults = '{{ deleteResults }}',
-deleteBuild = '{{ deleteBuild }}',
-deleteLogs = '{{ deleteLogs }}',
-tfErrors = '{{ tfErrors }}',
-errorLogs = '{{ errorLogs }}',
 artifactsGcsBucket = '{{ artifactsGcsBucket }}',
 serviceAccount = '{{ serviceAccount }}',
 importExistingResources = true|false,
 workerPool = '{{ workerPool }}',
-lockState = '{{ lockState }}',
 tfVersionConstraint = '{{ tfVersionConstraint }}',
-tfVersion = '{{ tfVersion }}',
 quotaValidation = '{{ quotaValidation }}',
 annotations = '{{ annotations }}'
 WHERE 

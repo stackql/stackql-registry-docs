@@ -129,65 +129,39 @@ INSERT INTO google.alloydb.instances (
 clustersId,
 locationsId,
 projectsId,
-name,
 displayName,
-uid,
-createTime,
-updateTime,
-deleteTime,
 labels,
-state,
 instanceType,
 machineConfig,
 availabilityType,
 gceZone,
 databaseFlags,
-writableNode,
-nodes,
 queryInsightsConfig,
 readPoolConfig,
-ipAddress,
-publicIpAddress,
-reconciling,
 etag,
 annotations,
 clientConnectionConfig,
-satisfiesPzs,
 pscInstanceConfig,
-networkConfig,
-outboundPublicIpAddresses
+networkConfig
 )
 SELECT 
 '{{ clustersId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ labels }}',
-'{{ state }}',
 '{{ instanceType }}',
 '{{ machineConfig }}',
 '{{ availabilityType }}',
 '{{ gceZone }}',
 '{{ databaseFlags }}',
-'{{ writableNode }}',
-'{{ nodes }}',
 '{{ queryInsightsConfig }}',
 '{{ readPoolConfig }}',
-'{{ ipAddress }}',
-'{{ publicIpAddress }}',
-true|false,
 '{{ etag }}',
 '{{ annotations }}',
 '{{ clientConnectionConfig }}',
-true|false,
 '{{ pscInstanceConfig }}',
-'{{ networkConfig }}',
-'{{ outboundPublicIpAddresses }}'
+'{{ networkConfig }}'
 ;
 ```
 </TabItem>
@@ -196,60 +170,66 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
     - name: instanceType
       value: '{{ instanceType }}'
     - name: machineConfig
-      value: '{{ machineConfig }}'
+      value:
+        - name: cpuCount
+          value: '{{ cpuCount }}'
     - name: availabilityType
       value: '{{ availabilityType }}'
     - name: gceZone
       value: '{{ gceZone }}'
     - name: databaseFlags
       value: '{{ databaseFlags }}'
-    - name: writableNode
-      value: '{{ writableNode }}'
-    - name: nodes
-      value: '{{ nodes }}'
     - name: queryInsightsConfig
-      value: '{{ queryInsightsConfig }}'
+      value:
+        - name: recordApplicationTags
+          value: '{{ recordApplicationTags }}'
+        - name: recordClientAddress
+          value: '{{ recordClientAddress }}'
+        - name: queryStringLength
+          value: '{{ queryStringLength }}'
+        - name: queryPlansPerMinute
+          value: '{{ queryPlansPerMinute }}'
     - name: readPoolConfig
-      value: '{{ readPoolConfig }}'
-    - name: ipAddress
-      value: '{{ ipAddress }}'
-    - name: publicIpAddress
-      value: '{{ publicIpAddress }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
+      value:
+        - name: nodeCount
+          value: '{{ nodeCount }}'
     - name: etag
       value: '{{ etag }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: clientConnectionConfig
-      value: '{{ clientConnectionConfig }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
+      value:
+        - name: requireConnectors
+          value: '{{ requireConnectors }}'
+        - name: sslConfig
+          value:
+            - name: sslMode
+              value: '{{ sslMode }}'
+            - name: caSource
+              value: '{{ caSource }}'
     - name: pscInstanceConfig
-      value: '{{ pscInstanceConfig }}'
+      value:
+        - name: allowedConsumerProjects
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: networkConfig
-      value: '{{ networkConfig }}'
-    - name: outboundPublicIpAddresses
-      value: '{{ outboundPublicIpAddresses }}'
+      value:
+        - name: authorizedExternalNetworks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: enablePublicIp
+          value: '{{ enablePublicIp }}'
+        - name: enableOutboundPublicIp
+          value: '{{ enableOutboundPublicIp }}'
 
 ```
 </TabItem>
@@ -263,33 +243,20 @@ Updates a <code>instances</code> resource.
 /*+ update */
 UPDATE google.alloydb.instances
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
 labels = '{{ labels }}',
-state = '{{ state }}',
 instanceType = '{{ instanceType }}',
 machineConfig = '{{ machineConfig }}',
 availabilityType = '{{ availabilityType }}',
 gceZone = '{{ gceZone }}',
 databaseFlags = '{{ databaseFlags }}',
-writableNode = '{{ writableNode }}',
-nodes = '{{ nodes }}',
 queryInsightsConfig = '{{ queryInsightsConfig }}',
 readPoolConfig = '{{ readPoolConfig }}',
-ipAddress = '{{ ipAddress }}',
-publicIpAddress = '{{ publicIpAddress }}',
-reconciling = true|false,
 etag = '{{ etag }}',
 annotations = '{{ annotations }}',
 clientConnectionConfig = '{{ clientConnectionConfig }}',
-satisfiesPzs = true|false,
 pscInstanceConfig = '{{ pscInstanceConfig }}',
-networkConfig = '{{ networkConfig }}',
-outboundPublicIpAddresses = '{{ outboundPublicIpAddresses }}'
+networkConfig = '{{ networkConfig }}'
 WHERE 
 clustersId = '{{ clustersId }}'
 AND instancesId = '{{ instancesId }}'

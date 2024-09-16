@@ -93,14 +93,9 @@ locationsId,
 projectsId,
 name,
 cloneUri,
-createTime,
-updateTime,
-deleteTime,
 labels,
 etag,
-reconciling,
-annotations,
-uid
+annotations
 )
 SELECT 
 '{{ connectionsId }}',
@@ -108,14 +103,9 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ cloneUri }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ labels }}',
 '{{ etag }}',
-true|false,
-'{{ annotations }}',
-'{{ uid }}'
+'{{ annotations }}'
 ;
 ```
 </TabItem>
@@ -128,22 +118,12 @@ true|false,
       value: '{{ name }}'
     - name: cloneUri
       value: '{{ cloneUri }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: etag
       value: '{{ etag }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
     - name: annotations
       value: '{{ annotations }}'
-    - name: uid
-      value: '{{ uid }}'
 
 ```
 </TabItem>

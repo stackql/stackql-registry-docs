@@ -80,19 +80,13 @@ INSERT INTO google.apphub.service_project_attachments (
 locationsId,
 projectsId,
 name,
-serviceProject,
-createTime,
-uid,
-state
+serviceProject
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ serviceProject }}',
-'{{ createTime }}',
-'{{ uid }}',
-'{{ state }}'
+'{{ serviceProject }}'
 ;
 ```
 </TabItem>
@@ -105,12 +99,6 @@ SELECT
       value: '{{ name }}'
     - name: serviceProject
       value: '{{ serviceProject }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: state
-      value: '{{ state }}'
 
 ```
 </TabItem>

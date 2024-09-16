@@ -99,7 +99,27 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: instruction
-      value: '{{ instruction }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: description
+          value: '{{ description }}'
+        - name: dataType
+          value: '{{ dataType }}'
+        - name: csvInstruction
+          value:
+            - name: gcsFileUri
+              value: '{{ gcsFileUri }}'
+        - name: pdfInstruction
+          value:
+            - name: gcsFileUri
+              value: '{{ gcsFileUri }}'
+        - name: blockingResources
+          value:
+            - name: type
+              value: '{{ type }}'
 
 ```
 </TabItem>

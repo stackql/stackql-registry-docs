@@ -122,14 +122,9 @@ schedule,
 scheduleOptions,
 dataRefreshWindowDays,
 disabled,
-updateTime,
-nextRunTime,
-state,
 userId,
-datasetRegion,
 notificationPubsubTopic,
 emailPreferences,
-ownerInfo,
 encryptionConfiguration
 )
 SELECT 
@@ -143,14 +138,9 @@ SELECT
 '{{ scheduleOptions }}',
 '{{ dataRefreshWindowDays }}',
 true|false,
-'{{ updateTime }}',
-'{{ nextRunTime }}',
-'{{ state }}',
 '{{ userId }}',
-'{{ datasetRegion }}',
 '{{ notificationPubsubTopic }}',
 '{{ emailPreferences }}',
-'{{ ownerInfo }}',
 '{{ encryptionConfiguration }}'
 ;
 ```
@@ -173,29 +163,29 @@ true|false,
     - name: schedule
       value: '{{ schedule }}'
     - name: scheduleOptions
-      value: '{{ scheduleOptions }}'
+      value:
+        - name: disableAutoScheduling
+          value: '{{ disableAutoScheduling }}'
+        - name: startTime
+          value: '{{ startTime }}'
+        - name: endTime
+          value: '{{ endTime }}'
     - name: dataRefreshWindowDays
       value: '{{ dataRefreshWindowDays }}'
     - name: disabled
       value: '{{ disabled }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: nextRunTime
-      value: '{{ nextRunTime }}'
-    - name: state
-      value: '{{ state }}'
     - name: userId
       value: '{{ userId }}'
-    - name: datasetRegion
-      value: '{{ datasetRegion }}'
     - name: notificationPubsubTopic
       value: '{{ notificationPubsubTopic }}'
     - name: emailPreferences
-      value: '{{ emailPreferences }}'
-    - name: ownerInfo
-      value: '{{ ownerInfo }}'
+      value:
+        - name: enableFailureEmail
+          value: '{{ enableFailureEmail }}'
     - name: encryptionConfiguration
-      value: '{{ encryptionConfiguration }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
 
 ```
 </TabItem>
@@ -218,14 +208,9 @@ schedule = '{{ schedule }}',
 scheduleOptions = '{{ scheduleOptions }}',
 dataRefreshWindowDays = '{{ dataRefreshWindowDays }}',
 disabled = true|false,
-updateTime = '{{ updateTime }}',
-nextRunTime = '{{ nextRunTime }}',
-state = '{{ state }}',
 userId = '{{ userId }}',
-datasetRegion = '{{ datasetRegion }}',
 notificationPubsubTopic = '{{ notificationPubsubTopic }}',
 emailPreferences = '{{ emailPreferences }}',
-ownerInfo = '{{ ownerInfo }}',
 encryptionConfiguration = '{{ encryptionConfiguration }}'
 WHERE 
 projectsId = '{{ projectsId }}'

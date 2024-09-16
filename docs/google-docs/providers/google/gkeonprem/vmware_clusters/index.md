@@ -141,13 +141,6 @@ name,
 adminClusterMembership,
 description,
 onPremVersion,
-uid,
-state,
-endpoint,
-reconciling,
-createTime,
-updateTime,
-localName,
 etag,
 annotations,
 controlPlaneNode,
@@ -156,15 +149,10 @@ storage,
 networkConfig,
 loadBalancer,
 vcenter,
-status,
 dataplaneV2,
 vmTrackingEnabled,
 autoRepairConfig,
-fleet,
 authorization,
-deleteTime,
-validationCheck,
-adminClusterName,
 enableControlPlaneV2,
 binaryAuthorization,
 upgradePolicy,
@@ -177,13 +165,6 @@ SELECT
 '{{ adminClusterMembership }}',
 '{{ description }}',
 '{{ onPremVersion }}',
-'{{ uid }}',
-'{{ state }}',
-'{{ endpoint }}',
-true|false,
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ localName }}',
 '{{ etag }}',
 '{{ annotations }}',
 '{{ controlPlaneNode }}',
@@ -192,15 +173,10 @@ true|false,
 '{{ networkConfig }}',
 '{{ loadBalancer }}',
 '{{ vcenter }}',
-'{{ status }}',
 '{{ dataplaneV2 }}',
 true|false,
 '{{ autoRepairConfig }}',
-'{{ fleet }}',
 '{{ authorization }}',
-'{{ deleteTime }}',
-'{{ validationCheck }}',
-'{{ adminClusterName }}',
 true|false,
 '{{ binaryAuthorization }}',
 '{{ upgradePolicy }}',
@@ -221,60 +197,164 @@ true|false
       value: '{{ description }}'
     - name: onPremVersion
       value: '{{ onPremVersion }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: state
-      value: '{{ state }}'
-    - name: endpoint
-      value: '{{ endpoint }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: localName
-      value: '{{ localName }}'
     - name: etag
       value: '{{ etag }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: controlPlaneNode
-      value: '{{ controlPlaneNode }}'
+      value:
+        - name: cpus
+          value: '{{ cpus }}'
+        - name: memory
+          value: '{{ memory }}'
+        - name: replicas
+          value: '{{ replicas }}'
+        - name: autoResizeConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: vsphereConfig
+          value:
+            - name: datastore
+              value: '{{ datastore }}'
+            - name: storagePolicyName
+              value: '{{ storagePolicyName }}'
     - name: antiAffinityGroups
-      value: '{{ antiAffinityGroups }}'
+      value:
+        - name: aagConfigDisabled
+          value: '{{ aagConfigDisabled }}'
     - name: storage
-      value: '{{ storage }}'
+      value:
+        - name: vsphereCsiDisabled
+          value: '{{ vsphereCsiDisabled }}'
     - name: networkConfig
-      value: '{{ networkConfig }}'
+      value:
+        - name: serviceAddressCidrBlocks
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: podAddressCidrBlocks
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: staticIpConfig
+          value:
+            - name: ipBlocks
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: dhcpIpConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: vcenterNetwork
+          value: '{{ vcenterNetwork }}'
+        - name: hostConfig
+          value:
+            - name: dnsServers
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: ntpServers
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: dnsSearchDomains
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: controlPlaneV2Config
+          value:
+            - name: controlPlaneIpBlock
+              value:
+                - name: netmask
+                  value: '{{ netmask }}'
+                - name: gateway
+                  value: '{{ gateway }}'
+                - name: ips
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
     - name: loadBalancer
-      value: '{{ loadBalancer }}'
+      value:
+        - name: vipConfig
+          value:
+            - name: controlPlaneVip
+              value: '{{ controlPlaneVip }}'
+            - name: ingressVip
+              value: '{{ ingressVip }}'
+        - name: f5Config
+          value:
+            - name: address
+              value: '{{ address }}'
+            - name: partition
+              value: '{{ partition }}'
+            - name: snatPool
+              value: '{{ snatPool }}'
+        - name: manualLbConfig
+          value:
+            - name: ingressHttpNodePort
+              value: '{{ ingressHttpNodePort }}'
+            - name: ingressHttpsNodePort
+              value: '{{ ingressHttpsNodePort }}'
+            - name: controlPlaneNodePort
+              value: '{{ controlPlaneNodePort }}'
+            - name: konnectivityServerNodePort
+              value: '{{ konnectivityServerNodePort }}'
+        - name: metalLbConfig
+          value:
+            - name: addressPools
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: vcenter
-      value: '{{ vcenter }}'
-    - name: status
-      value: '{{ status }}'
+      value:
+        - name: resourcePool
+          value: '{{ resourcePool }}'
+        - name: datastore
+          value: '{{ datastore }}'
+        - name: datacenter
+          value: '{{ datacenter }}'
+        - name: cluster
+          value: '{{ cluster }}'
+        - name: folder
+          value: '{{ folder }}'
+        - name: caCertData
+          value: '{{ caCertData }}'
+        - name: storagePolicyName
+          value: '{{ storagePolicyName }}'
     - name: dataplaneV2
-      value: '{{ dataplaneV2 }}'
+      value:
+        - name: dataplaneV2Enabled
+          value: '{{ dataplaneV2Enabled }}'
+        - name: windowsDataplaneV2Enabled
+          value: '{{ windowsDataplaneV2Enabled }}'
+        - name: advancedNetworking
+          value: '{{ advancedNetworking }}'
+        - name: forwardMode
+          value: '{{ forwardMode }}'
     - name: vmTrackingEnabled
       value: '{{ vmTrackingEnabled }}'
     - name: autoRepairConfig
-      value: '{{ autoRepairConfig }}'
-    - name: fleet
-      value: '{{ fleet }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
     - name: authorization
-      value: '{{ authorization }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: validationCheck
-      value: '{{ validationCheck }}'
-    - name: adminClusterName
-      value: '{{ adminClusterName }}'
+      value:
+        - name: adminUsers
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: enableControlPlaneV2
       value: '{{ enableControlPlaneV2 }}'
     - name: binaryAuthorization
-      value: '{{ binaryAuthorization }}'
+      value:
+        - name: evaluationMode
+          value: '{{ evaluationMode }}'
     - name: upgradePolicy
-      value: '{{ upgradePolicy }}'
+      value:
+        - name: controlPlaneOnly
+          value: '{{ controlPlaneOnly }}'
     - name: disableBundledIngress
       value: '{{ disableBundledIngress }}'
 
@@ -294,13 +374,6 @@ name = '{{ name }}',
 adminClusterMembership = '{{ adminClusterMembership }}',
 description = '{{ description }}',
 onPremVersion = '{{ onPremVersion }}',
-uid = '{{ uid }}',
-state = '{{ state }}',
-endpoint = '{{ endpoint }}',
-reconciling = true|false,
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-localName = '{{ localName }}',
 etag = '{{ etag }}',
 annotations = '{{ annotations }}',
 controlPlaneNode = '{{ controlPlaneNode }}',
@@ -309,15 +382,10 @@ storage = '{{ storage }}',
 networkConfig = '{{ networkConfig }}',
 loadBalancer = '{{ loadBalancer }}',
 vcenter = '{{ vcenter }}',
-status = '{{ status }}',
 dataplaneV2 = '{{ dataplaneV2 }}',
 vmTrackingEnabled = true|false,
 autoRepairConfig = '{{ autoRepairConfig }}',
-fleet = '{{ fleet }}',
 authorization = '{{ authorization }}',
-deleteTime = '{{ deleteTime }}',
-validationCheck = '{{ validationCheck }}',
-adminClusterName = '{{ adminClusterName }}',
 enableControlPlaneV2 = true|false,
 binaryAuthorization = '{{ binaryAuthorization }}',
 upgradePolicy = '{{ upgradePolicy }}',

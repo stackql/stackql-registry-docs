@@ -93,33 +93,23 @@ Use the following StackQL query and manifest file to create a new <code>regional
 INSERT INTO google.networkconnectivity.regional_endpoints (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 labels,
 description,
 targetGoogleApi,
 network,
 subnetwork,
 accessType,
-pscForwardingRule,
-ipAddress,
 address
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ targetGoogleApi }}',
 '{{ network }}',
 '{{ subnetwork }}',
 '{{ accessType }}',
-'{{ pscForwardingRule }}',
-'{{ ipAddress }}',
 '{{ address }}'
 ;
 ```
@@ -129,12 +119,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
@@ -147,10 +131,6 @@ SELECT
       value: '{{ subnetwork }}'
     - name: accessType
       value: '{{ accessType }}'
-    - name: pscForwardingRule
-      value: '{{ pscForwardingRule }}'
-    - name: ipAddress
-      value: '{{ ipAddress }}'
     - name: address
       value: '{{ address }}'
 

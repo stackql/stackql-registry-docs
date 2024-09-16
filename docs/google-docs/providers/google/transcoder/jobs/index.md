@@ -104,13 +104,8 @@ inputUri,
 outputUri,
 templateId,
 config,
-state,
-createTime,
-startTime,
-endTime,
 ttlAfterCompletionDays,
 labels,
-error,
 mode,
 batchModePriority,
 optimization
@@ -123,13 +118,8 @@ SELECT
 '{{ outputUri }}',
 '{{ templateId }}',
 '{{ config }}',
-'{{ state }}',
-'{{ createTime }}',
-'{{ startTime }}',
-'{{ endTime }}',
 '{{ ttlAfterCompletionDays }}',
 '{{ labels }}',
-'{{ error }}',
 '{{ mode }}',
 '{{ batchModePriority }}',
 '{{ optimization }}'
@@ -150,21 +140,55 @@ SELECT
     - name: templateId
       value: '{{ templateId }}'
     - name: config
-      value: '{{ config }}'
-    - name: state
-      value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
+      value:
+        - name: inputs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: editList
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: elementaryStreams
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: muxStreams
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: manifests
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: output
+          value:
+            - name: uri
+              value: '{{ uri }}'
+        - name: adBreaks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: pubsubDestination
+          value:
+            - name: topic
+              value: '{{ topic }}'
+        - name: spriteSheets
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: overlays
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: encryptions
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: ttlAfterCompletionDays
       value: '{{ ttlAfterCompletionDays }}'
     - name: labels
       value: '{{ labels }}'
-    - name: error
-      value: '{{ error }}'
     - name: mode
       value: '{{ mode }}'
     - name: batchModePriority

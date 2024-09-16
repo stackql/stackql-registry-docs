@@ -99,7 +99,6 @@ displayName,
 notes,
 testConfig,
 testCaseConversationTurns,
-creationTime,
 lastTestResult
 )
 SELECT 
@@ -112,7 +111,6 @@ SELECT
 '{{ notes }}',
 '{{ testConfig }}',
 '{{ testCaseConversationTurns }}',
-'{{ creationTime }}',
 '{{ lastTestResult }}'
 ;
 ```
@@ -125,19 +123,41 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: tags
-      value: '{{ tags }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: notes
       value: '{{ notes }}'
     - name: testConfig
-      value: '{{ testConfig }}'
+      value:
+        - name: trackingParameters
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: flow
+          value: '{{ flow }}'
+        - name: page
+          value: '{{ page }}'
     - name: testCaseConversationTurns
-      value: '{{ testCaseConversationTurns }}'
-    - name: creationTime
-      value: '{{ creationTime }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: lastTestResult
-      value: '{{ lastTestResult }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: environment
+          value: '{{ environment }}'
+        - name: conversationTurns
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: testResult
+          value: '{{ testResult }}'
+        - name: testTime
+          value: '{{ testTime }}'
 
 ```
 </TabItem>
@@ -157,7 +177,6 @@ displayName = '{{ displayName }}',
 notes = '{{ notes }}',
 testConfig = '{{ testConfig }}',
 testCaseConversationTurns = '{{ testCaseConversationTurns }}',
-creationTime = '{{ creationTime }}',
 lastTestResult = '{{ lastTestResult }}'
 WHERE 
 agentsId = '{{ agentsId }}'

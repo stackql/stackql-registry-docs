@@ -94,10 +94,6 @@ Use the following StackQL query and manifest file to create a new <code>region_h
 INSERT INTO google.compute.region_health_check_services (
 project,
 region,
-kind,
-id,
-creationTimestamp,
-selfLink,
 name,
 description,
 region,
@@ -110,10 +106,6 @@ fingerprint
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
-'{{ selfLink }}',
 '{{ name }}',
 '{{ description }}',
 '{{ region }}',
@@ -130,14 +122,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -147,11 +131,17 @@ SELECT
     - name: healthStatusAggregationPolicy
       value: '{{ healthStatusAggregationPolicy }}'
     - name: healthChecks
-      value: '{{ healthChecks }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: networkEndpointGroups
-      value: '{{ networkEndpointGroups }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: notificationEndpoints
-      value: '{{ notificationEndpoints }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
 
@@ -167,10 +157,6 @@ Updates a <code>region_health_check_services</code> resource.
 /*+ update */
 UPDATE google.compute.region_health_check_services
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
-selfLink = '{{ selfLink }}',
 name = '{{ name }}',
 description = '{{ description }}',
 region = '{{ region }}',

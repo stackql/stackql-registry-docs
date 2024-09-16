@@ -98,8 +98,6 @@ datasetsId,
 locationsId,
 projectsId,
 name,
-revisionId,
-revisionCreateTime,
 userId,
 policies,
 consentArtifact,
@@ -114,8 +112,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ revisionId }}',
-'{{ revisionCreateTime }}',
 '{{ userId }}',
 '{{ policies }}',
 '{{ consentArtifact }}',
@@ -133,14 +129,12 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: revisionId
-      value: '{{ revisionId }}'
-    - name: revisionCreateTime
-      value: '{{ revisionCreateTime }}'
     - name: userId
       value: '{{ userId }}'
     - name: policies
-      value: '{{ policies }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: consentArtifact
       value: '{{ consentArtifact }}'
     - name: state
@@ -165,8 +159,6 @@ Updates a <code>consents</code> resource.
 UPDATE google.healthcare.consents
 SET 
 name = '{{ name }}',
-revisionId = '{{ revisionId }}',
-revisionCreateTime = '{{ revisionCreateTime }}',
 userId = '{{ userId }}',
 policies = '{{ policies }}',
 consentArtifact = '{{ consentArtifact }}',

@@ -112,22 +112,12 @@ locationsId,
 projectsId,
 terraformBlueprint,
 name,
-createTime,
 labels,
-state,
 deployment,
 previewMode,
 serviceAccount,
 artifactsGcsBucket,
 workerPool,
-errorCode,
-errorStatus,
-build,
-tfErrors,
-errorLogs,
-previewArtifacts,
-logs,
-tfVersion,
 tfVersionConstraint,
 annotations
 )
@@ -136,22 +126,12 @@ SELECT
 '{{ projectsId }}',
 '{{ terraformBlueprint }}',
 '{{ name }}',
-'{{ createTime }}',
 '{{ labels }}',
-'{{ state }}',
 '{{ deployment }}',
 '{{ previewMode }}',
 '{{ serviceAccount }}',
 '{{ artifactsGcsBucket }}',
 '{{ workerPool }}',
-'{{ errorCode }}',
-'{{ errorStatus }}',
-'{{ build }}',
-'{{ tfErrors }}',
-'{{ errorLogs }}',
-'{{ previewArtifacts }}',
-'{{ logs }}',
-'{{ tfVersion }}',
 '{{ tfVersionConstraint }}',
 '{{ annotations }}'
 ;
@@ -163,15 +143,23 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: terraformBlueprint
-      value: '{{ terraformBlueprint }}'
+      value:
+        - name: gcsSource
+          value: '{{ gcsSource }}'
+        - name: gitSource
+          value:
+            - name: repo
+              value: '{{ repo }}'
+            - name: directory
+              value: '{{ directory }}'
+            - name: ref
+              value: '{{ ref }}'
+        - name: inputValues
+          value: '{{ inputValues }}'
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
     - name: deployment
       value: '{{ deployment }}'
     - name: previewMode
@@ -182,22 +170,6 @@ SELECT
       value: '{{ artifactsGcsBucket }}'
     - name: workerPool
       value: '{{ workerPool }}'
-    - name: errorCode
-      value: '{{ errorCode }}'
-    - name: errorStatus
-      value: '{{ errorStatus }}'
-    - name: build
-      value: '{{ build }}'
-    - name: tfErrors
-      value: '{{ tfErrors }}'
-    - name: errorLogs
-      value: '{{ errorLogs }}'
-    - name: previewArtifacts
-      value: '{{ previewArtifacts }}'
-    - name: logs
-      value: '{{ logs }}'
-    - name: tfVersion
-      value: '{{ tfVersion }}'
     - name: tfVersionConstraint
       value: '{{ tfVersionConstraint }}'
     - name: annotations

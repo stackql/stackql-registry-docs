@@ -82,9 +82,6 @@ Updates a <code>client_states</code> resource.
 /*+ update */
 UPDATE google.cloudidentity.client_states
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-lastUpdateTime = '{{ lastUpdateTime }}',
 etag = '{{ etag }}',
 customId = '{{ customId }}',
 assetTags = '{{ assetTags }}',
@@ -92,8 +89,7 @@ healthScore = '{{ healthScore }}',
 scoreReason = '{{ scoreReason }}',
 managed = '{{ managed }}',
 complianceState = '{{ complianceState }}',
-keyValuePairs = '{{ keyValuePairs }}',
-ownerType = '{{ ownerType }}'
+keyValuePairs = '{{ keyValuePairs }}'
 WHERE 
 clientStatesId = '{{ clientStatesId }}'
 AND deviceUsersId = '{{ deviceUsersId }}'

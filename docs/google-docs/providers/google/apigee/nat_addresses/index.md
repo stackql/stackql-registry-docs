@@ -76,15 +76,11 @@ Use the following StackQL query and manifest file to create a new <code>nat_addr
 INSERT INTO google.apigee.nat_addresses (
 instancesId,
 organizationsId,
-state,
-ipAddress,
 name
 )
 SELECT 
 '{{ instancesId }}',
 '{{ organizationsId }}',
-'{{ state }}',
-'{{ ipAddress }}',
 '{{ name }}'
 ;
 ```
@@ -94,10 +90,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: state
-      value: '{{ state }}'
-    - name: ipAddress
-      value: '{{ ipAddress }}'
     - name: name
       value: '{{ name }}'
 

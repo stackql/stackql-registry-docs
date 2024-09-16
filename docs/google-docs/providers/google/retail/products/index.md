@@ -148,7 +148,6 @@ projectsId,
 expireTime,
 ttl,
 name,
-id,
 type,
 primaryProductId,
 collectionMemberIds,
@@ -176,9 +175,7 @@ patterns,
 conditions,
 promotions,
 publishTime,
-retrievableFields,
-variants,
-localInventories
+retrievableFields
 )
 SELECT 
 '{{ branchesId }}',
@@ -188,7 +185,6 @@ SELECT
 '{{ expireTime }}',
 '{{ ttl }}',
 '{{ name }}',
-'{{ id }}',
 '{{ type }}',
 '{{ primaryProductId }}',
 '{{ collectionMemberIds }}',
@@ -216,9 +212,7 @@ SELECT
 '{{ conditions }}',
 '{{ promotions }}',
 '{{ publishTime }}',
-'{{ retrievableFields }}',
-'{{ variants }}',
-'{{ localInventories }}'
+'{{ retrievableFields }}'
 ;
 ```
 </TabItem>
@@ -233,22 +227,26 @@ SELECT
       value: '{{ ttl }}'
     - name: name
       value: '{{ name }}'
-    - name: id
-      value: '{{ id }}'
     - name: type
       value: '{{ type }}'
     - name: primaryProductId
       value: '{{ primaryProductId }}'
     - name: collectionMemberIds
-      value: '{{ collectionMemberIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: gtin
       value: '{{ gtin }}'
     - name: categories
-      value: '{{ categories }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: title
       value: '{{ title }}'
     - name: brands
-      value: '{{ brands }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: description
       value: '{{ description }}'
     - name: languageCode
@@ -256,11 +254,35 @@ SELECT
     - name: attributes
       value: '{{ attributes }}'
     - name: tags
-      value: '{{ tags }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: priceInfo
-      value: '{{ priceInfo }}'
+      value:
+        - name: currencyCode
+          value: '{{ currencyCode }}'
+        - name: price
+          value: '{{ price }}'
+        - name: originalPrice
+          value: '{{ originalPrice }}'
+        - name: cost
+          value: '{{ cost }}'
+        - name: priceEffectiveTime
+          value: '{{ priceEffectiveTime }}'
+        - name: priceExpireTime
+          value: '{{ priceExpireTime }}'
     - name: rating
-      value: '{{ rating }}'
+      value:
+        - name: ratingCount
+          value: '{{ ratingCount }}'
+        - name: averageRating
+          value: '{{ averageRating }}'
+        - name: ratingHistogram
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: format
+              value: '{{ format }}'
     - name: availableTime
       value: '{{ availableTime }}'
     - name: availability
@@ -268,33 +290,59 @@ SELECT
     - name: availableQuantity
       value: '{{ availableQuantity }}'
     - name: fulfillmentInfo
-      value: '{{ fulfillmentInfo }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: uri
       value: '{{ uri }}'
     - name: images
-      value: '{{ images }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: audience
-      value: '{{ audience }}'
+      value:
+        - name: genders
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: ageGroups
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: colorInfo
-      value: '{{ colorInfo }}'
+      value:
+        - name: colorFamilies
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: colors
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: sizes
-      value: '{{ sizes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: materials
-      value: '{{ materials }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: patterns
-      value: '{{ patterns }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: conditions
-      value: '{{ conditions }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: promotions
-      value: '{{ promotions }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: publishTime
       value: '{{ publishTime }}'
     - name: retrievableFields
       value: '{{ retrievableFields }}'
-    - name: variants
-      value: '{{ variants }}'
-    - name: localInventories
-      value: '{{ localInventories }}'
 
 ```
 </TabItem>
@@ -311,7 +359,6 @@ SET
 expireTime = '{{ expireTime }}',
 ttl = '{{ ttl }}',
 name = '{{ name }}',
-id = '{{ id }}',
 type = '{{ type }}',
 primaryProductId = '{{ primaryProductId }}',
 collectionMemberIds = '{{ collectionMemberIds }}',
@@ -339,9 +386,7 @@ patterns = '{{ patterns }}',
 conditions = '{{ conditions }}',
 promotions = '{{ promotions }}',
 publishTime = '{{ publishTime }}',
-retrievableFields = '{{ retrievableFields }}',
-variants = '{{ variants }}',
-localInventories = '{{ localInventories }}'
+retrievableFields = '{{ retrievableFields }}'
 WHERE 
 branchesId = '{{ branchesId }}'
 AND catalogsId = '{{ catalogsId }}'

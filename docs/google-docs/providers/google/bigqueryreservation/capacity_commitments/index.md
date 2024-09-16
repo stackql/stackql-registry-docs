@@ -94,32 +94,20 @@ Use the following StackQL query and manifest file to create a new <code>capacity
 INSERT INTO google.bigqueryreservation.capacity_commitments (
 locationsId,
 projectsId,
-name,
 slotCount,
 plan,
-state,
-commitmentStartTime,
-commitmentEndTime,
-failureStatus,
 renewalPlan,
 multiRegionAuxiliary,
-edition,
-isFlatRate
+edition
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ slotCount }}',
 '{{ plan }}',
-'{{ state }}',
-'{{ commitmentStartTime }}',
-'{{ commitmentEndTime }}',
-'{{ failureStatus }}',
 '{{ renewalPlan }}',
 true|false,
-'{{ edition }}',
-true|false
+'{{ edition }}'
 ;
 ```
 </TabItem>
@@ -128,28 +116,16 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: slotCount
       value: '{{ slotCount }}'
     - name: plan
       value: '{{ plan }}'
-    - name: state
-      value: '{{ state }}'
-    - name: commitmentStartTime
-      value: '{{ commitmentStartTime }}'
-    - name: commitmentEndTime
-      value: '{{ commitmentEndTime }}'
-    - name: failureStatus
-      value: '{{ failureStatus }}'
     - name: renewalPlan
       value: '{{ renewalPlan }}'
     - name: multiRegionAuxiliary
       value: '{{ multiRegionAuxiliary }}'
     - name: edition
       value: '{{ edition }}'
-    - name: isFlatRate
-      value: '{{ isFlatRate }}'
 
 ```
 </TabItem>
@@ -163,17 +139,11 @@ Updates a <code>capacity_commitments</code> resource.
 /*+ update */
 UPDATE google.bigqueryreservation.capacity_commitments
 SET 
-name = '{{ name }}',
 slotCount = '{{ slotCount }}',
 plan = '{{ plan }}',
-state = '{{ state }}',
-commitmentStartTime = '{{ commitmentStartTime }}',
-commitmentEndTime = '{{ commitmentEndTime }}',
-failureStatus = '{{ failureStatus }}',
 renewalPlan = '{{ renewalPlan }}',
 multiRegionAuxiliary = true|false,
-edition = '{{ edition }}',
-isFlatRate = true|false
+edition = '{{ edition }}'
 WHERE 
 capacityCommitmentsId = '{{ capacityCommitmentsId }}'
 AND locationsId = '{{ locationsId }}'

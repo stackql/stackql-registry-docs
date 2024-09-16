@@ -126,10 +126,7 @@ Use the following StackQL query and manifest file to create a new <code>organiza
 /*+ create */
 INSERT INTO google.apigee.organizations (
 ,
-lastModifiedAt,
-subscriptionPlan,
 portalDisabled,
-caCertificate,
 disableVpcPeering,
 apiConsumerDataLocation,
 analyticsRegion,
@@ -137,30 +134,19 @@ billingType,
 authorizedNetwork,
 controlPlaneEncryptionKeyName,
 runtimeDatabaseEncryptionKeyName,
-expiresAt,
 runtimeType,
-environments,
 type,
 displayName,
 apiConsumerDataEncryptionKeyName,
-name,
 properties,
-projectId,
 description,
-state,
 customerName,
-apigeeProjectId,
 attributes,
-subscriptionType,
-addonsConfig,
-createdAt
+addonsConfig
 )
 SELECT 
 '{{  }}',
-'{{ lastModifiedAt }}',
-'{{ subscriptionPlan }}',
 true|false,
-'{{ caCertificate }}',
 true|false,
 '{{ apiConsumerDataLocation }}',
 '{{ analyticsRegion }}',
@@ -168,23 +154,15 @@ true|false,
 '{{ authorizedNetwork }}',
 '{{ controlPlaneEncryptionKeyName }}',
 '{{ runtimeDatabaseEncryptionKeyName }}',
-'{{ expiresAt }}',
 '{{ runtimeType }}',
-'{{ environments }}',
 '{{ type }}',
 '{{ displayName }}',
 '{{ apiConsumerDataEncryptionKeyName }}',
-'{{ name }}',
 '{{ properties }}',
-'{{ projectId }}',
 '{{ description }}',
-'{{ state }}',
 '{{ customerName }}',
-'{{ apigeeProjectId }}',
 '{{ attributes }}',
-'{{ subscriptionType }}',
-'{{ addonsConfig }}',
-'{{ createdAt }}'
+'{{ addonsConfig }}'
 ;
 ```
 </TabItem>
@@ -193,14 +171,8 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
-    - name: subscriptionPlan
-      value: '{{ subscriptionPlan }}'
     - name: portalDisabled
       value: '{{ portalDisabled }}'
-    - name: caCertificate
-      value: '{{ caCertificate }}'
     - name: disableVpcPeering
       value: '{{ disableVpcPeering }}'
     - name: apiConsumerDataLocation
@@ -215,40 +187,54 @@ true|false,
       value: '{{ controlPlaneEncryptionKeyName }}'
     - name: runtimeDatabaseEncryptionKeyName
       value: '{{ runtimeDatabaseEncryptionKeyName }}'
-    - name: expiresAt
-      value: '{{ expiresAt }}'
     - name: runtimeType
       value: '{{ runtimeType }}'
-    - name: environments
-      value: '{{ environments }}'
     - name: type
       value: '{{ type }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: apiConsumerDataEncryptionKeyName
       value: '{{ apiConsumerDataEncryptionKeyName }}'
-    - name: name
-      value: '{{ name }}'
     - name: properties
-      value: '{{ properties }}'
-    - name: projectId
-      value: '{{ projectId }}'
+      value:
+        - name: property
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
     - name: customerName
       value: '{{ customerName }}'
-    - name: apigeeProjectId
-      value: '{{ apigeeProjectId }}'
     - name: attributes
-      value: '{{ attributes }}'
-    - name: subscriptionType
-      value: '{{ subscriptionType }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: addonsConfig
-      value: '{{ addonsConfig }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
+      value:
+        - name: analyticsConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: integrationConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: advancedApiOpsConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: monetizationConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: connectorsPlatformConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+        - name: apiSecurityConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
 
 ```
 </TabItem>
@@ -262,10 +248,7 @@ Replaces all fields in the specified <code>organizations</code> resource.
 /*+ update */
 REPLACE google.apigee.organizations
 SET 
-lastModifiedAt = '{{ lastModifiedAt }}',
-subscriptionPlan = '{{ subscriptionPlan }}',
 portalDisabled = true|false,
-caCertificate = '{{ caCertificate }}',
 disableVpcPeering = true|false,
 apiConsumerDataLocation = '{{ apiConsumerDataLocation }}',
 analyticsRegion = '{{ analyticsRegion }}',
@@ -273,23 +256,15 @@ billingType = '{{ billingType }}',
 authorizedNetwork = '{{ authorizedNetwork }}',
 controlPlaneEncryptionKeyName = '{{ controlPlaneEncryptionKeyName }}',
 runtimeDatabaseEncryptionKeyName = '{{ runtimeDatabaseEncryptionKeyName }}',
-expiresAt = '{{ expiresAt }}',
 runtimeType = '{{ runtimeType }}',
-environments = '{{ environments }}',
 type = '{{ type }}',
 displayName = '{{ displayName }}',
 apiConsumerDataEncryptionKeyName = '{{ apiConsumerDataEncryptionKeyName }}',
-name = '{{ name }}',
 properties = '{{ properties }}',
-projectId = '{{ projectId }}',
 description = '{{ description }}',
-state = '{{ state }}',
 customerName = '{{ customerName }}',
-apigeeProjectId = '{{ apigeeProjectId }}',
 attributes = '{{ attributes }}',
-subscriptionType = '{{ subscriptionType }}',
-addonsConfig = '{{ addonsConfig }}',
-createdAt = '{{ createdAt }}'
+addonsConfig = '{{ addonsConfig }}'
 WHERE 
 organizationsId = '{{ organizationsId }}';
 ```

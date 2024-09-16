@@ -88,8 +88,6 @@ locationsId,
 projectsId,
 name,
 description,
-createTime,
-updateTime,
 labels,
 allowOpen,
 serverCertificate,
@@ -100,8 +98,6 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 true|false,
 '{{ serverCertificate }}',
@@ -118,18 +114,30 @@ true|false,
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: allowOpen
       value: '{{ allowOpen }}'
     - name: serverCertificate
-      value: '{{ serverCertificate }}'
+      value:
+        - name: grpcEndpoint
+          value:
+            - name: targetUri
+              value: '{{ targetUri }}'
+        - name: certificateProviderInstance
+          value:
+            - name: pluginInstance
+              value: '{{ pluginInstance }}'
     - name: mtlsPolicy
-      value: '{{ mtlsPolicy }}'
+      value:
+        - name: clientValidationMode
+          value: '{{ clientValidationMode }}'
+        - name: clientValidationCa
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: clientValidationTrustConfig
+          value: '{{ clientValidationTrustConfig }}'
 
 ```
 </TabItem>
@@ -145,8 +153,6 @@ UPDATE google.networksecurity.server_tls_policies
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 allowOpen = true|false,
 serverCertificate = '{{ serverCertificate }}',

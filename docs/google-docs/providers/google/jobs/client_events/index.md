@@ -57,7 +57,6 @@ projectsId,
 tenantsId,
 requestId,
 eventId,
-createTime,
 jobEvent,
 eventNotes
 )
@@ -66,7 +65,6 @@ SELECT
 '{{ tenantsId }}',
 '{{ requestId }}',
 '{{ eventId }}',
-'{{ createTime }}',
 '{{ jobEvent }}',
 '{{ eventNotes }}'
 ;
@@ -81,10 +79,14 @@ SELECT
       value: '{{ requestId }}'
     - name: eventId
       value: '{{ eventId }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: jobEvent
-      value: '{{ jobEvent }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: jobs
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: eventNotes
       value: '{{ eventNotes }}'
 

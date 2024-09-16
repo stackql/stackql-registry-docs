@@ -124,9 +124,13 @@ true|false,
     - name: displayName
       value: '{{ displayName }}'
     - name: trainingPhrases
-      value: '{{ trainingPhrases }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: parameters
-      value: '{{ parameters }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: priority
       value: '{{ priority }}'
     - name: isFallback

@@ -110,7 +110,15 @@ SELECT
     - name: accountId
       value: '{{ accountId }}'
     - name: serviceAccount
-      value: '{{ serviceAccount }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: etag
+          value: '{{ etag }}'
+        - name: description
+          value: '{{ description }}'
 
 ```
 </TabItem>
@@ -140,14 +148,9 @@ Replaces all fields in the specified <code>service_accounts</code> resource.
 REPLACE google.iam.service_accounts
 SET 
 name = '{{ name }}',
-projectId = '{{ projectId }}',
-uniqueId = '{{ uniqueId }}',
-email = '{{ email }}',
 displayName = '{{ displayName }}',
 etag = '{{ etag }}',
-description = '{{ description }}',
-oauth2ClientId = '{{ oauth2ClientId }}',
-disabled = true|false
+description = '{{ description }}'
 WHERE 
 projectsId = '{{ projectsId }}'
 AND serviceAccountsId = '{{ serviceAccountsId }}';

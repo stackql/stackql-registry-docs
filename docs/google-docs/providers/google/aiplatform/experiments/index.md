@@ -92,11 +92,8 @@ projectsId,
 tensorboardsId,
 labels,
 displayName,
-updateTime,
 source,
-createTime,
 etag,
-name,
 description
 )
 SELECT 
@@ -105,11 +102,8 @@ SELECT
 '{{ tensorboardsId }}',
 '{{ labels }}',
 '{{ displayName }}',
-'{{ updateTime }}',
 '{{ source }}',
-'{{ createTime }}',
 '{{ etag }}',
-'{{ name }}',
 '{{ description }}'
 ;
 ```
@@ -123,16 +117,10 @@ SELECT
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: source
       value: '{{ source }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: etag
       value: '{{ etag }}'
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
 
@@ -150,11 +138,8 @@ UPDATE google.aiplatform.experiments
 SET 
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
-updateTime = '{{ updateTime }}',
 source = '{{ source }}',
-createTime = '{{ createTime }}',
 etag = '{{ etag }}',
-name = '{{ name }}',
 description = '{{ description }}'
 WHERE 
 experimentsId = '{{ experimentsId }}'

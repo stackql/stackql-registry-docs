@@ -107,9 +107,6 @@ Use the following StackQL query and manifest file to create a new <code>firewall
 /*+ create */
 INSERT INTO google.compute.firewalls (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 network,
@@ -124,14 +121,10 @@ allowed,
 denied,
 direction,
 logConfig,
-disabled,
-selfLink
+disabled
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ network }}',
@@ -146,8 +139,7 @@ SELECT
 '{{ denied }}',
 '{{ direction }}',
 '{{ logConfig }}',
-true|false,
-'{{ selfLink }}'
+true|false
 ;
 ```
 </TabItem>
@@ -156,12 +148,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -171,37 +157,55 @@ true|false,
     - name: priority
       value: '{{ priority }}'
     - name: sourceRanges
-      value: '{{ sourceRanges }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: destinationRanges
-      value: '{{ destinationRanges }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: sourceTags
-      value: '{{ sourceTags }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: targetTags
-      value: '{{ targetTags }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: sourceServiceAccounts
-      value: '{{ sourceServiceAccounts }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: targetServiceAccounts
-      value: '{{ targetServiceAccounts }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: allowed
       value:
-        - - name: IPProtocol
-            value: '{{ IPProtocol }}'
-          - name: ports
-            value: '{{ ports }}'
+        - name: IPProtocol
+          value: '{{ IPProtocol }}'
+        - name: ports
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: denied
       value:
-        - - name: IPProtocol
-            value: '{{ IPProtocol }}'
-          - name: ports
-            value: '{{ ports }}'
+        - name: IPProtocol
+          value: '{{ IPProtocol }}'
+        - name: ports
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: direction
       value: '{{ direction }}'
     - name: logConfig
-      value: '{{ logConfig }}'
+      value:
+        - name: enable
+          value: '{{ enable }}'
+        - name: metadata
+          value: '{{ metadata }}'
     - name: disabled
       value: '{{ disabled }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
 
 ```
 </TabItem>
@@ -215,9 +219,6 @@ Updates a <code>firewalls</code> resource.
 /*+ update */
 UPDATE google.compute.firewalls
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 network = '{{ network }}',
@@ -232,8 +233,7 @@ allowed = '{{ allowed }}',
 denied = '{{ denied }}',
 direction = '{{ direction }}',
 logConfig = '{{ logConfig }}',
-disabled = true|false,
-selfLink = '{{ selfLink }}'
+disabled = true|false
 WHERE 
 firewall = '{{ firewall }}'
 AND project = '{{ project }}';
@@ -247,9 +247,6 @@ Replaces all fields in the specified <code>firewalls</code> resource.
 /*+ update */
 REPLACE google.compute.firewalls
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 network = '{{ network }}',
@@ -264,8 +261,7 @@ allowed = '{{ allowed }}',
 denied = '{{ denied }}',
 direction = '{{ direction }}',
 logConfig = '{{ logConfig }}',
-disabled = true|false,
-selfLink = '{{ selfLink }}'
+disabled = true|false
 WHERE 
 firewall = '{{ firewall }}'
 AND project = '{{ project }}';

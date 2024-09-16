@@ -75,9 +75,35 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: documentLink
-      value: '{{ documentLink }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: sourceDocumentReference
+          value:
+            - name: documentIsFolder
+              value: '{{ documentIsFolder }}'
+            - name: documentIsLegalHoldFolder
+              value: '{{ documentIsLegalHoldFolder }}'
+            - name: documentName
+              value: '{{ documentName }}'
+            - name: snippet
+              value: '{{ snippet }}'
+            - name: documentIsRetentionFolder
+              value: '{{ documentIsRetentionFolder }}'
+            - name: displayName
+              value: '{{ displayName }}'
+        - name: state
+          value: '{{ state }}'
+        - name: description
+          value: '{{ description }}'
     - name: requestMetadata
-      value: '{{ requestMetadata }}'
+      value:
+        - name: userInfo
+          value:
+            - name: groupIds
+              value:
+                - name: type
+                  value: '{{ type }}'
 
 ```
 </TabItem>

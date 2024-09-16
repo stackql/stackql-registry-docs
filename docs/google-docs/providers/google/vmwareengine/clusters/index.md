@@ -90,13 +90,7 @@ INSERT INTO google.vmwareengine.clusters (
 locationsId,
 privateCloudsId,
 projectsId,
-name,
-createTime,
-updateTime,
-state,
-management,
 autoscalingSettings,
-uid,
 nodeTypeConfigs,
 stretchedClusterConfig
 )
@@ -104,13 +98,7 @@ SELECT
 '{{ locationsId }}',
 '{{ privateCloudsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ state }}',
-true|false,
 '{{ autoscalingSettings }}',
-'{{ uid }}',
 '{{ nodeTypeConfigs }}',
 '{{ stretchedClusterConfig }}'
 ;
@@ -121,24 +109,24 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: management
-      value: '{{ management }}'
     - name: autoscalingSettings
-      value: '{{ autoscalingSettings }}'
-    - name: uid
-      value: '{{ uid }}'
+      value:
+        - name: autoscalingPolicies
+          value: '{{ autoscalingPolicies }}'
+        - name: minClusterNodeCount
+          value: '{{ minClusterNodeCount }}'
+        - name: maxClusterNodeCount
+          value: '{{ maxClusterNodeCount }}'
+        - name: coolDownPeriod
+          value: '{{ coolDownPeriod }}'
     - name: nodeTypeConfigs
       value: '{{ nodeTypeConfigs }}'
     - name: stretchedClusterConfig
-      value: '{{ stretchedClusterConfig }}'
+      value:
+        - name: preferredLocation
+          value: '{{ preferredLocation }}'
+        - name: secondaryLocation
+          value: '{{ secondaryLocation }}'
 
 ```
 </TabItem>
@@ -152,13 +140,7 @@ Updates a <code>clusters</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.clusters
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-state = '{{ state }}',
-management = true|false,
 autoscalingSettings = '{{ autoscalingSettings }}',
-uid = '{{ uid }}',
 nodeTypeConfigs = '{{ nodeTypeConfigs }}',
 stretchedClusterConfig = '{{ stretchedClusterConfig }}'
 WHERE 

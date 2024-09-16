@@ -143,11 +143,29 @@ SELECT
     - name: retentionStrategy
       value: '{{ retentionStrategy }}'
     - name: purgeDataTypes
-      value: '{{ purgeDataTypes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: audioExportSettings
-      value: '{{ audioExportSettings }}'
+      value:
+        - name: gcsBucket
+          value: '{{ gcsBucket }}'
+        - name: audioExportPattern
+          value: '{{ audioExportPattern }}'
+        - name: enableAudioRedaction
+          value: '{{ enableAudioRedaction }}'
+        - name: audioFormat
+          value: '{{ audioFormat }}'
+        - name: storeTtsAudio
+          value: '{{ storeTtsAudio }}'
     - name: insightsExportSettings
-      value: '{{ insightsExportSettings }}'
+      value:
+        - name: enableInsightsExport
+          value: '{{ enableInsightsExport }}'
 
 ```
 </TabItem>

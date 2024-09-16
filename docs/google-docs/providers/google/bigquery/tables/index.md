@@ -174,110 +174,56 @@ INSERT INTO google.bigquery.tables (
 +datasetId,
 projectId,
 biglakeConfiguration,
-cloneDefinition,
 clustering,
-creationTime,
 defaultCollation,
 defaultRoundingMode,
 description,
 encryptionConfiguration,
-etag,
 expirationTime,
 externalCatalogTableOptions,
 externalDataConfiguration,
 friendlyName,
-id,
-kind,
 labels,
-lastModifiedTime,
-location,
 materializedView,
-materializedViewStatus,
 maxStaleness,
 model,
-numActiveLogicalBytes,
-numActivePhysicalBytes,
-numBytes,
-numCurrentPhysicalBytes,
-numLongTermBytes,
-numLongTermLogicalBytes,
-numLongTermPhysicalBytes,
-numPartitions,
-numPhysicalBytes,
-numRows,
-numTimeTravelPhysicalBytes,
-numTotalLogicalBytes,
-numTotalPhysicalBytes,
 partitionDefinition,
 rangePartitioning,
-replicas,
 requirePartitionFilter,
 resourceTags,
-restrictions,
 schema,
-selfLink,
-snapshotDefinition,
-streamingBuffer,
 tableConstraints,
 tableReference,
 tableReplicationInfo,
 timePartitioning,
-type,
 view
 )
 SELECT 
 '{{ +datasetId }}',
 '{{ projectId }}',
 '{{ biglakeConfiguration }}',
-'{{ cloneDefinition }}',
 '{{ clustering }}',
-'{{ creationTime }}',
 '{{ defaultCollation }}',
 '{{ defaultRoundingMode }}',
 '{{ description }}',
 '{{ encryptionConfiguration }}',
-'{{ etag }}',
 '{{ expirationTime }}',
 '{{ externalCatalogTableOptions }}',
 '{{ externalDataConfiguration }}',
 '{{ friendlyName }}',
-'{{ id }}',
-'{{ kind }}',
 '{{ labels }}',
-'{{ lastModifiedTime }}',
-'{{ location }}',
 '{{ materializedView }}',
-'{{ materializedViewStatus }}',
 '{{ maxStaleness }}',
 '{{ model }}',
-'{{ numActiveLogicalBytes }}',
-'{{ numActivePhysicalBytes }}',
-'{{ numBytes }}',
-'{{ numCurrentPhysicalBytes }}',
-'{{ numLongTermBytes }}',
-'{{ numLongTermLogicalBytes }}',
-'{{ numLongTermPhysicalBytes }}',
-'{{ numPartitions }}',
-'{{ numPhysicalBytes }}',
-'{{ numRows }}',
-'{{ numTimeTravelPhysicalBytes }}',
-'{{ numTotalLogicalBytes }}',
-'{{ numTotalPhysicalBytes }}',
 '{{ partitionDefinition }}',
 '{{ rangePartitioning }}',
-'{{ replicas }}',
 true|false,
 '{{ resourceTags }}',
-'{{ restrictions }}',
 '{{ schema }}',
-'{{ selfLink }}',
-'{{ snapshotDefinition }}',
-'{{ streamingBuffer }}',
 '{{ tableConstraints }}',
 '{{ tableReference }}',
 '{{ tableReplicationInfo }}',
 '{{ timePartitioning }}',
-'{{ type }}',
 '{{ view }}'
 ;
 ```
@@ -288,13 +234,21 @@ true|false,
 - name: your_resource_model_name
   props:
     - name: biglakeConfiguration
-      value: '{{ biglakeConfiguration }}'
-    - name: cloneDefinition
-      value: '{{ cloneDefinition }}'
+      value:
+        - name: connectionId
+          value: '{{ connectionId }}'
+        - name: fileFormat
+          value: '{{ fileFormat }}'
+        - name: storageUri
+          value: '{{ storageUri }}'
+        - name: tableFormat
+          value: '{{ tableFormat }}'
     - name: clustering
-      value: '{{ clustering }}'
-    - name: creationTime
-      value: '{{ creationTime }}'
+      value:
+        - name: fields
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: defaultCollation
       value: '{{ defaultCollation }}'
     - name: defaultRoundingMode
@@ -302,93 +256,291 @@ true|false,
     - name: description
       value: '{{ description }}'
     - name: encryptionConfiguration
-      value: '{{ encryptionConfiguration }}'
-    - name: etag
-      value: '{{ etag }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: expirationTime
       value: '{{ expirationTime }}'
     - name: externalCatalogTableOptions
-      value: '{{ externalCatalogTableOptions }}'
+      value:
+        - name: connectionId
+          value: '{{ connectionId }}'
+        - name: parameters
+          value: '{{ parameters }}'
+        - name: storageDescriptor
+          value:
+            - name: inputFormat
+              value: '{{ inputFormat }}'
+            - name: locationUri
+              value: '{{ locationUri }}'
+            - name: outputFormat
+              value: '{{ outputFormat }}'
+            - name: serdeInfo
+              value:
+                - name: name
+                  value: '{{ name }}'
+                - name: parameters
+                  value: '{{ parameters }}'
+                - name: serializationLibrary
+                  value: '{{ serializationLibrary }}'
     - name: externalDataConfiguration
-      value: '{{ externalDataConfiguration }}'
+      value:
+        - name: autodetect
+          value: '{{ autodetect }}'
+        - name: avroOptions
+          value:
+            - name: useAvroLogicalTypes
+              value: '{{ useAvroLogicalTypes }}'
+        - name: bigtableOptions
+          value:
+            - name: columnFamilies
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: ignoreUnspecifiedColumnFamilies
+              value: '{{ ignoreUnspecifiedColumnFamilies }}'
+            - name: outputColumnFamiliesAsJson
+              value: '{{ outputColumnFamiliesAsJson }}'
+            - name: readRowkeyAsString
+              value: '{{ readRowkeyAsString }}'
+        - name: compression
+          value: '{{ compression }}'
+        - name: connectionId
+          value: '{{ connectionId }}'
+        - name: csvOptions
+          value:
+            - name: allowJaggedRows
+              value: '{{ allowJaggedRows }}'
+            - name: allowQuotedNewlines
+              value: '{{ allowQuotedNewlines }}'
+            - name: encoding
+              value: '{{ encoding }}'
+            - name: fieldDelimiter
+              value: '{{ fieldDelimiter }}'
+            - name: nullMarker
+              value: '{{ nullMarker }}'
+            - name: preserveAsciiControlCharacters
+              value: '{{ preserveAsciiControlCharacters }}'
+            - name: quote
+              value: '{{ quote }}'
+            - name: skipLeadingRows
+              value: '{{ skipLeadingRows }}'
+        - name: decimalTargetTypes
+          value:
+            - name: enum
+              value: '{{ enum }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: type
+              value: '{{ type }}'
+        - name: fileSetSpecType
+          value: '{{ fileSetSpecType }}'
+        - name: googleSheetsOptions
+          value:
+            - name: range
+              value: '{{ range }}'
+            - name: skipLeadingRows
+              value: '{{ skipLeadingRows }}'
+        - name: hivePartitioningOptions
+          value:
+            - name: mode
+              value: '{{ mode }}'
+            - name: requirePartitionFilter
+              value: '{{ requirePartitionFilter }}'
+            - name: sourceUriPrefix
+              value: '{{ sourceUriPrefix }}'
+        - name: ignoreUnknownValues
+          value: '{{ ignoreUnknownValues }}'
+        - name: jsonExtension
+          value: '{{ jsonExtension }}'
+        - name: jsonOptions
+          value:
+            - name: encoding
+              value: '{{ encoding }}'
+        - name: maxBadRecords
+          value: '{{ maxBadRecords }}'
+        - name: metadataCacheMode
+          value: '{{ metadataCacheMode }}'
+        - name: objectMetadata
+          value: '{{ objectMetadata }}'
+        - name: parquetOptions
+          value:
+            - name: enableListInference
+              value: '{{ enableListInference }}'
+            - name: enumAsString
+              value: '{{ enumAsString }}'
+            - name: mapTargetType
+              value: '{{ mapTargetType }}'
+        - name: referenceFileSchemaUri
+          value: '{{ referenceFileSchemaUri }}'
+        - name: schema
+          value:
+            - name: fields
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: foreignTypeInfo
+              value:
+                - name: typeSystem
+                  value: '{{ typeSystem }}'
+        - name: sourceFormat
+          value: '{{ sourceFormat }}'
+        - name: sourceUris
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: friendlyName
       value: '{{ friendlyName }}'
-    - name: id
-      value: '{{ id }}'
-    - name: kind
-      value: '{{ kind }}'
     - name: labels
       value: '{{ labels }}'
-    - name: lastModifiedTime
-      value: '{{ lastModifiedTime }}'
-    - name: location
-      value: '{{ location }}'
     - name: materializedView
-      value: '{{ materializedView }}'
-    - name: materializedViewStatus
-      value: '{{ materializedViewStatus }}'
+      value:
+        - name: allowNonIncrementalDefinition
+          value: '{{ allowNonIncrementalDefinition }}'
+        - name: enableRefresh
+          value: '{{ enableRefresh }}'
+        - name: maxStaleness
+          value: '{{ maxStaleness }}'
+        - name: query
+          value: '{{ query }}'
+        - name: refreshIntervalMs
+          value: '{{ refreshIntervalMs }}'
     - name: maxStaleness
       value: '{{ maxStaleness }}'
     - name: model
-      value: '{{ model }}'
-    - name: numActiveLogicalBytes
-      value: '{{ numActiveLogicalBytes }}'
-    - name: numActivePhysicalBytes
-      value: '{{ numActivePhysicalBytes }}'
-    - name: numBytes
-      value: '{{ numBytes }}'
-    - name: numCurrentPhysicalBytes
-      value: '{{ numCurrentPhysicalBytes }}'
-    - name: numLongTermBytes
-      value: '{{ numLongTermBytes }}'
-    - name: numLongTermLogicalBytes
-      value: '{{ numLongTermLogicalBytes }}'
-    - name: numLongTermPhysicalBytes
-      value: '{{ numLongTermPhysicalBytes }}'
-    - name: numPartitions
-      value: '{{ numPartitions }}'
-    - name: numPhysicalBytes
-      value: '{{ numPhysicalBytes }}'
-    - name: numRows
-      value: '{{ numRows }}'
-    - name: numTimeTravelPhysicalBytes
-      value: '{{ numTimeTravelPhysicalBytes }}'
-    - name: numTotalLogicalBytes
-      value: '{{ numTotalLogicalBytes }}'
-    - name: numTotalPhysicalBytes
-      value: '{{ numTotalPhysicalBytes }}'
+      value:
+        - name: modelOptions
+          value:
+            - name: labels
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: lossType
+              value: '{{ lossType }}'
+            - name: modelType
+              value: '{{ modelType }}'
+        - name: trainingRuns
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: partitionDefinition
-      value: '{{ partitionDefinition }}'
+      value:
+        - name: partitionedColumn
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: rangePartitioning
-      value: '{{ rangePartitioning }}'
-    - name: replicas
-      value: '{{ replicas }}'
+      value:
+        - name: field
+          value: '{{ field }}'
+        - name: range
+          value:
+            - name: end
+              value: '{{ end }}'
+            - name: interval
+              value: '{{ interval }}'
+            - name: start
+              value: '{{ start }}'
     - name: requirePartitionFilter
       value: '{{ requirePartitionFilter }}'
     - name: resourceTags
       value: '{{ resourceTags }}'
-    - name: restrictions
-      value: '{{ restrictions }}'
-    - name: schema
-      value: '{{ schema }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: snapshotDefinition
-      value: '{{ snapshotDefinition }}'
-    - name: streamingBuffer
-      value: '{{ streamingBuffer }}'
     - name: tableConstraints
-      value: '{{ tableConstraints }}'
+      value:
+        - name: foreignKeys
+          value:
+            - name: columnReferences
+              value:
+                - name: referencedColumn
+                  value: '{{ referencedColumn }}'
+                - name: referencingColumn
+                  value: '{{ referencingColumn }}'
+            - name: name
+              value: '{{ name }}'
+            - name: referencedTable
+              value:
+                - name: datasetId
+                  value: '{{ datasetId }}'
+                - name: projectId
+                  value: '{{ projectId }}'
+                - name: tableId
+                  value: '{{ tableId }}'
+        - name: primaryKey
+          value:
+            - name: columns
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: tableReference
-      value: '{{ tableReference }}'
+      value:
+        - name: datasetId
+          value: '{{ datasetId }}'
+        - name: projectId
+          value: '{{ projectId }}'
+        - name: tableId
+          value: '{{ tableId }}'
     - name: tableReplicationInfo
-      value: '{{ tableReplicationInfo }}'
+      value:
+        - name: replicationIntervalMs
+          value: '{{ replicationIntervalMs }}'
     - name: timePartitioning
-      value: '{{ timePartitioning }}'
-    - name: type
-      value: '{{ type }}'
+      value:
+        - name: expirationMs
+          value: '{{ expirationMs }}'
+        - name: field
+          value: '{{ field }}'
+        - name: requirePartitionFilter
+          value: '{{ requirePartitionFilter }}'
+        - name: type
+          value: '{{ type }}'
     - name: view
-      value: '{{ view }}'
+      value:
+        - name: foreignDefinitions
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: privacyPolicy
+          value:
+            - name: aggregationThresholdPolicy
+              value:
+                - name: privacyUnitColumns
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: threshold
+                  value: '{{ threshold }}'
+            - name: differentialPrivacyPolicy
+              value:
+                - name: deltaBudget
+                  value: '{{ deltaBudget }}'
+                - name: deltaPerQuery
+                  value: '{{ deltaPerQuery }}'
+                - name: epsilonBudget
+                  value: '{{ epsilonBudget }}'
+                - name: maxEpsilonPerQuery
+                  value: '{{ maxEpsilonPerQuery }}'
+                - name: maxGroupsContributed
+                  value: '{{ maxGroupsContributed }}'
+                - name: privacyUnitColumn
+                  value: '{{ privacyUnitColumn }}'
+            - name: joinRestrictionPolicy
+              value:
+                - name: joinAllowedColumns
+                  value:
+                    - name: type
+                      value: '{{ type }}'
+                - name: joinCondition
+                  value: '{{ joinCondition }}'
+        - name: query
+          value: '{{ query }}'
+        - name: useExplicitColumnNames
+          value: '{{ useExplicitColumnNames }}'
+        - name: useLegacySql
+          value: '{{ useLegacySql }}'
+        - name: userDefinedFunctionResources
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -403,55 +555,28 @@ Updates a <code>tables</code> resource.
 UPDATE google.bigquery.tables
 SET 
 biglakeConfiguration = '{{ biglakeConfiguration }}',
-cloneDefinition = '{{ cloneDefinition }}',
 clustering = '{{ clustering }}',
-creationTime = '{{ creationTime }}',
 defaultCollation = '{{ defaultCollation }}',
 defaultRoundingMode = '{{ defaultRoundingMode }}',
 description = '{{ description }}',
 encryptionConfiguration = '{{ encryptionConfiguration }}',
-etag = '{{ etag }}',
 expirationTime = '{{ expirationTime }}',
 externalCatalogTableOptions = '{{ externalCatalogTableOptions }}',
 externalDataConfiguration = '{{ externalDataConfiguration }}',
 friendlyName = '{{ friendlyName }}',
-id = '{{ id }}',
-kind = '{{ kind }}',
 labels = '{{ labels }}',
-lastModifiedTime = '{{ lastModifiedTime }}',
-location = '{{ location }}',
 materializedView = '{{ materializedView }}',
-materializedViewStatus = '{{ materializedViewStatus }}',
 maxStaleness = '{{ maxStaleness }}',
 model = '{{ model }}',
-numActiveLogicalBytes = '{{ numActiveLogicalBytes }}',
-numActivePhysicalBytes = '{{ numActivePhysicalBytes }}',
-numBytes = '{{ numBytes }}',
-numCurrentPhysicalBytes = '{{ numCurrentPhysicalBytes }}',
-numLongTermBytes = '{{ numLongTermBytes }}',
-numLongTermLogicalBytes = '{{ numLongTermLogicalBytes }}',
-numLongTermPhysicalBytes = '{{ numLongTermPhysicalBytes }}',
-numPartitions = '{{ numPartitions }}',
-numPhysicalBytes = '{{ numPhysicalBytes }}',
-numRows = '{{ numRows }}',
-numTimeTravelPhysicalBytes = '{{ numTimeTravelPhysicalBytes }}',
-numTotalLogicalBytes = '{{ numTotalLogicalBytes }}',
-numTotalPhysicalBytes = '{{ numTotalPhysicalBytes }}',
 partitionDefinition = '{{ partitionDefinition }}',
 rangePartitioning = '{{ rangePartitioning }}',
-replicas = '{{ replicas }}',
 requirePartitionFilter = true|false,
 resourceTags = '{{ resourceTags }}',
-restrictions = '{{ restrictions }}',
 schema = '{{ schema }}',
-selfLink = '{{ selfLink }}',
-snapshotDefinition = '{{ snapshotDefinition }}',
-streamingBuffer = '{{ streamingBuffer }}',
 tableConstraints = '{{ tableConstraints }}',
 tableReference = '{{ tableReference }}',
 tableReplicationInfo = '{{ tableReplicationInfo }}',
 timePartitioning = '{{ timePartitioning }}',
-type = '{{ type }}',
 view = '{{ view }}'
 WHERE 
 +datasetId = '{{ +datasetId }}'
@@ -468,55 +593,28 @@ Replaces all fields in the specified <code>tables</code> resource.
 REPLACE google.bigquery.tables
 SET 
 biglakeConfiguration = '{{ biglakeConfiguration }}',
-cloneDefinition = '{{ cloneDefinition }}',
 clustering = '{{ clustering }}',
-creationTime = '{{ creationTime }}',
 defaultCollation = '{{ defaultCollation }}',
 defaultRoundingMode = '{{ defaultRoundingMode }}',
 description = '{{ description }}',
 encryptionConfiguration = '{{ encryptionConfiguration }}',
-etag = '{{ etag }}',
 expirationTime = '{{ expirationTime }}',
 externalCatalogTableOptions = '{{ externalCatalogTableOptions }}',
 externalDataConfiguration = '{{ externalDataConfiguration }}',
 friendlyName = '{{ friendlyName }}',
-id = '{{ id }}',
-kind = '{{ kind }}',
 labels = '{{ labels }}',
-lastModifiedTime = '{{ lastModifiedTime }}',
-location = '{{ location }}',
 materializedView = '{{ materializedView }}',
-materializedViewStatus = '{{ materializedViewStatus }}',
 maxStaleness = '{{ maxStaleness }}',
 model = '{{ model }}',
-numActiveLogicalBytes = '{{ numActiveLogicalBytes }}',
-numActivePhysicalBytes = '{{ numActivePhysicalBytes }}',
-numBytes = '{{ numBytes }}',
-numCurrentPhysicalBytes = '{{ numCurrentPhysicalBytes }}',
-numLongTermBytes = '{{ numLongTermBytes }}',
-numLongTermLogicalBytes = '{{ numLongTermLogicalBytes }}',
-numLongTermPhysicalBytes = '{{ numLongTermPhysicalBytes }}',
-numPartitions = '{{ numPartitions }}',
-numPhysicalBytes = '{{ numPhysicalBytes }}',
-numRows = '{{ numRows }}',
-numTimeTravelPhysicalBytes = '{{ numTimeTravelPhysicalBytes }}',
-numTotalLogicalBytes = '{{ numTotalLogicalBytes }}',
-numTotalPhysicalBytes = '{{ numTotalPhysicalBytes }}',
 partitionDefinition = '{{ partitionDefinition }}',
 rangePartitioning = '{{ rangePartitioning }}',
-replicas = '{{ replicas }}',
 requirePartitionFilter = true|false,
 resourceTags = '{{ resourceTags }}',
-restrictions = '{{ restrictions }}',
 schema = '{{ schema }}',
-selfLink = '{{ selfLink }}',
-snapshotDefinition = '{{ snapshotDefinition }}',
-streamingBuffer = '{{ streamingBuffer }}',
 tableConstraints = '{{ tableConstraints }}',
 tableReference = '{{ tableReference }}',
 tableReplicationInfo = '{{ tableReplicationInfo }}',
 timePartitioning = '{{ timePartitioning }}',
-type = '{{ type }}',
 view = '{{ view }}'
 WHERE 
 +datasetId = '{{ +datasetId }}'

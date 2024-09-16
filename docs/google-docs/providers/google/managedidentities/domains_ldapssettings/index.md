@@ -70,11 +70,8 @@ Updates a <code>domains_ldapssettings</code> resource.
 UPDATE google.managedidentities.domains_ldapssettings
 SET 
 name = '{{ name }}',
-certificate = '{{ certificate }}',
-state = '{{ state }}',
 certificatePfx = '{{ certificatePfx }}',
-certificatePassword = '{{ certificatePassword }}',
-updateTime = '{{ updateTime }}'
+certificatePassword = '{{ certificatePassword }}'
 WHERE 
 domainsId = '{{ domainsId }}'
 AND projectsId = '{{ projectsId }}';

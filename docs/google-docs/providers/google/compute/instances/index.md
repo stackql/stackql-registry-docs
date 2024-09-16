@@ -224,9 +224,143 @@ SELECT
     - name: sourceInstanceTemplate
       value: '{{ sourceInstanceTemplate }}'
     - name: instanceProperties
-      value: '{{ instanceProperties }}'
+      value:
+        - name: description
+          value: '{{ description }}'
+        - name: tags
+          value:
+            - name: items
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: fingerprint
+              value: '{{ fingerprint }}'
+        - name: resourceManagerTags
+          value: '{{ resourceManagerTags }}'
+        - name: machineType
+          value: '{{ machineType }}'
+        - name: canIpForward
+          value: '{{ canIpForward }}'
+        - name: networkInterfaces
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: disks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: metadata
+          value:
+            - name: fingerprint
+              value: '{{ fingerprint }}'
+            - name: items
+              value:
+                - name: key
+                  value: '{{ key }}'
+                - name: value
+                  value: '{{ value }}'
+        - name: serviceAccounts
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: scheduling
+          value:
+            - name: onHostMaintenance
+              value: '{{ onHostMaintenance }}'
+            - name: automaticRestart
+              value: '{{ automaticRestart }}'
+            - name: preemptible
+              value: '{{ preemptible }}'
+            - name: nodeAffinities
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: minNodeCpus
+              value: '{{ minNodeCpus }}'
+            - name: locationHint
+              value: '{{ locationHint }}'
+            - name: availabilityDomain
+              value: '{{ availabilityDomain }}'
+            - name: provisioningModel
+              value: '{{ provisioningModel }}'
+            - name: instanceTerminationAction
+              value: '{{ instanceTerminationAction }}'
+            - name: maxRunDuration
+              value:
+                - name: seconds
+                  value: '{{ seconds }}'
+                - name: nanos
+                  value: '{{ nanos }}'
+            - name: terminationTime
+              value: '{{ terminationTime }}'
+            - name: onInstanceStopAction
+              value:
+                - name: discardLocalSsd
+                  value: '{{ discardLocalSsd }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: guestAccelerators
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: minCpuPlatform
+          value: '{{ minCpuPlatform }}'
+        - name: reservationAffinity
+          value:
+            - name: consumeReservationType
+              value: '{{ consumeReservationType }}'
+            - name: key
+              value: '{{ key }}'
+            - name: values
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: shieldedInstanceConfig
+          value:
+            - name: enableSecureBoot
+              value: '{{ enableSecureBoot }}'
+            - name: enableVtpm
+              value: '{{ enableVtpm }}'
+            - name: enableIntegrityMonitoring
+              value: '{{ enableIntegrityMonitoring }}'
+        - name: resourcePolicies
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: confidentialInstanceConfig
+          value:
+            - name: enableConfidentialCompute
+              value: '{{ enableConfidentialCompute }}'
+            - name: confidentialInstanceType
+              value: '{{ confidentialInstanceType }}'
+        - name: privateIpv6GoogleAccess
+          value: '{{ privateIpv6GoogleAccess }}'
+        - name: advancedMachineFeatures
+          value:
+            - name: enableNestedVirtualization
+              value: '{{ enableNestedVirtualization }}'
+            - name: threadsPerCore
+              value: '{{ threadsPerCore }}'
+            - name: visibleCoreCount
+              value: '{{ visibleCoreCount }}'
+            - name: enableUefiNetworking
+              value: '{{ enableUefiNetworking }}'
+            - name: performanceMonitoringUnit
+              value: '{{ performanceMonitoringUnit }}'
+            - name: turboMode
+              value: '{{ turboMode }}'
+        - name: networkPerformanceConfig
+          value:
+            - name: totalEgressBandwidthTier
+              value: '{{ totalEgressBandwidthTier }}'
+        - name: keyRevocationActionType
+          value: '{{ keyRevocationActionType }}'
     - name: locationPolicy
-      value: '{{ locationPolicy }}'
+      value:
+        - name: locations
+          value: '{{ locations }}'
+        - name: targetShape
+          value: '{{ targetShape }}'
 
 ```
 </TabItem>
@@ -240,9 +374,6 @@ Replaces all fields in the specified <code>instances</code> resource.
 /*+ update */
 REPLACE google.compute.instances
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 tags = '{{ tags }}',
@@ -255,7 +386,6 @@ networkInterfaces = '{{ networkInterfaces }}',
 disks = '{{ disks }}',
 metadata = '{{ metadata }}',
 serviceAccounts = '{{ serviceAccounts }}',
-selfLink = '{{ selfLink }}',
 scheduling = '{{ scheduling }}',
 cpuPlatform = '{{ cpuPlatform }}',
 labels = '{{ labels }}',

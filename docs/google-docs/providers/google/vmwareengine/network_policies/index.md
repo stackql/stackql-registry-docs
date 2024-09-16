@@ -90,30 +90,20 @@ Use the following StackQL query and manifest file to create a new <code>network_
 INSERT INTO google.vmwareengine.network_policies (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 internetAccess,
 externalIp,
 edgeServicesCidr,
-uid,
 vmwareEngineNetwork,
-description,
-vmwareEngineNetworkCanonical
+description
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ internetAccess }}',
 '{{ externalIp }}',
 '{{ edgeServicesCidr }}',
-'{{ uid }}',
 '{{ vmwareEngineNetwork }}',
-'{{ description }}',
-'{{ vmwareEngineNetworkCanonical }}'
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -122,26 +112,16 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: internetAccess
-      value: '{{ internetAccess }}'
-    - name: externalIp
-      value: '{{ externalIp }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
     - name: edgeServicesCidr
       value: '{{ edgeServicesCidr }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: vmwareEngineNetwork
       value: '{{ vmwareEngineNetwork }}'
     - name: description
       value: '{{ description }}'
-    - name: vmwareEngineNetworkCanonical
-      value: '{{ vmwareEngineNetworkCanonical }}'
 
 ```
 </TabItem>
@@ -155,16 +135,11 @@ Updates a <code>network_policies</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.network_policies
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 internetAccess = '{{ internetAccess }}',
 externalIp = '{{ externalIp }}',
 edgeServicesCidr = '{{ edgeServicesCidr }}',
-uid = '{{ uid }}',
 vmwareEngineNetwork = '{{ vmwareEngineNetwork }}',
-description = '{{ description }}',
-vmwareEngineNetworkCanonical = '{{ vmwareEngineNetworkCanonical }}'
+description = '{{ description }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND networkPoliciesId = '{{ networkPoliciesId }}'

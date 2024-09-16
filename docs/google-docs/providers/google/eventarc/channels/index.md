@@ -91,29 +91,15 @@ INSERT INTO google.eventarc.channels (
 locationsId,
 projectsId,
 name,
-uid,
-createTime,
-updateTime,
 provider,
-pubsubTopic,
-state,
-activationToken,
-cryptoKeyName,
-satisfiesPzs
+cryptoKeyName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ provider }}',
-'{{ pubsubTopic }}',
-'{{ state }}',
-'{{ activationToken }}',
-'{{ cryptoKeyName }}',
-true|false
+'{{ cryptoKeyName }}'
 ;
 ```
 </TabItem>
@@ -124,24 +110,10 @@ true|false
   props:
     - name: name
       value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: provider
       value: '{{ provider }}'
-    - name: pubsubTopic
-      value: '{{ pubsubTopic }}'
-    - name: state
-      value: '{{ state }}'
-    - name: activationToken
-      value: '{{ activationToken }}'
     - name: cryptoKeyName
       value: '{{ cryptoKeyName }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
 
 ```
 </TabItem>
@@ -156,15 +128,8 @@ Updates a <code>channels</code> resource.
 UPDATE google.eventarc.channels
 SET 
 name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 provider = '{{ provider }}',
-pubsubTopic = '{{ pubsubTopic }}',
-state = '{{ state }}',
-activationToken = '{{ activationToken }}',
-cryptoKeyName = '{{ cryptoKeyName }}',
-satisfiesPzs = true|false
+cryptoKeyName = '{{ cryptoKeyName }}'
 WHERE 
 channelsId = '{{ channelsId }}'
 AND locationsId = '{{ locationsId }}'

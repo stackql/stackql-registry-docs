@@ -95,7 +95,6 @@ Use the following StackQL query and manifest file to create a new <code>deployme
 /*+ create */
 INSERT INTO google.deploymentmanager.deployments (
 project,
-id,
 name,
 description,
 operation,
@@ -103,14 +102,11 @@ fingerprint,
 manifest,
 update,
 insertTime,
-updateTime,
 target,
-labels,
-selfLink
+labels
 )
 SELECT 
 '{{ project }}',
-'{{ id }}',
 '{{ name }}',
 '{{ description }}',
 '{{ operation }}',
@@ -118,10 +114,8 @@ SELECT
 '{{ manifest }}',
 '{{ update }}',
 '{{ insertTime }}',
-'{{ updateTime }}',
 '{{ target }}',
-'{{ labels }}',
-'{{ selfLink }}'
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -130,30 +124,110 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: id
-      value: '{{ id }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: operation
-      value: '{{ operation }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: zone
+          value: '{{ zone }}'
+        - name: clientOperationId
+          value: '{{ clientOperationId }}'
+        - name: operationType
+          value: '{{ operationType }}'
+        - name: targetLink
+          value: '{{ targetLink }}'
+        - name: targetId
+          value: '{{ targetId }}'
+        - name: status
+          value: '{{ status }}'
+        - name: statusMessage
+          value: '{{ statusMessage }}'
+        - name: user
+          value: '{{ user }}'
+        - name: progress
+          value: '{{ progress }}'
+        - name: insertTime
+          value: '{{ insertTime }}'
+        - name: startTime
+          value: '{{ startTime }}'
+        - name: endTime
+          value: '{{ endTime }}'
+        - name: error
+          value:
+            - name: errors
+              value:
+                - name: code
+                  value: '{{ code }}'
+                - name: location
+                  value: '{{ location }}'
+                - name: message
+                  value: '{{ message }}'
+        - name: warnings
+          value:
+            - name: code
+              value: '{{ code }}'
+            - name: message
+              value: '{{ message }}'
+            - name: data
+              value:
+                - name: key
+                  value: '{{ key }}'
+                - name: value
+                  value: '{{ value }}'
+        - name: httpErrorStatusCode
+          value: '{{ httpErrorStatusCode }}'
+        - name: httpErrorMessage
+          value: '{{ httpErrorMessage }}'
+        - name: region
+          value: '{{ region }}'
+        - name: description
+          value: '{{ description }}'
+        - name: operationGroupId
+          value: '{{ operationGroupId }}'
+        - name: setCommonInstanceMetadataOperationMetadata
+          value:
+            - name: clientOperationId
+              value: '{{ clientOperationId }}'
+            - name: perLocationOperations
+              value: '{{ perLocationOperations }}'
+        - name: instancesBulkInsertOperationMetadata
+          value:
+            - name: perLocationStatus
+              value: '{{ perLocationStatus }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
     - name: manifest
       value: '{{ manifest }}'
     - name: update
-      value: '{{ update }}'
+      value:
+        - name: manifest
+          value: '{{ manifest }}'
+        - name: labels
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: description
+          value: '{{ description }}'
     - name: insertTime
       value: '{{ insertTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: target
-      value: '{{ target }}'
+      value:
+        - name: config
+          value:
+            - name: content
+              value: '{{ content }}'
+        - name: imports
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: labels
-      value: '{{ labels }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -167,7 +241,6 @@ Updates a <code>deployments</code> resource.
 /*+ update */
 UPDATE google.deploymentmanager.deployments
 SET 
-id = '{{ id }}',
 name = '{{ name }}',
 description = '{{ description }}',
 operation = '{{ operation }}',
@@ -175,10 +248,8 @@ fingerprint = '{{ fingerprint }}',
 manifest = '{{ manifest }}',
 update = '{{ update }}',
 insertTime = '{{ insertTime }}',
-updateTime = '{{ updateTime }}',
 target = '{{ target }}',
-labels = '{{ labels }}',
-selfLink = '{{ selfLink }}'
+labels = '{{ labels }}'
 WHERE 
 deployment = '{{ deployment }}'
 AND project = '{{ project }}';
@@ -192,7 +263,6 @@ Replaces all fields in the specified <code>deployments</code> resource.
 /*+ update */
 REPLACE google.deploymentmanager.deployments
 SET 
-id = '{{ id }}',
 name = '{{ name }}',
 description = '{{ description }}',
 operation = '{{ operation }}',
@@ -200,10 +270,8 @@ fingerprint = '{{ fingerprint }}',
 manifest = '{{ manifest }}',
 update = '{{ update }}',
 insertTime = '{{ insertTime }}',
-updateTime = '{{ updateTime }}',
 target = '{{ target }}',
-labels = '{{ labels }}',
-selfLink = '{{ selfLink }}'
+labels = '{{ labels }}'
 WHERE 
 deployment = '{{ deployment }}'
 AND project = '{{ project }}';

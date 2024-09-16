@@ -96,23 +96,11 @@ Updates a <code>backups</code> resource.
 /*+ update */
 UPDATE google.backupdr.backups
 SET 
-name = '{{ name }}',
-description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 enforcedRetentionEndTime = '{{ enforcedRetentionEndTime }}',
 expireTime = '{{ expireTime }}',
-consistencyTime = '{{ consistencyTime }}',
 etag = '{{ etag }}',
-state = '{{ state }}',
-serviceLocks = '{{ serviceLocks }}',
-backupApplianceLocks = '{{ backupApplianceLocks }}',
-computeInstanceBackupProperties = '{{ computeInstanceBackupProperties }}',
-backupApplianceBackupProperties = '{{ backupApplianceBackupProperties }}',
-backupType = '{{ backupType }}',
-gcpBackupPlanInfo = '{{ gcpBackupPlanInfo }}',
-resourceSizeBytes = '{{ resourceSizeBytes }}'
+backupApplianceLocks = '{{ backupApplianceLocks }}'
 WHERE 
 backupVaultsId = '{{ backupVaultsId }}'
 AND backupsId = '{{ backupsId }}'

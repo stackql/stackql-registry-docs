@@ -91,28 +91,20 @@ INSERT INTO google.networksecurity.firewall_endpoint_associations (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
-state,
 network,
 firewallEndpoint,
 tlsInspectionPolicy,
-reconciling,
 disabled
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
-'{{ state }}',
 '{{ network }}',
 '{{ firewallEndpoint }}',
 '{{ tlsInspectionPolicy }}',
-true|false,
 true|false
 ;
 ```
@@ -124,22 +116,14 @@ true|false
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
     - name: network
       value: '{{ network }}'
     - name: firewallEndpoint
       value: '{{ firewallEndpoint }}'
     - name: tlsInspectionPolicy
       value: '{{ tlsInspectionPolicy }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
     - name: disabled
       value: '{{ disabled }}'
 
@@ -156,14 +140,10 @@ Updates a <code>firewall_endpoint_associations</code> resource.
 UPDATE google.networksecurity.firewall_endpoint_associations
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
-state = '{{ state }}',
 network = '{{ network }}',
 firewallEndpoint = '{{ firewallEndpoint }}',
 tlsInspectionPolicy = '{{ tlsInspectionPolicy }}',
-reconciling = true|false,
 disabled = true|false
 WHERE 
 firewallEndpointAssociationsId = '{{ firewallEndpointAssociationsId }}'

@@ -138,9 +138,15 @@ true|false,
     - name: enabled
       value: '{{ enabled }}'
     - name: creationRecord
-      value: '{{ creationRecord }}'
+      value:
+        - name: mutateTime
+          value: '{{ mutateTime }}'
+        - name: mutatedBy
+          value: '{{ mutatedBy }}'
     - name: mutationRecords
-      value: '{{ mutationRecords }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

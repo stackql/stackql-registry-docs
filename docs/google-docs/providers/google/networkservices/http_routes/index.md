@@ -91,10 +91,7 @@ INSERT INTO google.networkservices.http_routes (
 locationsId,
 projectsId,
 name,
-selfLink,
 description,
-createTime,
-updateTime,
 hostnames,
 meshes,
 gateways,
@@ -105,10 +102,7 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ selfLink }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ hostnames }}',
 '{{ meshes }}',
 '{{ gateways }}',
@@ -124,24 +118,26 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: hostnames
-      value: '{{ hostnames }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: meshes
-      value: '{{ meshes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: gateways
-      value: '{{ gateways }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
     - name: rules
-      value: '{{ rules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -156,10 +152,7 @@ Updates a <code>http_routes</code> resource.
 UPDATE google.networkservices.http_routes
 SET 
 name = '{{ name }}',
-selfLink = '{{ selfLink }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 hostnames = '{{ hostnames }}',
 meshes = '{{ meshes }}',
 gateways = '{{ gateways }}',

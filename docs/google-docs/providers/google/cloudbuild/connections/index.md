@@ -97,35 +97,27 @@ Use the following StackQL query and manifest file to create a new <code>connecti
 INSERT INTO google.cloudbuild.connections (
 locationsId,
 projectsId,
-updateTime,
 githubConfig,
 etag,
 bitbucketDataCenterConfig,
 gitlabConfig,
 annotations,
 name,
-reconciling,
 githubEnterpriseConfig,
 bitbucketCloudConfig,
-createTime,
-installationState,
 disabled
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ updateTime }}',
 '{{ githubConfig }}',
 '{{ etag }}',
 '{{ bitbucketDataCenterConfig }}',
 '{{ gitlabConfig }}',
 '{{ annotations }}',
 '{{ name }}',
-true|false,
 '{{ githubEnterpriseConfig }}',
 '{{ bitbucketCloudConfig }}',
-'{{ createTime }}',
-'{{ installationState }}',
 true|false
 ;
 ```
@@ -135,30 +127,68 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: githubConfig
-      value: '{{ githubConfig }}'
+      value:
+        - name: authorizerCredential
+          value:
+            - name: oauthTokenSecretVersion
+              value: '{{ oauthTokenSecretVersion }}'
+        - name: appInstallationId
+          value: '{{ appInstallationId }}'
     - name: etag
       value: '{{ etag }}'
     - name: bitbucketDataCenterConfig
-      value: '{{ bitbucketDataCenterConfig }}'
+      value:
+        - name: serviceDirectoryConfig
+          value:
+            - name: service
+              value: '{{ service }}'
+        - name: authorizerCredential
+          value:
+            - name: userTokenSecretVersion
+              value: '{{ userTokenSecretVersion }}'
+        - name: hostUri
+          value: '{{ hostUri }}'
+        - name: sslCa
+          value: '{{ sslCa }}'
+        - name: webhookSecretSecretVersion
+          value: '{{ webhookSecretSecretVersion }}'
     - name: gitlabConfig
-      value: '{{ gitlabConfig }}'
+      value:
+        - name: webhookSecretSecretVersion
+          value: '{{ webhookSecretSecretVersion }}'
+        - name: sslCa
+          value: '{{ sslCa }}'
+        - name: hostUri
+          value: '{{ hostUri }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: name
       value: '{{ name }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
     - name: githubEnterpriseConfig
-      value: '{{ githubEnterpriseConfig }}'
+      value:
+        - name: appSlug
+          value: '{{ appSlug }}'
+        - name: sslCa
+          value: '{{ sslCa }}'
+        - name: apiKey
+          value: '{{ apiKey }}'
+        - name: webhookSecretSecretVersion
+          value: '{{ webhookSecretSecretVersion }}'
+        - name: appId
+          value: '{{ appId }}'
+        - name: privateKeySecretVersion
+          value: '{{ privateKeySecretVersion }}'
+        - name: appInstallationId
+          value: '{{ appInstallationId }}'
+        - name: hostUri
+          value: '{{ hostUri }}'
     - name: bitbucketCloudConfig
-      value: '{{ bitbucketCloudConfig }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: installationState
-      value: '{{ installationState }}'
+      value:
+        - name: webhookSecretSecretVersion
+          value: '{{ webhookSecretSecretVersion }}'
+        - name: workspace
+          value: '{{ workspace }}'
     - name: disabled
       value: '{{ disabled }}'
 
@@ -174,18 +204,14 @@ Updates a <code>connections</code> resource.
 /*+ update */
 UPDATE google.cloudbuild.connections
 SET 
-updateTime = '{{ updateTime }}',
 githubConfig = '{{ githubConfig }}',
 etag = '{{ etag }}',
 bitbucketDataCenterConfig = '{{ bitbucketDataCenterConfig }}',
 gitlabConfig = '{{ gitlabConfig }}',
 annotations = '{{ annotations }}',
 name = '{{ name }}',
-reconciling = true|false,
 githubEnterpriseConfig = '{{ githubEnterpriseConfig }}',
 bitbucketCloudConfig = '{{ bitbucketCloudConfig }}',
-createTime = '{{ createTime }}',
-installationState = '{{ installationState }}',
 disabled = true|false
 WHERE 
 connectionsId = '{{ connectionsId }}'

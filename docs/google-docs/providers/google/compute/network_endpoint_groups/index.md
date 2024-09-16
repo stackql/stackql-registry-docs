@@ -109,10 +109,6 @@ Use the following StackQL query and manifest file to create a new <code>network_
 INSERT INTO google.compute.network_endpoint_groups (
 project,
 zone,
-kind,
-id,
-creationTimestamp,
-selfLink,
 name,
 description,
 networkEndpointType,
@@ -132,10 +128,6 @@ pscData
 SELECT 
 '{{ project }}',
 '{{ zone }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
-'{{ selfLink }}',
 '{{ name }}',
 '{{ description }}',
 '{{ networkEndpointType }}',
@@ -159,14 +151,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -188,15 +172,39 @@ SELECT
     - name: annotations
       value: '{{ annotations }}'
     - name: cloudRun
-      value: '{{ cloudRun }}'
+      value:
+        - name: service
+          value: '{{ service }}'
+        - name: tag
+          value: '{{ tag }}'
+        - name: urlMask
+          value: '{{ urlMask }}'
     - name: appEngine
-      value: '{{ appEngine }}'
+      value:
+        - name: service
+          value: '{{ service }}'
+        - name: version
+          value: '{{ version }}'
+        - name: urlMask
+          value: '{{ urlMask }}'
     - name: cloudFunction
-      value: '{{ cloudFunction }}'
+      value:
+        - name: function
+          value: '{{ function }}'
+        - name: urlMask
+          value: '{{ urlMask }}'
     - name: pscTargetService
       value: '{{ pscTargetService }}'
     - name: pscData
-      value: '{{ pscData }}'
+      value:
+        - name: consumerPscAddress
+          value: '{{ consumerPscAddress }}'
+        - name: pscConnectionId
+          value: '{{ pscConnectionId }}'
+        - name: pscConnectionStatus
+          value: '{{ pscConnectionStatus }}'
+        - name: producerPort
+          value: '{{ producerPort }}'
 
 ```
 </TabItem>

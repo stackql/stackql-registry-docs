@@ -73,11 +73,9 @@ Updates a <code>settings</code> resource.
 /*+ update */
 UPDATE google.resourcesettings.settings
 SET 
-effectiveValue = '{{ effectiveValue }}',
 localValue = '{{ localValue }}',
 etag = '{{ etag }}',
-name = '{{ name }}',
-metadata = '{{ metadata }}'
+name = '{{ name }}'
 WHERE 
 foldersId = '{{ foldersId }}'
 AND settingsId = '{{ settingsId }}';

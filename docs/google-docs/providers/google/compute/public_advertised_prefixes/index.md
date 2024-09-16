@@ -98,12 +98,8 @@ Use the following StackQL query and manifest file to create a new <code>public_a
 /*+ create */
 INSERT INTO google.compute.public_advertised_prefixes (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 ipCidrRange,
 dnsVerificationIp,
 sharedSecret,
@@ -115,12 +111,8 @@ byoipApiVersion
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ ipCidrRange }}',
 '{{ dnsVerificationIp }}',
 '{{ sharedSecret }}',
@@ -137,18 +129,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: ipCidrRange
       value: '{{ ipCidrRange }}'
     - name: dnsVerificationIp
@@ -160,7 +144,9 @@ SELECT
     - name: pdpScope
       value: '{{ pdpScope }}'
     - name: publicDelegatedPrefixs
-      value: '{{ publicDelegatedPrefixs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
     - name: byoipApiVersion
@@ -178,12 +164,8 @@ Updates a <code>public_advertised_prefixes</code> resource.
 /*+ update */
 UPDATE google.compute.public_advertised_prefixes
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 ipCidrRange = '{{ ipCidrRange }}',
 dnsVerificationIp = '{{ dnsVerificationIp }}',
 sharedSecret = '{{ sharedSecret }}',

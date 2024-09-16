@@ -105,9 +105,6 @@ Use the following StackQL query and manifest file to create a new <code>security
 INSERT INTO google.compute.security_policies (
 project,
 userDefinedFields,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 rules,
@@ -116,7 +113,6 @@ ddosProtectionConfig,
 advancedOptionsConfig,
 recaptchaOptionsConfig,
 fingerprint,
-selfLink,
 type,
 labels,
 labelFingerprint,
@@ -125,9 +121,6 @@ region
 SELECT 
 '{{ project }}',
 '{{ userDefinedFields }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ rules }}',
@@ -136,7 +129,6 @@ SELECT
 '{{ advancedOptionsConfig }}',
 '{{ recaptchaOptionsConfig }}',
 '{{ fingerprint }}',
-'{{ selfLink }}',
 '{{ type }}',
 '{{ labels }}',
 '{{ labelFingerprint }}',
@@ -150,31 +142,55 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: userDefinedFields
-      value: '{{ userDefinedFields }}'
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: rules
-      value: '{{ rules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: adaptiveProtectionConfig
-      value: '{{ adaptiveProtectionConfig }}'
+      value:
+        - name: layer7DdosDefenseConfig
+          value:
+            - name: enable
+              value: '{{ enable }}'
+            - name: ruleVisibility
+              value: '{{ ruleVisibility }}'
+            - name: thresholdConfigs
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: ddosProtectionConfig
-      value: '{{ ddosProtectionConfig }}'
+      value:
+        - name: ddosProtection
+          value: '{{ ddosProtection }}'
     - name: advancedOptionsConfig
-      value: '{{ advancedOptionsConfig }}'
+      value:
+        - name: jsonParsing
+          value: '{{ jsonParsing }}'
+        - name: jsonCustomConfig
+          value:
+            - name: contentTypes
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: logLevel
+          value: '{{ logLevel }}'
+        - name: userIpRequestHeaders
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: recaptchaOptionsConfig
-      value: '{{ recaptchaOptionsConfig }}'
+      value:
+        - name: redirectSiteKey
+          value: '{{ redirectSiteKey }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: type
       value: '{{ type }}'
     - name: labels
@@ -197,9 +213,6 @@ Updates a <code>security_policies</code> resource.
 UPDATE google.compute.security_policies
 SET 
 userDefinedFields = '{{ userDefinedFields }}',
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 rules = '{{ rules }}',
@@ -208,7 +221,6 @@ ddosProtectionConfig = '{{ ddosProtectionConfig }}',
 advancedOptionsConfig = '{{ advancedOptionsConfig }}',
 recaptchaOptionsConfig = '{{ recaptchaOptionsConfig }}',
 fingerprint = '{{ fingerprint }}',
-selfLink = '{{ selfLink }}',
 type = '{{ type }}',
 labels = '{{ labels }}',
 labelFingerprint = '{{ labelFingerprint }}',

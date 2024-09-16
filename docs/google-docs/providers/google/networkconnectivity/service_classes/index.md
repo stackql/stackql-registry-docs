@@ -74,9 +74,6 @@ Updates a <code>service_classes</code> resource.
 UPDATE google.networkconnectivity.service_classes
 SET 
 name = '{{ name }}',
-serviceClass = '{{ serviceClass }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 etag = '{{ etag }}'

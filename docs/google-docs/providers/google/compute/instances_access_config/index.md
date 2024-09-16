@@ -59,7 +59,6 @@ instance,
 networkInterface,
 project,
 zone,
-kind,
 type,
 name,
 natIP,
@@ -75,7 +74,6 @@ SELECT
 '{{ networkInterface }}',
 '{{ project }}',
 '{{ zone }}',
-'{{ kind }}',
 '{{ type }}',
 '{{ name }}',
 '{{ natIP }}',
@@ -93,8 +91,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
     - name: type
       value: '{{ type }}'
     - name: name
@@ -126,7 +122,6 @@ Updates a <code>instances_access_config</code> resource.
 /*+ update */
 UPDATE google.compute.instances_access_config
 SET 
-kind = '{{ kind }}',
 type = '{{ type }}',
 name = '{{ name }}',
 natIP = '{{ natIP }}',

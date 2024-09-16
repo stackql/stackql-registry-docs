@@ -97,8 +97,6 @@ INSERT INTO google.networkconnectivity.internal_ranges (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 description,
 ipCidrRange,
@@ -107,15 +105,12 @@ usage,
 peering,
 prefixLength,
 targetCidrRange,
-users,
 overlaps
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ ipCidrRange }}',
@@ -124,7 +119,6 @@ SELECT
 '{{ peering }}',
 '{{ prefixLength }}',
 '{{ targetCidrRange }}',
-'{{ users }}',
 '{{ overlaps }}'
 ;
 ```
@@ -136,10 +130,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
@@ -155,11 +145,17 @@ SELECT
     - name: prefixLength
       value: '{{ prefixLength }}'
     - name: targetCidrRange
-      value: '{{ targetCidrRange }}'
-    - name: users
-      value: '{{ users }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: overlaps
-      value: '{{ overlaps }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
 
 ```
 </TabItem>
@@ -174,8 +170,6 @@ Updates a <code>internal_ranges</code> resource.
 UPDATE google.networkconnectivity.internal_ranges
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 ipCidrRange = '{{ ipCidrRange }}',
@@ -184,7 +178,6 @@ usage = '{{ usage }}',
 peering = '{{ peering }}',
 prefixLength = '{{ prefixLength }}',
 targetCidrRange = '{{ targetCidrRange }}',
-users = '{{ users }}',
 overlaps = '{{ overlaps }}'
 WHERE 
 internalRangesId = '{{ internalRangesId }}'

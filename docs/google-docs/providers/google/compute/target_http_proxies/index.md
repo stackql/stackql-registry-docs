@@ -91,12 +91,8 @@ Use the following StackQL query and manifest file to create a new <code>target_h
 /*+ create */
 INSERT INTO google.compute.target_http_proxies (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 urlMap,
 region,
 proxyBind,
@@ -105,12 +101,8 @@ httpKeepAliveTimeoutSec
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ urlMap }}',
 '{{ region }}',
 true|false,
@@ -124,18 +116,10 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: urlMap
       value: '{{ urlMap }}'
     - name: region
@@ -159,12 +143,8 @@ Updates a <code>target_http_proxies</code> resource.
 /*+ update */
 UPDATE google.compute.target_http_proxies
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 urlMap = '{{ urlMap }}',
 region = '{{ region }}',
 proxyBind = true|false,

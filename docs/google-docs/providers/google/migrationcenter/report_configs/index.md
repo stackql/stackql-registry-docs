@@ -81,9 +81,6 @@ Use the following StackQL query and manifest file to create a new <code>report_c
 INSERT INTO google.migrationcenter.report_configs (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 displayName,
 description,
 groupPreferencesetAssignments
@@ -91,9 +88,6 @@ groupPreferencesetAssignments
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ groupPreferencesetAssignments }}'
@@ -105,18 +99,14 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
     - name: groupPreferencesetAssignments
-      value: '{{ groupPreferencesetAssignments }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

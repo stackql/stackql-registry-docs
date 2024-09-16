@@ -73,7 +73,9 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: instances
-      value: '{{ instances }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

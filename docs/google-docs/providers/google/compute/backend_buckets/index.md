@@ -96,12 +96,8 @@ Use the following StackQL query and manifest file to create a new <code>backend_
 /*+ create */
 INSERT INTO google.compute.backend_buckets (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 bucketName,
 enableCdn,
 cdnPolicy,
@@ -112,12 +108,8 @@ usedBy
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ bucketName }}',
 true|false,
 '{{ cdnPolicy }}',
@@ -133,32 +125,66 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: bucketName
       value: '{{ bucketName }}'
     - name: enableCdn
       value: '{{ enableCdn }}'
     - name: cdnPolicy
-      value: '{{ cdnPolicy }}'
+      value:
+        - name: signedUrlKeyNames
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: signedUrlCacheMaxAgeSec
+          value: '{{ signedUrlCacheMaxAgeSec }}'
+        - name: requestCoalescing
+          value: '{{ requestCoalescing }}'
+        - name: cacheMode
+          value: '{{ cacheMode }}'
+        - name: defaultTtl
+          value: '{{ defaultTtl }}'
+        - name: maxTtl
+          value: '{{ maxTtl }}'
+        - name: clientTtl
+          value: '{{ clientTtl }}'
+        - name: negativeCaching
+          value: '{{ negativeCaching }}'
+        - name: negativeCachingPolicy
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: bypassCacheOnRequestHeaders
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: serveWhileStale
+          value: '{{ serveWhileStale }}'
+        - name: cacheKeyPolicy
+          value:
+            - name: queryStringWhitelist
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: includeHttpHeaders
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: customResponseHeaders
-      value: '{{ customResponseHeaders }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: edgeSecurityPolicy
       value: '{{ edgeSecurityPolicy }}'
     - name: compressionMode
       value: '{{ compressionMode }}'
     - name: usedBy
-      value: '{{ usedBy }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -172,12 +198,8 @@ Updates a <code>backend_buckets</code> resource.
 /*+ update */
 UPDATE google.compute.backend_buckets
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 bucketName = '{{ bucketName }}',
 enableCdn = true|false,
 cdnPolicy = '{{ cdnPolicy }}',
@@ -198,12 +220,8 @@ Replaces all fields in the specified <code>backend_buckets</code> resource.
 /*+ update */
 REPLACE google.compute.backend_buckets
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 bucketName = '{{ bucketName }}',
 enableCdn = true|false,
 cdnPolicy = '{{ cdnPolicy }}',

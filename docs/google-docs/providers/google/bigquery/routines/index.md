@@ -107,15 +107,12 @@ INSERT INTO google.bigquery.routines (
 +datasetId,
 projectId,
 arguments,
-creationTime,
 dataGovernanceType,
 definitionBody,
 description,
 determinismLevel,
-etag,
 importedLibraries,
 language,
-lastModifiedTime,
 remoteFunctionOptions,
 returnTableType,
 returnType,
@@ -129,15 +126,12 @@ SELECT
 '{{ +datasetId }}',
 '{{ projectId }}',
 '{{ arguments }}',
-'{{ creationTime }}',
 '{{ dataGovernanceType }}',
 '{{ definitionBody }}',
 '{{ description }}',
 '{{ determinismLevel }}',
-'{{ etag }}',
 '{{ importedLibraries }}',
 '{{ language }}',
-'{{ lastModifiedTime }}',
 '{{ remoteFunctionOptions }}',
 '{{ returnTableType }}',
 '{{ returnType }}',
@@ -155,9 +149,9 @@ true|false
 - name: your_resource_model_name
   props:
     - name: arguments
-      value: '{{ arguments }}'
-    - name: creationTime
-      value: '{{ creationTime }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: dataGovernanceType
       value: '{{ dataGovernanceType }}'
     - name: definitionBody
@@ -166,28 +160,80 @@ true|false
       value: '{{ description }}'
     - name: determinismLevel
       value: '{{ determinismLevel }}'
-    - name: etag
-      value: '{{ etag }}'
     - name: importedLibraries
-      value: '{{ importedLibraries }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: language
       value: '{{ language }}'
-    - name: lastModifiedTime
-      value: '{{ lastModifiedTime }}'
     - name: remoteFunctionOptions
-      value: '{{ remoteFunctionOptions }}'
+      value:
+        - name: connection
+          value: '{{ connection }}'
+        - name: endpoint
+          value: '{{ endpoint }}'
+        - name: maxBatchingRows
+          value: '{{ maxBatchingRows }}'
+        - name: userDefinedContext
+          value: '{{ userDefinedContext }}'
     - name: returnTableType
-      value: '{{ returnTableType }}'
+      value:
+        - name: columns
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: returnType
-      value: '{{ returnType }}'
+      value:
+        - name: structType
+          value:
+            - name: fields
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: typeKind
+          value: '{{ typeKind }}'
     - name: routineReference
-      value: '{{ routineReference }}'
+      value:
+        - name: datasetId
+          value: '{{ datasetId }}'
+        - name: projectId
+          value: '{{ projectId }}'
+        - name: routineId
+          value: '{{ routineId }}'
     - name: routineType
       value: '{{ routineType }}'
     - name: securityMode
       value: '{{ securityMode }}'
     - name: sparkOptions
-      value: '{{ sparkOptions }}'
+      value:
+        - name: archiveUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: connection
+          value: '{{ connection }}'
+        - name: containerImage
+          value: '{{ containerImage }}'
+        - name: fileUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: jarUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: mainClass
+          value: '{{ mainClass }}'
+        - name: mainFileUri
+          value: '{{ mainFileUri }}'
+        - name: properties
+          value: '{{ properties }}'
+        - name: pyFileUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: runtimeVersion
+          value: '{{ runtimeVersion }}'
     - name: strictMode
       value: '{{ strictMode }}'
 
@@ -204,15 +250,12 @@ Replaces all fields in the specified <code>routines</code> resource.
 REPLACE google.bigquery.routines
 SET 
 arguments = '{{ arguments }}',
-creationTime = '{{ creationTime }}',
 dataGovernanceType = '{{ dataGovernanceType }}',
 definitionBody = '{{ definitionBody }}',
 description = '{{ description }}',
 determinismLevel = '{{ determinismLevel }}',
-etag = '{{ etag }}',
 importedLibraries = '{{ importedLibraries }}',
 language = '{{ language }}',
-lastModifiedTime = '{{ lastModifiedTime }}',
 remoteFunctionOptions = '{{ remoteFunctionOptions }}',
 returnTableType = '{{ returnTableType }}',
 returnType = '{{ returnType }}',

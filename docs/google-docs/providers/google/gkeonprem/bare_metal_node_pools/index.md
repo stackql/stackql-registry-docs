@@ -102,16 +102,9 @@ locationsId,
 projectsId,
 name,
 displayName,
-uid,
-state,
-reconciling,
-createTime,
-updateTime,
-deleteTime,
 etag,
 annotations,
 nodePoolConfig,
-status,
 upgradePolicy
 )
 SELECT 
@@ -120,16 +113,9 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-'{{ state }}',
-true|false,
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ etag }}',
 '{{ annotations }}',
 '{{ nodePoolConfig }}',
-'{{ status }}',
 '{{ upgradePolicy }}'
 ;
 ```
@@ -143,28 +129,40 @@ true|false,
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: state
-      value: '{{ state }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: etag
       value: '{{ etag }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: nodePoolConfig
-      value: '{{ nodePoolConfig }}'
-    - name: status
-      value: '{{ status }}'
+      value:
+        - name: nodeConfigs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: operatingSystem
+          value: '{{ operatingSystem }}'
+        - name: taints
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: kubeletConfig
+          value:
+            - name: registryPullQps
+              value: '{{ registryPullQps }}'
+            - name: registryBurst
+              value: '{{ registryBurst }}'
+            - name: serializeImagePullsDisabled
+              value: '{{ serializeImagePullsDisabled }}'
     - name: upgradePolicy
-      value: '{{ upgradePolicy }}'
+      value:
+        - name: parallelUpgradeConfig
+          value:
+            - name: concurrentNodes
+              value: '{{ concurrentNodes }}'
+            - name: minimumAvailableNodes
+              value: '{{ minimumAvailableNodes }}'
 
 ```
 </TabItem>
@@ -180,16 +178,9 @@ UPDATE google.gkeonprem.bare_metal_node_pools
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-state = '{{ state }}',
-reconciling = true|false,
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
 etag = '{{ etag }}',
 annotations = '{{ annotations }}',
 nodePoolConfig = '{{ nodePoolConfig }}',
-status = '{{ status }}',
 upgradePolicy = '{{ upgradePolicy }}'
 WHERE 
 bareMetalClustersId = '{{ bareMetalClustersId }}'

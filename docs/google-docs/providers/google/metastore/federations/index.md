@@ -91,29 +91,17 @@ INSERT INTO google.metastore.federations (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 version,
-backendMetastores,
-endpointUri,
-state,
-stateMessage,
-uid
+backendMetastores
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ version }}',
-'{{ backendMetastores }}',
-'{{ endpointUri }}',
-'{{ state }}',
-'{{ stateMessage }}',
-'{{ uid }}'
+'{{ backendMetastores }}'
 ;
 ```
 </TabItem>
@@ -124,24 +112,12 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: version
       value: '{{ version }}'
     - name: backendMetastores
       value: '{{ backendMetastores }}'
-    - name: endpointUri
-      value: '{{ endpointUri }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateMessage
-      value: '{{ stateMessage }}'
-    - name: uid
-      value: '{{ uid }}'
 
 ```
 </TabItem>
@@ -156,15 +132,9 @@ Updates a <code>federations</code> resource.
 UPDATE google.metastore.federations
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 version = '{{ version }}',
-backendMetastores = '{{ backendMetastores }}',
-endpointUri = '{{ endpointUri }}',
-state = '{{ state }}',
-stateMessage = '{{ stateMessage }}',
-uid = '{{ uid }}'
+backendMetastores = '{{ backendMetastores }}'
 WHERE 
 federationsId = '{{ federationsId }}'
 AND locationsId = '{{ locationsId }}'

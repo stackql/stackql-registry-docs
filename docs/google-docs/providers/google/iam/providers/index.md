@@ -93,31 +93,25 @@ Use the following StackQL query and manifest file to create a new <code>provider
 INSERT INTO google.iam.providers (
 locationsId,
 workforcePoolsId,
-name,
 displayName,
 description,
-state,
 disabled,
 attributeMapping,
 attributeCondition,
 saml,
 oidc,
-expireTime,
 extraAttributesOauth2Client
 )
 SELECT 
 '{{ locationsId }}',
 '{{ workforcePoolsId }}',
-'{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ state }}',
 true|false,
 '{{ attributeMapping }}',
 '{{ attributeCondition }}',
 '{{ saml }}',
 '{{ oidc }}',
-'{{ expireTime }}',
 '{{ extraAttributesOauth2Client }}'
 ;
 ```
@@ -127,14 +121,10 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
     - name: disabled
       value: '{{ disabled }}'
     - name: attributeMapping
@@ -142,13 +132,45 @@ true|false,
     - name: attributeCondition
       value: '{{ attributeCondition }}'
     - name: saml
-      value: '{{ saml }}'
+      value:
+        - name: idpMetadataXml
+          value: '{{ idpMetadataXml }}'
     - name: oidc
-      value: '{{ oidc }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
+      value:
+        - name: issuerUri
+          value: '{{ issuerUri }}'
+        - name: clientId
+          value: '{{ clientId }}'
+        - name: clientSecret
+          value:
+            - name: value
+              value:
+                - name: plainText
+                  value: '{{ plainText }}'
+        - name: webSsoConfig
+          value:
+            - name: responseType
+              value: '{{ responseType }}'
+            - name: assertionClaimsBehavior
+              value: '{{ assertionClaimsBehavior }}'
+            - name: additionalScopes
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: jwksJson
+          value: '{{ jwksJson }}'
     - name: extraAttributesOauth2Client
-      value: '{{ extraAttributesOauth2Client }}'
+      value:
+        - name: issuerUri
+          value: '{{ issuerUri }}'
+        - name: clientId
+          value: '{{ clientId }}'
+        - name: attributesType
+          value: '{{ attributesType }}'
+        - name: queryParameters
+          value:
+            - name: filter
+              value: '{{ filter }}'
 
 ```
 </TabItem>
@@ -162,16 +184,13 @@ Updates a <code>providers</code> resource.
 /*+ update */
 UPDATE google.iam.providers
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-state = '{{ state }}',
 disabled = true|false,
 attributeMapping = '{{ attributeMapping }}',
 attributeCondition = '{{ attributeCondition }}',
 saml = '{{ saml }}',
 oidc = '{{ oidc }}',
-expireTime = '{{ expireTime }}',
 extraAttributesOauth2Client = '{{ extraAttributesOauth2Client }}'
 WHERE 
 locationsId = '{{ locationsId }}'

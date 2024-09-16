@@ -97,12 +97,8 @@ Use the following StackQL query and manifest file to create a new <code>region_s
 INSERT INTO google.compute.region_ssl_certificates (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 certificate,
 privateKey,
 managed,
@@ -115,12 +111,8 @@ region
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ certificate }}',
 '{{ privateKey }}',
 '{{ managed }}',
@@ -137,30 +129,36 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: certificate
       value: '{{ certificate }}'
     - name: privateKey
       value: '{{ privateKey }}'
     - name: managed
-      value: '{{ managed }}'
+      value:
+        - name: domains
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: status
+          value: '{{ status }}'
+        - name: domainStatus
+          value: '{{ domainStatus }}'
     - name: selfManaged
-      value: '{{ selfManaged }}'
+      value:
+        - name: certificate
+          value: '{{ certificate }}'
+        - name: privateKey
+          value: '{{ privateKey }}'
     - name: type
       value: '{{ type }}'
     - name: subjectAlternativeNames
-      value: '{{ subjectAlternativeNames }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: expireTime
       value: '{{ expireTime }}'
     - name: region

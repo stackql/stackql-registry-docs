@@ -135,19 +135,93 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: entryFulfillment
-      value: '{{ entryFulfillment }}'
+      value:
+        - name: messages
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: webhook
+          value: '{{ webhook }}'
+        - name: returnPartialResponses
+          value: '{{ returnPartialResponses }}'
+        - name: tag
+          value: '{{ tag }}'
+        - name: setParameterActions
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: conditionalCases
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: advancedSettings
+          value:
+            - name: audioExportGcsDestination
+              value:
+                - name: uri
+                  value: '{{ uri }}'
+            - name: speechSettings
+              value:
+                - name: endpointerSensitivity
+                  value: '{{ endpointerSensitivity }}'
+                - name: noSpeechTimeout
+                  value: '{{ noSpeechTimeout }}'
+                - name: useTimeoutBasedEndpointing
+                  value: '{{ useTimeoutBasedEndpointing }}'
+                - name: models
+                  value: '{{ models }}'
+            - name: dtmfSettings
+              value:
+                - name: enabled
+                  value: '{{ enabled }}'
+                - name: maxDigits
+                  value: '{{ maxDigits }}'
+                - name: finishDigit
+                  value: '{{ finishDigit }}'
+                - name: interdigitTimeoutDuration
+                  value: '{{ interdigitTimeoutDuration }}'
+                - name: endpointingTimeoutDuration
+                  value: '{{ endpointingTimeoutDuration }}'
+            - name: loggingSettings
+              value:
+                - name: enableStackdriverLogging
+                  value: '{{ enableStackdriverLogging }}'
+                - name: enableInteractionLogging
+                  value: '{{ enableInteractionLogging }}'
+                - name: enableConsentBasedRedaction
+                  value: '{{ enableConsentBasedRedaction }}'
+        - name: enableGenerativeFallback
+          value: '{{ enableGenerativeFallback }}'
     - name: form
-      value: '{{ form }}'
+      value:
+        - name: parameters
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: transitionRouteGroups
-      value: '{{ transitionRouteGroups }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: transitionRoutes
-      value: '{{ transitionRoutes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: eventHandlers
-      value: '{{ eventHandlers }}'
-    - name: advancedSettings
-      value: '{{ advancedSettings }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: knowledgeConnectorSettings
-      value: '{{ knowledgeConnectorSettings }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: targetPage
+          value: '{{ targetPage }}'
+        - name: targetFlow
+          value: '{{ targetFlow }}'
+        - name: dataStoreConnections
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>

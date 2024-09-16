@@ -88,29 +88,23 @@ Use the following StackQL query and manifest file to create a new <code>appgroup
 /*+ create */
 INSERT INTO google.apigee.appgroups (
 organizationsId,
-appGroupId,
 organization,
 channelId,
 status,
 attributes,
 name,
 channelUri,
-lastModifiedAt,
-displayName,
-createdAt
+displayName
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ appGroupId }}',
 '{{ organization }}',
 '{{ channelId }}',
 '{{ status }}',
 '{{ attributes }}',
 '{{ name }}',
 '{{ channelUri }}',
-'{{ lastModifiedAt }}',
-'{{ displayName }}',
-'{{ createdAt }}'
+'{{ displayName }}'
 ;
 ```
 </TabItem>
@@ -119,8 +113,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: appGroupId
-      value: '{{ appGroupId }}'
     - name: organization
       value: '{{ organization }}'
     - name: channelId
@@ -128,17 +120,15 @@ SELECT
     - name: status
       value: '{{ status }}'
     - name: attributes
-      value: '{{ attributes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: name
       value: '{{ name }}'
     - name: channelUri
       value: '{{ channelUri }}'
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
 
 ```
 </TabItem>
@@ -152,16 +142,13 @@ Replaces all fields in the specified <code>appgroups</code> resource.
 /*+ update */
 REPLACE google.apigee.appgroups
 SET 
-appGroupId = '{{ appGroupId }}',
 organization = '{{ organization }}',
 channelId = '{{ channelId }}',
 status = '{{ status }}',
 attributes = '{{ attributes }}',
 name = '{{ name }}',
 channelUri = '{{ channelUri }}',
-lastModifiedAt = '{{ lastModifiedAt }}',
-displayName = '{{ displayName }}',
-createdAt = '{{ createdAt }}'
+displayName = '{{ displayName }}'
 WHERE 
 appgroupsId = '{{ appgroupsId }}'
 AND organizationsId = '{{ organizationsId }}';

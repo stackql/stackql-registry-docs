@@ -109,19 +109,10 @@ workstationClustersId,
 workstationConfigsId,
 name,
 displayName,
-uid,
-reconciling,
 annotations,
 labels,
-createTime,
-updateTime,
-startTime,
-deleteTime,
 etag,
-state,
-host,
-env,
-kmsKey
+env
 )
 SELECT 
 '{{ locationsId }}',
@@ -130,19 +121,10 @@ SELECT
 '{{ workstationConfigsId }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-true|false,
 '{{ annotations }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ startTime }}',
-'{{ deleteTime }}',
 '{{ etag }}',
-'{{ state }}',
-'{{ host }}',
-'{{ env }}',
-'{{ kmsKey }}'
+'{{ env }}'
 ;
 ```
 </TabItem>
@@ -155,32 +137,14 @@ true|false,
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: etag
       value: '{{ etag }}'
-    - name: state
-      value: '{{ state }}'
-    - name: host
-      value: '{{ host }}'
     - name: env
       value: '{{ env }}'
-    - name: kmsKey
-      value: '{{ kmsKey }}'
 
 ```
 </TabItem>
@@ -196,19 +160,10 @@ UPDATE google.workstations.workstations
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-reconciling = true|false,
 annotations = '{{ annotations }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-startTime = '{{ startTime }}',
-deleteTime = '{{ deleteTime }}',
 etag = '{{ etag }}',
-state = '{{ state }}',
-host = '{{ host }}',
-env = '{{ env }}',
-kmsKey = '{{ kmsKey }}'
+env = '{{ env }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

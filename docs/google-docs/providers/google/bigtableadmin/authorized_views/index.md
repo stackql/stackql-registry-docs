@@ -104,7 +104,15 @@ true|false
     - name: name
       value: '{{ name }}'
     - name: subsetView
-      value: '{{ subsetView }}'
+      value:
+        - name: rowPrefixes
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: format
+              value: '{{ format }}'
+        - name: familySubsets
+          value: '{{ familySubsets }}'
     - name: etag
       value: '{{ etag }}'
     - name: deletionProtection

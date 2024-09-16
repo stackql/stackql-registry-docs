@@ -105,11 +105,27 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: partitionConfig
-      value: '{{ partitionConfig }}'
+      value:
+        - name: count
+          value: '{{ count }}'
+        - name: scale
+          value: '{{ scale }}'
+        - name: capacity
+          value:
+            - name: publishMibPerSec
+              value: '{{ publishMibPerSec }}'
+            - name: subscribeMibPerSec
+              value: '{{ subscribeMibPerSec }}'
     - name: retentionConfig
-      value: '{{ retentionConfig }}'
+      value:
+        - name: perPartitionBytes
+          value: '{{ perPartitionBytes }}'
+        - name: period
+          value: '{{ period }}'
     - name: reservationConfig
-      value: '{{ reservationConfig }}'
+      value:
+        - name: throughputReservation
+          value: '{{ throughputReservation }}'
 
 ```
 </TabItem>

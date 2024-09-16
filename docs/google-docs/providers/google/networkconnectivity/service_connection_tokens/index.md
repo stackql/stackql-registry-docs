@@ -88,26 +88,18 @@ INSERT INTO google.networkconnectivity.service_connection_tokens (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 description,
 network,
-token,
-expireTime,
 etag
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ network }}',
-'{{ token }}',
-'{{ expireTime }}',
 '{{ etag }}'
 ;
 ```
@@ -119,20 +111,12 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
     - name: network
       value: '{{ network }}'
-    - name: token
-      value: '{{ token }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
     - name: etag
       value: '{{ etag }}'
 

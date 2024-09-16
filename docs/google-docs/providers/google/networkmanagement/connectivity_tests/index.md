@@ -101,12 +101,7 @@ source,
 destination,
 protocol,
 relatedProjects,
-displayName,
 labels,
-createTime,
-updateTime,
-reachabilityDetails,
-probingDetails,
 bypassFirewallChecks
 )
 SELECT 
@@ -117,12 +112,7 @@ SELECT
 '{{ destination }}',
 '{{ protocol }}',
 '{{ relatedProjects }}',
-'{{ displayName }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ reachabilityDetails }}',
-'{{ probingDetails }}',
 true|false
 ;
 ```
@@ -137,25 +127,45 @@ true|false
     - name: description
       value: '{{ description }}'
     - name: source
-      value: '{{ source }}'
-    - name: destination
-      value: '{{ destination }}'
+      value:
+        - name: ipAddress
+          value: '{{ ipAddress }}'
+        - name: port
+          value: '{{ port }}'
+        - name: instance
+          value: '{{ instance }}'
+        - name: forwardingRule
+          value: '{{ forwardingRule }}'
+        - name: gkeMasterCluster
+          value: '{{ gkeMasterCluster }}'
+        - name: cloudSqlInstance
+          value: '{{ cloudSqlInstance }}'
+        - name: cloudFunction
+          value:
+            - name: uri
+              value: '{{ uri }}'
+        - name: appEngineVersion
+          value:
+            - name: uri
+              value: '{{ uri }}'
+        - name: cloudRunRevision
+          value:
+            - name: uri
+              value: '{{ uri }}'
+        - name: network
+          value: '{{ network }}'
+        - name: networkType
+          value: '{{ networkType }}'
+        - name: projectId
+          value: '{{ projectId }}'
     - name: protocol
       value: '{{ protocol }}'
     - name: relatedProjects
-      value: '{{ relatedProjects }}'
-    - name: displayName
-      value: '{{ displayName }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: reachabilityDetails
-      value: '{{ reachabilityDetails }}'
-    - name: probingDetails
-      value: '{{ probingDetails }}'
     - name: bypassFirewallChecks
       value: '{{ bypassFirewallChecks }}'
 
@@ -177,12 +187,7 @@ source = '{{ source }}',
 destination = '{{ destination }}',
 protocol = '{{ protocol }}',
 relatedProjects = '{{ relatedProjects }}',
-displayName = '{{ displayName }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-reachabilityDetails = '{{ reachabilityDetails }}',
-probingDetails = '{{ probingDetails }}',
 bypassFirewallChecks = true|false
 WHERE 
 connectivityTestsId = '{{ connectivityTestsId }}'

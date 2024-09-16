@@ -55,74 +55,42 @@ Use the following StackQL query and manifest file to create a new <code>clusters
 INSERT INTO google.alloydb.clusters_secondary (
 locationsId,
 projectsId,
-backupSource,
-migrationSource,
-name,
 displayName,
-uid,
-createTime,
-updateTime,
-deleteTime,
 labels,
-state,
-clusterType,
 databaseVersion,
 networkConfig,
 network,
 etag,
 annotations,
-reconciling,
 initialUser,
 automatedBackupPolicy,
 sslConfig,
 encryptionConfig,
-encryptionInfo,
 continuousBackupConfig,
-continuousBackupInfo,
 secondaryConfig,
-primaryConfig,
-satisfiesPzs,
 pscConfig,
 maintenanceUpdatePolicy,
-maintenanceSchedule,
-subscriptionType,
-trialMetadata
+subscriptionType
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ backupSource }}',
-'{{ migrationSource }}',
-'{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ labels }}',
-'{{ state }}',
-'{{ clusterType }}',
 '{{ databaseVersion }}',
 '{{ networkConfig }}',
 '{{ network }}',
 '{{ etag }}',
 '{{ annotations }}',
-true|false,
 '{{ initialUser }}',
 '{{ automatedBackupPolicy }}',
 '{{ sslConfig }}',
 '{{ encryptionConfig }}',
-'{{ encryptionInfo }}',
 '{{ continuousBackupConfig }}',
-'{{ continuousBackupInfo }}',
 '{{ secondaryConfig }}',
-'{{ primaryConfig }}',
-true|false,
 '{{ pscConfig }}',
 '{{ maintenanceUpdatePolicy }}',
-'{{ maintenanceSchedule }}',
-'{{ subscriptionType }}',
-'{{ trialMetadata }}'
+'{{ subscriptionType }}'
 ;
 ```
 </TabItem>
@@ -131,70 +99,94 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: backupSource
-      value: '{{ backupSource }}'
-    - name: migrationSource
-      value: '{{ migrationSource }}'
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
-    - name: clusterType
-      value: '{{ clusterType }}'
     - name: databaseVersion
       value: '{{ databaseVersion }}'
     - name: networkConfig
-      value: '{{ networkConfig }}'
+      value:
+        - name: network
+          value: '{{ network }}'
+        - name: allocatedIpRange
+          value: '{{ allocatedIpRange }}'
     - name: network
       value: '{{ network }}'
     - name: etag
       value: '{{ etag }}'
     - name: annotations
       value: '{{ annotations }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
     - name: initialUser
-      value: '{{ initialUser }}'
+      value:
+        - name: user
+          value: '{{ user }}'
+        - name: password
+          value: '{{ password }}'
     - name: automatedBackupPolicy
-      value: '{{ automatedBackupPolicy }}'
+      value:
+        - name: weeklySchedule
+          value:
+            - name: startTimes
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: daysOfWeek
+              value:
+                - name: type
+                  value: '{{ type }}'
+                - name: enumDescriptions
+                  value: '{{ enumDescriptions }}'
+                - name: enum
+                  value: '{{ enum }}'
+        - name: timeBasedRetention
+          value:
+            - name: retentionPeriod
+              value: '{{ retentionPeriod }}'
+        - name: quantityBasedRetention
+          value:
+            - name: count
+              value: '{{ count }}'
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: backupWindow
+          value: '{{ backupWindow }}'
+        - name: encryptionConfig
+          value:
+            - name: kmsKeyName
+              value: '{{ kmsKeyName }}'
+        - name: location
+          value: '{{ location }}'
+        - name: labels
+          value: '{{ labels }}'
     - name: sslConfig
-      value: '{{ sslConfig }}'
-    - name: encryptionConfig
-      value: '{{ encryptionConfig }}'
-    - name: encryptionInfo
-      value: '{{ encryptionInfo }}'
+      value:
+        - name: sslMode
+          value: '{{ sslMode }}'
+        - name: caSource
+          value: '{{ caSource }}'
     - name: continuousBackupConfig
-      value: '{{ continuousBackupConfig }}'
-    - name: continuousBackupInfo
-      value: '{{ continuousBackupInfo }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: recoveryWindowDays
+          value: '{{ recoveryWindowDays }}'
     - name: secondaryConfig
-      value: '{{ secondaryConfig }}'
-    - name: primaryConfig
-      value: '{{ primaryConfig }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
+      value:
+        - name: primaryClusterName
+          value: '{{ primaryClusterName }}'
     - name: pscConfig
-      value: '{{ pscConfig }}'
+      value:
+        - name: pscEnabled
+          value: '{{ pscEnabled }}'
     - name: maintenanceUpdatePolicy
-      value: '{{ maintenanceUpdatePolicy }}'
-    - name: maintenanceSchedule
-      value: '{{ maintenanceSchedule }}'
+      value:
+        - name: maintenanceWindows
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: subscriptionType
       value: '{{ subscriptionType }}'
-    - name: trialMetadata
-      value: '{{ trialMetadata }}'
 
 ```
 </TabItem>

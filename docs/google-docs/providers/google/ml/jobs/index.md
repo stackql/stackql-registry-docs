@@ -97,7 +97,6 @@ projectsId,
 jobId,
 trainingInput,
 predictionInput,
-createTime,
 startTime,
 endTime,
 state,
@@ -105,15 +104,13 @@ errorMessage,
 trainingOutput,
 predictionOutput,
 labels,
-etag,
-jobPosition
+etag
 )
 SELECT 
 '{{ projectsId }}',
 '{{ jobId }}',
 '{{ trainingInput }}',
 '{{ predictionInput }}',
-'{{ createTime }}',
 '{{ startTime }}',
 '{{ endTime }}',
 '{{ state }}',
@@ -121,8 +118,7 @@ SELECT
 '{{ trainingOutput }}',
 '{{ predictionOutput }}',
 '{{ labels }}',
-'{{ etag }}',
-'{{ jobPosition }}'
+'{{ etag }}'
 ;
 ```
 </TabItem>
@@ -134,11 +130,137 @@ SELECT
     - name: jobId
       value: '{{ jobId }}'
     - name: trainingInput
-      value: '{{ trainingInput }}'
+      value:
+        - name: scaleTier
+          value: '{{ scaleTier }}'
+        - name: masterType
+          value: '{{ masterType }}'
+        - name: masterConfig
+          value:
+            - name: acceleratorConfig
+              value:
+                - name: count
+                  value: '{{ count }}'
+                - name: type
+                  value: '{{ type }}'
+            - name: imageUri
+              value: '{{ imageUri }}'
+            - name: tpuTfVersion
+              value: '{{ tpuTfVersion }}'
+            - name: diskConfig
+              value:
+                - name: bootDiskType
+                  value: '{{ bootDiskType }}'
+                - name: bootDiskSizeGb
+                  value: '{{ bootDiskSizeGb }}'
+            - name: containerCommand
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: containerArgs
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: workerType
+          value: '{{ workerType }}'
+        - name: parameterServerType
+          value: '{{ parameterServerType }}'
+        - name: evaluatorType
+          value: '{{ evaluatorType }}'
+        - name: workerCount
+          value: '{{ workerCount }}'
+        - name: parameterServerCount
+          value: '{{ parameterServerCount }}'
+        - name: evaluatorCount
+          value: '{{ evaluatorCount }}'
+        - name: packageUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: pythonModule
+          value: '{{ pythonModule }}'
+        - name: args
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: hyperparameters
+          value:
+            - name: goal
+              value: '{{ goal }}'
+            - name: params
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: maxTrials
+              value: '{{ maxTrials }}'
+            - name: maxParallelTrials
+              value: '{{ maxParallelTrials }}'
+            - name: maxFailedTrials
+              value: '{{ maxFailedTrials }}'
+            - name: hyperparameterMetricTag
+              value: '{{ hyperparameterMetricTag }}'
+            - name: resumePreviousJobId
+              value: '{{ resumePreviousJobId }}'
+            - name: enableTrialEarlyStopping
+              value: '{{ enableTrialEarlyStopping }}'
+            - name: algorithm
+              value: '{{ algorithm }}'
+        - name: region
+          value: '{{ region }}'
+        - name: jobDir
+          value: '{{ jobDir }}'
+        - name: runtimeVersion
+          value: '{{ runtimeVersion }}'
+        - name: pythonVersion
+          value: '{{ pythonVersion }}'
+        - name: encryptionConfig
+          value:
+            - name: kmsKeyName
+              value: '{{ kmsKeyName }}'
+        - name: scheduling
+          value:
+            - name: maxRunningTime
+              value: '{{ maxRunningTime }}'
+            - name: maxWaitTime
+              value: '{{ maxWaitTime }}'
+            - name: priority
+              value: '{{ priority }}'
+        - name: network
+          value: '{{ network }}'
+        - name: serviceAccount
+          value: '{{ serviceAccount }}'
+        - name: useChiefInTfConfig
+          value: '{{ useChiefInTfConfig }}'
+        - name: enableWebAccess
+          value: '{{ enableWebAccess }}'
     - name: predictionInput
-      value: '{{ predictionInput }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: modelName
+          value: '{{ modelName }}'
+        - name: versionName
+          value: '{{ versionName }}'
+        - name: uri
+          value: '{{ uri }}'
+        - name: dataFormat
+          value: '{{ dataFormat }}'
+        - name: outputDataFormat
+          value: '{{ outputDataFormat }}'
+        - name: inputPaths
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: outputPath
+          value: '{{ outputPath }}'
+        - name: maxWorkerCount
+          value: '{{ maxWorkerCount }}'
+        - name: region
+          value: '{{ region }}'
+        - name: runtimeVersion
+          value: '{{ runtimeVersion }}'
+        - name: batchSize
+          value: '{{ batchSize }}'
+        - name: signatureName
+          value: '{{ signatureName }}'
     - name: startTime
       value: '{{ startTime }}'
     - name: endTime
@@ -148,15 +270,45 @@ SELECT
     - name: errorMessage
       value: '{{ errorMessage }}'
     - name: trainingOutput
-      value: '{{ trainingOutput }}'
+      value:
+        - name: completedTrialCount
+          value: '{{ completedTrialCount }}'
+        - name: trials
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: consumedMLUnits
+          value: '{{ consumedMLUnits }}'
+        - name: isHyperparameterTuningJob
+          value: '{{ isHyperparameterTuningJob }}'
+        - name: isBuiltInAlgorithmJob
+          value: '{{ isBuiltInAlgorithmJob }}'
+        - name: builtInAlgorithmOutput
+          value:
+            - name: framework
+              value: '{{ framework }}'
+            - name: runtimeVersion
+              value: '{{ runtimeVersion }}'
+            - name: pythonVersion
+              value: '{{ pythonVersion }}'
+            - name: modelPath
+              value: '{{ modelPath }}'
+        - name: hyperparameterMetricTag
+          value: '{{ hyperparameterMetricTag }}'
     - name: predictionOutput
-      value: '{{ predictionOutput }}'
+      value:
+        - name: outputPath
+          value: '{{ outputPath }}'
+        - name: predictionCount
+          value: '{{ predictionCount }}'
+        - name: errorCount
+          value: '{{ errorCount }}'
+        - name: nodeHours
+          value: '{{ nodeHours }}'
     - name: labels
       value: '{{ labels }}'
     - name: etag
       value: '{{ etag }}'
-    - name: jobPosition
-      value: '{{ jobPosition }}'
 
 ```
 </TabItem>
@@ -173,7 +325,6 @@ SET
 jobId = '{{ jobId }}',
 trainingInput = '{{ trainingInput }}',
 predictionInput = '{{ predictionInput }}',
-createTime = '{{ createTime }}',
 startTime = '{{ startTime }}',
 endTime = '{{ endTime }}',
 state = '{{ state }}',
@@ -181,8 +332,7 @@ errorMessage = '{{ errorMessage }}',
 trainingOutput = '{{ trainingOutput }}',
 predictionOutput = '{{ predictionOutput }}',
 labels = '{{ labels }}',
-etag = '{{ etag }}',
-jobPosition = '{{ jobPosition }}'
+etag = '{{ etag }}'
 WHERE 
 jobsId = '{{ jobsId }}'
 AND projectsId = '{{ projectsId }}';

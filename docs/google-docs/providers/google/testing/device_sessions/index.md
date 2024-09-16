@@ -89,27 +89,15 @@ Use the following StackQL query and manifest file to create a new <code>device_s
 INSERT INTO google.testing.device_sessions (
 projectsId,
 name,
-displayName,
-state,
-stateHistories,
 ttl,
 expireTime,
-inactivityTimeout,
-createTime,
-activeStartTime,
 androidDevice
 )
 SELECT 
 '{{ projectsId }}',
 '{{ name }}',
-'{{ displayName }}',
-'{{ state }}',
-'{{ stateHistories }}',
 '{{ ttl }}',
 '{{ expireTime }}',
-'{{ inactivityTimeout }}',
-'{{ createTime }}',
-'{{ activeStartTime }}',
 '{{ androidDevice }}'
 ;
 ```
@@ -121,24 +109,20 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateHistories
-      value: '{{ stateHistories }}'
     - name: ttl
       value: '{{ ttl }}'
     - name: expireTime
       value: '{{ expireTime }}'
-    - name: inactivityTimeout
-      value: '{{ inactivityTimeout }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: activeStartTime
-      value: '{{ activeStartTime }}'
     - name: androidDevice
-      value: '{{ androidDevice }}'
+      value:
+        - name: androidModelId
+          value: '{{ androidModelId }}'
+        - name: androidVersionId
+          value: '{{ androidVersionId }}'
+        - name: locale
+          value: '{{ locale }}'
+        - name: orientation
+          value: '{{ orientation }}'
 
 ```
 </TabItem>
@@ -153,14 +137,8 @@ Updates a <code>device_sessions</code> resource.
 UPDATE google.testing.device_sessions
 SET 
 name = '{{ name }}',
-displayName = '{{ displayName }}',
-state = '{{ state }}',
-stateHistories = '{{ stateHistories }}',
 ttl = '{{ ttl }}',
 expireTime = '{{ expireTime }}',
-inactivityTimeout = '{{ inactivityTimeout }}',
-createTime = '{{ createTime }}',
-activeStartTime = '{{ activeStartTime }}',
 androidDevice = '{{ androidDevice }}'
 WHERE 
 deviceSessionsId = '{{ deviceSessionsId }}'

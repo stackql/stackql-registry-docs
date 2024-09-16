@@ -107,13 +107,7 @@ versionsId,
 name,
 filename,
 description,
-revisionId,
-createTime,
-revisionCreateTime,
-revisionUpdateTime,
 mimeType,
-sizeBytes,
-hash,
 sourceUri,
 contents,
 labels,
@@ -127,13 +121,7 @@ SELECT
 '{{ name }}',
 '{{ filename }}',
 '{{ description }}',
-'{{ revisionId }}',
-'{{ createTime }}',
-'{{ revisionCreateTime }}',
-'{{ revisionUpdateTime }}',
 '{{ mimeType }}',
-'{{ sizeBytes }}',
-'{{ hash }}',
 '{{ sourceUri }}',
 '{{ contents }}',
 '{{ labels }}',
@@ -152,20 +140,8 @@ SELECT
       value: '{{ filename }}'
     - name: description
       value: '{{ description }}'
-    - name: revisionId
-      value: '{{ revisionId }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: revisionCreateTime
-      value: '{{ revisionCreateTime }}'
-    - name: revisionUpdateTime
-      value: '{{ revisionUpdateTime }}'
     - name: mimeType
       value: '{{ mimeType }}'
-    - name: sizeBytes
-      value: '{{ sizeBytes }}'
-    - name: hash
-      value: '{{ hash }}'
     - name: sourceUri
       value: '{{ sourceUri }}'
     - name: contents
@@ -190,13 +166,7 @@ SET
 name = '{{ name }}',
 filename = '{{ filename }}',
 description = '{{ description }}',
-revisionId = '{{ revisionId }}',
-createTime = '{{ createTime }}',
-revisionCreateTime = '{{ revisionCreateTime }}',
-revisionUpdateTime = '{{ revisionUpdateTime }}',
 mimeType = '{{ mimeType }}',
-sizeBytes = '{{ sizeBytes }}',
-hash = '{{ hash }}',
 sourceUri = '{{ sourceUri }}',
 contents = '{{ contents }}',
 labels = '{{ labels }}',

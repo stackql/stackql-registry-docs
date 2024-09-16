@@ -78,7 +78,33 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: projectConfig
-      value: '{{ projectConfig }}'
+      value:
+        - name: labels
+          value: '{{ labels }}'
+        - name: tenantProjectPolicy
+          value:
+            - name: policyBindings
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: billingConfig
+          value:
+            - name: billingAccount
+              value: '{{ billingAccount }}'
+        - name: serviceAccountConfig
+          value:
+            - name: accountId
+              value: '{{ accountId }}'
+            - name: tenantProjectRoles
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: services
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: folder
+          value: '{{ folder }}'
     - name: tag
       value: '{{ tag }}'
 

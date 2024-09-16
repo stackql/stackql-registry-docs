@@ -138,9 +138,6 @@ Use the following StackQL query and manifest file to create a new <code>images</
 /*+ create */
 INSERT INTO google.compute.images (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 sourceType,
@@ -155,7 +152,6 @@ licenses,
 family,
 imageEncryptionKey,
 sourceDiskEncryptionKey,
-selfLink,
 labels,
 labelFingerprint,
 guestOsFeatures,
@@ -170,14 +166,10 @@ storageLocations,
 shieldedInstanceInitialState,
 satisfiesPzs,
 architecture,
-enableConfidentialCompute,
-satisfiesPzi
+enableConfidentialCompute
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ sourceType }}',
@@ -192,7 +184,6 @@ SELECT
 '{{ family }}',
 '{{ imageEncryptionKey }}',
 '{{ sourceDiskEncryptionKey }}',
-'{{ selfLink }}',
 '{{ labels }}',
 '{{ labelFingerprint }}',
 '{{ guestOsFeatures }}',
@@ -207,7 +198,6 @@ SELECT
 '{{ shieldedInstanceInitialState }}',
 true|false,
 '{{ architecture }}',
-true|false,
 true|false
 ;
 ```
@@ -217,12 +207,6 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -238,7 +222,17 @@ true|false
         - name: containerType
           value: '{{ containerType }}'
     - name: deprecated
-      value: '{{ deprecated }}'
+      value:
+        - name: state
+          value: '{{ state }}'
+        - name: replacement
+          value: '{{ replacement }}'
+        - name: deprecated
+          value: '{{ deprecated }}'
+        - name: obsolete
+          value: '{{ obsolete }}'
+        - name: deleted
+          value: '{{ deleted }}'
     - name: status
       value: '{{ status }}'
     - name: archiveSizeBytes
@@ -250,47 +244,75 @@ true|false
     - name: sourceDiskId
       value: '{{ sourceDiskId }}'
     - name: licenses
-      value: '{{ licenses }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: family
       value: '{{ family }}'
     - name: imageEncryptionKey
-      value: '{{ imageEncryptionKey }}'
-    - name: sourceDiskEncryptionKey
-      value: '{{ sourceDiskEncryptionKey }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
+      value:
+        - name: rawKey
+          value: '{{ rawKey }}'
+        - name: rsaEncryptedKey
+          value: '{{ rsaEncryptedKey }}'
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
+        - name: sha256
+          value: '{{ sha256 }}'
+        - name: kmsKeyServiceAccount
+          value: '{{ kmsKeyServiceAccount }}'
     - name: labels
       value: '{{ labels }}'
     - name: labelFingerprint
       value: '{{ labelFingerprint }}'
     - name: guestOsFeatures
-      value: '{{ guestOsFeatures }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: licenseCodes
-      value: '{{ licenseCodes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: format
+          value: '{{ format }}'
     - name: sourceImage
       value: '{{ sourceImage }}'
     - name: sourceImageId
       value: '{{ sourceImageId }}'
-    - name: sourceImageEncryptionKey
-      value: '{{ sourceImageEncryptionKey }}'
     - name: sourceSnapshot
       value: '{{ sourceSnapshot }}'
     - name: sourceSnapshotId
       value: '{{ sourceSnapshotId }}'
-    - name: sourceSnapshotEncryptionKey
-      value: '{{ sourceSnapshotEncryptionKey }}'
     - name: storageLocations
-      value: '{{ storageLocations }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: shieldedInstanceInitialState
-      value: '{{ shieldedInstanceInitialState }}'
+      value:
+        - name: pk
+          value:
+            - name: content
+              value: '{{ content }}'
+            - name: fileType
+              value: '{{ fileType }}'
+        - name: keks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: dbs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: dbxs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: satisfiesPzs
       value: '{{ satisfiesPzs }}'
     - name: architecture
       value: '{{ architecture }}'
     - name: enableConfidentialCompute
       value: '{{ enableConfidentialCompute }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>
@@ -304,9 +326,6 @@ Updates a <code>images</code> resource.
 /*+ update */
 UPDATE google.compute.images
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 sourceType = '{{ sourceType }}',
@@ -321,7 +340,6 @@ licenses = '{{ licenses }}',
 family = '{{ family }}',
 imageEncryptionKey = '{{ imageEncryptionKey }}',
 sourceDiskEncryptionKey = '{{ sourceDiskEncryptionKey }}',
-selfLink = '{{ selfLink }}',
 labels = '{{ labels }}',
 labelFingerprint = '{{ labelFingerprint }}',
 guestOsFeatures = '{{ guestOsFeatures }}',
@@ -336,8 +354,7 @@ storageLocations = '{{ storageLocations }}',
 shieldedInstanceInitialState = '{{ shieldedInstanceInitialState }}',
 satisfiesPzs = true|false,
 architecture = '{{ architecture }}',
-enableConfidentialCompute = true|false,
-satisfiesPzi = true|false
+enableConfidentialCompute = true|false
 WHERE 
 image = '{{ image }}'
 AND project = '{{ project }}';

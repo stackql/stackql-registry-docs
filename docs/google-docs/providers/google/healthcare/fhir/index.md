@@ -104,7 +104,11 @@ SELECT
     - name: data
       value: '{{ data }}'
     - name: extensions
-      value: '{{ extensions }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: additionalProperties
+          value: '{{ additionalProperties }}'
 
 ```
 </TabItem>

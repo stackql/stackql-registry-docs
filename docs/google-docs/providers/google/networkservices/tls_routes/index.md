@@ -89,9 +89,6 @@ INSERT INTO google.networkservices.tls_routes (
 locationsId,
 projectsId,
 name,
-selfLink,
-createTime,
-updateTime,
 description,
 rules,
 meshes,
@@ -102,9 +99,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ selfLink }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ rules }}',
 '{{ meshes }}',
@@ -120,20 +114,20 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: rules
-      value: '{{ rules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: meshes
-      value: '{{ meshes }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: gateways
-      value: '{{ gateways }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
 
@@ -150,9 +144,6 @@ Updates a <code>tls_routes</code> resource.
 UPDATE google.networkservices.tls_routes
 SET 
 name = '{{ name }}',
-selfLink = '{{ selfLink }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 rules = '{{ rules }}',
 meshes = '{{ meshes }}',

@@ -112,24 +112,16 @@ Updates a <code>instances</code> resource.
 UPDATE google.baremetalsolution.instances
 SET 
 name = '{{ name }}',
-id = '{{ id }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 machineType = '{{ machineType }}',
-state = '{{ state }}',
 hyperthreadingEnabled = true|false,
 labels = '{{ labels }}',
 luns = '{{ luns }}',
 volumes = '{{ volumes }}',
-networks = '{{ networks }}',
-interactiveSerialConsoleEnabled = true|false,
 osImage = '{{ osImage }}',
 pod = '{{ pod }}',
 networkTemplate = '{{ networkTemplate }}',
 logicalInterfaces = '{{ logicalInterfaces }}',
-loginInfo = '{{ loginInfo }}',
 workloadProfile = '{{ workloadProfile }}',
-firmwareVersion = '{{ firmwareVersion }}',
 sshKeys = '{{ sshKeys }}',
 kmsKeyVersion = '{{ kmsKeyVersion }}'
 WHERE 

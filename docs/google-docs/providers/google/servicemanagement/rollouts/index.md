@@ -81,7 +81,6 @@ Use the following StackQL query and manifest file to create a new <code>rollouts
 INSERT INTO google.servicemanagement.rollouts (
 serviceName,
 rolloutId,
-createTime,
 createdBy,
 status,
 trafficPercentStrategy,
@@ -91,7 +90,6 @@ serviceName
 SELECT 
 '{{ serviceName }}',
 '{{ rolloutId }}',
-'{{ createTime }}',
 '{{ createdBy }}',
 '{{ status }}',
 '{{ trafficPercentStrategy }}',
@@ -107,16 +105,16 @@ SELECT
   props:
     - name: rolloutId
       value: '{{ rolloutId }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: createdBy
       value: '{{ createdBy }}'
     - name: status
       value: '{{ status }}'
     - name: trafficPercentStrategy
-      value: '{{ trafficPercentStrategy }}'
+      value:
+        - name: percentages
+          value: '{{ percentages }}'
     - name: deleteServiceStrategy
-      value: '{{ deleteServiceStrategy }}'
+      value: []
     - name: serviceName
       value: '{{ serviceName }}'
 

@@ -87,28 +87,16 @@ Use the following StackQL query and manifest file to create a new <code>metadata
 INSERT INTO google.dataplex.metadata_jobs (
 locationsId,
 projectsId,
-name,
-uid,
-createTime,
-updateTime,
 labels,
 type,
-importSpec,
-importResult,
-status
+importSpec
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ type }}',
-'{{ importSpec }}',
-'{{ importResult }}',
-'{{ status }}'
+'{{ importSpec }}'
 ;
 ```
 </TabItem>
@@ -117,24 +105,36 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: type
       value: '{{ type }}'
     - name: importSpec
-      value: '{{ importSpec }}'
-    - name: importResult
-      value: '{{ importResult }}'
-    - name: status
-      value: '{{ status }}'
+      value:
+        - name: sourceStorageUri
+          value: '{{ sourceStorageUri }}'
+        - name: sourceCreateTime
+          value: '{{ sourceCreateTime }}'
+        - name: scope
+          value:
+            - name: entryGroups
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: entryTypes
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: aspectTypes
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: entrySyncMode
+          value: '{{ entrySyncMode }}'
+        - name: aspectSyncMode
+          value: '{{ aspectSyncMode }}'
+        - name: logLevel
+          value: '{{ logLevel }}'
 
 ```
 </TabItem>

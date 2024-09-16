@@ -99,35 +99,21 @@ Use the following StackQL query and manifest file to create a new <code>tensorbo
 INSERT INTO google.aiplatform.tensorboards (
 locationsId,
 projectsId,
-runCount,
-satisfiesPzi,
-createTime,
 description,
 isDefault,
-name,
 displayName,
 encryptionSpec,
-blobStoragePathPrefix,
 etag,
-updateTime,
-satisfiesPzs,
 labels
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ runCount }}',
-true|false,
-'{{ createTime }}',
 '{{ description }}',
 true|false,
-'{{ name }}',
 '{{ displayName }}',
 '{{ encryptionSpec }}',
-'{{ blobStoragePathPrefix }}',
 '{{ etag }}',
-'{{ updateTime }}',
-true|false,
 '{{ labels }}'
 ;
 ```
@@ -137,30 +123,18 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: runCount
-      value: '{{ runCount }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: description
       value: '{{ description }}'
     - name: isDefault
       value: '{{ isDefault }}'
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
-    - name: blobStoragePathPrefix
-      value: '{{ blobStoragePathPrefix }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: etag
       value: '{{ etag }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
     - name: labels
       value: '{{ labels }}'
 
@@ -176,18 +150,11 @@ Updates a <code>tensorboards</code> resource.
 /*+ update */
 UPDATE google.aiplatform.tensorboards
 SET 
-runCount = '{{ runCount }}',
-satisfiesPzi = true|false,
-createTime = '{{ createTime }}',
 description = '{{ description }}',
 isDefault = true|false,
-name = '{{ name }}',
 displayName = '{{ displayName }}',
 encryptionSpec = '{{ encryptionSpec }}',
-blobStoragePathPrefix = '{{ blobStoragePathPrefix }}',
 etag = '{{ etag }}',
-updateTime = '{{ updateTime }}',
-satisfiesPzs = true|false,
 labels = '{{ labels }}'
 WHERE 
 locationsId = '{{ locationsId }}'

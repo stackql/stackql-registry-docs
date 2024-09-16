@@ -125,25 +125,15 @@ Use the following StackQL query and manifest file to create a new <code>instance
 INSERT INTO google.looker.instances (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
-state,
 platformEdition,
 publicIpEnabled,
 privateIpEnabled,
-lookerVersion,
-egressPublicIp,
-ingressPrivateIp,
-ingressPublicIp,
-lookerUri,
 pscEnabled,
 pscConfig,
 consumerNetwork,
 reservedRange,
 maintenanceWindow,
 denyMaintenancePeriod,
-lastDenyMaintenancePeriod,
 maintenanceSchedule,
 userMetadata,
 customDomain,
@@ -155,25 +145,15 @@ linkedLspProjectNumber
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ state }}',
 '{{ platformEdition }}',
 true|false,
 true|false,
-'{{ lookerVersion }}',
-'{{ egressPublicIp }}',
-'{{ ingressPrivateIp }}',
-'{{ ingressPublicIp }}',
-'{{ lookerUri }}',
 true|false,
 '{{ pscConfig }}',
 '{{ consumerNetwork }}',
 '{{ reservedRange }}',
 '{{ maintenanceWindow }}',
 '{{ denyMaintenancePeriod }}',
-'{{ lastDenyMaintenancePeriod }}',
 '{{ maintenanceSchedule }}',
 '{{ userMetadata }}',
 '{{ customDomain }}',
@@ -189,56 +169,88 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: state
-      value: '{{ state }}'
     - name: platformEdition
       value: '{{ platformEdition }}'
     - name: publicIpEnabled
       value: '{{ publicIpEnabled }}'
     - name: privateIpEnabled
       value: '{{ privateIpEnabled }}'
-    - name: lookerVersion
-      value: '{{ lookerVersion }}'
-    - name: egressPublicIp
-      value: '{{ egressPublicIp }}'
-    - name: ingressPrivateIp
-      value: '{{ ingressPrivateIp }}'
-    - name: ingressPublicIp
-      value: '{{ ingressPublicIp }}'
-    - name: lookerUri
-      value: '{{ lookerUri }}'
     - name: pscEnabled
       value: '{{ pscEnabled }}'
     - name: pscConfig
-      value: '{{ pscConfig }}'
+      value:
+        - name: allowedVpcs
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: serviceAttachments
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: consumerNetwork
       value: '{{ consumerNetwork }}'
     - name: reservedRange
       value: '{{ reservedRange }}'
     - name: maintenanceWindow
-      value: '{{ maintenanceWindow }}'
+      value:
+        - name: dayOfWeek
+          value: '{{ dayOfWeek }}'
+        - name: startTime
+          value:
+            - name: hours
+              value: '{{ hours }}'
+            - name: minutes
+              value: '{{ minutes }}'
+            - name: seconds
+              value: '{{ seconds }}'
+            - name: nanos
+              value: '{{ nanos }}'
     - name: denyMaintenancePeriod
-      value: '{{ denyMaintenancePeriod }}'
-    - name: lastDenyMaintenancePeriod
-      value: '{{ lastDenyMaintenancePeriod }}'
+      value:
+        - name: startDate
+          value:
+            - name: year
+              value: '{{ year }}'
+            - name: month
+              value: '{{ month }}'
+            - name: day
+              value: '{{ day }}'
     - name: maintenanceSchedule
-      value: '{{ maintenanceSchedule }}'
+      value:
+        - name: startTime
+          value: '{{ startTime }}'
+        - name: endTime
+          value: '{{ endTime }}'
     - name: userMetadata
-      value: '{{ userMetadata }}'
+      value:
+        - name: additionalViewerUserCount
+          value: '{{ additionalViewerUserCount }}'
+        - name: additionalStandardUserCount
+          value: '{{ additionalStandardUserCount }}'
+        - name: additionalDeveloperUserCount
+          value: '{{ additionalDeveloperUserCount }}'
     - name: customDomain
-      value: '{{ customDomain }}'
+      value:
+        - name: domain
+          value: '{{ domain }}'
+        - name: state
+          value: '{{ state }}'
     - name: encryptionConfig
-      value: '{{ encryptionConfig }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: adminSettings
-      value: '{{ adminSettings }}'
+      value:
+        - name: allowedEmailDomains
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: oauthConfig
-      value: '{{ oauthConfig }}'
+      value:
+        - name: clientId
+          value: '{{ clientId }}'
+        - name: clientSecret
+          value: '{{ clientSecret }}'
     - name: linkedLspProjectNumber
       value: '{{ linkedLspProjectNumber }}'
 
@@ -254,25 +266,15 @@ Updates a <code>instances</code> resource.
 /*+ update */
 UPDATE google.looker.instances
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-state = '{{ state }}',
 platformEdition = '{{ platformEdition }}',
 publicIpEnabled = true|false,
 privateIpEnabled = true|false,
-lookerVersion = '{{ lookerVersion }}',
-egressPublicIp = '{{ egressPublicIp }}',
-ingressPrivateIp = '{{ ingressPrivateIp }}',
-ingressPublicIp = '{{ ingressPublicIp }}',
-lookerUri = '{{ lookerUri }}',
 pscEnabled = true|false,
 pscConfig = '{{ pscConfig }}',
 consumerNetwork = '{{ consumerNetwork }}',
 reservedRange = '{{ reservedRange }}',
 maintenanceWindow = '{{ maintenanceWindow }}',
 denyMaintenancePeriod = '{{ denyMaintenancePeriod }}',
-lastDenyMaintenancePeriod = '{{ lastDenyMaintenancePeriod }}',
 maintenanceSchedule = '{{ maintenanceSchedule }}',
 userMetadata = '{{ userMetadata }}',
 customDomain = '{{ customDomain }}',

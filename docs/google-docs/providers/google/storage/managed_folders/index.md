@@ -84,24 +84,14 @@ Use the following StackQL query and manifest file to create a new <code>managed_
 INSERT INTO google.storage.managed_folders (
 bucket,
 bucket,
-id,
-kind,
 metageneration,
-name,
-selfLink,
-createTime,
-updateTime
+name
 )
 SELECT 
 '{{ bucket }}',
 '{{ bucket }}',
-'{{ id }}',
-'{{ kind }}',
 '{{ metageneration }}',
-'{{ name }}',
-'{{ selfLink }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ name }}'
 ;
 ```
 </TabItem>
@@ -112,20 +102,10 @@ SELECT
   props:
     - name: bucket
       value: '{{ bucket }}'
-    - name: id
-      value: '{{ id }}'
-    - name: kind
-      value: '{{ kind }}'
     - name: metageneration
       value: '{{ metageneration }}'
     - name: name
       value: '{{ name }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>

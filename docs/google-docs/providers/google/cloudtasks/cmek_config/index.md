@@ -61,7 +61,6 @@ Updates a <code>cmek_config</code> resource.
 /*+ update */
 UPDATE google.cloudtasks.cmek_config
 SET 
-name = '{{ name }}',
 kmsKey = '{{ kmsKey }}'
 WHERE 
 locationsId = '{{ locationsId }}'

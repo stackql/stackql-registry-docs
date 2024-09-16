@@ -141,13 +141,21 @@ true|false,
     - name: riskLevel
       value: '{{ riskLevel }}'
     - name: blacklistPatterns
-      value: '{{ blacklistPatterns }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: exportToSecurityCommandCenter
       value: '{{ exportToSecurityCommandCenter }}'
     - name: schedule
-      value: '{{ schedule }}'
+      value:
+        - name: scheduleTime
+          value: '{{ scheduleTime }}'
+        - name: intervalDurationDays
+          value: '{{ intervalDurationDays }}'
     - name: startingUrls
-      value: '{{ startingUrls }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: maxQps
       value: '{{ maxQps }}'
     - name: managedScan
@@ -157,7 +165,27 @@ true|false,
     - name: name
       value: '{{ name }}'
     - name: authentication
-      value: '{{ authentication }}'
+      value:
+        - name: customAccount
+          value:
+            - name: username
+              value: '{{ username }}'
+            - name: password
+              value: '{{ password }}'
+            - name: loginUrl
+              value: '{{ loginUrl }}'
+        - name: googleAccount
+          value:
+            - name: password
+              value: '{{ password }}'
+            - name: username
+              value: '{{ username }}'
+        - name: iapCredential
+          value:
+            - name: iapTestServiceAccountInfo
+              value:
+                - name: targetAudienceClientId
+                  value: '{{ targetAudienceClientId }}'
 
 ```
 </TabItem>

@@ -88,26 +88,14 @@ INSERT INTO google.vmwareengine.external_addresses (
 locationsId,
 privateCloudsId,
 projectsId,
-name,
-createTime,
-updateTime,
 internalIp,
-externalIp,
-state,
-uid,
 description
 )
 SELECT 
 '{{ locationsId }}',
 '{{ privateCloudsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ internalIp }}',
-'{{ externalIp }}',
-'{{ state }}',
-'{{ uid }}',
 '{{ description }}'
 ;
 ```
@@ -117,20 +105,8 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: internalIp
       value: '{{ internalIp }}'
-    - name: externalIp
-      value: '{{ externalIp }}'
-    - name: state
-      value: '{{ state }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: description
       value: '{{ description }}'
 
@@ -146,13 +122,7 @@ Updates a <code>external_addresses</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.external_addresses
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 internalIp = '{{ internalIp }}',
-externalIp = '{{ externalIp }}',
-state = '{{ state }}',
-uid = '{{ uid }}',
 description = '{{ description }}'
 WHERE 
 externalAddressesId = '{{ externalAddressesId }}'

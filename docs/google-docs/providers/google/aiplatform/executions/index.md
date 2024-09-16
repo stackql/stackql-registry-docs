@@ -80,32 +80,26 @@ INSERT INTO google.aiplatform.executions (
 locationsId,
 metadataStoresId,
 projectsId,
-name,
 description,
 state,
 labels,
-createTime,
 displayName,
 schemaVersion,
 schemaTitle,
 etag,
-updateTime,
 metadata
 )
 SELECT 
 '{{ locationsId }}',
 '{{ metadataStoresId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ description }}',
 '{{ state }}',
 '{{ labels }}',
-'{{ createTime }}',
 '{{ displayName }}',
 '{{ schemaVersion }}',
 '{{ schemaTitle }}',
 '{{ etag }}',
-'{{ updateTime }}',
 '{{ metadata }}'
 ;
 ```
@@ -115,16 +109,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: state
       value: '{{ state }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: schemaVersion
@@ -133,8 +123,6 @@ SELECT
       value: '{{ schemaTitle }}'
     - name: etag
       value: '{{ etag }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: metadata
       value: '{{ metadata }}'
 
@@ -150,16 +138,13 @@ Updates a <code>executions</code> resource.
 /*+ update */
 UPDATE google.aiplatform.executions
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
 state = '{{ state }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
 displayName = '{{ displayName }}',
 schemaVersion = '{{ schemaVersion }}',
 schemaTitle = '{{ schemaTitle }}',
 etag = '{{ etag }}',
-updateTime = '{{ updateTime }}',
 metadata = '{{ metadata }}'
 WHERE 
 executionsId = '{{ executionsId }}'

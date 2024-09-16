@@ -117,52 +117,34 @@ Use the following StackQL query and manifest file to create a new <code>instance
 INSERT INTO google.file.instances (
 locationsId,
 projectsId,
-name,
 description,
-state,
-statusMessage,
-createTime,
 tier,
 labels,
 fileShares,
 networks,
 etag,
-satisfiesPzs,
-satisfiesPzi,
 kmsKeyName,
-suspensionReasons,
 replication,
 tags,
 protocol,
-configurablePerformanceEnabled,
 performanceConfig,
-performanceLimits,
 deletionProtectionEnabled,
 deletionProtectionReason
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ description }}',
-'{{ state }}',
-'{{ statusMessage }}',
-'{{ createTime }}',
 '{{ tier }}',
 '{{ labels }}',
 '{{ fileShares }}',
 '{{ networks }}',
 '{{ etag }}',
-true|false,
-true|false,
 '{{ kmsKeyName }}',
-'{{ suspensionReasons }}',
 '{{ replication }}',
 '{{ tags }}',
 '{{ protocol }}',
-true|false,
 '{{ performanceConfig }}',
-'{{ performanceLimits }}',
 true|false,
 '{{ deletionProtectionReason }}'
 ;
@@ -173,46 +155,46 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
-    - name: statusMessage
-      value: '{{ statusMessage }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: tier
       value: '{{ tier }}'
     - name: labels
       value: '{{ labels }}'
     - name: fileShares
-      value: '{{ fileShares }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: networks
-      value: '{{ networks }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: etag
       value: '{{ etag }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
     - name: kmsKeyName
       value: '{{ kmsKeyName }}'
-    - name: suspensionReasons
-      value: '{{ suspensionReasons }}'
     - name: replication
-      value: '{{ replication }}'
+      value:
+        - name: role
+          value: '{{ role }}'
+        - name: replicas
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: tags
       value: '{{ tags }}'
     - name: protocol
       value: '{{ protocol }}'
-    - name: configurablePerformanceEnabled
-      value: '{{ configurablePerformanceEnabled }}'
     - name: performanceConfig
-      value: '{{ performanceConfig }}'
-    - name: performanceLimits
-      value: '{{ performanceLimits }}'
+      value:
+        - name: fixedIops
+          value:
+            - name: maxReadIops
+              value: '{{ maxReadIops }}'
+        - name: iopsPerTb
+          value:
+            - name: maxReadIopsPerTb
+              value: '{{ maxReadIopsPerTb }}'
     - name: deletionProtectionEnabled
       value: '{{ deletionProtectionEnabled }}'
     - name: deletionProtectionReason
@@ -230,26 +212,17 @@ Updates a <code>instances</code> resource.
 /*+ update */
 UPDATE google.file.instances
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
-state = '{{ state }}',
-statusMessage = '{{ statusMessage }}',
-createTime = '{{ createTime }}',
 tier = '{{ tier }}',
 labels = '{{ labels }}',
 fileShares = '{{ fileShares }}',
 networks = '{{ networks }}',
 etag = '{{ etag }}',
-satisfiesPzs = true|false,
-satisfiesPzi = true|false,
 kmsKeyName = '{{ kmsKeyName }}',
-suspensionReasons = '{{ suspensionReasons }}',
 replication = '{{ replication }}',
 tags = '{{ tags }}',
 protocol = '{{ protocol }}',
-configurablePerformanceEnabled = true|false,
 performanceConfig = '{{ performanceConfig }}',
-performanceLimits = '{{ performanceLimits }}',
 deletionProtectionEnabled = true|false,
 deletionProtectionReason = '{{ deletionProtectionReason }}'
 WHERE 

@@ -99,9 +99,6 @@ Use the following StackQL query and manifest file to create a new <code>connecti
 INSERT INTO google.datastream.connection_profiles (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
 labels,
 displayName,
 oracleProfile,
@@ -117,9 +114,6 @@ privateConnectivity
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ displayName }}',
 '{{ oracleProfile }}',
@@ -139,34 +133,96 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: oracleProfile
-      value: '{{ oracleProfile }}'
+      value:
+        - name: hostname
+          value: '{{ hostname }}'
+        - name: port
+          value: '{{ port }}'
+        - name: username
+          value: '{{ username }}'
+        - name: password
+          value: '{{ password }}'
+        - name: databaseService
+          value: '{{ databaseService }}'
+        - name: connectionAttributes
+          value: '{{ connectionAttributes }}'
+        - name: oracleSslConfig
+          value:
+            - name: caCertificate
+              value: '{{ caCertificate }}'
     - name: gcsProfile
-      value: '{{ gcsProfile }}'
+      value:
+        - name: bucket
+          value: '{{ bucket }}'
+        - name: rootPath
+          value: '{{ rootPath }}'
     - name: mysqlProfile
-      value: '{{ mysqlProfile }}'
+      value:
+        - name: hostname
+          value: '{{ hostname }}'
+        - name: port
+          value: '{{ port }}'
+        - name: username
+          value: '{{ username }}'
+        - name: password
+          value: '{{ password }}'
+        - name: sslConfig
+          value:
+            - name: clientKey
+              value: '{{ clientKey }}'
+            - name: clientCertificate
+              value: '{{ clientCertificate }}'
+            - name: caCertificate
+              value: '{{ caCertificate }}'
     - name: bigqueryProfile
-      value: '{{ bigqueryProfile }}'
+      value: []
     - name: postgresqlProfile
-      value: '{{ postgresqlProfile }}'
+      value:
+        - name: hostname
+          value: '{{ hostname }}'
+        - name: port
+          value: '{{ port }}'
+        - name: username
+          value: '{{ username }}'
+        - name: password
+          value: '{{ password }}'
+        - name: database
+          value: '{{ database }}'
     - name: sqlServerProfile
-      value: '{{ sqlServerProfile }}'
+      value:
+        - name: hostname
+          value: '{{ hostname }}'
+        - name: port
+          value: '{{ port }}'
+        - name: username
+          value: '{{ username }}'
+        - name: password
+          value: '{{ password }}'
+        - name: database
+          value: '{{ database }}'
     - name: staticServiceIpConnectivity
-      value: '{{ staticServiceIpConnectivity }}'
+      value: []
     - name: forwardSshConnectivity
-      value: '{{ forwardSshConnectivity }}'
+      value:
+        - name: hostname
+          value: '{{ hostname }}'
+        - name: username
+          value: '{{ username }}'
+        - name: port
+          value: '{{ port }}'
+        - name: password
+          value: '{{ password }}'
+        - name: privateKey
+          value: '{{ privateKey }}'
     - name: privateConnectivity
-      value: '{{ privateConnectivity }}'
+      value:
+        - name: privateConnection
+          value: '{{ privateConnection }}'
 
 ```
 </TabItem>
@@ -180,9 +236,6 @@ Updates a <code>connection_profiles</code> resource.
 /*+ update */
 UPDATE google.datastream.connection_profiles
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
 oracleProfile = '{{ oracleProfile }}',

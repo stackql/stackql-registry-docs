@@ -77,16 +77,12 @@ Use the following StackQL query and manifest file to create a new <code>ssh_publ
 INSERT INTO google.oslogin.ssh_public_keys (
 usersId,
 key,
-expirationTimeUsec,
-fingerprint,
-name
+expirationTimeUsec
 )
 SELECT 
 '{{ usersId }}',
 '{{ key }}',
-'{{ expirationTimeUsec }}',
-'{{ fingerprint }}',
-'{{ name }}'
+'{{ expirationTimeUsec }}'
 ;
 ```
 </TabItem>
@@ -99,10 +95,6 @@ SELECT
       value: '{{ key }}'
     - name: expirationTimeUsec
       value: '{{ expirationTimeUsec }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: name
-      value: '{{ name }}'
 
 ```
 </TabItem>
@@ -117,9 +109,7 @@ Updates a <code>ssh_public_keys</code> resource.
 UPDATE google.oslogin.ssh_public_keys
 SET 
 key = '{{ key }}',
-expirationTimeUsec = '{{ expirationTimeUsec }}',
-fingerprint = '{{ fingerprint }}',
-name = '{{ name }}'
+expirationTimeUsec = '{{ expirationTimeUsec }}'
 WHERE 
 sshPublicKeysId = '{{ sshPublicKeysId }}'
 AND usersId = '{{ usersId }}';

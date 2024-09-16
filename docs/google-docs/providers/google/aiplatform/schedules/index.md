@@ -110,48 +110,30 @@ Use the following StackQL query and manifest file to create a new <code>schedule
 INSERT INTO google.aiplatform.schedules (
 locationsId,
 projectsId,
-lastPauseTime,
-catchUp,
 maxRunCount,
 allowQueueing,
 createNotebookExecutionJobRequest,
-state,
 cron,
 endTime,
 startTime,
 createPipelineJobRequest,
 name,
-lastResumeTime,
-createTime,
 displayName,
-updateTime,
-maxConcurrentRunCount,
-nextRunTime,
-lastScheduledRunResponse,
-startedRunCount
+maxConcurrentRunCount
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ lastPauseTime }}',
-true|false,
 '{{ maxRunCount }}',
 true|false,
 '{{ createNotebookExecutionJobRequest }}',
-'{{ state }}',
 '{{ cron }}',
 '{{ endTime }}',
 '{{ startTime }}',
 '{{ createPipelineJobRequest }}',
 '{{ name }}',
-'{{ lastResumeTime }}',
-'{{ createTime }}',
 '{{ displayName }}',
-'{{ updateTime }}',
-'{{ maxConcurrentRunCount }}',
-'{{ nextRunTime }}',
-'{{ lastScheduledRunResponse }}',
-'{{ startedRunCount }}'
+'{{ maxConcurrentRunCount }}'
 ;
 ```
 </TabItem>
@@ -160,18 +142,52 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: lastPauseTime
-      value: '{{ lastPauseTime }}'
-    - name: catchUp
-      value: '{{ catchUp }}'
     - name: maxRunCount
       value: '{{ maxRunCount }}'
     - name: allowQueueing
       value: '{{ allowQueueing }}'
     - name: createNotebookExecutionJobRequest
-      value: '{{ createNotebookExecutionJobRequest }}'
-    - name: state
-      value: '{{ state }}'
+      value:
+        - name: notebookExecutionJob
+          value:
+            - name: notebookRuntimeTemplateResourceName
+              value: '{{ notebookRuntimeTemplateResourceName }}'
+            - name: executionTimeout
+              value: '{{ executionTimeout }}'
+            - name: gcsOutputUri
+              value: '{{ gcsOutputUri }}'
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
+            - name: encryptionSpec
+              value:
+                - name: kmsKeyName
+                  value: '{{ kmsKeyName }}'
+            - name: displayName
+              value: '{{ displayName }}'
+            - name: dataformRepositorySource
+              value:
+                - name: commitSha
+                  value: '{{ commitSha }}'
+                - name: dataformRepositoryResourceName
+                  value: '{{ dataformRepositoryResourceName }}'
+            - name: executionUser
+              value: '{{ executionUser }}'
+            - name: gcsNotebookSource
+              value:
+                - name: generation
+                  value: '{{ generation }}'
+                - name: uri
+                  value: '{{ uri }}'
+            - name: labels
+              value: '{{ labels }}'
+            - name: directNotebookSource
+              value:
+                - name: content
+                  value: '{{ content }}'
+        - name: parent
+          value: '{{ parent }}'
+        - name: notebookExecutionJobId
+          value: '{{ notebookExecutionJobId }}'
     - name: cron
       value: '{{ cron }}'
     - name: endTime
@@ -179,25 +195,49 @@ true|false,
     - name: startTime
       value: '{{ startTime }}'
     - name: createPipelineJobRequest
-      value: '{{ createPipelineJobRequest }}'
+      value:
+        - name: pipelineJobId
+          value: '{{ pipelineJobId }}'
+        - name: parent
+          value: '{{ parent }}'
+        - name: pipelineJob
+          value:
+            - name: runtimeConfig
+              value:
+                - name: gcsOutputDirectory
+                  value: '{{ gcsOutputDirectory }}'
+                - name: parameters
+                  value: '{{ parameters }}'
+                - name: inputArtifacts
+                  value: '{{ inputArtifacts }}'
+                - name: failurePolicy
+                  value: '{{ failurePolicy }}'
+                - name: parameterValues
+                  value: '{{ parameterValues }}'
+            - name: labels
+              value: '{{ labels }}'
+            - name: templateUri
+              value: '{{ templateUri }}'
+            - name: displayName
+              value: '{{ displayName }}'
+            - name: network
+              value: '{{ network }}'
+            - name: reservedIpRanges
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: pipelineSpec
+              value: '{{ pipelineSpec }}'
+            - name: preflightValidations
+              value: '{{ preflightValidations }}'
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
     - name: name
       value: '{{ name }}'
-    - name: lastResumeTime
-      value: '{{ lastResumeTime }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: maxConcurrentRunCount
       value: '{{ maxConcurrentRunCount }}'
-    - name: nextRunTime
-      value: '{{ nextRunTime }}'
-    - name: lastScheduledRunResponse
-      value: '{{ lastScheduledRunResponse }}'
-    - name: startedRunCount
-      value: '{{ startedRunCount }}'
 
 ```
 </TabItem>
@@ -211,25 +251,16 @@ Updates a <code>schedules</code> resource.
 /*+ update */
 UPDATE google.aiplatform.schedules
 SET 
-lastPauseTime = '{{ lastPauseTime }}',
-catchUp = true|false,
 maxRunCount = '{{ maxRunCount }}',
 allowQueueing = true|false,
 createNotebookExecutionJobRequest = '{{ createNotebookExecutionJobRequest }}',
-state = '{{ state }}',
 cron = '{{ cron }}',
 endTime = '{{ endTime }}',
 startTime = '{{ startTime }}',
 createPipelineJobRequest = '{{ createPipelineJobRequest }}',
 name = '{{ name }}',
-lastResumeTime = '{{ lastResumeTime }}',
-createTime = '{{ createTime }}',
 displayName = '{{ displayName }}',
-updateTime = '{{ updateTime }}',
-maxConcurrentRunCount = '{{ maxConcurrentRunCount }}',
-nextRunTime = '{{ nextRunTime }}',
-lastScheduledRunResponse = '{{ lastScheduledRunResponse }}',
-startedRunCount = '{{ startedRunCount }}'
+maxConcurrentRunCount = '{{ maxConcurrentRunCount }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

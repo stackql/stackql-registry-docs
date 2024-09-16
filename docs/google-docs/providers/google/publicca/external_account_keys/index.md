@@ -54,17 +54,11 @@ Use the following StackQL query and manifest file to create a new <code>external
 /*+ create */
 INSERT INTO google.publicca.external_account_keys (
 locationsId,
-projectsId,
-name,
-keyId,
-b64MacKey
+projectsId
 )
 SELECT 
 '{{ locationsId }}',
-'{{ projectsId }}',
-'{{ name }}',
-'{{ keyId }}',
-'{{ b64MacKey }}'
+'{{ projectsId }}'
 ;
 ```
 </TabItem>
@@ -72,13 +66,7 @@ SELECT
 
 ```yaml
 - name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: keyId
-      value: '{{ keyId }}'
-    - name: b64MacKey
-      value: '{{ b64MacKey }}'
+  props: []
 
 ```
 </TabItem>

@@ -95,7 +95,6 @@ Use the following StackQL query and manifest file to create a new <code>metrics<
 INSERT INTO google.logging.metrics (
 projectsId,
 name,
-resourceName,
 description,
 filter,
 bucketName,
@@ -104,14 +103,11 @@ metricDescriptor,
 valueExtractor,
 labelExtractors,
 bucketOptions,
-createTime,
-updateTime,
 version
 )
 SELECT 
 '{{ projectsId }}',
 '{{ name }}',
-'{{ resourceName }}',
 '{{ description }}',
 '{{ filter }}',
 '{{ bucketName }}',
@@ -120,8 +116,6 @@ true|false,
 '{{ valueExtractor }}',
 '{{ labelExtractors }}',
 '{{ bucketOptions }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ version }}'
 ;
 ```
@@ -133,8 +127,6 @@ true|false,
   props:
     - name: name
       value: '{{ name }}'
-    - name: resourceName
-      value: '{{ resourceName }}'
     - name: description
       value: '{{ description }}'
     - name: filter
@@ -144,17 +136,77 @@ true|false,
     - name: disabled
       value: '{{ disabled }}'
     - name: metricDescriptor
-      value: '{{ metricDescriptor }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: type
+          value: '{{ type }}'
+        - name: labels
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: metricKind
+          value: '{{ metricKind }}'
+        - name: valueType
+          value: '{{ valueType }}'
+        - name: unit
+          value: '{{ unit }}'
+        - name: description
+          value: '{{ description }}'
+        - name: displayName
+          value: '{{ displayName }}'
+        - name: metadata
+          value:
+            - name: launchStage
+              value: '{{ launchStage }}'
+            - name: samplePeriod
+              value: '{{ samplePeriod }}'
+            - name: ingestDelay
+              value: '{{ ingestDelay }}'
+            - name: timeSeriesResourceHierarchyLevel
+              value:
+                - name: type
+                  value: '{{ type }}'
+                - name: enumDescriptions
+                  value: '{{ enumDescriptions }}'
+                - name: enum
+                  value: '{{ enum }}'
+        - name: launchStage
+          value: '{{ launchStage }}'
+        - name: monitoredResourceTypes
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: valueExtractor
       value: '{{ valueExtractor }}'
     - name: labelExtractors
       value: '{{ labelExtractors }}'
     - name: bucketOptions
-      value: '{{ bucketOptions }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: linearBuckets
+          value:
+            - name: numFiniteBuckets
+              value: '{{ numFiniteBuckets }}'
+            - name: width
+              value: '{{ width }}'
+            - name: offset
+              value: '{{ offset }}'
+        - name: exponentialBuckets
+          value:
+            - name: numFiniteBuckets
+              value: '{{ numFiniteBuckets }}'
+            - name: growthFactor
+              value: '{{ growthFactor }}'
+            - name: scale
+              value: '{{ scale }}'
+        - name: explicitBuckets
+          value:
+            - name: bounds
+              value:
+                - name: type
+                  value: '{{ type }}'
+                - name: format
+                  value: '{{ format }}'
     - name: version
       value: '{{ version }}'
 
@@ -171,7 +223,6 @@ Replaces all fields in the specified <code>metrics</code> resource.
 REPLACE google.logging.metrics
 SET 
 name = '{{ name }}',
-resourceName = '{{ resourceName }}',
 description = '{{ description }}',
 filter = '{{ filter }}',
 bucketName = '{{ bucketName }}',
@@ -180,8 +231,6 @@ metricDescriptor = '{{ metricDescriptor }}',
 valueExtractor = '{{ valueExtractor }}',
 labelExtractors = '{{ labelExtractors }}',
 bucketOptions = '{{ bucketOptions }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 version = '{{ version }}'
 WHERE 
 metricsId = '{{ metricsId }}'

@@ -102,19 +102,9 @@ INSERT INTO google.aiplatform.tuning_jobs (
 locationsId,
 projectsId,
 supervisedTuningSpec,
-tuningDataStats,
-name,
-state,
-updateTime,
-tunedModel,
 encryptionSpec,
 tunedModelDisplayName,
-endTime,
-experiment,
-error,
 description,
-startTime,
-createTime,
 baseModel,
 labels
 )
@@ -122,19 +112,9 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ supervisedTuningSpec }}',
-'{{ tuningDataStats }}',
-'{{ name }}',
-'{{ state }}',
-'{{ updateTime }}',
-'{{ tunedModel }}',
 '{{ encryptionSpec }}',
 '{{ tunedModelDisplayName }}',
-'{{ endTime }}',
-'{{ experiment }}',
-'{{ error }}',
 '{{ description }}',
-'{{ startTime }}',
-'{{ createTime }}',
 '{{ baseModel }}',
 '{{ labels }}'
 ;
@@ -146,33 +126,27 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: supervisedTuningSpec
-      value: '{{ supervisedTuningSpec }}'
-    - name: tuningDataStats
-      value: '{{ tuningDataStats }}'
-    - name: name
-      value: '{{ name }}'
-    - name: state
-      value: '{{ state }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: tunedModel
-      value: '{{ tunedModel }}'
+      value:
+        - name: validationDatasetUri
+          value: '{{ validationDatasetUri }}'
+        - name: trainingDatasetUri
+          value: '{{ trainingDatasetUri }}'
+        - name: hyperParameters
+          value:
+            - name: adapterSize
+              value: '{{ adapterSize }}'
+            - name: learningRateMultiplier
+              value: '{{ learningRateMultiplier }}'
+            - name: epochCount
+              value: '{{ epochCount }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: tunedModelDisplayName
       value: '{{ tunedModelDisplayName }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: experiment
-      value: '{{ experiment }}'
-    - name: error
-      value: '{{ error }}'
     - name: description
       value: '{{ description }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: baseModel
       value: '{{ baseModel }}'
     - name: labels

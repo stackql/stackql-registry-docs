@@ -81,20 +81,14 @@ INSERT INTO google.contactcenterinsights.analyses (
 conversationsId,
 locationsId,
 projectsId,
-requestTime,
 name,
-analysisResult,
-createTime,
 annotatorSelector
 )
 SELECT 
 '{{ conversationsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ requestTime }}',
 '{{ name }}',
-'{{ analysisResult }}',
-'{{ createTime }}',
 '{{ annotatorSelector }}'
 ;
 ```
@@ -104,16 +98,40 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: requestTime
-      value: '{{ requestTime }}'
     - name: name
       value: '{{ name }}'
-    - name: analysisResult
-      value: '{{ analysisResult }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: annotatorSelector
-      value: '{{ annotatorSelector }}'
+      value:
+        - name: runEntityAnnotator
+          value: '{{ runEntityAnnotator }}'
+        - name: issueModels
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: runIssueModelAnnotator
+          value: '{{ runIssueModelAnnotator }}'
+        - name: runSummarizationAnnotator
+          value: '{{ runSummarizationAnnotator }}'
+        - name: summarizationConfig
+          value:
+            - name: summarizationModel
+              value: '{{ summarizationModel }}'
+            - name: conversationProfile
+              value: '{{ conversationProfile }}'
+        - name: runSentimentAnnotator
+          value: '{{ runSentimentAnnotator }}'
+        - name: runInterruptionAnnotator
+          value: '{{ runInterruptionAnnotator }}'
+        - name: runPhraseMatcherAnnotator
+          value: '{{ runPhraseMatcherAnnotator }}'
+        - name: runIntentAnnotator
+          value: '{{ runIntentAnnotator }}'
+        - name: phraseMatchers
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: runSilenceAnnotator
+          value: '{{ runSilenceAnnotator }}'
 
 ```
 </TabItem>

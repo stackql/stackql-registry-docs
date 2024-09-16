@@ -87,9 +87,6 @@ INSERT INTO google.networkservices.meshes (
 locationsId,
 projectsId,
 name,
-selfLink,
-createTime,
-updateTime,
 labels,
 description,
 interceptionPort,
@@ -99,9 +96,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ selfLink }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ interceptionPort }}',
@@ -116,12 +110,6 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
@@ -144,9 +132,6 @@ Updates a <code>meshes</code> resource.
 UPDATE google.networkservices.meshes
 SET 
 name = '{{ name }}',
-selfLink = '{{ selfLink }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 interceptionPort = '{{ interceptionPort }}',

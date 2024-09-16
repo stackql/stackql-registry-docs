@@ -157,35 +157,21 @@ alternativeLocationId,
 redisVersion,
 reservedIpRange,
 secondaryIpRange,
-host,
-port,
-currentLocationId,
-createTime,
-state,
-statusMessage,
 redisConfigs,
 tier,
 memorySizeGb,
 authorizedNetwork,
-persistenceIamIdentity,
 connectMode,
 authEnabled,
-serverCaCerts,
 transitEncryptionMode,
 maintenancePolicy,
-maintenanceSchedule,
 replicaCount,
-nodes,
-readEndpoint,
-readEndpointPort,
 readReplicasMode,
 customerManagedKey,
 persistenceConfig,
 suspensionReasons,
 maintenanceVersion,
-availableMaintenanceVersions,
-satisfiesPzs,
-satisfiesPzi
+availableMaintenanceVersions
 )
 SELECT 
 '{{ locationsId }}',
@@ -198,35 +184,21 @@ SELECT
 '{{ redisVersion }}',
 '{{ reservedIpRange }}',
 '{{ secondaryIpRange }}',
-'{{ host }}',
-'{{ port }}',
-'{{ currentLocationId }}',
-'{{ createTime }}',
-'{{ state }}',
-'{{ statusMessage }}',
 '{{ redisConfigs }}',
 '{{ tier }}',
 '{{ memorySizeGb }}',
 '{{ authorizedNetwork }}',
-'{{ persistenceIamIdentity }}',
 '{{ connectMode }}',
 true|false,
-'{{ serverCaCerts }}',
 '{{ transitEncryptionMode }}',
 '{{ maintenancePolicy }}',
-'{{ maintenanceSchedule }}',
 '{{ replicaCount }}',
-'{{ nodes }}',
-'{{ readEndpoint }}',
-'{{ readEndpointPort }}',
 '{{ readReplicasMode }}',
 '{{ customerManagedKey }}',
 '{{ persistenceConfig }}',
 '{{ suspensionReasons }}',
 '{{ maintenanceVersion }}',
-'{{ availableMaintenanceVersions }}',
-true|false,
-true|false
+'{{ availableMaintenanceVersions }}'
 ;
 ```
 </TabItem>
@@ -251,18 +223,6 @@ true|false
       value: '{{ reservedIpRange }}'
     - name: secondaryIpRange
       value: '{{ secondaryIpRange }}'
-    - name: host
-      value: '{{ host }}'
-    - name: port
-      value: '{{ port }}'
-    - name: currentLocationId
-      value: '{{ currentLocationId }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: statusMessage
-      value: '{{ statusMessage }}'
     - name: redisConfigs
       value: '{{ redisConfigs }}'
     - name: tier
@@ -271,44 +231,48 @@ true|false
       value: '{{ memorySizeGb }}'
     - name: authorizedNetwork
       value: '{{ authorizedNetwork }}'
-    - name: persistenceIamIdentity
-      value: '{{ persistenceIamIdentity }}'
     - name: connectMode
       value: '{{ connectMode }}'
     - name: authEnabled
       value: '{{ authEnabled }}'
-    - name: serverCaCerts
-      value: '{{ serverCaCerts }}'
     - name: transitEncryptionMode
       value: '{{ transitEncryptionMode }}'
     - name: maintenancePolicy
-      value: '{{ maintenancePolicy }}'
-    - name: maintenanceSchedule
-      value: '{{ maintenanceSchedule }}'
+      value:
+        - name: description
+          value: '{{ description }}'
+        - name: weeklyMaintenanceWindow
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: replicaCount
       value: '{{ replicaCount }}'
-    - name: nodes
-      value: '{{ nodes }}'
-    - name: readEndpoint
-      value: '{{ readEndpoint }}'
-    - name: readEndpointPort
-      value: '{{ readEndpointPort }}'
     - name: readReplicasMode
       value: '{{ readReplicasMode }}'
     - name: customerManagedKey
       value: '{{ customerManagedKey }}'
     - name: persistenceConfig
-      value: '{{ persistenceConfig }}'
+      value:
+        - name: persistenceMode
+          value: '{{ persistenceMode }}'
+        - name: rdbSnapshotPeriod
+          value: '{{ rdbSnapshotPeriod }}'
+        - name: rdbSnapshotStartTime
+          value: '{{ rdbSnapshotStartTime }}'
     - name: suspensionReasons
-      value: '{{ suspensionReasons }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: maintenanceVersion
       value: '{{ maintenanceVersion }}'
     - name: availableMaintenanceVersions
-      value: '{{ availableMaintenanceVersions }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -330,35 +294,21 @@ alternativeLocationId = '{{ alternativeLocationId }}',
 redisVersion = '{{ redisVersion }}',
 reservedIpRange = '{{ reservedIpRange }}',
 secondaryIpRange = '{{ secondaryIpRange }}',
-host = '{{ host }}',
-port = '{{ port }}',
-currentLocationId = '{{ currentLocationId }}',
-createTime = '{{ createTime }}',
-state = '{{ state }}',
-statusMessage = '{{ statusMessage }}',
 redisConfigs = '{{ redisConfigs }}',
 tier = '{{ tier }}',
 memorySizeGb = '{{ memorySizeGb }}',
 authorizedNetwork = '{{ authorizedNetwork }}',
-persistenceIamIdentity = '{{ persistenceIamIdentity }}',
 connectMode = '{{ connectMode }}',
 authEnabled = true|false,
-serverCaCerts = '{{ serverCaCerts }}',
 transitEncryptionMode = '{{ transitEncryptionMode }}',
 maintenancePolicy = '{{ maintenancePolicy }}',
-maintenanceSchedule = '{{ maintenanceSchedule }}',
 replicaCount = '{{ replicaCount }}',
-nodes = '{{ nodes }}',
-readEndpoint = '{{ readEndpoint }}',
-readEndpointPort = '{{ readEndpointPort }}',
 readReplicasMode = '{{ readReplicasMode }}',
 customerManagedKey = '{{ customerManagedKey }}',
 persistenceConfig = '{{ persistenceConfig }}',
 suspensionReasons = '{{ suspensionReasons }}',
 maintenanceVersion = '{{ maintenanceVersion }}',
-availableMaintenanceVersions = '{{ availableMaintenanceVersions }}',
-satisfiesPzs = true|false,
-satisfiesPzi = true|false
+availableMaintenanceVersions = '{{ availableMaintenanceVersions }}'
 WHERE 
 instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'

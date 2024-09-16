@@ -92,25 +92,19 @@ INSERT INTO google.securitycenter.event_threat_detection_modules (
 foldersId,
 name,
 config,
-ancestorModule,
 enablementState,
 type,
 displayName,
-description,
-updateTime,
-lastEditor
+description
 )
 SELECT 
 '{{ foldersId }}',
 '{{ name }}',
 '{{ config }}',
-'{{ ancestorModule }}',
 '{{ enablementState }}',
 '{{ type }}',
 '{{ displayName }}',
-'{{ description }}',
-'{{ updateTime }}',
-'{{ lastEditor }}'
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -123,8 +117,6 @@ SELECT
       value: '{{ name }}'
     - name: config
       value: '{{ config }}'
-    - name: ancestorModule
-      value: '{{ ancestorModule }}'
     - name: enablementState
       value: '{{ enablementState }}'
     - name: type
@@ -133,10 +125,6 @@ SELECT
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: lastEditor
-      value: '{{ lastEditor }}'
 
 ```
 </TabItem>

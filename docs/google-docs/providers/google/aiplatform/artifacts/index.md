@@ -100,16 +100,13 @@ metadataStoresId,
 projectsId,
 etag,
 schemaTitle,
-name,
 metadata,
-updateTime,
 labels,
 schemaVersion,
 state,
 displayName,
 description,
-uri,
-createTime
+uri
 )
 SELECT 
 '{{ locationsId }}',
@@ -117,16 +114,13 @@ SELECT
 '{{ projectsId }}',
 '{{ etag }}',
 '{{ schemaTitle }}',
-'{{ name }}',
 '{{ metadata }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ schemaVersion }}',
 '{{ state }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ uri }}',
-'{{ createTime }}'
+'{{ uri }}'
 ;
 ```
 </TabItem>
@@ -139,12 +133,8 @@ SELECT
       value: '{{ etag }}'
     - name: schemaTitle
       value: '{{ schemaTitle }}'
-    - name: name
-      value: '{{ name }}'
     - name: metadata
       value: '{{ metadata }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: schemaVersion
@@ -157,8 +147,6 @@ SELECT
       value: '{{ description }}'
     - name: uri
       value: '{{ uri }}'
-    - name: createTime
-      value: '{{ createTime }}'
 
 ```
 </TabItem>
@@ -174,16 +162,13 @@ UPDATE google.aiplatform.artifacts
 SET 
 etag = '{{ etag }}',
 schemaTitle = '{{ schemaTitle }}',
-name = '{{ name }}',
 metadata = '{{ metadata }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 schemaVersion = '{{ schemaVersion }}',
 state = '{{ state }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-uri = '{{ uri }}',
-createTime = '{{ createTime }}'
+uri = '{{ uri }}'
 WHERE 
 artifactsId = '{{ artifactsId }}'
 AND locationsId = '{{ locationsId }}'

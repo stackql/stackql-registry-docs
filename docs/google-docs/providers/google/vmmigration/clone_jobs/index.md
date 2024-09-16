@@ -90,31 +90,13 @@ INSERT INTO google.vmmigration.clone_jobs (
 locationsId,
 migratingVmsId,
 projectsId,
-sourcesId,
-computeEngineTargetDetails,
-computeEngineDisksTargetDetails,
-createTime,
-endTime,
-name,
-state,
-stateTime,
-error,
-steps
+sourcesId
 )
 SELECT 
 '{{ locationsId }}',
 '{{ migratingVmsId }}',
 '{{ projectsId }}',
-'{{ sourcesId }}',
-'{{ computeEngineTargetDetails }}',
-'{{ computeEngineDisksTargetDetails }}',
-'{{ createTime }}',
-'{{ endTime }}',
-'{{ name }}',
-'{{ state }}',
-'{{ stateTime }}',
-'{{ error }}',
-'{{ steps }}'
+'{{ sourcesId }}'
 ;
 ```
 </TabItem>
@@ -122,25 +104,7 @@ SELECT
 
 ```yaml
 - name: your_resource_model_name
-  props:
-    - name: computeEngineTargetDetails
-      value: '{{ computeEngineTargetDetails }}'
-    - name: computeEngineDisksTargetDetails
-      value: '{{ computeEngineDisksTargetDetails }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: name
-      value: '{{ name }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateTime
-      value: '{{ stateTime }}'
-    - name: error
-      value: '{{ error }}'
-    - name: steps
-      value: '{{ steps }}'
+  props: []
 
 ```
 </TabItem>

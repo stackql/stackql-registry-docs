@@ -109,11 +109,7 @@ INSERT INTO google.contactcenteraiplatform.contact_centers (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
-uris,
-state,
 customerDomainPrefix,
 displayName,
 instanceConfig,
@@ -122,7 +118,6 @@ userEmail,
 ccaipManagedUsers,
 adminUser,
 kmsKey,
-privateComponents,
 privateAccess,
 early,
 normal,
@@ -132,11 +127,7 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
-'{{ uris }}',
-'{{ state }}',
 '{{ customerDomainPrefix }}',
 '{{ displayName }}',
 '{{ instanceConfig }}',
@@ -145,7 +136,6 @@ SELECT
 true|false,
 '{{ adminUser }}',
 '{{ kmsKey }}',
-'{{ privateComponents }}',
 '{{ privateAccess }}',
 '{{ early }}',
 '{{ normal }}',
@@ -160,42 +150,74 @@ true|false,
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: uris
-      value: '{{ uris }}'
-    - name: state
-      value: '{{ state }}'
     - name: customerDomainPrefix
       value: '{{ customerDomainPrefix }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: instanceConfig
-      value: '{{ instanceConfig }}'
+      value:
+        - name: instanceSize
+          value: '{{ instanceSize }}'
     - name: samlParams
-      value: '{{ samlParams }}'
+      value:
+        - name: ssoUri
+          value: '{{ ssoUri }}'
+        - name: entityId
+          value: '{{ entityId }}'
+        - name: certificate
+          value: '{{ certificate }}'
+        - name: userEmail
+          value: '{{ userEmail }}'
+        - name: emailMapping
+          value: '{{ emailMapping }}'
+        - name: authenticationContexts
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
     - name: userEmail
       value: '{{ userEmail }}'
     - name: ccaipManagedUsers
       value: '{{ ccaipManagedUsers }}'
     - name: adminUser
-      value: '{{ adminUser }}'
+      value:
+        - name: givenName
+          value: '{{ givenName }}'
+        - name: familyName
+          value: '{{ familyName }}'
     - name: kmsKey
       value: '{{ kmsKey }}'
-    - name: privateComponents
-      value: '{{ privateComponents }}'
     - name: privateAccess
-      value: '{{ privateAccess }}'
+      value:
+        - name: ingressSettings
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: egressSettings
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: pscSetting
+          value:
+            - name: allowedConsumerProjectIds
+              value:
+                - name: type
+                  value: '{{ type }}'
     - name: early
-      value: '{{ early }}'
+      value: []
     - name: normal
-      value: '{{ normal }}'
+      value: []
     - name: critical
-      value: '{{ critical }}'
+      value:
+        - name: peakHours
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -210,11 +232,7 @@ Updates a <code>contact_centers</code> resource.
 UPDATE google.contactcenteraiplatform.contact_centers
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
-uris = '{{ uris }}',
-state = '{{ state }}',
 customerDomainPrefix = '{{ customerDomainPrefix }}',
 displayName = '{{ displayName }}',
 instanceConfig = '{{ instanceConfig }}',
@@ -223,7 +241,6 @@ userEmail = '{{ userEmail }}',
 ccaipManagedUsers = true|false,
 adminUser = '{{ adminUser }}',
 kmsKey = '{{ kmsKey }}',
-privateComponents = '{{ privateComponents }}',
 privateAccess = '{{ privateAccess }}',
 early = '{{ early }}',
 normal = '{{ normal }}',

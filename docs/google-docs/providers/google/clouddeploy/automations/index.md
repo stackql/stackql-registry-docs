@@ -96,11 +96,7 @@ INSERT INTO google.clouddeploy.automations (
 deliveryPipelinesId,
 locationsId,
 projectsId,
-name,
-uid,
 description,
-createTime,
-updateTime,
 annotations,
 labels,
 etag,
@@ -113,11 +109,7 @@ SELECT
 '{{ deliveryPipelinesId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ annotations }}',
 '{{ labels }}',
 '{{ etag }}',
@@ -133,16 +125,8 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: labels
@@ -154,9 +138,15 @@ true|false,
     - name: serviceAccount
       value: '{{ serviceAccount }}'
     - name: selector
-      value: '{{ selector }}'
+      value:
+        - name: targets
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: rules
-      value: '{{ rules }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -170,11 +160,7 @@ Updates a <code>automations</code> resource.
 /*+ update */
 UPDATE google.clouddeploy.automations
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 annotations = '{{ annotations }}',
 labels = '{{ labels }}',
 etag = '{{ etag }}',

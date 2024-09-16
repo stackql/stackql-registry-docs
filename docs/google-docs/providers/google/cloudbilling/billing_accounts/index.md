@@ -78,19 +78,13 @@ Use the following StackQL query and manifest file to create a new <code>billing_
 /*+ create */
 INSERT INTO google.cloudbilling.billing_accounts (
 organizationsId,
-name,
-open,
 displayName,
-masterBillingAccount,
-parent
+masterBillingAccount
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ name }}',
-true|false,
 '{{ displayName }}',
-'{{ masterBillingAccount }}',
-'{{ parent }}'
+'{{ masterBillingAccount }}'
 ;
 ```
 </TabItem>
@@ -99,16 +93,10 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: open
-      value: '{{ open }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: masterBillingAccount
       value: '{{ masterBillingAccount }}'
-    - name: parent
-      value: '{{ parent }}'
 
 ```
 </TabItem>
@@ -122,11 +110,8 @@ Updates a <code>billing_accounts</code> resource.
 /*+ update */
 UPDATE google.cloudbilling.billing_accounts
 SET 
-name = '{{ name }}',
-open = true|false,
 displayName = '{{ displayName }}',
-masterBillingAccount = '{{ masterBillingAccount }}',
-parent = '{{ parent }}'
+masterBillingAccount = '{{ masterBillingAccount }}'
 WHERE 
 billingAccountsId = '{{ billingAccountsId }}';
 ```

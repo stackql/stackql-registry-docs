@@ -85,22 +85,14 @@ locationsId,
 projectsId,
 volumesId,
 name,
-id,
-description,
-createTime,
-storageVolume,
-type
+description
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ volumesId }}',
 '{{ name }}',
-'{{ id }}',
-'{{ description }}',
-'{{ createTime }}',
-'{{ storageVolume }}',
-'{{ type }}'
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -111,16 +103,8 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: id
-      value: '{{ id }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: storageVolume
-      value: '{{ storageVolume }}'
-    - name: type
-      value: '{{ type }}'
 
 ```
 </TabItem>

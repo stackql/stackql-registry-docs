@@ -120,19 +120,81 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: appEngineRoutingOverride
-      value: '{{ appEngineRoutingOverride }}'
+      value:
+        - name: service
+          value: '{{ service }}'
+        - name: version
+          value: '{{ version }}'
+        - name: instance
+          value: '{{ instance }}'
+        - name: host
+          value: '{{ host }}'
     - name: httpTarget
-      value: '{{ httpTarget }}'
+      value:
+        - name: uriOverride
+          value:
+            - name: scheme
+              value: '{{ scheme }}'
+            - name: host
+              value: '{{ host }}'
+            - name: port
+              value: '{{ port }}'
+            - name: pathOverride
+              value:
+                - name: path
+                  value: '{{ path }}'
+            - name: queryOverride
+              value:
+                - name: queryParams
+                  value: '{{ queryParams }}'
+            - name: uriOverrideEnforceMode
+              value: '{{ uriOverrideEnforceMode }}'
+        - name: httpMethod
+          value: '{{ httpMethod }}'
+        - name: headerOverrides
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: oauthToken
+          value:
+            - name: serviceAccountEmail
+              value: '{{ serviceAccountEmail }}'
+            - name: scope
+              value: '{{ scope }}'
+        - name: oidcToken
+          value:
+            - name: serviceAccountEmail
+              value: '{{ serviceAccountEmail }}'
+            - name: audience
+              value: '{{ audience }}'
     - name: rateLimits
-      value: '{{ rateLimits }}'
+      value:
+        - name: maxDispatchesPerSecond
+          value: '{{ maxDispatchesPerSecond }}'
+        - name: maxBurstSize
+          value: '{{ maxBurstSize }}'
+        - name: maxConcurrentDispatches
+          value: '{{ maxConcurrentDispatches }}'
     - name: retryConfig
-      value: '{{ retryConfig }}'
+      value:
+        - name: maxAttempts
+          value: '{{ maxAttempts }}'
+        - name: maxRetryDuration
+          value: '{{ maxRetryDuration }}'
+        - name: minBackoff
+          value: '{{ minBackoff }}'
+        - name: maxBackoff
+          value: '{{ maxBackoff }}'
+        - name: maxDoublings
+          value: '{{ maxDoublings }}'
     - name: state
       value: '{{ state }}'
     - name: purgeTime
       value: '{{ purgeTime }}'
     - name: stackdriverLoggingConfig
-      value: '{{ stackdriverLoggingConfig }}'
+      value:
+        - name: samplingRatio
+          value: '{{ samplingRatio }}'
 
 ```
 </TabItem>

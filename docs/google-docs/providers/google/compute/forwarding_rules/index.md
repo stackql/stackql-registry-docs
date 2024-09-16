@@ -142,9 +142,6 @@ Use the following StackQL query and manifest file to create a new <code>forwardi
 INSERT INTO google.compute.forwarding_rules (
 project,
 region,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 region,
@@ -153,7 +150,6 @@ IPProtocol,
 portRange,
 ports,
 target,
-selfLink,
 loadBalancingScheme,
 subnetwork,
 network,
@@ -181,9 +177,6 @@ ipCollection
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ region }}',
@@ -192,7 +185,6 @@ SELECT
 '{{ portRange }}',
 '{{ ports }}',
 '{{ target }}',
-'{{ selfLink }}',
 '{{ loadBalancingScheme }}',
 '{{ subnetwork }}',
 '{{ network }}',
@@ -224,12 +216,6 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -243,11 +229,11 @@ true|false,
     - name: portRange
       value: '{{ portRange }}'
     - name: ports
-      value: '{{ ports }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: target
       value: '{{ target }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: loadBalancingScheme
       value: '{{ loadBalancingScheme }}'
     - name: subnetwork
@@ -257,7 +243,9 @@ true|false,
     - name: backendService
       value: '{{ backendService }}'
     - name: serviceDirectoryRegistrations
-      value: '{{ serviceDirectoryRegistrations }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: serviceLabel
       value: '{{ serviceLabel }}'
     - name: serviceName
@@ -277,11 +265,15 @@ true|false,
     - name: allowGlobalAccess
       value: '{{ allowGlobalAccess }}'
     - name: metadataFilters
-      value: '{{ metadataFilters }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: isMirroringCollector
       value: '{{ isMirroringCollector }}'
     - name: sourceIpRanges
-      value: '{{ sourceIpRanges }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: pscConnectionId
       value: '{{ pscConnectionId }}'
     - name: pscConnectionStatus
@@ -307,9 +299,6 @@ Updates a <code>forwarding_rules</code> resource.
 /*+ update */
 UPDATE google.compute.forwarding_rules
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 region = '{{ region }}',
@@ -318,7 +307,6 @@ IPProtocol = '{{ IPProtocol }}',
 portRange = '{{ portRange }}',
 ports = '{{ ports }}',
 target = '{{ target }}',
-selfLink = '{{ selfLink }}',
 loadBalancingScheme = '{{ loadBalancingScheme }}',
 subnetwork = '{{ subnetwork }}',
 network = '{{ network }}',

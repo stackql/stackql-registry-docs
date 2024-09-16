@@ -100,21 +100,11 @@ Updates a <code>registrations</code> resource.
 /*+ update */
 UPDATE google.domains.registrations
 SET 
-name = '{{ name }}',
 domainName = '{{ domainName }}',
-createTime = '{{ createTime }}',
-expireTime = '{{ expireTime }}',
-state = '{{ state }}',
-issues = '{{ issues }}',
 labels = '{{ labels }}',
 managementSettings = '{{ managementSettings }}',
 dnsSettings = '{{ dnsSettings }}',
-contactSettings = '{{ contactSettings }}',
-pendingContactSettings = '{{ pendingContactSettings }}',
-supportedPrivacy = '{{ supportedPrivacy }}',
-registerFailureReason = '{{ registerFailureReason }}',
-transferFailureReason = '{{ transferFailureReason }}',
-domainProperties = '{{ domainProperties }}'
+contactSettings = '{{ contactSettings }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

@@ -87,24 +87,18 @@ INSERT INTO google.certificatemanager.dns_authorizations (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 description,
 domain,
-dnsResourceRecord,
 type
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ domain }}',
-'{{ dnsResourceRecord }}',
 '{{ type }}'
 ;
 ```
@@ -116,18 +110,12 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
     - name: domain
       value: '{{ domain }}'
-    - name: dnsResourceRecord
-      value: '{{ dnsResourceRecord }}'
     - name: type
       value: '{{ type }}'
 
@@ -144,12 +132,9 @@ Updates a <code>dns_authorizations</code> resource.
 UPDATE google.certificatemanager.dns_authorizations
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 domain = '{{ domain }}',
-dnsResourceRecord = '{{ dnsResourceRecord }}',
 type = '{{ type }}'
 WHERE 
 dnsAuthorizationsId = '{{ dnsAuthorizationsId }}'

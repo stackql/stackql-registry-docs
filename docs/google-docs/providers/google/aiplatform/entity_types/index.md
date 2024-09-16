@@ -98,13 +98,9 @@ featurestoresId,
 locationsId,
 projectsId,
 etag,
-createTime,
 name,
-satisfiesPzi,
-updateTime,
 offlineStorageTtlDays,
 description,
-satisfiesPzs,
 monitoringConfig,
 labels
 )
@@ -113,13 +109,9 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ etag }}',
-'{{ createTime }}',
 '{{ name }}',
-true|false,
-'{{ updateTime }}',
 '{{ offlineStorageTtlDays }}',
 '{{ description }}',
-true|false,
 '{{ monitoringConfig }}',
 '{{ labels }}'
 ;
@@ -132,22 +124,32 @@ true|false,
   props:
     - name: etag
       value: '{{ etag }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: name
       value: '{{ name }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: offlineStorageTtlDays
       value: '{{ offlineStorageTtlDays }}'
     - name: description
       value: '{{ description }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
     - name: monitoringConfig
-      value: '{{ monitoringConfig }}'
+      value:
+        - name: snapshotAnalysis
+          value:
+            - name: stalenessDays
+              value: '{{ stalenessDays }}'
+            - name: disabled
+              value: '{{ disabled }}'
+            - name: monitoringIntervalDays
+              value: '{{ monitoringIntervalDays }}'
+        - name: categoricalThresholdConfig
+          value:
+            - name: value
+              value: '{{ value }}'
+        - name: importFeaturesAnalysis
+          value:
+            - name: anomalyDetectionBaseline
+              value: '{{ anomalyDetectionBaseline }}'
+            - name: state
+              value: '{{ state }}'
     - name: labels
       value: '{{ labels }}'
 
@@ -164,13 +166,9 @@ Updates a <code>entity_types</code> resource.
 UPDATE google.aiplatform.entity_types
 SET 
 etag = '{{ etag }}',
-createTime = '{{ createTime }}',
 name = '{{ name }}',
-satisfiesPzi = true|false,
-updateTime = '{{ updateTime }}',
 offlineStorageTtlDays = '{{ offlineStorageTtlDays }}',
 description = '{{ description }}',
-satisfiesPzs = true|false,
 monitoringConfig = '{{ monitoringConfig }}',
 labels = '{{ labels }}'
 WHERE 

@@ -104,9 +104,19 @@ SELECT
     - name: name
       value: '{{ name }}'
     - name: termsPair
-      value: '{{ termsPair }}'
+      value:
+        - name: sourceTerm
+          value:
+            - name: languageCode
+              value: '{{ languageCode }}'
+            - name: text
+              value: '{{ text }}'
     - name: termsSet
-      value: '{{ termsSet }}'
+      value:
+        - name: terms
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: description
       value: '{{ description }}'
 

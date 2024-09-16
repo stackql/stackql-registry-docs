@@ -101,11 +101,7 @@ name,
 config,
 uuid,
 state,
-createTime,
-updateTime,
 labels,
-satisfiesPzs,
-satisfiesPzi,
 storageConfig
 )
 SELECT 
@@ -115,11 +111,7 @@ SELECT
 '{{ config }}',
 '{{ uuid }}',
 '{{ state }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
-true|false,
-true|false,
 '{{ storageConfig }}'
 ;
 ```
@@ -132,23 +124,225 @@ true|false,
     - name: name
       value: '{{ name }}'
     - name: config
-      value: '{{ config }}'
+      value:
+        - name: gkeCluster
+          value: '{{ gkeCluster }}'
+        - name: dagGcsPrefix
+          value: '{{ dagGcsPrefix }}'
+        - name: nodeCount
+          value: '{{ nodeCount }}'
+        - name: softwareConfig
+          value:
+            - name: imageVersion
+              value: '{{ imageVersion }}'
+            - name: airflowConfigOverrides
+              value: '{{ airflowConfigOverrides }}'
+            - name: pypiPackages
+              value: '{{ pypiPackages }}'
+            - name: envVariables
+              value: '{{ envVariables }}'
+            - name: pythonVersion
+              value: '{{ pythonVersion }}'
+            - name: schedulerCount
+              value: '{{ schedulerCount }}'
+            - name: cloudDataLineageIntegration
+              value:
+                - name: enabled
+                  value: '{{ enabled }}'
+            - name: webServerPluginsMode
+              value: '{{ webServerPluginsMode }}'
+        - name: nodeConfig
+          value:
+            - name: location
+              value: '{{ location }}'
+            - name: machineType
+              value: '{{ machineType }}'
+            - name: network
+              value: '{{ network }}'
+            - name: subnetwork
+              value: '{{ subnetwork }}'
+            - name: diskSizeGb
+              value: '{{ diskSizeGb }}'
+            - name: oauthScopes
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
+            - name: tags
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: ipAllocationPolicy
+              value:
+                - name: useIpAliases
+                  value: '{{ useIpAliases }}'
+                - name: clusterSecondaryRangeName
+                  value: '{{ clusterSecondaryRangeName }}'
+                - name: clusterIpv4CidrBlock
+                  value: '{{ clusterIpv4CidrBlock }}'
+                - name: servicesSecondaryRangeName
+                  value: '{{ servicesSecondaryRangeName }}'
+                - name: servicesIpv4CidrBlock
+                  value: '{{ servicesIpv4CidrBlock }}'
+            - name: enableIpMasqAgent
+              value: '{{ enableIpMasqAgent }}'
+            - name: composerNetworkAttachment
+              value: '{{ composerNetworkAttachment }}'
+            - name: composerInternalIpv4CidrBlock
+              value: '{{ composerInternalIpv4CidrBlock }}'
+        - name: privateEnvironmentConfig
+          value:
+            - name: enablePrivateEnvironment
+              value: '{{ enablePrivateEnvironment }}'
+            - name: enablePrivateBuildsOnly
+              value: '{{ enablePrivateBuildsOnly }}'
+            - name: privateClusterConfig
+              value:
+                - name: enablePrivateEndpoint
+                  value: '{{ enablePrivateEndpoint }}'
+                - name: masterIpv4CidrBlock
+                  value: '{{ masterIpv4CidrBlock }}'
+            - name: webServerIpv4CidrBlock
+              value: '{{ webServerIpv4CidrBlock }}'
+            - name: cloudSqlIpv4CidrBlock
+              value: '{{ cloudSqlIpv4CidrBlock }}'
+            - name: cloudComposerNetworkIpv4CidrBlock
+              value: '{{ cloudComposerNetworkIpv4CidrBlock }}'
+            - name: enablePrivatelyUsedPublicIps
+              value: '{{ enablePrivatelyUsedPublicIps }}'
+            - name: cloudComposerConnectionSubnetwork
+              value: '{{ cloudComposerConnectionSubnetwork }}'
+            - name: networkingConfig
+              value:
+                - name: connectionType
+                  value: '{{ connectionType }}'
+        - name: webServerNetworkAccessControl
+          value:
+            - name: allowedIpRanges
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: databaseConfig
+          value:
+            - name: machineType
+              value: '{{ machineType }}'
+            - name: zone
+              value: '{{ zone }}'
+        - name: webServerConfig
+          value:
+            - name: machineType
+              value: '{{ machineType }}'
+        - name: encryptionConfig
+          value:
+            - name: kmsKeyName
+              value: '{{ kmsKeyName }}'
+        - name: maintenanceWindow
+          value:
+            - name: startTime
+              value: '{{ startTime }}'
+            - name: endTime
+              value: '{{ endTime }}'
+            - name: recurrence
+              value: '{{ recurrence }}'
+        - name: workloadsConfig
+          value:
+            - name: scheduler
+              value:
+                - name: cpu
+                  value: '{{ cpu }}'
+                - name: memoryGb
+                  value: '{{ memoryGb }}'
+                - name: storageGb
+                  value: '{{ storageGb }}'
+                - name: count
+                  value: '{{ count }}'
+            - name: webServer
+              value:
+                - name: cpu
+                  value: '{{ cpu }}'
+                - name: memoryGb
+                  value: '{{ memoryGb }}'
+                - name: storageGb
+                  value: '{{ storageGb }}'
+            - name: worker
+              value:
+                - name: cpu
+                  value: '{{ cpu }}'
+                - name: memoryGb
+                  value: '{{ memoryGb }}'
+                - name: storageGb
+                  value: '{{ storageGb }}'
+                - name: minCount
+                  value: '{{ minCount }}'
+                - name: maxCount
+                  value: '{{ maxCount }}'
+            - name: triggerer
+              value:
+                - name: count
+                  value: '{{ count }}'
+                - name: cpu
+                  value: '{{ cpu }}'
+                - name: memoryGb
+                  value: '{{ memoryGb }}'
+            - name: dagProcessor
+              value:
+                - name: cpu
+                  value: '{{ cpu }}'
+                - name: memoryGb
+                  value: '{{ memoryGb }}'
+                - name: storageGb
+                  value: '{{ storageGb }}'
+                - name: count
+                  value: '{{ count }}'
+        - name: environmentSize
+          value: '{{ environmentSize }}'
+        - name: airflowUri
+          value: '{{ airflowUri }}'
+        - name: masterAuthorizedNetworksConfig
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+            - name: cidrBlocks
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: recoveryConfig
+          value:
+            - name: scheduledSnapshotsConfig
+              value:
+                - name: enabled
+                  value: '{{ enabled }}'
+                - name: snapshotLocation
+                  value: '{{ snapshotLocation }}'
+                - name: snapshotCreationSchedule
+                  value: '{{ snapshotCreationSchedule }}'
+                - name: timeZone
+                  value: '{{ timeZone }}'
+        - name: resilienceMode
+          value: '{{ resilienceMode }}'
+        - name: dataRetentionConfig
+          value:
+            - name: airflowMetadataRetentionConfig
+              value:
+                - name: retentionMode
+                  value: '{{ retentionMode }}'
+                - name: retentionDays
+                  value: '{{ retentionDays }}'
+            - name: taskLogsRetentionConfig
+              value:
+                - name: storageMode
+                  value: '{{ storageMode }}'
     - name: uuid
       value: '{{ uuid }}'
     - name: state
       value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
     - name: storageConfig
-      value: '{{ storageConfig }}'
+      value:
+        - name: bucket
+          value: '{{ bucket }}'
 
 ```
 </TabItem>
@@ -166,11 +360,7 @@ name = '{{ name }}',
 config = '{{ config }}',
 uuid = '{{ uuid }}',
 state = '{{ state }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
-satisfiesPzs = true|false,
-satisfiesPzi = true|false,
 storageConfig = '{{ storageConfig }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'

@@ -144,29 +144,91 @@ true|false,
     - name: displayName
       value: '{{ displayName }}'
     - name: monitoredResource
-      value: '{{ monitoredResource }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: labels
+          value: '{{ labels }}'
     - name: resourceGroup
-      value: '{{ resourceGroup }}'
+      value:
+        - name: groupId
+          value: '{{ groupId }}'
+        - name: resourceType
+          value: '{{ resourceType }}'
     - name: syntheticMonitor
-      value: '{{ syntheticMonitor }}'
+      value:
+        - name: cloudFunctionV2
+          value:
+            - name: name
+              value: '{{ name }}'
     - name: httpCheck
-      value: '{{ httpCheck }}'
+      value:
+        - name: requestMethod
+          value: '{{ requestMethod }}'
+        - name: useSsl
+          value: '{{ useSsl }}'
+        - name: path
+          value: '{{ path }}'
+        - name: port
+          value: '{{ port }}'
+        - name: authInfo
+          value:
+            - name: username
+              value: '{{ username }}'
+            - name: password
+              value: '{{ password }}'
+        - name: maskHeaders
+          value: '{{ maskHeaders }}'
+        - name: headers
+          value: '{{ headers }}'
+        - name: contentType
+          value: '{{ contentType }}'
+        - name: customContentType
+          value: '{{ customContentType }}'
+        - name: validateSsl
+          value: '{{ validateSsl }}'
+        - name: body
+          value: '{{ body }}'
+        - name: acceptedResponseStatusCodes
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: pingConfig
+          value:
+            - name: pingsCount
+              value: '{{ pingsCount }}'
+        - name: serviceAgentAuthentication
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: tcpCheck
-      value: '{{ tcpCheck }}'
+      value:
+        - name: port
+          value: '{{ port }}'
     - name: period
       value: '{{ period }}'
     - name: timeout
       value: '{{ timeout }}'
     - name: contentMatchers
-      value: '{{ contentMatchers }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: checkerType
       value: '{{ checkerType }}'
     - name: selectedRegions
-      value: '{{ selectedRegions }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: isInternal
       value: '{{ isInternal }}'
     - name: internalCheckers
-      value: '{{ internalCheckers }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: userLabels
       value: '{{ userLabels }}'
 

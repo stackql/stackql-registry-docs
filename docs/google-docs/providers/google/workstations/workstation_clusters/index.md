@@ -106,42 +106,26 @@ locationsId,
 projectsId,
 name,
 displayName,
-uid,
-reconciling,
 annotations,
 labels,
-createTime,
-updateTime,
-deleteTime,
 etag,
 network,
 subnetwork,
-controlPlaneIp,
 privateClusterConfig,
-domainConfig,
-degraded,
-conditions
+domainConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-true|false,
 '{{ annotations }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ etag }}',
 '{{ network }}',
 '{{ subnetwork }}',
-'{{ controlPlaneIp }}',
 '{{ privateClusterConfig }}',
-'{{ domainConfig }}',
-true|false,
-'{{ conditions }}'
+'{{ domainConfig }}'
 ;
 ```
 </TabItem>
@@ -154,36 +138,28 @@ true|false,
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: etag
       value: '{{ etag }}'
     - name: network
       value: '{{ network }}'
     - name: subnetwork
       value: '{{ subnetwork }}'
-    - name: controlPlaneIp
-      value: '{{ controlPlaneIp }}'
     - name: privateClusterConfig
-      value: '{{ privateClusterConfig }}'
+      value:
+        - name: enablePrivateEndpoint
+          value: '{{ enablePrivateEndpoint }}'
+        - name: allowedProjects
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: domainConfig
-      value: '{{ domainConfig }}'
-    - name: degraded
-      value: '{{ degraded }}'
-    - name: conditions
-      value: '{{ conditions }}'
+      value:
+        - name: domain
+          value: '{{ domain }}'
 
 ```
 </TabItem>
@@ -199,21 +175,13 @@ UPDATE google.workstations.workstation_clusters
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-reconciling = true|false,
 annotations = '{{ annotations }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
 etag = '{{ etag }}',
 network = '{{ network }}',
 subnetwork = '{{ subnetwork }}',
-controlPlaneIp = '{{ controlPlaneIp }}',
 privateClusterConfig = '{{ privateClusterConfig }}',
-domainConfig = '{{ domainConfig }}',
-degraded = true|false,
-conditions = '{{ conditions }}'
+domainConfig = '{{ domainConfig }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

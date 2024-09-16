@@ -96,10 +96,6 @@ Use the following StackQL query and manifest file to create a new <code>region_s
 INSERT INTO google.compute.region_ssl_policies (
 project,
 region,
-kind,
-id,
-creationTimestamp,
-selfLink,
 name,
 description,
 profile,
@@ -113,10 +109,6 @@ region
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
-'{{ selfLink }}',
 '{{ name }}',
 '{{ description }}',
 '{{ profile }}',
@@ -134,14 +126,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -151,23 +135,27 @@ SELECT
     - name: minTlsVersion
       value: '{{ minTlsVersion }}'
     - name: enabledFeatures
-      value: '{{ enabledFeatures }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: customFeatures
-      value: '{{ customFeatures }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: fingerprint
       value: '{{ fingerprint }}'
     - name: warnings
       value:
-        - - name: code
-            value: '{{ code }}'
-          - name: message
-            value: '{{ message }}'
-          - name: data
-            value:
-              - - name: key
-                  value: '{{ key }}'
-                - name: value
-                  value: '{{ value }}'
+        - name: code
+          value: '{{ code }}'
+        - name: message
+          value: '{{ message }}'
+        - name: data
+          value:
+            - name: key
+              value: '{{ key }}'
+            - name: value
+              value: '{{ value }}'
     - name: region
       value: '{{ region }}'
 
@@ -183,10 +171,6 @@ Updates a <code>region_ssl_policies</code> resource.
 /*+ update */
 UPDATE google.compute.region_ssl_policies
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
-selfLink = '{{ selfLink }}',
 name = '{{ name }}',
 description = '{{ description }}',
 profile = '{{ profile }}',

@@ -92,30 +92,16 @@ Use the following StackQL query and manifest file to create a new <code>import_j
 INSERT INTO google.migrationcenter.import_jobs (
 locationsId,
 projectsId,
-name,
 displayName,
-createTime,
-updateTime,
-completeTime,
-state,
 labels,
-assetSource,
-validationReport,
-executionReport
+assetSource
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ displayName }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ completeTime }}',
-'{{ state }}',
 '{{ labels }}',
-'{{ assetSource }}',
-'{{ validationReport }}',
-'{{ executionReport }}'
+'{{ assetSource }}'
 ;
 ```
 </TabItem>
@@ -124,26 +110,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: completeTime
-      value: '{{ completeTime }}'
-    - name: state
-      value: '{{ state }}'
     - name: labels
       value: '{{ labels }}'
     - name: assetSource
       value: '{{ assetSource }}'
-    - name: validationReport
-      value: '{{ validationReport }}'
-    - name: executionReport
-      value: '{{ executionReport }}'
 
 ```
 </TabItem>
@@ -157,16 +129,9 @@ Updates a <code>import_jobs</code> resource.
 /*+ update */
 UPDATE google.migrationcenter.import_jobs
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-completeTime = '{{ completeTime }}',
-state = '{{ state }}',
 labels = '{{ labels }}',
-assetSource = '{{ assetSource }}',
-validationReport = '{{ validationReport }}',
-executionReport = '{{ executionReport }}'
+assetSource = '{{ assetSource }}'
 WHERE 
 importJobsId = '{{ importJobsId }}'
 AND locationsId = '{{ locationsId }}'

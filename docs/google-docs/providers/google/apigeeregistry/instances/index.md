@@ -84,23 +84,13 @@ INSERT INTO google.apigeeregistry.instances (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
-state,
-stateMessage,
-config,
-build
+config
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ state }}',
-'{{ stateMessage }}',
-'{{ config }}',
-'{{ build }}'
+'{{ config }}'
 ;
 ```
 </TabItem>
@@ -111,18 +101,10 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateMessage
-      value: '{{ stateMessage }}'
     - name: config
-      value: '{{ config }}'
-    - name: build
-      value: '{{ build }}'
+      value:
+        - name: cmekKeyName
+          value: '{{ cmekKeyName }}'
 
 ```
 </TabItem>

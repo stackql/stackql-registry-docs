@@ -138,38 +138,22 @@ Updates a <code>models</code> resource.
 UPDATE google.aiplatform.models
 SET 
 dataStats = '{{ dataStats }}',
-supportedDeploymentResourcesTypes = '{{ supportedDeploymentResourcesTypes }}',
-versionId = '{{ versionId }}',
-createTime = '{{ createTime }}',
-satisfiesPzi = true|false,
 containerSpec = '{{ containerSpec }}',
 versionAliases = '{{ versionAliases }}',
-deployedModels = '{{ deployedModels }}',
 baseModelSource = '{{ baseModelSource }}',
-versionCreateTime = '{{ versionCreateTime }}',
 etag = '{{ etag }}',
 predictSchemata = '{{ predictSchemata }}',
-modelSourceInfo = '{{ modelSourceInfo }}',
-supportedOutputStorageFormats = '{{ supportedOutputStorageFormats }}',
 metadata = '{{ metadata }}',
 metadataSchemaUri = '{{ metadataSchemaUri }}',
-supportedExportFormats = '{{ supportedExportFormats }}',
 artifactUri = '{{ artifactUri }}',
-supportedInputStorageFormats = '{{ supportedInputStorageFormats }}',
 explanationSpec = '{{ explanationSpec }}',
-satisfiesPzs = true|false,
-versionUpdateTime = '{{ versionUpdateTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
-trainingPipeline = '{{ trainingPipeline }}',
 labels = '{{ labels }}',
 versionDescription = '{{ versionDescription }}',
-metadataArtifact = '{{ metadataArtifact }}',
 pipelineJob = '{{ pipelineJob }}',
 displayName = '{{ displayName }}',
 encryptionSpec = '{{ encryptionSpec }}',
-name = '{{ name }}',
-originalModelInfo = '{{ originalModelInfo }}'
+name = '{{ name }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND modelsId = '{{ modelsId }}'

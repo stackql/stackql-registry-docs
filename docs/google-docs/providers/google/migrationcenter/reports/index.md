@@ -87,27 +87,19 @@ INSERT INTO google.migrationcenter.reports (
 locationsId,
 projectsId,
 reportConfigsId,
-name,
-createTime,
-updateTime,
 displayName,
 description,
 type,
-state,
-summary
+state
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ reportConfigsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ type }}',
-'{{ state }}',
-'{{ summary }}'
+'{{ state }}'
 ;
 ```
 </TabItem>
@@ -116,12 +108,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
@@ -130,8 +116,6 @@ SELECT
       value: '{{ type }}'
     - name: state
       value: '{{ state }}'
-    - name: summary
-      value: '{{ summary }}'
 
 ```
 </TabItem>

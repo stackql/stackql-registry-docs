@@ -86,24 +86,16 @@ INSERT INTO google.file.snapshots (
 instancesId,
 locationsId,
 projectsId,
-name,
 description,
-state,
-createTime,
 labels,
-filesystemUsedBytes,
 tags
 )
 SELECT 
 '{{ instancesId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ description }}',
-'{{ state }}',
-'{{ createTime }}',
 '{{ labels }}',
-'{{ filesystemUsedBytes }}',
 '{{ tags }}'
 ;
 ```
@@ -113,18 +105,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: filesystemUsedBytes
-      value: '{{ filesystemUsedBytes }}'
     - name: tags
       value: '{{ tags }}'
 
@@ -140,12 +124,8 @@ Updates a <code>snapshots</code> resource.
 /*+ update */
 UPDATE google.file.snapshots
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
-state = '{{ state }}',
-createTime = '{{ createTime }}',
 labels = '{{ labels }}',
-filesystemUsedBytes = '{{ filesystemUsedBytes }}',
 tags = '{{ tags }}'
 WHERE 
 instancesId = '{{ instancesId }}'

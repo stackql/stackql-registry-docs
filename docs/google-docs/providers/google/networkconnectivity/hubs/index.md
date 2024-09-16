@@ -97,15 +97,9 @@ Use the following StackQL query and manifest file to create a new <code>hubs</co
 INSERT INTO google.networkconnectivity.hubs (
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 description,
-uniqueId,
-state,
 routingVpcs,
-routeTables,
-spokeSummary,
 policyMode,
 presetTopology,
 exportPsc
@@ -113,15 +107,9 @@ exportPsc
 SELECT 
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
-'{{ uniqueId }}',
-'{{ state }}',
 '{{ routingVpcs }}',
-'{{ routeTables }}',
-'{{ spokeSummary }}',
 '{{ policyMode }}',
 '{{ presetTopology }}',
 true|false
@@ -135,24 +123,14 @@ true|false
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
-    - name: uniqueId
-      value: '{{ uniqueId }}'
-    - name: state
-      value: '{{ state }}'
     - name: routingVpcs
-      value: '{{ routingVpcs }}'
-    - name: routeTables
-      value: '{{ routeTables }}'
-    - name: spokeSummary
-      value: '{{ spokeSummary }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: policyMode
       value: '{{ policyMode }}'
     - name: presetTopology
@@ -173,15 +151,9 @@ Updates a <code>hubs</code> resource.
 UPDATE google.networkconnectivity.hubs
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
-uniqueId = '{{ uniqueId }}',
-state = '{{ state }}',
 routingVpcs = '{{ routingVpcs }}',
-routeTables = '{{ routeTables }}',
-spokeSummary = '{{ spokeSummary }}',
 policyMode = '{{ policyMode }}',
 presetTopology = '{{ presetTopology }}',
 exportPsc = true|false

@@ -125,28 +125,17 @@ locationsId,
 projectsId,
 displayName,
 samplePredictInstance,
-bigqueryTables,
-nextScheduleTime,
-satisfiesPzi,
-scheduleState,
 predictInstanceSchemaUri,
 logTtl,
-satisfiesPzs,
-state,
 statsAnomaliesBaseDirectory,
 modelDeploymentMonitoringScheduleConfig,
 endpoint,
 modelMonitoringAlertConfig,
-latestMonitoringPipelineMetadata,
 encryptionSpec,
 labels,
 analysisInstanceSchemaUri,
 loggingSamplingStrategy,
-name,
 enableMonitoringPipelineLogs,
-updateTime,
-error,
-createTime,
 modelDeploymentMonitoringObjectiveConfigs
 )
 SELECT 
@@ -154,28 +143,17 @@ SELECT
 '{{ projectsId }}',
 '{{ displayName }}',
 '{{ samplePredictInstance }}',
-'{{ bigqueryTables }}',
-'{{ nextScheduleTime }}',
-true|false,
-'{{ scheduleState }}',
 '{{ predictInstanceSchemaUri }}',
 '{{ logTtl }}',
-true|false,
-'{{ state }}',
 '{{ statsAnomaliesBaseDirectory }}',
 '{{ modelDeploymentMonitoringScheduleConfig }}',
 '{{ endpoint }}',
 '{{ modelMonitoringAlertConfig }}',
-'{{ latestMonitoringPipelineMetadata }}',
 '{{ encryptionSpec }}',
 '{{ labels }}',
 '{{ analysisInstanceSchemaUri }}',
 '{{ loggingSamplingStrategy }}',
-'{{ name }}',
 true|false,
-'{{ updateTime }}',
-'{{ error }}',
-'{{ createTime }}',
 '{{ modelDeploymentMonitoringObjectiveConfigs }}'
 ;
 ```
@@ -189,52 +167,56 @@ true|false,
       value: '{{ displayName }}'
     - name: samplePredictInstance
       value: '{{ samplePredictInstance }}'
-    - name: bigqueryTables
-      value: '{{ bigqueryTables }}'
-    - name: nextScheduleTime
-      value: '{{ nextScheduleTime }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: scheduleState
-      value: '{{ scheduleState }}'
     - name: predictInstanceSchemaUri
       value: '{{ predictInstanceSchemaUri }}'
     - name: logTtl
       value: '{{ logTtl }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: state
-      value: '{{ state }}'
     - name: statsAnomaliesBaseDirectory
-      value: '{{ statsAnomaliesBaseDirectory }}'
+      value:
+        - name: outputUriPrefix
+          value: '{{ outputUriPrefix }}'
     - name: modelDeploymentMonitoringScheduleConfig
-      value: '{{ modelDeploymentMonitoringScheduleConfig }}'
+      value:
+        - name: monitorWindow
+          value: '{{ monitorWindow }}'
+        - name: monitorInterval
+          value: '{{ monitorInterval }}'
     - name: endpoint
       value: '{{ endpoint }}'
     - name: modelMonitoringAlertConfig
-      value: '{{ modelMonitoringAlertConfig }}'
-    - name: latestMonitoringPipelineMetadata
-      value: '{{ latestMonitoringPipelineMetadata }}'
+      value:
+        - name: enableLogging
+          value: '{{ enableLogging }}'
+        - name: emailAlertConfig
+          value:
+            - name: userEmails
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: notificationChannels
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: labels
       value: '{{ labels }}'
     - name: analysisInstanceSchemaUri
       value: '{{ analysisInstanceSchemaUri }}'
     - name: loggingSamplingStrategy
-      value: '{{ loggingSamplingStrategy }}'
-    - name: name
-      value: '{{ name }}'
+      value:
+        - name: randomSampleConfig
+          value:
+            - name: sampleRate
+              value: '{{ sampleRate }}'
     - name: enableMonitoringPipelineLogs
       value: '{{ enableMonitoringPipelineLogs }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: error
-      value: '{{ error }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: modelDeploymentMonitoringObjectiveConfigs
-      value: '{{ modelDeploymentMonitoringObjectiveConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -250,28 +232,17 @@ UPDATE google.aiplatform.model_deployment_monitoring_jobs
 SET 
 displayName = '{{ displayName }}',
 samplePredictInstance = '{{ samplePredictInstance }}',
-bigqueryTables = '{{ bigqueryTables }}',
-nextScheduleTime = '{{ nextScheduleTime }}',
-satisfiesPzi = true|false,
-scheduleState = '{{ scheduleState }}',
 predictInstanceSchemaUri = '{{ predictInstanceSchemaUri }}',
 logTtl = '{{ logTtl }}',
-satisfiesPzs = true|false,
-state = '{{ state }}',
 statsAnomaliesBaseDirectory = '{{ statsAnomaliesBaseDirectory }}',
 modelDeploymentMonitoringScheduleConfig = '{{ modelDeploymentMonitoringScheduleConfig }}',
 endpoint = '{{ endpoint }}',
 modelMonitoringAlertConfig = '{{ modelMonitoringAlertConfig }}',
-latestMonitoringPipelineMetadata = '{{ latestMonitoringPipelineMetadata }}',
 encryptionSpec = '{{ encryptionSpec }}',
 labels = '{{ labels }}',
 analysisInstanceSchemaUri = '{{ analysisInstanceSchemaUri }}',
 loggingSamplingStrategy = '{{ loggingSamplingStrategy }}',
-name = '{{ name }}',
 enableMonitoringPipelineLogs = true|false,
-updateTime = '{{ updateTime }}',
-error = '{{ error }}',
-createTime = '{{ createTime }}',
 modelDeploymentMonitoringObjectiveConfigs = '{{ modelDeploymentMonitoringObjectiveConfigs }}'
 WHERE 
 locationsId = '{{ locationsId }}'

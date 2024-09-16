@@ -88,28 +88,14 @@ Use the following StackQL query and manifest file to create a new <code>backup_p
 INSERT INTO google.backupdr.backup_plan_associations (
 locationsId,
 projectsId,
-name,
-resourceType,
 resource,
-backupPlan,
-createTime,
-updateTime,
-state,
-rulesConfigInfo,
-dataSource
+backupPlan
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ resourceType }}',
 '{{ resource }}',
-'{{ backupPlan }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ state }}',
-'{{ rulesConfigInfo }}',
-'{{ dataSource }}'
+'{{ backupPlan }}'
 ;
 ```
 </TabItem>
@@ -118,24 +104,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: resourceType
-      value: '{{ resourceType }}'
     - name: resource
       value: '{{ resource }}'
     - name: backupPlan
       value: '{{ backupPlan }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: rulesConfigInfo
-      value: '{{ rulesConfigInfo }}'
-    - name: dataSource
-      value: '{{ dataSource }}'
 
 ```
 </TabItem>

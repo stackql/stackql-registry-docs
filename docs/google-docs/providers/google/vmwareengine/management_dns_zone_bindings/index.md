@@ -89,27 +89,17 @@ INSERT INTO google.vmwareengine.management_dns_zone_bindings (
 locationsId,
 privateCloudsId,
 projectsId,
-name,
-createTime,
-updateTime,
-state,
 description,
 vpcNetwork,
-vmwareEngineNetwork,
-uid
+vmwareEngineNetwork
 )
 SELECT 
 '{{ locationsId }}',
 '{{ privateCloudsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ state }}',
 '{{ description }}',
 '{{ vpcNetwork }}',
-'{{ vmwareEngineNetwork }}',
-'{{ uid }}'
+'{{ vmwareEngineNetwork }}'
 ;
 ```
 </TabItem>
@@ -118,22 +108,12 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: state
-      value: '{{ state }}'
     - name: description
       value: '{{ description }}'
     - name: vpcNetwork
       value: '{{ vpcNetwork }}'
     - name: vmwareEngineNetwork
       value: '{{ vmwareEngineNetwork }}'
-    - name: uid
-      value: '{{ uid }}'
 
 ```
 </TabItem>
@@ -147,14 +127,9 @@ Updates a <code>management_dns_zone_bindings</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.management_dns_zone_bindings
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-state = '{{ state }}',
 description = '{{ description }}',
 vpcNetwork = '{{ vpcNetwork }}',
-vmwareEngineNetwork = '{{ vmwareEngineNetwork }}',
-uid = '{{ uid }}'
+vmwareEngineNetwork = '{{ vmwareEngineNetwork }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND managementDnsZoneBindingsId = '{{ managementDnsZoneBindingsId }}'

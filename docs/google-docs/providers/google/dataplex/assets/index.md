@@ -100,38 +100,22 @@ lakesId,
 locationsId,
 projectsId,
 zonesId,
-name,
 displayName,
-uid,
-createTime,
-updateTime,
 labels,
 description,
-state,
 resourceSpec,
-resourceStatus,
-securityStatus,
-discoverySpec,
-discoveryStatus
+discoverySpec
 )
 SELECT 
 '{{ lakesId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ zonesId }}',
-'{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
-'{{ state }}',
 '{{ resourceSpec }}',
-'{{ resourceStatus }}',
-'{{ securityStatus }}',
-'{{ discoverySpec }}',
-'{{ discoveryStatus }}'
+'{{ discoverySpec }}'
 ;
 ```
 </TabItem>
@@ -140,32 +124,50 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
     - name: resourceSpec
-      value: '{{ resourceSpec }}'
-    - name: resourceStatus
-      value: '{{ resourceStatus }}'
-    - name: securityStatus
-      value: '{{ securityStatus }}'
+      value:
+        - name: name
+          value: '{{ name }}'
+        - name: type
+          value: '{{ type }}'
+        - name: readAccessMode
+          value: '{{ readAccessMode }}'
     - name: discoverySpec
-      value: '{{ discoverySpec }}'
-    - name: discoveryStatus
-      value: '{{ discoveryStatus }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: includePatterns
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: excludePatterns
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: csvOptions
+          value:
+            - name: headerRows
+              value: '{{ headerRows }}'
+            - name: delimiter
+              value: '{{ delimiter }}'
+            - name: encoding
+              value: '{{ encoding }}'
+            - name: disableTypeInference
+              value: '{{ disableTypeInference }}'
+        - name: jsonOptions
+          value:
+            - name: encoding
+              value: '{{ encoding }}'
+            - name: disableTypeInference
+              value: '{{ disableTypeInference }}'
+        - name: schedule
+          value: '{{ schedule }}'
 
 ```
 </TabItem>
@@ -179,19 +181,11 @@ Updates a <code>assets</code> resource.
 /*+ update */
 UPDATE google.dataplex.assets
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
-state = '{{ state }}',
 resourceSpec = '{{ resourceSpec }}',
-resourceStatus = '{{ resourceStatus }}',
-securityStatus = '{{ securityStatus }}',
-discoverySpec = '{{ discoverySpec }}',
-discoveryStatus = '{{ discoveryStatus }}'
+discoverySpec = '{{ discoverySpec }}'
 WHERE 
 assetsId = '{{ assetsId }}'
 AND lakesId = '{{ lakesId }}'

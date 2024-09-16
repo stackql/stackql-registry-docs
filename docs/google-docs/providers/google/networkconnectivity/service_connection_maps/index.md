@@ -97,16 +97,11 @@ INSERT INTO google.networkconnectivity.service_connection_maps (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 description,
 serviceClass,
-serviceClassUri,
-infrastructure,
 producerPscConfigs,
 consumerPscConfigs,
-consumerPscConnections,
 token,
 etag
 )
@@ -114,16 +109,11 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ serviceClass }}',
-'{{ serviceClassUri }}',
-'{{ infrastructure }}',
 '{{ producerPscConfigs }}',
 '{{ consumerPscConfigs }}',
-'{{ consumerPscConnections }}',
 '{{ token }}',
 '{{ etag }}'
 ;
@@ -136,26 +126,20 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
     - name: serviceClass
       value: '{{ serviceClass }}'
-    - name: serviceClassUri
-      value: '{{ serviceClassUri }}'
-    - name: infrastructure
-      value: '{{ infrastructure }}'
     - name: producerPscConfigs
-      value: '{{ producerPscConfigs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: consumerPscConfigs
-      value: '{{ consumerPscConfigs }}'
-    - name: consumerPscConnections
-      value: '{{ consumerPscConnections }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: token
       value: '{{ token }}'
     - name: etag
@@ -174,16 +158,11 @@ Updates a <code>service_connection_maps</code> resource.
 UPDATE google.networkconnectivity.service_connection_maps
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 serviceClass = '{{ serviceClass }}',
-serviceClassUri = '{{ serviceClassUri }}',
-infrastructure = '{{ infrastructure }}',
 producerPscConfigs = '{{ producerPscConfigs }}',
 consumerPscConfigs = '{{ consumerPscConfigs }}',
-consumerPscConnections = '{{ consumerPscConnections }}',
 token = '{{ token }}',
 etag = '{{ etag }}'
 WHERE 

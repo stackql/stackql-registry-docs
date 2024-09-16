@@ -118,15 +118,8 @@ sparkSqlJob = '{{ sparkSqlJob }}',
 prestoJob = '{{ prestoJob }}',
 trinoJob = '{{ trinoJob }}',
 flinkJob = '{{ flinkJob }}',
-status = '{{ status }}',
-statusHistory = '{{ statusHistory }}',
-yarnApplications = '{{ yarnApplications }}',
-driverOutputResourceUri = '{{ driverOutputResourceUri }}',
-driverControlFilesUri = '{{ driverControlFilesUri }}',
 labels = '{{ labels }}',
 scheduling = '{{ scheduling }}',
-jobUuid = '{{ jobUuid }}',
-done = true|false,
 driverSchedulingConfig = '{{ driverSchedulingConfig }}'
 WHERE 
 jobId = '{{ jobId }}'

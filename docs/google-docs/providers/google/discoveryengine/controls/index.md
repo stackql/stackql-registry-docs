@@ -108,7 +108,6 @@ redirectAction,
 synonymsAction,
 name,
 displayName,
-associatedServingConfigIds,
 solutionType,
 useCases,
 conditions
@@ -123,7 +122,6 @@ SELECT
 '{{ synonymsAction }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ associatedServingConfigIds }}',
 '{{ solutionType }}',
 '{{ useCases }}',
 '{{ conditions }}'
@@ -136,25 +134,47 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: boostAction
-      value: '{{ boostAction }}'
+      value:
+        - name: boost
+          value: '{{ boost }}'
+        - name: filter
+          value: '{{ filter }}'
+        - name: dataStore
+          value: '{{ dataStore }}'
     - name: filterAction
-      value: '{{ filterAction }}'
+      value:
+        - name: filter
+          value: '{{ filter }}'
+        - name: dataStore
+          value: '{{ dataStore }}'
     - name: redirectAction
-      value: '{{ redirectAction }}'
+      value:
+        - name: redirectUri
+          value: '{{ redirectUri }}'
     - name: synonymsAction
-      value: '{{ synonymsAction }}'
+      value:
+        - name: synonyms
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: name
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: associatedServingConfigIds
-      value: '{{ associatedServingConfigIds }}'
     - name: solutionType
       value: '{{ solutionType }}'
     - name: useCases
-      value: '{{ useCases }}'
+      value:
+        - name: type
+          value: '{{ type }}'
+        - name: enumDescriptions
+          value: '{{ enumDescriptions }}'
+        - name: enum
+          value: '{{ enum }}'
     - name: conditions
-      value: '{{ conditions }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -174,7 +194,6 @@ redirectAction = '{{ redirectAction }}',
 synonymsAction = '{{ synonymsAction }}',
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-associatedServingConfigIds = '{{ associatedServingConfigIds }}',
 solutionType = '{{ solutionType }}',
 useCases = '{{ useCases }}',
 conditions = '{{ conditions }}'

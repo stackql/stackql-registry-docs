@@ -109,11 +109,7 @@ INSERT INTO google.apigeeregistry.artifacts (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 mimeType,
-sizeBytes,
-hash,
 contents,
 labels,
 annotations
@@ -122,11 +118,7 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ mimeType }}',
-'{{ sizeBytes }}',
-'{{ hash }}',
 '{{ contents }}',
 '{{ labels }}',
 '{{ annotations }}'
@@ -140,16 +132,8 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: mimeType
       value: '{{ mimeType }}'
-    - name: sizeBytes
-      value: '{{ sizeBytes }}'
-    - name: hash
-      value: '{{ hash }}'
     - name: contents
       value: '{{ contents }}'
     - name: labels
@@ -170,11 +154,7 @@ Replaces all fields in the specified <code>artifacts</code> resource.
 REPLACE google.apigeeregistry.artifacts
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 mimeType = '{{ mimeType }}',
-sizeBytes = '{{ sizeBytes }}',
-hash = '{{ hash }}',
 contents = '{{ contents }}',
 labels = '{{ labels }}',
 annotations = '{{ annotations }}'

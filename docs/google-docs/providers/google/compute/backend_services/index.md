@@ -155,12 +155,8 @@ Use the following StackQL query and manifest file to create a new <code>backend_
 /*+ create */
 INSERT INTO google.compute.backend_services (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
-selfLink,
 backends,
 healthChecks,
 timeoutSec,
@@ -200,12 +196,8 @@ usedBy
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
-'{{ selfLink }}',
 '{{ backends }}',
 '{{ healthChecks }}',
 '{{ timeoutSec }}',
@@ -250,22 +242,18 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: backends
-      value: '{{ backends }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: healthChecks
-      value: '{{ healthChecks }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: timeoutSec
       value: '{{ timeoutSec }}'
     - name: port
@@ -285,55 +273,211 @@ true|false,
     - name: region
       value: '{{ region }}'
     - name: failoverPolicy
-      value: '{{ failoverPolicy }}'
+      value:
+        - name: disableConnectionDrainOnFailover
+          value: '{{ disableConnectionDrainOnFailover }}'
+        - name: dropTrafficIfUnhealthy
+          value: '{{ dropTrafficIfUnhealthy }}'
+        - name: failoverRatio
+          value: '{{ failoverRatio }}'
     - name: loadBalancingScheme
       value: '{{ loadBalancingScheme }}'
     - name: connectionDraining
-      value: '{{ connectionDraining }}'
+      value:
+        - name: drainingTimeoutSec
+          value: '{{ drainingTimeoutSec }}'
     - name: iap
-      value: '{{ iap }}'
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: oauth2ClientId
+          value: '{{ oauth2ClientId }}'
+        - name: oauth2ClientSecret
+          value: '{{ oauth2ClientSecret }}'
+        - name: oauth2ClientSecretSha256
+          value: '{{ oauth2ClientSecretSha256 }}'
     - name: cdnPolicy
-      value: '{{ cdnPolicy }}'
+      value:
+        - name: cacheKeyPolicy
+          value:
+            - name: includeProtocol
+              value: '{{ includeProtocol }}'
+            - name: includeHost
+              value: '{{ includeHost }}'
+            - name: includeQueryString
+              value: '{{ includeQueryString }}'
+            - name: queryStringWhitelist
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: queryStringBlacklist
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: includeHttpHeaders
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: includeNamedCookies
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: signedUrlKeyNames
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: signedUrlCacheMaxAgeSec
+          value: '{{ signedUrlCacheMaxAgeSec }}'
+        - name: requestCoalescing
+          value: '{{ requestCoalescing }}'
+        - name: cacheMode
+          value: '{{ cacheMode }}'
+        - name: defaultTtl
+          value: '{{ defaultTtl }}'
+        - name: maxTtl
+          value: '{{ maxTtl }}'
+        - name: clientTtl
+          value: '{{ clientTtl }}'
+        - name: negativeCaching
+          value: '{{ negativeCaching }}'
+        - name: negativeCachingPolicy
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: bypassCacheOnRequestHeaders
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: serveWhileStale
+          value: '{{ serveWhileStale }}'
     - name: customRequestHeaders
-      value: '{{ customRequestHeaders }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: customResponseHeaders
-      value: '{{ customResponseHeaders }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: securityPolicy
       value: '{{ securityPolicy }}'
     - name: edgeSecurityPolicy
       value: '{{ edgeSecurityPolicy }}'
     - name: logConfig
-      value: '{{ logConfig }}'
+      value:
+        - name: enable
+          value: '{{ enable }}'
+        - name: sampleRate
+          value: '{{ sampleRate }}'
+        - name: optionalMode
+          value: '{{ optionalMode }}'
+        - name: optionalFields
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: securitySettings
-      value: '{{ securitySettings }}'
+      value:
+        - name: clientTlsPolicy
+          value: '{{ clientTlsPolicy }}'
+        - name: subjectAltNames
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: awsV4Authentication
+          value:
+            - name: accessKeyId
+              value: '{{ accessKeyId }}'
+            - name: accessKey
+              value: '{{ accessKey }}'
+            - name: accessKeyVersion
+              value: '{{ accessKeyVersion }}'
+            - name: originRegion
+              value: '{{ originRegion }}'
     - name: localityLbPolicy
       value: '{{ localityLbPolicy }}'
     - name: consistentHash
-      value: '{{ consistentHash }}'
+      value:
+        - name: httpCookie
+          value:
+            - name: name
+              value: '{{ name }}'
+            - name: path
+              value: '{{ path }}'
+            - name: ttl
+              value:
+                - name: seconds
+                  value: '{{ seconds }}'
+                - name: nanos
+                  value: '{{ nanos }}'
+        - name: httpHeaderName
+          value: '{{ httpHeaderName }}'
+        - name: minimumRingSize
+          value: '{{ minimumRingSize }}'
     - name: circuitBreakers
-      value: '{{ circuitBreakers }}'
+      value:
+        - name: maxRequestsPerConnection
+          value: '{{ maxRequestsPerConnection }}'
+        - name: maxConnections
+          value: '{{ maxConnections }}'
+        - name: maxPendingRequests
+          value: '{{ maxPendingRequests }}'
+        - name: maxRequests
+          value: '{{ maxRequests }}'
+        - name: maxRetries
+          value: '{{ maxRetries }}'
     - name: outlierDetection
-      value: '{{ outlierDetection }}'
+      value:
+        - name: consecutiveErrors
+          value: '{{ consecutiveErrors }}'
+        - name: maxEjectionPercent
+          value: '{{ maxEjectionPercent }}'
+        - name: enforcingConsecutiveErrors
+          value: '{{ enforcingConsecutiveErrors }}'
+        - name: enforcingSuccessRate
+          value: '{{ enforcingSuccessRate }}'
+        - name: successRateMinimumHosts
+          value: '{{ successRateMinimumHosts }}'
+        - name: successRateRequestVolume
+          value: '{{ successRateRequestVolume }}'
+        - name: successRateStdevFactor
+          value: '{{ successRateStdevFactor }}'
+        - name: consecutiveGatewayFailure
+          value: '{{ consecutiveGatewayFailure }}'
+        - name: enforcingConsecutiveGatewayFailure
+          value: '{{ enforcingConsecutiveGatewayFailure }}'
     - name: network
       value: '{{ network }}'
     - name: subsetting
-      value: '{{ subsetting }}'
+      value:
+        - name: policy
+          value: '{{ policy }}'
     - name: connectionTrackingPolicy
-      value: '{{ connectionTrackingPolicy }}'
-    - name: maxStreamDuration
-      value: '{{ maxStreamDuration }}'
+      value:
+        - name: trackingMode
+          value: '{{ trackingMode }}'
+        - name: connectionPersistenceOnUnhealthyBackends
+          value: '{{ connectionPersistenceOnUnhealthyBackends }}'
+        - name: idleTimeoutSec
+          value: '{{ idleTimeoutSec }}'
+        - name: enableStrongAffinity
+          value: '{{ enableStrongAffinity }}'
     - name: compressionMode
       value: '{{ compressionMode }}'
     - name: serviceLbPolicy
       value: '{{ serviceLbPolicy }}'
     - name: serviceBindings
-      value: '{{ serviceBindings }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: localityLbPolicies
-      value: '{{ localityLbPolicies }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: metadatas
       value: '{{ metadatas }}'
     - name: usedBy
-      value: '{{ usedBy }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>
@@ -347,12 +491,8 @@ Updates a <code>backend_services</code> resource.
 /*+ update */
 UPDATE google.compute.backend_services
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 backends = '{{ backends }}',
 healthChecks = '{{ healthChecks }}',
 timeoutSec = '{{ timeoutSec }}',
@@ -402,12 +542,8 @@ Replaces all fields in the specified <code>backend_services</code> resource.
 /*+ update */
 REPLACE google.compute.backend_services
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
-selfLink = '{{ selfLink }}',
 backends = '{{ backends }}',
 healthChecks = '{{ healthChecks }}',
 timeoutSec = '{{ timeoutSec }}',

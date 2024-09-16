@@ -108,9 +108,6 @@ Use the following StackQL query and manifest file to create a new <code>storage_
 INSERT INTO google.compute.storage_pools (
 project,
 zone,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 poolProvisionedCapacityGb,
@@ -118,8 +115,6 @@ poolProvisionedIops,
 poolProvisionedThroughput,
 zone,
 state,
-selfLink,
-selfLinkWithId,
 labels,
 labelFingerprint,
 resourceStatus,
@@ -131,9 +126,6 @@ performanceProvisioningType
 SELECT 
 '{{ project }}',
 '{{ zone }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ poolProvisionedCapacityGb }}',
@@ -141,8 +133,6 @@ SELECT
 '{{ poolProvisionedThroughput }}',
 '{{ zone }}',
 '{{ state }}',
-'{{ selfLink }}',
-'{{ selfLinkWithId }}',
 '{{ labels }}',
 '{{ labelFingerprint }}',
 '{{ resourceStatus }}',
@@ -158,12 +148,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -178,20 +162,34 @@ SELECT
       value: '{{ zone }}'
     - name: state
       value: '{{ state }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: selfLinkWithId
-      value: '{{ selfLinkWithId }}'
     - name: labels
       value: '{{ labels }}'
     - name: labelFingerprint
       value: '{{ labelFingerprint }}'
     - name: resourceStatus
-      value: '{{ resourceStatus }}'
+      value:
+        - name: lastResizeTimestamp
+          value: '{{ lastResizeTimestamp }}'
+        - name: diskCount
+          value: '{{ diskCount }}'
+        - name: poolUsedCapacityBytes
+          value: '{{ poolUsedCapacityBytes }}'
+        - name: poolUserWrittenBytes
+          value: '{{ poolUserWrittenBytes }}'
+        - name: totalProvisionedDiskCapacityGb
+          value: '{{ totalProvisionedDiskCapacityGb }}'
+        - name: maxTotalProvisionedDiskCapacityGb
+          value: '{{ maxTotalProvisionedDiskCapacityGb }}'
+        - name: poolUsedIops
+          value: '{{ poolUsedIops }}'
+        - name: totalProvisionedDiskIops
+          value: '{{ totalProvisionedDiskIops }}'
+        - name: poolUsedThroughput
+          value: '{{ poolUsedThroughput }}'
+        - name: totalProvisionedDiskThroughput
+          value: '{{ totalProvisionedDiskThroughput }}'
     - name: storagePoolType
       value: '{{ storagePoolType }}'
-    - name: status
-      value: '{{ status }}'
     - name: capacityProvisioningType
       value: '{{ capacityProvisioningType }}'
     - name: performanceProvisioningType
@@ -209,9 +207,6 @@ Updates a <code>storage_pools</code> resource.
 /*+ update */
 UPDATE google.compute.storage_pools
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 poolProvisionedCapacityGb = '{{ poolProvisionedCapacityGb }}',
@@ -219,8 +214,6 @@ poolProvisionedIops = '{{ poolProvisionedIops }}',
 poolProvisionedThroughput = '{{ poolProvisionedThroughput }}',
 zone = '{{ zone }}',
 state = '{{ state }}',
-selfLink = '{{ selfLink }}',
-selfLinkWithId = '{{ selfLinkWithId }}',
 labels = '{{ labels }}',
 labelFingerprint = '{{ labelFingerprint }}',
 resourceStatus = '{{ resourceStatus }}',

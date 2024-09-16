@@ -73,7 +73,45 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: catalogAttribute
-      value: '{{ catalogAttribute }}'
+      value:
+        - name: key
+          value: '{{ key }}'
+        - name: indexableOption
+          value: '{{ indexableOption }}'
+        - name: dynamicFacetableOption
+          value: '{{ dynamicFacetableOption }}'
+        - name: searchableOption
+          value: '{{ searchableOption }}'
+        - name: exactSearchableOption
+          value: '{{ exactSearchableOption }}'
+        - name: retrievableOption
+          value: '{{ retrievableOption }}'
+        - name: facetConfig
+          value:
+            - name: facetIntervals
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: ignoredFacetValues
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: mergedFacetValues
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: mergedFacet
+              value:
+                - name: mergedFacetKey
+                  value: '{{ mergedFacetKey }}'
+            - name: rerankConfig
+              value:
+                - name: rerankFacet
+                  value: '{{ rerankFacet }}'
+                - name: facetValues
+                  value:
+                    - name: type
+                      value: '{{ type }}'
 
 ```
 </TabItem>

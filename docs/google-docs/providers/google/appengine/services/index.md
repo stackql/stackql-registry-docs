@@ -70,8 +70,6 @@ Updates a <code>services</code> resource.
 /*+ update */
 UPDATE google.appengine.services
 SET 
-name = '{{ name }}',
-id = '{{ id }}',
 split = '{{ split }}',
 labels = '{{ labels }}',
 networkSettings = '{{ networkSettings }}',

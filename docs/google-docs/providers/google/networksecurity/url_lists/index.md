@@ -81,8 +81,6 @@ INSERT INTO google.networksecurity.url_lists (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 description,
 values
 )
@@ -90,8 +88,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ values }}'
 ;
@@ -104,14 +100,12 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: values
-      value: '{{ values }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -126,8 +120,6 @@ Updates a <code>url_lists</code> resource.
 UPDATE google.networksecurity.url_lists
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 values = '{{ values }}'
 WHERE 

@@ -106,9 +106,13 @@ SELECT
     - name: displayName
       value: '{{ displayName }}'
     - name: promptText
-      value: '{{ promptText }}'
+      value:
+        - name: text
+          value: '{{ text }}'
     - name: placeholders
-      value: '{{ placeholders }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

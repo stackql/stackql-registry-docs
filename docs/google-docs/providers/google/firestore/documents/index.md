@@ -92,9 +92,7 @@ databasesId,
 documentsId,
 projectsId,
 name,
-fields,
-createTime,
-updateTime
+fields
 )
 SELECT 
 '{{ collectionId }}',
@@ -102,9 +100,7 @@ SELECT
 '{{ documentsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ fields }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ fields }}'
 ;
 ```
 </TabItem>
@@ -117,10 +113,6 @@ SELECT
       value: '{{ name }}'
     - name: fields
       value: '{{ fields }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>
@@ -135,9 +127,7 @@ Updates a <code>documents</code> resource.
 UPDATE google.firestore.documents
 SET 
 name = '{{ name }}',
-fields = '{{ fields }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}'
+fields = '{{ fields }}'
 WHERE 
 databasesId = '{{ databasesId }}'
 AND documentsId = '{{ documentsId }}'

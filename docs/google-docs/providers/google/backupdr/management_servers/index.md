@@ -101,42 +101,20 @@ Use the following StackQL query and manifest file to create a new <code>manageme
 INSERT INTO google.backupdr.management_servers (
 locationsId,
 projectsId,
-name,
 description,
 labels,
-createTime,
-updateTime,
 type,
-managementUri,
-workforceIdentityBasedManagementUri,
-state,
 networks,
-etag,
-oauth2ClientId,
-workforceIdentityBasedOauth2ClientId,
-baProxyUri,
-satisfiesPzs,
-satisfiesPzi
+etag
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ description }}',
 '{{ labels }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ type }}',
-'{{ managementUri }}',
-'{{ workforceIdentityBasedManagementUri }}',
-'{{ state }}',
 '{{ networks }}',
-'{{ etag }}',
-'{{ oauth2ClientId }}',
-'{{ workforceIdentityBasedOauth2ClientId }}',
-'{{ baProxyUri }}',
-true|false,
-true|false
+'{{ etag }}'
 ;
 ```
 </TabItem>
@@ -145,38 +123,18 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: type
       value: '{{ type }}'
-    - name: managementUri
-      value: '{{ managementUri }}'
-    - name: workforceIdentityBasedManagementUri
-      value: '{{ workforceIdentityBasedManagementUri }}'
-    - name: state
-      value: '{{ state }}'
     - name: networks
-      value: '{{ networks }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: etag
       value: '{{ etag }}'
-    - name: oauth2ClientId
-      value: '{{ oauth2ClientId }}'
-    - name: workforceIdentityBasedOauth2ClientId
-      value: '{{ workforceIdentityBasedOauth2ClientId }}'
-    - name: baProxyUri
-      value: '{{ baProxyUri }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

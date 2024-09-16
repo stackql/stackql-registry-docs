@@ -91,30 +91,20 @@ Use the following StackQL query and manifest file to create a new <code>jobs</co
 INSERT INTO google.batch.jobs (
 locationsId,
 projectsId,
-name,
-uid,
 priority,
 taskGroups,
 allocationPolicy,
 labels,
-status,
-createTime,
-updateTime,
 logsPolicy,
 notifications
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
 '{{ priority }}',
 '{{ taskGroups }}',
 '{{ allocationPolicy }}',
 '{{ labels }}',
-'{{ status }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ logsPolicy }}',
 '{{ notifications }}'
 ;
@@ -125,28 +115,66 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: priority
       value: '{{ priority }}'
     - name: taskGroups
-      value: '{{ taskGroups }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: allocationPolicy
-      value: '{{ allocationPolicy }}'
+      value:
+        - name: location
+          value:
+            - name: allowedLocations
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: instances
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: serviceAccount
+          value:
+            - name: email
+              value: '{{ email }}'
+            - name: scopes
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: network
+          value:
+            - name: networkInterfaces
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: placement
+          value:
+            - name: collocation
+              value: '{{ collocation }}'
+            - name: maxDistance
+              value: '{{ maxDistance }}'
+        - name: tags
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
-    - name: status
-      value: '{{ status }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: logsPolicy
-      value: '{{ logsPolicy }}'
+      value:
+        - name: destination
+          value: '{{ destination }}'
+        - name: logsPath
+          value: '{{ logsPath }}'
+        - name: cloudLoggingOption
+          value:
+            - name: useGenericTaskMonitoredResource
+              value: '{{ useGenericTaskMonitoredResource }}'
     - name: notifications
-      value: '{{ notifications }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

@@ -109,9 +109,6 @@ Use the following StackQL query and manifest file to create a new <code>health_c
 /*+ create */
 INSERT INTO google.compute.health_checks (
 project,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 checkIntervalSec,
@@ -126,15 +123,11 @@ httpsHealthCheck,
 http2HealthCheck,
 grpcHealthCheck,
 sourceRegions,
-selfLink,
 region,
 logConfig
 )
 SELECT 
 '{{ project }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ checkIntervalSec }}',
@@ -149,7 +142,6 @@ SELECT
 '{{ http2HealthCheck }}',
 '{{ grpcHealthCheck }}',
 '{{ sourceRegions }}',
-'{{ selfLink }}',
 '{{ region }}',
 '{{ logConfig }}'
 ;
@@ -160,12 +152,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -181,25 +167,101 @@ SELECT
     - name: type
       value: '{{ type }}'
     - name: tcpHealthCheck
-      value: '{{ tcpHealthCheck }}'
+      value:
+        - name: port
+          value: '{{ port }}'
+        - name: portName
+          value: '{{ portName }}'
+        - name: portSpecification
+          value: '{{ portSpecification }}'
+        - name: request
+          value: '{{ request }}'
+        - name: response
+          value: '{{ response }}'
+        - name: proxyHeader
+          value: '{{ proxyHeader }}'
     - name: sslHealthCheck
-      value: '{{ sslHealthCheck }}'
+      value:
+        - name: port
+          value: '{{ port }}'
+        - name: portName
+          value: '{{ portName }}'
+        - name: portSpecification
+          value: '{{ portSpecification }}'
+        - name: request
+          value: '{{ request }}'
+        - name: response
+          value: '{{ response }}'
+        - name: proxyHeader
+          value: '{{ proxyHeader }}'
     - name: httpHealthCheck
-      value: '{{ httpHealthCheck }}'
+      value:
+        - name: port
+          value: '{{ port }}'
+        - name: portName
+          value: '{{ portName }}'
+        - name: portSpecification
+          value: '{{ portSpecification }}'
+        - name: host
+          value: '{{ host }}'
+        - name: requestPath
+          value: '{{ requestPath }}'
+        - name: proxyHeader
+          value: '{{ proxyHeader }}'
+        - name: response
+          value: '{{ response }}'
     - name: httpsHealthCheck
-      value: '{{ httpsHealthCheck }}'
+      value:
+        - name: port
+          value: '{{ port }}'
+        - name: portName
+          value: '{{ portName }}'
+        - name: portSpecification
+          value: '{{ portSpecification }}'
+        - name: host
+          value: '{{ host }}'
+        - name: requestPath
+          value: '{{ requestPath }}'
+        - name: proxyHeader
+          value: '{{ proxyHeader }}'
+        - name: response
+          value: '{{ response }}'
     - name: http2HealthCheck
-      value: '{{ http2HealthCheck }}'
+      value:
+        - name: port
+          value: '{{ port }}'
+        - name: portName
+          value: '{{ portName }}'
+        - name: portSpecification
+          value: '{{ portSpecification }}'
+        - name: host
+          value: '{{ host }}'
+        - name: requestPath
+          value: '{{ requestPath }}'
+        - name: proxyHeader
+          value: '{{ proxyHeader }}'
+        - name: response
+          value: '{{ response }}'
     - name: grpcHealthCheck
-      value: '{{ grpcHealthCheck }}'
+      value:
+        - name: port
+          value: '{{ port }}'
+        - name: portName
+          value: '{{ portName }}'
+        - name: portSpecification
+          value: '{{ portSpecification }}'
+        - name: grpcServiceName
+          value: '{{ grpcServiceName }}'
     - name: sourceRegions
-      value: '{{ sourceRegions }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: region
       value: '{{ region }}'
     - name: logConfig
-      value: '{{ logConfig }}'
+      value:
+        - name: enable
+          value: '{{ enable }}'
 
 ```
 </TabItem>
@@ -213,9 +275,6 @@ Updates a <code>health_checks</code> resource.
 /*+ update */
 UPDATE google.compute.health_checks
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 checkIntervalSec = '{{ checkIntervalSec }}',
@@ -230,7 +289,6 @@ httpsHealthCheck = '{{ httpsHealthCheck }}',
 http2HealthCheck = '{{ http2HealthCheck }}',
 grpcHealthCheck = '{{ grpcHealthCheck }}',
 sourceRegions = '{{ sourceRegions }}',
-selfLink = '{{ selfLink }}',
 region = '{{ region }}',
 logConfig = '{{ logConfig }}'
 WHERE 
@@ -246,9 +304,6 @@ Replaces all fields in the specified <code>health_checks</code> resource.
 /*+ update */
 REPLACE google.compute.health_checks
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 checkIntervalSec = '{{ checkIntervalSec }}',
@@ -263,7 +318,6 @@ httpsHealthCheck = '{{ httpsHealthCheck }}',
 http2HealthCheck = '{{ http2HealthCheck }}',
 grpcHealthCheck = '{{ grpcHealthCheck }}',
 sourceRegions = '{{ sourceRegions }}',
-selfLink = '{{ selfLink }}',
 region = '{{ region }}',
 logConfig = '{{ logConfig }}'
 WHERE 

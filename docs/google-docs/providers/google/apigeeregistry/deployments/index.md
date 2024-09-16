@@ -105,10 +105,6 @@ projectsId,
 name,
 displayName,
 description,
-revisionId,
-createTime,
-revisionCreateTime,
-revisionUpdateTime,
 apiSpecRevision,
 endpointUri,
 externalChannelUri,
@@ -124,10 +120,6 @@ SELECT
 '{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ revisionId }}',
-'{{ createTime }}',
-'{{ revisionCreateTime }}',
-'{{ revisionUpdateTime }}',
 '{{ apiSpecRevision }}',
 '{{ endpointUri }}',
 '{{ externalChannelUri }}',
@@ -149,14 +141,6 @@ SELECT
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: revisionId
-      value: '{{ revisionId }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: revisionCreateTime
-      value: '{{ revisionCreateTime }}'
-    - name: revisionUpdateTime
-      value: '{{ revisionUpdateTime }}'
     - name: apiSpecRevision
       value: '{{ apiSpecRevision }}'
     - name: endpointUri
@@ -187,10 +171,6 @@ SET
 name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-revisionId = '{{ revisionId }}',
-createTime = '{{ createTime }}',
-revisionCreateTime = '{{ revisionCreateTime }}',
-revisionUpdateTime = '{{ revisionUpdateTime }}',
 apiSpecRevision = '{{ apiSpecRevision }}',
 endpointUri = '{{ endpointUri }}',
 externalChannelUri = '{{ externalChannelUri }}',

@@ -119,25 +119,16 @@ Use the following StackQL query and manifest file to create a new <code>conversa
 INSERT INTO google.contactcenterinsights.conversations (
 locationsId,
 projectsId,
-transcript,
-latestSummary,
 expireTime,
 startTime,
-updateTime,
-runtimeAnnotations,
-turnCount,
 qualityMetadata,
-duration,
 dataSource,
-latestAnalysis,
 metadataJson,
 name,
 labels,
-createTime,
 callMetadata,
 obfuscatedUserId,
 medium,
-dialogflowIntents,
 languageCode,
 ttl,
 agentId
@@ -145,25 +136,16 @@ agentId
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ transcript }}',
-'{{ latestSummary }}',
 '{{ expireTime }}',
 '{{ startTime }}',
-'{{ updateTime }}',
-'{{ runtimeAnnotations }}',
-'{{ turnCount }}',
 '{{ qualityMetadata }}',
-'{{ duration }}',
 '{{ dataSource }}',
-'{{ latestAnalysis }}',
 '{{ metadataJson }}',
 '{{ name }}',
 '{{ labels }}',
-'{{ createTime }}',
 '{{ callMetadata }}',
 '{{ obfuscatedUserId }}',
 '{{ medium }}',
-'{{ dialogflowIntents }}',
 '{{ languageCode }}',
 '{{ ttl }}',
 '{{ agentId }}'
@@ -175,44 +157,50 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: transcript
-      value: '{{ transcript }}'
-    - name: latestSummary
-      value: '{{ latestSummary }}'
     - name: expireTime
       value: '{{ expireTime }}'
     - name: startTime
       value: '{{ startTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: runtimeAnnotations
-      value: '{{ runtimeAnnotations }}'
-    - name: turnCount
-      value: '{{ turnCount }}'
     - name: qualityMetadata
-      value: '{{ qualityMetadata }}'
-    - name: duration
-      value: '{{ duration }}'
+      value:
+        - name: waitDuration
+          value: '{{ waitDuration }}'
+        - name: agentInfo
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: menuPath
+          value: '{{ menuPath }}'
+        - name: customerSatisfactionRating
+          value: '{{ customerSatisfactionRating }}'
     - name: dataSource
-      value: '{{ dataSource }}'
-    - name: latestAnalysis
-      value: '{{ latestAnalysis }}'
+      value:
+        - name: dialogflowSource
+          value:
+            - name: audioUri
+              value: '{{ audioUri }}'
+        - name: gcsSource
+          value:
+            - name: audioUri
+              value: '{{ audioUri }}'
+            - name: transcriptUri
+              value: '{{ transcriptUri }}'
     - name: metadataJson
       value: '{{ metadataJson }}'
     - name: name
       value: '{{ name }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: callMetadata
-      value: '{{ callMetadata }}'
+      value:
+        - name: agentChannel
+          value: '{{ agentChannel }}'
+        - name: customerChannel
+          value: '{{ customerChannel }}'
     - name: obfuscatedUserId
       value: '{{ obfuscatedUserId }}'
     - name: medium
       value: '{{ medium }}'
-    - name: dialogflowIntents
-      value: '{{ dialogflowIntents }}'
     - name: languageCode
       value: '{{ languageCode }}'
     - name: ttl
@@ -232,25 +220,16 @@ Updates a <code>conversations</code> resource.
 /*+ update */
 UPDATE google.contactcenterinsights.conversations
 SET 
-transcript = '{{ transcript }}',
-latestSummary = '{{ latestSummary }}',
 expireTime = '{{ expireTime }}',
 startTime = '{{ startTime }}',
-updateTime = '{{ updateTime }}',
-runtimeAnnotations = '{{ runtimeAnnotations }}',
-turnCount = '{{ turnCount }}',
 qualityMetadata = '{{ qualityMetadata }}',
-duration = '{{ duration }}',
 dataSource = '{{ dataSource }}',
-latestAnalysis = '{{ latestAnalysis }}',
 metadataJson = '{{ metadataJson }}',
 name = '{{ name }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
 callMetadata = '{{ callMetadata }}',
 obfuscatedUserId = '{{ obfuscatedUserId }}',
 medium = '{{ medium }}',
-dialogflowIntents = '{{ dialogflowIntents }}',
 languageCode = '{{ languageCode }}',
 ttl = '{{ ttl }}',
 agentId = '{{ agentId }}'

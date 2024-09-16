@@ -79,20 +79,12 @@ Use the following StackQL query and manifest file to create a new <code>studies<
 INSERT INTO google.ml.studies (
 locationsId,
 projectsId,
-name,
-studyConfig,
-state,
-createTime,
-inactiveReason
+studyConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ studyConfig }}',
-'{{ state }}',
-'{{ createTime }}',
-'{{ inactiveReason }}'
+'{{ studyConfig }}'
 ;
 ```
 </TabItem>
@@ -101,16 +93,28 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: studyConfig
-      value: '{{ studyConfig }}'
-    - name: state
-      value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: inactiveReason
-      value: '{{ inactiveReason }}'
+      value:
+        - name: metrics
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: parameters
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: algorithm
+          value: '{{ algorithm }}'
+        - name: automatedStoppingConfig
+          value:
+            - name: decayCurveStoppingConfig
+              value:
+                - name: useElapsedTime
+                  value: '{{ useElapsedTime }}'
+            - name: medianAutomatedStoppingConfig
+              value:
+                - name: useElapsedTime
+                  value: '{{ useElapsedTime }}'
 
 ```
 </TabItem>

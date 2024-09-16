@@ -90,10 +90,7 @@ locationsId,
 projectsId,
 name,
 displayName,
-description,
-nluSettings,
-createTime,
-state
+description
 )
 SELECT 
 '{{ agentsId }}',
@@ -102,10 +99,7 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ description }}',
-'{{ nluSettings }}',
-'{{ createTime }}',
-'{{ state }}'
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -120,12 +114,6 @@ SELECT
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: nluSettings
-      value: '{{ nluSettings }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: state
-      value: '{{ state }}'
 
 ```
 </TabItem>
@@ -141,10 +129,7 @@ UPDATE google.dialogflow.versions
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-description = '{{ description }}',
-nluSettings = '{{ nluSettings }}',
-createTime = '{{ createTime }}',
-state = '{{ state }}'
+description = '{{ description }}'
 WHERE 
 agentsId = '{{ agentsId }}'
 AND flowsId = '{{ flowsId }}'

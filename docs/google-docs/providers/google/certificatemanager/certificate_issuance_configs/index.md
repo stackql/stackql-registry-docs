@@ -89,8 +89,6 @@ INSERT INTO google.certificatemanager.certificate_issuance_configs (
 locationsId,
 projectsId,
 name,
-createTime,
-updateTime,
 labels,
 description,
 certificateAuthorityConfig,
@@ -102,8 +100,6 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ certificateAuthorityConfig }}',
@@ -120,16 +116,16 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
     - name: certificateAuthorityConfig
-      value: '{{ certificateAuthorityConfig }}'
+      value:
+        - name: certificateAuthorityServiceConfig
+          value:
+            - name: caPool
+              value: '{{ caPool }}'
     - name: lifetime
       value: '{{ lifetime }}'
     - name: rotationWindowPercentage
@@ -150,8 +146,6 @@ Updates a <code>certificate_issuance_configs</code> resource.
 UPDATE google.certificatemanager.certificate_issuance_configs
 SET 
 name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
 certificateAuthorityConfig = '{{ certificateAuthorityConfig }}',

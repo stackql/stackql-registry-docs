@@ -102,11 +102,6 @@ name,
 source,
 destination,
 globalSettings,
-hasUncommittedChanges,
-latestCommitId,
-latestCommitTime,
-createTime,
-updateTime,
 displayName
 )
 SELECT 
@@ -116,11 +111,6 @@ SELECT
 '{{ source }}',
 '{{ destination }}',
 '{{ globalSettings }}',
-true|false,
-'{{ latestCommitId }}',
-'{{ latestCommitTime }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ displayName }}'
 ;
 ```
@@ -133,21 +123,13 @@ true|false,
     - name: name
       value: '{{ name }}'
     - name: source
-      value: '{{ source }}'
-    - name: destination
-      value: '{{ destination }}'
+      value:
+        - name: engine
+          value: '{{ engine }}'
+        - name: version
+          value: '{{ version }}'
     - name: globalSettings
       value: '{{ globalSettings }}'
-    - name: hasUncommittedChanges
-      value: '{{ hasUncommittedChanges }}'
-    - name: latestCommitId
-      value: '{{ latestCommitId }}'
-    - name: latestCommitTime
-      value: '{{ latestCommitTime }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: displayName
       value: '{{ displayName }}'
 
@@ -167,11 +149,6 @@ name = '{{ name }}',
 source = '{{ source }}',
 destination = '{{ destination }}',
 globalSettings = '{{ globalSettings }}',
-hasUncommittedChanges = true|false,
-latestCommitId = '{{ latestCommitId }}',
-latestCommitTime = '{{ latestCommitTime }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 displayName = '{{ displayName }}'
 WHERE 
 conversionWorkspacesId = '{{ conversionWorkspacesId }}'

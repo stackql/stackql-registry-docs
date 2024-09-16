@@ -97,10 +97,7 @@ INSERT INTO google.cloudkms.crypto_keys (
 keyRingsId,
 locationsId,
 projectsId,
-name,
-primary,
 purpose,
-createTime,
 nextRotationTime,
 rotationPeriod,
 versionTemplate,
@@ -114,10 +111,7 @@ SELECT
 '{{ keyRingsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ primary }}',
 '{{ purpose }}',
-'{{ createTime }}',
 '{{ nextRotationTime }}',
 '{{ rotationPeriod }}',
 '{{ versionTemplate }}',
@@ -134,20 +128,18 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: primary
-      value: '{{ primary }}'
     - name: purpose
       value: '{{ purpose }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: nextRotationTime
       value: '{{ nextRotationTime }}'
     - name: rotationPeriod
       value: '{{ rotationPeriod }}'
     - name: versionTemplate
-      value: '{{ versionTemplate }}'
+      value:
+        - name: protectionLevel
+          value: '{{ protectionLevel }}'
+        - name: algorithm
+          value: '{{ algorithm }}'
     - name: labels
       value: '{{ labels }}'
     - name: importOnly
@@ -157,7 +149,15 @@ true|false,
     - name: cryptoKeyBackend
       value: '{{ cryptoKeyBackend }}'
     - name: keyAccessJustificationsPolicy
-      value: '{{ keyAccessJustificationsPolicy }}'
+      value:
+        - name: allowedAccessReasons
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
 
 ```
 </TabItem>
@@ -171,10 +171,7 @@ Updates a <code>crypto_keys</code> resource.
 /*+ update */
 UPDATE google.cloudkms.crypto_keys
 SET 
-name = '{{ name }}',
-primary = '{{ primary }}',
 purpose = '{{ purpose }}',
-createTime = '{{ createTime }}',
 nextRotationTime = '{{ nextRotationTime }}',
 rotationPeriod = '{{ rotationPeriod }}',
 versionTemplate = '{{ versionTemplate }}',

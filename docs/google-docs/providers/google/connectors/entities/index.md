@@ -78,7 +78,6 @@ connectionsId,
 entityTypesId,
 locationsId,
 projectsId,
-name,
 fields
 )
 SELECT 
@@ -86,7 +85,6 @@ SELECT
 '{{ entityTypesId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ fields }}'
 ;
 ```
@@ -96,8 +94,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: fields
       value: '{{ fields }}'
 
@@ -113,7 +109,6 @@ Updates a <code>entities</code> resource.
 /*+ update */
 UPDATE google.connectors.entities
 SET 
-name = '{{ name }}',
 fields = '{{ fields }}'
 WHERE 
 connectionsId = '{{ connectionsId }}'

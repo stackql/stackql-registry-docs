@@ -54,23 +54,19 @@ Use the following StackQL query and manifest file to create a new <code>profiles
 /*+ create */
 INSERT INTO google.cloudprofiler.profiles_offline (
 projectsId,
-name,
 profileType,
 deployment,
 duration,
 profileBytes,
-labels,
-startTime
+labels
 )
 SELECT 
 '{{ projectsId }}',
-'{{ name }}',
 '{{ profileType }}',
 '{{ deployment }}',
 '{{ duration }}',
 '{{ profileBytes }}',
-'{{ labels }}',
-'{{ startTime }}'
+'{{ labels }}'
 ;
 ```
 </TabItem>
@@ -79,20 +75,22 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: profileType
       value: '{{ profileType }}'
     - name: deployment
-      value: '{{ deployment }}'
+      value:
+        - name: projectId
+          value: '{{ projectId }}'
+        - name: target
+          value: '{{ target }}'
+        - name: labels
+          value: '{{ labels }}'
     - name: duration
       value: '{{ duration }}'
     - name: profileBytes
       value: '{{ profileBytes }}'
     - name: labels
       value: '{{ labels }}'
-    - name: startTime
-      value: '{{ startTime }}'
 
 ```
 </TabItem>

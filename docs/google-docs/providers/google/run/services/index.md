@@ -138,16 +138,8 @@ locationsId,
 projectsId,
 name,
 description,
-uid,
-generation,
 labels,
 annotations,
-createTime,
-updateTime,
-deleteTime,
-expireTime,
-creator,
-lastModifier,
 client,
 clientVersion,
 ingress,
@@ -157,34 +149,15 @@ template,
 traffic,
 scaling,
 defaultUriDisabled,
-urls,
-customAudiences,
-observedGeneration,
-terminalCondition,
-conditions,
-latestReadyRevision,
-latestCreatedRevision,
-trafficStatuses,
-uri,
-satisfiesPzs,
-reconciling,
-etag
+customAudiences
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-'{{ uid }}',
-'{{ generation }}',
 '{{ labels }}',
 '{{ annotations }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
-'{{ expireTime }}',
-'{{ creator }}',
-'{{ lastModifier }}',
 '{{ client }}',
 '{{ clientVersion }}',
 '{{ ingress }}',
@@ -194,18 +167,7 @@ SELECT
 '{{ traffic }}',
 '{{ scaling }}',
 true|false,
-'{{ urls }}',
-'{{ customAudiences }}',
-'{{ observedGeneration }}',
-'{{ terminalCondition }}',
-'{{ conditions }}',
-'{{ latestReadyRevision }}',
-'{{ latestCreatedRevision }}',
-'{{ trafficStatuses }}',
-'{{ uri }}',
-true|false,
-true|false,
-'{{ etag }}'
+'{{ customAudiences }}'
 ;
 ```
 </TabItem>
@@ -218,26 +180,10 @@ true|false,
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: generation
-      value: '{{ generation }}'
     - name: labels
       value: '{{ labels }}'
     - name: annotations
       value: '{{ annotations }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
-    - name: creator
-      value: '{{ creator }}'
-    - name: lastModifier
-      value: '{{ lastModifier }}'
     - name: client
       value: '{{ client }}'
     - name: clientVersion
@@ -247,39 +193,81 @@ true|false,
     - name: launchStage
       value: '{{ launchStage }}'
     - name: binaryAuthorization
-      value: '{{ binaryAuthorization }}'
+      value:
+        - name: useDefault
+          value: '{{ useDefault }}'
+        - name: policy
+          value: '{{ policy }}'
+        - name: breakglassJustification
+          value: '{{ breakglassJustification }}'
     - name: template
-      value: '{{ template }}'
+      value:
+        - name: revision
+          value: '{{ revision }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: annotations
+          value: '{{ annotations }}'
+        - name: scaling
+          value:
+            - name: minInstanceCount
+              value: '{{ minInstanceCount }}'
+            - name: maxInstanceCount
+              value: '{{ maxInstanceCount }}'
+        - name: vpcAccess
+          value:
+            - name: connector
+              value: '{{ connector }}'
+            - name: egress
+              value: '{{ egress }}'
+            - name: networkInterfaces
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: timeout
+          value: '{{ timeout }}'
+        - name: serviceAccount
+          value: '{{ serviceAccount }}'
+        - name: containers
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: volumes
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: executionEnvironment
+          value: '{{ executionEnvironment }}'
+        - name: encryptionKey
+          value: '{{ encryptionKey }}'
+        - name: maxInstanceRequestConcurrency
+          value: '{{ maxInstanceRequestConcurrency }}'
+        - name: serviceMesh
+          value:
+            - name: mesh
+              value: '{{ mesh }}'
+        - name: sessionAffinity
+          value: '{{ sessionAffinity }}'
+        - name: healthCheckDisabled
+          value: '{{ healthCheckDisabled }}'
+        - name: nodeSelector
+          value:
+            - name: accelerator
+              value: '{{ accelerator }}'
     - name: traffic
-      value: '{{ traffic }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: scaling
-      value: '{{ scaling }}'
+      value:
+        - name: minInstanceCount
+          value: '{{ minInstanceCount }}'
     - name: defaultUriDisabled
       value: '{{ defaultUriDisabled }}'
-    - name: urls
-      value: '{{ urls }}'
     - name: customAudiences
-      value: '{{ customAudiences }}'
-    - name: observedGeneration
-      value: '{{ observedGeneration }}'
-    - name: terminalCondition
-      value: '{{ terminalCondition }}'
-    - name: conditions
-      value: '{{ conditions }}'
-    - name: latestReadyRevision
-      value: '{{ latestReadyRevision }}'
-    - name: latestCreatedRevision
-      value: '{{ latestCreatedRevision }}'
-    - name: trafficStatuses
-      value: '{{ trafficStatuses }}'
-    - name: uri
-      value: '{{ uri }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
-    - name: etag
-      value: '{{ etag }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -295,16 +283,8 @@ UPDATE google.run.services
 SET 
 name = '{{ name }}',
 description = '{{ description }}',
-uid = '{{ uid }}',
-generation = '{{ generation }}',
 labels = '{{ labels }}',
 annotations = '{{ annotations }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
-expireTime = '{{ expireTime }}',
-creator = '{{ creator }}',
-lastModifier = '{{ lastModifier }}',
 client = '{{ client }}',
 clientVersion = '{{ clientVersion }}',
 ingress = '{{ ingress }}',
@@ -314,18 +294,7 @@ template = '{{ template }}',
 traffic = '{{ traffic }}',
 scaling = '{{ scaling }}',
 defaultUriDisabled = true|false,
-urls = '{{ urls }}',
-customAudiences = '{{ customAudiences }}',
-observedGeneration = '{{ observedGeneration }}',
-terminalCondition = '{{ terminalCondition }}',
-conditions = '{{ conditions }}',
-latestReadyRevision = '{{ latestReadyRevision }}',
-latestCreatedRevision = '{{ latestCreatedRevision }}',
-trafficStatuses = '{{ trafficStatuses }}',
-uri = '{{ uri }}',
-satisfiesPzs = true|false,
-reconciling = true|false,
-etag = '{{ etag }}'
+customAudiences = '{{ customAudiences }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

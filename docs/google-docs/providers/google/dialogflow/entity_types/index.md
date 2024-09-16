@@ -92,7 +92,6 @@ locationsId,
 projectsId,
 name,
 displayName,
-kind,
 autoExpansionMode,
 entities,
 excludedPhrases,
@@ -105,7 +104,6 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ kind }}',
 '{{ autoExpansionMode }}',
 '{{ entities }}',
 '{{ excludedPhrases }}',
@@ -123,14 +121,16 @@ true|false
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: kind
-      value: '{{ kind }}'
     - name: autoExpansionMode
       value: '{{ autoExpansionMode }}'
     - name: entities
-      value: '{{ entities }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: excludedPhrases
-      value: '{{ excludedPhrases }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: enableFuzzyExtraction
       value: '{{ enableFuzzyExtraction }}'
     - name: redact
@@ -150,7 +150,6 @@ UPDATE google.dialogflow.entity_types
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-kind = '{{ kind }}',
 autoExpansionMode = '{{ autoExpansionMode }}',
 entities = '{{ entities }}',
 excludedPhrases = '{{ excludedPhrases }}',

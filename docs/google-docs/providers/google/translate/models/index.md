@@ -91,28 +91,14 @@ locationsId,
 projectsId,
 name,
 displayName,
-dataset,
-sourceLanguageCode,
-targetLanguageCode,
-trainExampleCount,
-validateExampleCount,
-testExampleCount,
-createTime,
-updateTime
+dataset
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ dataset }}',
-'{{ sourceLanguageCode }}',
-'{{ targetLanguageCode }}',
-'{{ trainExampleCount }}',
-'{{ validateExampleCount }}',
-'{{ testExampleCount }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ dataset }}'
 ;
 ```
 </TabItem>
@@ -127,20 +113,6 @@ SELECT
       value: '{{ displayName }}'
     - name: dataset
       value: '{{ dataset }}'
-    - name: sourceLanguageCode
-      value: '{{ sourceLanguageCode }}'
-    - name: targetLanguageCode
-      value: '{{ targetLanguageCode }}'
-    - name: trainExampleCount
-      value: '{{ trainExampleCount }}'
-    - name: validateExampleCount
-      value: '{{ validateExampleCount }}'
-    - name: testExampleCount
-      value: '{{ testExampleCount }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>

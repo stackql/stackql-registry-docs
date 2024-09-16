@@ -86,9 +86,6 @@ projectsId,
 cloudStorageUri,
 diskImageTargetDefaults,
 machineImageTargetDefaults,
-name,
-createTime,
-recentImageImportJobs,
 encryption
 )
 SELECT 
@@ -97,9 +94,6 @@ SELECT
 '{{ cloudStorageUri }}',
 '{{ diskImageTargetDefaults }}',
 '{{ machineImageTargetDefaults }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ recentImageImportJobs }}',
 '{{ encryption }}'
 ;
 ```
@@ -112,17 +106,81 @@ SELECT
     - name: cloudStorageUri
       value: '{{ cloudStorageUri }}'
     - name: diskImageTargetDefaults
-      value: '{{ diskImageTargetDefaults }}'
+      value:
+        - name: osAdaptationParameters
+          value:
+            - name: generalize
+              value: '{{ generalize }}'
+            - name: licenseType
+              value: '{{ licenseType }}'
+        - name: dataDiskImageImport
+          value: []
+        - name: imageName
+          value: '{{ imageName }}'
+        - name: targetProject
+          value: '{{ targetProject }}'
+        - name: description
+          value: '{{ description }}'
+        - name: familyName
+          value: '{{ familyName }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: additionalLicenses
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: singleRegionStorage
+          value: '{{ singleRegionStorage }}'
+        - name: encryption
+          value:
+            - name: kmsKey
+              value: '{{ kmsKey }}'
     - name: machineImageTargetDefaults
-      value: '{{ machineImageTargetDefaults }}'
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: recentImageImportJobs
-      value: '{{ recentImageImportJobs }}'
-    - name: encryption
-      value: '{{ encryption }}'
+      value:
+        - name: skipOsAdaptation
+          value: []
+        - name: machineImageName
+          value: '{{ machineImageName }}'
+        - name: targetProject
+          value: '{{ targetProject }}'
+        - name: description
+          value: '{{ description }}'
+        - name: singleRegionStorage
+          value: '{{ singleRegionStorage }}'
+        - name: machineImageParametersOverrides
+          value:
+            - name: machineType
+              value: '{{ machineType }}'
+        - name: serviceAccount
+          value:
+            - name: email
+              value: '{{ email }}'
+            - name: scopes
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: additionalLicenses
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: tags
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: shieldedInstanceConfig
+          value:
+            - name: secureBoot
+              value: '{{ secureBoot }}'
+            - name: enableVtpm
+              value: '{{ enableVtpm }}'
+            - name: enableIntegrityMonitoring
+              value: '{{ enableIntegrityMonitoring }}'
+        - name: networkInterfaces
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
 
 ```
 </TabItem>

@@ -71,7 +71,11 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: ipOverrideData
-      value: '{{ ipOverrideData }}'
+      value:
+        - name: ip
+          value: '{{ ip }}'
+        - name: overrideType
+          value: '{{ overrideType }}'
 
 ```
 </TabItem>

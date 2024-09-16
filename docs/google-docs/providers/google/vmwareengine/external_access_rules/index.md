@@ -98,9 +98,6 @@ INSERT INTO google.vmwareengine.external_access_rules (
 locationsId,
 networkPoliciesId,
 projectsId,
-name,
-createTime,
-updateTime,
 description,
 priority,
 action,
@@ -108,17 +105,12 @@ ipProtocol,
 sourceIpRanges,
 sourcePorts,
 destinationIpRanges,
-destinationPorts,
-state,
-uid
+destinationPorts
 )
 SELECT 
 '{{ locationsId }}',
 '{{ networkPoliciesId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ priority }}',
 '{{ action }}',
@@ -126,9 +118,7 @@ SELECT
 '{{ sourceIpRanges }}',
 '{{ sourcePorts }}',
 '{{ destinationIpRanges }}',
-'{{ destinationPorts }}',
-'{{ state }}',
-'{{ uid }}'
+'{{ destinationPorts }}'
 ;
 ```
 </TabItem>
@@ -137,12 +127,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: priority
@@ -152,17 +136,21 @@ SELECT
     - name: ipProtocol
       value: '{{ ipProtocol }}'
     - name: sourceIpRanges
-      value: '{{ sourceIpRanges }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: sourcePorts
-      value: '{{ sourcePorts }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: destinationIpRanges
-      value: '{{ destinationIpRanges }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: destinationPorts
-      value: '{{ destinationPorts }}'
-    - name: state
-      value: '{{ state }}'
-    - name: uid
-      value: '{{ uid }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>
@@ -176,9 +164,6 @@ Updates a <code>external_access_rules</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.external_access_rules
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 priority = '{{ priority }}',
 action = '{{ action }}',
@@ -186,9 +171,7 @@ ipProtocol = '{{ ipProtocol }}',
 sourceIpRanges = '{{ sourceIpRanges }}',
 sourcePorts = '{{ sourcePorts }}',
 destinationIpRanges = '{{ destinationIpRanges }}',
-destinationPorts = '{{ destinationPorts }}',
-state = '{{ state }}',
-uid = '{{ uid }}'
+destinationPorts = '{{ destinationPorts }}'
 WHERE 
 externalAccessRulesId = '{{ externalAccessRulesId }}'
 AND locationsId = '{{ locationsId }}'

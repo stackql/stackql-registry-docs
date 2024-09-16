@@ -84,22 +84,14 @@ Use the following StackQL query and manifest file to create a new <code>datastor
 INSERT INTO google.apigee.datastores (
 organizationsId,
 datastoreConfig,
-lastUpdateTime,
-org,
 displayName,
-self,
-targetType,
-createTime
+targetType
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ datastoreConfig }}',
-'{{ lastUpdateTime }}',
-'{{ org }}',
 '{{ displayName }}',
-'{{ self }}',
-'{{ targetType }}',
-'{{ createTime }}'
+'{{ targetType }}'
 ;
 ```
 </TabItem>
@@ -109,19 +101,21 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: datastoreConfig
-      value: '{{ datastoreConfig }}'
-    - name: lastUpdateTime
-      value: '{{ lastUpdateTime }}'
-    - name: org
-      value: '{{ org }}'
+      value:
+        - name: datasetName
+          value: '{{ datasetName }}'
+        - name: tablePrefix
+          value: '{{ tablePrefix }}'
+        - name: path
+          value: '{{ path }}'
+        - name: projectId
+          value: '{{ projectId }}'
+        - name: bucketName
+          value: '{{ bucketName }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: self
-      value: '{{ self }}'
     - name: targetType
       value: '{{ targetType }}'
-    - name: createTime
-      value: '{{ createTime }}'
 
 ```
 </TabItem>
@@ -136,12 +130,8 @@ Replaces all fields in the specified <code>datastores</code> resource.
 REPLACE google.apigee.datastores
 SET 
 datastoreConfig = '{{ datastoreConfig }}',
-lastUpdateTime = '{{ lastUpdateTime }}',
-org = '{{ org }}',
 displayName = '{{ displayName }}',
-self = '{{ self }}',
-targetType = '{{ targetType }}',
-createTime = '{{ createTime }}'
+targetType = '{{ targetType }}'
 WHERE 
 datastoresId = '{{ datastoresId }}'
 AND organizationsId = '{{ organizationsId }}';

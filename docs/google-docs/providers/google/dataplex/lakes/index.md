@@ -94,34 +94,18 @@ Use the following StackQL query and manifest file to create a new <code>lakes</c
 INSERT INTO google.dataplex.lakes (
 locationsId,
 projectsId,
-name,
 displayName,
-uid,
-createTime,
-updateTime,
 labels,
 description,
-state,
-serviceAccount,
-metastore,
-assetStatus,
-metastoreStatus
+metastore
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
-'{{ state }}',
-'{{ serviceAccount }}',
-'{{ metastore }}',
-'{{ assetStatus }}',
-'{{ metastoreStatus }}'
+'{{ metastore }}'
 ;
 ```
 </TabItem>
@@ -130,30 +114,16 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
     - name: metastore
-      value: '{{ metastore }}'
-    - name: assetStatus
-      value: '{{ assetStatus }}'
-    - name: metastoreStatus
-      value: '{{ metastoreStatus }}'
+      value:
+        - name: service
+          value: '{{ service }}'
 
 ```
 </TabItem>
@@ -167,18 +137,10 @@ Updates a <code>lakes</code> resource.
 /*+ update */
 UPDATE google.dataplex.lakes
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}',
 description = '{{ description }}',
-state = '{{ state }}',
-serviceAccount = '{{ serviceAccount }}',
-metastore = '{{ metastore }}',
-assetStatus = '{{ assetStatus }}',
-metastoreStatus = '{{ metastoreStatus }}'
+metastore = '{{ metastore }}'
 WHERE 
 lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'

@@ -102,42 +102,22 @@ Use the following StackQL query and manifest file to create a new <code>backups<
 INSERT INTO google.file.backups (
 locationsId,
 projectsId,
-name,
 description,
-state,
-createTime,
 labels,
-capacityGb,
-storageBytes,
 sourceInstance,
 sourceFileShare,
-sourceInstanceTier,
-downloadBytes,
-satisfiesPzs,
-satisfiesPzi,
 kmsKey,
-tags,
-fileSystemProtocol
+tags
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ description }}',
-'{{ state }}',
-'{{ createTime }}',
 '{{ labels }}',
-'{{ capacityGb }}',
-'{{ storageBytes }}',
 '{{ sourceInstance }}',
 '{{ sourceFileShare }}',
-'{{ sourceInstanceTier }}',
-'{{ downloadBytes }}',
-true|false,
-true|false,
 '{{ kmsKey }}',
-'{{ tags }}',
-'{{ fileSystemProtocol }}'
+'{{ tags }}'
 ;
 ```
 </TabItem>
@@ -146,38 +126,18 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: labels
       value: '{{ labels }}'
-    - name: capacityGb
-      value: '{{ capacityGb }}'
-    - name: storageBytes
-      value: '{{ storageBytes }}'
     - name: sourceInstance
       value: '{{ sourceInstance }}'
     - name: sourceFileShare
       value: '{{ sourceFileShare }}'
-    - name: sourceInstanceTier
-      value: '{{ sourceInstanceTier }}'
-    - name: downloadBytes
-      value: '{{ downloadBytes }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
     - name: kmsKey
       value: '{{ kmsKey }}'
     - name: tags
       value: '{{ tags }}'
-    - name: fileSystemProtocol
-      value: '{{ fileSystemProtocol }}'
 
 ```
 </TabItem>
@@ -191,22 +151,12 @@ Updates a <code>backups</code> resource.
 /*+ update */
 UPDATE google.file.backups
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
-state = '{{ state }}',
-createTime = '{{ createTime }}',
 labels = '{{ labels }}',
-capacityGb = '{{ capacityGb }}',
-storageBytes = '{{ storageBytes }}',
 sourceInstance = '{{ sourceInstance }}',
 sourceFileShare = '{{ sourceFileShare }}',
-sourceInstanceTier = '{{ sourceInstanceTier }}',
-downloadBytes = '{{ downloadBytes }}',
-satisfiesPzs = true|false,
-satisfiesPzi = true|false,
 kmsKey = '{{ kmsKey }}',
-tags = '{{ tags }}',
-fileSystemProtocol = '{{ fileSystemProtocol }}'
+tags = '{{ tags }}'
 WHERE 
 backupsId = '{{ backupsId }}'
 AND locationsId = '{{ locationsId }}'

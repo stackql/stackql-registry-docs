@@ -85,22 +85,18 @@ INSERT INTO google.aiplatform.feature_groups (
 locationsId,
 projectsId,
 bigQuery,
-updateTime,
 name,
 description,
 labels,
-createTime,
 etag
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ bigQuery }}',
-'{{ updateTime }}',
 '{{ name }}',
 '{{ description }}',
 '{{ labels }}',
-'{{ createTime }}',
 '{{ etag }}'
 ;
 ```
@@ -111,17 +107,29 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: bigQuery
-      value: '{{ bigQuery }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: dense
+          value: '{{ dense }}'
+        - name: bigQuerySource
+          value:
+            - name: inputUri
+              value: '{{ inputUri }}'
+        - name: staticDataSource
+          value: '{{ staticDataSource }}'
+        - name: timeSeries
+          value:
+            - name: timestampColumn
+              value: '{{ timestampColumn }}'
+        - name: entityIdColumns
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
     - name: labels
       value: '{{ labels }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: etag
       value: '{{ etag }}'
 
@@ -138,11 +146,9 @@ Updates a <code>feature_groups</code> resource.
 UPDATE google.aiplatform.feature_groups
 SET 
 bigQuery = '{{ bigQuery }}',
-updateTime = '{{ updateTime }}',
 name = '{{ name }}',
 description = '{{ description }}',
 labels = '{{ labels }}',
-createTime = '{{ createTime }}',
 etag = '{{ etag }}'
 WHERE 
 featureGroupsId = '{{ featureGroupsId }}'

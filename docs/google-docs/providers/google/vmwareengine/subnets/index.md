@@ -71,12 +71,8 @@ Updates a <code>subnets</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.subnets
 SET 
-name = '{{ name }}',
 ipCidrRange = '{{ ipCidrRange }}',
-gatewayIp = '{{ gatewayIp }}',
-type = '{{ type }}',
-state = '{{ state }}',
-vlanId = '{{ vlanId }}'
+gatewayIp = '{{ gatewayIp }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'

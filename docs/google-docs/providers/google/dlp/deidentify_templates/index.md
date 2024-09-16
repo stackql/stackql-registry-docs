@@ -115,7 +115,41 @@ SELECT
     - name: locationId
       value: '{{ locationId }}'
     - name: deidentifyTemplate
-      value: '{{ deidentifyTemplate }}'
+      value:
+        - name: deidentifyConfig
+          value:
+            - name: imageTransformations
+              value:
+                - name: transforms
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: recordTransformations
+              value:
+                - name: fieldTransformations
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+                - name: recordSuppressions
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: infoTypeTransformations
+              value:
+                - name: transformations
+                  value:
+                    - name: $ref
+                      value: '{{ $ref }}'
+            - name: transformationErrorHandling
+              value:
+                - name: leaveUntransformed
+                  value: []
+                - name: throwError
+                  value: []
+        - name: description
+          value: '{{ description }}'
+        - name: displayName
+          value: '{{ displayName }}'
     - name: templateId
       value: '{{ templateId }}'
 

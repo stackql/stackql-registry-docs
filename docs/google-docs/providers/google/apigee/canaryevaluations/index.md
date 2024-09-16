@@ -90,11 +90,7 @@ startTime,
 endTime,
 control,
 metricLabels,
-createTime,
-treatment,
-name,
-verdict,
-state
+treatment
 )
 SELECT 
 '{{ instancesId }}',
@@ -103,11 +99,7 @@ SELECT
 '{{ endTime }}',
 '{{ control }}',
 '{{ metricLabels }}',
-'{{ createTime }}',
-'{{ treatment }}',
-'{{ name }}',
-'{{ verdict }}',
-'{{ state }}'
+'{{ treatment }}'
 ;
 ```
 </TabItem>
@@ -123,17 +115,15 @@ SELECT
     - name: control
       value: '{{ control }}'
     - name: metricLabels
-      value: '{{ metricLabels }}'
-    - name: createTime
-      value: '{{ createTime }}'
+      value:
+        - name: instance_id
+          value: '{{ instance_id }}'
+        - name: env
+          value: '{{ env }}'
+        - name: location
+          value: '{{ location }}'
     - name: treatment
       value: '{{ treatment }}'
-    - name: name
-      value: '{{ name }}'
-    - name: verdict
-      value: '{{ verdict }}'
-    - name: state
-      value: '{{ state }}'
 
 ```
 </TabItem>

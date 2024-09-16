@@ -89,7 +89,15 @@ true|false,
     - name: displayName
       value: '{{ displayName }}'
     - name: type
-      value: '{{ type }}'
+      value:
+        - name: primitiveType
+          value: '{{ primitiveType }}'
+        - name: enumType
+          value:
+            - name: allowedValues
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: isRequired
       value: '{{ isRequired }}'
     - name: description

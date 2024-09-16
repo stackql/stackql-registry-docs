@@ -93,13 +93,7 @@ instancesId,
 projectsId,
 name,
 sourceTable,
-sourceBackup,
-expireTime,
-startTime,
-endTime,
-sizeBytes,
-state,
-encryptionInfo
+expireTime
 )
 SELECT 
 '{{ clustersId }}',
@@ -107,13 +101,7 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ sourceTable }}',
-'{{ sourceBackup }}',
-'{{ expireTime }}',
-'{{ startTime }}',
-'{{ endTime }}',
-'{{ sizeBytes }}',
-'{{ state }}',
-'{{ encryptionInfo }}'
+'{{ expireTime }}'
 ;
 ```
 </TabItem>
@@ -126,20 +114,8 @@ SELECT
       value: '{{ name }}'
     - name: sourceTable
       value: '{{ sourceTable }}'
-    - name: sourceBackup
-      value: '{{ sourceBackup }}'
     - name: expireTime
       value: '{{ expireTime }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: sizeBytes
-      value: '{{ sizeBytes }}'
-    - name: state
-      value: '{{ state }}'
-    - name: encryptionInfo
-      value: '{{ encryptionInfo }}'
 
 ```
 </TabItem>
@@ -155,13 +131,7 @@ UPDATE google.bigtableadmin.backups
 SET 
 name = '{{ name }}',
 sourceTable = '{{ sourceTable }}',
-sourceBackup = '{{ sourceBackup }}',
-expireTime = '{{ expireTime }}',
-startTime = '{{ startTime }}',
-endTime = '{{ endTime }}',
-sizeBytes = '{{ sizeBytes }}',
-state = '{{ state }}',
-encryptionInfo = '{{ encryptionInfo }}'
+expireTime = '{{ expireTime }}'
 WHERE 
 backupsId = '{{ backupsId }}'
 AND clustersId = '{{ clustersId }}'

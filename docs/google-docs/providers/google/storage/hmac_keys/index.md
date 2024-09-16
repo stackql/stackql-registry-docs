@@ -116,10 +116,7 @@ REPLACE google.storage.hmac_keys
 SET 
 accessId = '{{ accessId }}',
 etag = '{{ etag }}',
-id = '{{ id }}',
-kind = '{{ kind }}',
 projectId = '{{ projectId }}',
-selfLink = '{{ selfLink }}',
 serviceAccountEmail = '{{ serviceAccountEmail }}',
 state = '{{ state }}',
 timeCreated = '{{ timeCreated }}',

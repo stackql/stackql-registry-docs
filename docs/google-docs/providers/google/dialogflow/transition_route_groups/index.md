@@ -107,7 +107,9 @@ SELECT
     - name: displayName
       value: '{{ displayName }}'
     - name: transitionRoutes
-      value: '{{ transitionRoutes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
 
 ```
 </TabItem>

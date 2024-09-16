@@ -88,16 +88,12 @@ Use the following StackQL query and manifest file to create a new <code>deployme
 INSERT INTO google.prod_tt_sasportal.deployments (
 customersId,
 sasUserIds,
-displayName,
-frns,
-name
+displayName
 )
 SELECT 
 '{{ customersId }}',
 '{{ sasUserIds }}',
-'{{ displayName }}',
-'{{ frns }}',
-'{{ name }}'
+'{{ displayName }}'
 ;
 ```
 </TabItem>
@@ -107,13 +103,11 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: sasUserIds
-      value: '{{ sasUserIds }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: frns
-      value: '{{ frns }}'
-    - name: name
-      value: '{{ name }}'
 
 ```
 </TabItem>
@@ -128,9 +122,7 @@ Updates a <code>deployments</code> resource.
 UPDATE google.prod_tt_sasportal.deployments
 SET 
 sasUserIds = '{{ sasUserIds }}',
-displayName = '{{ displayName }}',
-frns = '{{ frns }}',
-name = '{{ name }}'
+displayName = '{{ displayName }}'
 WHERE 
 deploymentsId = '{{ deploymentsId }}'
 AND nodesId = '{{ nodesId }}';

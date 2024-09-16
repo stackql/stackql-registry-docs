@@ -106,45 +106,25 @@ Use the following StackQL query and manifest file to create a new <code>hyperpar
 INSERT INTO google.aiplatform.hyperparameter_tuning_jobs (
 locationsId,
 projectsId,
-name,
 trialJobSpec,
-error,
 studySpec,
-updateTime,
-createTime,
-trials,
 maxTrialCount,
 labels,
-satisfiesPzs,
-state,
 maxFailedTrialCount,
-endTime,
-satisfiesPzi,
 displayName,
 encryptionSpec,
-startTime,
 parallelTrialCount
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ trialJobSpec }}',
-'{{ error }}',
 '{{ studySpec }}',
-'{{ updateTime }}',
-'{{ createTime }}',
-'{{ trials }}',
 '{{ maxTrialCount }}',
 '{{ labels }}',
-true|false,
-'{{ state }}',
 '{{ maxFailedTrialCount }}',
-'{{ endTime }}',
-true|false,
 '{{ displayName }}',
 '{{ encryptionSpec }}',
-'{{ startTime }}',
 '{{ parallelTrialCount }}'
 ;
 ```
@@ -154,40 +134,122 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: trialJobSpec
-      value: '{{ trialJobSpec }}'
-    - name: error
-      value: '{{ error }}'
+      value:
+        - name: workerPoolSpecs
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: tensorboard
+          value: '{{ tensorboard }}'
+        - name: experimentRun
+          value: '{{ experimentRun }}'
+        - name: reservedIpRanges
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: scheduling
+          value:
+            - name: timeout
+              value: '{{ timeout }}'
+            - name: disableRetries
+              value: '{{ disableRetries }}'
+            - name: strategy
+              value: '{{ strategy }}'
+            - name: restartJobOnWorkerRestart
+              value: '{{ restartJobOnWorkerRestart }}'
+            - name: maxWaitDuration
+              value: '{{ maxWaitDuration }}'
+        - name: protectedArtifactLocationId
+          value: '{{ protectedArtifactLocationId }}'
+        - name: serviceAccount
+          value: '{{ serviceAccount }}'
+        - name: baseOutputDirectory
+          value:
+            - name: outputUriPrefix
+              value: '{{ outputUriPrefix }}'
+        - name: enableWebAccess
+          value: '{{ enableWebAccess }}'
+        - name: experiment
+          value: '{{ experiment }}'
+        - name: models
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: persistentResourceId
+          value: '{{ persistentResourceId }}'
+        - name: network
+          value: '{{ network }}'
+        - name: enableDashboardAccess
+          value: '{{ enableDashboardAccess }}'
     - name: studySpec
-      value: '{{ studySpec }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: trials
-      value: '{{ trials }}'
+      value:
+        - name: metrics
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: observationNoise
+          value: '{{ observationNoise }}'
+        - name: parameters
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: decayCurveStoppingSpec
+          value:
+            - name: useElapsedDuration
+              value: '{{ useElapsedDuration }}'
+        - name: convexAutomatedStoppingSpec
+          value:
+            - name: useElapsedDuration
+              value: '{{ useElapsedDuration }}'
+            - name: minStepCount
+              value: '{{ minStepCount }}'
+            - name: maxStepCount
+              value: '{{ maxStepCount }}'
+            - name: learningRateParameterName
+              value: '{{ learningRateParameterName }}'
+            - name: updateAllStoppedTrials
+              value: '{{ updateAllStoppedTrials }}'
+            - name: minMeasurementCount
+              value: '{{ minMeasurementCount }}'
+        - name: algorithm
+          value: '{{ algorithm }}'
+        - name: medianAutomatedStoppingSpec
+          value:
+            - name: useElapsedDuration
+              value: '{{ useElapsedDuration }}'
+        - name: measurementSelectionType
+          value: '{{ measurementSelectionType }}'
+        - name: studyStoppingConfig
+          value:
+            - name: minNumTrials
+              value: '{{ minNumTrials }}'
+            - name: shouldStopAsap
+              value: '{{ shouldStopAsap }}'
+            - name: maxNumTrialsNoProgress
+              value: '{{ maxNumTrialsNoProgress }}'
+            - name: maximumRuntimeConstraint
+              value:
+                - name: maxDuration
+                  value: '{{ maxDuration }}'
+                - name: endTime
+                  value: '{{ endTime }}'
+            - name: maxDurationNoProgress
+              value: '{{ maxDurationNoProgress }}'
+            - name: maxNumTrials
+              value: '{{ maxNumTrials }}'
     - name: maxTrialCount
       value: '{{ maxTrialCount }}'
     - name: labels
       value: '{{ labels }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: state
-      value: '{{ state }}'
     - name: maxFailedTrialCount
       value: '{{ maxFailedTrialCount }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: encryptionSpec
-      value: '{{ encryptionSpec }}'
-    - name: startTime
-      value: '{{ startTime }}'
+      value:
+        - name: kmsKeyName
+          value: '{{ kmsKeyName }}'
     - name: parallelTrialCount
       value: '{{ parallelTrialCount }}'
 

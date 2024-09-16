@@ -92,7 +92,6 @@ Use the following StackQL query and manifest file to create a new <code>users</c
 INSERT INTO google.sqladmin.users (
 instance,
 project,
-kind,
 password,
 etag,
 name,
@@ -107,7 +106,6 @@ dualPasswordType
 SELECT 
 '{{ instance }}',
 '{{ project }}',
-'{{ kind }}',
 '{{ password }}',
 '{{ etag }}',
 '{{ name }}',
@@ -126,8 +124,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
     - name: password
       value: '{{ password }}'
     - name: etag
@@ -143,9 +139,23 @@ SELECT
     - name: type
       value: '{{ type }}'
     - name: sqlserverUserDetails
-      value: '{{ sqlserverUserDetails }}'
+      value:
+        - name: disabled
+          value: '{{ disabled }}'
+        - name: serverRoles
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: passwordPolicy
-      value: '{{ passwordPolicy }}'
+      value:
+        - name: allowedFailedAttempts
+          value: '{{ allowedFailedAttempts }}'
+        - name: passwordExpirationDuration
+          value: '{{ passwordExpirationDuration }}'
+        - name: enableFailedAttemptsCheck
+          value: '{{ enableFailedAttemptsCheck }}'
+        - name: enablePasswordVerification
+          value: '{{ enablePasswordVerification }}'
     - name: dualPasswordType
       value: '{{ dualPasswordType }}'
 
@@ -161,7 +171,6 @@ Replaces all fields in the specified <code>users</code> resource.
 /*+ update */
 REPLACE google.sqladmin.users
 SET 
-kind = '{{ kind }}',
 password = '{{ password }}',
 etag = '{{ etag }}',
 name = '{{ name }}',

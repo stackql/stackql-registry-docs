@@ -85,9 +85,7 @@ INSERT INTO google.contentwarehouse.document_schemas (
 locationsId,
 projectsId,
 name,
-updateTime,
 description,
-createTime,
 propertyDefinitions,
 displayName,
 documentIsFolder
@@ -96,9 +94,7 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ updateTime }}',
 '{{ description }}',
-'{{ createTime }}',
 '{{ propertyDefinitions }}',
 '{{ displayName }}',
 true|false
@@ -112,14 +108,12 @@ true|false
   props:
     - name: name
       value: '{{ name }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: propertyDefinitions
-      value: '{{ propertyDefinitions }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: documentIsFolder

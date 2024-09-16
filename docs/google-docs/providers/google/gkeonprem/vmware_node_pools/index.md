@@ -104,17 +104,10 @@ projectsId,
 vmwareClustersId,
 name,
 displayName,
-uid,
-state,
-reconciling,
-createTime,
-updateTime,
-deleteTime,
 etag,
 annotations,
 nodePoolAutoscaling,
 config,
-status,
 onPremVersion
 )
 SELECT 
@@ -123,17 +116,10 @@ SELECT
 '{{ vmwareClustersId }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ uid }}',
-'{{ state }}',
-true|false,
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
 '{{ etag }}',
 '{{ annotations }}',
 '{{ nodePoolAutoscaling }}',
 '{{ config }}',
-'{{ status }}',
 '{{ onPremVersion }}'
 ;
 ```
@@ -147,28 +133,50 @@ true|false,
       value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: state
-      value: '{{ state }}'
-    - name: reconciling
-      value: '{{ reconciling }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
     - name: etag
       value: '{{ etag }}'
     - name: annotations
       value: '{{ annotations }}'
     - name: nodePoolAutoscaling
-      value: '{{ nodePoolAutoscaling }}'
+      value:
+        - name: minReplicas
+          value: '{{ minReplicas }}'
+        - name: maxReplicas
+          value: '{{ maxReplicas }}'
     - name: config
-      value: '{{ config }}'
-    - name: status
-      value: '{{ status }}'
+      value:
+        - name: cpus
+          value: '{{ cpus }}'
+        - name: memoryMb
+          value: '{{ memoryMb }}'
+        - name: replicas
+          value: '{{ replicas }}'
+        - name: imageType
+          value: '{{ imageType }}'
+        - name: image
+          value: '{{ image }}'
+        - name: bootDiskSizeGb
+          value: '{{ bootDiskSizeGb }}'
+        - name: taints
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: labels
+          value: '{{ labels }}'
+        - name: vsphereConfig
+          value:
+            - name: datastore
+              value: '{{ datastore }}'
+            - name: tags
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+            - name: hostGroups
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: enableLoadBalancer
+          value: '{{ enableLoadBalancer }}'
     - name: onPremVersion
       value: '{{ onPremVersion }}'
 
@@ -186,17 +194,10 @@ UPDATE google.gkeonprem.vmware_node_pools
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-uid = '{{ uid }}',
-state = '{{ state }}',
-reconciling = true|false,
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
 etag = '{{ etag }}',
 annotations = '{{ annotations }}',
 nodePoolAutoscaling = '{{ nodePoolAutoscaling }}',
 config = '{{ config }}',
-status = '{{ status }}',
 onPremVersion = '{{ onPremVersion }}'
 WHERE 
 locationsId = '{{ locationsId }}'

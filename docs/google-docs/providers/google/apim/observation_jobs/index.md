@@ -82,19 +82,13 @@ INSERT INTO google.apim.observation_jobs (
 locationsId,
 projectsId,
 name,
-state,
-sources,
-createTime,
-updateTime
+sources
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-'{{ state }}',
-'{{ sources }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ sources }}'
 ;
 ```
 </TabItem>
@@ -105,14 +99,10 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: state
-      value: '{{ state }}'
     - name: sources
-      value: '{{ sources }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
+      value:
+        - name: type
+          value: '{{ type }}'
 
 ```
 </TabItem>

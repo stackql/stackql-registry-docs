@@ -82,7 +82,6 @@ INSERT INTO google.alloydb.users (
 clustersId,
 locationsId,
 projectsId,
-name,
 password,
 databaseRoles,
 userType,
@@ -92,7 +91,6 @@ SELECT
 '{{ clustersId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ password }}',
 '{{ databaseRoles }}',
 '{{ userType }}',
@@ -105,12 +103,12 @@ true|false
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: password
       value: '{{ password }}'
     - name: databaseRoles
-      value: '{{ databaseRoles }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: userType
       value: '{{ userType }}'
     - name: keepExtraRoles
@@ -128,7 +126,6 @@ Updates a <code>users</code> resource.
 /*+ update */
 UPDATE google.alloydb.users
 SET 
-name = '{{ name }}',
 password = '{{ password }}',
 databaseRoles = '{{ databaseRoles }}',
 userType = '{{ userType }}',

@@ -87,7 +87,6 @@ Use the following StackQL query and manifest file to create a new <code>authoriz
 INSERT INTO google.appengine.authorized_certificates (
 appsId,
 name,
-id,
 displayName,
 domainNames,
 expireTime,
@@ -99,7 +98,6 @@ domainMappingsCount
 SELECT 
 '{{ appsId }}',
 '{{ name }}',
-'{{ id }}',
 '{{ displayName }}',
 '{{ domainNames }}',
 '{{ expireTime }}',
@@ -117,20 +115,30 @@ SELECT
   props:
     - name: name
       value: '{{ name }}'
-    - name: id
-      value: '{{ id }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: domainNames
-      value: '{{ domainNames }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: expireTime
       value: '{{ expireTime }}'
     - name: certificateRawData
-      value: '{{ certificateRawData }}'
+      value:
+        - name: publicCertificate
+          value: '{{ publicCertificate }}'
+        - name: privateKey
+          value: '{{ privateKey }}'
     - name: managedCertificate
-      value: '{{ managedCertificate }}'
+      value:
+        - name: lastRenewalTime
+          value: '{{ lastRenewalTime }}'
+        - name: status
+          value: '{{ status }}'
     - name: visibleDomainMappings
-      value: '{{ visibleDomainMappings }}'
+      value:
+        - name: type
+          value: '{{ type }}'
     - name: domainMappingsCount
       value: '{{ domainMappingsCount }}'
 
@@ -147,7 +155,6 @@ Updates a <code>authorized_certificates</code> resource.
 UPDATE google.appengine.authorized_certificates
 SET 
 name = '{{ name }}',
-id = '{{ id }}',
 displayName = '{{ displayName }}',
 domainNames = '{{ domainNames }}',
 expireTime = '{{ expireTime }}',

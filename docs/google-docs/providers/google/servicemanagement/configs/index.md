@@ -126,7 +126,6 @@ serviceName,
 name,
 title,
 producerProjectId,
-id,
 apis,
 types,
 enums,
@@ -157,7 +156,6 @@ SELECT
 '{{ name }}',
 '{{ title }}',
 '{{ producerProjectId }}',
-'{{ id }}',
 '{{ apis }}',
 '{{ types }}',
 '{{ enums }}',
@@ -196,54 +194,200 @@ SELECT
       value: '{{ title }}'
     - name: producerProjectId
       value: '{{ producerProjectId }}'
-    - name: id
-      value: '{{ id }}'
     - name: apis
-      value: '{{ apis }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: types
-      value: '{{ types }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: enums
-      value: '{{ enums }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: documentation
-      value: '{{ documentation }}'
+      value:
+        - name: summary
+          value: '{{ summary }}'
+        - name: pages
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: rules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: documentationRootUrl
+          value: '{{ documentationRootUrl }}'
+        - name: serviceRootUrl
+          value: '{{ serviceRootUrl }}'
+        - name: overview
+          value: '{{ overview }}'
+        - name: sectionOverrides
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: backend
-      value: '{{ backend }}'
+      value:
+        - name: rules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: http
-      value: '{{ http }}'
+      value:
+        - name: rules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: fullyDecodeReservedExpansion
+          value: '{{ fullyDecodeReservedExpansion }}'
     - name: quota
-      value: '{{ quota }}'
+      value:
+        - name: limits
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: metricRules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: authentication
-      value: '{{ authentication }}'
+      value:
+        - name: rules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: providers
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: context
-      value: '{{ context }}'
+      value:
+        - name: rules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: usage
-      value: '{{ usage }}'
+      value:
+        - name: requirements
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: rules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: producerNotificationChannel
+          value: '{{ producerNotificationChannel }}'
     - name: customError
-      value: '{{ customError }}'
+      value:
+        - name: rules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: types
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: endpoints
-      value: '{{ endpoints }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: control
-      value: '{{ control }}'
+      value:
+        - name: environment
+          value: '{{ environment }}'
+        - name: methodPolicies
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: logs
-      value: '{{ logs }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: metrics
-      value: '{{ metrics }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: monitoredResources
-      value: '{{ monitoredResources }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: billing
-      value: '{{ billing }}'
+      value:
+        - name: consumerDestinations
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: logging
-      value: '{{ logging }}'
+      value:
+        - name: producerDestinations
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: consumerDestinations
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: monitoring
-      value: '{{ monitoring }}'
+      value:
+        - name: producerDestinations
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: consumerDestinations
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: systemParameters
-      value: '{{ systemParameters }}'
+      value:
+        - name: rules
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: sourceInfo
-      value: '{{ sourceInfo }}'
+      value:
+        - name: sourceFiles
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: additionalProperties
+              value: '{{ additionalProperties }}'
     - name: publishing
-      value: '{{ publishing }}'
+      value:
+        - name: methodSettings
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: newIssueUri
+          value: '{{ newIssueUri }}'
+        - name: documentationUri
+          value: '{{ documentationUri }}'
+        - name: apiShortName
+          value: '{{ apiShortName }}'
+        - name: githubLabel
+          value: '{{ githubLabel }}'
+        - name: codeownerGithubTeams
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: docTagPrefix
+          value: '{{ docTagPrefix }}'
+        - name: organization
+          value: '{{ organization }}'
+        - name: librarySettings
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: protoReferenceDocumentationUri
+          value: '{{ protoReferenceDocumentationUri }}'
+        - name: restReferenceDocumentationUri
+          value: '{{ restReferenceDocumentationUri }}'
     - name: systemTypes
-      value: '{{ systemTypes }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: configVersion
       value: '{{ configVersion }}'
 

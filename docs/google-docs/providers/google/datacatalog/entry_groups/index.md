@@ -80,16 +80,14 @@ locationsId,
 projectsId,
 name,
 displayName,
-description,
-dataCatalogTimestamps
+description
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
 '{{ displayName }}',
-'{{ description }}',
-'{{ dataCatalogTimestamps }}'
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -104,8 +102,6 @@ SELECT
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: dataCatalogTimestamps
-      value: '{{ dataCatalogTimestamps }}'
 
 ```
 </TabItem>
@@ -121,8 +117,7 @@ UPDATE google.datacatalog.entry_groups
 SET 
 name = '{{ name }}',
 displayName = '{{ displayName }}',
-description = '{{ description }}',
-dataCatalogTimestamps = '{{ dataCatalogTimestamps }}'
+description = '{{ description }}'
 WHERE 
 entryGroupsId = '{{ entryGroupsId }}'
 AND locationsId = '{{ locationsId }}'

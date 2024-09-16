@@ -92,10 +92,7 @@ name,
 releaseConfig,
 invocationConfig,
 cronSchedule,
-timeZone,
-recentScheduledExecutionRecords,
-createTime,
-updateTime
+timeZone
 )
 SELECT 
 '{{ locationsId }}',
@@ -105,10 +102,7 @@ SELECT
 '{{ releaseConfig }}',
 '{{ invocationConfig }}',
 '{{ cronSchedule }}',
-'{{ timeZone }}',
-'{{ recentScheduledExecutionRecords }}',
-'{{ createTime }}',
-'{{ updateTime }}'
+'{{ timeZone }}'
 ;
 ```
 </TabItem>
@@ -122,17 +116,27 @@ SELECT
     - name: releaseConfig
       value: '{{ releaseConfig }}'
     - name: invocationConfig
-      value: '{{ invocationConfig }}'
+      value:
+        - name: includedTargets
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: includedTags
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: transitiveDependenciesIncluded
+          value: '{{ transitiveDependenciesIncluded }}'
+        - name: transitiveDependentsIncluded
+          value: '{{ transitiveDependentsIncluded }}'
+        - name: fullyRefreshIncrementalTablesEnabled
+          value: '{{ fullyRefreshIncrementalTablesEnabled }}'
+        - name: serviceAccount
+          value: '{{ serviceAccount }}'
     - name: cronSchedule
       value: '{{ cronSchedule }}'
     - name: timeZone
       value: '{{ timeZone }}'
-    - name: recentScheduledExecutionRecords
-      value: '{{ recentScheduledExecutionRecords }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
 
 ```
 </TabItem>
@@ -150,10 +154,7 @@ name = '{{ name }}',
 releaseConfig = '{{ releaseConfig }}',
 invocationConfig = '{{ invocationConfig }}',
 cronSchedule = '{{ cronSchedule }}',
-timeZone = '{{ timeZone }}',
-recentScheduledExecutionRecords = '{{ recentScheduledExecutionRecords }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}'
+timeZone = '{{ timeZone }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

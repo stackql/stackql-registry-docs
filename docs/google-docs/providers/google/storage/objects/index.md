@@ -159,8 +159,6 @@ customerEncryption,
 etag,
 eventBasedHold,
 generation,
-id,
-kind,
 kmsKeyName,
 md5Hash,
 mediaLink,
@@ -170,7 +168,6 @@ name,
 owner,
 retentionExpirationTime,
 retention,
-selfLink,
 size,
 storageClass,
 temporaryHold,
@@ -197,8 +194,6 @@ SELECT
 '{{ etag }}',
 true|false,
 '{{ generation }}',
-'{{ id }}',
-'{{ kind }}',
 '{{ kmsKeyName }}',
 '{{ md5Hash }}',
 '{{ mediaLink }}',
@@ -208,7 +203,6 @@ true|false,
 '{{ owner }}',
 '{{ retentionExpirationTime }}',
 '{{ retention }}',
-'{{ selfLink }}',
 '{{ size }}',
 '{{ storageClass }}',
 true|false,
@@ -227,7 +221,9 @@ true|false,
 - name: your_resource_model_name
   props:
     - name: acl
-      value: '{{ acl }}'
+      value:
+        - name: $ref
+          value: '{{ $ref }}'
     - name: bucket
       value: '{{ bucket }}'
     - name: cacheControl
@@ -258,10 +254,6 @@ true|false,
       value: '{{ eventBasedHold }}'
     - name: generation
       value: '{{ generation }}'
-    - name: id
-      value: '{{ id }}'
-    - name: kind
-      value: '{{ kind }}'
     - name: kmsKeyName
       value: '{{ kmsKeyName }}'
     - name: md5Hash
@@ -288,8 +280,6 @@ true|false,
           value: '{{ retainUntilTime }}'
         - name: mode
           value: '{{ mode }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: size
       value: '{{ size }}'
     - name: storageClass
@@ -335,8 +325,6 @@ customerEncryption = '{{ customerEncryption }}',
 etag = '{{ etag }}',
 eventBasedHold = true|false,
 generation = '{{ generation }}',
-id = '{{ id }}',
-kind = '{{ kind }}',
 kmsKeyName = '{{ kmsKeyName }}',
 md5Hash = '{{ md5Hash }}',
 mediaLink = '{{ mediaLink }}',
@@ -346,7 +334,6 @@ name = '{{ name }}',
 owner = '{{ owner }}',
 retentionExpirationTime = '{{ retentionExpirationTime }}',
 retention = '{{ retention }}',
-selfLink = '{{ selfLink }}',
 size = '{{ size }}',
 storageClass = '{{ storageClass }}',
 temporaryHold = true|false,
@@ -383,8 +370,6 @@ customerEncryption = '{{ customerEncryption }}',
 etag = '{{ etag }}',
 eventBasedHold = true|false,
 generation = '{{ generation }}',
-id = '{{ id }}',
-kind = '{{ kind }}',
 kmsKeyName = '{{ kmsKeyName }}',
 md5Hash = '{{ md5Hash }}',
 mediaLink = '{{ mediaLink }}',
@@ -394,7 +379,6 @@ name = '{{ name }}',
 owner = '{{ owner }}',
 retentionExpirationTime = '{{ retentionExpirationTime }}',
 retention = '{{ retention }}',
-selfLink = '{{ selfLink }}',
 size = '{{ size }}',
 storageClass = '{{ storageClass }}',
 temporaryHold = true|false,

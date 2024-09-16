@@ -88,27 +88,21 @@ Use the following StackQL query and manifest file to create a new <code>certific
 INSERT INTO google.privateca.certificate_templates (
 locationsId,
 projectsId,
-name,
 maximumLifetime,
 predefinedValues,
 identityConstraints,
 passthroughExtensions,
 description,
-createTime,
-updateTime,
 labels
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ maximumLifetime }}',
 '{{ predefinedValues }}',
 '{{ identityConstraints }}',
 '{{ passthroughExtensions }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}'
 ;
 ```
@@ -118,22 +112,136 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: maximumLifetime
       value: '{{ maximumLifetime }}'
     - name: predefinedValues
-      value: '{{ predefinedValues }}'
+      value:
+        - name: keyUsage
+          value:
+            - name: baseKeyUsage
+              value:
+                - name: digitalSignature
+                  value: '{{ digitalSignature }}'
+                - name: contentCommitment
+                  value: '{{ contentCommitment }}'
+                - name: keyEncipherment
+                  value: '{{ keyEncipherment }}'
+                - name: dataEncipherment
+                  value: '{{ dataEncipherment }}'
+                - name: keyAgreement
+                  value: '{{ keyAgreement }}'
+                - name: certSign
+                  value: '{{ certSign }}'
+                - name: crlSign
+                  value: '{{ crlSign }}'
+                - name: encipherOnly
+                  value: '{{ encipherOnly }}'
+                - name: decipherOnly
+                  value: '{{ decipherOnly }}'
+            - name: extendedKeyUsage
+              value:
+                - name: serverAuth
+                  value: '{{ serverAuth }}'
+                - name: clientAuth
+                  value: '{{ clientAuth }}'
+                - name: codeSigning
+                  value: '{{ codeSigning }}'
+                - name: emailProtection
+                  value: '{{ emailProtection }}'
+                - name: timeStamping
+                  value: '{{ timeStamping }}'
+                - name: ocspSigning
+                  value: '{{ ocspSigning }}'
+            - name: unknownExtendedKeyUsages
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: caOptions
+          value:
+            - name: isCa
+              value: '{{ isCa }}'
+            - name: maxIssuerPathLength
+              value: '{{ maxIssuerPathLength }}'
+        - name: policyIds
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: aiaOcspServers
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: nameConstraints
+          value:
+            - name: critical
+              value: '{{ critical }}'
+            - name: permittedDnsNames
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: excludedDnsNames
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: permittedIpRanges
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: excludedIpRanges
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: permittedEmailAddresses
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: excludedEmailAddresses
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: permittedUris
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: excludedUris
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: additionalExtensions
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: identityConstraints
-      value: '{{ identityConstraints }}'
+      value:
+        - name: celExpression
+          value:
+            - name: expression
+              value: '{{ expression }}'
+            - name: title
+              value: '{{ title }}'
+            - name: description
+              value: '{{ description }}'
+            - name: location
+              value: '{{ location }}'
+        - name: allowSubjectPassthrough
+          value: '{{ allowSubjectPassthrough }}'
+        - name: allowSubjectAltNamesPassthrough
+          value: '{{ allowSubjectAltNamesPassthrough }}'
     - name: passthroughExtensions
-      value: '{{ passthroughExtensions }}'
+      value:
+        - name: knownExtensions
+          value:
+            - name: type
+              value: '{{ type }}'
+            - name: enumDescriptions
+              value: '{{ enumDescriptions }}'
+            - name: enum
+              value: '{{ enum }}'
+        - name: additionalExtensions
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
 
@@ -149,14 +257,11 @@ Updates a <code>certificate_templates</code> resource.
 /*+ update */
 UPDATE google.privateca.certificate_templates
 SET 
-name = '{{ name }}',
 maximumLifetime = '{{ maximumLifetime }}',
 predefinedValues = '{{ predefinedValues }}',
 identityConstraints = '{{ identityConstraints }}',
 passthroughExtensions = '{{ passthroughExtensions }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 labels = '{{ labels }}'
 WHERE 
 certificateTemplatesId = '{{ certificateTemplatesId }}'

@@ -104,44 +104,24 @@ Use the following StackQL query and manifest file to create a new <code>batches<
 INSERT INTO google.dataproc.batches (
 locationsId,
 projectsId,
-name,
-uuid,
-createTime,
 pysparkBatch,
 sparkBatch,
 sparkRBatch,
 sparkSqlBatch,
-runtimeInfo,
-state,
-stateMessage,
-stateTime,
-creator,
 labels,
 runtimeConfig,
-environmentConfig,
-operation,
-stateHistory
+environmentConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uuid }}',
-'{{ createTime }}',
 '{{ pysparkBatch }}',
 '{{ sparkBatch }}',
 '{{ sparkRBatch }}',
 '{{ sparkSqlBatch }}',
-'{{ runtimeInfo }}',
-'{{ state }}',
-'{{ stateMessage }}',
-'{{ stateTime }}',
-'{{ creator }}',
 '{{ labels }}',
 '{{ runtimeConfig }}',
-'{{ environmentConfig }}',
-'{{ operation }}',
-'{{ stateHistory }}'
+'{{ environmentConfig }}'
 ;
 ```
 </TabItem>
@@ -150,40 +130,136 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uuid
-      value: '{{ uuid }}'
-    - name: createTime
-      value: '{{ createTime }}'
     - name: pysparkBatch
-      value: '{{ pysparkBatch }}'
+      value:
+        - name: mainPythonFileUri
+          value: '{{ mainPythonFileUri }}'
+        - name: args
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: pythonFileUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: jarFileUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: fileUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: archiveUris
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: sparkBatch
-      value: '{{ sparkBatch }}'
+      value:
+        - name: mainJarFileUri
+          value: '{{ mainJarFileUri }}'
+        - name: mainClass
+          value: '{{ mainClass }}'
+        - name: args
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: jarFileUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: fileUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: archiveUris
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: sparkRBatch
-      value: '{{ sparkRBatch }}'
+      value:
+        - name: mainRFileUri
+          value: '{{ mainRFileUri }}'
+        - name: args
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: fileUris
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: archiveUris
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: sparkSqlBatch
-      value: '{{ sparkSqlBatch }}'
-    - name: runtimeInfo
-      value: '{{ runtimeInfo }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateMessage
-      value: '{{ stateMessage }}'
-    - name: stateTime
-      value: '{{ stateTime }}'
-    - name: creator
-      value: '{{ creator }}'
+      value:
+        - name: queryFileUri
+          value: '{{ queryFileUri }}'
+        - name: queryVariables
+          value: '{{ queryVariables }}'
+        - name: jarFileUris
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: labels
       value: '{{ labels }}'
     - name: runtimeConfig
-      value: '{{ runtimeConfig }}'
+      value:
+        - name: version
+          value: '{{ version }}'
+        - name: containerImage
+          value: '{{ containerImage }}'
+        - name: properties
+          value: '{{ properties }}'
+        - name: repositoryConfig
+          value:
+            - name: pypiRepositoryConfig
+              value:
+                - name: pypiRepository
+                  value: '{{ pypiRepository }}'
+        - name: autotuningConfig
+          value:
+            - name: scenarios
+              value:
+                - name: type
+                  value: '{{ type }}'
+                - name: enumDescriptions
+                  value: '{{ enumDescriptions }}'
+                - name: enum
+                  value: '{{ enum }}'
+        - name: cohort
+          value: '{{ cohort }}'
     - name: environmentConfig
-      value: '{{ environmentConfig }}'
-    - name: operation
-      value: '{{ operation }}'
-    - name: stateHistory
-      value: '{{ stateHistory }}'
+      value:
+        - name: executionConfig
+          value:
+            - name: serviceAccount
+              value: '{{ serviceAccount }}'
+            - name: networkUri
+              value: '{{ networkUri }}'
+            - name: subnetworkUri
+              value: '{{ subnetworkUri }}'
+            - name: networkTags
+              value:
+                - name: type
+                  value: '{{ type }}'
+            - name: kmsKey
+              value: '{{ kmsKey }}'
+            - name: idleTtl
+              value: '{{ idleTtl }}'
+            - name: ttl
+              value: '{{ ttl }}'
+            - name: stagingBucket
+              value: '{{ stagingBucket }}'
+        - name: peripheralsConfig
+          value:
+            - name: metastoreService
+              value: '{{ metastoreService }}'
+            - name: sparkHistoryServerConfig
+              value:
+                - name: dataprocCluster
+                  value: '{{ dataprocCluster }}'
 
 ```
 </TabItem>

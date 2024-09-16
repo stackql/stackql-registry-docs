@@ -103,37 +103,17 @@ Use the following StackQL query and manifest file to create a new <code>private_
 INSERT INTO google.vmwareengine.private_clouds (
 locationsId,
 projectsId,
-name,
-createTime,
-updateTime,
-deleteTime,
-expireTime,
-state,
 networkConfig,
 managementCluster,
 description,
-hcx,
-nsx,
-vcenter,
-uid,
 type
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ deleteTime }}',
-'{{ expireTime }}',
-'{{ state }}',
 '{{ networkConfig }}',
 '{{ managementCluster }}',
 '{{ description }}',
-'{{ hcx }}',
-'{{ nsx }}',
-'{{ vcenter }}',
-'{{ uid }}',
 '{{ type }}'
 ;
 ```
@@ -143,32 +123,26 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: deleteTime
-      value: '{{ deleteTime }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
-    - name: state
-      value: '{{ state }}'
     - name: networkConfig
-      value: '{{ networkConfig }}'
+      value:
+        - name: managementCidr
+          value: '{{ managementCidr }}'
+        - name: vmwareEngineNetwork
+          value: '{{ vmwareEngineNetwork }}'
     - name: managementCluster
-      value: '{{ managementCluster }}'
+      value:
+        - name: clusterId
+          value: '{{ clusterId }}'
+        - name: nodeTypeConfigs
+          value: '{{ nodeTypeConfigs }}'
+        - name: stretchedClusterConfig
+          value:
+            - name: preferredLocation
+              value: '{{ preferredLocation }}'
+            - name: secondaryLocation
+              value: '{{ secondaryLocation }}'
     - name: description
       value: '{{ description }}'
-    - name: hcx
-      value: '{{ hcx }}'
-    - name: nsx
-      value: '{{ nsx }}'
-    - name: vcenter
-      value: '{{ vcenter }}'
-    - name: uid
-      value: '{{ uid }}'
     - name: type
       value: '{{ type }}'
 
@@ -184,19 +158,9 @@ Updates a <code>private_clouds</code> resource.
 /*+ update */
 UPDATE google.vmwareengine.private_clouds
 SET 
-name = '{{ name }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-deleteTime = '{{ deleteTime }}',
-expireTime = '{{ expireTime }}',
-state = '{{ state }}',
 networkConfig = '{{ networkConfig }}',
 managementCluster = '{{ managementCluster }}',
 description = '{{ description }}',
-hcx = '{{ hcx }}',
-nsx = '{{ nsx }}',
-vcenter = '{{ vcenter }}',
-uid = '{{ uid }}',
 type = '{{ type }}'
 WHERE 
 locationsId = '{{ locationsId }}'

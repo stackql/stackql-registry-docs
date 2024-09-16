@@ -107,9 +107,25 @@ SELECT
     - name: description
       value: '{{ description }}'
     - name: basic
-      value: '{{ basic }}'
+      value:
+        - name: conditions
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: combiningFunction
+          value: '{{ combiningFunction }}'
     - name: custom
-      value: '{{ custom }}'
+      value:
+        - name: expr
+          value:
+            - name: expression
+              value: '{{ expression }}'
+            - name: title
+              value: '{{ title }}'
+            - name: description
+              value: '{{ description }}'
+            - name: location
+              value: '{{ location }}'
 
 ```
 </TabItem>

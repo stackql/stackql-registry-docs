@@ -100,7 +100,25 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: connection
-      value: '{{ connection }}'
+      value:
+        - name: state
+          value: '{{ state }}'
+        - name: cloudSql
+          value:
+            - name: connectionName
+              value: '{{ connectionName }}'
+            - name: usernamePassword
+              value:
+                - name: passwordSecretVersionName
+                  value: '{{ passwordSecretVersionName }}'
+                - name: username
+                  value: '{{ username }}'
+            - name: cloudSqlIam
+              value: []
+            - name: maxConnections
+              value: '{{ maxConnections }}'
+            - name: databaseEngine
+              value: '{{ databaseEngine }}'
 
 ```
 </TabItem>

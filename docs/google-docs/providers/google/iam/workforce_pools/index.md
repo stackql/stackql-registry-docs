@@ -87,26 +87,20 @@ Use the following StackQL query and manifest file to create a new <code>workforc
 /*+ create */
 INSERT INTO google.iam.workforce_pools (
 locationsId,
-name,
 parent,
 displayName,
 description,
-state,
 disabled,
 sessionDuration,
-expireTime,
 accessRestrictions
 )
 SELECT 
 '{{ locationsId }}',
-'{{ name }}',
 '{{ parent }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ state }}',
 true|false,
 '{{ sessionDuration }}',
-'{{ expireTime }}',
 '{{ accessRestrictions }}'
 ;
 ```
@@ -116,24 +110,24 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: parent
       value: '{{ parent }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
     - name: disabled
       value: '{{ disabled }}'
     - name: sessionDuration
       value: '{{ sessionDuration }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
     - name: accessRestrictions
-      value: '{{ accessRestrictions }}'
+      value:
+        - name: allowedServices
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: disableProgrammaticSignin
+          value: '{{ disableProgrammaticSignin }}'
 
 ```
 </TabItem>
@@ -147,14 +141,11 @@ Updates a <code>workforce_pools</code> resource.
 /*+ update */
 UPDATE google.iam.workforce_pools
 SET 
-name = '{{ name }}',
 parent = '{{ parent }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-state = '{{ state }}',
 disabled = true|false,
 sessionDuration = '{{ sessionDuration }}',
-expireTime = '{{ expireTime }}',
 accessRestrictions = '{{ accessRestrictions }}'
 WHERE 
 locationsId = '{{ locationsId }}'

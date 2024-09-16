@@ -110,23 +110,15 @@ lakesId,
 locationsId,
 projectsId,
 zonesId,
-name,
 displayName,
 description,
-createTime,
-updateTime,
-id,
 etag,
 type,
 asset,
 dataPath,
 dataPathPattern,
-catalogEntry,
 system,
 format,
-compatibility,
-access,
-uid,
 schema
 )
 SELECT 
@@ -134,23 +126,15 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ zonesId }}',
-'{{ name }}',
 '{{ displayName }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ id }}',
 '{{ etag }}',
 '{{ type }}',
 '{{ asset }}',
 '{{ dataPath }}',
 '{{ dataPathPattern }}',
-'{{ catalogEntry }}',
 '{{ system }}',
 '{{ format }}',
-'{{ compatibility }}',
-'{{ access }}',
-'{{ uid }}',
 '{{ schema }}'
 ;
 ```
@@ -160,18 +144,10 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
     - name: displayName
       value: '{{ displayName }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: id
-      value: '{{ id }}'
     - name: etag
       value: '{{ etag }}'
     - name: type
@@ -182,20 +158,46 @@ SELECT
       value: '{{ dataPath }}'
     - name: dataPathPattern
       value: '{{ dataPathPattern }}'
-    - name: catalogEntry
-      value: '{{ catalogEntry }}'
     - name: system
       value: '{{ system }}'
     - name: format
-      value: '{{ format }}'
-    - name: compatibility
-      value: '{{ compatibility }}'
-    - name: access
-      value: '{{ access }}'
-    - name: uid
-      value: '{{ uid }}'
+      value:
+        - name: compressionFormat
+          value: '{{ compressionFormat }}'
+        - name: mimeType
+          value: '{{ mimeType }}'
+        - name: csv
+          value:
+            - name: encoding
+              value: '{{ encoding }}'
+            - name: headerRows
+              value: '{{ headerRows }}'
+            - name: delimiter
+              value: '{{ delimiter }}'
+            - name: quote
+              value: '{{ quote }}'
+        - name: json
+          value:
+            - name: encoding
+              value: '{{ encoding }}'
+        - name: iceberg
+          value:
+            - name: metadataLocation
+              value: '{{ metadataLocation }}'
     - name: schema
-      value: '{{ schema }}'
+      value:
+        - name: userManaged
+          value: '{{ userManaged }}'
+        - name: fields
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: partitionFields
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: partitionStyle
+          value: '{{ partitionStyle }}'
 
 ```
 </TabItem>
@@ -209,23 +211,15 @@ Replaces all fields in the specified <code>entities</code> resource.
 /*+ update */
 REPLACE google.dataplex.entities
 SET 
-name = '{{ name }}',
 displayName = '{{ displayName }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-id = '{{ id }}',
 etag = '{{ etag }}',
 type = '{{ type }}',
 asset = '{{ asset }}',
 dataPath = '{{ dataPath }}',
 dataPathPattern = '{{ dataPathPattern }}',
-catalogEntry = '{{ catalogEntry }}',
 system = '{{ system }}',
 format = '{{ format }}',
-compatibility = '{{ compatibility }}',
-access = '{{ access }}',
-uid = '{{ uid }}',
 schema = '{{ schema }}'
 WHERE 
 entitiesId = '{{ entitiesId }}'

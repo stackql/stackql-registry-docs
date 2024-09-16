@@ -102,16 +102,11 @@ interconnectAttachment,
 nextHopIlbIp,
 nextHopOtherRoutes,
 name,
-createTime,
-updateTime,
 labels,
 description,
 network,
 filter,
-priority,
-warnings,
-selfLink,
-kind
+priority
 )
 SELECT 
 '{{ projectsId }}',
@@ -120,16 +115,11 @@ SELECT
 '{{ nextHopIlbIp }}',
 '{{ nextHopOtherRoutes }}',
 '{{ name }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ labels }}',
 '{{ description }}',
 '{{ network }}',
 '{{ filter }}',
-'{{ priority }}',
-'{{ warnings }}',
-'{{ selfLink }}',
-'{{ kind }}'
+'{{ priority }}'
 ;
 ```
 </TabItem>
@@ -139,19 +129,21 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: virtualMachine
-      value: '{{ virtualMachine }}'
+      value:
+        - name: tags
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: interconnectAttachment
-      value: '{{ interconnectAttachment }}'
+      value:
+        - name: region
+          value: '{{ region }}'
     - name: nextHopIlbIp
       value: '{{ nextHopIlbIp }}'
     - name: nextHopOtherRoutes
       value: '{{ nextHopOtherRoutes }}'
     - name: name
       value: '{{ name }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: labels
       value: '{{ labels }}'
     - name: description
@@ -159,15 +151,17 @@ SELECT
     - name: network
       value: '{{ network }}'
     - name: filter
-      value: '{{ filter }}'
+      value:
+        - name: ipProtocol
+          value: '{{ ipProtocol }}'
+        - name: srcRange
+          value: '{{ srcRange }}'
+        - name: destRange
+          value: '{{ destRange }}'
+        - name: protocolVersion
+          value: '{{ protocolVersion }}'
     - name: priority
       value: '{{ priority }}'
-    - name: warnings
-      value: '{{ warnings }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
-    - name: kind
-      value: '{{ kind }}'
 
 ```
 </TabItem>

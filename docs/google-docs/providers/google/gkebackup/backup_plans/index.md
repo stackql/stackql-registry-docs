@@ -104,44 +104,24 @@ Use the following StackQL query and manifest file to create a new <code>backup_p
 INSERT INTO google.gkebackup.backup_plans (
 locationsId,
 projectsId,
-name,
-uid,
-createTime,
-updateTime,
 description,
 cluster,
 retentionPolicy,
 labels,
 backupSchedule,
-etag,
 deactivated,
-backupConfig,
-protectedPodCount,
-state,
-stateReason,
-rpoRiskLevel,
-rpoRiskReason
+backupConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ uid }}',
-'{{ createTime }}',
-'{{ updateTime }}',
 '{{ description }}',
 '{{ cluster }}',
 '{{ retentionPolicy }}',
 '{{ labels }}',
 '{{ backupSchedule }}',
-'{{ etag }}',
 true|false,
-'{{ backupConfig }}',
-'{{ protectedPodCount }}',
-'{{ state }}',
-'{{ stateReason }}',
-'{{ rpoRiskLevel }}',
-'{{ rpoRiskReason }}'
+'{{ backupConfig }}'
 ;
 ```
 </TabItem>
@@ -150,40 +130,62 @@ true|false,
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: name
-      value: '{{ name }}'
-    - name: uid
-      value: '{{ uid }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
     - name: description
       value: '{{ description }}'
     - name: cluster
       value: '{{ cluster }}'
     - name: retentionPolicy
-      value: '{{ retentionPolicy }}'
+      value:
+        - name: backupDeleteLockDays
+          value: '{{ backupDeleteLockDays }}'
+        - name: backupRetainDays
+          value: '{{ backupRetainDays }}'
+        - name: locked
+          value: '{{ locked }}'
     - name: labels
       value: '{{ labels }}'
     - name: backupSchedule
-      value: '{{ backupSchedule }}'
-    - name: etag
-      value: '{{ etag }}'
+      value:
+        - name: cronSchedule
+          value: '{{ cronSchedule }}'
+        - name: paused
+          value: '{{ paused }}'
+        - name: rpoConfig
+          value:
+            - name: targetRpoMinutes
+              value: '{{ targetRpoMinutes }}'
+            - name: exclusionWindows
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
     - name: deactivated
       value: '{{ deactivated }}'
     - name: backupConfig
-      value: '{{ backupConfig }}'
-    - name: protectedPodCount
-      value: '{{ protectedPodCount }}'
-    - name: state
-      value: '{{ state }}'
-    - name: stateReason
-      value: '{{ stateReason }}'
-    - name: rpoRiskLevel
-      value: '{{ rpoRiskLevel }}'
-    - name: rpoRiskReason
-      value: '{{ rpoRiskReason }}'
+      value:
+        - name: allNamespaces
+          value: '{{ allNamespaces }}'
+        - name: selectedNamespaces
+          value:
+            - name: namespaces
+              value:
+                - name: type
+                  value: '{{ type }}'
+        - name: selectedApplications
+          value:
+            - name: namespacedNames
+              value:
+                - name: $ref
+                  value: '{{ $ref }}'
+        - name: includeVolumeData
+          value: '{{ includeVolumeData }}'
+        - name: includeSecrets
+          value: '{{ includeSecrets }}'
+        - name: encryptionKey
+          value:
+            - name: gcpKmsEncryptionKey
+              value: '{{ gcpKmsEncryptionKey }}'
+        - name: permissiveMode
+          value: '{{ permissiveMode }}'
 
 ```
 </TabItem>
@@ -197,23 +199,13 @@ Updates a <code>backup_plans</code> resource.
 /*+ update */
 UPDATE google.gkebackup.backup_plans
 SET 
-name = '{{ name }}',
-uid = '{{ uid }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
 description = '{{ description }}',
 cluster = '{{ cluster }}',
 retentionPolicy = '{{ retentionPolicy }}',
 labels = '{{ labels }}',
 backupSchedule = '{{ backupSchedule }}',
-etag = '{{ etag }}',
 deactivated = true|false,
-backupConfig = '{{ backupConfig }}',
-protectedPodCount = '{{ protectedPodCount }}',
-state = '{{ state }}',
-stateReason = '{{ stateReason }}',
-rpoRiskLevel = '{{ rpoRiskLevel }}',
-rpoRiskReason = '{{ rpoRiskReason }}'
+backupConfig = '{{ backupConfig }}'
 WHERE 
 backupPlansId = '{{ backupPlansId }}'
 AND locationsId = '{{ locationsId }}'

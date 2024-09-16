@@ -108,14 +108,10 @@ INSERT INTO google.compute.node_groups (
 initialNodeCount,
 project,
 zone,
-kind,
-id,
-creationTimestamp,
 name,
 description,
 nodeTemplate,
 zone,
-selfLink,
 status,
 size,
 autoscalingPolicy,
@@ -130,14 +126,10 @@ SELECT
 '{{ initialNodeCount }}',
 '{{ project }}',
 '{{ zone }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
 '{{ name }}',
 '{{ description }}',
 '{{ nodeTemplate }}',
 '{{ zone }}',
-'{{ selfLink }}',
 '{{ status }}',
 '{{ size }}',
 '{{ autoscalingPolicy }}',
@@ -155,12 +147,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -169,14 +155,18 @@ SELECT
       value: '{{ nodeTemplate }}'
     - name: zone
       value: '{{ zone }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: status
       value: '{{ status }}'
     - name: size
       value: '{{ size }}'
     - name: autoscalingPolicy
-      value: '{{ autoscalingPolicy }}'
+      value:
+        - name: mode
+          value: '{{ mode }}'
+        - name: minNodes
+          value: '{{ minNodes }}'
+        - name: maxNodes
+          value: '{{ maxNodes }}'
     - name: maintenancePolicy
       value: '{{ maintenancePolicy }}'
     - name: locationHint
@@ -184,9 +174,21 @@ SELECT
     - name: fingerprint
       value: '{{ fingerprint }}'
     - name: maintenanceWindow
-      value: '{{ maintenanceWindow }}'
+      value:
+        - name: startTime
+          value: '{{ startTime }}'
+        - name: maintenanceDuration
+          value:
+            - name: seconds
+              value: '{{ seconds }}'
+            - name: nanos
+              value: '{{ nanos }}'
     - name: shareSettings
-      value: '{{ shareSettings }}'
+      value:
+        - name: shareType
+          value: '{{ shareType }}'
+        - name: projectMap
+          value: '{{ projectMap }}'
     - name: maintenanceInterval
       value: '{{ maintenanceInterval }}'
 
@@ -202,14 +204,10 @@ Updates a <code>node_groups</code> resource.
 /*+ update */
 UPDATE google.compute.node_groups
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
 name = '{{ name }}',
 description = '{{ description }}',
 nodeTemplate = '{{ nodeTemplate }}',
 zone = '{{ zone }}',
-selfLink = '{{ selfLink }}',
 status = '{{ status }}',
 size = '{{ size }}',
 autoscalingPolicy = '{{ autoscalingPolicy }}',

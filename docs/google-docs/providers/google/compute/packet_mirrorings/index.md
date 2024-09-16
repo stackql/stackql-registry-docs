@@ -96,10 +96,6 @@ Use the following StackQL query and manifest file to create a new <code>packet_m
 INSERT INTO google.compute.packet_mirrorings (
 project,
 region,
-kind,
-id,
-creationTimestamp,
-selfLink,
 name,
 description,
 region,
@@ -113,10 +109,6 @@ enable
 SELECT 
 '{{ project }}',
 '{{ region }}',
-'{{ kind }}',
-'{{ id }}',
-'{{ creationTimestamp }}',
-'{{ selfLink }}',
 '{{ name }}',
 '{{ description }}',
 '{{ region }}',
@@ -134,14 +126,6 @@ SELECT
 ```yaml
 - name: your_resource_model_name
   props:
-    - name: kind
-      value: '{{ kind }}'
-    - name: id
-      value: '{{ id }}'
-    - name: creationTimestamp
-      value: '{{ creationTimestamp }}'
-    - name: selfLink
-      value: '{{ selfLink }}'
     - name: name
       value: '{{ name }}'
     - name: description
@@ -149,15 +133,45 @@ SELECT
     - name: region
       value: '{{ region }}'
     - name: network
-      value: '{{ network }}'
+      value:
+        - name: url
+          value: '{{ url }}'
+        - name: canonicalUrl
+          value: '{{ canonicalUrl }}'
     - name: priority
       value: '{{ priority }}'
     - name: collectorIlb
-      value: '{{ collectorIlb }}'
+      value:
+        - name: url
+          value: '{{ url }}'
+        - name: canonicalUrl
+          value: '{{ canonicalUrl }}'
     - name: mirroredResources
-      value: '{{ mirroredResources }}'
+      value:
+        - name: subnetworks
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: instances
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: tags
+          value:
+            - name: type
+              value: '{{ type }}'
     - name: filter
-      value: '{{ filter }}'
+      value:
+        - name: cidrRanges
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: IPProtocols
+          value:
+            - name: type
+              value: '{{ type }}'
+        - name: direction
+          value: '{{ direction }}'
     - name: enable
       value: '{{ enable }}'
 
@@ -173,10 +187,6 @@ Updates a <code>packet_mirrorings</code> resource.
 /*+ update */
 UPDATE google.compute.packet_mirrorings
 SET 
-kind = '{{ kind }}',
-id = '{{ id }}',
-creationTimestamp = '{{ creationTimestamp }}',
-selfLink = '{{ selfLink }}',
 name = '{{ name }}',
 description = '{{ description }}',
 region = '{{ region }}',

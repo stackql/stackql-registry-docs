@@ -89,9 +89,6 @@ organizationsId,
 threatPreventionProfile,
 name,
 description,
-createTime,
-updateTime,
-etag,
 labels,
 type
 )
@@ -101,9 +98,6 @@ SELECT
 '{{ threatPreventionProfile }}',
 '{{ name }}',
 '{{ description }}',
-'{{ createTime }}',
-'{{ updateTime }}',
-'{{ etag }}',
 '{{ labels }}',
 '{{ type }}'
 ;
@@ -115,17 +109,19 @@ SELECT
 - name: your_resource_model_name
   props:
     - name: threatPreventionProfile
-      value: '{{ threatPreventionProfile }}'
+      value:
+        - name: severityOverrides
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
+        - name: threatOverrides
+          value:
+            - name: $ref
+              value: '{{ $ref }}'
     - name: name
       value: '{{ name }}'
     - name: description
       value: '{{ description }}'
-    - name: createTime
-      value: '{{ createTime }}'
-    - name: updateTime
-      value: '{{ updateTime }}'
-    - name: etag
-      value: '{{ etag }}'
     - name: labels
       value: '{{ labels }}'
     - name: type
@@ -146,9 +142,6 @@ SET
 threatPreventionProfile = '{{ threatPreventionProfile }}',
 name = '{{ name }}',
 description = '{{ description }}',
-createTime = '{{ createTime }}',
-updateTime = '{{ updateTime }}',
-etag = '{{ etag }}',
 labels = '{{ labels }}',
 type = '{{ type }}'
 WHERE 
