@@ -184,7 +184,7 @@ deployment = '{{ deployment }}'
 AND project = '{{ project }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>deployments</code> resource.
 

@@ -55,7 +55,7 @@ FROM google.iap.iap_iam_policies
 WHERE v1Id = '{{ v1Id }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>iap_iam_policies</code> resource.
 

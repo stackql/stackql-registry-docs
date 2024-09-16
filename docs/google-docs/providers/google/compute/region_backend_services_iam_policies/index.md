@@ -59,7 +59,7 @@ AND region = '{{ region }}'
 AND resource = '{{ resource }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>region_backend_services_iam_policies</code> resource.
 

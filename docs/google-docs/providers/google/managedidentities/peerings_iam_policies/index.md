@@ -56,7 +56,7 @@ WHERE peeringsId = '{{ peeringsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>peerings_iam_policies</code> resource.
 

@@ -58,7 +58,7 @@ AND repositoriesId = '{{ repositoriesId }}'
 AND workspacesId = '{{ workspacesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>workspaces_iam_policies</code> resource.
 

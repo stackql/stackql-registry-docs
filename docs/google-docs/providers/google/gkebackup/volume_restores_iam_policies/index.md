@@ -59,7 +59,7 @@ AND restoresId = '{{ restoresId }}'
 AND volumeRestoresId = '{{ volumeRestoresId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>volume_restores_iam_policies</code> resource.
 

@@ -57,7 +57,7 @@ AND organizationsId = '{{ organizationsId }}'
 AND partnerTenantsId = '{{ partnerTenantsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>browser_dlp_rules_iam_policies</code> resource.
 

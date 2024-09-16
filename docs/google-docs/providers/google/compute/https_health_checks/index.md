@@ -189,7 +189,7 @@ httpsHealthCheck = '{{ httpsHealthCheck }}'
 AND project = '{{ project }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>https_health_checks</code> resource.
 

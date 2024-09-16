@@ -58,7 +58,7 @@ AND projectsId = '{{ projectsId }}'
 AND tasksId = '{{ tasksId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>tasks_iam_policies</code> resource.
 

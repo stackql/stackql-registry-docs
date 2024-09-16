@@ -212,7 +212,7 @@ project = '{{ project }}'
 AND urlMap = '{{ urlMap }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>url_maps</code> resource.
 

@@ -59,7 +59,7 @@ AND resource = '{{ resource }}'
 AND zone = '{{ zone }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>node_groups_iam_policies</code> resource.
 

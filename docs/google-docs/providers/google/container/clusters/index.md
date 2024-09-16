@@ -277,7 +277,7 @@ SELECT
 </TabItem>
 </Tabs>
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>clusters</code> resource.
 

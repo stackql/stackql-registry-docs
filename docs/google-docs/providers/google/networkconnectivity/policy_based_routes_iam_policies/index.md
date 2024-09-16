@@ -56,7 +56,7 @@ WHERE policyBasedRoutesId = '{{ policyBasedRoutesId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>policy_based_routes_iam_policies</code> resource.
 

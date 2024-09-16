@@ -70,7 +70,7 @@ FROM google.binaryauthorization.policy
 WHERE projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>policy</code> resource.
 

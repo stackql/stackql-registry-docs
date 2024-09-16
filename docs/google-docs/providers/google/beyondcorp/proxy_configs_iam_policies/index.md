@@ -57,7 +57,7 @@ AND partnerTenantsId = '{{ partnerTenantsId }}'
 AND proxyConfigsId = '{{ proxyConfigsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>proxy_configs_iam_policies</code> resource.
 

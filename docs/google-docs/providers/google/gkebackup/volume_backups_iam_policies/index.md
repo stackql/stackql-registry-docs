@@ -59,7 +59,7 @@ AND projectsId = '{{ projectsId }}'
 AND volumeBackupsId = '{{ volumeBackupsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>volume_backups_iam_policies</code> resource.
 

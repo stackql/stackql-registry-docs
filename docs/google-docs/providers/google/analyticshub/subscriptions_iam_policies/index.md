@@ -56,7 +56,7 @@ AND projectsId = '{{ projectsId }}'
 AND subscriptionsId = '{{ subscriptionsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>subscriptions_iam_policies</code> resource.
 

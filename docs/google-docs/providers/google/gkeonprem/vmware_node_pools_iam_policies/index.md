@@ -58,7 +58,7 @@ AND vmwareClustersId = '{{ vmwareClustersId }}'
 AND vmwareNodePoolsId = '{{ vmwareNodePoolsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>vmware_node_pools_iam_policies</code> resource.
 

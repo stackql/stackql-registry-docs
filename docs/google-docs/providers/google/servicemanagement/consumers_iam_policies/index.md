@@ -56,7 +56,7 @@ WHERE consumersId = '{{ consumersId }}'
 AND servicesId = '{{ servicesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>consumers_iam_policies</code> resource.
 

@@ -55,7 +55,7 @@ FROM google.servicemanagement.services_iam_policies
 WHERE servicesId = '{{ servicesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>services_iam_policies</code> resource.
 

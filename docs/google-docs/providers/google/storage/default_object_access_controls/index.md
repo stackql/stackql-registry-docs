@@ -204,7 +204,7 @@ bucket = '{{ bucket }}'
 AND entity = '{{ entity }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>default_object_access_controls</code> resource.
 

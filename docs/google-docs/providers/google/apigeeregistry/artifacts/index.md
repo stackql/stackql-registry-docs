@@ -161,7 +161,7 @@ SELECT
 </TabItem>
 </Tabs>
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>artifacts</code> resource.
 

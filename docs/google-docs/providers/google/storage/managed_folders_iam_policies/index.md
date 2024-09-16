@@ -75,7 +75,7 @@ WHERE bucket = '{{ bucket }}'
 AND managedFolder = '{{ managedFolder }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>managed_folders_iam_policies</code> resource.
 

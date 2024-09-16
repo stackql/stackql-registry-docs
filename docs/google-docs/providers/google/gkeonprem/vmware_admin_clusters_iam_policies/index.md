@@ -57,7 +57,7 @@ AND projectsId = '{{ projectsId }}'
 AND vmwareAdminClustersId = '{{ vmwareAdminClustersId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>vmware_admin_clusters_iam_policies</code> resource.
 

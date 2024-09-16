@@ -394,7 +394,7 @@ backendService = '{{ backendService }}'
 AND project = '{{ project }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>backend_services</code> resource.
 

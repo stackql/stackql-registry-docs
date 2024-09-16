@@ -57,7 +57,7 @@ AND projectsId = '{{ projectsId }}'
 AND targetsId = '{{ targetsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>targets_iam_policies</code> resource.
 

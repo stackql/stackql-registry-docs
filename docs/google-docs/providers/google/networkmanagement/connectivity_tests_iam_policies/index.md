@@ -56,7 +56,7 @@ WHERE connectivityTestsId = '{{ connectivityTestsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>connectivity_tests_iam_policies</code> resource.
 

@@ -56,7 +56,7 @@ FROM google.cloudbilling.billing_info
 WHERE projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>billing_info</code> resource.
 

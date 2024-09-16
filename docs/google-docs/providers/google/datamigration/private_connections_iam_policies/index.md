@@ -57,7 +57,7 @@ AND privateConnectionsId = '{{ privateConnectionsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>private_connections_iam_policies</code> resource.
 

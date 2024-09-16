@@ -57,7 +57,7 @@ AND migrationJobsId = '{{ migrationJobsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>migration_jobs_iam_policies</code> resource.
 

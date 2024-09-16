@@ -57,7 +57,7 @@ FROM google.compute.firewall_policies_iam_policies
 WHERE resource = '{{ resource }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>firewall_policies_iam_policies</code> resource.
 

@@ -165,7 +165,7 @@ AND instance = '{{ instance }}'
 AND project = '{{ project }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>databases</code> resource.
 

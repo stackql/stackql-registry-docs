@@ -56,7 +56,7 @@ AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>custom_target_types_iam_policies</code> resource.
 

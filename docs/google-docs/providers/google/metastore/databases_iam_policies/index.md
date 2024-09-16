@@ -57,7 +57,7 @@ AND projectsId = '{{ projectsId }}'
 AND servicesId = '{{ servicesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>databases_iam_policies</code> resource.
 

@@ -57,7 +57,7 @@ AND locationsId = '{{ locationsId }}'
 AND organizationsId = '{{ organizationsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>encryption_configs_iam_policies</code> resource.
 

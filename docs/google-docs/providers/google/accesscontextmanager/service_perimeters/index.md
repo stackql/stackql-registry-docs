@@ -148,7 +148,7 @@ accessPoliciesId = '{{ accessPoliciesId }}'
 AND servicePerimetersId = '{{ servicePerimetersId }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>service_perimeters</code> resource.
 

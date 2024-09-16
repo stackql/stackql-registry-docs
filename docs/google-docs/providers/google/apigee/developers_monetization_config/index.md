@@ -51,7 +51,7 @@ WHERE developersId = '{{ developersId }}'
 AND organizationsId = '{{ organizationsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>developers_monetization_config</code> resource.
 

@@ -55,7 +55,7 @@ FROM google.binaryauthorization.policy_iam_policies
 WHERE projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>policy_iam_policies</code> resource.
 

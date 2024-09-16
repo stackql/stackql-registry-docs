@@ -56,7 +56,7 @@ WHERE organizationsId = '{{ organizationsId }}'
 AND sourcesId = '{{ sourcesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>sources_iam_policies</code> resource.
 

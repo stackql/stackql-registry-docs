@@ -56,7 +56,7 @@ WHERE domainsId = '{{ domainsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>domains_iam_policies</code> resource.
 

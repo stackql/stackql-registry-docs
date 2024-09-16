@@ -147,7 +147,7 @@ project = '{{ project }}'
 AND responsePolicy = '{{ responsePolicy }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>response_policies</code> resource.
 
