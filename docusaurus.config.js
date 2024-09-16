@@ -109,9 +109,14 @@ const config = {
         srcDark: 'img/logo-white.svg',
       },
       items: [
+        // {
+        //   to: '/features',
+        //   label: 'Features',
+        //   position: 'left',
+        // },
         {
-          to: '/features',
-          label: 'Features',
+          to: '/docs',
+          label: 'Docs',
           position: 'left',
         },
         {
@@ -120,15 +125,15 @@ const config = {
           position: 'left',
         },        
         {
-          to: '/docs',
-          label: 'Documentation',
-          position: 'left',
-        },
-        {
           to: '/',
           label: 'Providers',
           position: 'left',
         },  
+        {
+          to: '/stackql-deploy',
+          label: 'stackql-deploy',
+          position: 'left',
+        },        
         {
           type: 'dropdown',
           label: 'Resources',
