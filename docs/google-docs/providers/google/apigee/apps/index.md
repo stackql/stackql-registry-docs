@@ -57,10 +57,10 @@ Creates, updates, deletes, gets or lists a <code>apps</code> resource.
 | <CopyableCode code="organizations_developers_apps_create" /> | `INSERT` | <CopyableCode code="developersId, organizationsId" /> | Creates an app associated with a developer. This API associates the developer app with the specified API product and auto-generates an API key for the app to use in calls to API proxies inside that API product. The `name` is the unique ID of the app that you can use in API calls. The `DisplayName` (set as an attribute) appears in the UI. If you don't set the `DisplayName` attribute, the `name` appears in the UI. |
 | <CopyableCode code="organizations_appgroups_apps_delete" /> | `DELETE` | <CopyableCode code="appgroupsId, appsId, organizationsId" /> | Deletes an AppGroup app. **Note**: The delete operation is asynchronous. The AppGroup app is deleted immediately, but its associated resources, such as app keys or access tokens, may take anywhere from a few seconds to a few minutes to be deleted. |
 | <CopyableCode code="organizations_developers_apps_delete" /> | `DELETE` | <CopyableCode code="appsId, developersId, organizationsId" /> | Deletes a developer app. **Note**: The delete operation is asynchronous. The developer app is deleted immediately, but its associated resources, such as app keys or access tokens, may take anywhere from a few seconds to a few minutes to be deleted. |
-| <CopyableCode code="organizations_appgroups_apps_update" /> | `EXEC` | <CopyableCode code="appgroupsId, appsId, organizationsId" /> | Updates the details for an AppGroup app. In addition, you can add an API product to an AppGroup app and automatically generate an API key for the app to use when calling APIs in the API product. If you want to use an existing API key for the API product, add the API product to the API key using the UpdateAppGroupAppKey API. Using this API, you cannot update the app name, as it is the primary key used to identify the app and cannot be changed. This API replaces the existing attributes with those specified in the request. Include or exclude any existing attributes that you want to retain or delete, respectively. |
+| <CopyableCode code="organizations_appgroups_apps_update" /> | `REPLACE` | <CopyableCode code="appgroupsId, appsId, organizationsId" /> | Updates the details for an AppGroup app. In addition, you can add an API product to an AppGroup app and automatically generate an API key for the app to use when calling APIs in the API product. If you want to use an existing API key for the API product, add the API product to the API key using the UpdateAppGroupAppKey API. Using this API, you cannot update the app name, as it is the primary key used to identify the app and cannot be changed. This API replaces the existing attributes with those specified in the request. Include or exclude any existing attributes that you want to retain or delete, respectively. |
+| <CopyableCode code="organizations_developers_apps_update" /> | `REPLACE` | <CopyableCode code="appsId, developersId, organizationsId" /> | Updates the details for a developer app. In addition, you can add an API product to a developer app and automatically generate an API key for the app to use when calling APIs in the API product. If you want to use an existing API key for the API product, add the API product to the API key using the UpdateDeveloperAppKey API. Using this API, you cannot update the following: * App name as it is the primary key used to identify the app and cannot be changed. * Scopes associated with the app. Instead, use the ReplaceDeveloperAppKey API. This API replaces the existing attributes with those specified in the request. Include or exclude any existing attributes that you want to retain or delete, respectively. |
 | <CopyableCode code="organizations_developers_apps_attributes" /> | `EXEC` | <CopyableCode code="appsId, developersId, organizationsId" /> | Updates attributes for a developer app. This API replaces the current attributes with those specified in the request. |
 | <CopyableCode code="organizations_developers_apps_generate_key_pair_or_update_developer_app_status" /> | `EXEC` | <CopyableCode code="appsId, developersId, organizationsId" /> | Manages access to a developer app by enabling you to: * Approve or revoke a developer app * Generate a new consumer key and secret for a developer app To approve or revoke a developer app, set the `action` query parameter to `approve` or `revoke`, respectively, and the `Content-Type` header to `application/octet-stream`. If a developer app is revoked, none of its API keys are valid for API calls even though the keys are still approved. If successful, the API call returns the following HTTP status code: `204 No Content` To generate a new consumer key and secret for a developer app, pass the new key/secret details. Rather than replace an existing key, this API generates a new key. In this case, multiple key pairs may be associated with a single developer app. Each key pair has an independent status (`approve` or `revoke`) and expiration time. Any approved, non-expired key can be used in an API call. For example, if you're using API key rotation, you can generate new keys with expiration times that overlap keys that are going to expire. You might also generate a new consumer key/secret if the security of the original key/secret is compromised. The `keyExpiresIn` property defines the expiration time for the API key in milliseconds. If you don't set this property or set it to `-1`, the API key never expires. **Notes**: * When generating a new key/secret, this API replaces the existing attributes, notes, and callback URLs with those specified in the request. Include or exclude any existing information that you want to retain or delete, respectively. * To migrate existing consumer keys and secrets to hybrid from another system, see the CreateDeveloperAppKey API. |
-| <CopyableCode code="organizations_developers_apps_update" /> | `EXEC` | <CopyableCode code="appsId, developersId, organizationsId" /> | Updates the details for a developer app. In addition, you can add an API product to a developer app and automatically generate an API key for the app to use when calling APIs in the API product. If you want to use an existing API key for the API product, add the API product to the API key using the UpdateDeveloperAppKey API. Using this API, you cannot update the following: * App name as it is the primary key used to identify the app and cannot be changed. * Scopes associated with the app. Instead, use the ReplaceDeveloperAppKey API. This API replaces the existing attributes with those specified in the request. Include or exclude any existing attributes that you want to retain or delete, respectively. |
 
 ## `SELECT` examples
 
@@ -136,37 +136,62 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: createdAt
-        value: '{{ createdAt }}'
-      - name: apiProducts
-        value: '{{ apiProducts }}'
-      - name: attributes
-        value: '{{ attributes }}'
-      - name: keyExpiresIn
-        value: '{{ keyExpiresIn }}'
-      - name: appGroup
-        value: '{{ appGroup }}'
-      - name: credentials
-        value: '{{ credentials }}'
-      - name: scopes
-        value: '{{ scopes }}'
-      - name: status
-        value: '{{ status }}'
-      - name: name
-        value: '{{ name }}'
-      - name: lastModifiedAt
-        value: '{{ lastModifiedAt }}'
-      - name: callbackUrl
-        value: '{{ callbackUrl }}'
-      - name: appId
-        value: '{{ appId }}'
+- name: your_resource_model_name
+  props:
+    - name: createdAt
+      value: '{{ createdAt }}'
+    - name: apiProducts
+      value: '{{ apiProducts }}'
+    - name: attributes
+      value: '{{ attributes }}'
+    - name: keyExpiresIn
+      value: '{{ keyExpiresIn }}'
+    - name: appGroup
+      value: '{{ appGroup }}'
+    - name: credentials
+      value: '{{ credentials }}'
+    - name: scopes
+      value: '{{ scopes }}'
+    - name: status
+      value: '{{ status }}'
+    - name: name
+      value: '{{ name }}'
+    - name: lastModifiedAt
+      value: '{{ lastModifiedAt }}'
+    - name: callbackUrl
+      value: '{{ callbackUrl }}'
+    - name: appId
+      value: '{{ appId }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>apps</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.apps
+SET 
+createdAt = '{{ createdAt }}',
+apiProducts = '{{ apiProducts }}',
+attributes = '{{ attributes }}',
+keyExpiresIn = '{{ keyExpiresIn }}',
+appGroup = '{{ appGroup }}',
+credentials = '{{ credentials }}',
+scopes = '{{ scopes }}',
+status = '{{ status }}',
+name = '{{ name }}',
+lastModifiedAt = '{{ lastModifiedAt }}',
+callbackUrl = '{{ callbackUrl }}',
+appId = '{{ appId }}'
+WHERE 
+appgroupsId = '{{ appgroupsId }}'
+AND appsId = '{{ appsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```
 
 ## `DELETE` example
 

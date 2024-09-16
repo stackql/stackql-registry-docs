@@ -40,7 +40,7 @@ Creates, updates, deletes, gets or lists a <code>region_backend_services_iam_pol
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="project, region, resource" /> | Gets the access control policy for a resource. May be empty if no such policy or resource exists. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Sets the access control policy on the specified resource. Replaces any existing policy. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="project, region, resource" /> | Sets the access control policy on the specified resource. Replaces any existing policy. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="project, region, resource" /> | Returns permissions that a caller has on the specified resource. |
 
 ## `SELECT` examples
@@ -57,4 +57,21 @@ FROM google.compute.region_backend_services_iam_policies
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'
 AND resource = '{{ resource }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>region_backend_services_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.region_backend_services_iam_policies
+SET 
+policy = '{{ policy }}',
+bindings = '{{ bindings }}',
+etag = '{{ etag }}'
+WHERE 
+project = '{{ project }}'
+AND region = '{{ region }}'
+AND resource = '{{ resource }}';
 ```

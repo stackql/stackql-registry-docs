@@ -40,7 +40,7 @@ Creates, updates, deletes, gets or lists a <code>groups</code> resource.
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupsId, locationsId, projectsId" /> | Get the specified group. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="groupsId, locationsId, projectsId" /> | Replace the data for the specified group. Fails if the group does not exist. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="groupsId, locationsId, projectsId" /> | Replace the data for the specified group. Fails if the group does not exist. |
 
 ## `SELECT` examples
 
@@ -56,4 +56,22 @@ FROM google.clouderrorreporting.groups
 WHERE groupsId = '{{ groupsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>groups</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.clouderrorreporting.groups
+SET 
+name = '{{ name }}',
+groupId = '{{ groupId }}',
+trackingIssues = '{{ trackingIssues }}',
+resolutionStatus = '{{ resolutionStatus }}'
+WHERE 
+groupsId = '{{ groupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

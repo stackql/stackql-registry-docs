@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>data_policies_iam_policies</cod
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Gets the IAM policy for the specified data policy. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Sets the IAM policy for the specified data policy. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Sets the IAM policy for the specified data policy. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="dataPoliciesId, locationsId, projectsId" /> | Returns the caller's permission on the specified data policy resource. |
 
 ## `SELECT` examples
@@ -55,4 +55,20 @@ FROM google.bigquerydatapolicy.data_policies_iam_policies
 WHERE dataPoliciesId = '{{ dataPoliciesId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>data_policies_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.bigquerydatapolicy.data_policies_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+dataPoliciesId = '{{ dataPoliciesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

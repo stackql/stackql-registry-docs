@@ -153,45 +153,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: database
-        value: '{{ database }}'
-      - name: versionTime
-        value: '{{ versionTime }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: sizeBytes
-        value: '{{ sizeBytes }}'
-      - name: freeableSizeBytes
-        value: '{{ freeableSizeBytes }}'
-      - name: exclusiveSizeBytes
-        value: '{{ exclusiveSizeBytes }}'
-      - name: state
-        value: '{{ state }}'
-      - name: referencingDatabases
-        value: '{{ referencingDatabases }}'
-      - name: encryptionInfo
-        value: '{{ encryptionInfo }}'
-      - name: encryptionInformation
-        value: '{{ encryptionInformation }}'
-      - name: databaseDialect
-        value: '{{ databaseDialect }}'
-      - name: referencingBackups
-        value: '{{ referencingBackups }}'
-      - name: maxExpireTime
-        value: '{{ maxExpireTime }}'
-      - name: backupSchedules
-        value: '{{ backupSchedules }}'
-      - name: incrementalBackupChainId
-        value: '{{ incrementalBackupChainId }}'
-      - name: oldestVersionTime
-        value: '{{ oldestVersionTime }}'
+- name: your_resource_model_name
+  props:
+    - name: database
+      value: '{{ database }}'
+    - name: versionTime
+      value: '{{ versionTime }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: sizeBytes
+      value: '{{ sizeBytes }}'
+    - name: freeableSizeBytes
+      value: '{{ freeableSizeBytes }}'
+    - name: exclusiveSizeBytes
+      value: '{{ exclusiveSizeBytes }}'
+    - name: state
+      value: '{{ state }}'
+    - name: referencingDatabases
+      value: '{{ referencingDatabases }}'
+    - name: encryptionInfo
+      value: '{{ encryptionInfo }}'
+    - name: encryptionInformation
+      value: '{{ encryptionInformation }}'
+    - name: databaseDialect
+      value: '{{ databaseDialect }}'
+    - name: referencingBackups
+      value: '{{ referencingBackups }}'
+    - name: maxExpireTime
+      value: '{{ maxExpireTime }}'
+    - name: backupSchedules
+      value: '{{ backupSchedules }}'
+    - name: incrementalBackupChainId
+      value: '{{ incrementalBackupChainId }}'
+    - name: oldestVersionTime
+      value: '{{ oldestVersionTime }}'
 
 ```
 </TabItem>

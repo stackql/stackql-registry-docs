@@ -107,23 +107,22 @@ number,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: serviceLevelIndicator
-        value: '{{ serviceLevelIndicator }}'
-      - name: goal
-        value: '{{ goal }}'
-      - name: rollingPeriod
-        value: '{{ rollingPeriod }}'
-      - name: calendarPeriod
-        value: '{{ calendarPeriod }}'
-      - name: userLabels
-        value: '{{ userLabels }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: serviceLevelIndicator
+      value: '{{ serviceLevelIndicator }}'
+    - name: goal
+      value: '{{ goal }}'
+    - name: rollingPeriod
+      value: '{{ rollingPeriod }}'
+    - name: calendarPeriod
+      value: '{{ calendarPeriod }}'
+    - name: userLabels
+      value: '{{ userLabels }}'
 
 ```
 </TabItem>

@@ -146,41 +146,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: description
-        value: '{{ description }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: state
-        value: '{{ state }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: data
-        value: '{{ data }}'
-      - name: executionSpec
-        value: '{{ executionSpec }}'
-      - name: executionStatus
-        value: '{{ executionStatus }}'
-      - name: type
-        value: '{{ type }}'
-      - name: dataQualitySpec
-        value: '{{ dataQualitySpec }}'
-      - name: dataProfileSpec
-        value: '{{ dataProfileSpec }}'
-      - name: dataQualityResult
-        value: '{{ dataQualityResult }}'
-      - name: dataProfileResult
-        value: '{{ dataProfileResult }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: description
+      value: '{{ description }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: state
+      value: '{{ state }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: data
+      value: '{{ data }}'
+    - name: executionSpec
+      value: '{{ executionSpec }}'
+    - name: executionStatus
+      value: '{{ executionStatus }}'
+    - name: type
+      value: '{{ type }}'
+    - name: dataQualitySpec
+      value: '{{ dataQualitySpec }}'
+    - name: dataProfileSpec
+      value: '{{ dataProfileSpec }}'
+    - name: dataQualityResult
+      value: '{{ dataQualityResult }}'
+    - name: dataProfileResult
+      value: '{{ dataProfileResult }}'
 
 ```
 </TabItem>

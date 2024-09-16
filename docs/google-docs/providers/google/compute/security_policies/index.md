@@ -147,43 +147,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: userDefinedFields
-        value: '{{ userDefinedFields }}'
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: rules
-        value: '{{ rules }}'
-      - name: adaptiveProtectionConfig
-        value: '{{ adaptiveProtectionConfig }}'
-      - name: ddosProtectionConfig
-        value: '{{ ddosProtectionConfig }}'
-      - name: advancedOptionsConfig
-        value: '{{ advancedOptionsConfig }}'
-      - name: recaptchaOptionsConfig
-        value: '{{ recaptchaOptionsConfig }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: type
-        value: '{{ type }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: labelFingerprint
-        value: '{{ labelFingerprint }}'
-      - name: region
-        value: '{{ region }}'
+- name: your_resource_model_name
+  props:
+    - name: userDefinedFields
+      value: '{{ userDefinedFields }}'
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: rules
+      value: '{{ rules }}'
+    - name: adaptiveProtectionConfig
+      value: '{{ adaptiveProtectionConfig }}'
+    - name: ddosProtectionConfig
+      value: '{{ ddosProtectionConfig }}'
+    - name: advancedOptionsConfig
+      value: '{{ advancedOptionsConfig }}'
+    - name: recaptchaOptionsConfig
+      value: '{{ recaptchaOptionsConfig }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: type
+      value: '{{ type }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: labelFingerprint
+      value: '{{ labelFingerprint }}'
+    - name: region
+      value: '{{ region }}'
 
 ```
 </TabItem>

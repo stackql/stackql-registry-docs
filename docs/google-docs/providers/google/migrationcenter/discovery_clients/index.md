@@ -141,39 +141,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: source
-        value: '{{ source }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: signalsEndpoint
-        value: '{{ signalsEndpoint }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: state
-        value: '{{ state }}'
-      - name: version
-        value: '{{ version }}'
-      - name: errors
-        value: '{{ errors }}'
-      - name: heartbeatTime
-        value: '{{ heartbeatTime }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: ttl
-        value: '{{ ttl }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: source
+      value: '{{ source }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: signalsEndpoint
+      value: '{{ signalsEndpoint }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: state
+      value: '{{ state }}'
+    - name: version
+      value: '{{ version }}'
+    - name: errors
+      value: '{{ errors }}'
+    - name: heartbeatTime
+      value: '{{ heartbeatTime }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: ttl
+      value: '{{ ttl }}'
 
 ```
 </TabItem>

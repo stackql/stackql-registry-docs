@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>taxonomies_iam_policies</code> 
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_taxonomies_get_iam_policy" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Gets the IAM policy for a policy tag or a taxonomy. |
-| <CopyableCode code="projects_locations_taxonomies_set_iam_policy" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Sets the IAM policy for a policy tag or a taxonomy. |
+| <CopyableCode code="projects_locations_taxonomies_set_iam_policy" /> | `REPLACE` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Sets the IAM policy for a policy tag or a taxonomy. |
 | <CopyableCode code="projects_locations_taxonomies_test_iam_permissions" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Returns your permissions on a specified policy tag or taxonomy. |
 
 ## `SELECT` examples
@@ -55,4 +55,19 @@ FROM google.datacatalog.taxonomies_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND taxonomiesId = '{{ taxonomiesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>taxonomies_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.datacatalog.taxonomies_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND taxonomiesId = '{{ taxonomiesId }}';
 ```

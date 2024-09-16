@@ -179,55 +179,54 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: computeEngineTargetDefaults
-        value: '{{ computeEngineTargetDefaults }}'
-      - name: computeEngineDisksTargetDefaults
-        value: '{{ computeEngineDisksTargetDefaults }}'
-      - name: vmwareSourceVmDetails
-        value: '{{ vmwareSourceVmDetails }}'
-      - name: awsSourceVmDetails
-        value: '{{ awsSourceVmDetails }}'
-      - name: azureSourceVmDetails
-        value: '{{ azureSourceVmDetails }}'
-      - name: name
-        value: '{{ name }}'
-      - name: sourceVmId
-        value: '{{ sourceVmId }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: policy
-        value: '{{ policy }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: lastSync
-        value: '{{ lastSync }}'
-      - name: state
-        value: '{{ state }}'
-      - name: stateTime
-        value: '{{ stateTime }}'
-      - name: currentSyncInfo
-        value: '{{ currentSyncInfo }}'
-      - name: lastReplicationCycle
-        value: '{{ lastReplicationCycle }}'
-      - name: group
-        value: '{{ group }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: recentCloneJobs
-        value: '{{ recentCloneJobs }}'
-      - name: error
-        value: '{{ error }}'
-      - name: recentCutoverJobs
-        value: '{{ recentCutoverJobs }}'
-      - name: cutoverForecast
-        value: '{{ cutoverForecast }}'
+- name: your_resource_model_name
+  props:
+    - name: computeEngineTargetDefaults
+      value: '{{ computeEngineTargetDefaults }}'
+    - name: computeEngineDisksTargetDefaults
+      value: '{{ computeEngineDisksTargetDefaults }}'
+    - name: vmwareSourceVmDetails
+      value: '{{ vmwareSourceVmDetails }}'
+    - name: awsSourceVmDetails
+      value: '{{ awsSourceVmDetails }}'
+    - name: azureSourceVmDetails
+      value: '{{ azureSourceVmDetails }}'
+    - name: name
+      value: '{{ name }}'
+    - name: sourceVmId
+      value: '{{ sourceVmId }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: policy
+      value: '{{ policy }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: lastSync
+      value: '{{ lastSync }}'
+    - name: state
+      value: '{{ state }}'
+    - name: stateTime
+      value: '{{ stateTime }}'
+    - name: currentSyncInfo
+      value: '{{ currentSyncInfo }}'
+    - name: lastReplicationCycle
+      value: '{{ lastReplicationCycle }}'
+    - name: group
+      value: '{{ group }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: recentCloneJobs
+      value: '{{ recentCloneJobs }}'
+    - name: error
+      value: '{{ error }}'
+    - name: recentCutoverJobs
+      value: '{{ recentCutoverJobs }}'
+    - name: cutoverForecast
+      value: '{{ cutoverForecast }}'
 
 ```
 </TabItem>

@@ -53,8 +53,8 @@ Creates, updates, deletes, gets or lists a <code>backend_buckets</code> resource
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a BackendBucket resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backendBucket, project" /> | Deletes the specified BackendBucket resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backendBucket, project" /> | Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="backendBucket, project" /> | Updates the specified BackendBucket resource with the data included in the request. |
 | <CopyableCode code="set_edge_security_policy" /> | `EXEC` | <CopyableCode code="backendBucket, project" /> | Sets the edge security policy for the specified backend bucket. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="backendBucket, project" /> | Updates the specified BackendBucket resource with the data included in the request. |
 
 ## `SELECT` examples
 
@@ -131,35 +131,34 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: bucketName
-        value: '{{ bucketName }}'
-      - name: enableCdn
-        value: '{{ enableCdn }}'
-      - name: cdnPolicy
-        value: '{{ cdnPolicy }}'
-      - name: customResponseHeaders
-        value: '{{ customResponseHeaders }}'
-      - name: edgeSecurityPolicy
-        value: '{{ edgeSecurityPolicy }}'
-      - name: compressionMode
-        value: '{{ compressionMode }}'
-      - name: usedBy
-        value: '{{ usedBy }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: bucketName
+      value: '{{ bucketName }}'
+    - name: enableCdn
+      value: '{{ enableCdn }}'
+    - name: cdnPolicy
+      value: '{{ cdnPolicy }}'
+    - name: customResponseHeaders
+      value: '{{ customResponseHeaders }}'
+    - name: edgeSecurityPolicy
+      value: '{{ edgeSecurityPolicy }}'
+    - name: compressionMode
+      value: '{{ compressionMode }}'
+    - name: usedBy
+      value: '{{ usedBy }}'
 
 ```
 </TabItem>
@@ -172,6 +171,32 @@ Updates a <code>backend_buckets</code> resource.
 ```sql
 /*+ update */
 UPDATE google.compute.backend_buckets
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+bucketName = '{{ bucketName }}',
+enableCdn = true|false,
+cdnPolicy = '{{ cdnPolicy }}',
+customResponseHeaders = '{{ customResponseHeaders }}',
+edgeSecurityPolicy = '{{ edgeSecurityPolicy }}',
+compressionMode = '{{ compressionMode }}',
+usedBy = '{{ usedBy }}'
+WHERE 
+backendBucket = '{{ backendBucket }}'
+AND project = '{{ project }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>backend_buckets</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.backend_buckets
 SET 
 kind = '{{ kind }}',
 id = '{{ id }}',

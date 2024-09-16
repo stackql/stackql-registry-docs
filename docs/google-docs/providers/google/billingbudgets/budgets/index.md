@@ -109,25 +109,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: ownershipScope
-        value: '{{ ownershipScope }}'
-      - name: thresholdRules
-        value: '{{ thresholdRules }}'
-      - name: notificationsRule
-        value: '{{ notificationsRule }}'
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: budgetFilter
-        value: '{{ budgetFilter }}'
-      - name: amount
-        value: '{{ amount }}'
-      - name: etag
-        value: '{{ etag }}'
+- name: your_resource_model_name
+  props:
+    - name: ownershipScope
+      value: '{{ ownershipScope }}'
+    - name: thresholdRules
+      value: '{{ thresholdRules }}'
+    - name: notificationsRule
+      value: '{{ notificationsRule }}'
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: budgetFilter
+      value: '{{ budgetFilter }}'
+    - name: amount
+      value: '{{ amount }}'
+    - name: etag
+      value: '{{ etag }}'
 
 ```
 </TabItem>

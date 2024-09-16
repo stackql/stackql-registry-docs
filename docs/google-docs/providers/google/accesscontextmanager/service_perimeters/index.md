@@ -47,8 +47,8 @@ Creates, updates, deletes, gets or lists a <code>service_perimeters</code> resou
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accessPoliciesId" /> | Creates a service perimeter. The long-running operation from this RPC has a successful status after the service perimeter propagates to long-lasting storage. If a service perimeter contains errors, an error response is returned for the first error encountered. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accessPoliciesId, servicePerimetersId" /> | Deletes a service perimeter based on the resource name. The long-running operation from this RPC has a successful status after the service perimeter is removed from long-lasting storage. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="accessPoliciesId, servicePerimetersId" /> | Updates a service perimeter. The long-running operation from this RPC has a successful status after the service perimeter propagates to long-lasting storage. If a service perimeter contains errors, an error response is returned for the first error encountered. |
+| <CopyableCode code="replace_all" /> | `REPLACE` | <CopyableCode code="accessPoliciesId" /> | Replace all existing service perimeters in an access policy with the service perimeters provided. This is done atomically. The long-running operation from this RPC has a successful status after all replacements propagate to long-lasting storage. Replacements containing errors result in an error response for the first error encountered. Upon an error, replacement are cancelled and existing service perimeters are not affected. The Operation.response field contains ReplaceServicePerimetersResponse. |
 | <CopyableCode code="commit" /> | `EXEC` | <CopyableCode code="accessPoliciesId" /> | Commits the dry-run specification for all the service perimeters in an access policy. A commit operation on a service perimeter involves copying its `spec` field to the `status` field of the service perimeter. Only service perimeters with `use_explicit_dry_run_spec` field set to true are affected by a commit operation. The long-running operation from this RPC has a successful status after the dry-run specifications for all the service perimeters have been committed. If a commit fails, it causes the long-running operation to return an error response and the entire commit operation is cancelled. When successful, the Operation.response field contains CommitServicePerimetersResponse. The `dry_run` and the `spec` fields are cleared after a successful commit operation. |
-| <CopyableCode code="replace_all" /> | `EXEC` | <CopyableCode code="accessPoliciesId" /> | Replace all existing service perimeters in an access policy with the service perimeters provided. This is done atomically. The long-running operation from this RPC has a successful status after all replacements propagate to long-lasting storage. Replacements containing errors result in an error response for the first error encountered. Upon an error, replacement are cancelled and existing service perimeters are not affected. The Operation.response field contains ReplaceServicePerimetersResponse. |
 
 ## `SELECT` examples
 
@@ -107,23 +107,22 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: title
-        value: '{{ title }}'
-      - name: description
-        value: '{{ description }}'
-      - name: perimeterType
-        value: '{{ perimeterType }}'
-      - name: status
-        value: '{{ status }}'
-      - name: spec
-        value: '{{ spec }}'
-      - name: useExplicitDryRunSpec
-        value: '{{ useExplicitDryRunSpec }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: title
+      value: '{{ title }}'
+    - name: description
+      value: '{{ description }}'
+    - name: perimeterType
+      value: '{{ perimeterType }}'
+    - name: status
+      value: '{{ status }}'
+    - name: spec
+      value: '{{ spec }}'
+    - name: useExplicitDryRunSpec
+      value: '{{ useExplicitDryRunSpec }}'
 
 ```
 </TabItem>
@@ -147,6 +146,20 @@ useExplicitDryRunSpec = true|false
 WHERE 
 accessPoliciesId = '{{ accessPoliciesId }}'
 AND servicePerimetersId = '{{ servicePerimetersId }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>service_perimeters</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.accesscontextmanager.service_perimeters
+SET 
+servicePerimeters = '{{ servicePerimeters }}',
+etag = '{{ etag }}'
+WHERE 
+accessPoliciesId = '{{ accessPoliciesId }}';
 ```
 
 ## `DELETE` example

@@ -132,35 +132,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: region
-        value: '{{ region }}'
-      - name: network
-        value: '{{ network }}'
-      - name: priority
-        value: '{{ priority }}'
-      - name: collectorIlb
-        value: '{{ collectorIlb }}'
-      - name: mirroredResources
-        value: '{{ mirroredResources }}'
-      - name: filter
-        value: '{{ filter }}'
-      - name: enable
-        value: '{{ enable }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: region
+      value: '{{ region }}'
+    - name: network
+      value: '{{ network }}'
+    - name: priority
+      value: '{{ priority }}'
+    - name: collectorIlb
+      value: '{{ collectorIlb }}'
+    - name: mirroredResources
+      value: '{{ mirroredResources }}'
+    - name: filter
+      value: '{{ filter }}'
+    - name: enable
+      value: '{{ enable }}'
 
 ```
 </TabItem>

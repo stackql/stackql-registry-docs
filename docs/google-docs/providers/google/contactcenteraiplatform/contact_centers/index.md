@@ -156,47 +156,46 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: uris
-        value: '{{ uris }}'
-      - name: state
-        value: '{{ state }}'
-      - name: customerDomainPrefix
-        value: '{{ customerDomainPrefix }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: instanceConfig
-        value: '{{ instanceConfig }}'
-      - name: samlParams
-        value: '{{ samlParams }}'
-      - name: userEmail
-        value: '{{ userEmail }}'
-      - name: ccaipManagedUsers
-        value: '{{ ccaipManagedUsers }}'
-      - name: adminUser
-        value: '{{ adminUser }}'
-      - name: kmsKey
-        value: '{{ kmsKey }}'
-      - name: privateComponents
-        value: '{{ privateComponents }}'
-      - name: privateAccess
-        value: '{{ privateAccess }}'
-      - name: early
-        value: '{{ early }}'
-      - name: normal
-        value: '{{ normal }}'
-      - name: critical
-        value: '{{ critical }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: uris
+      value: '{{ uris }}'
+    - name: state
+      value: '{{ state }}'
+    - name: customerDomainPrefix
+      value: '{{ customerDomainPrefix }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: instanceConfig
+      value: '{{ instanceConfig }}'
+    - name: samlParams
+      value: '{{ samlParams }}'
+    - name: userEmail
+      value: '{{ userEmail }}'
+    - name: ccaipManagedUsers
+      value: '{{ ccaipManagedUsers }}'
+    - name: adminUser
+      value: '{{ adminUser }}'
+    - name: kmsKey
+      value: '{{ kmsKey }}'
+    - name: privateComponents
+      value: '{{ privateComponents }}'
+    - name: privateAccess
+      value: '{{ privateAccess }}'
+    - name: early
+      value: '{{ early }}'
+    - name: normal
+      value: '{{ normal }}'
+    - name: critical
+      value: '{{ critical }}'
 
 ```
 </TabItem>

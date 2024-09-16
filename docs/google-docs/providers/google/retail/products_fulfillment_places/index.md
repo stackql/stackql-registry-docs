@@ -80,17 +80,16 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: type
-        value: '{{ type }}'
-      - name: placeIds
-        value: '{{ placeIds }}'
-      - name: addTime
-        value: '{{ addTime }}'
-      - name: allowMissing
-        value: '{{ allowMissing }}'
+- name: your_resource_model_name
+  props:
+    - name: type
+      value: '{{ type }}'
+    - name: placeIds
+      value: '{{ placeIds }}'
+    - name: addTime
+      value: '{{ addTime }}'
+    - name: allowMissing
+      value: '{{ allowMissing }}'
 
 ```
 </TabItem>

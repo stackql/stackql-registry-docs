@@ -152,45 +152,44 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: machineSpec
-        value: '{{ machineSpec }}'
-      - name: notebookRuntimeType
-        value: '{{ notebookRuntimeType }}'
-      - name: shieldedVmConfig
-        value: '{{ shieldedVmConfig }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: eucConfig
-        value: '{{ eucConfig }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: isDefault
-        value: '{{ isDefault }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: networkSpec
-        value: '{{ networkSpec }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: idleShutdownConfig
-        value: '{{ idleShutdownConfig }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: dataPersistentDiskSpec
-        value: '{{ dataPersistentDiskSpec }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: networkTags
-        value: '{{ networkTags }}'
+- name: your_resource_model_name
+  props:
+    - name: machineSpec
+      value: '{{ machineSpec }}'
+    - name: notebookRuntimeType
+      value: '{{ notebookRuntimeType }}'
+    - name: shieldedVmConfig
+      value: '{{ shieldedVmConfig }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: eucConfig
+      value: '{{ eucConfig }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: isDefault
+      value: '{{ isDefault }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: networkSpec
+      value: '{{ networkSpec }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: idleShutdownConfig
+      value: '{{ idleShutdownConfig }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: dataPersistentDiskSpec
+      value: '{{ dataPersistentDiskSpec }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: networkTags
+      value: '{{ networkTags }}'
 
 ```
 </TabItem>

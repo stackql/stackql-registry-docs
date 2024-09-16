@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>queues_iam_policies</code> reso
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, queuesId" /> | Gets the access control policy for a Queue. Returns an empty policy if the resource exists and does not have a policy set. Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission on the specified resource parent: * `cloudtasks.queues.getIamPolicy` |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, queuesId" /> | Sets the access control policy for a Queue. Replaces any existing policy. Note: The Cloud Console does not check queue-level IAM permissions yet. Project-level permissions are required to use the Cloud Console. Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission on the specified resource parent: * `cloudtasks.queues.setIamPolicy` |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="locationsId, projectsId, queuesId" /> | Sets the access control policy for a Queue. Replaces any existing policy. Note: The Cloud Console does not check queue-level IAM permissions yet. Project-level permissions are required to use the Cloud Console. Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission on the specified resource parent: * `cloudtasks.queues.setIamPolicy` |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, queuesId" /> | Returns permissions that a caller has on a Queue. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
 
 ## `SELECT` examples
@@ -55,4 +55,19 @@ FROM google.cloudtasks.queues_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND queuesId = '{{ queuesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>queues_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.cloudtasks.queues_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND queuesId = '{{ queuesId }}';
 ```

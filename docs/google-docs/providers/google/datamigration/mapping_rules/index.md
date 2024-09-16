@@ -159,47 +159,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: state
-        value: '{{ state }}'
-      - name: ruleScope
-        value: '{{ ruleScope }}'
-      - name: filter
-        value: '{{ filter }}'
-      - name: ruleOrder
-        value: '{{ ruleOrder }}'
-      - name: revisionId
-        value: '{{ revisionId }}'
-      - name: revisionCreateTime
-        value: '{{ revisionCreateTime }}'
-      - name: singleEntityRename
-        value: '{{ singleEntityRename }}'
-      - name: multiEntityRename
-        value: '{{ multiEntityRename }}'
-      - name: entityMove
-        value: '{{ entityMove }}'
-      - name: singleColumnChange
-        value: '{{ singleColumnChange }}'
-      - name: multiColumnDataTypeChange
-        value: '{{ multiColumnDataTypeChange }}'
-      - name: conditionalColumnSetValue
-        value: '{{ conditionalColumnSetValue }}'
-      - name: convertRowidColumn
-        value: '{{ convertRowidColumn }}'
-      - name: setTablePrimaryKey
-        value: '{{ setTablePrimaryKey }}'
-      - name: singlePackageChange
-        value: '{{ singlePackageChange }}'
-      - name: sourceSqlChange
-        value: '{{ sourceSqlChange }}'
-      - name: filterTableColumns
-        value: '{{ filterTableColumns }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: state
+      value: '{{ state }}'
+    - name: ruleScope
+      value: '{{ ruleScope }}'
+    - name: filter
+      value: '{{ filter }}'
+    - name: ruleOrder
+      value: '{{ ruleOrder }}'
+    - name: revisionId
+      value: '{{ revisionId }}'
+    - name: revisionCreateTime
+      value: '{{ revisionCreateTime }}'
+    - name: singleEntityRename
+      value: '{{ singleEntityRename }}'
+    - name: multiEntityRename
+      value: '{{ multiEntityRename }}'
+    - name: entityMove
+      value: '{{ entityMove }}'
+    - name: singleColumnChange
+      value: '{{ singleColumnChange }}'
+    - name: multiColumnDataTypeChange
+      value: '{{ multiColumnDataTypeChange }}'
+    - name: conditionalColumnSetValue
+      value: '{{ conditionalColumnSetValue }}'
+    - name: convertRowidColumn
+      value: '{{ convertRowidColumn }}'
+    - name: setTablePrimaryKey
+      value: '{{ setTablePrimaryKey }}'
+    - name: singlePackageChange
+      value: '{{ singlePackageChange }}'
+    - name: sourceSqlChange
+      value: '{{ sourceSqlChange }}'
+    - name: filterTableColumns
+      value: '{{ filterTableColumns }}'
 
 ```
 </TabItem>

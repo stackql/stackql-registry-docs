@@ -139,37 +139,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: pubsubTarget
-        value: '{{ pubsubTarget }}'
-      - name: appEngineHttpTarget
-        value: '{{ appEngineHttpTarget }}'
-      - name: httpTarget
-        value: '{{ httpTarget }}'
-      - name: schedule
-        value: '{{ schedule }}'
-      - name: timeZone
-        value: '{{ timeZone }}'
-      - name: userUpdateTime
-        value: '{{ userUpdateTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: status
-        value: '{{ status }}'
-      - name: scheduleTime
-        value: '{{ scheduleTime }}'
-      - name: lastAttemptTime
-        value: '{{ lastAttemptTime }}'
-      - name: retryConfig
-        value: '{{ retryConfig }}'
-      - name: attemptDeadline
-        value: '{{ attemptDeadline }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: pubsubTarget
+      value: '{{ pubsubTarget }}'
+    - name: appEngineHttpTarget
+      value: '{{ appEngineHttpTarget }}'
+    - name: httpTarget
+      value: '{{ httpTarget }}'
+    - name: schedule
+      value: '{{ schedule }}'
+    - name: timeZone
+      value: '{{ timeZone }}'
+    - name: userUpdateTime
+      value: '{{ userUpdateTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: status
+      value: '{{ status }}'
+    - name: scheduleTime
+      value: '{{ scheduleTime }}'
+    - name: lastAttemptTime
+      value: '{{ lastAttemptTime }}'
+    - name: retryConfig
+      value: '{{ retryConfig }}'
+    - name: attemptDeadline
+      value: '{{ attemptDeadline }}'
 
 ```
 </TabItem>

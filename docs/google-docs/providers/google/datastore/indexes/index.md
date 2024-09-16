@@ -100,21 +100,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: projectId
-        value: '{{ projectId }}'
-      - name: indexId
-        value: '{{ indexId }}'
-      - name: kind
-        value: '{{ kind }}'
-      - name: ancestor
-        value: '{{ ancestor }}'
-      - name: properties
-        value: '{{ properties }}'
-      - name: state
-        value: '{{ state }}'
+- name: your_resource_model_name
+  props:
+    - name: projectId
+      value: '{{ projectId }}'
+    - name: indexId
+      value: '{{ indexId }}'
+    - name: kind
+      value: '{{ kind }}'
+    - name: ancestor
+      value: '{{ ancestor }}'
+    - name: properties
+      value: '{{ properties }}'
+    - name: state
+      value: '{{ state }}'
 
 ```
 </TabItem>

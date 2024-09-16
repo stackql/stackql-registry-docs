@@ -204,113 +204,112 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: parent
-        value: '{{ parent }}'
-      - name: resourceName
-        value: '{{ resourceName }}'
-      - name: state
-        value: '{{ state }}'
-      - name: category
-        value: '{{ category }}'
-      - name: externalUri
-        value: '{{ externalUri }}'
-      - name: sourceProperties
-        value: '{{ sourceProperties }}'
-      - name: securityMarks
-        value: '{{ securityMarks }}'
-      - name: eventTime
-        value: '{{ eventTime }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: severity
-        value: '{{ severity }}'
-      - name: canonicalName
-        value: '{{ canonicalName }}'
-      - name: mute
-        value: '{{ mute }}'
-      - name: findingClass
-        value: '{{ findingClass }}'
-      - name: indicator
-        value: '{{ indicator }}'
-      - name: vulnerability
-        value: '{{ vulnerability }}'
-      - name: muteUpdateTime
-        value: '{{ muteUpdateTime }}'
-      - name: externalSystems
-        value: '{{ externalSystems }}'
-      - name: mitreAttack
-        value: '{{ mitreAttack }}'
-      - name: access
-        value: '{{ access }}'
-      - name: connections
-        value: '{{ connections }}'
-      - name: muteInitiator
-        value: '{{ muteInitiator }}'
-      - name: muteInfo
-        value: '{{ muteInfo }}'
-      - name: processes
-        value: '{{ processes }}'
-      - name: contacts
-        value: '{{ contacts }}'
-      - name: compliances
-        value: '{{ compliances }}'
-      - name: parentDisplayName
-        value: '{{ parentDisplayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: exfiltration
-        value: '{{ exfiltration }}'
-      - name: iamBindings
-        value: '{{ iamBindings }}'
-      - name: nextSteps
-        value: '{{ nextSteps }}'
-      - name: moduleName
-        value: '{{ moduleName }}'
-      - name: containers
-        value: '{{ containers }}'
-      - name: kubernetes
-        value: '{{ kubernetes }}'
-      - name: database
-        value: '{{ database }}'
-      - name: attackExposure
-        value: '{{ attackExposure }}'
-      - name: files
-        value: '{{ files }}'
-      - name: cloudDlpInspection
-        value: '{{ cloudDlpInspection }}'
-      - name: cloudDlpDataProfile
-        value: '{{ cloudDlpDataProfile }}'
-      - name: kernelRootkit
-        value: '{{ kernelRootkit }}'
-      - name: orgPolicies
-        value: '{{ orgPolicies }}'
-      - name: application
-        value: '{{ application }}'
-      - name: backupDisasterRecovery
-        value: '{{ backupDisasterRecovery }}'
-      - name: securityPosture
-        value: '{{ securityPosture }}'
-      - name: logEntries
-        value: '{{ logEntries }}'
-      - name: loadBalancers
-        value: '{{ loadBalancers }}'
-      - name: cloudArmor
-        value: '{{ cloudArmor }}'
-      - name: notebook
-        value: '{{ notebook }}'
-      - name: toxicCombination
-        value: '{{ toxicCombination }}'
-      - name: groupMemberships
-        value: '{{ groupMemberships }}'
-      - name: dataAccessEvents
-        value: '{{ dataAccessEvents }}'
-      - name: dataFlowEvents
-        value: '{{ dataFlowEvents }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: parent
+      value: '{{ parent }}'
+    - name: resourceName
+      value: '{{ resourceName }}'
+    - name: state
+      value: '{{ state }}'
+    - name: category
+      value: '{{ category }}'
+    - name: externalUri
+      value: '{{ externalUri }}'
+    - name: sourceProperties
+      value: '{{ sourceProperties }}'
+    - name: securityMarks
+      value: '{{ securityMarks }}'
+    - name: eventTime
+      value: '{{ eventTime }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: severity
+      value: '{{ severity }}'
+    - name: canonicalName
+      value: '{{ canonicalName }}'
+    - name: mute
+      value: '{{ mute }}'
+    - name: findingClass
+      value: '{{ findingClass }}'
+    - name: indicator
+      value: '{{ indicator }}'
+    - name: vulnerability
+      value: '{{ vulnerability }}'
+    - name: muteUpdateTime
+      value: '{{ muteUpdateTime }}'
+    - name: externalSystems
+      value: '{{ externalSystems }}'
+    - name: mitreAttack
+      value: '{{ mitreAttack }}'
+    - name: access
+      value: '{{ access }}'
+    - name: connections
+      value: '{{ connections }}'
+    - name: muteInitiator
+      value: '{{ muteInitiator }}'
+    - name: muteInfo
+      value: '{{ muteInfo }}'
+    - name: processes
+      value: '{{ processes }}'
+    - name: contacts
+      value: '{{ contacts }}'
+    - name: compliances
+      value: '{{ compliances }}'
+    - name: parentDisplayName
+      value: '{{ parentDisplayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: exfiltration
+      value: '{{ exfiltration }}'
+    - name: iamBindings
+      value: '{{ iamBindings }}'
+    - name: nextSteps
+      value: '{{ nextSteps }}'
+    - name: moduleName
+      value: '{{ moduleName }}'
+    - name: containers
+      value: '{{ containers }}'
+    - name: kubernetes
+      value: '{{ kubernetes }}'
+    - name: database
+      value: '{{ database }}'
+    - name: attackExposure
+      value: '{{ attackExposure }}'
+    - name: files
+      value: '{{ files }}'
+    - name: cloudDlpInspection
+      value: '{{ cloudDlpInspection }}'
+    - name: cloudDlpDataProfile
+      value: '{{ cloudDlpDataProfile }}'
+    - name: kernelRootkit
+      value: '{{ kernelRootkit }}'
+    - name: orgPolicies
+      value: '{{ orgPolicies }}'
+    - name: application
+      value: '{{ application }}'
+    - name: backupDisasterRecovery
+      value: '{{ backupDisasterRecovery }}'
+    - name: securityPosture
+      value: '{{ securityPosture }}'
+    - name: logEntries
+      value: '{{ logEntries }}'
+    - name: loadBalancers
+      value: '{{ loadBalancers }}'
+    - name: cloudArmor
+      value: '{{ cloudArmor }}'
+    - name: notebook
+      value: '{{ notebook }}'
+    - name: toxicCombination
+      value: '{{ toxicCombination }}'
+    - name: groupMemberships
+      value: '{{ groupMemberships }}'
+    - name: dataAccessEvents
+      value: '{{ dataAccessEvents }}'
+    - name: dataFlowEvents
+      value: '{{ dataFlowEvents }}'
 
 ```
 </TabItem>

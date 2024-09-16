@@ -148,41 +148,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: bigqueryDataset
-        value: '{{ bigqueryDataset }}'
-      - name: pubsubTopic
-        value: '{{ pubsubTopic }}'
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: primaryContact
-        value: '{{ primaryContact }}'
-      - name: documentation
-        value: '{{ documentation }}'
-      - name: state
-        value: '{{ state }}'
-      - name: icon
-        value: '{{ icon }}'
-      - name: dataProvider
-        value: '{{ dataProvider }}'
-      - name: categories
-        value: '{{ categories }}'
-      - name: publisher
-        value: '{{ publisher }}'
-      - name: requestAccess
-        value: '{{ requestAccess }}'
-      - name: restrictedExportConfig
-        value: '{{ restrictedExportConfig }}'
-      - name: discoveryType
-        value: '{{ discoveryType }}'
-      - name: resourceType
-        value: '{{ resourceType }}'
+- name: your_resource_model_name
+  props:
+    - name: bigqueryDataset
+      value: '{{ bigqueryDataset }}'
+    - name: pubsubTopic
+      value: '{{ pubsubTopic }}'
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: primaryContact
+      value: '{{ primaryContact }}'
+    - name: documentation
+      value: '{{ documentation }}'
+    - name: state
+      value: '{{ state }}'
+    - name: icon
+      value: '{{ icon }}'
+    - name: dataProvider
+      value: '{{ dataProvider }}'
+    - name: categories
+      value: '{{ categories }}'
+    - name: publisher
+      value: '{{ publisher }}'
+    - name: requestAccess
+      value: '{{ requestAccess }}'
+    - name: restrictedExportConfig
+      value: '{{ restrictedExportConfig }}'
+    - name: discoveryType
+      value: '{{ discoveryType }}'
+    - name: resourceType
+      value: '{{ resourceType }}'
 
 ```
 </TabItem>

@@ -59,7 +59,7 @@ Creates, updates, deletes, gets or lists a <code>firewalls</code> resource.
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a firewall rule in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="firewall, project" /> | Deletes the specified firewall. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="firewall, project" /> | Updates the specified firewall rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="firewall, project" /> | Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not specified. To update individual fields, please use PATCH instead. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="firewall, project" /> | Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not specified. To update individual fields, please use PATCH instead. |
 
 ## `SELECT` examples
 
@@ -154,55 +154,54 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: network
-        value: '{{ network }}'
-      - name: priority
-        value: '{{ priority }}'
-      - name: sourceRanges
-        value: '{{ sourceRanges }}'
-      - name: destinationRanges
-        value: '{{ destinationRanges }}'
-      - name: sourceTags
-        value: '{{ sourceTags }}'
-      - name: targetTags
-        value: '{{ targetTags }}'
-      - name: sourceServiceAccounts
-        value: '{{ sourceServiceAccounts }}'
-      - name: targetServiceAccounts
-        value: '{{ targetServiceAccounts }}'
-      - name: allowed
-        value:
-          - - name: IPProtocol
-              value: '{{ IPProtocol }}'
-            - name: ports
-              value: '{{ ports }}'
-      - name: denied
-        value:
-          - - name: IPProtocol
-              value: '{{ IPProtocol }}'
-            - name: ports
-              value: '{{ ports }}'
-      - name: direction
-        value: '{{ direction }}'
-      - name: logConfig
-        value: '{{ logConfig }}'
-      - name: disabled
-        value: '{{ disabled }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: network
+      value: '{{ network }}'
+    - name: priority
+      value: '{{ priority }}'
+    - name: sourceRanges
+      value: '{{ sourceRanges }}'
+    - name: destinationRanges
+      value: '{{ destinationRanges }}'
+    - name: sourceTags
+      value: '{{ sourceTags }}'
+    - name: targetTags
+      value: '{{ targetTags }}'
+    - name: sourceServiceAccounts
+      value: '{{ sourceServiceAccounts }}'
+    - name: targetServiceAccounts
+      value: '{{ targetServiceAccounts }}'
+    - name: allowed
+      value:
+        - - name: IPProtocol
+            value: '{{ IPProtocol }}'
+          - name: ports
+            value: '{{ ports }}'
+    - name: denied
+      value:
+        - - name: IPProtocol
+            value: '{{ IPProtocol }}'
+          - name: ports
+            value: '{{ ports }}'
+    - name: direction
+      value: '{{ direction }}'
+    - name: logConfig
+      value: '{{ logConfig }}'
+    - name: disabled
+      value: '{{ disabled }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
 
 ```
 </TabItem>
@@ -215,6 +214,38 @@ Updates a <code>firewalls</code> resource.
 ```sql
 /*+ update */
 UPDATE google.compute.firewalls
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+network = '{{ network }}',
+priority = '{{ priority }}',
+sourceRanges = '{{ sourceRanges }}',
+destinationRanges = '{{ destinationRanges }}',
+sourceTags = '{{ sourceTags }}',
+targetTags = '{{ targetTags }}',
+sourceServiceAccounts = '{{ sourceServiceAccounts }}',
+targetServiceAccounts = '{{ targetServiceAccounts }}',
+allowed = '{{ allowed }}',
+denied = '{{ denied }}',
+direction = '{{ direction }}',
+logConfig = '{{ logConfig }}',
+disabled = true|false,
+selfLink = '{{ selfLink }}'
+WHERE 
+firewall = '{{ firewall }}'
+AND project = '{{ project }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>firewalls</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.firewalls
 SET 
 kind = '{{ kind }}',
 id = '{{ id }}',

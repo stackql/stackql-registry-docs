@@ -45,7 +45,7 @@ Creates, updates, deletes, gets or lists a <code>access_levels</code> resource.
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accessPoliciesId" /> | Creates an access level. The long-running operation from this RPC has a successful status after the access level propagates to long-lasting storage. If access levels contain errors, an error response is returned for the first error encountered. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accessLevelsId, accessPoliciesId" /> | Deletes an access level based on the resource name. The long-running operation from this RPC has a successful status after the access level has been removed from long-lasting storage. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="accessLevelsId, accessPoliciesId" /> | Updates an access level. The long-running operation from this RPC has a successful status after the changes to the access level propagate to long-lasting storage. If access levels contain errors, an error response is returned for the first error encountered. |
-| <CopyableCode code="replace_all" /> | `EXEC` | <CopyableCode code="accessPoliciesId" /> | Replaces all existing access levels in an access policy with the access levels provided. This is done atomically. The long-running operation from this RPC has a successful status after all replacements propagate to long-lasting storage. If the replacement contains errors, an error response is returned for the first error encountered. Upon error, the replacement is cancelled, and existing access levels are not affected. The Operation.response field contains ReplaceAccessLevelsResponse. Removing access levels contained in existing service perimeters result in an error. |
+| <CopyableCode code="replace_all" /> | `REPLACE` | <CopyableCode code="accessPoliciesId" /> | Replaces all existing access levels in an access policy with the access levels provided. This is done atomically. The long-running operation from this RPC has a successful status after all replacements propagate to long-lasting storage. If the replacement contains errors, an error response is returned for the first error encountered. Upon error, the replacement is cancelled, and existing access levels are not affected. The Operation.response field contains ReplaceAccessLevelsResponse. Removing access levels contained in existing service perimeters result in an error. |
 
 ## `SELECT` examples
 
@@ -98,19 +98,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: title
-        value: '{{ title }}'
-      - name: description
-        value: '{{ description }}'
-      - name: basic
-        value: '{{ basic }}'
-      - name: custom
-        value: '{{ custom }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: title
+      value: '{{ title }}'
+    - name: description
+      value: '{{ description }}'
+    - name: basic
+      value: '{{ basic }}'
+    - name: custom
+      value: '{{ custom }}'
 
 ```
 </TabItem>
@@ -132,6 +131,20 @@ custom = '{{ custom }}'
 WHERE 
 accessLevelsId = '{{ accessLevelsId }}'
 AND accessPoliciesId = '{{ accessPoliciesId }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>access_levels</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.accesscontextmanager.access_levels
+SET 
+accessLevels = '{{ accessLevels }}',
+etag = '{{ etag }}'
+WHERE 
+accessPoliciesId = '{{ accessPoliciesId }}';
 ```
 
 ## `DELETE` example

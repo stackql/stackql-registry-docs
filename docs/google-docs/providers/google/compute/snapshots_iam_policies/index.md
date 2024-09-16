@@ -40,7 +40,7 @@ Creates, updates, deletes, gets or lists a <code>snapshots_iam_policies</code> r
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="project, resource" /> | Gets the access control policy for a resource. May be empty if no such policy or resource exists. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="project, resource" /> | Sets the access control policy on the specified resource. Replaces any existing policy. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="project, resource" /> | Sets the access control policy on the specified resource. Replaces any existing policy. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="project, resource" /> | Returns permissions that a caller has on the specified resource. |
 
 ## `SELECT` examples
@@ -56,4 +56,20 @@ role
 FROM google.compute.snapshots_iam_policies
 WHERE project = '{{ project }}'
 AND resource = '{{ resource }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>snapshots_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.snapshots_iam_policies
+SET 
+policy = '{{ policy }}',
+bindings = '{{ bindings }}',
+etag = '{{ etag }}'
+WHERE 
+project = '{{ project }}'
+AND resource = '{{ resource }}';
 ```

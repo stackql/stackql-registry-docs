@@ -198,67 +198,66 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: bareMetalVersion
-        value: '{{ bareMetalVersion }}'
-      - name: state
-        value: '{{ state }}'
-      - name: endpoint
-        value: '{{ endpoint }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: localName
-        value: '{{ localName }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: networkConfig
-        value: '{{ networkConfig }}'
-      - name: controlPlane
-        value: '{{ controlPlane }}'
-      - name: loadBalancer
-        value: '{{ loadBalancer }}'
-      - name: storage
-        value: '{{ storage }}'
-      - name: fleet
-        value: '{{ fleet }}'
-      - name: clusterOperations
-        value: '{{ clusterOperations }}'
-      - name: status
-        value: '{{ status }}'
-      - name: maintenanceConfig
-        value: '{{ maintenanceConfig }}'
-      - name: maintenanceStatus
-        value: '{{ maintenanceStatus }}'
-      - name: validationCheck
-        value: '{{ validationCheck }}'
-      - name: nodeConfig
-        value: '{{ nodeConfig }}'
-      - name: proxy
-        value: '{{ proxy }}'
-      - name: securityConfig
-        value: '{{ securityConfig }}'
-      - name: nodeAccessConfig
-        value: '{{ nodeAccessConfig }}'
-      - name: osEnvironmentConfig
-        value: '{{ osEnvironmentConfig }}'
-      - name: binaryAuthorization
-        value: '{{ binaryAuthorization }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: bareMetalVersion
+      value: '{{ bareMetalVersion }}'
+    - name: state
+      value: '{{ state }}'
+    - name: endpoint
+      value: '{{ endpoint }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: localName
+      value: '{{ localName }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: networkConfig
+      value: '{{ networkConfig }}'
+    - name: controlPlane
+      value: '{{ controlPlane }}'
+    - name: loadBalancer
+      value: '{{ loadBalancer }}'
+    - name: storage
+      value: '{{ storage }}'
+    - name: fleet
+      value: '{{ fleet }}'
+    - name: clusterOperations
+      value: '{{ clusterOperations }}'
+    - name: status
+      value: '{{ status }}'
+    - name: maintenanceConfig
+      value: '{{ maintenanceConfig }}'
+    - name: maintenanceStatus
+      value: '{{ maintenanceStatus }}'
+    - name: validationCheck
+      value: '{{ validationCheck }}'
+    - name: nodeConfig
+      value: '{{ nodeConfig }}'
+    - name: proxy
+      value: '{{ proxy }}'
+    - name: securityConfig
+      value: '{{ securityConfig }}'
+    - name: nodeAccessConfig
+      value: '{{ nodeAccessConfig }}'
+    - name: osEnvironmentConfig
+      value: '{{ osEnvironmentConfig }}'
+    - name: binaryAuthorization
+      value: '{{ binaryAuthorization }}'
 
 ```
 </TabItem>

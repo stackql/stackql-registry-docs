@@ -109,25 +109,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: targetGroup
-        value: '{{ targetGroup }}'
-      - name: targetOrgUnit
-        value: '{{ targetOrgUnit }}'
-      - name: name
-        value: '{{ name }}'
-      - name: customer
-        value: '{{ customer }}'
-      - name: rank
-        value: '{{ rank }}'
-      - name: ssoMode
-        value: '{{ ssoMode }}'
-      - name: samlSsoInfo
-        value: '{{ samlSsoInfo }}'
-      - name: signInBehavior
-        value: '{{ signInBehavior }}'
+- name: your_resource_model_name
+  props:
+    - name: targetGroup
+      value: '{{ targetGroup }}'
+    - name: targetOrgUnit
+      value: '{{ targetOrgUnit }}'
+    - name: name
+      value: '{{ name }}'
+    - name: customer
+      value: '{{ customer }}'
+    - name: rank
+      value: '{{ rank }}'
+    - name: ssoMode
+      value: '{{ ssoMode }}'
+    - name: samlSsoInfo
+      value: '{{ samlSsoInfo }}'
+    - name: signInBehavior
+      value: '{{ signInBehavior }}'
 
 ```
 </TabItem>

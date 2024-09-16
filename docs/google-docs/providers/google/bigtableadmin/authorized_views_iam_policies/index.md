@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>authorized_views_iam_policies</
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="authorizedViewsId, instancesId, projectsId, tablesId" /> | Gets the access control policy for a Bigtable resource. Returns an empty policy if the resource exists but does not have a policy set. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="authorizedViewsId, instancesId, projectsId, tablesId" /> | Sets the access control policy on a Bigtable resource. Replaces any existing policy. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="authorizedViewsId, instancesId, projectsId, tablesId" /> | Sets the access control policy on a Bigtable resource. Replaces any existing policy. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="authorizedViewsId, instancesId, projectsId, tablesId" /> | Returns permissions that the caller has on the specified Bigtable resource. |
 
 ## `SELECT` examples
@@ -56,4 +56,21 @@ WHERE authorizedViewsId = '{{ authorizedViewsId }}'
 AND instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}'
 AND tablesId = '{{ tablesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>authorized_views_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.bigtableadmin.authorized_views_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+authorizedViewsId = '{{ authorizedViewsId }}'
+AND instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}'
+AND tablesId = '{{ tablesId }}';
 ```

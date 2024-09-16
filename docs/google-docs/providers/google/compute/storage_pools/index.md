@@ -156,47 +156,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: poolProvisionedCapacityGb
-        value: '{{ poolProvisionedCapacityGb }}'
-      - name: poolProvisionedIops
-        value: '{{ poolProvisionedIops }}'
-      - name: poolProvisionedThroughput
-        value: '{{ poolProvisionedThroughput }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: state
-        value: '{{ state }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: selfLinkWithId
-        value: '{{ selfLinkWithId }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: labelFingerprint
-        value: '{{ labelFingerprint }}'
-      - name: resourceStatus
-        value: '{{ resourceStatus }}'
-      - name: storagePoolType
-        value: '{{ storagePoolType }}'
-      - name: status
-        value: '{{ status }}'
-      - name: capacityProvisioningType
-        value: '{{ capacityProvisioningType }}'
-      - name: performanceProvisioningType
-        value: '{{ performanceProvisioningType }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: poolProvisionedCapacityGb
+      value: '{{ poolProvisionedCapacityGb }}'
+    - name: poolProvisionedIops
+      value: '{{ poolProvisionedIops }}'
+    - name: poolProvisionedThroughput
+      value: '{{ poolProvisionedThroughput }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: state
+      value: '{{ state }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: selfLinkWithId
+      value: '{{ selfLinkWithId }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: labelFingerprint
+      value: '{{ labelFingerprint }}'
+    - name: resourceStatus
+      value: '{{ resourceStatus }}'
+    - name: storagePoolType
+      value: '{{ storagePoolType }}'
+    - name: status
+      value: '{{ status }}'
+    - name: capacityProvisioningType
+      value: '{{ capacityProvisioningType }}'
+    - name: performanceProvisioningType
+      value: '{{ performanceProvisioningType }}'
 
 ```
 </TabItem>

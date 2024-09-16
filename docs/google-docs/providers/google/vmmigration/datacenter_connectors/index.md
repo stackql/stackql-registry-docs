@@ -139,37 +139,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: name
-        value: '{{ name }}'
-      - name: registrationId
-        value: '{{ registrationId }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: version
-        value: '{{ version }}'
-      - name: bucket
-        value: '{{ bucket }}'
-      - name: state
-        value: '{{ state }}'
-      - name: stateTime
-        value: '{{ stateTime }}'
-      - name: error
-        value: '{{ error }}'
-      - name: applianceInfrastructureVersion
-        value: '{{ applianceInfrastructureVersion }}'
-      - name: applianceSoftwareVersion
-        value: '{{ applianceSoftwareVersion }}'
-      - name: availableVersions
-        value: '{{ availableVersions }}'
-      - name: upgradeStatus
-        value: '{{ upgradeStatus }}'
+- name: your_resource_model_name
+  props:
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: name
+      value: '{{ name }}'
+    - name: registrationId
+      value: '{{ registrationId }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: version
+      value: '{{ version }}'
+    - name: bucket
+      value: '{{ bucket }}'
+    - name: state
+      value: '{{ state }}'
+    - name: stateTime
+      value: '{{ stateTime }}'
+    - name: error
+      value: '{{ error }}'
+    - name: applianceInfrastructureVersion
+      value: '{{ applianceInfrastructureVersion }}'
+    - name: applianceSoftwareVersion
+      value: '{{ applianceSoftwareVersion }}'
+    - name: availableVersions
+      value: '{{ availableVersions }}'
+    - name: upgradeStatus
+      value: '{{ upgradeStatus }}'
 
 ```
 </TabItem>

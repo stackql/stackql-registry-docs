@@ -37,9 +37,9 @@ Creates, updates, deletes, gets or lists a <code>clients</code> resource.
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_get_clients" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Gets the client configuration for the given project and location resource name |
+| <CopyableCode code="projects_locations_clients_replace" /> | `REPLACE` | <CopyableCode code="locationsId, projectsId" /> | Update run-as service account for provisioned client |
 | <CopyableCode code="projects_locations_clients_deprovision" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Perform the deprovisioning steps to disable a user GCP project to use IP and purge all related data in a wipeout-compliant way. |
 | <CopyableCode code="projects_locations_clients_provision" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Perform the provisioning steps to enable a user GCP project to use IP. If GCP project already registered on IP end via Apigee Integration, provisioning will fail. |
-| <CopyableCode code="projects_locations_clients_replace" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Update run-as service account for provisioned client |
 | <CopyableCode code="projects_locations_clients_switch" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Update client from GMEK to CMEK |
 | <CopyableCode code="projects_locations_clients_switch_variable_masking" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Update variable masking for provisioned client |
 
@@ -53,4 +53,18 @@ client
 FROM google.integrations.clients
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>clients</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.integrations.clients
+SET 
+runAsServiceAccount = '{{ runAsServiceAccount }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

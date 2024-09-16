@@ -146,41 +146,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: region
-        value: '{{ region }}'
-      - name: ipCidrRange
-        value: '{{ ipCidrRange }}'
-      - name: status
-        value: '{{ status }}'
-      - name: parentPrefix
-        value: '{{ parentPrefix }}'
-      - name: publicDelegatedSubPrefixs
-        value: '{{ publicDelegatedSubPrefixs }}'
-      - name: isLiveMigration
-        value: '{{ isLiveMigration }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: mode
-        value: '{{ mode }}'
-      - name: allocatablePrefixLength
-        value: '{{ allocatablePrefixLength }}'
-      - name: byoipApiVersion
-        value: '{{ byoipApiVersion }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: region
+      value: '{{ region }}'
+    - name: ipCidrRange
+      value: '{{ ipCidrRange }}'
+    - name: status
+      value: '{{ status }}'
+    - name: parentPrefix
+      value: '{{ parentPrefix }}'
+    - name: publicDelegatedSubPrefixs
+      value: '{{ publicDelegatedSubPrefixs }}'
+    - name: isLiveMigration
+      value: '{{ isLiveMigration }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: mode
+      value: '{{ mode }}'
+    - name: allocatablePrefixLength
+      value: '{{ allocatablePrefixLength }}'
+    - name: byoipApiVersion
+      value: '{{ byoipApiVersion }}'
 
 ```
 </TabItem>

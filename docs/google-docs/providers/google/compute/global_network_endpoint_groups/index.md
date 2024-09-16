@@ -154,47 +154,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: networkEndpointType
-        value: '{{ networkEndpointType }}'
-      - name: size
-        value: '{{ size }}'
-      - name: region
-        value: '{{ region }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: network
-        value: '{{ network }}'
-      - name: subnetwork
-        value: '{{ subnetwork }}'
-      - name: defaultPort
-        value: '{{ defaultPort }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: cloudRun
-        value: '{{ cloudRun }}'
-      - name: appEngine
-        value: '{{ appEngine }}'
-      - name: cloudFunction
-        value: '{{ cloudFunction }}'
-      - name: pscTargetService
-        value: '{{ pscTargetService }}'
-      - name: pscData
-        value: '{{ pscData }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: networkEndpointType
+      value: '{{ networkEndpointType }}'
+    - name: size
+      value: '{{ size }}'
+    - name: region
+      value: '{{ region }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: network
+      value: '{{ network }}'
+    - name: subnetwork
+      value: '{{ subnetwork }}'
+    - name: defaultPort
+      value: '{{ defaultPort }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: cloudRun
+      value: '{{ cloudRun }}'
+    - name: appEngine
+      value: '{{ appEngine }}'
+    - name: cloudFunction
+      value: '{{ cloudFunction }}'
+    - name: pscTargetService
+      value: '{{ pscTargetService }}'
+    - name: pscData
+      value: '{{ pscData }}'
 
 ```
 </TabItem>

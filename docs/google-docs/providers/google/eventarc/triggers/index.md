@@ -136,37 +136,36 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: eventFilters
-        value: '{{ eventFilters }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: destination
-        value: '{{ destination }}'
-      - name: transport
-        value: '{{ transport }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: channel
-        value: '{{ channel }}'
-      - name: conditions
-        value: '{{ conditions }}'
-      - name: eventDataContentType
-        value: '{{ eventDataContentType }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: etag
-        value: '{{ etag }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: eventFilters
+      value: '{{ eventFilters }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: destination
+      value: '{{ destination }}'
+    - name: transport
+      value: '{{ transport }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: channel
+      value: '{{ channel }}'
+    - name: conditions
+      value: '{{ conditions }}'
+    - name: eventDataContentType
+      value: '{{ eventDataContentType }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: etag
+      value: '{{ etag }}'
 
 ```
 </TabItem>

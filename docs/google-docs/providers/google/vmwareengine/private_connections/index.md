@@ -132,35 +132,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: description
-        value: '{{ description }}'
-      - name: state
-        value: '{{ state }}'
-      - name: vmwareEngineNetwork
-        value: '{{ vmwareEngineNetwork }}'
-      - name: vmwareEngineNetworkCanonical
-        value: '{{ vmwareEngineNetworkCanonical }}'
-      - name: type
-        value: '{{ type }}'
-      - name: peeringId
-        value: '{{ peeringId }}'
-      - name: routingMode
-        value: '{{ routingMode }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: serviceNetwork
-        value: '{{ serviceNetwork }}'
-      - name: peeringState
-        value: '{{ peeringState }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: description
+      value: '{{ description }}'
+    - name: state
+      value: '{{ state }}'
+    - name: vmwareEngineNetwork
+      value: '{{ vmwareEngineNetwork }}'
+    - name: vmwareEngineNetworkCanonical
+      value: '{{ vmwareEngineNetworkCanonical }}'
+    - name: type
+      value: '{{ type }}'
+    - name: peeringId
+      value: '{{ peeringId }}'
+    - name: routingMode
+      value: '{{ routingMode }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: serviceNetwork
+      value: '{{ serviceNetwork }}'
+    - name: peeringState
+      value: '{{ peeringState }}'
 
 ```
 </TabItem>

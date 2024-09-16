@@ -127,33 +127,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: resourceFilter
-        value: '{{ resourceFilter }}'
-      - name: ruleNames
-        value: '{{ ruleNames }}'
-      - name: ruleVersions
-        value: '{{ ruleVersions }}'
-      - name: resourceStatus
-        value: '{{ resourceStatus }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: schedule
-        value: '{{ schedule }}'
-      - name: customRulesBucket
-        value: '{{ customRulesBucket }}'
-      - name: bigQueryDestination
-        value: '{{ bigQueryDestination }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: resourceFilter
+      value: '{{ resourceFilter }}'
+    - name: ruleNames
+      value: '{{ ruleNames }}'
+    - name: ruleVersions
+      value: '{{ ruleVersions }}'
+    - name: resourceStatus
+      value: '{{ resourceStatus }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: schedule
+      value: '{{ schedule }}'
+    - name: customRulesBucket
+      value: '{{ customRulesBucket }}'
+    - name: bigQueryDestination
+      value: '{{ bigQueryDestination }}'
 
 ```
 </TabItem>

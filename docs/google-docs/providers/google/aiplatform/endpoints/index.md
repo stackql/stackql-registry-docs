@@ -170,47 +170,46 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: dedicatedEndpointDns
-        value: '{{ dedicatedEndpointDns }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: trafficSplit
-        value: '{{ trafficSplit }}'
-      - name: predictRequestResponseLoggingConfig
-        value: '{{ predictRequestResponseLoggingConfig }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: privateServiceConnectConfig
-        value: '{{ privateServiceConnectConfig }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: name
-        value: '{{ name }}'
-      - name: enablePrivateServiceConnect
-        value: '{{ enablePrivateServiceConnect }}'
-      - name: modelDeploymentMonitoringJob
-        value: '{{ modelDeploymentMonitoringJob }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: deployedModels
-        value: '{{ deployedModels }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: network
-        value: '{{ network }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: description
-        value: '{{ description }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: dedicatedEndpointEnabled
-        value: '{{ dedicatedEndpointEnabled }}'
+- name: your_resource_model_name
+  props:
+    - name: dedicatedEndpointDns
+      value: '{{ dedicatedEndpointDns }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: trafficSplit
+      value: '{{ trafficSplit }}'
+    - name: predictRequestResponseLoggingConfig
+      value: '{{ predictRequestResponseLoggingConfig }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: privateServiceConnectConfig
+      value: '{{ privateServiceConnectConfig }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: name
+      value: '{{ name }}'
+    - name: enablePrivateServiceConnect
+      value: '{{ enablePrivateServiceConnect }}'
+    - name: modelDeploymentMonitoringJob
+      value: '{{ modelDeploymentMonitoringJob }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: deployedModels
+      value: '{{ deployedModels }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: network
+      value: '{{ network }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: description
+      value: '{{ description }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: dedicatedEndpointEnabled
+      value: '{{ dedicatedEndpointEnabled }}'
 
 ```
 </TabItem>

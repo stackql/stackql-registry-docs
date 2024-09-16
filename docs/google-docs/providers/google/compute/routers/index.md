@@ -55,8 +55,8 @@ Creates, updates, deletes, gets or lists a <code>routers</code> resource.
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a Router resource in the specified project and region using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, router" /> | Deletes the specified Router resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, region, router" /> | Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="project, region, router" /> | Updates the specified Router resource with the data included in the request. This method conforms to PUT semantics, which requests that the state of the target resource be created or replaced with the state defined by the representation enclosed in the request message payload. |
 | <CopyableCode code="preview" /> | `EXEC` | <CopyableCode code="project, region, router" /> | Preview fields auto-generated during router create and update operations. Calling this method does NOT create or update the router. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, region, router" /> | Updates the specified Router resource with the data included in the request. This method conforms to PUT semantics, which requests that the state of the target resource be created or replaced with the state defined by the representation enclosed in the request message payload. |
 
 ## `SELECT` examples
 
@@ -138,37 +138,36 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: region
-        value: '{{ region }}'
-      - name: network
-        value: '{{ network }}'
-      - name: interfaces
-        value: '{{ interfaces }}'
-      - name: bgpPeers
-        value: '{{ bgpPeers }}'
-      - name: bgp
-        value: '{{ bgp }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: nats
-        value: '{{ nats }}'
-      - name: encryptedInterconnectRouter
-        value: '{{ encryptedInterconnectRouter }}'
-      - name: md5AuthenticationKeys
-        value: '{{ md5AuthenticationKeys }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: region
+      value: '{{ region }}'
+    - name: network
+      value: '{{ network }}'
+    - name: interfaces
+      value: '{{ interfaces }}'
+    - name: bgpPeers
+      value: '{{ bgpPeers }}'
+    - name: bgp
+      value: '{{ bgp }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: nats
+      value: '{{ nats }}'
+    - name: encryptedInterconnectRouter
+      value: '{{ encryptedInterconnectRouter }}'
+    - name: md5AuthenticationKeys
+      value: '{{ md5AuthenticationKeys }}'
 
 ```
 </TabItem>
@@ -181,6 +180,34 @@ Updates a <code>routers</code> resource.
 ```sql
 /*+ update */
 UPDATE google.compute.routers
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+region = '{{ region }}',
+network = '{{ network }}',
+interfaces = '{{ interfaces }}',
+bgpPeers = '{{ bgpPeers }}',
+bgp = '{{ bgp }}',
+selfLink = '{{ selfLink }}',
+nats = '{{ nats }}',
+encryptedInterconnectRouter = true|false,
+md5AuthenticationKeys = '{{ md5AuthenticationKeys }}'
+WHERE 
+project = '{{ project }}'
+AND region = '{{ region }}'
+AND router = '{{ router }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>routers</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.routers
 SET 
 kind = '{{ kind }}',
 id = '{{ id }}',

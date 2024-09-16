@@ -144,37 +144,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: filename
-        value: '{{ filename }}'
-      - name: description
-        value: '{{ description }}'
-      - name: revisionId
-        value: '{{ revisionId }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: revisionCreateTime
-        value: '{{ revisionCreateTime }}'
-      - name: revisionUpdateTime
-        value: '{{ revisionUpdateTime }}'
-      - name: mimeType
-        value: '{{ mimeType }}'
-      - name: sizeBytes
-        value: '{{ sizeBytes }}'
-      - name: hash
-        value: '{{ hash }}'
-      - name: sourceUri
-        value: '{{ sourceUri }}'
-      - name: contents
-        value: '{{ contents }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: annotations
-        value: '{{ annotations }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: filename
+      value: '{{ filename }}'
+    - name: description
+      value: '{{ description }}'
+    - name: revisionId
+      value: '{{ revisionId }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: revisionCreateTime
+      value: '{{ revisionCreateTime }}'
+    - name: revisionUpdateTime
+      value: '{{ revisionUpdateTime }}'
+    - name: mimeType
+      value: '{{ mimeType }}'
+    - name: sizeBytes
+      value: '{{ sizeBytes }}'
+    - name: hash
+      value: '{{ hash }}'
+    - name: sourceUri
+      value: '{{ sourceUri }}'
+    - name: contents
+      value: '{{ contents }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: annotations
+      value: '{{ annotations }}'
 
 ```
 </TabItem>

@@ -128,33 +128,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: region
-        value: '{{ region }}'
-      - name: healthStatusAggregationPolicy
-        value: '{{ healthStatusAggregationPolicy }}'
-      - name: healthChecks
-        value: '{{ healthChecks }}'
-      - name: networkEndpointGroups
-        value: '{{ networkEndpointGroups }}'
-      - name: notificationEndpoints
-        value: '{{ notificationEndpoints }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: region
+      value: '{{ region }}'
+    - name: healthStatusAggregationPolicy
+      value: '{{ healthStatusAggregationPolicy }}'
+    - name: healthChecks
+      value: '{{ healthChecks }}'
+    - name: networkEndpointGroups
+      value: '{{ networkEndpointGroups }}'
+    - name: notificationEndpoints
+      value: '{{ notificationEndpoints }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
 
 ```
 </TabItem>

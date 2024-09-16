@@ -151,41 +151,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: usageInfo
-        value: '{{ usageInfo }}'
-      - name: templateBundle
-        value: '{{ templateBundle }}'
-      - name: docLink
-        value: '{{ docLink }}'
-      - name: name
-        value: '{{ name }}'
-      - name: lastUsedTime
-        value: '{{ lastUsedTime }}'
-      - name: components
-        value: '{{ components }}'
-      - name: sharedWith
-        value: '{{ sharedWith }}'
-      - name: author
-        value: '{{ author }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: categories
-        value: '{{ categories }}'
-      - name: description
-        value: '{{ description }}'
-      - name: visibility
-        value: '{{ visibility }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: tags
-        value: '{{ tags }}'
-      - name: usageCount
-        value: '{{ usageCount }}'
-      - name: createTime
-        value: '{{ createTime }}'
+- name: your_resource_model_name
+  props:
+    - name: usageInfo
+      value: '{{ usageInfo }}'
+    - name: templateBundle
+      value: '{{ templateBundle }}'
+    - name: docLink
+      value: '{{ docLink }}'
+    - name: name
+      value: '{{ name }}'
+    - name: lastUsedTime
+      value: '{{ lastUsedTime }}'
+    - name: components
+      value: '{{ components }}'
+    - name: sharedWith
+      value: '{{ sharedWith }}'
+    - name: author
+      value: '{{ author }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: categories
+      value: '{{ categories }}'
+    - name: description
+      value: '{{ description }}'
+    - name: visibility
+      value: '{{ visibility }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: tags
+      value: '{{ tags }}'
+    - name: usageCount
+      value: '{{ usageCount }}'
+    - name: createTime
+      value: '{{ createTime }}'
 
 ```
 </TabItem>

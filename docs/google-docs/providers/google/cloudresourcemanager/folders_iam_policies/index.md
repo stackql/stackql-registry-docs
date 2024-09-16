@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>folders_iam_policies</code> res
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="foldersId" /> | Gets the access control policy for a folder. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the folder's resource name, for example: "folders/1234". The caller must have `resourcemanager.folders.getIamPolicy` permission on the identified folder. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="foldersId" /> | Sets the access control policy on a folder, replacing any existing policy. The `resource` field should be the folder's resource name, for example: "folders/1234". The caller must have `resourcemanager.folders.setIamPolicy` permission on the identified folder. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="foldersId" /> | Sets the access control policy on a folder, replacing any existing policy. The `resource` field should be the folder's resource name, for example: "folders/1234". The caller must have `resourcemanager.folders.setIamPolicy` permission on the identified folder. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="foldersId" /> | Returns permissions that a caller has on the specified folder. The `resource` field should be the folder's resource name, for example: "folders/1234". There are no permissions required for making this API call. |
 
 ## `SELECT` examples
@@ -53,4 +53,18 @@ members,
 role
 FROM google.cloudresourcemanager.folders_iam_policies
 WHERE foldersId = '{{ foldersId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>folders_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.cloudresourcemanager.folders_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+foldersId = '{{ foldersId }}';
 ```

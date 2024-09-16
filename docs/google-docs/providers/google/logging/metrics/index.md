@@ -52,7 +52,7 @@ Creates, updates, deletes, gets or lists a <code>metrics</code> resource.
 | <CopyableCode code="projects_metrics_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists logs-based metrics. |
 | <CopyableCode code="projects_metrics_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a logs-based metric. |
 | <CopyableCode code="projects_metrics_delete" /> | `DELETE` | <CopyableCode code="metricsId, projectsId" /> | Deletes a logs-based metric. |
-| <CopyableCode code="projects_metrics_update" /> | `EXEC` | <CopyableCode code="metricsId, projectsId" /> | Creates or updates a logs-based metric. |
+| <CopyableCode code="projects_metrics_update" /> | `REPLACE` | <CopyableCode code="metricsId, projectsId" /> | Creates or updates a logs-based metric. |
 
 ## `SELECT` examples
 
@@ -129,39 +129,64 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: resourceName
-        value: '{{ resourceName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: filter
-        value: '{{ filter }}'
-      - name: bucketName
-        value: '{{ bucketName }}'
-      - name: disabled
-        value: '{{ disabled }}'
-      - name: metricDescriptor
-        value: '{{ metricDescriptor }}'
-      - name: valueExtractor
-        value: '{{ valueExtractor }}'
-      - name: labelExtractors
-        value: '{{ labelExtractors }}'
-      - name: bucketOptions
-        value: '{{ bucketOptions }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: version
-        value: '{{ version }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: resourceName
+      value: '{{ resourceName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: filter
+      value: '{{ filter }}'
+    - name: bucketName
+      value: '{{ bucketName }}'
+    - name: disabled
+      value: '{{ disabled }}'
+    - name: metricDescriptor
+      value: '{{ metricDescriptor }}'
+    - name: valueExtractor
+      value: '{{ valueExtractor }}'
+    - name: labelExtractors
+      value: '{{ labelExtractors }}'
+    - name: bucketOptions
+      value: '{{ bucketOptions }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: version
+      value: '{{ version }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>metrics</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.logging.metrics
+SET 
+name = '{{ name }}',
+resourceName = '{{ resourceName }}',
+description = '{{ description }}',
+filter = '{{ filter }}',
+bucketName = '{{ bucketName }}',
+disabled = true|false,
+metricDescriptor = '{{ metricDescriptor }}',
+valueExtractor = '{{ valueExtractor }}',
+labelExtractors = '{{ labelExtractors }}',
+bucketOptions = '{{ bucketOptions }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+version = '{{ version }}'
+WHERE 
+metricsId = '{{ metricsId }}'
+AND projectsId = '{{ projectsId }}';
+```
 
 ## `DELETE` example
 

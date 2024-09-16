@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>repositories_iam_policies</code
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Gets the IAM policy for a given resource. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Updates the IAM policy for a given resource. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Updates the IAM policy for a given resource. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, repositoriesId" /> | Tests if the caller has a list of permissions on a resource. |
 
 ## `SELECT` examples
@@ -55,4 +55,19 @@ FROM google.artifactregistry.repositories_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND repositoriesId = '{{ repositoriesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>repositories_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.artifactregistry.repositories_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
 ```

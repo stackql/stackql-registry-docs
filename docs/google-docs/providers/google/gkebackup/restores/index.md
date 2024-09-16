@@ -159,47 +159,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: description
-        value: '{{ description }}'
-      - name: backup
-        value: '{{ backup }}'
-      - name: cluster
-        value: '{{ cluster }}'
-      - name: restoreConfig
-        value: '{{ restoreConfig }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: state
-        value: '{{ state }}'
-      - name: stateReason
-        value: '{{ stateReason }}'
-      - name: completeTime
-        value: '{{ completeTime }}'
-      - name: resourcesRestoredCount
-        value: '{{ resourcesRestoredCount }}'
-      - name: resourcesExcludedCount
-        value: '{{ resourcesExcludedCount }}'
-      - name: resourcesFailedCount
-        value: '{{ resourcesFailedCount }}'
-      - name: volumesRestoredCount
-        value: '{{ volumesRestoredCount }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: filter
-        value: '{{ filter }}'
-      - name: volumeDataRestorePolicyOverrides
-        value: '{{ volumeDataRestorePolicyOverrides }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: description
+      value: '{{ description }}'
+    - name: backup
+      value: '{{ backup }}'
+    - name: cluster
+      value: '{{ cluster }}'
+    - name: restoreConfig
+      value: '{{ restoreConfig }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: state
+      value: '{{ state }}'
+    - name: stateReason
+      value: '{{ stateReason }}'
+    - name: completeTime
+      value: '{{ completeTime }}'
+    - name: resourcesRestoredCount
+      value: '{{ resourcesRestoredCount }}'
+    - name: resourcesExcludedCount
+      value: '{{ resourcesExcludedCount }}'
+    - name: resourcesFailedCount
+      value: '{{ resourcesFailedCount }}'
+    - name: volumesRestoredCount
+      value: '{{ volumesRestoredCount }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: filter
+      value: '{{ filter }}'
+    - name: volumeDataRestorePolicyOverrides
+      value: '{{ volumeDataRestorePolicyOverrides }}'
 
 ```
 </TabItem>

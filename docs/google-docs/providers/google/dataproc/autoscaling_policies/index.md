@@ -49,8 +49,8 @@ Creates, updates, deletes, gets or lists a <code>autoscaling_policies</code> res
 | <CopyableCode code="projects_regions_autoscaling_policies_create" /> | `INSERT` | <CopyableCode code="projectsId, regionsId" /> | Creates new autoscaling policy. |
 | <CopyableCode code="projects_locations_autoscaling_policies_delete" /> | `DELETE` | <CopyableCode code="autoscalingPoliciesId, locationsId, projectsId" /> | Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. |
 | <CopyableCode code="projects_regions_autoscaling_policies_delete" /> | `DELETE` | <CopyableCode code="autoscalingPoliciesId, projectsId, regionsId" /> | Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. |
-| <CopyableCode code="projects_locations_autoscaling_policies_update" /> | `EXEC` | <CopyableCode code="autoscalingPoliciesId, locationsId, projectsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
-| <CopyableCode code="projects_regions_autoscaling_policies_update" /> | `EXEC` | <CopyableCode code="autoscalingPoliciesId, projectsId, regionsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
+| <CopyableCode code="projects_locations_autoscaling_policies_update" /> | `REPLACE` | <CopyableCode code="autoscalingPoliciesId, locationsId, projectsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
+| <CopyableCode code="projects_regions_autoscaling_policies_update" /> | `REPLACE` | <CopyableCode code="autoscalingPoliciesId, projectsId, regionsId" /> | Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. |
 
 ## `SELECT` examples
 
@@ -109,25 +109,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: id
-        value: '{{ id }}'
-      - name: name
-        value: '{{ name }}'
-      - name: basicAlgorithm
-        value: '{{ basicAlgorithm }}'
-      - name: workerConfig
-        value: '{{ workerConfig }}'
-      - name: secondaryWorkerConfig
-        value: '{{ secondaryWorkerConfig }}'
-      - name: labels
-        value: '{{ labels }}'
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: '{{ id }}'
+    - name: name
+      value: '{{ name }}'
+    - name: basicAlgorithm
+      value: '{{ basicAlgorithm }}'
+    - name: workerConfig
+      value: '{{ workerConfig }}'
+    - name: secondaryWorkerConfig
+      value: '{{ secondaryWorkerConfig }}'
+    - name: labels
+      value: '{{ labels }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>autoscaling_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dataproc.autoscaling_policies
+SET 
+id = '{{ id }}',
+name = '{{ name }}',
+basicAlgorithm = '{{ basicAlgorithm }}',
+workerConfig = '{{ workerConfig }}',
+secondaryWorkerConfig = '{{ secondaryWorkerConfig }}',
+labels = '{{ labels }}'
+WHERE 
+autoscalingPoliciesId = '{{ autoscalingPoliciesId }}'
+AND projectsId = '{{ projectsId }}'
+AND regionsId = '{{ regionsId }}';
+```
 
 ## `DELETE` example
 

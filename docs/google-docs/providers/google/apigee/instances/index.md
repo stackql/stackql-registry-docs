@@ -142,41 +142,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: serviceAttachment
-        value: '{{ serviceAttachment }}'
-      - name: runtimeVersion
-        value: '{{ runtimeVersion }}'
-      - name: accessLoggingConfig
-        value: '{{ accessLoggingConfig }}'
-      - name: ipRange
-        value: '{{ ipRange }}'
-      - name: host
-        value: '{{ host }}'
-      - name: lastModifiedAt
-        value: '{{ lastModifiedAt }}'
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: location
-        value: '{{ location }}'
-      - name: peeringCidrRange
-        value: '{{ peeringCidrRange }}'
-      - name: port
-        value: '{{ port }}'
-      - name: diskEncryptionKeyName
-        value: '{{ diskEncryptionKeyName }}'
-      - name: state
-        value: '{{ state }}'
-      - name: consumerAcceptList
-        value: '{{ consumerAcceptList }}'
-      - name: createdAt
-        value: '{{ createdAt }}'
+- name: your_resource_model_name
+  props:
+    - name: serviceAttachment
+      value: '{{ serviceAttachment }}'
+    - name: runtimeVersion
+      value: '{{ runtimeVersion }}'
+    - name: accessLoggingConfig
+      value: '{{ accessLoggingConfig }}'
+    - name: ipRange
+      value: '{{ ipRange }}'
+    - name: host
+      value: '{{ host }}'
+    - name: lastModifiedAt
+      value: '{{ lastModifiedAt }}'
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: location
+      value: '{{ location }}'
+    - name: peeringCidrRange
+      value: '{{ peeringCidrRange }}'
+    - name: port
+      value: '{{ port }}'
+    - name: diskEncryptionKeyName
+      value: '{{ diskEncryptionKeyName }}'
+    - name: state
+      value: '{{ state }}'
+    - name: consumerAcceptList
+      value: '{{ consumerAcceptList }}'
+    - name: createdAt
+      value: '{{ createdAt }}'
 
 ```
 </TabItem>

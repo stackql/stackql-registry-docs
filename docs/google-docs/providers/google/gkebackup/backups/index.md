@@ -195,65 +195,64 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: manual
-        value: '{{ manual }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: deleteLockDays
-        value: '{{ deleteLockDays }}'
-      - name: deleteLockExpireTime
-        value: '{{ deleteLockExpireTime }}'
-      - name: retainDays
-        value: '{{ retainDays }}'
-      - name: retainExpireTime
-        value: '{{ retainExpireTime }}'
-      - name: encryptionKey
-        value: '{{ encryptionKey }}'
-      - name: allNamespaces
-        value: '{{ allNamespaces }}'
-      - name: selectedNamespaces
-        value: '{{ selectedNamespaces }}'
-      - name: selectedApplications
-        value: '{{ selectedApplications }}'
-      - name: containsVolumeData
-        value: '{{ containsVolumeData }}'
-      - name: containsSecrets
-        value: '{{ containsSecrets }}'
-      - name: clusterMetadata
-        value: '{{ clusterMetadata }}'
-      - name: state
-        value: '{{ state }}'
-      - name: stateReason
-        value: '{{ stateReason }}'
-      - name: completeTime
-        value: '{{ completeTime }}'
-      - name: resourceCount
-        value: '{{ resourceCount }}'
-      - name: volumeCount
-        value: '{{ volumeCount }}'
-      - name: sizeBytes
-        value: '{{ sizeBytes }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: description
-        value: '{{ description }}'
-      - name: podCount
-        value: '{{ podCount }}'
-      - name: configBackupSizeBytes
-        value: '{{ configBackupSizeBytes }}'
-      - name: permissiveMode
-        value: '{{ permissiveMode }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: manual
+      value: '{{ manual }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: deleteLockDays
+      value: '{{ deleteLockDays }}'
+    - name: deleteLockExpireTime
+      value: '{{ deleteLockExpireTime }}'
+    - name: retainDays
+      value: '{{ retainDays }}'
+    - name: retainExpireTime
+      value: '{{ retainExpireTime }}'
+    - name: encryptionKey
+      value: '{{ encryptionKey }}'
+    - name: allNamespaces
+      value: '{{ allNamespaces }}'
+    - name: selectedNamespaces
+      value: '{{ selectedNamespaces }}'
+    - name: selectedApplications
+      value: '{{ selectedApplications }}'
+    - name: containsVolumeData
+      value: '{{ containsVolumeData }}'
+    - name: containsSecrets
+      value: '{{ containsSecrets }}'
+    - name: clusterMetadata
+      value: '{{ clusterMetadata }}'
+    - name: state
+      value: '{{ state }}'
+    - name: stateReason
+      value: '{{ stateReason }}'
+    - name: completeTime
+      value: '{{ completeTime }}'
+    - name: resourceCount
+      value: '{{ resourceCount }}'
+    - name: volumeCount
+      value: '{{ volumeCount }}'
+    - name: sizeBytes
+      value: '{{ sizeBytes }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: description
+      value: '{{ description }}'
+    - name: podCount
+      value: '{{ podCount }}'
+    - name: configBackupSizeBytes
+      value: '{{ configBackupSizeBytes }}'
+    - name: permissiveMode
+      value: '{{ permissiveMode }}'
 
 ```
 </TabItem>

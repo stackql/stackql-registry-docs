@@ -64,7 +64,7 @@ Creates, updates, deletes, gets or lists a <code>default_object_access_controls<
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="bucket" /> | Creates a new default object ACL entry on the specified bucket. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bucket, entity" /> | Permanently deletes the default object ACL entry for the specified entity on the specified bucket. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="bucket, entity" /> | Patches a default object ACL entry on the specified bucket. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="bucket, entity" /> | Updates a default object ACL entry on the specified bucket. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="bucket, entity" /> | Updates a default object ACL entry on the specified bucket. |
 
 ## `SELECT` examples
 
@@ -141,39 +141,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: bucket
-        value: '{{ bucket }}'
-      - name: domain
-        value: '{{ domain }}'
-      - name: email
-        value: '{{ email }}'
-      - name: entity
-        value: '{{ entity }}'
-      - name: entityId
-        value: '{{ entityId }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: generation
-        value: '{{ generation }}'
-      - name: id
-        value: '{{ id }}'
-      - name: kind
-        value: '{{ kind }}'
-      - name: object
-        value: '{{ object }}'
-      - name: projectTeam
-        value:
-          - name: projectNumber
-            value: '{{ projectNumber }}'
-          - name: team
-            value: '{{ team }}'
-      - name: role
-        value: '{{ role }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
+- name: your_resource_model_name
+  props:
+    - name: bucket
+      value: '{{ bucket }}'
+    - name: domain
+      value: '{{ domain }}'
+    - name: email
+      value: '{{ email }}'
+    - name: entity
+      value: '{{ entity }}'
+    - name: entityId
+      value: '{{ entityId }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: generation
+      value: '{{ generation }}'
+    - name: id
+      value: '{{ id }}'
+    - name: kind
+      value: '{{ kind }}'
+    - name: object
+      value: '{{ object }}'
+    - name: projectTeam
+      value:
+        - name: projectNumber
+          value: '{{ projectNumber }}'
+        - name: team
+          value: '{{ team }}'
+    - name: role
+      value: '{{ role }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
 
 ```
 </TabItem>
@@ -186,6 +185,32 @@ Updates a <code>default_object_access_controls</code> resource.
 ```sql
 /*+ update */
 UPDATE google.storage.default_object_access_controls
+SET 
+bucket = '{{ bucket }}',
+domain = '{{ domain }}',
+email = '{{ email }}',
+entity = '{{ entity }}',
+entityId = '{{ entityId }}',
+etag = '{{ etag }}',
+generation = '{{ generation }}',
+id = '{{ id }}',
+kind = '{{ kind }}',
+object = '{{ object }}',
+projectTeam = '{{ projectTeam }}',
+role = '{{ role }}',
+selfLink = '{{ selfLink }}'
+WHERE 
+bucket = '{{ bucket }}'
+AND entity = '{{ entity }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>default_object_access_controls</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.storage.default_object_access_controls
 SET 
 bucket = '{{ bucket }}',
 domain = '{{ domain }}',

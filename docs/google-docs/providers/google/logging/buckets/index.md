@@ -146,31 +146,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: retentionDays
-        value: '{{ retentionDays }}'
-      - name: locked
-        value: '{{ locked }}'
-      - name: lifecycleState
-        value: '{{ lifecycleState }}'
-      - name: analyticsEnabled
-        value: '{{ analyticsEnabled }}'
-      - name: restrictedFields
-        value: '{{ restrictedFields }}'
-      - name: indexConfigs
-        value: '{{ indexConfigs }}'
-      - name: cmekSettings
-        value: '{{ cmekSettings }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: retentionDays
+      value: '{{ retentionDays }}'
+    - name: locked
+      value: '{{ locked }}'
+    - name: lifecycleState
+      value: '{{ lifecycleState }}'
+    - name: analyticsEnabled
+      value: '{{ analyticsEnabled }}'
+    - name: restrictedFields
+      value: '{{ restrictedFields }}'
+    - name: indexConfigs
+      value: '{{ indexConfigs }}'
+    - name: cmekSettings
+      value: '{{ cmekSettings }}'
 
 ```
 </TabItem>

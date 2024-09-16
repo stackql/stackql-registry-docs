@@ -158,47 +158,46 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: lastPauseTime
-        value: '{{ lastPauseTime }}'
-      - name: catchUp
-        value: '{{ catchUp }}'
-      - name: maxRunCount
-        value: '{{ maxRunCount }}'
-      - name: allowQueueing
-        value: '{{ allowQueueing }}'
-      - name: createNotebookExecutionJobRequest
-        value: '{{ createNotebookExecutionJobRequest }}'
-      - name: state
-        value: '{{ state }}'
-      - name: cron
-        value: '{{ cron }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: createPipelineJobRequest
-        value: '{{ createPipelineJobRequest }}'
-      - name: name
-        value: '{{ name }}'
-      - name: lastResumeTime
-        value: '{{ lastResumeTime }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: maxConcurrentRunCount
-        value: '{{ maxConcurrentRunCount }}'
-      - name: nextRunTime
-        value: '{{ nextRunTime }}'
-      - name: lastScheduledRunResponse
-        value: '{{ lastScheduledRunResponse }}'
-      - name: startedRunCount
-        value: '{{ startedRunCount }}'
+- name: your_resource_model_name
+  props:
+    - name: lastPauseTime
+      value: '{{ lastPauseTime }}'
+    - name: catchUp
+      value: '{{ catchUp }}'
+    - name: maxRunCount
+      value: '{{ maxRunCount }}'
+    - name: allowQueueing
+      value: '{{ allowQueueing }}'
+    - name: createNotebookExecutionJobRequest
+      value: '{{ createNotebookExecutionJobRequest }}'
+    - name: state
+      value: '{{ state }}'
+    - name: cron
+      value: '{{ cron }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: createPipelineJobRequest
+      value: '{{ createPipelineJobRequest }}'
+    - name: name
+      value: '{{ name }}'
+    - name: lastResumeTime
+      value: '{{ lastResumeTime }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: maxConcurrentRunCount
+      value: '{{ maxConcurrentRunCount }}'
+    - name: nextRunTime
+      value: '{{ nextRunTime }}'
+    - name: lastScheduledRunResponse
+      value: '{{ lastScheduledRunResponse }}'
+    - name: startedRunCount
+      value: '{{ startedRunCount }}'
 
 ```
 </TabItem>

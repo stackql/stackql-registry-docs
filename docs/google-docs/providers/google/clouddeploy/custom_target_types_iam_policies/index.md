@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>custom_target_types_iam_policie
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="customTargetTypesId, locationsId, projectsId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="customTargetTypesId, locationsId, projectsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="customTargetTypesId, locationsId, projectsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
 
 ## `SELECT` examples
 
@@ -54,4 +54,20 @@ FROM google.clouddeploy.custom_target_types_iam_policies
 WHERE customTargetTypesId = '{{ customTargetTypesId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>custom_target_types_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.clouddeploy.custom_target_types_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+customTargetTypesId = '{{ customTargetTypesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

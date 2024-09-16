@@ -47,7 +47,7 @@ Creates, updates, deletes, gets or lists a <code>response_policies</code> resour
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new Response Policy |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, responsePolicy" /> | Deletes a previously created Response Policy. Fails if the response policy is non-empty or still being referenced by a network. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, responsePolicy" /> | Applies a partial update to an existing Response Policy. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, responsePolicy" /> | Updates an existing Response Policy. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="project, responsePolicy" /> | Updates an existing Response Policy. |
 
 ## `SELECT` examples
 
@@ -106,23 +106,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: id
-        value: '{{ id }}'
-      - name: responsePolicyName
-        value: '{{ responsePolicyName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: networks
-        value: '{{ networks }}'
-      - name: gkeClusters
-        value: '{{ gkeClusters }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: kind
-        value: '{{ kind }}'
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: '{{ id }}'
+    - name: responsePolicyName
+      value: '{{ responsePolicyName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: networks
+      value: '{{ networks }}'
+    - name: gkeClusters
+      value: '{{ gkeClusters }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: kind
+      value: '{{ kind }}'
 
 ```
 </TabItem>
@@ -135,6 +134,26 @@ Updates a <code>response_policies</code> resource.
 ```sql
 /*+ update */
 UPDATE google.dns.response_policies
+SET 
+id = '{{ id }}',
+responsePolicyName = '{{ responsePolicyName }}',
+description = '{{ description }}',
+networks = '{{ networks }}',
+gkeClusters = '{{ gkeClusters }}',
+labels = '{{ labels }}',
+kind = '{{ kind }}'
+WHERE 
+project = '{{ project }}'
+AND responsePolicy = '{{ responsePolicy }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>response_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dns.response_policies
 SET 
 id = '{{ id }}',
 responsePolicyName = '{{ responsePolicyName }}',

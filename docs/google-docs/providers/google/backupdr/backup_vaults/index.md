@@ -140,39 +140,38 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: backupMinimumEnforcedRetentionDuration
-        value: '{{ backupMinimumEnforcedRetentionDuration }}'
-      - name: deletable
-        value: '{{ deletable }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: state
-        value: '{{ state }}'
-      - name: effectiveTime
-        value: '{{ effectiveTime }}'
-      - name: backupCount
-        value: '{{ backupCount }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: totalStoredBytes
-        value: '{{ totalStoredBytes }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: annotations
-        value: '{{ annotations }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: backupMinimumEnforcedRetentionDuration
+      value: '{{ backupMinimumEnforcedRetentionDuration }}'
+    - name: deletable
+      value: '{{ deletable }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: state
+      value: '{{ state }}'
+    - name: effectiveTime
+      value: '{{ effectiveTime }}'
+    - name: backupCount
+      value: '{{ backupCount }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: totalStoredBytes
+      value: '{{ totalStoredBytes }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: annotations
+      value: '{{ annotations }}'
 
 ```
 </TabItem>

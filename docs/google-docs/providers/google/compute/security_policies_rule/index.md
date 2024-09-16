@@ -122,31 +122,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: description
-        value: '{{ description }}'
-      - name: priority
-        value: '{{ priority }}'
-      - name: match
-        value: '{{ match }}'
-      - name: networkMatch
-        value: '{{ networkMatch }}'
-      - name: action
-        value: '{{ action }}'
-      - name: preview
-        value: '{{ preview }}'
-      - name: rateLimitOptions
-        value: '{{ rateLimitOptions }}'
-      - name: headerAction
-        value: '{{ headerAction }}'
-      - name: redirectOptions
-        value: '{{ redirectOptions }}'
-      - name: preconfiguredWafConfig
-        value: '{{ preconfiguredWafConfig }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: description
+      value: '{{ description }}'
+    - name: priority
+      value: '{{ priority }}'
+    - name: match
+      value: '{{ match }}'
+    - name: networkMatch
+      value: '{{ networkMatch }}'
+    - name: action
+      value: '{{ action }}'
+    - name: preview
+      value: '{{ preview }}'
+    - name: rateLimitOptions
+      value: '{{ rateLimitOptions }}'
+    - name: headerAction
+      value: '{{ headerAction }}'
+    - name: redirectOptions
+      value: '{{ redirectOptions }}'
+    - name: preconfiguredWafConfig
+      value: '{{ preconfiguredWafConfig }}'
 
 ```
 </TabItem>

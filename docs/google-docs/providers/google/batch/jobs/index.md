@@ -123,31 +123,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: priority
-        value: '{{ priority }}'
-      - name: taskGroups
-        value: '{{ taskGroups }}'
-      - name: allocationPolicy
-        value: '{{ allocationPolicy }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: status
-        value: '{{ status }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: logsPolicy
-        value: '{{ logsPolicy }}'
-      - name: notifications
-        value: '{{ notifications }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: priority
+      value: '{{ priority }}'
+    - name: taskGroups
+      value: '{{ taskGroups }}'
+    - name: allocationPolicy
+      value: '{{ allocationPolicy }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: status
+      value: '{{ status }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: logsPolicy
+      value: '{{ logsPolicy }}'
+    - name: notifications
+      value: '{{ notifications }}'
 
 ```
 </TabItem>

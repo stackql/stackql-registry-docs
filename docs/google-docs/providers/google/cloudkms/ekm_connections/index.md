@@ -104,21 +104,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: serviceResolvers
-        value: '{{ serviceResolvers }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: keyManagementMode
-        value: '{{ keyManagementMode }}'
-      - name: cryptoSpacePath
-        value: '{{ cryptoSpacePath }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: serviceResolvers
+      value: '{{ serviceResolvers }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: keyManagementMode
+      value: '{{ keyManagementMode }}'
+    - name: cryptoSpacePath
+      value: '{{ cryptoSpacePath }}'
 
 ```
 </TabItem>

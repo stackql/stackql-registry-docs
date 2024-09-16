@@ -137,19 +137,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: cloudAiDocumentOption
-        value: '{{ cloudAiDocumentOption }}'
-      - name: policy
-        value: '{{ policy }}'
-      - name: document
-        value: '{{ document }}'
-      - name: requestMetadata
-        value: '{{ requestMetadata }}'
-      - name: createMask
-        value: '{{ createMask }}'
+- name: your_resource_model_name
+  props:
+    - name: cloudAiDocumentOption
+      value: '{{ cloudAiDocumentOption }}'
+    - name: policy
+      value: '{{ policy }}'
+    - name: document
+      value: '{{ document }}'
+    - name: requestMetadata
+      value: '{{ requestMetadata }}'
+    - name: createMask
+      value: '{{ createMask }}'
 
 ```
 </TabItem>

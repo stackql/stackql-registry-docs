@@ -225,77 +225,76 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: ttl
-        value: '{{ ttl }}'
-      - name: name
-        value: '{{ name }}'
-      - name: id
-        value: '{{ id }}'
-      - name: type
-        value: '{{ type }}'
-      - name: primaryProductId
-        value: '{{ primaryProductId }}'
-      - name: collectionMemberIds
-        value: '{{ collectionMemberIds }}'
-      - name: gtin
-        value: '{{ gtin }}'
-      - name: categories
-        value: '{{ categories }}'
-      - name: title
-        value: '{{ title }}'
-      - name: brands
-        value: '{{ brands }}'
-      - name: description
-        value: '{{ description }}'
-      - name: languageCode
-        value: '{{ languageCode }}'
-      - name: attributes
-        value: '{{ attributes }}'
-      - name: tags
-        value: '{{ tags }}'
-      - name: priceInfo
-        value: '{{ priceInfo }}'
-      - name: rating
-        value: '{{ rating }}'
-      - name: availableTime
-        value: '{{ availableTime }}'
-      - name: availability
-        value: '{{ availability }}'
-      - name: availableQuantity
-        value: '{{ availableQuantity }}'
-      - name: fulfillmentInfo
-        value: '{{ fulfillmentInfo }}'
-      - name: uri
-        value: '{{ uri }}'
-      - name: images
-        value: '{{ images }}'
-      - name: audience
-        value: '{{ audience }}'
-      - name: colorInfo
-        value: '{{ colorInfo }}'
-      - name: sizes
-        value: '{{ sizes }}'
-      - name: materials
-        value: '{{ materials }}'
-      - name: patterns
-        value: '{{ patterns }}'
-      - name: conditions
-        value: '{{ conditions }}'
-      - name: promotions
-        value: '{{ promotions }}'
-      - name: publishTime
-        value: '{{ publishTime }}'
-      - name: retrievableFields
-        value: '{{ retrievableFields }}'
-      - name: variants
-        value: '{{ variants }}'
-      - name: localInventories
-        value: '{{ localInventories }}'
+- name: your_resource_model_name
+  props:
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: ttl
+      value: '{{ ttl }}'
+    - name: name
+      value: '{{ name }}'
+    - name: id
+      value: '{{ id }}'
+    - name: type
+      value: '{{ type }}'
+    - name: primaryProductId
+      value: '{{ primaryProductId }}'
+    - name: collectionMemberIds
+      value: '{{ collectionMemberIds }}'
+    - name: gtin
+      value: '{{ gtin }}'
+    - name: categories
+      value: '{{ categories }}'
+    - name: title
+      value: '{{ title }}'
+    - name: brands
+      value: '{{ brands }}'
+    - name: description
+      value: '{{ description }}'
+    - name: languageCode
+      value: '{{ languageCode }}'
+    - name: attributes
+      value: '{{ attributes }}'
+    - name: tags
+      value: '{{ tags }}'
+    - name: priceInfo
+      value: '{{ priceInfo }}'
+    - name: rating
+      value: '{{ rating }}'
+    - name: availableTime
+      value: '{{ availableTime }}'
+    - name: availability
+      value: '{{ availability }}'
+    - name: availableQuantity
+      value: '{{ availableQuantity }}'
+    - name: fulfillmentInfo
+      value: '{{ fulfillmentInfo }}'
+    - name: uri
+      value: '{{ uri }}'
+    - name: images
+      value: '{{ images }}'
+    - name: audience
+      value: '{{ audience }}'
+    - name: colorInfo
+      value: '{{ colorInfo }}'
+    - name: sizes
+      value: '{{ sizes }}'
+    - name: materials
+      value: '{{ materials }}'
+    - name: patterns
+      value: '{{ patterns }}'
+    - name: conditions
+      value: '{{ conditions }}'
+    - name: promotions
+      value: '{{ promotions }}'
+    - name: publishTime
+      value: '{{ publishTime }}'
+    - name: retrievableFields
+      value: '{{ retrievableFields }}'
+    - name: variants
+      value: '{{ variants }}'
+    - name: localInventories
+      value: '{{ localInventories }}'
 
 ```
 </TabItem>

@@ -209,69 +209,68 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: linkedResource
-        value: '{{ linkedResource }}'
-      - name: fullyQualifiedName
-        value: '{{ fullyQualifiedName }}'
-      - name: type
-        value: '{{ type }}'
-      - name: userSpecifiedType
-        value: '{{ userSpecifiedType }}'
-      - name: integratedSystem
-        value: '{{ integratedSystem }}'
-      - name: userSpecifiedSystem
-        value: '{{ userSpecifiedSystem }}'
-      - name: sqlDatabaseSystemSpec
-        value: '{{ sqlDatabaseSystemSpec }}'
-      - name: lookerSystemSpec
-        value: '{{ lookerSystemSpec }}'
-      - name: cloudBigtableSystemSpec
-        value: '{{ cloudBigtableSystemSpec }}'
-      - name: gcsFilesetSpec
-        value: '{{ gcsFilesetSpec }}'
-      - name: bigqueryTableSpec
-        value: '{{ bigqueryTableSpec }}'
-      - name: bigqueryDateShardedSpec
-        value: '{{ bigqueryDateShardedSpec }}'
-      - name: databaseTableSpec
-        value: '{{ databaseTableSpec }}'
-      - name: dataSourceConnectionSpec
-        value: '{{ dataSourceConnectionSpec }}'
-      - name: routineSpec
-        value: '{{ routineSpec }}'
-      - name: datasetSpec
-        value: '{{ datasetSpec }}'
-      - name: filesetSpec
-        value: '{{ filesetSpec }}'
-      - name: serviceSpec
-        value: '{{ serviceSpec }}'
-      - name: modelSpec
-        value: '{{ modelSpec }}'
-      - name: featureOnlineStoreSpec
-        value: '{{ featureOnlineStoreSpec }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: businessContext
-        value: '{{ businessContext }}'
-      - name: schema
-        value: '{{ schema }}'
-      - name: sourceSystemTimestamps
-        value: '{{ sourceSystemTimestamps }}'
-      - name: usageSignal
-        value: '{{ usageSignal }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: dataSource
-        value: '{{ dataSource }}'
-      - name: personalDetails
-        value: '{{ personalDetails }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: linkedResource
+      value: '{{ linkedResource }}'
+    - name: fullyQualifiedName
+      value: '{{ fullyQualifiedName }}'
+    - name: type
+      value: '{{ type }}'
+    - name: userSpecifiedType
+      value: '{{ userSpecifiedType }}'
+    - name: integratedSystem
+      value: '{{ integratedSystem }}'
+    - name: userSpecifiedSystem
+      value: '{{ userSpecifiedSystem }}'
+    - name: sqlDatabaseSystemSpec
+      value: '{{ sqlDatabaseSystemSpec }}'
+    - name: lookerSystemSpec
+      value: '{{ lookerSystemSpec }}'
+    - name: cloudBigtableSystemSpec
+      value: '{{ cloudBigtableSystemSpec }}'
+    - name: gcsFilesetSpec
+      value: '{{ gcsFilesetSpec }}'
+    - name: bigqueryTableSpec
+      value: '{{ bigqueryTableSpec }}'
+    - name: bigqueryDateShardedSpec
+      value: '{{ bigqueryDateShardedSpec }}'
+    - name: databaseTableSpec
+      value: '{{ databaseTableSpec }}'
+    - name: dataSourceConnectionSpec
+      value: '{{ dataSourceConnectionSpec }}'
+    - name: routineSpec
+      value: '{{ routineSpec }}'
+    - name: datasetSpec
+      value: '{{ datasetSpec }}'
+    - name: filesetSpec
+      value: '{{ filesetSpec }}'
+    - name: serviceSpec
+      value: '{{ serviceSpec }}'
+    - name: modelSpec
+      value: '{{ modelSpec }}'
+    - name: featureOnlineStoreSpec
+      value: '{{ featureOnlineStoreSpec }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: businessContext
+      value: '{{ businessContext }}'
+    - name: schema
+      value: '{{ schema }}'
+    - name: sourceSystemTimestamps
+      value: '{{ sourceSystemTimestamps }}'
+    - name: usageSignal
+      value: '{{ usageSignal }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: dataSource
+      value: '{{ dataSource }}'
+    - name: personalDetails
+      value: '{{ personalDetails }}'
 
 ```
 </TabItem>

@@ -132,33 +132,32 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: primary
-        value: '{{ primary }}'
-      - name: purpose
-        value: '{{ purpose }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: nextRotationTime
-        value: '{{ nextRotationTime }}'
-      - name: rotationPeriod
-        value: '{{ rotationPeriod }}'
-      - name: versionTemplate
-        value: '{{ versionTemplate }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: importOnly
-        value: '{{ importOnly }}'
-      - name: destroyScheduledDuration
-        value: '{{ destroyScheduledDuration }}'
-      - name: cryptoKeyBackend
-        value: '{{ cryptoKeyBackend }}'
-      - name: keyAccessJustificationsPolicy
-        value: '{{ keyAccessJustificationsPolicy }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: primary
+      value: '{{ primary }}'
+    - name: purpose
+      value: '{{ purpose }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: nextRotationTime
+      value: '{{ nextRotationTime }}'
+    - name: rotationPeriod
+      value: '{{ rotationPeriod }}'
+    - name: versionTemplate
+      value: '{{ versionTemplate }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: importOnly
+      value: '{{ importOnly }}'
+    - name: destroyScheduledDuration
+      value: '{{ destroyScheduledDuration }}'
+    - name: cryptoKeyBackend
+      value: '{{ cryptoKeyBackend }}'
+    - name: keyAccessJustificationsPolicy
+      value: '{{ keyAccessJustificationsPolicy }}'
 
 ```
 </TabItem>

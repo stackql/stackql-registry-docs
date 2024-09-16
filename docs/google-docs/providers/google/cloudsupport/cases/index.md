@@ -139,39 +139,38 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: timeZone
-        value: '{{ timeZone }}'
-      - name: subscriberEmailAddresses
-        value: '{{ subscriberEmailAddresses }}'
-      - name: creator
-        value: '{{ creator }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: name
-        value: '{{ name }}'
-      - name: languageCode
-        value: '{{ languageCode }}'
-      - name: testCase
-        value: '{{ testCase }}'
-      - name: classification
-        value: '{{ classification }}'
-      - name: description
-        value: '{{ description }}'
-      - name: priority
-        value: '{{ priority }}'
-      - name: state
-        value: '{{ state }}'
-      - name: escalated
-        value: '{{ escalated }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: contactEmail
-        value: '{{ contactEmail }}'
+- name: your_resource_model_name
+  props:
+    - name: timeZone
+      value: '{{ timeZone }}'
+    - name: subscriberEmailAddresses
+      value: '{{ subscriberEmailAddresses }}'
+    - name: creator
+      value: '{{ creator }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: name
+      value: '{{ name }}'
+    - name: languageCode
+      value: '{{ languageCode }}'
+    - name: testCase
+      value: '{{ testCase }}'
+    - name: classification
+      value: '{{ classification }}'
+    - name: description
+      value: '{{ description }}'
+    - name: priority
+      value: '{{ priority }}'
+    - name: state
+      value: '{{ state }}'
+    - name: escalated
+      value: '{{ escalated }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: contactEmail
+      value: '{{ contactEmail }}'
 
 ```
 </TabItem>

@@ -105,23 +105,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: groupKey
-        value: '{{ groupKey }}'
-      - name: accessLevels
-        value: '{{ accessLevels }}'
-      - name: dryRunAccessLevels
-        value: '{{ dryRunAccessLevels }}'
-      - name: reauthSettings
-        value: '{{ reauthSettings }}'
-      - name: restrictedClientApplications
-        value: '{{ restrictedClientApplications }}'
-      - name: scopedAccessSettings
-        value: '{{ scopedAccessSettings }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: groupKey
+      value: '{{ groupKey }}'
+    - name: accessLevels
+      value: '{{ accessLevels }}'
+    - name: dryRunAccessLevels
+      value: '{{ dryRunAccessLevels }}'
+    - name: reauthSettings
+      value: '{{ reauthSettings }}'
+    - name: restrictedClientApplications
+      value: '{{ restrictedClientApplications }}'
+    - name: scopedAccessSettings
+      value: '{{ scopedAccessSettings }}'
 
 ```
 </TabItem>

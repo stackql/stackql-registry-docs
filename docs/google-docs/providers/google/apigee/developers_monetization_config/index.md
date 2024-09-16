@@ -37,7 +37,7 @@ Creates, updates, deletes, gets or lists a <code>developers_monetization_config<
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_developers_get_monetization_config" /> | `SELECT` | <CopyableCode code="developersId, organizationsId" /> | Gets the monetization configuration for the developer. |
-| <CopyableCode code="organizations_developers_update_monetization_config" /> | `EXEC` | <CopyableCode code="developersId, organizationsId" /> | Updates the monetization configuration for the developer. |
+| <CopyableCode code="organizations_developers_update_monetization_config" /> | `REPLACE` | <CopyableCode code="developersId, organizationsId" /> | Updates the monetization configuration for the developer. |
 
 ## `SELECT` examples
 
@@ -49,4 +49,18 @@ billingType
 FROM google.apigee.developers_monetization_config
 WHERE developersId = '{{ developersId }}'
 AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>developers_monetization_config</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.developers_monetization_config
+SET 
+billingType = '{{ billingType }}'
+WHERE 
+developersId = '{{ developersId }}'
+AND organizationsId = '{{ organizationsId }}';
 ```

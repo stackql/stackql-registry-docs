@@ -111,15 +111,14 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: instanceConfigId
-        value: '{{ instanceConfigId }}'
-      - name: instanceConfig
-        value: '{{ instanceConfig }}'
-      - name: validateOnly
-        value: '{{ validateOnly }}'
+- name: your_resource_model_name
+  props:
+    - name: instanceConfigId
+      value: '{{ instanceConfigId }}'
+    - name: instanceConfig
+      value: '{{ instanceConfig }}'
+    - name: validateOnly
+      value: '{{ validateOnly }}'
 
 ```
 </TabItem>

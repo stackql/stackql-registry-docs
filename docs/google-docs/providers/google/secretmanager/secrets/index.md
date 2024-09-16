@@ -129,35 +129,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: replication
-        value: '{{ replication }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: topics
-        value: '{{ topics }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: ttl
-        value: '{{ ttl }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: rotation
-        value: '{{ rotation }}'
-      - name: versionAliases
-        value: '{{ versionAliases }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: versionDestroyTtl
-        value: '{{ versionDestroyTtl }}'
-      - name: customerManagedEncryption
-        value: '{{ customerManagedEncryption }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: replication
+      value: '{{ replication }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: topics
+      value: '{{ topics }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: ttl
+      value: '{{ ttl }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: rotation
+      value: '{{ rotation }}'
+    - name: versionAliases
+      value: '{{ versionAliases }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: versionDestroyTtl
+      value: '{{ versionDestroyTtl }}'
+    - name: customerManagedEncryption
+      value: '{{ customerManagedEncryption }}'
 
 ```
 </TabItem>

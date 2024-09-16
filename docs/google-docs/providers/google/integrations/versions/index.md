@@ -202,61 +202,60 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: integrationParametersInternal
-        value: '{{ integrationParametersInternal }}'
-      - name: runAsServiceAccount
-        value: '{{ runAsServiceAccount }}'
-      - name: userLabel
-        value: '{{ userLabel }}'
-      - name: cloudLoggingDetails
-        value: '{{ cloudLoggingDetails }}'
-      - name: integrationParameters
-        value: '{{ integrationParameters }}'
-      - name: integrationConfigParameters
-        value: '{{ integrationConfigParameters }}'
-      - name: teardown
-        value: '{{ teardown }}'
-      - name: state
-        value: '{{ state }}'
-      - name: taskConfigsInternal
-        value: '{{ taskConfigsInternal }}'
-      - name: triggerConfigsInternal
-        value: '{{ triggerConfigsInternal }}'
-      - name: triggerConfigs
-        value: '{{ triggerConfigs }}'
-      - name: lockHolder
-        value: '{{ lockHolder }}'
-      - name: createdFromTemplate
-        value: '{{ createdFromTemplate }}'
-      - name: status
-        value: '{{ status }}'
-      - name: errorCatcherConfigs
-        value: '{{ errorCatcherConfigs }}'
-      - name: lastModifierEmail
-        value: '{{ lastModifierEmail }}'
-      - name: enableVariableMasking
-        value: '{{ enableVariableMasking }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: taskConfigs
-        value: '{{ taskConfigs }}'
-      - name: origin
-        value: '{{ origin }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: description
-        value: '{{ description }}'
-      - name: name
-        value: '{{ name }}'
-      - name: databasePersistencePolicy
-        value: '{{ databasePersistencePolicy }}'
-      - name: parentTemplateId
-        value: '{{ parentTemplateId }}'
-      - name: snapshotNumber
-        value: '{{ snapshotNumber }}'
+- name: your_resource_model_name
+  props:
+    - name: integrationParametersInternal
+      value: '{{ integrationParametersInternal }}'
+    - name: runAsServiceAccount
+      value: '{{ runAsServiceAccount }}'
+    - name: userLabel
+      value: '{{ userLabel }}'
+    - name: cloudLoggingDetails
+      value: '{{ cloudLoggingDetails }}'
+    - name: integrationParameters
+      value: '{{ integrationParameters }}'
+    - name: integrationConfigParameters
+      value: '{{ integrationConfigParameters }}'
+    - name: teardown
+      value: '{{ teardown }}'
+    - name: state
+      value: '{{ state }}'
+    - name: taskConfigsInternal
+      value: '{{ taskConfigsInternal }}'
+    - name: triggerConfigsInternal
+      value: '{{ triggerConfigsInternal }}'
+    - name: triggerConfigs
+      value: '{{ triggerConfigs }}'
+    - name: lockHolder
+      value: '{{ lockHolder }}'
+    - name: createdFromTemplate
+      value: '{{ createdFromTemplate }}'
+    - name: status
+      value: '{{ status }}'
+    - name: errorCatcherConfigs
+      value: '{{ errorCatcherConfigs }}'
+    - name: lastModifierEmail
+      value: '{{ lastModifierEmail }}'
+    - name: enableVariableMasking
+      value: '{{ enableVariableMasking }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: taskConfigs
+      value: '{{ taskConfigs }}'
+    - name: origin
+      value: '{{ origin }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: description
+      value: '{{ description }}'
+    - name: name
+      value: '{{ name }}'
+    - name: databasePersistencePolicy
+      value: '{{ databasePersistencePolicy }}'
+    - name: parentTemplateId
+      value: '{{ parentTemplateId }}'
+    - name: snapshotNumber
+      value: '{{ snapshotNumber }}'
 
 ```
 </TabItem>

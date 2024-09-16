@@ -121,27 +121,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: projectId
-        value: '{{ projectId }}'
-      - name: clusterName
-        value: '{{ clusterName }}'
-      - name: config
-        value: '{{ config }}'
-      - name: virtualClusterConfig
-        value: '{{ virtualClusterConfig }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: status
-        value: '{{ status }}'
-      - name: statusHistory
-        value: '{{ statusHistory }}'
-      - name: clusterUuid
-        value: '{{ clusterUuid }}'
-      - name: metrics
-        value: '{{ metrics }}'
+- name: your_resource_model_name
+  props:
+    - name: projectId
+      value: '{{ projectId }}'
+    - name: clusterName
+      value: '{{ clusterName }}'
+    - name: config
+      value: '{{ config }}'
+    - name: virtualClusterConfig
+      value: '{{ virtualClusterConfig }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: status
+      value: '{{ status }}'
+    - name: statusHistory
+      value: '{{ statusHistory }}'
+    - name: clusterUuid
+      value: '{{ clusterUuid }}'
+    - name: metrics
+      value: '{{ metrics }}'
 
 ```
 </TabItem>

@@ -144,41 +144,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: peerNetwork
-        value: '{{ peerNetwork }}'
-      - name: exportCustomRoutes
-        value: '{{ exportCustomRoutes }}'
-      - name: importCustomRoutes
-        value: '{{ importCustomRoutes }}'
-      - name: exchangeSubnetRoutes
-        value: '{{ exchangeSubnetRoutes }}'
-      - name: exportCustomRoutesWithPublicIp
-        value: '{{ exportCustomRoutesWithPublicIp }}'
-      - name: importCustomRoutesWithPublicIp
-        value: '{{ importCustomRoutesWithPublicIp }}'
-      - name: state
-        value: '{{ state }}'
-      - name: stateDetails
-        value: '{{ stateDetails }}'
-      - name: peerMtu
-        value: '{{ peerMtu }}'
-      - name: peerNetworkType
-        value: '{{ peerNetworkType }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: vmwareEngineNetwork
-        value: '{{ vmwareEngineNetwork }}'
-      - name: description
-        value: '{{ description }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: peerNetwork
+      value: '{{ peerNetwork }}'
+    - name: exportCustomRoutes
+      value: '{{ exportCustomRoutes }}'
+    - name: importCustomRoutes
+      value: '{{ importCustomRoutes }}'
+    - name: exchangeSubnetRoutes
+      value: '{{ exchangeSubnetRoutes }}'
+    - name: exportCustomRoutesWithPublicIp
+      value: '{{ exportCustomRoutesWithPublicIp }}'
+    - name: importCustomRoutesWithPublicIp
+      value: '{{ importCustomRoutesWithPublicIp }}'
+    - name: state
+      value: '{{ state }}'
+    - name: stateDetails
+      value: '{{ stateDetails }}'
+    - name: peerMtu
+      value: '{{ peerMtu }}'
+    - name: peerNetworkType
+      value: '{{ peerNetworkType }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: vmwareEngineNetwork
+      value: '{{ vmwareEngineNetwork }}'
+    - name: description
+      value: '{{ description }}'
 
 ```
 </TabItem>

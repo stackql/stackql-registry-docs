@@ -124,31 +124,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: urlMap
-        value: '{{ urlMap }}'
-      - name: region
-        value: '{{ region }}'
-      - name: proxyBind
-        value: '{{ proxyBind }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: httpKeepAliveTimeoutSec
-        value: '{{ httpKeepAliveTimeoutSec }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: urlMap
+      value: '{{ urlMap }}'
+    - name: region
+      value: '{{ region }}'
+    - name: proxyBind
+      value: '{{ proxyBind }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: httpKeepAliveTimeoutSec
+      value: '{{ httpKeepAliveTimeoutSec }}'
 
 ```
 </TabItem>

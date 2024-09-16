@@ -148,43 +148,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uuid
-        value: '{{ uuid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: pysparkBatch
-        value: '{{ pysparkBatch }}'
-      - name: sparkBatch
-        value: '{{ sparkBatch }}'
-      - name: sparkRBatch
-        value: '{{ sparkRBatch }}'
-      - name: sparkSqlBatch
-        value: '{{ sparkSqlBatch }}'
-      - name: runtimeInfo
-        value: '{{ runtimeInfo }}'
-      - name: state
-        value: '{{ state }}'
-      - name: stateMessage
-        value: '{{ stateMessage }}'
-      - name: stateTime
-        value: '{{ stateTime }}'
-      - name: creator
-        value: '{{ creator }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: runtimeConfig
-        value: '{{ runtimeConfig }}'
-      - name: environmentConfig
-        value: '{{ environmentConfig }}'
-      - name: operation
-        value: '{{ operation }}'
-      - name: stateHistory
-        value: '{{ stateHistory }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uuid
+      value: '{{ uuid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: pysparkBatch
+      value: '{{ pysparkBatch }}'
+    - name: sparkBatch
+      value: '{{ sparkBatch }}'
+    - name: sparkRBatch
+      value: '{{ sparkRBatch }}'
+    - name: sparkSqlBatch
+      value: '{{ sparkSqlBatch }}'
+    - name: runtimeInfo
+      value: '{{ runtimeInfo }}'
+    - name: state
+      value: '{{ state }}'
+    - name: stateMessage
+      value: '{{ stateMessage }}'
+    - name: stateTime
+      value: '{{ stateTime }}'
+    - name: creator
+      value: '{{ creator }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: runtimeConfig
+      value: '{{ runtimeConfig }}'
+    - name: environmentConfig
+      value: '{{ environmentConfig }}'
+    - name: operation
+      value: '{{ operation }}'
+    - name: stateHistory
+      value: '{{ stateHistory }}'
 
 ```
 </TabItem>

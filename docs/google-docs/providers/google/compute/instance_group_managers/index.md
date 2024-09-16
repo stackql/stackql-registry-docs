@@ -195,63 +195,62 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: region
-        value: '{{ region }}'
-      - name: distributionPolicy
-        value: '{{ distributionPolicy }}'
-      - name: instanceTemplate
-        value: '{{ instanceTemplate }}'
-      - name: versions
-        value: '{{ versions }}'
-      - name: allInstancesConfig
-        value: '{{ allInstancesConfig }}'
-      - name: instanceGroup
-        value: '{{ instanceGroup }}'
-      - name: targetPools
-        value: '{{ targetPools }}'
-      - name: baseInstanceName
-        value: '{{ baseInstanceName }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: currentActions
-        value: '{{ currentActions }}'
-      - name: status
-        value: '{{ status }}'
-      - name: targetSize
-        value: '{{ targetSize }}'
-      - name: listManagedInstancesResults
-        value: '{{ listManagedInstancesResults }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: autoHealingPolicies
-        value: '{{ autoHealingPolicies }}'
-      - name: updatePolicy
-        value: '{{ updatePolicy }}'
-      - name: namedPorts
-        value: '{{ namedPorts }}'
-      - name: statefulPolicy
-        value: '{{ statefulPolicy }}'
-      - name: instanceLifecyclePolicy
-        value: '{{ instanceLifecyclePolicy }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: region
+      value: '{{ region }}'
+    - name: distributionPolicy
+      value: '{{ distributionPolicy }}'
+    - name: instanceTemplate
+      value: '{{ instanceTemplate }}'
+    - name: versions
+      value: '{{ versions }}'
+    - name: allInstancesConfig
+      value: '{{ allInstancesConfig }}'
+    - name: instanceGroup
+      value: '{{ instanceGroup }}'
+    - name: targetPools
+      value: '{{ targetPools }}'
+    - name: baseInstanceName
+      value: '{{ baseInstanceName }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: currentActions
+      value: '{{ currentActions }}'
+    - name: status
+      value: '{{ status }}'
+    - name: targetSize
+      value: '{{ targetSize }}'
+    - name: listManagedInstancesResults
+      value: '{{ listManagedInstancesResults }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: autoHealingPolicies
+      value: '{{ autoHealingPolicies }}'
+    - name: updatePolicy
+      value: '{{ updatePolicy }}'
+    - name: namedPorts
+      value: '{{ namedPorts }}'
+    - name: statefulPolicy
+      value: '{{ statefulPolicy }}'
+    - name: instanceLifecyclePolicy
+      value: '{{ instanceLifecyclePolicy }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
 
 ```
 </TabItem>

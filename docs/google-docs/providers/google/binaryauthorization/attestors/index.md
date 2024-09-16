@@ -44,7 +44,7 @@ Creates, updates, deletes, gets or lists a <code>attestors</code> resource.
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists attestors. Returns `INVALID_ARGUMENT` if the project does not exist. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates an attestor, and returns a copy of the new attestor. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed, `ALREADY_EXISTS` if the attestor already exists. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="attestorsId, projectsId" /> | Deletes an attestor. Returns `NOT_FOUND` if the attestor does not exist. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="attestorsId, projectsId" /> | Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="attestorsId, projectsId" /> | Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist. |
 | <CopyableCode code="validate_attestation_occurrence" /> | `EXEC` | <CopyableCode code="attestorsId, projectsId" /> | Returns whether the given `Attestation` for the given image URI was signed by the given `Attestor` |
 
 ## `SELECT` examples
@@ -98,23 +98,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: userOwnedGrafeasNote
-        value: '{{ userOwnedGrafeasNote }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: etag
-        value: '{{ etag }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: userOwnedGrafeasNote
+      value: '{{ userOwnedGrafeasNote }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: etag
+      value: '{{ etag }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>attestors</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.binaryauthorization.attestors
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+userOwnedGrafeasNote = '{{ userOwnedGrafeasNote }}',
+updateTime = '{{ updateTime }}',
+etag = '{{ etag }}'
+WHERE 
+attestorsId = '{{ attestorsId }}'
+AND projectsId = '{{ projectsId }}';
+```
 
 ## `DELETE` example
 

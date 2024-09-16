@@ -148,43 +148,42 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: targetId
-        value: '{{ targetId }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: description
-        value: '{{ description }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: requireApproval
-        value: '{{ requireApproval }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: gke
-        value: '{{ gke }}'
-      - name: anthosCluster
-        value: '{{ anthosCluster }}'
-      - name: run
-        value: '{{ run }}'
-      - name: multiTarget
-        value: '{{ multiTarget }}'
-      - name: customTarget
-        value: '{{ customTarget }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: executionConfigs
-        value: '{{ executionConfigs }}'
-      - name: deployParameters
-        value: '{{ deployParameters }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: targetId
+      value: '{{ targetId }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: description
+      value: '{{ description }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: requireApproval
+      value: '{{ requireApproval }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: gke
+      value: '{{ gke }}'
+    - name: anthosCluster
+      value: '{{ anthosCluster }}'
+    - name: run
+      value: '{{ run }}'
+    - name: multiTarget
+      value: '{{ multiTarget }}'
+    - name: customTarget
+      value: '{{ customTarget }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: executionConfigs
+      value: '{{ executionConfigs }}'
+    - name: deployParameters
+      value: '{{ deployParameters }}'
 
 ```
 </TabItem>

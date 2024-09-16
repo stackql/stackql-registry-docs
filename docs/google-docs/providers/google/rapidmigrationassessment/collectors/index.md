@@ -143,39 +143,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: bucket
-        value: '{{ bucket }}'
-      - name: expectedAssetCount
-        value: '{{ expectedAssetCount }}'
-      - name: state
-        value: '{{ state }}'
-      - name: clientVersion
-        value: '{{ clientVersion }}'
-      - name: guestOsScan
-        value: '{{ guestOsScan }}'
-      - name: vsphereScan
-        value: '{{ vsphereScan }}'
-      - name: collectionDays
-        value: '{{ collectionDays }}'
-      - name: eulaUri
-        value: '{{ eulaUri }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: bucket
+      value: '{{ bucket }}'
+    - name: expectedAssetCount
+      value: '{{ expectedAssetCount }}'
+    - name: state
+      value: '{{ state }}'
+    - name: clientVersion
+      value: '{{ clientVersion }}'
+    - name: guestOsScan
+      value: '{{ guestOsScan }}'
+    - name: vsphereScan
+      value: '{{ vsphereScan }}'
+    - name: collectionDays
+      value: '{{ collectionDays }}'
+    - name: eulaUri
+      value: '{{ eulaUri }}'
 
 ```
 </TabItem>

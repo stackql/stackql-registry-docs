@@ -107,23 +107,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: cloudStorageUri
-        value: '{{ cloudStorageUri }}'
-      - name: diskImageTargetDefaults
-        value: '{{ diskImageTargetDefaults }}'
-      - name: machineImageTargetDefaults
-        value: '{{ machineImageTargetDefaults }}'
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: recentImageImportJobs
-        value: '{{ recentImageImportJobs }}'
-      - name: encryption
-        value: '{{ encryption }}'
+- name: your_resource_model_name
+  props:
+    - name: cloudStorageUri
+      value: '{{ cloudStorageUri }}'
+    - name: diskImageTargetDefaults
+      value: '{{ diskImageTargetDefaults }}'
+    - name: machineImageTargetDefaults
+      value: '{{ machineImageTargetDefaults }}'
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: recentImageImportJobs
+      value: '{{ recentImageImportJobs }}'
+    - name: encryption
+      value: '{{ encryption }}'
 
 ```
 </TabItem>

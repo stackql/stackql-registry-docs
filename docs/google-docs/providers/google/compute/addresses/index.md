@@ -161,49 +161,48 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: address
-        value: '{{ address }}'
-      - name: prefixLength
-        value: '{{ prefixLength }}'
-      - name: status
-        value: '{{ status }}'
-      - name: region
-        value: '{{ region }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: users
-        value: '{{ users }}'
-      - name: networkTier
-        value: '{{ networkTier }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: labelFingerprint
-        value: '{{ labelFingerprint }}'
-      - name: ipVersion
-        value: '{{ ipVersion }}'
-      - name: addressType
-        value: '{{ addressType }}'
-      - name: purpose
-        value: '{{ purpose }}'
-      - name: subnetwork
-        value: '{{ subnetwork }}'
-      - name: network
-        value: '{{ network }}'
-      - name: ipv6EndpointType
-        value: '{{ ipv6EndpointType }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: address
+      value: '{{ address }}'
+    - name: prefixLength
+      value: '{{ prefixLength }}'
+    - name: status
+      value: '{{ status }}'
+    - name: region
+      value: '{{ region }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: users
+      value: '{{ users }}'
+    - name: networkTier
+      value: '{{ networkTier }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: labelFingerprint
+      value: '{{ labelFingerprint }}'
+    - name: ipVersion
+      value: '{{ ipVersion }}'
+    - name: addressType
+      value: '{{ addressType }}'
+    - name: purpose
+      value: '{{ purpose }}'
+    - name: subnetwork
+      value: '{{ subnetwork }}'
+    - name: network
+      value: '{{ network }}'
+    - name: ipv6EndpointType
+      value: '{{ ipv6EndpointType }}'
 
 ```
 </TabItem>

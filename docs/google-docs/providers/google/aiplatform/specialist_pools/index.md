@@ -104,21 +104,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: pendingDataLabelingJobs
-        value: '{{ pendingDataLabelingJobs }}'
-      - name: specialistManagerEmails
-        value: '{{ specialistManagerEmails }}'
-      - name: specialistManagersCount
-        value: '{{ specialistManagersCount }}'
-      - name: specialistWorkerEmails
-        value: '{{ specialistWorkerEmails }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: name
-        value: '{{ name }}'
+- name: your_resource_model_name
+  props:
+    - name: pendingDataLabelingJobs
+      value: '{{ pendingDataLabelingJobs }}'
+    - name: specialistManagerEmails
+      value: '{{ specialistManagerEmails }}'
+    - name: specialistManagersCount
+      value: '{{ specialistManagersCount }}'
+    - name: specialistWorkerEmails
+      value: '{{ specialistWorkerEmails }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: name
+      value: '{{ name }}'
 
 ```
 </TabItem>

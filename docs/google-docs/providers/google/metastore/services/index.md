@@ -185,57 +185,56 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: hiveMetastoreConfig
-        value: '{{ hiveMetastoreConfig }}'
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: network
-        value: '{{ network }}'
-      - name: endpointUri
-        value: '{{ endpointUri }}'
-      - name: port
-        value: '{{ port }}'
-      - name: state
-        value: '{{ state }}'
-      - name: stateMessage
-        value: '{{ stateMessage }}'
-      - name: artifactGcsUri
-        value: '{{ artifactGcsUri }}'
-      - name: tier
-        value: '{{ tier }}'
-      - name: metadataIntegration
-        value: '{{ metadataIntegration }}'
-      - name: maintenanceWindow
-        value: '{{ maintenanceWindow }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: metadataManagementActivity
-        value: '{{ metadataManagementActivity }}'
-      - name: releaseChannel
-        value: '{{ releaseChannel }}'
-      - name: encryptionConfig
-        value: '{{ encryptionConfig }}'
-      - name: networkConfig
-        value: '{{ networkConfig }}'
-      - name: databaseType
-        value: '{{ databaseType }}'
-      - name: telemetryConfig
-        value: '{{ telemetryConfig }}'
-      - name: scalingConfig
-        value: '{{ scalingConfig }}'
-      - name: scheduledBackup
-        value: '{{ scheduledBackup }}'
-      - name: deletionProtection
-        value: '{{ deletionProtection }}'
+- name: your_resource_model_name
+  props:
+    - name: hiveMetastoreConfig
+      value: '{{ hiveMetastoreConfig }}'
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: network
+      value: '{{ network }}'
+    - name: endpointUri
+      value: '{{ endpointUri }}'
+    - name: port
+      value: '{{ port }}'
+    - name: state
+      value: '{{ state }}'
+    - name: stateMessage
+      value: '{{ stateMessage }}'
+    - name: artifactGcsUri
+      value: '{{ artifactGcsUri }}'
+    - name: tier
+      value: '{{ tier }}'
+    - name: metadataIntegration
+      value: '{{ metadataIntegration }}'
+    - name: maintenanceWindow
+      value: '{{ maintenanceWindow }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: metadataManagementActivity
+      value: '{{ metadataManagementActivity }}'
+    - name: releaseChannel
+      value: '{{ releaseChannel }}'
+    - name: encryptionConfig
+      value: '{{ encryptionConfig }}'
+    - name: networkConfig
+      value: '{{ networkConfig }}'
+    - name: databaseType
+      value: '{{ databaseType }}'
+    - name: telemetryConfig
+      value: '{{ telemetryConfig }}'
+    - name: scalingConfig
+      value: '{{ scalingConfig }}'
+    - name: scheduledBackup
+      value: '{{ scheduledBackup }}'
+    - name: deletionProtection
+      value: '{{ deletionProtection }}'
 
 ```
 </TabItem>

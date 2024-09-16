@@ -169,53 +169,52 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: replicaCount
-        value: '{{ replicaCount }}'
-      - name: authorizationMode
-        value: '{{ authorizationMode }}'
-      - name: transitEncryptionMode
-        value: '{{ transitEncryptionMode }}'
-      - name: sizeGb
-        value: '{{ sizeGb }}'
-      - name: shardCount
-        value: '{{ shardCount }}'
-      - name: pscConfigs
-        value: '{{ pscConfigs }}'
-      - name: discoveryEndpoints
-        value: '{{ discoveryEndpoints }}'
-      - name: pscConnections
-        value: '{{ pscConnections }}'
-      - name: stateInfo
-        value: '{{ stateInfo }}'
-      - name: nodeType
-        value: '{{ nodeType }}'
-      - name: persistenceConfig
-        value: '{{ persistenceConfig }}'
-      - name: redisConfigs
-        value: '{{ redisConfigs }}'
-      - name: preciseSizeGb
-        value: '{{ preciseSizeGb }}'
-      - name: zoneDistributionConfig
-        value: '{{ zoneDistributionConfig }}'
-      - name: crossClusterReplicationConfig
-        value: '{{ crossClusterReplicationConfig }}'
-      - name: deletionProtectionEnabled
-        value: '{{ deletionProtectionEnabled }}'
-      - name: maintenancePolicy
-        value: '{{ maintenancePolicy }}'
-      - name: maintenanceSchedule
-        value: '{{ maintenanceSchedule }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: replicaCount
+      value: '{{ replicaCount }}'
+    - name: authorizationMode
+      value: '{{ authorizationMode }}'
+    - name: transitEncryptionMode
+      value: '{{ transitEncryptionMode }}'
+    - name: sizeGb
+      value: '{{ sizeGb }}'
+    - name: shardCount
+      value: '{{ shardCount }}'
+    - name: pscConfigs
+      value: '{{ pscConfigs }}'
+    - name: discoveryEndpoints
+      value: '{{ discoveryEndpoints }}'
+    - name: pscConnections
+      value: '{{ pscConnections }}'
+    - name: stateInfo
+      value: '{{ stateInfo }}'
+    - name: nodeType
+      value: '{{ nodeType }}'
+    - name: persistenceConfig
+      value: '{{ persistenceConfig }}'
+    - name: redisConfigs
+      value: '{{ redisConfigs }}'
+    - name: preciseSizeGb
+      value: '{{ preciseSizeGb }}'
+    - name: zoneDistributionConfig
+      value: '{{ zoneDistributionConfig }}'
+    - name: crossClusterReplicationConfig
+      value: '{{ crossClusterReplicationConfig }}'
+    - name: deletionProtectionEnabled
+      value: '{{ deletionProtectionEnabled }}'
+    - name: maintenancePolicy
+      value: '{{ maintenancePolicy }}'
+    - name: maintenanceSchedule
+      value: '{{ maintenanceSchedule }}'
 
 ```
 </TabItem>

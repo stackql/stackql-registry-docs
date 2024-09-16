@@ -140,39 +140,38 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: instances
-        value: '{{ instances }}'
-      - name: networks
-        value: '{{ networks }}'
-      - name: volumes
-        value: '{{ volumes }}'
-      - name: ticketId
-        value: '{{ ticketId }}'
-      - name: handoverServiceAccount
-        value: '{{ handoverServiceAccount }}'
-      - name: email
-        value: '{{ email }}'
-      - name: state
-        value: '{{ state }}'
-      - name: location
-        value: '{{ location }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: cloudConsoleUri
-        value: '{{ cloudConsoleUri }}'
-      - name: vpcScEnabled
-        value: '{{ vpcScEnabled }}'
-      - name: statusMessage
-        value: '{{ statusMessage }}'
-      - name: customId
-        value: '{{ customId }}'
-      - name: pod
-        value: '{{ pod }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: instances
+      value: '{{ instances }}'
+    - name: networks
+      value: '{{ networks }}'
+    - name: volumes
+      value: '{{ volumes }}'
+    - name: ticketId
+      value: '{{ ticketId }}'
+    - name: handoverServiceAccount
+      value: '{{ handoverServiceAccount }}'
+    - name: email
+      value: '{{ email }}'
+    - name: state
+      value: '{{ state }}'
+    - name: location
+      value: '{{ location }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: cloudConsoleUri
+      value: '{{ cloudConsoleUri }}'
+    - name: vpcScEnabled
+      value: '{{ vpcScEnabled }}'
+    - name: statusMessage
+      value: '{{ statusMessage }}'
+    - name: customId
+      value: '{{ customId }}'
+    - name: pod
+      value: '{{ pod }}'
 
 ```
 </TabItem>

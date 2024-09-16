@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>backups_iam_policies</code> res
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="backupsId, clustersId, instancesId, projectsId" /> | Gets the access control policy for a Bigtable resource. Returns an empty policy if the resource exists but does not have a policy set. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="backupsId, clustersId, instancesId, projectsId" /> | Sets the access control policy on a Bigtable resource. Replaces any existing policy. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="backupsId, clustersId, instancesId, projectsId" /> | Sets the access control policy on a Bigtable resource. Replaces any existing policy. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="backupsId, clustersId, instancesId, projectsId" /> | Returns permissions that the caller has on the specified Bigtable resource. |
 
 ## `SELECT` examples
@@ -56,4 +56,21 @@ WHERE backupsId = '{{ backupsId }}'
 AND clustersId = '{{ clustersId }}'
 AND instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>backups_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.bigtableadmin.backups_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+backupsId = '{{ backupsId }}'
+AND clustersId = '{{ clustersId }}'
+AND instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}';
 ```

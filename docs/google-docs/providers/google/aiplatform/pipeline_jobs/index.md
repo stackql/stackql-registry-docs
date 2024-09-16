@@ -162,49 +162,48 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: runtimeConfig
-        value: '{{ runtimeConfig }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: templateUri
-        value: '{{ templateUri }}'
-      - name: state
-        value: '{{ state }}'
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: error
-        value: '{{ error }}'
-      - name: templateMetadata
-        value: '{{ templateMetadata }}'
-      - name: network
-        value: '{{ network }}'
-      - name: reservedIpRanges
-        value: '{{ reservedIpRanges }}'
-      - name: pipelineSpec
-        value: '{{ pipelineSpec }}'
-      - name: preflightValidations
-        value: '{{ preflightValidations }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: scheduleName
-        value: '{{ scheduleName }}'
-      - name: jobDetail
-        value: '{{ jobDetail }}'
-      - name: endTime
-        value: '{{ endTime }}'
+- name: your_resource_model_name
+  props:
+    - name: runtimeConfig
+      value: '{{ runtimeConfig }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: templateUri
+      value: '{{ templateUri }}'
+    - name: state
+      value: '{{ state }}'
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: error
+      value: '{{ error }}'
+    - name: templateMetadata
+      value: '{{ templateMetadata }}'
+    - name: network
+      value: '{{ network }}'
+    - name: reservedIpRanges
+      value: '{{ reservedIpRanges }}'
+    - name: pipelineSpec
+      value: '{{ pipelineSpec }}'
+    - name: preflightValidations
+      value: '{{ preflightValidations }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: scheduleName
+      value: '{{ scheduleName }}'
+    - name: jobDetail
+      value: '{{ jobDetail }}'
+    - name: endTime
+      value: '{{ endTime }}'
 
 ```
 </TabItem>

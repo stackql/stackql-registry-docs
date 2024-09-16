@@ -193,61 +193,60 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: state
-        value: '{{ state }}'
-      - name: phase
-        value: '{{ phase }}'
-      - name: type
-        value: '{{ type }}'
-      - name: dumpPath
-        value: '{{ dumpPath }}'
-      - name: dumpFlags
-        value: '{{ dumpFlags }}'
-      - name: source
-        value: '{{ source }}'
-      - name: destination
-        value: '{{ destination }}'
-      - name: reverseSshConnectivity
-        value: '{{ reverseSshConnectivity }}'
-      - name: vpcPeeringConnectivity
-        value: '{{ vpcPeeringConnectivity }}'
-      - name: staticIpConnectivity
-        value: '{{ staticIpConnectivity }}'
-      - name: duration
-        value: '{{ duration }}'
-      - name: error
-        value: '{{ error }}'
-      - name: sourceDatabase
-        value: '{{ sourceDatabase }}'
-      - name: destinationDatabase
-        value: '{{ destinationDatabase }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: conversionWorkspace
-        value: '{{ conversionWorkspace }}'
-      - name: filter
-        value: '{{ filter }}'
-      - name: cmekKeyName
-        value: '{{ cmekKeyName }}'
-      - name: performanceConfig
-        value: '{{ performanceConfig }}'
-      - name: sqlserverHomogeneousMigrationJobConfig
-        value: '{{ sqlserverHomogeneousMigrationJobConfig }}'
-      - name: dumpType
-        value: '{{ dumpType }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: state
+      value: '{{ state }}'
+    - name: phase
+      value: '{{ phase }}'
+    - name: type
+      value: '{{ type }}'
+    - name: dumpPath
+      value: '{{ dumpPath }}'
+    - name: dumpFlags
+      value: '{{ dumpFlags }}'
+    - name: source
+      value: '{{ source }}'
+    - name: destination
+      value: '{{ destination }}'
+    - name: reverseSshConnectivity
+      value: '{{ reverseSshConnectivity }}'
+    - name: vpcPeeringConnectivity
+      value: '{{ vpcPeeringConnectivity }}'
+    - name: staticIpConnectivity
+      value: '{{ staticIpConnectivity }}'
+    - name: duration
+      value: '{{ duration }}'
+    - name: error
+      value: '{{ error }}'
+    - name: sourceDatabase
+      value: '{{ sourceDatabase }}'
+    - name: destinationDatabase
+      value: '{{ destinationDatabase }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: conversionWorkspace
+      value: '{{ conversionWorkspace }}'
+    - name: filter
+      value: '{{ filter }}'
+    - name: cmekKeyName
+      value: '{{ cmekKeyName }}'
+    - name: performanceConfig
+      value: '{{ performanceConfig }}'
+    - name: sqlserverHomogeneousMigrationJobConfig
+      value: '{{ sqlserverHomogeneousMigrationJobConfig }}'
+    - name: dumpType
+      value: '{{ dumpType }}'
 
 ```
 </TabItem>

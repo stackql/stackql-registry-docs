@@ -124,31 +124,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: jupyterSession
-        value: '{{ jupyterSession }}'
-      - name: sparkConnectSession
-        value: '{{ sparkConnectSession }}'
-      - name: creator
-        value: '{{ creator }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: runtimeConfig
-        value: '{{ runtimeConfig }}'
-      - name: environmentConfig
-        value: '{{ environmentConfig }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: uuid
-        value: '{{ uuid }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: jupyterSession
+      value: '{{ jupyterSession }}'
+    - name: sparkConnectSession
+      value: '{{ sparkConnectSession }}'
+    - name: creator
+      value: '{{ creator }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: runtimeConfig
+      value: '{{ runtimeConfig }}'
+    - name: environmentConfig
+      value: '{{ environmentConfig }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: uuid
+      value: '{{ uuid }}'
 
 ```
 </TabItem>

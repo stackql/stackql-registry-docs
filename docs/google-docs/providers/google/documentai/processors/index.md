@@ -128,31 +128,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: state
-        value: '{{ state }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: defaultProcessorVersion
-        value: '{{ defaultProcessorVersion }}'
-      - name: processorVersionAliases
-        value: '{{ processorVersionAliases }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: processEndpoint
-        value: '{{ processEndpoint }}'
-      - name: kmsKeyName
-        value: '{{ kmsKeyName }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: name
-        value: '{{ name }}'
-      - name: type
-        value: '{{ type }}'
+- name: your_resource_model_name
+  props:
+    - name: state
+      value: '{{ state }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: defaultProcessorVersion
+      value: '{{ defaultProcessorVersion }}'
+    - name: processorVersionAliases
+      value: '{{ processorVersionAliases }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: processEndpoint
+      value: '{{ processEndpoint }}'
+    - name: kmsKeyName
+      value: '{{ kmsKeyName }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: name
+      value: '{{ name }}'
+    - name: type
+      value: '{{ type }}'
 
 ```
 </TabItem>

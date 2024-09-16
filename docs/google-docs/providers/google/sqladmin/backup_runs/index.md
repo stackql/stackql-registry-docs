@@ -151,45 +151,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: status
-        value: '{{ status }}'
-      - name: enqueuedTime
-        value: '{{ enqueuedTime }}'
-      - name: id
-        value: '{{ id }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: error
-        value: '{{ error }}'
-      - name: type
-        value: '{{ type }}'
-      - name: description
-        value: '{{ description }}'
-      - name: windowStartTime
-        value: '{{ windowStartTime }}'
-      - name: instance
-        value: '{{ instance }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: location
-        value: '{{ location }}'
-      - name: diskEncryptionConfiguration
-        value: '{{ diskEncryptionConfiguration }}'
-      - name: diskEncryptionStatus
-        value: '{{ diskEncryptionStatus }}'
-      - name: backupKind
-        value: '{{ backupKind }}'
-      - name: timeZone
-        value: '{{ timeZone }}'
-      - name: maxChargeableBytes
-        value: '{{ maxChargeableBytes }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: status
+      value: '{{ status }}'
+    - name: enqueuedTime
+      value: '{{ enqueuedTime }}'
+    - name: id
+      value: '{{ id }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: error
+      value: '{{ error }}'
+    - name: type
+      value: '{{ type }}'
+    - name: description
+      value: '{{ description }}'
+    - name: windowStartTime
+      value: '{{ windowStartTime }}'
+    - name: instance
+      value: '{{ instance }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: location
+      value: '{{ location }}'
+    - name: diskEncryptionConfiguration
+      value: '{{ diskEncryptionConfiguration }}'
+    - name: diskEncryptionStatus
+      value: '{{ diskEncryptionStatus }}'
+    - name: backupKind
+      value: '{{ backupKind }}'
+    - name: timeZone
+      value: '{{ timeZone }}'
+    - name: maxChargeableBytes
+      value: '{{ maxChargeableBytes }}'
 
 ```
 </TabItem>

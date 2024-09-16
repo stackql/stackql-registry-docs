@@ -58,7 +58,7 @@ The new IAM roles are:
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="bucket, managedFolder" /> | Returns an IAM policy for the specified managed folder. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="bucket, managedFolder" /> | Updates an IAM policy for the specified managed folder. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="bucket, managedFolder" /> | Updates an IAM policy for the specified managed folder. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="bucket, managedFolder, permissions" /> | Tests a set of permissions on the given managed folder to see which, if any, are held by the caller. |
 
 ## `SELECT` examples
@@ -73,4 +73,22 @@ role
 FROM google.storage.managed_folders_iam_policies
 WHERE bucket = '{{ bucket }}'
 AND managedFolder = '{{ managedFolder }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>managed_folders_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.storage.managed_folders_iam_policies
+SET 
+bindings = '{{ bindings }}',
+etag = '{{ etag }}',
+kind = '{{ kind }}',
+resourceId = '{{ resourceId }}',
+version = '{{ version }}'
+WHERE 
+bucket = '{{ bucket }}'
+AND managedFolder = '{{ managedFolder }}';
 ```

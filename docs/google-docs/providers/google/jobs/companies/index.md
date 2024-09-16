@@ -132,35 +132,34 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: externalId
-        value: '{{ externalId }}'
-      - name: size
-        value: '{{ size }}'
-      - name: headquartersAddress
-        value: '{{ headquartersAddress }}'
-      - name: hiringAgency
-        value: '{{ hiringAgency }}'
-      - name: eeoText
-        value: '{{ eeoText }}'
-      - name: websiteUri
-        value: '{{ websiteUri }}'
-      - name: careerSiteUri
-        value: '{{ careerSiteUri }}'
-      - name: imageUri
-        value: '{{ imageUri }}'
-      - name: keywordSearchableJobCustomAttributes
-        value: '{{ keywordSearchableJobCustomAttributes }}'
-      - name: derivedInfo
-        value: '{{ derivedInfo }}'
-      - name: suspended
-        value: '{{ suspended }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: externalId
+      value: '{{ externalId }}'
+    - name: size
+      value: '{{ size }}'
+    - name: headquartersAddress
+      value: '{{ headquartersAddress }}'
+    - name: hiringAgency
+      value: '{{ hiringAgency }}'
+    - name: eeoText
+      value: '{{ eeoText }}'
+    - name: websiteUri
+      value: '{{ websiteUri }}'
+    - name: careerSiteUri
+      value: '{{ careerSiteUri }}'
+    - name: imageUri
+      value: '{{ imageUri }}'
+    - name: keywordSearchableJobCustomAttributes
+      value: '{{ keywordSearchableJobCustomAttributes }}'
+    - name: derivedInfo
+      value: '{{ derivedInfo }}'
+    - name: suspended
+      value: '{{ suspended }}'
 
 ```
 </TabItem>

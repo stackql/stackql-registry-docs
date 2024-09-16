@@ -140,39 +140,38 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: error
-        value: '{{ error }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: nasJobSpec
-        value: '{{ nasJobSpec }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: nasJobOutput
-        value: '{{ nasJobOutput }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: enableRestrictedImageTraining
-        value: '{{ enableRestrictedImageTraining }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: name
-        value: '{{ name }}'
-      - name: state
-        value: '{{ state }}'
+- name: your_resource_model_name
+  props:
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: error
+      value: '{{ error }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: nasJobSpec
+      value: '{{ nasJobSpec }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: nasJobOutput
+      value: '{{ nasJobOutput }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: enableRestrictedImageTraining
+      value: '{{ enableRestrictedImageTraining }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: name
+      value: '{{ name }}'
+    - name: state
+      value: '{{ state }}'
 
 ```
 </TabItem>

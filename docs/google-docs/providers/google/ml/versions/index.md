@@ -185,61 +185,60 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: isDefault
-        value: '{{ isDefault }}'
-      - name: deploymentUri
-        value: '{{ deploymentUri }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: lastUseTime
-        value: '{{ lastUseTime }}'
-      - name: runtimeVersion
-        value: '{{ runtimeVersion }}'
-      - name: machineType
-        value: '{{ machineType }}'
-      - name: autoScaling
-        value: '{{ autoScaling }}'
-      - name: manualScaling
-        value: '{{ manualScaling }}'
-      - name: state
-        value: '{{ state }}'
-      - name: errorMessage
-        value: '{{ errorMessage }}'
-      - name: predictionClass
-        value: '{{ predictionClass }}'
-      - name: packageUris
-        value: '{{ packageUris }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: framework
-        value: '{{ framework }}'
-      - name: pythonVersion
-        value: '{{ pythonVersion }}'
-      - name: acceleratorConfig
-        value: '{{ acceleratorConfig }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: requestLoggingConfig
-        value: '{{ requestLoggingConfig }}'
-      - name: explanationConfig
-        value: '{{ explanationConfig }}'
-      - name: container
-        value: '{{ container }}'
-      - name: routes
-        value: '{{ routes }}'
-      - name: lastMigrationTime
-        value: '{{ lastMigrationTime }}'
-      - name: lastMigrationModelId
-        value: '{{ lastMigrationModelId }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: isDefault
+      value: '{{ isDefault }}'
+    - name: deploymentUri
+      value: '{{ deploymentUri }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: lastUseTime
+      value: '{{ lastUseTime }}'
+    - name: runtimeVersion
+      value: '{{ runtimeVersion }}'
+    - name: machineType
+      value: '{{ machineType }}'
+    - name: autoScaling
+      value: '{{ autoScaling }}'
+    - name: manualScaling
+      value: '{{ manualScaling }}'
+    - name: state
+      value: '{{ state }}'
+    - name: errorMessage
+      value: '{{ errorMessage }}'
+    - name: predictionClass
+      value: '{{ predictionClass }}'
+    - name: packageUris
+      value: '{{ packageUris }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: framework
+      value: '{{ framework }}'
+    - name: pythonVersion
+      value: '{{ pythonVersion }}'
+    - name: acceleratorConfig
+      value: '{{ acceleratorConfig }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: requestLoggingConfig
+      value: '{{ requestLoggingConfig }}'
+    - name: explanationConfig
+      value: '{{ explanationConfig }}'
+    - name: container
+      value: '{{ container }}'
+    - name: routes
+      value: '{{ routes }}'
+    - name: lastMigrationTime
+      value: '{{ lastMigrationTime }}'
+    - name: lastMigrationModelId
+      value: '{{ lastMigrationModelId }}'
 
 ```
 </TabItem>

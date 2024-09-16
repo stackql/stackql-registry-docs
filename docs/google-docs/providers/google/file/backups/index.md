@@ -144,41 +144,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: state
-        value: '{{ state }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: capacityGb
-        value: '{{ capacityGb }}'
-      - name: storageBytes
-        value: '{{ storageBytes }}'
-      - name: sourceInstance
-        value: '{{ sourceInstance }}'
-      - name: sourceFileShare
-        value: '{{ sourceFileShare }}'
-      - name: sourceInstanceTier
-        value: '{{ sourceInstanceTier }}'
-      - name: downloadBytes
-        value: '{{ downloadBytes }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: kmsKey
-        value: '{{ kmsKey }}'
-      - name: tags
-        value: '{{ tags }}'
-      - name: fileSystemProtocol
-        value: '{{ fileSystemProtocol }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: state
+      value: '{{ state }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: capacityGb
+      value: '{{ capacityGb }}'
+    - name: storageBytes
+      value: '{{ storageBytes }}'
+    - name: sourceInstance
+      value: '{{ sourceInstance }}'
+    - name: sourceFileShare
+      value: '{{ sourceFileShare }}'
+    - name: sourceInstanceTier
+      value: '{{ sourceInstanceTier }}'
+    - name: downloadBytes
+      value: '{{ downloadBytes }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: kmsKey
+      value: '{{ kmsKey }}'
+    - name: tags
+      value: '{{ tags }}'
+    - name: fileSystemProtocol
+      value: '{{ fileSystemProtocol }}'
 
 ```
 </TabItem>

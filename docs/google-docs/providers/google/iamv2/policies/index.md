@@ -47,7 +47,7 @@ Creates, updates, deletes, gets or lists a <code>policies</code> resource.
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="policiesId, policiesId1, policiesId2" /> | Gets a policy. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="policiesId, policiesId1, policiesId2" /> | Deletes a policy. This action is permanent. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="policiesId, policiesId1, policiesId2" /> | Updates the specified policy. You can update only the rules and the display name for the policy. To update a policy, you should use a read-modify-write loop: 1. Use GetPolicy to read the current version of the policy. 2. Modify the policy as needed. 3. Use `UpdatePolicy` to write the updated policy. This pattern helps prevent conflicts between concurrent updates. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="policiesId, policiesId1, policiesId2" /> | Updates the specified policy. You can update only the rules and the display name for the policy. To update a policy, you should use a read-modify-write loop: 1. Use GetPolicy to read the current version of the policy. 2. Modify the policy as needed. 3. Use `UpdatePolicy` to write the updated policy. This pattern helps prevent conflicts between concurrent updates. |
 
 ## `SELECT` examples
 
@@ -69,6 +69,30 @@ FROM google.iamv2.policies
 WHERE policiesId = '{{ policiesId }}'
 AND policiesId1 = '{{ policiesId1 }}'
 AND policiesId2 = '{{ policiesId2 }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.iamv2.policies
+SET 
+name = '{{ name }}',
+uid = '{{ uid }}',
+kind = '{{ kind }}',
+displayName = '{{ displayName }}',
+annotations = '{{ annotations }}',
+etag = '{{ etag }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+deleteTime = '{{ deleteTime }}',
+rules = '{{ rules }}'
+WHERE 
+policiesId = '{{ policiesId }}'
+AND policiesId1 = '{{ policiesId1 }}'
+AND policiesId2 = '{{ policiesId2 }}';
 ```
 
 ## `DELETE` example

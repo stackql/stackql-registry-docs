@@ -125,31 +125,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: state
-        value: '{{ state }}'
-      - name: disabled
-        value: '{{ disabled }}'
-      - name: attributeMapping
-        value: '{{ attributeMapping }}'
-      - name: attributeCondition
-        value: '{{ attributeCondition }}'
-      - name: saml
-        value: '{{ saml }}'
-      - name: oidc
-        value: '{{ oidc }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: extraAttributesOauth2Client
-        value: '{{ extraAttributesOauth2Client }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: state
+      value: '{{ state }}'
+    - name: disabled
+      value: '{{ disabled }}'
+    - name: attributeMapping
+      value: '{{ attributeMapping }}'
+    - name: attributeCondition
+      value: '{{ attributeCondition }}'
+    - name: saml
+      value: '{{ saml }}'
+    - name: oidc
+      value: '{{ oidc }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: extraAttributesOauth2Client
+      value: '{{ extraAttributesOauth2Client }}'
 
 ```
 </TabItem>

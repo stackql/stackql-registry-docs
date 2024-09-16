@@ -82,9 +82,9 @@ Creates, updates, deletes, gets or lists a <code>backend_services</code> resourc
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a BackendService resource in the specified project using the data included in the request. For more information, see Backend services overview . |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backendService, project" /> | Deletes the specified BackendService resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="backendService, project" /> | Patches the specified BackendService resource with the data included in the request. For more information, see Backend services overview. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="backendService, project" /> | Updates the specified BackendService resource with the data included in the request. For more information, see Backend services overview. |
 | <CopyableCode code="set_edge_security_policy" /> | `EXEC` | <CopyableCode code="backendService, project" /> | Sets the edge security policy for the specified backend service. |
 | <CopyableCode code="set_security_policy" /> | `EXEC` | <CopyableCode code="backendService, project" /> | Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="backendService, project" /> | Updates the specified BackendService resource with the data included in the request. For more information, see Backend services overview. |
 
 ## `SELECT` examples
 
@@ -248,93 +248,92 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: backends
-        value: '{{ backends }}'
-      - name: healthChecks
-        value: '{{ healthChecks }}'
-      - name: timeoutSec
-        value: '{{ timeoutSec }}'
-      - name: port
-        value: '{{ port }}'
-      - name: protocol
-        value: '{{ protocol }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: portName
-        value: '{{ portName }}'
-      - name: enableCDN
-        value: '{{ enableCDN }}'
-      - name: sessionAffinity
-        value: '{{ sessionAffinity }}'
-      - name: affinityCookieTtlSec
-        value: '{{ affinityCookieTtlSec }}'
-      - name: region
-        value: '{{ region }}'
-      - name: failoverPolicy
-        value: '{{ failoverPolicy }}'
-      - name: loadBalancingScheme
-        value: '{{ loadBalancingScheme }}'
-      - name: connectionDraining
-        value: '{{ connectionDraining }}'
-      - name: iap
-        value: '{{ iap }}'
-      - name: cdnPolicy
-        value: '{{ cdnPolicy }}'
-      - name: customRequestHeaders
-        value: '{{ customRequestHeaders }}'
-      - name: customResponseHeaders
-        value: '{{ customResponseHeaders }}'
-      - name: securityPolicy
-        value: '{{ securityPolicy }}'
-      - name: edgeSecurityPolicy
-        value: '{{ edgeSecurityPolicy }}'
-      - name: logConfig
-        value: '{{ logConfig }}'
-      - name: securitySettings
-        value: '{{ securitySettings }}'
-      - name: localityLbPolicy
-        value: '{{ localityLbPolicy }}'
-      - name: consistentHash
-        value: '{{ consistentHash }}'
-      - name: circuitBreakers
-        value: '{{ circuitBreakers }}'
-      - name: outlierDetection
-        value: '{{ outlierDetection }}'
-      - name: network
-        value: '{{ network }}'
-      - name: subsetting
-        value: '{{ subsetting }}'
-      - name: connectionTrackingPolicy
-        value: '{{ connectionTrackingPolicy }}'
-      - name: maxStreamDuration
-        value: '{{ maxStreamDuration }}'
-      - name: compressionMode
-        value: '{{ compressionMode }}'
-      - name: serviceLbPolicy
-        value: '{{ serviceLbPolicy }}'
-      - name: serviceBindings
-        value: '{{ serviceBindings }}'
-      - name: localityLbPolicies
-        value: '{{ localityLbPolicies }}'
-      - name: metadatas
-        value: '{{ metadatas }}'
-      - name: usedBy
-        value: '{{ usedBy }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: backends
+      value: '{{ backends }}'
+    - name: healthChecks
+      value: '{{ healthChecks }}'
+    - name: timeoutSec
+      value: '{{ timeoutSec }}'
+    - name: port
+      value: '{{ port }}'
+    - name: protocol
+      value: '{{ protocol }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: portName
+      value: '{{ portName }}'
+    - name: enableCDN
+      value: '{{ enableCDN }}'
+    - name: sessionAffinity
+      value: '{{ sessionAffinity }}'
+    - name: affinityCookieTtlSec
+      value: '{{ affinityCookieTtlSec }}'
+    - name: region
+      value: '{{ region }}'
+    - name: failoverPolicy
+      value: '{{ failoverPolicy }}'
+    - name: loadBalancingScheme
+      value: '{{ loadBalancingScheme }}'
+    - name: connectionDraining
+      value: '{{ connectionDraining }}'
+    - name: iap
+      value: '{{ iap }}'
+    - name: cdnPolicy
+      value: '{{ cdnPolicy }}'
+    - name: customRequestHeaders
+      value: '{{ customRequestHeaders }}'
+    - name: customResponseHeaders
+      value: '{{ customResponseHeaders }}'
+    - name: securityPolicy
+      value: '{{ securityPolicy }}'
+    - name: edgeSecurityPolicy
+      value: '{{ edgeSecurityPolicy }}'
+    - name: logConfig
+      value: '{{ logConfig }}'
+    - name: securitySettings
+      value: '{{ securitySettings }}'
+    - name: localityLbPolicy
+      value: '{{ localityLbPolicy }}'
+    - name: consistentHash
+      value: '{{ consistentHash }}'
+    - name: circuitBreakers
+      value: '{{ circuitBreakers }}'
+    - name: outlierDetection
+      value: '{{ outlierDetection }}'
+    - name: network
+      value: '{{ network }}'
+    - name: subsetting
+      value: '{{ subsetting }}'
+    - name: connectionTrackingPolicy
+      value: '{{ connectionTrackingPolicy }}'
+    - name: maxStreamDuration
+      value: '{{ maxStreamDuration }}'
+    - name: compressionMode
+      value: '{{ compressionMode }}'
+    - name: serviceLbPolicy
+      value: '{{ serviceLbPolicy }}'
+    - name: serviceBindings
+      value: '{{ serviceBindings }}'
+    - name: localityLbPolicies
+      value: '{{ localityLbPolicies }}'
+    - name: metadatas
+      value: '{{ metadatas }}'
+    - name: usedBy
+      value: '{{ usedBy }}'
 
 ```
 </TabItem>
@@ -347,6 +346,61 @@ Updates a <code>backend_services</code> resource.
 ```sql
 /*+ update */
 UPDATE google.compute.backend_services
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+backends = '{{ backends }}',
+healthChecks = '{{ healthChecks }}',
+timeoutSec = '{{ timeoutSec }}',
+port = '{{ port }}',
+protocol = '{{ protocol }}',
+fingerprint = '{{ fingerprint }}',
+portName = '{{ portName }}',
+enableCDN = true|false,
+sessionAffinity = '{{ sessionAffinity }}',
+affinityCookieTtlSec = '{{ affinityCookieTtlSec }}',
+region = '{{ region }}',
+failoverPolicy = '{{ failoverPolicy }}',
+loadBalancingScheme = '{{ loadBalancingScheme }}',
+connectionDraining = '{{ connectionDraining }}',
+iap = '{{ iap }}',
+cdnPolicy = '{{ cdnPolicy }}',
+customRequestHeaders = '{{ customRequestHeaders }}',
+customResponseHeaders = '{{ customResponseHeaders }}',
+securityPolicy = '{{ securityPolicy }}',
+edgeSecurityPolicy = '{{ edgeSecurityPolicy }}',
+logConfig = '{{ logConfig }}',
+securitySettings = '{{ securitySettings }}',
+localityLbPolicy = '{{ localityLbPolicy }}',
+consistentHash = '{{ consistentHash }}',
+circuitBreakers = '{{ circuitBreakers }}',
+outlierDetection = '{{ outlierDetection }}',
+network = '{{ network }}',
+subsetting = '{{ subsetting }}',
+connectionTrackingPolicy = '{{ connectionTrackingPolicy }}',
+maxStreamDuration = '{{ maxStreamDuration }}',
+compressionMode = '{{ compressionMode }}',
+serviceLbPolicy = '{{ serviceLbPolicy }}',
+serviceBindings = '{{ serviceBindings }}',
+localityLbPolicies = '{{ localityLbPolicies }}',
+metadatas = '{{ metadatas }}',
+usedBy = '{{ usedBy }}'
+WHERE 
+backendService = '{{ backendService }}'
+AND project = '{{ project }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>backend_services</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.backend_services
 SET 
 kind = '{{ kind }}',
 id = '{{ id }}',

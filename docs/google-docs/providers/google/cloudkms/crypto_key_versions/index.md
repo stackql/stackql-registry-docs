@@ -158,41 +158,40 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: state
-        value: '{{ state }}'
-      - name: protectionLevel
-        value: '{{ protectionLevel }}'
-      - name: algorithm
-        value: '{{ algorithm }}'
-      - name: attestation
-        value: '{{ attestation }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: generateTime
-        value: '{{ generateTime }}'
-      - name: destroyTime
-        value: '{{ destroyTime }}'
-      - name: destroyEventTime
-        value: '{{ destroyEventTime }}'
-      - name: importJob
-        value: '{{ importJob }}'
-      - name: importTime
-        value: '{{ importTime }}'
-      - name: importFailureReason
-        value: '{{ importFailureReason }}'
-      - name: generationFailureReason
-        value: '{{ generationFailureReason }}'
-      - name: externalDestructionFailureReason
-        value: '{{ externalDestructionFailureReason }}'
-      - name: externalProtectionLevelOptions
-        value: '{{ externalProtectionLevelOptions }}'
-      - name: reimportEligible
-        value: '{{ reimportEligible }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: state
+      value: '{{ state }}'
+    - name: protectionLevel
+      value: '{{ protectionLevel }}'
+    - name: algorithm
+      value: '{{ algorithm }}'
+    - name: attestation
+      value: '{{ attestation }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: generateTime
+      value: '{{ generateTime }}'
+    - name: destroyTime
+      value: '{{ destroyTime }}'
+    - name: destroyEventTime
+      value: '{{ destroyEventTime }}'
+    - name: importJob
+      value: '{{ importJob }}'
+    - name: importTime
+      value: '{{ importTime }}'
+    - name: importFailureReason
+      value: '{{ importFailureReason }}'
+    - name: generationFailureReason
+      value: '{{ generationFailureReason }}'
+    - name: externalDestructionFailureReason
+      value: '{{ externalDestructionFailureReason }}'
+    - name: externalProtectionLevelOptions
+      value: '{{ externalProtectionLevelOptions }}'
+    - name: reimportEligible
+      value: '{{ reimportEligible }}'
 
 ```
 </TabItem>

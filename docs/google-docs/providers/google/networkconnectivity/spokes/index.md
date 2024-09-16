@@ -141,39 +141,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: description
-        value: '{{ description }}'
-      - name: hub
-        value: '{{ hub }}'
-      - name: group
-        value: '{{ group }}'
-      - name: linkedVpnTunnels
-        value: '{{ linkedVpnTunnels }}'
-      - name: linkedInterconnectAttachments
-        value: '{{ linkedInterconnectAttachments }}'
-      - name: linkedRouterApplianceInstances
-        value: '{{ linkedRouterApplianceInstances }}'
-      - name: linkedVpcNetwork
-        value: '{{ linkedVpcNetwork }}'
-      - name: uniqueId
-        value: '{{ uniqueId }}'
-      - name: state
-        value: '{{ state }}'
-      - name: reasons
-        value: '{{ reasons }}'
-      - name: spokeType
-        value: '{{ spokeType }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: description
+      value: '{{ description }}'
+    - name: hub
+      value: '{{ hub }}'
+    - name: group
+      value: '{{ group }}'
+    - name: linkedVpnTunnels
+      value: '{{ linkedVpnTunnels }}'
+    - name: linkedInterconnectAttachments
+      value: '{{ linkedInterconnectAttachments }}'
+    - name: linkedRouterApplianceInstances
+      value: '{{ linkedRouterApplianceInstances }}'
+    - name: linkedVpcNetwork
+      value: '{{ linkedVpcNetwork }}'
+    - name: uniqueId
+      value: '{{ uniqueId }}'
+    - name: state
+      value: '{{ state }}'
+    - name: reasons
+      value: '{{ reasons }}'
+    - name: spokeType
+      value: '{{ spokeType }}'
 
 ```
 </TabItem>

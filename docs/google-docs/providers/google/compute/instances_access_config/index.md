@@ -91,29 +91,28 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: type
-        value: '{{ type }}'
-      - name: name
-        value: '{{ name }}'
-      - name: natIP
-        value: '{{ natIP }}'
-      - name: externalIpv6
-        value: '{{ externalIpv6 }}'
-      - name: externalIpv6PrefixLength
-        value: '{{ externalIpv6PrefixLength }}'
-      - name: setPublicPtr
-        value: '{{ setPublicPtr }}'
-      - name: publicPtrDomainName
-        value: '{{ publicPtrDomainName }}'
-      - name: networkTier
-        value: '{{ networkTier }}'
-      - name: securityPolicy
-        value: '{{ securityPolicy }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: type
+      value: '{{ type }}'
+    - name: name
+      value: '{{ name }}'
+    - name: natIP
+      value: '{{ natIP }}'
+    - name: externalIpv6
+      value: '{{ externalIpv6 }}'
+    - name: externalIpv6PrefixLength
+      value: '{{ externalIpv6PrefixLength }}'
+    - name: setPublicPtr
+      value: '{{ setPublicPtr }}'
+    - name: publicPtrDomainName
+      value: '{{ publicPtrDomainName }}'
+    - name: networkTier
+      value: '{{ networkTier }}'
+    - name: securityPolicy
+      value: '{{ securityPolicy }}'
 
 ```
 </TabItem>

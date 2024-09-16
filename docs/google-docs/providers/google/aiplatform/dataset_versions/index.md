@@ -118,29 +118,28 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: etag
-        value: '{{ etag }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: bigQueryDatasetName
-        value: '{{ bigQueryDatasetName }}'
-      - name: modelReference
-        value: '{{ modelReference }}'
-      - name: name
-        value: '{{ name }}'
-      - name: metadata
-        value: '{{ metadata }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
+- name: your_resource_model_name
+  props:
+    - name: etag
+      value: '{{ etag }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: bigQueryDatasetName
+      value: '{{ bigQueryDatasetName }}'
+    - name: modelReference
+      value: '{{ modelReference }}'
+    - name: name
+      value: '{{ name }}'
+    - name: metadata
+      value: '{{ metadata }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
 
 ```
 </TabItem>

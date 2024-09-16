@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>sources_iam_policies</code> res
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_sources_get_iam_policy" /> | `SELECT` | <CopyableCode code="organizationsId, sourcesId" /> | Gets the access control policy on the specified Source. |
-| <CopyableCode code="organizations_sources_set_iam_policy" /> | `EXEC` | <CopyableCode code="organizationsId, sourcesId" /> | Sets the access control policy on the specified Source. |
+| <CopyableCode code="organizations_sources_set_iam_policy" /> | `REPLACE` | <CopyableCode code="organizationsId, sourcesId" /> | Sets the access control policy on the specified Source. |
 | <CopyableCode code="organizations_sources_test_iam_permissions" /> | `EXEC` | <CopyableCode code="organizationsId, sourcesId" /> | Returns the permissions that a caller has on the specified source. |
 
 ## `SELECT` examples
@@ -54,4 +54,19 @@ role
 FROM google.securitycenter.sources_iam_policies
 WHERE organizationsId = '{{ organizationsId }}'
 AND sourcesId = '{{ sourcesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>sources_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.securitycenter.sources_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+organizationsId = '{{ organizationsId }}'
+AND sourcesId = '{{ sourcesId }}';
 ```

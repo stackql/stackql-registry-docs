@@ -148,43 +148,42 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: network
-        value: '{{ network }}'
-      - name: subnetwork
-        value: '{{ subnetwork }}'
-      - name: controlPlaneIp
-        value: '{{ controlPlaneIp }}'
-      - name: privateClusterConfig
-        value: '{{ privateClusterConfig }}'
-      - name: domainConfig
-        value: '{{ domainConfig }}'
-      - name: degraded
-        value: '{{ degraded }}'
-      - name: conditions
-        value: '{{ conditions }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: network
+      value: '{{ network }}'
+    - name: subnetwork
+      value: '{{ subnetwork }}'
+    - name: controlPlaneIp
+      value: '{{ controlPlaneIp }}'
+    - name: privateClusterConfig
+      value: '{{ privateClusterConfig }}'
+    - name: domainConfig
+      value: '{{ domainConfig }}'
+    - name: degraded
+      value: '{{ degraded }}'
+    - name: conditions
+      value: '{{ conditions }}'
 
 ```
 </TabItem>

@@ -185,61 +185,60 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: generation
-        value: '{{ generation }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: creator
-        value: '{{ creator }}'
-      - name: lastModifier
-        value: '{{ lastModifier }}'
-      - name: client
-        value: '{{ client }}'
-      - name: clientVersion
-        value: '{{ clientVersion }}'
-      - name: launchStage
-        value: '{{ launchStage }}'
-      - name: binaryAuthorization
-        value: '{{ binaryAuthorization }}'
-      - name: template
-        value: '{{ template }}'
-      - name: observedGeneration
-        value: '{{ observedGeneration }}'
-      - name: terminalCondition
-        value: '{{ terminalCondition }}'
-      - name: conditions
-        value: '{{ conditions }}'
-      - name: executionCount
-        value: '{{ executionCount }}'
-      - name: latestCreatedExecution
-        value: '{{ latestCreatedExecution }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: startExecutionToken
-        value: '{{ startExecutionToken }}'
-      - name: runExecutionToken
-        value: '{{ runExecutionToken }}'
-      - name: etag
-        value: '{{ etag }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: generation
+      value: '{{ generation }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: creator
+      value: '{{ creator }}'
+    - name: lastModifier
+      value: '{{ lastModifier }}'
+    - name: client
+      value: '{{ client }}'
+    - name: clientVersion
+      value: '{{ clientVersion }}'
+    - name: launchStage
+      value: '{{ launchStage }}'
+    - name: binaryAuthorization
+      value: '{{ binaryAuthorization }}'
+    - name: template
+      value: '{{ template }}'
+    - name: observedGeneration
+      value: '{{ observedGeneration }}'
+    - name: terminalCondition
+      value: '{{ terminalCondition }}'
+    - name: conditions
+      value: '{{ conditions }}'
+    - name: executionCount
+      value: '{{ executionCount }}'
+    - name: latestCreatedExecution
+      value: '{{ latestCreatedExecution }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: startExecutionToken
+      value: '{{ startExecutionToken }}'
+    - name: runExecutionToken
+      value: '{{ runExecutionToken }}'
+    - name: etag
+      value: '{{ etag }}'
 
 ```
 </TabItem>

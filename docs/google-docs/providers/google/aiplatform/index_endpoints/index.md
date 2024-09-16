@@ -149,41 +149,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: network
-        value: '{{ network }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: publicEndpointDomainName
-        value: '{{ publicEndpointDomainName }}'
-      - name: deployedIndexes
-        value: '{{ deployedIndexes }}'
-      - name: publicEndpointEnabled
-        value: '{{ publicEndpointEnabled }}'
-      - name: name
-        value: '{{ name }}'
-      - name: enablePrivateServiceConnect
-        value: '{{ enablePrivateServiceConnect }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: privateServiceConnectConfig
-        value: '{{ privateServiceConnectConfig }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: description
-        value: '{{ description }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
+- name: your_resource_model_name
+  props:
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: network
+      value: '{{ network }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: publicEndpointDomainName
+      value: '{{ publicEndpointDomainName }}'
+    - name: deployedIndexes
+      value: '{{ deployedIndexes }}'
+    - name: publicEndpointEnabled
+      value: '{{ publicEndpointEnabled }}'
+    - name: name
+      value: '{{ name }}'
+    - name: enablePrivateServiceConnect
+      value: '{{ enablePrivateServiceConnect }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: privateServiceConnectConfig
+      value: '{{ privateServiceConnectConfig }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: description
+      value: '{{ description }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
 
 ```
 </TabItem>

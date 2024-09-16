@@ -41,7 +41,7 @@ Creates, updates, deletes, gets or lists a <code>user_workloads_secrets</code> r
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Lists user workloads Secrets. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="environmentsId, locationsId, projectsId" /> | Creates a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="environmentsId, locationsId, projectsId, userWorkloadsSecretsId" /> | Deletes a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="environmentsId, locationsId, projectsId, userWorkloadsSecretsId" /> | Updates a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="environmentsId, locationsId, projectsId, userWorkloadsSecretsId" /> | Updates a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer. |
 
 ## `SELECT` examples
 
@@ -91,17 +91,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: data
-        value: '{{ data }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: data
+      value: '{{ data }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>user_workloads_secrets</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.composer.user_workloads_secrets
+SET 
+name = '{{ name }}',
+data = '{{ data }}'
+WHERE 
+environmentsId = '{{ environmentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND userWorkloadsSecretsId = '{{ userWorkloadsSecretsId }}';
+```
 
 ## `DELETE` example
 

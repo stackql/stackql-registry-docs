@@ -35,4 +35,20 @@ Creates, updates, deletes, gets or lists a <code>attributes_config</code> resour
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="projects_locations_catalogs_attributes_config_replace_catalog_attribute" /> | `EXEC` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Replaces the specified CatalogAttribute in the AttributesConfig by updating the catalog attribute with the same CatalogAttribute.key. If the CatalogAttribute to replace does not exist, a NOT_FOUND error is returned. |
+| <CopyableCode code="projects_locations_catalogs_attributes_config_replace_catalog_attribute" /> | `REPLACE` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Replaces the specified CatalogAttribute in the AttributesConfig by updating the catalog attribute with the same CatalogAttribute.key. If the CatalogAttribute to replace does not exist, a NOT_FOUND error is returned. |
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>attributes_config</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.retail.attributes_config
+SET 
+catalogAttribute = '{{ catalogAttribute }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+catalogsId = '{{ catalogsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```

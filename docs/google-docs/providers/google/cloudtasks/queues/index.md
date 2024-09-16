@@ -115,25 +115,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: appEngineRoutingOverride
-        value: '{{ appEngineRoutingOverride }}'
-      - name: httpTarget
-        value: '{{ httpTarget }}'
-      - name: rateLimits
-        value: '{{ rateLimits }}'
-      - name: retryConfig
-        value: '{{ retryConfig }}'
-      - name: state
-        value: '{{ state }}'
-      - name: purgeTime
-        value: '{{ purgeTime }}'
-      - name: stackdriverLoggingConfig
-        value: '{{ stackdriverLoggingConfig }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: appEngineRoutingOverride
+      value: '{{ appEngineRoutingOverride }}'
+    - name: httpTarget
+      value: '{{ httpTarget }}'
+    - name: rateLimits
+      value: '{{ rateLimits }}'
+    - name: retryConfig
+      value: '{{ retryConfig }}'
+    - name: state
+      value: '{{ state }}'
+    - name: purgeTime
+      value: '{{ purgeTime }}'
+    - name: stackdriverLoggingConfig
+      value: '{{ stackdriverLoggingConfig }}'
 
 ```
 </TabItem>

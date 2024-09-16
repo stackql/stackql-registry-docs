@@ -70,8 +70,8 @@ Creates, updates, deletes, gets or lists a <code>datasets</code> resource.
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="projectId" /> | Creates a new empty dataset. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="+datasetId, projectId" /> | Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables, either manually or by specifying deleteContents. Immediately after deletion, you can create another dataset with the same name. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="+datasetId, projectId" /> | Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. This method supports RFC5789 patch semantics. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="+datasetId, projectId" /> | Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. |
 | <CopyableCode code="undelete" /> | `EXEC` | <CopyableCode code="+datasetId, projectId" /> | Undeletes a dataset which is within time travel window based on datasetId. If a time is specified, the dataset version deleted at that time is undeleted, else the last live version is undeleted. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="+datasetId, projectId" /> | Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. |
 
 ## `SELECT` examples
 
@@ -199,91 +199,90 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: access
-        value:
-          - - name: dataset
-              value: '{{ dataset }}'
-            - name: domain
-              value: '{{ domain }}'
-            - name: groupByEmail
-              value: '{{ groupByEmail }}'
-            - name: iamMember
-              value: '{{ iamMember }}'
-            - name: role
-              value: '{{ role }}'
-            - name: routine
-              value: '{{ routine }}'
-            - name: specialGroup
-              value: '{{ specialGroup }}'
-            - name: userByEmail
-              value: '{{ userByEmail }}'
-            - name: view
-              value: '{{ view }}'
-      - name: creationTime
-        value: '{{ creationTime }}'
-      - name: datasetReference
-        value: '{{ datasetReference }}'
-      - name: defaultCollation
-        value: '{{ defaultCollation }}'
-      - name: defaultEncryptionConfiguration
-        value: '{{ defaultEncryptionConfiguration }}'
-      - name: defaultPartitionExpirationMs
-        value: '{{ defaultPartitionExpirationMs }}'
-      - name: defaultRoundingMode
-        value: '{{ defaultRoundingMode }}'
-      - name: defaultTableExpirationMs
-        value: '{{ defaultTableExpirationMs }}'
-      - name: description
-        value: '{{ description }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: externalCatalogDatasetOptions
-        value: '{{ externalCatalogDatasetOptions }}'
-      - name: externalDatasetReference
-        value: '{{ externalDatasetReference }}'
-      - name: friendlyName
-        value: '{{ friendlyName }}'
-      - name: id
-        value: '{{ id }}'
-      - name: isCaseInsensitive
-        value: '{{ isCaseInsensitive }}'
-      - name: kind
-        value: '{{ kind }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: lastModifiedTime
-        value: '{{ lastModifiedTime }}'
-      - name: linkedDatasetMetadata
-        value: '{{ linkedDatasetMetadata }}'
-      - name: linkedDatasetSource
-        value: '{{ linkedDatasetSource }}'
-      - name: location
-        value: '{{ location }}'
-      - name: maxTimeTravelHours
-        value: '{{ maxTimeTravelHours }}'
-      - name: resourceTags
-        value: '{{ resourceTags }}'
-      - name: restrictions
-        value: '{{ restrictions }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: storageBillingModel
-        value: '{{ storageBillingModel }}'
-      - name: tags
-        value:
-          - - name: tagKey
-              value: '{{ tagKey }}'
-            - name: tagValue
-              value: '{{ tagValue }}'
-      - name: type
-        value: '{{ type }}'
+- name: your_resource_model_name
+  props:
+    - name: access
+      value:
+        - - name: dataset
+            value: '{{ dataset }}'
+          - name: domain
+            value: '{{ domain }}'
+          - name: groupByEmail
+            value: '{{ groupByEmail }}'
+          - name: iamMember
+            value: '{{ iamMember }}'
+          - name: role
+            value: '{{ role }}'
+          - name: routine
+            value: '{{ routine }}'
+          - name: specialGroup
+            value: '{{ specialGroup }}'
+          - name: userByEmail
+            value: '{{ userByEmail }}'
+          - name: view
+            value: '{{ view }}'
+    - name: creationTime
+      value: '{{ creationTime }}'
+    - name: datasetReference
+      value: '{{ datasetReference }}'
+    - name: defaultCollation
+      value: '{{ defaultCollation }}'
+    - name: defaultEncryptionConfiguration
+      value: '{{ defaultEncryptionConfiguration }}'
+    - name: defaultPartitionExpirationMs
+      value: '{{ defaultPartitionExpirationMs }}'
+    - name: defaultRoundingMode
+      value: '{{ defaultRoundingMode }}'
+    - name: defaultTableExpirationMs
+      value: '{{ defaultTableExpirationMs }}'
+    - name: description
+      value: '{{ description }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: externalCatalogDatasetOptions
+      value: '{{ externalCatalogDatasetOptions }}'
+    - name: externalDatasetReference
+      value: '{{ externalDatasetReference }}'
+    - name: friendlyName
+      value: '{{ friendlyName }}'
+    - name: id
+      value: '{{ id }}'
+    - name: isCaseInsensitive
+      value: '{{ isCaseInsensitive }}'
+    - name: kind
+      value: '{{ kind }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: lastModifiedTime
+      value: '{{ lastModifiedTime }}'
+    - name: linkedDatasetMetadata
+      value: '{{ linkedDatasetMetadata }}'
+    - name: linkedDatasetSource
+      value: '{{ linkedDatasetSource }}'
+    - name: location
+      value: '{{ location }}'
+    - name: maxTimeTravelHours
+      value: '{{ maxTimeTravelHours }}'
+    - name: resourceTags
+      value: '{{ resourceTags }}'
+    - name: restrictions
+      value: '{{ restrictions }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: storageBillingModel
+      value: '{{ storageBillingModel }}'
+    - name: tags
+      value:
+        - - name: tagKey
+            value: '{{ tagKey }}'
+          - name: tagValue
+            value: '{{ tagValue }}'
+    - name: type
+      value: '{{ type }}'
 
 ```
 </TabItem>
@@ -296,6 +295,49 @@ Updates a <code>datasets</code> resource.
 ```sql
 /*+ update */
 UPDATE google.bigquery.datasets
+SET 
+access = '{{ access }}',
+creationTime = '{{ creationTime }}',
+datasetReference = '{{ datasetReference }}',
+defaultCollation = '{{ defaultCollation }}',
+defaultEncryptionConfiguration = '{{ defaultEncryptionConfiguration }}',
+defaultPartitionExpirationMs = '{{ defaultPartitionExpirationMs }}',
+defaultRoundingMode = '{{ defaultRoundingMode }}',
+defaultTableExpirationMs = '{{ defaultTableExpirationMs }}',
+description = '{{ description }}',
+etag = '{{ etag }}',
+externalCatalogDatasetOptions = '{{ externalCatalogDatasetOptions }}',
+externalDatasetReference = '{{ externalDatasetReference }}',
+friendlyName = '{{ friendlyName }}',
+id = '{{ id }}',
+isCaseInsensitive = true|false,
+kind = '{{ kind }}',
+labels = '{{ labels }}',
+lastModifiedTime = '{{ lastModifiedTime }}',
+linkedDatasetMetadata = '{{ linkedDatasetMetadata }}',
+linkedDatasetSource = '{{ linkedDatasetSource }}',
+location = '{{ location }}',
+maxTimeTravelHours = '{{ maxTimeTravelHours }}',
+resourceTags = '{{ resourceTags }}',
+restrictions = '{{ restrictions }}',
+satisfiesPzi = true|false,
+satisfiesPzs = true|false,
+selfLink = '{{ selfLink }}',
+storageBillingModel = '{{ storageBillingModel }}',
+tags = '{{ tags }}',
+type = '{{ type }}'
+WHERE 
++datasetId = '{{ +datasetId }}'
+AND projectId = '{{ projectId }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>datasets</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.bigquery.datasets
 SET 
 access = '{{ access }}',
 creationTime = '{{ creationTime }}',

@@ -41,8 +41,8 @@ Creates, updates, deletes, gets or lists a <code>aliases</code> resource.
 | <CopyableCode code="organizations_environments_keystores_aliases_get" /> | `SELECT` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> | Gets an alias. |
 | <CopyableCode code="organizations_environments_keystores_aliases_create" /> | `INSERT` | <CopyableCode code="environmentsId, keystoresId, organizationsId" /> | Creates an alias from a key/certificate pair. The structure of the request is controlled by the `format` query parameter: - `keycertfile` - Separate PEM-encoded key and certificate files are uploaded. Set `Content-Type: multipart/form-data` and include the `keyFile`, `certFile`, and `password` (if keys are encrypted) fields in the request body. If uploading to a truststore, omit `keyFile`. - `pkcs12` - A PKCS12 file is uploaded. Set `Content-Type: multipart/form-data`, provide the file in the `file` field, and include the `password` field if the file is encrypted in the request body. - `selfsignedcert` - A new private key and certificate are generated. Set `Content-Type: application/json` and include CertificateGenerationSpec in the request body. |
 | <CopyableCode code="organizations_environments_keystores_aliases_delete" /> | `DELETE` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> | Deletes an alias. |
+| <CopyableCode code="organizations_environments_keystores_aliases_update" /> | `REPLACE` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> | Updates the certificate in an alias. |
 | <CopyableCode code="organizations_environments_keystores_aliases_csr" /> | `EXEC` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> | Generates a PKCS #10 Certificate Signing Request for the private key in an alias. |
-| <CopyableCode code="organizations_environments_keystores_aliases_update" /> | `EXEC` | <CopyableCode code="aliasesId, environmentsId, keystoresId, organizationsId" /> | Updates the certificate in an alias. |
 
 ## `SELECT` examples
 
@@ -96,19 +96,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: contentType
-        value: '{{ contentType }}'
-      - name: extensions
-        value: '{{ extensions }}'
-      - name: data
-        value: '{{ data }}'
+- name: your_resource_model_name
+  props:
+    - name: contentType
+      value: '{{ contentType }}'
+    - name: extensions
+      value: '{{ extensions }}'
+    - name: data
+      value: '{{ data }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>aliases</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.aliases
+SET 
+contentType = '{{ contentType }}',
+extensions = '{{ extensions }}',
+data = '{{ data }}'
+WHERE 
+aliasesId = '{{ aliasesId }}'
+AND environmentsId = '{{ environmentsId }}'
+AND keystoresId = '{{ keystoresId }}'
+AND organizationsId = '{{ organizationsId }}';
+```
 
 ## `DELETE` example
 

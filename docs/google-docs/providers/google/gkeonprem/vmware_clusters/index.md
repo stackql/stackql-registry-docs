@@ -211,73 +211,72 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: adminClusterMembership
-        value: '{{ adminClusterMembership }}'
-      - name: description
-        value: '{{ description }}'
-      - name: onPremVersion
-        value: '{{ onPremVersion }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: state
-        value: '{{ state }}'
-      - name: endpoint
-        value: '{{ endpoint }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: localName
-        value: '{{ localName }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: controlPlaneNode
-        value: '{{ controlPlaneNode }}'
-      - name: antiAffinityGroups
-        value: '{{ antiAffinityGroups }}'
-      - name: storage
-        value: '{{ storage }}'
-      - name: networkConfig
-        value: '{{ networkConfig }}'
-      - name: loadBalancer
-        value: '{{ loadBalancer }}'
-      - name: vcenter
-        value: '{{ vcenter }}'
-      - name: status
-        value: '{{ status }}'
-      - name: dataplaneV2
-        value: '{{ dataplaneV2 }}'
-      - name: vmTrackingEnabled
-        value: '{{ vmTrackingEnabled }}'
-      - name: autoRepairConfig
-        value: '{{ autoRepairConfig }}'
-      - name: fleet
-        value: '{{ fleet }}'
-      - name: authorization
-        value: '{{ authorization }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: validationCheck
-        value: '{{ validationCheck }}'
-      - name: adminClusterName
-        value: '{{ adminClusterName }}'
-      - name: enableControlPlaneV2
-        value: '{{ enableControlPlaneV2 }}'
-      - name: binaryAuthorization
-        value: '{{ binaryAuthorization }}'
-      - name: upgradePolicy
-        value: '{{ upgradePolicy }}'
-      - name: disableBundledIngress
-        value: '{{ disableBundledIngress }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: adminClusterMembership
+      value: '{{ adminClusterMembership }}'
+    - name: description
+      value: '{{ description }}'
+    - name: onPremVersion
+      value: '{{ onPremVersion }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: state
+      value: '{{ state }}'
+    - name: endpoint
+      value: '{{ endpoint }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: localName
+      value: '{{ localName }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: controlPlaneNode
+      value: '{{ controlPlaneNode }}'
+    - name: antiAffinityGroups
+      value: '{{ antiAffinityGroups }}'
+    - name: storage
+      value: '{{ storage }}'
+    - name: networkConfig
+      value: '{{ networkConfig }}'
+    - name: loadBalancer
+      value: '{{ loadBalancer }}'
+    - name: vcenter
+      value: '{{ vcenter }}'
+    - name: status
+      value: '{{ status }}'
+    - name: dataplaneV2
+      value: '{{ dataplaneV2 }}'
+    - name: vmTrackingEnabled
+      value: '{{ vmTrackingEnabled }}'
+    - name: autoRepairConfig
+      value: '{{ autoRepairConfig }}'
+    - name: fleet
+      value: '{{ fleet }}'
+    - name: authorization
+      value: '{{ authorization }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: validationCheck
+      value: '{{ validationCheck }}'
+    - name: adminClusterName
+      value: '{{ adminClusterName }}'
+    - name: enableControlPlaneV2
+      value: '{{ enableControlPlaneV2 }}'
+    - name: binaryAuthorization
+      value: '{{ binaryAuthorization }}'
+    - name: upgradePolicy
+      value: '{{ upgradePolicy }}'
+    - name: disableBundledIngress
+      value: '{{ disableBundledIngress }}'
 
 ```
 </TabItem>

@@ -49,7 +49,7 @@ Creates, updates, deletes, gets or lists a <code>hmac_keys</code> resource.
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectId" /> | Retrieves a list of HMAC keys matching the criteria. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectId, serviceAccountEmail" /> | Creates a new HMAC key for the specified service account. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accessId, projectId" /> | Deletes an HMAC key. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="accessId, projectId" /> | Updates the state of an HMAC key. See the [HMAC Key resource descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body) for valid states. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="accessId, projectId" /> | Updates the state of an HMAC key. See the [HMAC Key resource descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body) for valid states. |
 
 ## `SELECT` examples
 
@@ -99,13 +99,35 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props: []
+- name: your_resource_model_name
+  props: []
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>hmac_keys</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.storage.hmac_keys
+SET 
+accessId = '{{ accessId }}',
+etag = '{{ etag }}',
+id = '{{ id }}',
+kind = '{{ kind }}',
+projectId = '{{ projectId }}',
+selfLink = '{{ selfLink }}',
+serviceAccountEmail = '{{ serviceAccountEmail }}',
+state = '{{ state }}',
+timeCreated = '{{ timeCreated }}',
+updated = '{{ updated }}'
+WHERE 
+accessId = '{{ accessId }}'
+AND projectId = '{{ projectId }}';
+```
 
 ## `DELETE` example
 

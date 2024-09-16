@@ -118,19 +118,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: createStatement
-        value: '{{ createStatement }}'
-      - name: extraStatements
-        value: '{{ extraStatements }}'
-      - name: encryptionConfig
-        value: '{{ encryptionConfig }}'
-      - name: databaseDialect
-        value: '{{ databaseDialect }}'
-      - name: protoDescriptors
-        value: '{{ protoDescriptors }}'
+- name: your_resource_model_name
+  props:
+    - name: createStatement
+      value: '{{ createStatement }}'
+    - name: extraStatements
+      value: '{{ extraStatements }}'
+    - name: encryptionConfig
+      value: '{{ encryptionConfig }}'
+    - name: databaseDialect
+      value: '{{ databaseDialect }}'
+    - name: protoDescriptors
+      value: '{{ protoDescriptors }}'
 
 ```
 </TabItem>

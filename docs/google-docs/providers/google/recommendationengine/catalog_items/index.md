@@ -120,27 +120,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: id
-        value: '{{ id }}'
-      - name: categoryHierarchies
-        value: '{{ categoryHierarchies }}'
-      - name: title
-        value: '{{ title }}'
-      - name: description
-        value: '{{ description }}'
-      - name: itemAttributes
-        value: '{{ itemAttributes }}'
-      - name: languageCode
-        value: '{{ languageCode }}'
-      - name: tags
-        value: '{{ tags }}'
-      - name: itemGroupId
-        value: '{{ itemGroupId }}'
-      - name: productMetadata
-        value: '{{ productMetadata }}'
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: '{{ id }}'
+    - name: categoryHierarchies
+      value: '{{ categoryHierarchies }}'
+    - name: title
+      value: '{{ title }}'
+    - name: description
+      value: '{{ description }}'
+    - name: itemAttributes
+      value: '{{ itemAttributes }}'
+    - name: languageCode
+      value: '{{ languageCode }}'
+    - name: tags
+      value: '{{ tags }}'
+    - name: itemGroupId
+      value: '{{ itemGroupId }}'
+    - name: productMetadata
+      value: '{{ productMetadata }}'
 
 ```
 </TabItem>

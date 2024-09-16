@@ -75,12 +75,12 @@ Creates, updates, deletes, gets or lists a <code>objects</code> resource.
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="bucket" /> | Stores a new object and metadata. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bucket, object" /> | Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="bucket, object" /> | Patches an object's metadata. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="bucket, object" /> | Updates an object's metadata. |
 | <CopyableCode code="bulk_restore" /> | `EXEC` | <CopyableCode code="bucket" /> | Initiates a long-running bulk restore operation on the specified bucket. |
 | <CopyableCode code="compose" /> | `EXEC` | <CopyableCode code="destinationBucket, destinationObject" /> | Concatenates a list of existing objects into a new object in the same bucket. |
 | <CopyableCode code="copy" /> | `EXEC` | <CopyableCode code="destinationBucket, destinationObject, sourceBucket, sourceObject" /> | Copies a source object to a destination object. Optionally overrides metadata. |
 | <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="bucket, generation, object" /> | Restores a soft-deleted object. |
 | <CopyableCode code="rewrite" /> | `EXEC` | <CopyableCode code="destinationBucket, destinationObject, sourceBucket, sourceObject" /> | Rewrites a source object to a destination object. Optionally overrides metadata. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="bucket, object" /> | Updates an object's metadata. |
 | <CopyableCode code="watch_all" /> | `EXEC` | <CopyableCode code="bucket" /> | Watch for changes on all objects in a bucket. |
 
 ## `SELECT` examples
@@ -224,91 +224,90 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: acl
-        value: '{{ acl }}'
-      - name: bucket
-        value: '{{ bucket }}'
-      - name: cacheControl
-        value: '{{ cacheControl }}'
-      - name: componentCount
-        value: '{{ componentCount }}'
-      - name: contentDisposition
-        value: '{{ contentDisposition }}'
-      - name: contentEncoding
-        value: '{{ contentEncoding }}'
-      - name: contentLanguage
-        value: '{{ contentLanguage }}'
-      - name: contentType
-        value: '{{ contentType }}'
-      - name: crc32c
-        value: '{{ crc32c }}'
-      - name: customTime
-        value: '{{ customTime }}'
-      - name: customerEncryption
-        value:
-          - name: encryptionAlgorithm
-            value: '{{ encryptionAlgorithm }}'
-          - name: keySha256
-            value: '{{ keySha256 }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: eventBasedHold
-        value: '{{ eventBasedHold }}'
-      - name: generation
-        value: '{{ generation }}'
-      - name: id
-        value: '{{ id }}'
-      - name: kind
-        value: '{{ kind }}'
-      - name: kmsKeyName
-        value: '{{ kmsKeyName }}'
-      - name: md5Hash
-        value: '{{ md5Hash }}'
-      - name: mediaLink
-        value: '{{ mediaLink }}'
-      - name: metadata
-        value: '{{ metadata }}'
-      - name: metageneration
-        value: '{{ metageneration }}'
-      - name: name
-        value: '{{ name }}'
-      - name: owner
-        value:
-          - name: entity
-            value: '{{ entity }}'
-          - name: entityId
-            value: '{{ entityId }}'
-      - name: retentionExpirationTime
-        value: '{{ retentionExpirationTime }}'
-      - name: retention
-        value:
-          - name: retainUntilTime
-            value: '{{ retainUntilTime }}'
-          - name: mode
-            value: '{{ mode }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: size
-        value: '{{ size }}'
-      - name: storageClass
-        value: '{{ storageClass }}'
-      - name: temporaryHold
-        value: '{{ temporaryHold }}'
-      - name: timeCreated
-        value: '{{ timeCreated }}'
-      - name: timeDeleted
-        value: '{{ timeDeleted }}'
-      - name: softDeleteTime
-        value: '{{ softDeleteTime }}'
-      - name: hardDeleteTime
-        value: '{{ hardDeleteTime }}'
-      - name: timeStorageClassUpdated
-        value: '{{ timeStorageClassUpdated }}'
-      - name: updated
-        value: '{{ updated }}'
+- name: your_resource_model_name
+  props:
+    - name: acl
+      value: '{{ acl }}'
+    - name: bucket
+      value: '{{ bucket }}'
+    - name: cacheControl
+      value: '{{ cacheControl }}'
+    - name: componentCount
+      value: '{{ componentCount }}'
+    - name: contentDisposition
+      value: '{{ contentDisposition }}'
+    - name: contentEncoding
+      value: '{{ contentEncoding }}'
+    - name: contentLanguage
+      value: '{{ contentLanguage }}'
+    - name: contentType
+      value: '{{ contentType }}'
+    - name: crc32c
+      value: '{{ crc32c }}'
+    - name: customTime
+      value: '{{ customTime }}'
+    - name: customerEncryption
+      value:
+        - name: encryptionAlgorithm
+          value: '{{ encryptionAlgorithm }}'
+        - name: keySha256
+          value: '{{ keySha256 }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: eventBasedHold
+      value: '{{ eventBasedHold }}'
+    - name: generation
+      value: '{{ generation }}'
+    - name: id
+      value: '{{ id }}'
+    - name: kind
+      value: '{{ kind }}'
+    - name: kmsKeyName
+      value: '{{ kmsKeyName }}'
+    - name: md5Hash
+      value: '{{ md5Hash }}'
+    - name: mediaLink
+      value: '{{ mediaLink }}'
+    - name: metadata
+      value: '{{ metadata }}'
+    - name: metageneration
+      value: '{{ metageneration }}'
+    - name: name
+      value: '{{ name }}'
+    - name: owner
+      value:
+        - name: entity
+          value: '{{ entity }}'
+        - name: entityId
+          value: '{{ entityId }}'
+    - name: retentionExpirationTime
+      value: '{{ retentionExpirationTime }}'
+    - name: retention
+      value:
+        - name: retainUntilTime
+          value: '{{ retainUntilTime }}'
+        - name: mode
+          value: '{{ mode }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: size
+      value: '{{ size }}'
+    - name: storageClass
+      value: '{{ storageClass }}'
+    - name: temporaryHold
+      value: '{{ temporaryHold }}'
+    - name: timeCreated
+      value: '{{ timeCreated }}'
+    - name: timeDeleted
+      value: '{{ timeDeleted }}'
+    - name: softDeleteTime
+      value: '{{ softDeleteTime }}'
+    - name: hardDeleteTime
+      value: '{{ hardDeleteTime }}'
+    - name: timeStorageClassUpdated
+      value: '{{ timeStorageClassUpdated }}'
+    - name: updated
+      value: '{{ updated }}'
 
 ```
 </TabItem>
@@ -321,6 +320,54 @@ Updates a <code>objects</code> resource.
 ```sql
 /*+ update */
 UPDATE google.storage.objects
+SET 
+acl = '{{ acl }}',
+bucket = '{{ bucket }}',
+cacheControl = '{{ cacheControl }}',
+componentCount = '{{ componentCount }}',
+contentDisposition = '{{ contentDisposition }}',
+contentEncoding = '{{ contentEncoding }}',
+contentLanguage = '{{ contentLanguage }}',
+contentType = '{{ contentType }}',
+crc32c = '{{ crc32c }}',
+customTime = '{{ customTime }}',
+customerEncryption = '{{ customerEncryption }}',
+etag = '{{ etag }}',
+eventBasedHold = true|false,
+generation = '{{ generation }}',
+id = '{{ id }}',
+kind = '{{ kind }}',
+kmsKeyName = '{{ kmsKeyName }}',
+md5Hash = '{{ md5Hash }}',
+mediaLink = '{{ mediaLink }}',
+metadata = '{{ metadata }}',
+metageneration = '{{ metageneration }}',
+name = '{{ name }}',
+owner = '{{ owner }}',
+retentionExpirationTime = '{{ retentionExpirationTime }}',
+retention = '{{ retention }}',
+selfLink = '{{ selfLink }}',
+size = '{{ size }}',
+storageClass = '{{ storageClass }}',
+temporaryHold = true|false,
+timeCreated = '{{ timeCreated }}',
+timeDeleted = '{{ timeDeleted }}',
+softDeleteTime = '{{ softDeleteTime }}',
+hardDeleteTime = '{{ hardDeleteTime }}',
+timeStorageClassUpdated = '{{ timeStorageClassUpdated }}',
+updated = '{{ updated }}'
+WHERE 
+bucket = '{{ bucket }}'
+AND object = '{{ object }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>objects</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.storage.objects
 SET 
 acl = '{{ acl }}',
 bucket = '{{ bucket }}',

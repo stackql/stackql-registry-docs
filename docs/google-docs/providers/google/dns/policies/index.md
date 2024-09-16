@@ -48,7 +48,7 @@ Creates, updates, deletes, gets or lists a <code>policies</code> resource.
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new Policy. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="policy, project" /> | Deletes a previously created Policy. Fails if the policy is still being referenced by a network. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="policy, project" /> | Applies a partial update to an existing Policy. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="policy, project" /> | Updates an existing Policy. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="policy, project" /> | Updates an existing Policy. |
 
 ## `SELECT` examples
 
@@ -110,25 +110,24 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: id
-        value: '{{ id }}'
-      - name: name
-        value: '{{ name }}'
-      - name: enableInboundForwarding
-        value: '{{ enableInboundForwarding }}'
-      - name: description
-        value: '{{ description }}'
-      - name: networks
-        value: '{{ networks }}'
-      - name: alternativeNameServerConfig
-        value: '{{ alternativeNameServerConfig }}'
-      - name: enableLogging
-        value: '{{ enableLogging }}'
-      - name: kind
-        value: '{{ kind }}'
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: '{{ id }}'
+    - name: name
+      value: '{{ name }}'
+    - name: enableInboundForwarding
+      value: '{{ enableInboundForwarding }}'
+    - name: description
+      value: '{{ description }}'
+    - name: networks
+      value: '{{ networks }}'
+    - name: alternativeNameServerConfig
+      value: '{{ alternativeNameServerConfig }}'
+    - name: enableLogging
+      value: '{{ enableLogging }}'
+    - name: kind
+      value: '{{ kind }}'
 
 ```
 </TabItem>
@@ -141,6 +140,27 @@ Updates a <code>policies</code> resource.
 ```sql
 /*+ update */
 UPDATE google.dns.policies
+SET 
+id = '{{ id }}',
+name = '{{ name }}',
+enableInboundForwarding = true|false,
+description = '{{ description }}',
+networks = '{{ networks }}',
+alternativeNameServerConfig = '{{ alternativeNameServerConfig }}',
+enableLogging = true|false,
+kind = '{{ kind }}'
+WHERE 
+policy = '{{ policy }}'
+AND project = '{{ project }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dns.policies
 SET 
 id = '{{ id }}',
 name = '{{ name }}',

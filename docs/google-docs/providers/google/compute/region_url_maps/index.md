@@ -56,7 +56,7 @@ Creates, updates, deletes, gets or lists a <code>region_url_maps</code> resource
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a UrlMap resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, region, urlMap" /> | Deletes the specified UrlMap resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, region, urlMap" /> | Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, region, urlMap" /> | Updates the specified UrlMap resource with the data included in the request. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="project, region, urlMap" /> | Updates the specified UrlMap resource with the data included in the request. |
 | <CopyableCode code="validate" /> | `EXEC` | <CopyableCode code="project, region, urlMap" /> | Runs static validation for the UrlMap. In particular, the tests of the provided UrlMap will be run. Calling this method does NOT create the UrlMap. |
 
 ## `SELECT` examples
@@ -146,41 +146,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: hostRules
-        value: '{{ hostRules }}'
-      - name: pathMatchers
-        value: '{{ pathMatchers }}'
-      - name: tests
-        value: '{{ tests }}'
-      - name: defaultService
-        value: '{{ defaultService }}'
-      - name: defaultRouteAction
-        value: '{{ defaultRouteAction }}'
-      - name: defaultUrlRedirect
-        value: '{{ defaultUrlRedirect }}'
-      - name: headerAction
-        value: '{{ headerAction }}'
-      - name: defaultCustomErrorResponsePolicy
-        value: '{{ defaultCustomErrorResponsePolicy }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: region
-        value: '{{ region }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: hostRules
+      value: '{{ hostRules }}'
+    - name: pathMatchers
+      value: '{{ pathMatchers }}'
+    - name: tests
+      value: '{{ tests }}'
+    - name: defaultService
+      value: '{{ defaultService }}'
+    - name: defaultRouteAction
+      value: '{{ defaultRouteAction }}'
+    - name: defaultUrlRedirect
+      value: '{{ defaultUrlRedirect }}'
+    - name: headerAction
+      value: '{{ headerAction }}'
+    - name: defaultCustomErrorResponsePolicy
+      value: '{{ defaultCustomErrorResponsePolicy }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: region
+      value: '{{ region }}'
 
 ```
 </TabItem>
@@ -193,6 +192,36 @@ Updates a <code>region_url_maps</code> resource.
 ```sql
 /*+ update */
 UPDATE google.compute.region_url_maps
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+selfLink = '{{ selfLink }}',
+hostRules = '{{ hostRules }}',
+pathMatchers = '{{ pathMatchers }}',
+tests = '{{ tests }}',
+defaultService = '{{ defaultService }}',
+defaultRouteAction = '{{ defaultRouteAction }}',
+defaultUrlRedirect = '{{ defaultUrlRedirect }}',
+headerAction = '{{ headerAction }}',
+defaultCustomErrorResponsePolicy = '{{ defaultCustomErrorResponsePolicy }}',
+fingerprint = '{{ fingerprint }}',
+region = '{{ region }}'
+WHERE 
+project = '{{ project }}'
+AND region = '{{ region }}'
+AND urlMap = '{{ urlMap }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>region_url_maps</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.region_url_maps
 SET 
 kind = '{{ kind }}',
 id = '{{ id }}',

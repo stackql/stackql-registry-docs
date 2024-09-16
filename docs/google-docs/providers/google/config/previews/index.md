@@ -160,49 +160,48 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: terraformBlueprint
-        value: '{{ terraformBlueprint }}'
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: state
-        value: '{{ state }}'
-      - name: deployment
-        value: '{{ deployment }}'
-      - name: previewMode
-        value: '{{ previewMode }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: artifactsGcsBucket
-        value: '{{ artifactsGcsBucket }}'
-      - name: workerPool
-        value: '{{ workerPool }}'
-      - name: errorCode
-        value: '{{ errorCode }}'
-      - name: errorStatus
-        value: '{{ errorStatus }}'
-      - name: build
-        value: '{{ build }}'
-      - name: tfErrors
-        value: '{{ tfErrors }}'
-      - name: errorLogs
-        value: '{{ errorLogs }}'
-      - name: previewArtifacts
-        value: '{{ previewArtifacts }}'
-      - name: logs
-        value: '{{ logs }}'
-      - name: tfVersion
-        value: '{{ tfVersion }}'
-      - name: tfVersionConstraint
-        value: '{{ tfVersionConstraint }}'
-      - name: annotations
-        value: '{{ annotations }}'
+- name: your_resource_model_name
+  props:
+    - name: terraformBlueprint
+      value: '{{ terraformBlueprint }}'
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: state
+      value: '{{ state }}'
+    - name: deployment
+      value: '{{ deployment }}'
+    - name: previewMode
+      value: '{{ previewMode }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: artifactsGcsBucket
+      value: '{{ artifactsGcsBucket }}'
+    - name: workerPool
+      value: '{{ workerPool }}'
+    - name: errorCode
+      value: '{{ errorCode }}'
+    - name: errorStatus
+      value: '{{ errorStatus }}'
+    - name: build
+      value: '{{ build }}'
+    - name: tfErrors
+      value: '{{ tfErrors }}'
+    - name: errorLogs
+      value: '{{ errorLogs }}'
+    - name: previewArtifacts
+      value: '{{ previewArtifacts }}'
+    - name: logs
+      value: '{{ logs }}'
+    - name: tfVersion
+      value: '{{ tfVersion }}'
+    - name: tfVersionConstraint
+      value: '{{ tfVersionConstraint }}'
+    - name: annotations
+      value: '{{ annotations }}'
 
 ```
 </TabItem>

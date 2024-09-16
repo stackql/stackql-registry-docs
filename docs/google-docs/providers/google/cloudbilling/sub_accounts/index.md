@@ -94,19 +94,18 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: open
-        value: '{{ open }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: masterBillingAccount
-        value: '{{ masterBillingAccount }}'
-      - name: parent
-        value: '{{ parent }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: open
+      value: '{{ open }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: masterBillingAccount
+      value: '{{ masterBillingAccount }}'
+    - name: parent
+      value: '{{ parent }}'
 
 ```
 </TabItem>

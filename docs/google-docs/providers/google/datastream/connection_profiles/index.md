@@ -137,37 +137,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: oracleProfile
-        value: '{{ oracleProfile }}'
-      - name: gcsProfile
-        value: '{{ gcsProfile }}'
-      - name: mysqlProfile
-        value: '{{ mysqlProfile }}'
-      - name: bigqueryProfile
-        value: '{{ bigqueryProfile }}'
-      - name: postgresqlProfile
-        value: '{{ postgresqlProfile }}'
-      - name: sqlServerProfile
-        value: '{{ sqlServerProfile }}'
-      - name: staticServiceIpConnectivity
-        value: '{{ staticServiceIpConnectivity }}'
-      - name: forwardSshConnectivity
-        value: '{{ forwardSshConnectivity }}'
-      - name: privateConnectivity
-        value: '{{ privateConnectivity }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: oracleProfile
+      value: '{{ oracleProfile }}'
+    - name: gcsProfile
+      value: '{{ gcsProfile }}'
+    - name: mysqlProfile
+      value: '{{ mysqlProfile }}'
+    - name: bigqueryProfile
+      value: '{{ bigqueryProfile }}'
+    - name: postgresqlProfile
+      value: '{{ postgresqlProfile }}'
+    - name: sqlServerProfile
+      value: '{{ sqlServerProfile }}'
+    - name: staticServiceIpConnectivity
+      value: '{{ staticServiceIpConnectivity }}'
+    - name: forwardSshConnectivity
+      value: '{{ forwardSshConnectivity }}'
+    - name: privateConnectivity
+      value: '{{ privateConnectivity }}'
 
 ```
 </TabItem>

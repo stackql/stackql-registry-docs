@@ -109,25 +109,24 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: defaultVersion
-        value: '{{ defaultVersion }}'
-      - name: regions
-        value: '{{ regions }}'
-      - name: onlinePredictionLogging
-        value: '{{ onlinePredictionLogging }}'
-      - name: onlinePredictionConsoleLogging
-        value: '{{ onlinePredictionConsoleLogging }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: etag
-        value: '{{ etag }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: defaultVersion
+      value: '{{ defaultVersion }}'
+    - name: regions
+      value: '{{ regions }}'
+    - name: onlinePredictionLogging
+      value: '{{ onlinePredictionLogging }}'
+    - name: onlinePredictionConsoleLogging
+      value: '{{ onlinePredictionConsoleLogging }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: etag
+      value: '{{ etag }}'
 
 ```
 </TabItem>

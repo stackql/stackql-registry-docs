@@ -136,35 +136,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: description
-        value: '{{ description }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: state
-        value: '{{ state }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: triggerSpec
-        value: '{{ triggerSpec }}'
-      - name: executionSpec
-        value: '{{ executionSpec }}'
-      - name: executionStatus
-        value: '{{ executionStatus }}'
-      - name: spark
-        value: '{{ spark }}'
-      - name: notebook
-        value: '{{ notebook }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: description
+      value: '{{ description }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: state
+      value: '{{ state }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: triggerSpec
+      value: '{{ triggerSpec }}'
+    - name: executionSpec
+      value: '{{ executionSpec }}'
+    - name: executionStatus
+      value: '{{ executionStatus }}'
+    - name: spark
+      value: '{{ spark }}'
+    - name: notebook
+      value: '{{ notebook }}'
 
 ```
 </TabItem>

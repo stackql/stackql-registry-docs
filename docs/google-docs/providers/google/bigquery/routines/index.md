@@ -57,7 +57,7 @@ Creates, updates, deletes, gets or lists a <code>routines</code> resource.
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="+datasetId, projectId" /> | Lists all routines in the specified dataset. Requires the READER dataset role. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="+datasetId, projectId" /> | Creates a new routine in the dataset. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="+datasetId, +routineId, projectId" /> | Deletes the routine specified by routineId from the dataset. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="+datasetId, +routineId, projectId" /> | Updates information in an existing routine. The update method replaces the entire Routine resource. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="+datasetId, +routineId, projectId" /> | Updates information in an existing routine. The update method replaces the entire Routine resource. |
 
 ## `SELECT` examples
 
@@ -152,49 +152,80 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: arguments
-        value: '{{ arguments }}'
-      - name: creationTime
-        value: '{{ creationTime }}'
-      - name: dataGovernanceType
-        value: '{{ dataGovernanceType }}'
-      - name: definitionBody
-        value: '{{ definitionBody }}'
-      - name: description
-        value: '{{ description }}'
-      - name: determinismLevel
-        value: '{{ determinismLevel }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: importedLibraries
-        value: '{{ importedLibraries }}'
-      - name: language
-        value: '{{ language }}'
-      - name: lastModifiedTime
-        value: '{{ lastModifiedTime }}'
-      - name: remoteFunctionOptions
-        value: '{{ remoteFunctionOptions }}'
-      - name: returnTableType
-        value: '{{ returnTableType }}'
-      - name: returnType
-        value: '{{ returnType }}'
-      - name: routineReference
-        value: '{{ routineReference }}'
-      - name: routineType
-        value: '{{ routineType }}'
-      - name: securityMode
-        value: '{{ securityMode }}'
-      - name: sparkOptions
-        value: '{{ sparkOptions }}'
-      - name: strictMode
-        value: '{{ strictMode }}'
+- name: your_resource_model_name
+  props:
+    - name: arguments
+      value: '{{ arguments }}'
+    - name: creationTime
+      value: '{{ creationTime }}'
+    - name: dataGovernanceType
+      value: '{{ dataGovernanceType }}'
+    - name: definitionBody
+      value: '{{ definitionBody }}'
+    - name: description
+      value: '{{ description }}'
+    - name: determinismLevel
+      value: '{{ determinismLevel }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: importedLibraries
+      value: '{{ importedLibraries }}'
+    - name: language
+      value: '{{ language }}'
+    - name: lastModifiedTime
+      value: '{{ lastModifiedTime }}'
+    - name: remoteFunctionOptions
+      value: '{{ remoteFunctionOptions }}'
+    - name: returnTableType
+      value: '{{ returnTableType }}'
+    - name: returnType
+      value: '{{ returnType }}'
+    - name: routineReference
+      value: '{{ routineReference }}'
+    - name: routineType
+      value: '{{ routineType }}'
+    - name: securityMode
+      value: '{{ securityMode }}'
+    - name: sparkOptions
+      value: '{{ sparkOptions }}'
+    - name: strictMode
+      value: '{{ strictMode }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>routines</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.bigquery.routines
+SET 
+arguments = '{{ arguments }}',
+creationTime = '{{ creationTime }}',
+dataGovernanceType = '{{ dataGovernanceType }}',
+definitionBody = '{{ definitionBody }}',
+description = '{{ description }}',
+determinismLevel = '{{ determinismLevel }}',
+etag = '{{ etag }}',
+importedLibraries = '{{ importedLibraries }}',
+language = '{{ language }}',
+lastModifiedTime = '{{ lastModifiedTime }}',
+remoteFunctionOptions = '{{ remoteFunctionOptions }}',
+returnTableType = '{{ returnTableType }}',
+returnType = '{{ returnType }}',
+routineReference = '{{ routineReference }}',
+routineType = '{{ routineType }}',
+securityMode = '{{ securityMode }}',
+sparkOptions = '{{ sparkOptions }}',
+strictMode = true|false
+WHERE 
++datasetId = '{{ +datasetId }}'
+AND +routineId = '{{ +routineId }}'
+AND projectId = '{{ projectId }}';
+```
 
 ## `DELETE` example
 

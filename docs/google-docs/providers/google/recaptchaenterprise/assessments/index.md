@@ -88,33 +88,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: accountVerification
-        value: '{{ accountVerification }}'
-      - name: event
-        value: '{{ event }}'
-      - name: fraudSignals
-        value: '{{ fraudSignals }}'
-      - name: fraudPreventionAssessment
-        value: '{{ fraudPreventionAssessment }}'
-      - name: assessmentEnvironment
-        value: '{{ assessmentEnvironment }}'
-      - name: privatePasswordLeakVerification
-        value: '{{ privatePasswordLeakVerification }}'
-      - name: accountDefenderAssessment
-        value: '{{ accountDefenderAssessment }}'
-      - name: firewallPolicyAssessment
-        value: '{{ firewallPolicyAssessment }}'
-      - name: tokenProperties
-        value: '{{ tokenProperties }}'
-      - name: phoneFraudAssessment
-        value: '{{ phoneFraudAssessment }}'
-      - name: riskAnalysis
-        value: '{{ riskAnalysis }}'
-      - name: name
-        value: '{{ name }}'
+- name: your_resource_model_name
+  props:
+    - name: accountVerification
+      value: '{{ accountVerification }}'
+    - name: event
+      value: '{{ event }}'
+    - name: fraudSignals
+      value: '{{ fraudSignals }}'
+    - name: fraudPreventionAssessment
+      value: '{{ fraudPreventionAssessment }}'
+    - name: assessmentEnvironment
+      value: '{{ assessmentEnvironment }}'
+    - name: privatePasswordLeakVerification
+      value: '{{ privatePasswordLeakVerification }}'
+    - name: accountDefenderAssessment
+      value: '{{ accountDefenderAssessment }}'
+    - name: firewallPolicyAssessment
+      value: '{{ firewallPolicyAssessment }}'
+    - name: tokenProperties
+      value: '{{ tokenProperties }}'
+    - name: phoneFraudAssessment
+      value: '{{ phoneFraudAssessment }}'
+    - name: riskAnalysis
+      value: '{{ riskAnalysis }}'
+    - name: name
+      value: '{{ name }}'
 
 ```
 </TabItem>

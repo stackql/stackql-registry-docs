@@ -58,7 +58,7 @@ The new IAM roles are:
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="bucket, object" /> | Returns an IAM policy for the specified object. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="bucket, object" /> | Updates an IAM policy for the specified object. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="bucket, object" /> | Updates an IAM policy for the specified object. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="bucket, object, permissions" /> | Tests a set of permissions on the given object to see which, if any, are held by the caller. |
 
 ## `SELECT` examples
@@ -73,4 +73,22 @@ role
 FROM google.storage.objects_iam_policies
 WHERE bucket = '{{ bucket }}'
 AND object = '{{ object }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>objects_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.storage.objects_iam_policies
+SET 
+bindings = '{{ bindings }}',
+etag = '{{ etag }}',
+kind = '{{ kind }}',
+resourceId = '{{ resourceId }}',
+version = '{{ version }}'
+WHERE 
+bucket = '{{ bucket }}'
+AND object = '{{ object }}';
 ```

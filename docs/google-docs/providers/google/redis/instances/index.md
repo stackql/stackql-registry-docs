@@ -233,83 +233,82 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: locationId
-        value: '{{ locationId }}'
-      - name: alternativeLocationId
-        value: '{{ alternativeLocationId }}'
-      - name: redisVersion
-        value: '{{ redisVersion }}'
-      - name: reservedIpRange
-        value: '{{ reservedIpRange }}'
-      - name: secondaryIpRange
-        value: '{{ secondaryIpRange }}'
-      - name: host
-        value: '{{ host }}'
-      - name: port
-        value: '{{ port }}'
-      - name: currentLocationId
-        value: '{{ currentLocationId }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: statusMessage
-        value: '{{ statusMessage }}'
-      - name: redisConfigs
-        value: '{{ redisConfigs }}'
-      - name: tier
-        value: '{{ tier }}'
-      - name: memorySizeGb
-        value: '{{ memorySizeGb }}'
-      - name: authorizedNetwork
-        value: '{{ authorizedNetwork }}'
-      - name: persistenceIamIdentity
-        value: '{{ persistenceIamIdentity }}'
-      - name: connectMode
-        value: '{{ connectMode }}'
-      - name: authEnabled
-        value: '{{ authEnabled }}'
-      - name: serverCaCerts
-        value: '{{ serverCaCerts }}'
-      - name: transitEncryptionMode
-        value: '{{ transitEncryptionMode }}'
-      - name: maintenancePolicy
-        value: '{{ maintenancePolicy }}'
-      - name: maintenanceSchedule
-        value: '{{ maintenanceSchedule }}'
-      - name: replicaCount
-        value: '{{ replicaCount }}'
-      - name: nodes
-        value: '{{ nodes }}'
-      - name: readEndpoint
-        value: '{{ readEndpoint }}'
-      - name: readEndpointPort
-        value: '{{ readEndpointPort }}'
-      - name: readReplicasMode
-        value: '{{ readReplicasMode }}'
-      - name: customerManagedKey
-        value: '{{ customerManagedKey }}'
-      - name: persistenceConfig
-        value: '{{ persistenceConfig }}'
-      - name: suspensionReasons
-        value: '{{ suspensionReasons }}'
-      - name: maintenanceVersion
-        value: '{{ maintenanceVersion }}'
-      - name: availableMaintenanceVersions
-        value: '{{ availableMaintenanceVersions }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: locationId
+      value: '{{ locationId }}'
+    - name: alternativeLocationId
+      value: '{{ alternativeLocationId }}'
+    - name: redisVersion
+      value: '{{ redisVersion }}'
+    - name: reservedIpRange
+      value: '{{ reservedIpRange }}'
+    - name: secondaryIpRange
+      value: '{{ secondaryIpRange }}'
+    - name: host
+      value: '{{ host }}'
+    - name: port
+      value: '{{ port }}'
+    - name: currentLocationId
+      value: '{{ currentLocationId }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: statusMessage
+      value: '{{ statusMessage }}'
+    - name: redisConfigs
+      value: '{{ redisConfigs }}'
+    - name: tier
+      value: '{{ tier }}'
+    - name: memorySizeGb
+      value: '{{ memorySizeGb }}'
+    - name: authorizedNetwork
+      value: '{{ authorizedNetwork }}'
+    - name: persistenceIamIdentity
+      value: '{{ persistenceIamIdentity }}'
+    - name: connectMode
+      value: '{{ connectMode }}'
+    - name: authEnabled
+      value: '{{ authEnabled }}'
+    - name: serverCaCerts
+      value: '{{ serverCaCerts }}'
+    - name: transitEncryptionMode
+      value: '{{ transitEncryptionMode }}'
+    - name: maintenancePolicy
+      value: '{{ maintenancePolicy }}'
+    - name: maintenanceSchedule
+      value: '{{ maintenanceSchedule }}'
+    - name: replicaCount
+      value: '{{ replicaCount }}'
+    - name: nodes
+      value: '{{ nodes }}'
+    - name: readEndpoint
+      value: '{{ readEndpoint }}'
+    - name: readEndpointPort
+      value: '{{ readEndpointPort }}'
+    - name: readReplicasMode
+      value: '{{ readReplicasMode }}'
+    - name: customerManagedKey
+      value: '{{ customerManagedKey }}'
+    - name: persistenceConfig
+      value: '{{ persistenceConfig }}'
+    - name: suspensionReasons
+      value: '{{ suspensionReasons }}'
+    - name: maintenanceVersion
+      value: '{{ maintenanceVersion }}'
+    - name: availableMaintenanceVersions
+      value: '{{ availableMaintenanceVersions }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

@@ -148,43 +148,42 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: description
-        value: '{{ description }}'
-      - name: cluster
-        value: '{{ cluster }}'
-      - name: retentionPolicy
-        value: '{{ retentionPolicy }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: backupSchedule
-        value: '{{ backupSchedule }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: deactivated
-        value: '{{ deactivated }}'
-      - name: backupConfig
-        value: '{{ backupConfig }}'
-      - name: protectedPodCount
-        value: '{{ protectedPodCount }}'
-      - name: state
-        value: '{{ state }}'
-      - name: stateReason
-        value: '{{ stateReason }}'
-      - name: rpoRiskLevel
-        value: '{{ rpoRiskLevel }}'
-      - name: rpoRiskReason
-        value: '{{ rpoRiskReason }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: description
+      value: '{{ description }}'
+    - name: cluster
+      value: '{{ cluster }}'
+    - name: retentionPolicy
+      value: '{{ retentionPolicy }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: backupSchedule
+      value: '{{ backupSchedule }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: deactivated
+      value: '{{ deactivated }}'
+    - name: backupConfig
+      value: '{{ backupConfig }}'
+    - name: protectedPodCount
+      value: '{{ protectedPodCount }}'
+    - name: state
+      value: '{{ state }}'
+    - name: stateReason
+      value: '{{ stateReason }}'
+    - name: rpoRiskLevel
+      value: '{{ rpoRiskLevel }}'
+    - name: rpoRiskReason
+      value: '{{ rpoRiskReason }}'
 
 ```
 </TabItem>

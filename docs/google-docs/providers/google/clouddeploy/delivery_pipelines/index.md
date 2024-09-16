@@ -125,31 +125,30 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: description
-        value: '{{ description }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: serialPipeline
-        value: '{{ serialPipeline }}'
-      - name: condition
-        value: '{{ condition }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: suspended
-        value: '{{ suspended }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: description
+      value: '{{ description }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: serialPipeline
+      value: '{{ serialPipeline }}'
+    - name: condition
+      value: '{{ condition }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: suspended
+      value: '{{ suspended }}'
 
 ```
 </TabItem>

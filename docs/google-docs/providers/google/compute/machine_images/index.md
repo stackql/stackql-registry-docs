@@ -148,45 +148,44 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: sourceInstance
-        value: '{{ sourceInstance }}'
-      - name: status
-        value: '{{ status }}'
-      - name: sourceInstanceProperties
-        value: '{{ sourceInstanceProperties }}'
-      - name: instanceProperties
-        value: '{{ instanceProperties }}'
-      - name: savedDisks
-        value: '{{ savedDisks }}'
-      - name: storageLocations
-        value: '{{ storageLocations }}'
-      - name: machineImageEncryptionKey
-        value: '{{ machineImageEncryptionKey }}'
-      - name: guestFlush
-        value: '{{ guestFlush }}'
-      - name: sourceDiskEncryptionKeys
-        value: '{{ sourceDiskEncryptionKeys }}'
-      - name: totalStorageBytes
-        value: '{{ totalStorageBytes }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: sourceInstance
+      value: '{{ sourceInstance }}'
+    - name: status
+      value: '{{ status }}'
+    - name: sourceInstanceProperties
+      value: '{{ sourceInstanceProperties }}'
+    - name: instanceProperties
+      value: '{{ instanceProperties }}'
+    - name: savedDisks
+      value: '{{ savedDisks }}'
+    - name: storageLocations
+      value: '{{ storageLocations }}'
+    - name: machineImageEncryptionKey
+      value: '{{ machineImageEncryptionKey }}'
+    - name: guestFlush
+      value: '{{ guestFlush }}'
+    - name: sourceDiskEncryptionKeys
+      value: '{{ sourceDiskEncryptionKeys }}'
+    - name: totalStorageBytes
+      value: '{{ totalStorageBytes }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

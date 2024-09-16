@@ -150,45 +150,44 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: IPv4Range
-        value: '{{ IPv4Range }}'
-      - name: gatewayIPv4
-        value: '{{ gatewayIPv4 }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: selfLinkWithId
-        value: '{{ selfLinkWithId }}'
-      - name: autoCreateSubnetworks
-        value: '{{ autoCreateSubnetworks }}'
-      - name: subnetworks
-        value: '{{ subnetworks }}'
-      - name: peerings
-        value: '{{ peerings }}'
-      - name: routingConfig
-        value: '{{ routingConfig }}'
-      - name: mtu
-        value: '{{ mtu }}'
-      - name: firewallPolicy
-        value: '{{ firewallPolicy }}'
-      - name: networkFirewallPolicyEnforcementOrder
-        value: '{{ networkFirewallPolicyEnforcementOrder }}'
-      - name: enableUlaInternalIpv6
-        value: '{{ enableUlaInternalIpv6 }}'
-      - name: internalIpv6Range
-        value: '{{ internalIpv6Range }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: IPv4Range
+      value: '{{ IPv4Range }}'
+    - name: gatewayIPv4
+      value: '{{ gatewayIPv4 }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: selfLinkWithId
+      value: '{{ selfLinkWithId }}'
+    - name: autoCreateSubnetworks
+      value: '{{ autoCreateSubnetworks }}'
+    - name: subnetworks
+      value: '{{ subnetworks }}'
+    - name: peerings
+      value: '{{ peerings }}'
+    - name: routingConfig
+      value: '{{ routingConfig }}'
+    - name: mtu
+      value: '{{ mtu }}'
+    - name: firewallPolicy
+      value: '{{ firewallPolicy }}'
+    - name: networkFirewallPolicyEnforcementOrder
+      value: '{{ networkFirewallPolicyEnforcementOrder }}'
+    - name: enableUlaInternalIpv6
+      value: '{{ enableUlaInternalIpv6 }}'
+    - name: internalIpv6Range
+      value: '{{ internalIpv6Range }}'
 
 ```
 </TabItem>

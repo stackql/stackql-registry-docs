@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>workforce_pools_iam_policies</c
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="locationsId, workforcePoolsId" /> | Gets IAM policies on a WorkforcePool. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="locationsId, workforcePoolsId" /> | Sets IAM policies on a WorkforcePool. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="locationsId, workforcePoolsId" /> | Sets IAM policies on a WorkforcePool. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="locationsId, workforcePoolsId" /> | Returns the caller's permissions on the WorkforcePool. If the pool doesn't exist, this call returns an empty set of permissions. It doesn't return a `NOT_FOUND` error. |
 
 ## `SELECT` examples
@@ -54,4 +54,19 @@ role
 FROM google.iam.workforce_pools_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND workforcePoolsId = '{{ workforcePoolsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>workforce_pools_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.iam.workforce_pools_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND workforcePoolsId = '{{ workforcePoolsId }}';
 ```

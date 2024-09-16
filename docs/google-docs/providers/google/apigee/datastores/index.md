@@ -46,8 +46,8 @@ Creates, updates, deletes, gets or lists a <code>datastores</code> resource.
 | <CopyableCode code="organizations_analytics_datastores_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | List Datastores |
 | <CopyableCode code="organizations_analytics_datastores_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Create a Datastore for an org |
 | <CopyableCode code="organizations_analytics_datastores_delete" /> | `DELETE` | <CopyableCode code="datastoresId, organizationsId" /> | Delete a Datastore from an org. |
+| <CopyableCode code="organizations_analytics_datastores_update" /> | `REPLACE` | <CopyableCode code="datastoresId, organizationsId" /> | Update a Datastore |
 | <CopyableCode code="organizations_analytics_datastores_test" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Test if Datastore configuration is correct. This includes checking if credentials provided by customer have required permissions in target destination storage |
-| <CopyableCode code="organizations_analytics_datastores_update" /> | `EXEC` | <CopyableCode code="datastoresId, organizationsId" /> | Update a Datastore |
 
 ## `SELECT` examples
 
@@ -106,27 +106,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: datastoreConfig
-        value: '{{ datastoreConfig }}'
-      - name: lastUpdateTime
-        value: '{{ lastUpdateTime }}'
-      - name: org
-        value: '{{ org }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: self
-        value: '{{ self }}'
-      - name: targetType
-        value: '{{ targetType }}'
-      - name: createTime
-        value: '{{ createTime }}'
+- name: your_resource_model_name
+  props:
+    - name: datastoreConfig
+      value: '{{ datastoreConfig }}'
+    - name: lastUpdateTime
+      value: '{{ lastUpdateTime }}'
+    - name: org
+      value: '{{ org }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: self
+      value: '{{ self }}'
+    - name: targetType
+      value: '{{ targetType }}'
+    - name: createTime
+      value: '{{ createTime }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>datastores</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.datastores
+SET 
+datastoreConfig = '{{ datastoreConfig }}',
+lastUpdateTime = '{{ lastUpdateTime }}',
+org = '{{ org }}',
+displayName = '{{ displayName }}',
+self = '{{ self }}',
+targetType = '{{ targetType }}',
+createTime = '{{ createTime }}'
+WHERE 
+datastoresId = '{{ datastoresId }}'
+AND organizationsId = '{{ organizationsId }}';
+```
 
 ## `DELETE` example
 

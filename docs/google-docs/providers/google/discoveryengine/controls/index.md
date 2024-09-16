@@ -133,29 +133,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: boostAction
-        value: '{{ boostAction }}'
-      - name: filterAction
-        value: '{{ filterAction }}'
-      - name: redirectAction
-        value: '{{ redirectAction }}'
-      - name: synonymsAction
-        value: '{{ synonymsAction }}'
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: associatedServingConfigIds
-        value: '{{ associatedServingConfigIds }}'
-      - name: solutionType
-        value: '{{ solutionType }}'
-      - name: useCases
-        value: '{{ useCases }}'
-      - name: conditions
-        value: '{{ conditions }}'
+- name: your_resource_model_name
+  props:
+    - name: boostAction
+      value: '{{ boostAction }}'
+    - name: filterAction
+      value: '{{ filterAction }}'
+    - name: redirectAction
+      value: '{{ redirectAction }}'
+    - name: synonymsAction
+      value: '{{ synonymsAction }}'
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: associatedServingConfigIds
+      value: '{{ associatedServingConfigIds }}'
+    - name: solutionType
+      value: '{{ solutionType }}'
+    - name: useCases
+      value: '{{ useCases }}'
+    - name: conditions
+      value: '{{ conditions }}'
 
 ```
 </TabItem>

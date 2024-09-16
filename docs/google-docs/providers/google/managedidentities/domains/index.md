@@ -140,35 +140,34 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: authorizedNetworks
-        value: '{{ authorizedNetworks }}'
-      - name: reservedIpRange
-        value: '{{ reservedIpRange }}'
-      - name: locations
-        value: '{{ locations }}'
-      - name: admin
-        value: '{{ admin }}'
-      - name: fqdn
-        value: '{{ fqdn }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: statusMessage
-        value: '{{ statusMessage }}'
-      - name: trusts
-        value: '{{ trusts }}'
-      - name: auditLogsEnabled
-        value: '{{ auditLogsEnabled }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: authorizedNetworks
+      value: '{{ authorizedNetworks }}'
+    - name: reservedIpRange
+      value: '{{ reservedIpRange }}'
+    - name: locations
+      value: '{{ locations }}'
+    - name: admin
+      value: '{{ admin }}'
+    - name: fqdn
+      value: '{{ fqdn }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: statusMessage
+      value: '{{ statusMessage }}'
+    - name: trusts
+      value: '{{ trusts }}'
+    - name: auditLogsEnabled
+      value: '{{ auditLogsEnabled }}'
 
 ```
 </TabItem>

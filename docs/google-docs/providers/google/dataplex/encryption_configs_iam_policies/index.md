@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>encryption_configs_iam_policies
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_locations_encryption_configs_get_iam_policy" /> | `SELECT` | <CopyableCode code="encryptionConfigsId, locationsId, organizationsId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
-| <CopyableCode code="organizations_locations_encryption_configs_set_iam_policy" /> | `EXEC` | <CopyableCode code="encryptionConfigsId, locationsId, organizationsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. |
+| <CopyableCode code="organizations_locations_encryption_configs_set_iam_policy" /> | `REPLACE` | <CopyableCode code="encryptionConfigsId, locationsId, organizationsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. |
 | <CopyableCode code="organizations_locations_encryption_configs_test_iam_permissions" /> | `EXEC` | <CopyableCode code="encryptionConfigsId, locationsId, organizationsId" /> | Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
 
 ## `SELECT` examples
@@ -55,4 +55,20 @@ FROM google.dataplex.encryption_configs_iam_policies
 WHERE encryptionConfigsId = '{{ encryptionConfigsId }}'
 AND locationsId = '{{ locationsId }}'
 AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>encryption_configs_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dataplex.encryption_configs_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+encryptionConfigsId = '{{ encryptionConfigsId }}'
+AND locationsId = '{{ locationsId }}'
+AND organizationsId = '{{ organizationsId }}';
 ```

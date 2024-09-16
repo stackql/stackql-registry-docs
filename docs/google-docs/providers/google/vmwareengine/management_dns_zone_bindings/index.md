@@ -116,25 +116,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: description
-        value: '{{ description }}'
-      - name: vpcNetwork
-        value: '{{ vpcNetwork }}'
-      - name: vmwareEngineNetwork
-        value: '{{ vmwareEngineNetwork }}'
-      - name: uid
-        value: '{{ uid }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: description
+      value: '{{ description }}'
+    - name: vpcNetwork
+      value: '{{ vpcNetwork }}'
+    - name: vmwareEngineNetwork
+      value: '{{ vmwareEngineNetwork }}'
+    - name: uid
+      value: '{{ uid }}'
 
 ```
 </TabItem>

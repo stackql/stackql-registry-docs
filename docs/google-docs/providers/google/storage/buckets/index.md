@@ -78,9 +78,9 @@ Creates, updates, deletes, gets or lists a <code>buckets</code> resource.
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new bucket. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="bucket" /> | Deletes an empty bucket. Deletions are permanent unless soft delete is enabled on the bucket. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="bucket" /> | Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="bucket" /> | Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. |
 | <CopyableCode code="lock_retention_policy" /> | `EXEC` | <CopyableCode code="bucket, ifMetagenerationMatch" /> | Locks retention policy on a bucket. |
 | <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="bucket, generation" /> | Restores a soft-deleted bucket. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="bucket" /> | Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. |
 
 ## `SELECT` examples
 
@@ -232,195 +232,194 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: acl
-        value: '{{ acl }}'
-      - name: billing
-        value:
-          - name: requesterPays
-            value: '{{ requesterPays }}'
-      - name: cors
-        value:
-          - - name: maxAgeSeconds
-              value: '{{ maxAgeSeconds }}'
-            - name: method
-              value: '{{ method }}'
-            - name: origin
-              value: '{{ origin }}'
-            - name: responseHeader
-              value: '{{ responseHeader }}'
-      - name: customPlacementConfig
-        value:
-          - name: dataLocations
-            value: '{{ dataLocations }}'
-      - name: defaultEventBasedHold
-        value: '{{ defaultEventBasedHold }}'
-      - name: defaultObjectAcl
-        value: '{{ defaultObjectAcl }}'
-      - name: encryption
-        value:
-          - name: defaultKmsKeyName
-            value: '{{ defaultKmsKeyName }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: hierarchicalNamespace
-        value:
-          - name: enabled
-            value: '{{ enabled }}'
-      - name: iamConfiguration
-        value:
-          - name: bucketPolicyOnly
-            value:
-              - name: enabled
-                value: '{{ enabled }}'
-              - name: lockedTime
-                value: '{{ lockedTime }}'
-          - name: uniformBucketLevelAccess
-            value:
-              - name: enabled
-                value: '{{ enabled }}'
-              - name: lockedTime
-                value: '{{ lockedTime }}'
-          - name: publicAccessPrevention
-            value: '{{ publicAccessPrevention }}'
-      - name: id
-        value: '{{ id }}'
-      - name: ipFilter
-        value:
-          - name: mode
-            value: '{{ mode }}'
-          - name: publicNetworkSource
-            value:
+- name: your_resource_model_name
+  props:
+    - name: acl
+      value: '{{ acl }}'
+    - name: billing
+      value:
+        - name: requesterPays
+          value: '{{ requesterPays }}'
+    - name: cors
+      value:
+        - - name: maxAgeSeconds
+            value: '{{ maxAgeSeconds }}'
+          - name: method
+            value: '{{ method }}'
+          - name: origin
+            value: '{{ origin }}'
+          - name: responseHeader
+            value: '{{ responseHeader }}'
+    - name: customPlacementConfig
+      value:
+        - name: dataLocations
+          value: '{{ dataLocations }}'
+    - name: defaultEventBasedHold
+      value: '{{ defaultEventBasedHold }}'
+    - name: defaultObjectAcl
+      value: '{{ defaultObjectAcl }}'
+    - name: encryption
+      value:
+        - name: defaultKmsKeyName
+          value: '{{ defaultKmsKeyName }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: hierarchicalNamespace
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+    - name: iamConfiguration
+      value:
+        - name: bucketPolicyOnly
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+            - name: lockedTime
+              value: '{{ lockedTime }}'
+        - name: uniformBucketLevelAccess
+          value:
+            - name: enabled
+              value: '{{ enabled }}'
+            - name: lockedTime
+              value: '{{ lockedTime }}'
+        - name: publicAccessPrevention
+          value: '{{ publicAccessPrevention }}'
+    - name: id
+      value: '{{ id }}'
+    - name: ipFilter
+      value:
+        - name: mode
+          value: '{{ mode }}'
+        - name: publicNetworkSource
+          value:
+            - name: allowedIpCidrRanges
+              value: '{{ allowedIpCidrRanges }}'
+        - name: vpcNetworkSources
+          value:
+            - - name: network
+                value: '{{ network }}'
               - name: allowedIpCidrRanges
                 value: '{{ allowedIpCidrRanges }}'
-          - name: vpcNetworkSources
-            value:
-              - - name: network
-                  value: '{{ network }}'
-                - name: allowedIpCidrRanges
-                  value: '{{ allowedIpCidrRanges }}'
-      - name: kind
-        value: '{{ kind }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: lifecycle
-        value:
-          - name: rule
-            value:
-              - - name: action
-                  value:
-                    - name: storageClass
-                      value: '{{ storageClass }}'
-                    - name: type
-                      value: '{{ type }}'
-                - name: condition
-                  value:
-                    - name: age
-                      value: '{{ age }}'
-                    - name: createdBefore
-                      value: '{{ createdBefore }}'
-                    - name: customTimeBefore
-                      value: '{{ customTimeBefore }}'
-                    - name: daysSinceCustomTime
-                      value: '{{ daysSinceCustomTime }}'
-                    - name: daysSinceNoncurrentTime
-                      value: '{{ daysSinceNoncurrentTime }}'
-                    - name: isLive
-                      value: '{{ isLive }}'
-                    - name: matchesPattern
-                      value: '{{ matchesPattern }}'
-                    - name: matchesPrefix
-                      value: '{{ matchesPrefix }}'
-                    - name: matchesSuffix
-                      value: '{{ matchesSuffix }}'
-                    - name: matchesStorageClass
-                      value: '{{ matchesStorageClass }}'
-                    - name: noncurrentTimeBefore
-                      value: '{{ noncurrentTimeBefore }}'
-                    - name: numNewerVersions
-                      value: '{{ numNewerVersions }}'
-      - name: autoclass
-        value:
-          - name: enabled
-            value: '{{ enabled }}'
-          - name: toggleTime
-            value: '{{ toggleTime }}'
-          - name: terminalStorageClass
-            value: '{{ terminalStorageClass }}'
-          - name: terminalStorageClassUpdateTime
-            value: '{{ terminalStorageClassUpdateTime }}'
-      - name: location
-        value: '{{ location }}'
-      - name: locationType
-        value: '{{ locationType }}'
-      - name: logging
-        value:
-          - name: logBucket
-            value: '{{ logBucket }}'
-          - name: logObjectPrefix
-            value: '{{ logObjectPrefix }}'
-      - name: generation
-        value: '{{ generation }}'
-      - name: metageneration
-        value: '{{ metageneration }}'
-      - name: name
-        value: '{{ name }}'
-      - name: owner
-        value:
-          - name: entity
-            value: '{{ entity }}'
-          - name: entityId
-            value: '{{ entityId }}'
-      - name: projectNumber
-        value: '{{ projectNumber }}'
-      - name: retentionPolicy
-        value:
-          - name: effectiveTime
-            value: '{{ effectiveTime }}'
-          - name: isLocked
-            value: '{{ isLocked }}'
-          - name: retentionPeriod
-            value: '{{ retentionPeriod }}'
-      - name: objectRetention
-        value:
-          - name: mode
-            value: '{{ mode }}'
-      - name: rpo
-        value: '{{ rpo }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: softDeletePolicy
-        value:
-          - name: retentionDurationSeconds
-            value: '{{ retentionDurationSeconds }}'
-          - name: effectiveTime
-            value: '{{ effectiveTime }}'
-      - name: storageClass
-        value: '{{ storageClass }}'
-      - name: timeCreated
-        value: '{{ timeCreated }}'
-      - name: updated
-        value: '{{ updated }}'
-      - name: softDeleteTime
-        value: '{{ softDeleteTime }}'
-      - name: hardDeleteTime
-        value: '{{ hardDeleteTime }}'
-      - name: versioning
-        value:
-          - name: enabled
-            value: '{{ enabled }}'
-      - name: website
-        value:
-          - name: mainPageSuffix
-            value: '{{ mainPageSuffix }}'
-          - name: notFoundPage
-            value: '{{ notFoundPage }}'
-      - name: satisfiesPZS
-        value: '{{ satisfiesPZS }}'
-      - name: satisfiesPZI
-        value: '{{ satisfiesPZI }}'
+    - name: kind
+      value: '{{ kind }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: lifecycle
+      value:
+        - name: rule
+          value:
+            - - name: action
+                value:
+                  - name: storageClass
+                    value: '{{ storageClass }}'
+                  - name: type
+                    value: '{{ type }}'
+              - name: condition
+                value:
+                  - name: age
+                    value: '{{ age }}'
+                  - name: createdBefore
+                    value: '{{ createdBefore }}'
+                  - name: customTimeBefore
+                    value: '{{ customTimeBefore }}'
+                  - name: daysSinceCustomTime
+                    value: '{{ daysSinceCustomTime }}'
+                  - name: daysSinceNoncurrentTime
+                    value: '{{ daysSinceNoncurrentTime }}'
+                  - name: isLive
+                    value: '{{ isLive }}'
+                  - name: matchesPattern
+                    value: '{{ matchesPattern }}'
+                  - name: matchesPrefix
+                    value: '{{ matchesPrefix }}'
+                  - name: matchesSuffix
+                    value: '{{ matchesSuffix }}'
+                  - name: matchesStorageClass
+                    value: '{{ matchesStorageClass }}'
+                  - name: noncurrentTimeBefore
+                    value: '{{ noncurrentTimeBefore }}'
+                  - name: numNewerVersions
+                    value: '{{ numNewerVersions }}'
+    - name: autoclass
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+        - name: toggleTime
+          value: '{{ toggleTime }}'
+        - name: terminalStorageClass
+          value: '{{ terminalStorageClass }}'
+        - name: terminalStorageClassUpdateTime
+          value: '{{ terminalStorageClassUpdateTime }}'
+    - name: location
+      value: '{{ location }}'
+    - name: locationType
+      value: '{{ locationType }}'
+    - name: logging
+      value:
+        - name: logBucket
+          value: '{{ logBucket }}'
+        - name: logObjectPrefix
+          value: '{{ logObjectPrefix }}'
+    - name: generation
+      value: '{{ generation }}'
+    - name: metageneration
+      value: '{{ metageneration }}'
+    - name: name
+      value: '{{ name }}'
+    - name: owner
+      value:
+        - name: entity
+          value: '{{ entity }}'
+        - name: entityId
+          value: '{{ entityId }}'
+    - name: projectNumber
+      value: '{{ projectNumber }}'
+    - name: retentionPolicy
+      value:
+        - name: effectiveTime
+          value: '{{ effectiveTime }}'
+        - name: isLocked
+          value: '{{ isLocked }}'
+        - name: retentionPeriod
+          value: '{{ retentionPeriod }}'
+    - name: objectRetention
+      value:
+        - name: mode
+          value: '{{ mode }}'
+    - name: rpo
+      value: '{{ rpo }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: softDeletePolicy
+      value:
+        - name: retentionDurationSeconds
+          value: '{{ retentionDurationSeconds }}'
+        - name: effectiveTime
+          value: '{{ effectiveTime }}'
+    - name: storageClass
+      value: '{{ storageClass }}'
+    - name: timeCreated
+      value: '{{ timeCreated }}'
+    - name: updated
+      value: '{{ updated }}'
+    - name: softDeleteTime
+      value: '{{ softDeleteTime }}'
+    - name: hardDeleteTime
+      value: '{{ hardDeleteTime }}'
+    - name: versioning
+      value:
+        - name: enabled
+          value: '{{ enabled }}'
+    - name: website
+      value:
+        - name: mainPageSuffix
+          value: '{{ mainPageSuffix }}'
+        - name: notFoundPage
+          value: '{{ notFoundPage }}'
+    - name: satisfiesPZS
+      value: '{{ satisfiesPZS }}'
+    - name: satisfiesPZI
+      value: '{{ satisfiesPZI }}'
 
 ```
 </TabItem>
@@ -433,6 +432,56 @@ Updates a <code>buckets</code> resource.
 ```sql
 /*+ update */
 UPDATE google.storage.buckets
+SET 
+acl = '{{ acl }}',
+billing = '{{ billing }}',
+cors = '{{ cors }}',
+customPlacementConfig = '{{ customPlacementConfig }}',
+defaultEventBasedHold = true|false,
+defaultObjectAcl = '{{ defaultObjectAcl }}',
+encryption = '{{ encryption }}',
+etag = '{{ etag }}',
+hierarchicalNamespace = '{{ hierarchicalNamespace }}',
+iamConfiguration = '{{ iamConfiguration }}',
+id = '{{ id }}',
+ipFilter = '{{ ipFilter }}',
+kind = '{{ kind }}',
+labels = '{{ labels }}',
+lifecycle = '{{ lifecycle }}',
+autoclass = '{{ autoclass }}',
+location = '{{ location }}',
+locationType = '{{ locationType }}',
+logging = '{{ logging }}',
+generation = '{{ generation }}',
+metageneration = '{{ metageneration }}',
+name = '{{ name }}',
+owner = '{{ owner }}',
+projectNumber = '{{ projectNumber }}',
+retentionPolicy = '{{ retentionPolicy }}',
+objectRetention = '{{ objectRetention }}',
+rpo = '{{ rpo }}',
+selfLink = '{{ selfLink }}',
+softDeletePolicy = '{{ softDeletePolicy }}',
+storageClass = '{{ storageClass }}',
+timeCreated = '{{ timeCreated }}',
+updated = '{{ updated }}',
+softDeleteTime = '{{ softDeleteTime }}',
+hardDeleteTime = '{{ hardDeleteTime }}',
+versioning = '{{ versioning }}',
+website = '{{ website }}',
+satisfiesPZS = true|false,
+satisfiesPZI = true|false
+WHERE 
+bucket = '{{ bucket }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>buckets</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.storage.buckets
 SET 
 acl = '{{ acl }}',
 billing = '{{ billing }}',

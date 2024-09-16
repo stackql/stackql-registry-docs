@@ -164,63 +164,62 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: network
-        value: '{{ network }}'
-      - name: tags
-        value: '{{ tags }}'
-      - name: destRange
-        value: '{{ destRange }}'
-      - name: priority
-        value: '{{ priority }}'
-      - name: nextHopInstance
-        value: '{{ nextHopInstance }}'
-      - name: nextHopIp
-        value: '{{ nextHopIp }}'
-      - name: nextHopNetwork
-        value: '{{ nextHopNetwork }}'
-      - name: nextHopGateway
-        value: '{{ nextHopGateway }}'
-      - name: nextHopPeering
-        value: '{{ nextHopPeering }}'
-      - name: nextHopIlb
-        value: '{{ nextHopIlb }}'
-      - name: warnings
-        value:
-          - - name: code
-              value: '{{ code }}'
-            - name: message
-              value: '{{ message }}'
-            - name: data
-              value:
-                - - name: key
-                    value: '{{ key }}'
-                  - name: value
-                    value: '{{ value }}'
-      - name: nextHopVpnTunnel
-        value: '{{ nextHopVpnTunnel }}'
-      - name: nextHopHub
-        value: '{{ nextHopHub }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: routeType
-        value: '{{ routeType }}'
-      - name: asPaths
-        value: '{{ asPaths }}'
-      - name: routeStatus
-        value: '{{ routeStatus }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: network
+      value: '{{ network }}'
+    - name: tags
+      value: '{{ tags }}'
+    - name: destRange
+      value: '{{ destRange }}'
+    - name: priority
+      value: '{{ priority }}'
+    - name: nextHopInstance
+      value: '{{ nextHopInstance }}'
+    - name: nextHopIp
+      value: '{{ nextHopIp }}'
+    - name: nextHopNetwork
+      value: '{{ nextHopNetwork }}'
+    - name: nextHopGateway
+      value: '{{ nextHopGateway }}'
+    - name: nextHopPeering
+      value: '{{ nextHopPeering }}'
+    - name: nextHopIlb
+      value: '{{ nextHopIlb }}'
+    - name: warnings
+      value:
+        - - name: code
+            value: '{{ code }}'
+          - name: message
+            value: '{{ message }}'
+          - name: data
+            value:
+              - - name: key
+                  value: '{{ key }}'
+                - name: value
+                  value: '{{ value }}'
+    - name: nextHopVpnTunnel
+      value: '{{ nextHopVpnTunnel }}'
+    - name: nextHopHub
+      value: '{{ nextHopHub }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: routeType
+      value: '{{ routeType }}'
+    - name: asPaths
+      value: '{{ asPaths }}'
+    - name: routeStatus
+      value: '{{ routeStatus }}'
 
 ```
 </TabItem>

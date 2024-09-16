@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>comments_iam_policies</code> re
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="commentThreadsId, commentsId, locationsId, projectsId, repositoriesId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="commentThreadsId, commentsId, locationsId, projectsId, repositoriesId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="commentThreadsId, commentsId, locationsId, projectsId, repositoriesId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
 
 ## `SELECT` examples
 
@@ -56,4 +56,21 @@ AND commentsId = '{{ commentsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND repositoriesId = '{{ repositoriesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>comments_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dataform.comments_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+commentThreadsId = '{{ commentThreadsId }}'
+AND commentsId = '{{ commentsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND repositoriesId = '{{ repositoriesId }}';
 ```

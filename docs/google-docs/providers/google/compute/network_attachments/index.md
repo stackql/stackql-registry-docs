@@ -140,39 +140,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: selfLinkWithId
-        value: '{{ selfLinkWithId }}'
-      - name: region
-        value: '{{ region }}'
-      - name: connectionPreference
-        value: '{{ connectionPreference }}'
-      - name: connectionEndpoints
-        value: '{{ connectionEndpoints }}'
-      - name: subnetworks
-        value: '{{ subnetworks }}'
-      - name: producerRejectLists
-        value: '{{ producerRejectLists }}'
-      - name: producerAcceptLists
-        value: '{{ producerAcceptLists }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: network
-        value: '{{ network }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: selfLinkWithId
+      value: '{{ selfLinkWithId }}'
+    - name: region
+      value: '{{ region }}'
+    - name: connectionPreference
+      value: '{{ connectionPreference }}'
+    - name: connectionEndpoints
+      value: '{{ connectionEndpoints }}'
+    - name: subnetworks
+      value: '{{ subnetworks }}'
+    - name: producerRejectLists
+      value: '{{ producerRejectLists }}'
+    - name: producerAcceptLists
+      value: '{{ producerAcceptLists }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: network
+      value: '{{ network }}'
 
 ```
 </TabItem>

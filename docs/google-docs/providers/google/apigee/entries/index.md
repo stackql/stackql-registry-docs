@@ -49,9 +49,9 @@ Creates, updates, deletes, gets or lists a <code>entries</code> resource.
 | <CopyableCode code="organizations_apis_keyvaluemaps_entries_delete" /> | `DELETE` | <CopyableCode code="apisId, entriesId, keyvaluemapsId, organizationsId" /> | Deletes a key value entry from a key value map scoped to an organization, environment, or API proxy. **Notes:** * After you delete the key value entry, the policy consuming the entry will continue to function with its cached values for a few minutes. This is expected behavior. * Supported for Apigee hybrid 1.8.x and higher. |
 | <CopyableCode code="organizations_environments_keyvaluemaps_entries_delete" /> | `DELETE` | <CopyableCode code="entriesId, environmentsId, keyvaluemapsId, organizationsId" /> | Deletes a key value entry from a key value map scoped to an organization, environment, or API proxy. **Notes:** * After you delete the key value entry, the policy consuming the entry will continue to function with its cached values for a few minutes. This is expected behavior. * Supported for Apigee hybrid 1.8.x and higher. |
 | <CopyableCode code="organizations_keyvaluemaps_entries_delete" /> | `DELETE` | <CopyableCode code="entriesId, keyvaluemapsId, organizationsId" /> | Deletes a key value entry from a key value map scoped to an organization, environment, or API proxy. **Notes:** * After you delete the key value entry, the policy consuming the entry will continue to function with its cached values for a few minutes. This is expected behavior. * Supported for Apigee hybrid 1.8.x and higher. |
-| <CopyableCode code="organizations_apis_keyvaluemaps_entries_update" /> | `EXEC` | <CopyableCode code="apisId, entriesId, keyvaluemapsId, organizationsId" /> | Update key value entry scoped to an organization, environment, or API proxy for an existing key. |
-| <CopyableCode code="organizations_environments_keyvaluemaps_entries_update" /> | `EXEC` | <CopyableCode code="entriesId, environmentsId, keyvaluemapsId, organizationsId" /> | Update key value entry scoped to an organization, environment, or API proxy for an existing key. |
-| <CopyableCode code="organizations_keyvaluemaps_entries_update" /> | `EXEC` | <CopyableCode code="entriesId, keyvaluemapsId, organizationsId" /> | Update key value entry scoped to an organization, environment, or API proxy for an existing key. |
+| <CopyableCode code="organizations_apis_keyvaluemaps_entries_update" /> | `REPLACE` | <CopyableCode code="apisId, entriesId, keyvaluemapsId, organizationsId" /> | Update key value entry scoped to an organization, environment, or API proxy for an existing key. |
+| <CopyableCode code="organizations_environments_keyvaluemaps_entries_update" /> | `REPLACE` | <CopyableCode code="entriesId, environmentsId, keyvaluemapsId, organizationsId" /> | Update key value entry scoped to an organization, environment, or API proxy for an existing key. |
+| <CopyableCode code="organizations_keyvaluemaps_entries_update" /> | `REPLACE` | <CopyableCode code="entriesId, keyvaluemapsId, organizationsId" /> | Update key value entry scoped to an organization, environment, or API proxy for an existing key. |
 
 ## `SELECT` examples
 
@@ -98,17 +98,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: value
-        value: '{{ value }}'
-      - name: name
-        value: '{{ name }}'
+- name: your_resource_model_name
+  props:
+    - name: value
+      value: '{{ value }}'
+    - name: name
+      value: '{{ name }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>entries</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.entries
+SET 
+value = '{{ value }}',
+name = '{{ name }}'
+WHERE 
+entriesId = '{{ entriesId }}'
+AND keyvaluemapsId = '{{ keyvaluemapsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```
 
 ## `DELETE` example
 

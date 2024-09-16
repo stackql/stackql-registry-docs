@@ -125,33 +125,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: maxScore
-        value: '{{ maxScore }}'
-      - name: revisionCreateTime
-        value: '{{ revisionCreateTime }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: profileConfig
-        value: '{{ profileConfig }}'
-      - name: environments
-        value: '{{ environments }}'
-      - name: revisionPublishTime
-        value: '{{ revisionPublishTime }}'
-      - name: minScore
-        value: '{{ minScore }}'
-      - name: description
-        value: '{{ description }}'
-      - name: scoringConfigs
-        value: '{{ scoringConfigs }}'
-      - name: revisionId
-        value: '{{ revisionId }}'
-      - name: revisionUpdateTime
-        value: '{{ revisionUpdateTime }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: maxScore
+      value: '{{ maxScore }}'
+    - name: revisionCreateTime
+      value: '{{ revisionCreateTime }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: profileConfig
+      value: '{{ profileConfig }}'
+    - name: environments
+      value: '{{ environments }}'
+    - name: revisionPublishTime
+      value: '{{ revisionPublishTime }}'
+    - name: minScore
+      value: '{{ minScore }}'
+    - name: description
+      value: '{{ description }}'
+    - name: scoringConfigs
+      value: '{{ scoringConfigs }}'
+    - name: revisionId
+      value: '{{ revisionId }}'
+    - name: revisionUpdateTime
+      value: '{{ revisionUpdateTime }}'
 
 ```
 </TabItem>

@@ -133,35 +133,34 @@ number,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: region
-        value: '{{ region }}'
-      - name: healthChecks
-        value: '{{ healthChecks }}'
-      - name: instances
-        value: '{{ instances }}'
-      - name: sessionAffinity
-        value: '{{ sessionAffinity }}'
-      - name: failoverRatio
-        value: '{{ failoverRatio }}'
-      - name: backupPool
-        value: '{{ backupPool }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: securityPolicy
-        value: '{{ securityPolicy }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: region
+      value: '{{ region }}'
+    - name: healthChecks
+      value: '{{ healthChecks }}'
+    - name: instances
+      value: '{{ instances }}'
+    - name: sessionAffinity
+      value: '{{ sessionAffinity }}'
+    - name: failoverRatio
+      value: '{{ failoverRatio }}'
+    - name: backupPool
+      value: '{{ backupPool }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: securityPolicy
+      value: '{{ securityPolicy }}'
 
 ```
 </TabItem>

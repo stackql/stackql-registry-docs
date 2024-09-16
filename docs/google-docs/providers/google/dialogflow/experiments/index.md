@@ -148,39 +148,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: state
-        value: '{{ state }}'
-      - name: definition
-        value: '{{ definition }}'
-      - name: rolloutConfig
-        value: '{{ rolloutConfig }}'
-      - name: rolloutState
-        value: '{{ rolloutState }}'
-      - name: rolloutFailureReason
-        value: '{{ rolloutFailureReason }}'
-      - name: result
-        value: '{{ result }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: lastUpdateTime
-        value: '{{ lastUpdateTime }}'
-      - name: experimentLength
-        value: '{{ experimentLength }}'
-      - name: variantsHistory
-        value: '{{ variantsHistory }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: state
+      value: '{{ state }}'
+    - name: definition
+      value: '{{ definition }}'
+    - name: rolloutConfig
+      value: '{{ rolloutConfig }}'
+    - name: rolloutState
+      value: '{{ rolloutState }}'
+    - name: rolloutFailureReason
+      value: '{{ rolloutFailureReason }}'
+    - name: result
+      value: '{{ result }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: lastUpdateTime
+      value: '{{ lastUpdateTime }}'
+    - name: experimentLength
+      value: '{{ experimentLength }}'
+    - name: variantsHistory
+      value: '{{ variantsHistory }}'
 
 ```
 </TabItem>

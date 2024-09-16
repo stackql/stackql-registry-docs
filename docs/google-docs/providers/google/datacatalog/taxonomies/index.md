@@ -47,9 +47,9 @@ Creates, updates, deletes, gets or lists a <code>taxonomies</code> resource.
 | <CopyableCode code="projects_locations_taxonomies_create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a taxonomy in a specified project. The taxonomy is initially empty, that is, it doesn't contain policy tags. |
 | <CopyableCode code="projects_locations_taxonomies_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Deletes a taxonomy, including all policy tags in this taxonomy, their associated policies, and the policy tags references from BigQuery columns. |
 | <CopyableCode code="projects_locations_taxonomies_patch" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Updates a taxonomy, including its display name, description, and activated policy types. |
+| <CopyableCode code="projects_locations_taxonomies_replace" /> | `REPLACE` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Replaces (updates) a taxonomy and all its policy tags. The taxonomy and its entire hierarchy of policy tags must be represented literally by `SerializedTaxonomy` and the nested `SerializedPolicyTag` messages. This operation automatically does the following: - Deletes the existing policy tags that are missing from the `SerializedPolicyTag`. - Creates policy tags that don't have resource names. They are considered new. - Updates policy tags with valid resources names accordingly. |
 | <CopyableCode code="projects_locations_taxonomies_export" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Exports taxonomies in the requested type and returns them, including their policy tags. The requested taxonomies must belong to the same project. This method generates `SerializedTaxonomy` protocol buffers with nested policy tags that can be used as input for `ImportTaxonomies` calls. |
 | <CopyableCode code="projects_locations_taxonomies_import" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Creates new taxonomies (including their policy tags) in a given project by importing from inlined or cross-regional sources. For a cross-regional source, new taxonomies are created by copying from a source in another region. For an inlined source, taxonomies and policy tags are created in bulk using nested protocol buffer structures. |
-| <CopyableCode code="projects_locations_taxonomies_replace" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, taxonomiesId" /> | Replaces (updates) a taxonomy and all its policy tags. The taxonomy and its entire hierarchy of policy tags must be represented literally by `SerializedTaxonomy` and the nested `SerializedPolicyTag` messages. This operation automatically does the following: - Deletes the existing policy tags that are missing from the `SerializedPolicyTag`. - Creates policy tags that don't have resource names. They are considered new. - Updates policy tags with valid resources names accordingly. |
 
 ## `SELECT` examples
 
@@ -111,23 +111,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: policyTagCount
-        value: '{{ policyTagCount }}'
-      - name: taxonomyTimestamps
-        value: '{{ taxonomyTimestamps }}'
-      - name: activatedPolicyTypes
-        value: '{{ activatedPolicyTypes }}'
-      - name: service
-        value: '{{ service }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: policyTagCount
+      value: '{{ policyTagCount }}'
+    - name: taxonomyTimestamps
+      value: '{{ taxonomyTimestamps }}'
+    - name: activatedPolicyTypes
+      value: '{{ activatedPolicyTypes }}'
+    - name: service
+      value: '{{ service }}'
 
 ```
 </TabItem>
@@ -148,6 +147,21 @@ policyTagCount = '{{ policyTagCount }}',
 taxonomyTimestamps = '{{ taxonomyTimestamps }}',
 activatedPolicyTypes = '{{ activatedPolicyTypes }}',
 service = '{{ service }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND taxonomiesId = '{{ taxonomiesId }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>taxonomies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.datacatalog.taxonomies
+SET 
+serializedTaxonomy = '{{ serializedTaxonomy }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

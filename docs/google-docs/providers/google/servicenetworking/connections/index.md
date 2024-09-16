@@ -85,17 +85,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: peering
-        value: '{{ peering }}'
-      - name: reservedPeeringRanges
-        value: '{{ reservedPeeringRanges }}'
-      - name: service
-        value: '{{ service }}'
-      - name: network
-        value: '{{ network }}'
+- name: your_resource_model_name
+  props:
+    - name: peering
+      value: '{{ peering }}'
+    - name: reservedPeeringRanges
+      value: '{{ reservedPeeringRanges }}'
+    - name: service
+      value: '{{ service }}'
+    - name: network
+      value: '{{ network }}'
 
 ```
 </TabItem>

@@ -188,65 +188,64 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: title
-        value: '{{ title }}'
-      - name: producerProjectId
-        value: '{{ producerProjectId }}'
-      - name: id
-        value: '{{ id }}'
-      - name: apis
-        value: '{{ apis }}'
-      - name: types
-        value: '{{ types }}'
-      - name: enums
-        value: '{{ enums }}'
-      - name: documentation
-        value: '{{ documentation }}'
-      - name: backend
-        value: '{{ backend }}'
-      - name: http
-        value: '{{ http }}'
-      - name: quota
-        value: '{{ quota }}'
-      - name: authentication
-        value: '{{ authentication }}'
-      - name: context
-        value: '{{ context }}'
-      - name: usage
-        value: '{{ usage }}'
-      - name: customError
-        value: '{{ customError }}'
-      - name: endpoints
-        value: '{{ endpoints }}'
-      - name: control
-        value: '{{ control }}'
-      - name: logs
-        value: '{{ logs }}'
-      - name: metrics
-        value: '{{ metrics }}'
-      - name: monitoredResources
-        value: '{{ monitoredResources }}'
-      - name: billing
-        value: '{{ billing }}'
-      - name: logging
-        value: '{{ logging }}'
-      - name: monitoring
-        value: '{{ monitoring }}'
-      - name: systemParameters
-        value: '{{ systemParameters }}'
-      - name: sourceInfo
-        value: '{{ sourceInfo }}'
-      - name: publishing
-        value: '{{ publishing }}'
-      - name: systemTypes
-        value: '{{ systemTypes }}'
-      - name: configVersion
-        value: '{{ configVersion }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: title
+      value: '{{ title }}'
+    - name: producerProjectId
+      value: '{{ producerProjectId }}'
+    - name: id
+      value: '{{ id }}'
+    - name: apis
+      value: '{{ apis }}'
+    - name: types
+      value: '{{ types }}'
+    - name: enums
+      value: '{{ enums }}'
+    - name: documentation
+      value: '{{ documentation }}'
+    - name: backend
+      value: '{{ backend }}'
+    - name: http
+      value: '{{ http }}'
+    - name: quota
+      value: '{{ quota }}'
+    - name: authentication
+      value: '{{ authentication }}'
+    - name: context
+      value: '{{ context }}'
+    - name: usage
+      value: '{{ usage }}'
+    - name: customError
+      value: '{{ customError }}'
+    - name: endpoints
+      value: '{{ endpoints }}'
+    - name: control
+      value: '{{ control }}'
+    - name: logs
+      value: '{{ logs }}'
+    - name: metrics
+      value: '{{ metrics }}'
+    - name: monitoredResources
+      value: '{{ monitoredResources }}'
+    - name: billing
+      value: '{{ billing }}'
+    - name: logging
+      value: '{{ logging }}'
+    - name: monitoring
+      value: '{{ monitoring }}'
+    - name: systemParameters
+      value: '{{ systemParameters }}'
+    - name: sourceInfo
+      value: '{{ sourceInfo }}'
+    - name: publishing
+      value: '{{ publishing }}'
+    - name: systemTypes
+      value: '{{ systemTypes }}'
+    - name: configVersion
+      value: '{{ configVersion }}'
 
 ```
 </TabItem>

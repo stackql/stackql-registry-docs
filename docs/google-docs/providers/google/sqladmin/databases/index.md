@@ -49,7 +49,7 @@ Creates, updates, deletes, gets or lists a <code>databases</code> resource.
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="instance, project" /> | Inserts a resource containing information about a database inside a Cloud SQL instance. **Note:** You can't modify the default character set and collation. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="database, instance, project" /> | Deletes a database from a Cloud SQL instance. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="database, instance, project" /> | Partially updates a resource containing information about a database inside a Cloud SQL instance. This method supports patch semantics. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="database, instance, project" /> | Updates a resource containing information about a database inside a Cloud SQL instance. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="database, instance, project" /> | Updates a resource containing information about a database inside a Cloud SQL instance. |
 
 ## `SELECT` examples
 
@@ -117,27 +117,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: charset
-        value: '{{ charset }}'
-      - name: collation
-        value: '{{ collation }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: name
-        value: '{{ name }}'
-      - name: instance
-        value: '{{ instance }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: project
-        value: '{{ project }}'
-      - name: sqlserverDatabaseDetails
-        value: '{{ sqlserverDatabaseDetails }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: charset
+      value: '{{ charset }}'
+    - name: collation
+      value: '{{ collation }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: name
+      value: '{{ name }}'
+    - name: instance
+      value: '{{ instance }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: project
+      value: '{{ project }}'
+    - name: sqlserverDatabaseDetails
+      value: '{{ sqlserverDatabaseDetails }}'
 
 ```
 </TabItem>
@@ -150,6 +149,29 @@ Updates a <code>databases</code> resource.
 ```sql
 /*+ update */
 UPDATE google.sqladmin.databases
+SET 
+kind = '{{ kind }}',
+charset = '{{ charset }}',
+collation = '{{ collation }}',
+etag = '{{ etag }}',
+name = '{{ name }}',
+instance = '{{ instance }}',
+selfLink = '{{ selfLink }}',
+project = '{{ project }}',
+sqlserverDatabaseDetails = '{{ sqlserverDatabaseDetails }}'
+WHERE 
+database = '{{ database }}'
+AND instance = '{{ instance }}'
+AND project = '{{ project }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>databases</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.sqladmin.databases
 SET 
 kind = '{{ kind }}',
 charset = '{{ charset }}',

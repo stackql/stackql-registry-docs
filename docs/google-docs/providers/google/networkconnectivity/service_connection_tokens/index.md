@@ -115,27 +115,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: description
-        value: '{{ description }}'
-      - name: network
-        value: '{{ network }}'
-      - name: token
-        value: '{{ token }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: etag
-        value: '{{ etag }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: description
+      value: '{{ description }}'
+    - name: network
+      value: '{{ network }}'
+    - name: token
+      value: '{{ token }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: etag
+      value: '{{ etag }}'
 
 ```
 </TabItem>

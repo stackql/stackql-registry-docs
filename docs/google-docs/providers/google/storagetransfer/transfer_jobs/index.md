@@ -134,37 +134,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: projectId
-        value: '{{ projectId }}'
-      - name: transferSpec
-        value: '{{ transferSpec }}'
-      - name: replicationSpec
-        value: '{{ replicationSpec }}'
-      - name: notificationConfig
-        value: '{{ notificationConfig }}'
-      - name: loggingConfig
-        value: '{{ loggingConfig }}'
-      - name: schedule
-        value: '{{ schedule }}'
-      - name: eventStream
-        value: '{{ eventStream }}'
-      - name: status
-        value: '{{ status }}'
-      - name: creationTime
-        value: '{{ creationTime }}'
-      - name: lastModificationTime
-        value: '{{ lastModificationTime }}'
-      - name: deletionTime
-        value: '{{ deletionTime }}'
-      - name: latestOperationName
-        value: '{{ latestOperationName }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: projectId
+      value: '{{ projectId }}'
+    - name: transferSpec
+      value: '{{ transferSpec }}'
+    - name: replicationSpec
+      value: '{{ replicationSpec }}'
+    - name: notificationConfig
+      value: '{{ notificationConfig }}'
+    - name: loggingConfig
+      value: '{{ loggingConfig }}'
+    - name: schedule
+      value: '{{ schedule }}'
+    - name: eventStream
+      value: '{{ eventStream }}'
+    - name: status
+      value: '{{ status }}'
+    - name: creationTime
+      value: '{{ creationTime }}'
+    - name: lastModificationTime
+      value: '{{ lastModificationTime }}'
+    - name: deletionTime
+      value: '{{ deletionTime }}'
+    - name: latestOperationName
+      value: '{{ latestOperationName }}'
 
 ```
 </TabItem>

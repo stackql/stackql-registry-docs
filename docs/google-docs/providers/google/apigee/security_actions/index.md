@@ -128,33 +128,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: apiProxies
-        value: '{{ apiProxies }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: conditionConfig
-        value: '{{ conditionConfig }}'
-      - name: deny
-        value: '{{ deny }}'
-      - name: state
-        value: '{{ state }}'
-      - name: ttl
-        value: '{{ ttl }}'
-      - name: allow
-        value: '{{ allow }}'
-      - name: flag
-        value: '{{ flag }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
+- name: your_resource_model_name
+  props:
+    - name: apiProxies
+      value: '{{ apiProxies }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: conditionConfig
+      value: '{{ conditionConfig }}'
+    - name: deny
+      value: '{{ deny }}'
+    - name: state
+      value: '{{ state }}'
+    - name: ttl
+      value: '{{ ttl }}'
+    - name: allow
+      value: '{{ allow }}'
+    - name: flag
+      value: '{{ flag }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
 
 ```
 </TabItem>

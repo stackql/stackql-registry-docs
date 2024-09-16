@@ -158,45 +158,44 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: destinationDatasetId
-        value: '{{ destinationDatasetId }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: dataSourceId
-        value: '{{ dataSourceId }}'
-      - name: params
-        value: '{{ params }}'
-      - name: schedule
-        value: '{{ schedule }}'
-      - name: scheduleOptions
-        value: '{{ scheduleOptions }}'
-      - name: dataRefreshWindowDays
-        value: '{{ dataRefreshWindowDays }}'
-      - name: disabled
-        value: '{{ disabled }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: nextRunTime
-        value: '{{ nextRunTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: userId
-        value: '{{ userId }}'
-      - name: datasetRegion
-        value: '{{ datasetRegion }}'
-      - name: notificationPubsubTopic
-        value: '{{ notificationPubsubTopic }}'
-      - name: emailPreferences
-        value: '{{ emailPreferences }}'
-      - name: ownerInfo
-        value: '{{ ownerInfo }}'
-      - name: encryptionConfiguration
-        value: '{{ encryptionConfiguration }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: destinationDatasetId
+      value: '{{ destinationDatasetId }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: dataSourceId
+      value: '{{ dataSourceId }}'
+    - name: params
+      value: '{{ params }}'
+    - name: schedule
+      value: '{{ schedule }}'
+    - name: scheduleOptions
+      value: '{{ scheduleOptions }}'
+    - name: dataRefreshWindowDays
+      value: '{{ dataRefreshWindowDays }}'
+    - name: disabled
+      value: '{{ disabled }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: nextRunTime
+      value: '{{ nextRunTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: userId
+      value: '{{ userId }}'
+    - name: datasetRegion
+      value: '{{ datasetRegion }}'
+    - name: notificationPubsubTopic
+      value: '{{ notificationPubsubTopic }}'
+    - name: emailPreferences
+      value: '{{ emailPreferences }}'
+    - name: ownerInfo
+      value: '{{ ownerInfo }}'
+    - name: encryptionConfiguration
+      value: '{{ encryptionConfiguration }}'
 
 ```
 </TabItem>

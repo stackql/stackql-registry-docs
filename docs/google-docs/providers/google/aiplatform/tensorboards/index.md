@@ -135,35 +135,34 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: runCount
-        value: '{{ runCount }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: description
-        value: '{{ description }}'
-      - name: isDefault
-        value: '{{ isDefault }}'
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: blobStoragePathPrefix
-        value: '{{ blobStoragePathPrefix }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: labels
-        value: '{{ labels }}'
+- name: your_resource_model_name
+  props:
+    - name: runCount
+      value: '{{ runCount }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: description
+      value: '{{ description }}'
+    - name: isDefault
+      value: '{{ isDefault }}'
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: blobStoragePathPrefix
+      value: '{{ blobStoragePathPrefix }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: labels
+      value: '{{ labels }}'
 
 ```
 </TabItem>

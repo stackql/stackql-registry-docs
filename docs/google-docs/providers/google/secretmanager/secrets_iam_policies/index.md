@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>secrets_iam_policies</code> res
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="projectsId, secretsId" /> | Gets the access control policy for a secret. Returns empty policy if the secret exists and does not have a policy set. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="projectsId, secretsId" /> | Sets the access control policy on the specified secret. Replaces any existing policy. Permissions on SecretVersions are enforced according to the policy set on the associated Secret. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="projectsId, secretsId" /> | Sets the access control policy on the specified secret. Replaces any existing policy. Permissions on SecretVersions are enforced according to the policy set on the associated Secret. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="projectsId, secretsId" /> | Returns permissions that a caller has for the specified secret. If the secret does not exist, this call returns an empty set of permissions, not a NOT_FOUND error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
 
 ## `SELECT` examples
@@ -54,4 +54,19 @@ role
 FROM google.secretmanager.secrets_iam_policies
 WHERE projectsId = '{{ projectsId }}'
 AND secretsId = '{{ secretsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>secrets_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.secretmanager.secrets_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+projectsId = '{{ projectsId }}'
+AND secretsId = '{{ secretsId }}';
 ```

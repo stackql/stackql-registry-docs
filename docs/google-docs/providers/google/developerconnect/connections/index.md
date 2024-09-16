@@ -128,33 +128,32 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: githubConfig
-        value: '{{ githubConfig }}'
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: installationState
-        value: '{{ installationState }}'
-      - name: disabled
-        value: '{{ disabled }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: uid
-        value: '{{ uid }}'
+- name: your_resource_model_name
+  props:
+    - name: githubConfig
+      value: '{{ githubConfig }}'
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: installationState
+      value: '{{ installationState }}'
+    - name: disabled
+      value: '{{ disabled }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: uid
+      value: '{{ uid }}'
 
 ```
 </TabItem>

@@ -136,37 +136,36 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: webAccessUris
-        value: '{{ webAccessUris }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: error
-        value: '{{ error }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: name
-        value: '{{ name }}'
-      - name: jobSpec
-        value: '{{ jobSpec }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: startTime
-        value: '{{ startTime }}'
+- name: your_resource_model_name
+  props:
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: webAccessUris
+      value: '{{ webAccessUris }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: error
+      value: '{{ error }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: name
+      value: '{{ name }}'
+    - name: jobSpec
+      value: '{{ jobSpec }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: startTime
+      value: '{{ startTime }}'
 
 ```
 </TabItem>

@@ -69,11 +69,11 @@ Creates, updates, deletes, gets or lists a <code>jobs</code> resource.
 | <CopyableCode code="projects_locations_jobs_list" /> | `SELECT` | <CopyableCode code="location, projectId" /> | List the jobs of a project. To list the jobs of a project in a region, we recommend using `projects.locations.jobs.list` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To list the all jobs across all regions, use `projects.jobs.aggregated`. Using `projects.jobs.list` is not recommended, because you can only get the list of jobs that are running in `us-central1`. `projects.locations.jobs.list` and `projects.jobs.list` support filtering the list of jobs by name. Filtering by name isn't supported by `projects.jobs.aggregated`. |
 | <CopyableCode code="projects_jobs_create" /> | `INSERT` | <CopyableCode code="projectId" /> | Creates a Cloud Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.create` is not recommended, as your job will always start in `us-central1`. Do not enter confidential information when you supply string values using the API. |
 | <CopyableCode code="projects_locations_jobs_create" /> | `INSERT` | <CopyableCode code="location, projectId" /> | Creates a Cloud Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.create` is not recommended, as your job will always start in `us-central1`. Do not enter confidential information when you supply string values using the API. |
+| <CopyableCode code="projects_jobs_update" /> | `REPLACE` | <CopyableCode code="jobId, projectId" /> | Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in `us-central1`. |
+| <CopyableCode code="projects_locations_jobs_update" /> | `REPLACE` | <CopyableCode code="jobId, location, projectId" /> | Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in `us-central1`. |
 | <CopyableCode code="projects_jobs_aggregated" /> | `EXEC` | <CopyableCode code="projectId" /> | List the jobs of a project across all regions. **Note:** This method doesn't support filtering the list of jobs by name. |
 | <CopyableCode code="projects_jobs_snapshot" /> | `EXEC` | <CopyableCode code="jobId, projectId" /> | Snapshot the state of a streaming job. |
-| <CopyableCode code="projects_jobs_update" /> | `EXEC` | <CopyableCode code="jobId, projectId" /> | Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in `us-central1`. |
 | <CopyableCode code="projects_locations_jobs_snapshot" /> | `EXEC` | <CopyableCode code="jobId, location, projectId" /> | Snapshot the state of a streaming job. |
-| <CopyableCode code="projects_locations_jobs_update" /> | `EXEC` | <CopyableCode code="jobId, location, projectId" /> | Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in `us-central1`. |
 
 ## `SELECT` examples
 
@@ -195,66 +195,106 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: id
-        value: '{{ id }}'
-      - name: projectId
-        value: '{{ projectId }}'
-      - name: name
-        value: '{{ name }}'
-      - name: type
-        value: '{{ type }}'
-      - name: environment
-        value: '{{ environment }}'
-      - name: steps
-        value: '{{ steps }}'
-      - name: stepsLocation
-        value: '{{ stepsLocation }}'
-      - name: currentState
-        value: '{{ currentState }}'
-      - name: currentStateTime
-        value: '{{ currentStateTime }}'
-      - name: requestedState
-        value: '{{ requestedState }}'
-      - name: executionInfo
-        value: '{{ executionInfo }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: replaceJobId
-        value: '{{ replaceJobId }}'
-      - name: transformNameMapping
-        value: '{{ transformNameMapping }}'
-      - name: clientRequestId
-        value: '{{ clientRequestId }}'
-      - name: replacedByJobId
-        value: '{{ replacedByJobId }}'
-      - name: tempFiles
-        value: '{{ tempFiles }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: location
-        value: '{{ location }}'
-      - name: pipelineDescription
-        value: '{{ pipelineDescription }}'
-      - name: stageStates
-        value: '{{ stageStates }}'
-      - name: jobMetadata
-        value: '{{ jobMetadata }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: createdFromSnapshotId
-        value: '{{ createdFromSnapshotId }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: runtimeUpdatableParams
-        value: '{{ runtimeUpdatableParams }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: serviceResources
-        value: '{{ serviceResources }}'
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: '{{ id }}'
+    - name: projectId
+      value: '{{ projectId }}'
+    - name: name
+      value: '{{ name }}'
+    - name: type
+      value: '{{ type }}'
+    - name: environment
+      value: '{{ environment }}'
+    - name: steps
+      value: '{{ steps }}'
+    - name: stepsLocation
+      value: '{{ stepsLocation }}'
+    - name: currentState
+      value: '{{ currentState }}'
+    - name: currentStateTime
+      value: '{{ currentStateTime }}'
+    - name: requestedState
+      value: '{{ requestedState }}'
+    - name: executionInfo
+      value: '{{ executionInfo }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: replaceJobId
+      value: '{{ replaceJobId }}'
+    - name: transformNameMapping
+      value: '{{ transformNameMapping }}'
+    - name: clientRequestId
+      value: '{{ clientRequestId }}'
+    - name: replacedByJobId
+      value: '{{ replacedByJobId }}'
+    - name: tempFiles
+      value: '{{ tempFiles }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: location
+      value: '{{ location }}'
+    - name: pipelineDescription
+      value: '{{ pipelineDescription }}'
+    - name: stageStates
+      value: '{{ stageStates }}'
+    - name: jobMetadata
+      value: '{{ jobMetadata }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: createdFromSnapshotId
+      value: '{{ createdFromSnapshotId }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: runtimeUpdatableParams
+      value: '{{ runtimeUpdatableParams }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: serviceResources
+      value: '{{ serviceResources }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>jobs</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dataflow.jobs
+SET 
+id = '{{ id }}',
+projectId = '{{ projectId }}',
+name = '{{ name }}',
+type = '{{ type }}',
+environment = '{{ environment }}',
+steps = '{{ steps }}',
+stepsLocation = '{{ stepsLocation }}',
+currentState = '{{ currentState }}',
+currentStateTime = '{{ currentStateTime }}',
+requestedState = '{{ requestedState }}',
+executionInfo = '{{ executionInfo }}',
+createTime = '{{ createTime }}',
+replaceJobId = '{{ replaceJobId }}',
+transformNameMapping = '{{ transformNameMapping }}',
+clientRequestId = '{{ clientRequestId }}',
+replacedByJobId = '{{ replacedByJobId }}',
+tempFiles = '{{ tempFiles }}',
+labels = '{{ labels }}',
+location = '{{ location }}',
+pipelineDescription = '{{ pipelineDescription }}',
+stageStates = '{{ stageStates }}',
+jobMetadata = '{{ jobMetadata }}',
+startTime = '{{ startTime }}',
+createdFromSnapshotId = '{{ createdFromSnapshotId }}',
+satisfiesPzs = true|false,
+runtimeUpdatableParams = '{{ runtimeUpdatableParams }}',
+satisfiesPzi = true|false,
+serviceResources = '{{ serviceResources }}'
+WHERE 
+jobId = '{{ jobId }}'
+AND projectId = '{{ projectId }}';
+```

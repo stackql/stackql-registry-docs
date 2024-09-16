@@ -212,73 +212,72 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: backupSource
-        value: '{{ backupSource }}'
-      - name: migrationSource
-        value: '{{ migrationSource }}'
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: state
-        value: '{{ state }}'
-      - name: clusterType
-        value: '{{ clusterType }}'
-      - name: databaseVersion
-        value: '{{ databaseVersion }}'
-      - name: networkConfig
-        value: '{{ networkConfig }}'
-      - name: network
-        value: '{{ network }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: initialUser
-        value: '{{ initialUser }}'
-      - name: automatedBackupPolicy
-        value: '{{ automatedBackupPolicy }}'
-      - name: sslConfig
-        value: '{{ sslConfig }}'
-      - name: encryptionConfig
-        value: '{{ encryptionConfig }}'
-      - name: encryptionInfo
-        value: '{{ encryptionInfo }}'
-      - name: continuousBackupConfig
-        value: '{{ continuousBackupConfig }}'
-      - name: continuousBackupInfo
-        value: '{{ continuousBackupInfo }}'
-      - name: secondaryConfig
-        value: '{{ secondaryConfig }}'
-      - name: primaryConfig
-        value: '{{ primaryConfig }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: pscConfig
-        value: '{{ pscConfig }}'
-      - name: maintenanceUpdatePolicy
-        value: '{{ maintenanceUpdatePolicy }}'
-      - name: maintenanceSchedule
-        value: '{{ maintenanceSchedule }}'
-      - name: subscriptionType
-        value: '{{ subscriptionType }}'
-      - name: trialMetadata
-        value: '{{ trialMetadata }}'
+- name: your_resource_model_name
+  props:
+    - name: backupSource
+      value: '{{ backupSource }}'
+    - name: migrationSource
+      value: '{{ migrationSource }}'
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: state
+      value: '{{ state }}'
+    - name: clusterType
+      value: '{{ clusterType }}'
+    - name: databaseVersion
+      value: '{{ databaseVersion }}'
+    - name: networkConfig
+      value: '{{ networkConfig }}'
+    - name: network
+      value: '{{ network }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: initialUser
+      value: '{{ initialUser }}'
+    - name: automatedBackupPolicy
+      value: '{{ automatedBackupPolicy }}'
+    - name: sslConfig
+      value: '{{ sslConfig }}'
+    - name: encryptionConfig
+      value: '{{ encryptionConfig }}'
+    - name: encryptionInfo
+      value: '{{ encryptionInfo }}'
+    - name: continuousBackupConfig
+      value: '{{ continuousBackupConfig }}'
+    - name: continuousBackupInfo
+      value: '{{ continuousBackupInfo }}'
+    - name: secondaryConfig
+      value: '{{ secondaryConfig }}'
+    - name: primaryConfig
+      value: '{{ primaryConfig }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: pscConfig
+      value: '{{ pscConfig }}'
+    - name: maintenanceUpdatePolicy
+      value: '{{ maintenanceUpdatePolicy }}'
+    - name: maintenanceSchedule
+      value: '{{ maintenanceSchedule }}'
+    - name: subscriptionType
+      value: '{{ subscriptionType }}'
+    - name: trialMetadata
+      value: '{{ trialMetadata }}'
 
 ```
 </TabItem>

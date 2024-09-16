@@ -106,19 +106,18 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: parserConfig
-        value: '{{ parserConfig }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: notificationConfigs
-        value: '{{ notificationConfigs }}'
-      - name: rejectDuplicateMessage
-        value: '{{ rejectDuplicateMessage }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: parserConfig
+      value: '{{ parserConfig }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: notificationConfigs
+      value: '{{ notificationConfigs }}'
+    - name: rejectDuplicateMessage
+      value: '{{ rejectDuplicateMessage }}'
 
 ```
 </TabItem>

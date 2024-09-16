@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>backup_schedules_iam_policies</
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_instances_databases_backup_schedules_get_iam_policy" /> | `SELECT` | <CopyableCode code="backupSchedulesId, databasesId, instancesId, projectsId" /> | Gets the access control policy for a database or backup resource. Returns an empty policy if a database or backup exists but does not have a policy set. Authorization requires `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires `spanner.backups.getIamPolicy` permission on resource. |
-| <CopyableCode code="projects_instances_databases_backup_schedules_set_iam_policy" /> | `EXEC` | <CopyableCode code="backupSchedulesId, databasesId, instancesId, projectsId" /> | Sets the access control policy on a database or backup resource. Replaces any existing policy. Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups, authorization requires `spanner.backups.setIamPolicy` permission on resource. |
+| <CopyableCode code="projects_instances_databases_backup_schedules_set_iam_policy" /> | `REPLACE` | <CopyableCode code="backupSchedulesId, databasesId, instancesId, projectsId" /> | Sets the access control policy on a database or backup resource. Replaces any existing policy. Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups, authorization requires `spanner.backups.setIamPolicy` permission on resource. |
 | <CopyableCode code="projects_instances_databases_backup_schedules_test_iam_permissions" /> | `EXEC` | <CopyableCode code="backupSchedulesId, databasesId, instancesId, projectsId" /> | Returns permissions that the caller has on the specified database or backup resource. Attempting this RPC on a non-existent Cloud Spanner database will result in a NOT_FOUND error if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise returns an empty set of permissions. Calling this method on a backup that does not exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing instance. |
 
 ## `SELECT` examples
@@ -56,4 +56,20 @@ WHERE backupSchedulesId = '{{ backupSchedulesId }}'
 AND databasesId = '{{ databasesId }}'
 AND instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>backup_schedules_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.spanner.backup_schedules_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+backupSchedulesId = '{{ backupSchedulesId }}'
+AND databasesId = '{{ databasesId }}'
+AND instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}';
 ```

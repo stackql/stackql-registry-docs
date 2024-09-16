@@ -152,45 +152,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: state
-        value: '{{ state }}'
-      - name: revisionId
-        value: '{{ revisionId }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: revisionCreateTime
-        value: '{{ revisionCreateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: sourceContents
-        value: '{{ sourceContents }}'
-      - name: cryptoKeyName
-        value: '{{ cryptoKeyName }}'
-      - name: stateError
-        value: '{{ stateError }}'
-      - name: callLogLevel
-        value: '{{ callLogLevel }}'
-      - name: userEnvVars
-        value: '{{ userEnvVars }}'
-      - name: executionHistoryLevel
-        value: '{{ executionHistoryLevel }}'
-      - name: allKmsKeys
-        value: '{{ allKmsKeys }}'
-      - name: allKmsKeysVersions
-        value: '{{ allKmsKeysVersions }}'
-      - name: cryptoKeyVersion
-        value: '{{ cryptoKeyVersion }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: state
+      value: '{{ state }}'
+    - name: revisionId
+      value: '{{ revisionId }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: revisionCreateTime
+      value: '{{ revisionCreateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: sourceContents
+      value: '{{ sourceContents }}'
+    - name: cryptoKeyName
+      value: '{{ cryptoKeyName }}'
+    - name: stateError
+      value: '{{ stateError }}'
+    - name: callLogLevel
+      value: '{{ callLogLevel }}'
+    - name: userEnvVars
+      value: '{{ userEnvVars }}'
+    - name: executionHistoryLevel
+      value: '{{ executionHistoryLevel }}'
+    - name: allKmsKeys
+      value: '{{ allKmsKeys }}'
+    - name: allKmsKeysVersions
+      value: '{{ allKmsKeysVersions }}'
+    - name: cryptoKeyVersion
+      value: '{{ cryptoKeyVersion }}'
 
 ```
 </TabItem>

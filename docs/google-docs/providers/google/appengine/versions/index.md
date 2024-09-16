@@ -248,93 +248,92 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: id
-        value: '{{ id }}'
-      - name: automaticScaling
-        value: '{{ automaticScaling }}'
-      - name: basicScaling
-        value: '{{ basicScaling }}'
-      - name: manualScaling
-        value: '{{ manualScaling }}'
-      - name: inboundServices
-        value: '{{ inboundServices }}'
-      - name: instanceClass
-        value: '{{ instanceClass }}'
-      - name: network
-        value: '{{ network }}'
-      - name: zones
-        value: '{{ zones }}'
-      - name: resources
-        value: '{{ resources }}'
-      - name: runtime
-        value: '{{ runtime }}'
-      - name: runtimeChannel
-        value: '{{ runtimeChannel }}'
-      - name: threadsafe
-        value: '{{ threadsafe }}'
-      - name: vm
-        value: '{{ vm }}'
-      - name: flexibleRuntimeSettings
-        value: '{{ flexibleRuntimeSettings }}'
-      - name: appEngineApis
-        value: '{{ appEngineApis }}'
-      - name: betaSettings
-        value: '{{ betaSettings }}'
-      - name: env
-        value: '{{ env }}'
-      - name: servingStatus
-        value: '{{ servingStatus }}'
-      - name: createdBy
-        value: '{{ createdBy }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: diskUsageBytes
-        value: '{{ diskUsageBytes }}'
-      - name: runtimeApiVersion
-        value: '{{ runtimeApiVersion }}'
-      - name: runtimeMainExecutablePath
-        value: '{{ runtimeMainExecutablePath }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: handlers
-        value: '{{ handlers }}'
-      - name: errorHandlers
-        value: '{{ errorHandlers }}'
-      - name: libraries
-        value: '{{ libraries }}'
-      - name: apiConfig
-        value: '{{ apiConfig }}'
-      - name: envVariables
-        value: '{{ envVariables }}'
-      - name: buildEnvVariables
-        value: '{{ buildEnvVariables }}'
-      - name: defaultExpiration
-        value: '{{ defaultExpiration }}'
-      - name: healthCheck
-        value: '{{ healthCheck }}'
-      - name: readinessCheck
-        value: '{{ readinessCheck }}'
-      - name: livenessCheck
-        value: '{{ livenessCheck }}'
-      - name: nobuildFilesRegex
-        value: '{{ nobuildFilesRegex }}'
-      - name: deployment
-        value: '{{ deployment }}'
-      - name: versionUrl
-        value: '{{ versionUrl }}'
-      - name: endpointsApiService
-        value: '{{ endpointsApiService }}'
-      - name: entrypoint
-        value: '{{ entrypoint }}'
-      - name: vpcAccessConnector
-        value: '{{ vpcAccessConnector }}'
-      - name: generatedCustomerMetadata
-        value: '{{ generatedCustomerMetadata }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: id
+      value: '{{ id }}'
+    - name: automaticScaling
+      value: '{{ automaticScaling }}'
+    - name: basicScaling
+      value: '{{ basicScaling }}'
+    - name: manualScaling
+      value: '{{ manualScaling }}'
+    - name: inboundServices
+      value: '{{ inboundServices }}'
+    - name: instanceClass
+      value: '{{ instanceClass }}'
+    - name: network
+      value: '{{ network }}'
+    - name: zones
+      value: '{{ zones }}'
+    - name: resources
+      value: '{{ resources }}'
+    - name: runtime
+      value: '{{ runtime }}'
+    - name: runtimeChannel
+      value: '{{ runtimeChannel }}'
+    - name: threadsafe
+      value: '{{ threadsafe }}'
+    - name: vm
+      value: '{{ vm }}'
+    - name: flexibleRuntimeSettings
+      value: '{{ flexibleRuntimeSettings }}'
+    - name: appEngineApis
+      value: '{{ appEngineApis }}'
+    - name: betaSettings
+      value: '{{ betaSettings }}'
+    - name: env
+      value: '{{ env }}'
+    - name: servingStatus
+      value: '{{ servingStatus }}'
+    - name: createdBy
+      value: '{{ createdBy }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: diskUsageBytes
+      value: '{{ diskUsageBytes }}'
+    - name: runtimeApiVersion
+      value: '{{ runtimeApiVersion }}'
+    - name: runtimeMainExecutablePath
+      value: '{{ runtimeMainExecutablePath }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: handlers
+      value: '{{ handlers }}'
+    - name: errorHandlers
+      value: '{{ errorHandlers }}'
+    - name: libraries
+      value: '{{ libraries }}'
+    - name: apiConfig
+      value: '{{ apiConfig }}'
+    - name: envVariables
+      value: '{{ envVariables }}'
+    - name: buildEnvVariables
+      value: '{{ buildEnvVariables }}'
+    - name: defaultExpiration
+      value: '{{ defaultExpiration }}'
+    - name: healthCheck
+      value: '{{ healthCheck }}'
+    - name: readinessCheck
+      value: '{{ readinessCheck }}'
+    - name: livenessCheck
+      value: '{{ livenessCheck }}'
+    - name: nobuildFilesRegex
+      value: '{{ nobuildFilesRegex }}'
+    - name: deployment
+      value: '{{ deployment }}'
+    - name: versionUrl
+      value: '{{ versionUrl }}'
+    - name: endpointsApiService
+      value: '{{ endpointsApiService }}'
+    - name: entrypoint
+      value: '{{ entrypoint }}'
+    - name: vpcAccessConnector
+      value: '{{ vpcAccessConnector }}'
+    - name: generatedCustomerMetadata
+      value: '{{ generatedCustomerMetadata }}'
 
 ```
 </TabItem>

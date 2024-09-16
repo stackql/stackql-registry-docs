@@ -183,59 +183,58 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: samplePredictInstance
-        value: '{{ samplePredictInstance }}'
-      - name: bigqueryTables
-        value: '{{ bigqueryTables }}'
-      - name: nextScheduleTime
-        value: '{{ nextScheduleTime }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: scheduleState
-        value: '{{ scheduleState }}'
-      - name: predictInstanceSchemaUri
-        value: '{{ predictInstanceSchemaUri }}'
-      - name: logTtl
-        value: '{{ logTtl }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: state
-        value: '{{ state }}'
-      - name: statsAnomaliesBaseDirectory
-        value: '{{ statsAnomaliesBaseDirectory }}'
-      - name: modelDeploymentMonitoringScheduleConfig
-        value: '{{ modelDeploymentMonitoringScheduleConfig }}'
-      - name: endpoint
-        value: '{{ endpoint }}'
-      - name: modelMonitoringAlertConfig
-        value: '{{ modelMonitoringAlertConfig }}'
-      - name: latestMonitoringPipelineMetadata
-        value: '{{ latestMonitoringPipelineMetadata }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: analysisInstanceSchemaUri
-        value: '{{ analysisInstanceSchemaUri }}'
-      - name: loggingSamplingStrategy
-        value: '{{ loggingSamplingStrategy }}'
-      - name: name
-        value: '{{ name }}'
-      - name: enableMonitoringPipelineLogs
-        value: '{{ enableMonitoringPipelineLogs }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: error
-        value: '{{ error }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: modelDeploymentMonitoringObjectiveConfigs
-        value: '{{ modelDeploymentMonitoringObjectiveConfigs }}'
+- name: your_resource_model_name
+  props:
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: samplePredictInstance
+      value: '{{ samplePredictInstance }}'
+    - name: bigqueryTables
+      value: '{{ bigqueryTables }}'
+    - name: nextScheduleTime
+      value: '{{ nextScheduleTime }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: scheduleState
+      value: '{{ scheduleState }}'
+    - name: predictInstanceSchemaUri
+      value: '{{ predictInstanceSchemaUri }}'
+    - name: logTtl
+      value: '{{ logTtl }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: state
+      value: '{{ state }}'
+    - name: statsAnomaliesBaseDirectory
+      value: '{{ statsAnomaliesBaseDirectory }}'
+    - name: modelDeploymentMonitoringScheduleConfig
+      value: '{{ modelDeploymentMonitoringScheduleConfig }}'
+    - name: endpoint
+      value: '{{ endpoint }}'
+    - name: modelMonitoringAlertConfig
+      value: '{{ modelMonitoringAlertConfig }}'
+    - name: latestMonitoringPipelineMetadata
+      value: '{{ latestMonitoringPipelineMetadata }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: analysisInstanceSchemaUri
+      value: '{{ analysisInstanceSchemaUri }}'
+    - name: loggingSamplingStrategy
+      value: '{{ loggingSamplingStrategy }}'
+    - name: name
+      value: '{{ name }}'
+    - name: enableMonitoringPipelineLogs
+      value: '{{ enableMonitoringPipelineLogs }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: error
+      value: '{{ error }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: modelDeploymentMonitoringObjectiveConfigs
+      value: '{{ modelDeploymentMonitoringObjectiveConfigs }}'
 
 ```
 </TabItem>

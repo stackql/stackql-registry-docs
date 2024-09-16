@@ -168,53 +168,52 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: state
-        value: '{{ state }}'
-      - name: type
-        value: '{{ type }}'
-      - name: description
-        value: '{{ description }}'
-      - name: clusterUid
-        value: '{{ clusterUid }}'
-      - name: clusterName
-        value: '{{ clusterName }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: encryptionConfig
-        value: '{{ encryptionConfig }}'
-      - name: encryptionInfo
-        value: '{{ encryptionInfo }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: sizeBytes
-        value: '{{ sizeBytes }}'
-      - name: expiryTime
-        value: '{{ expiryTime }}'
-      - name: expiryQuantity
-        value: '{{ expiryQuantity }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: databaseVersion
-        value: '{{ databaseVersion }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: state
+      value: '{{ state }}'
+    - name: type
+      value: '{{ type }}'
+    - name: description
+      value: '{{ description }}'
+    - name: clusterUid
+      value: '{{ clusterUid }}'
+    - name: clusterName
+      value: '{{ clusterName }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: encryptionConfig
+      value: '{{ encryptionConfig }}'
+    - name: encryptionInfo
+      value: '{{ encryptionInfo }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: sizeBytes
+      value: '{{ sizeBytes }}'
+    - name: expiryTime
+      value: '{{ expiryTime }}'
+    - name: expiryQuantity
+      value: '{{ expiryQuantity }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: databaseVersion
+      value: '{{ databaseVersion }}'
 
 ```
 </TabItem>

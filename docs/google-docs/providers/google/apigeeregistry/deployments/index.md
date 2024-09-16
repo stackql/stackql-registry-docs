@@ -141,37 +141,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: revisionId
-        value: '{{ revisionId }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: revisionCreateTime
-        value: '{{ revisionCreateTime }}'
-      - name: revisionUpdateTime
-        value: '{{ revisionUpdateTime }}'
-      - name: apiSpecRevision
-        value: '{{ apiSpecRevision }}'
-      - name: endpointUri
-        value: '{{ endpointUri }}'
-      - name: externalChannelUri
-        value: '{{ externalChannelUri }}'
-      - name: intendedAudience
-        value: '{{ intendedAudience }}'
-      - name: accessGuidance
-        value: '{{ accessGuidance }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: annotations
-        value: '{{ annotations }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: revisionId
+      value: '{{ revisionId }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: revisionCreateTime
+      value: '{{ revisionCreateTime }}'
+    - name: revisionUpdateTime
+      value: '{{ revisionUpdateTime }}'
+    - name: apiSpecRevision
+      value: '{{ apiSpecRevision }}'
+    - name: endpointUri
+      value: '{{ endpointUri }}'
+    - name: externalChannelUri
+      value: '{{ externalChannelUri }}'
+    - name: intendedAudience
+      value: '{{ intendedAudience }}'
+    - name: accessGuidance
+      value: '{{ accessGuidance }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: annotations
+      value: '{{ annotations }}'
 
 ```
 </TabItem>

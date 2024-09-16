@@ -130,35 +130,34 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: staticIpScan
-        value: '{{ staticIpScan }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: userAgent
-        value: '{{ userAgent }}'
-      - name: riskLevel
-        value: '{{ riskLevel }}'
-      - name: blacklistPatterns
-        value: '{{ blacklistPatterns }}'
-      - name: exportToSecurityCommandCenter
-        value: '{{ exportToSecurityCommandCenter }}'
-      - name: schedule
-        value: '{{ schedule }}'
-      - name: startingUrls
-        value: '{{ startingUrls }}'
-      - name: maxQps
-        value: '{{ maxQps }}'
-      - name: managedScan
-        value: '{{ managedScan }}'
-      - name: ignoreHttpStatusErrors
-        value: '{{ ignoreHttpStatusErrors }}'
-      - name: name
-        value: '{{ name }}'
-      - name: authentication
-        value: '{{ authentication }}'
+- name: your_resource_model_name
+  props:
+    - name: staticIpScan
+      value: '{{ staticIpScan }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: userAgent
+      value: '{{ userAgent }}'
+    - name: riskLevel
+      value: '{{ riskLevel }}'
+    - name: blacklistPatterns
+      value: '{{ blacklistPatterns }}'
+    - name: exportToSecurityCommandCenter
+      value: '{{ exportToSecurityCommandCenter }}'
+    - name: schedule
+      value: '{{ schedule }}'
+    - name: startingUrls
+      value: '{{ startingUrls }}'
+    - name: maxQps
+      value: '{{ maxQps }}'
+    - name: managedScan
+      value: '{{ managedScan }}'
+    - name: ignoreHttpStatusErrors
+      value: '{{ ignoreHttpStatusErrors }}'
+    - name: name
+      value: '{{ name }}'
+    - name: authentication
+      value: '{{ authentication }}'
 
 ```
 </TabItem>

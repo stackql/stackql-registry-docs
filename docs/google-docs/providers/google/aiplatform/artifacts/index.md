@@ -133,33 +133,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: etag
-        value: '{{ etag }}'
-      - name: schemaTitle
-        value: '{{ schemaTitle }}'
-      - name: name
-        value: '{{ name }}'
-      - name: metadata
-        value: '{{ metadata }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: schemaVersion
-        value: '{{ schemaVersion }}'
-      - name: state
-        value: '{{ state }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: uri
-        value: '{{ uri }}'
-      - name: createTime
-        value: '{{ createTime }}'
+- name: your_resource_model_name
+  props:
+    - name: etag
+      value: '{{ etag }}'
+    - name: schemaTitle
+      value: '{{ schemaTitle }}'
+    - name: name
+      value: '{{ name }}'
+    - name: metadata
+      value: '{{ metadata }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: schemaVersion
+      value: '{{ schemaVersion }}'
+    - name: state
+      value: '{{ state }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: uri
+      value: '{{ uri }}'
+    - name: createTime
+      value: '{{ createTime }}'
 
 ```
 </TabItem>

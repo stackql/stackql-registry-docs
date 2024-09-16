@@ -123,31 +123,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: reportDefinitionId
-        value: '{{ reportDefinitionId }}'
-      - name: envgroupHostname
-        value: '{{ envgroupHostname }}'
-      - name: limit
-        value: '{{ limit }}'
-      - name: metrics
-        value: '{{ metrics }}'
-      - name: dimensions
-        value: '{{ dimensions }}'
-      - name: groupByTimeUnit
-        value: '{{ groupByTimeUnit }}'
-      - name: mimeType
-        value: '{{ mimeType }}'
-      - name: timeRange
-        value: '{{ timeRange }}'
-      - name: csvDelimiter
-        value: '{{ csvDelimiter }}'
-      - name: filter
-        value: '{{ filter }}'
-      - name: displayName
-        value: '{{ displayName }}'
+- name: your_resource_model_name
+  props:
+    - name: reportDefinitionId
+      value: '{{ reportDefinitionId }}'
+    - name: envgroupHostname
+      value: '{{ envgroupHostname }}'
+    - name: limit
+      value: '{{ limit }}'
+    - name: metrics
+      value: '{{ metrics }}'
+    - name: dimensions
+      value: '{{ dimensions }}'
+    - name: groupByTimeUnit
+      value: '{{ groupByTimeUnit }}'
+    - name: mimeType
+      value: '{{ mimeType }}'
+    - name: timeRange
+      value: '{{ timeRange }}'
+    - name: csvDelimiter
+      value: '{{ csvDelimiter }}'
+    - name: filter
+      value: '{{ filter }}'
+    - name: displayName
+      value: '{{ displayName }}'
 
 ```
 </TabItem>

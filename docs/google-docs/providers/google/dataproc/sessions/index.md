@@ -144,41 +144,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uuid
-        value: '{{ uuid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: jupyterSession
-        value: '{{ jupyterSession }}'
-      - name: sparkConnectSession
-        value: '{{ sparkConnectSession }}'
-      - name: runtimeInfo
-        value: '{{ runtimeInfo }}'
-      - name: state
-        value: '{{ state }}'
-      - name: stateMessage
-        value: '{{ stateMessage }}'
-      - name: stateTime
-        value: '{{ stateTime }}'
-      - name: creator
-        value: '{{ creator }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: runtimeConfig
-        value: '{{ runtimeConfig }}'
-      - name: environmentConfig
-        value: '{{ environmentConfig }}'
-      - name: user
-        value: '{{ user }}'
-      - name: stateHistory
-        value: '{{ stateHistory }}'
-      - name: sessionTemplate
-        value: '{{ sessionTemplate }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uuid
+      value: '{{ uuid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: jupyterSession
+      value: '{{ jupyterSession }}'
+    - name: sparkConnectSession
+      value: '{{ sparkConnectSession }}'
+    - name: runtimeInfo
+      value: '{{ runtimeInfo }}'
+    - name: state
+      value: '{{ state }}'
+    - name: stateMessage
+      value: '{{ stateMessage }}'
+    - name: stateTime
+      value: '{{ stateTime }}'
+    - name: creator
+      value: '{{ creator }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: runtimeConfig
+      value: '{{ runtimeConfig }}'
+    - name: environmentConfig
+      value: '{{ environmentConfig }}'
+    - name: user
+      value: '{{ user }}'
+    - name: stateHistory
+      value: '{{ stateHistory }}'
+    - name: sessionTemplate
+      value: '{{ sessionTemplate }}'
 
 ```
 </TabItem>

@@ -165,49 +165,48 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: modelId
-        value: '{{ modelId }}'
-      - name: priceRerankingLevel
-        value: '{{ priceRerankingLevel }}'
-      - name: facetControlIds
-        value: '{{ facetControlIds }}'
-      - name: dynamicFacetSpec
-        value: '{{ dynamicFacetSpec }}'
-      - name: boostControlIds
-        value: '{{ boostControlIds }}'
-      - name: filterControlIds
-        value: '{{ filterControlIds }}'
-      - name: redirectControlIds
-        value: '{{ redirectControlIds }}'
-      - name: twowaySynonymsControlIds
-        value: '{{ twowaySynonymsControlIds }}'
-      - name: onewaySynonymsControlIds
-        value: '{{ onewaySynonymsControlIds }}'
-      - name: doNotAssociateControlIds
-        value: '{{ doNotAssociateControlIds }}'
-      - name: replacementControlIds
-        value: '{{ replacementControlIds }}'
-      - name: ignoreControlIds
-        value: '{{ ignoreControlIds }}'
-      - name: diversityLevel
-        value: '{{ diversityLevel }}'
-      - name: diversityType
-        value: '{{ diversityType }}'
-      - name: enableCategoryFilterLevel
-        value: '{{ enableCategoryFilterLevel }}'
-      - name: ignoreRecsDenylist
-        value: '{{ ignoreRecsDenylist }}'
-      - name: personalizationSpec
-        value: '{{ personalizationSpec }}'
-      - name: solutionTypes
-        value: '{{ solutionTypes }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: modelId
+      value: '{{ modelId }}'
+    - name: priceRerankingLevel
+      value: '{{ priceRerankingLevel }}'
+    - name: facetControlIds
+      value: '{{ facetControlIds }}'
+    - name: dynamicFacetSpec
+      value: '{{ dynamicFacetSpec }}'
+    - name: boostControlIds
+      value: '{{ boostControlIds }}'
+    - name: filterControlIds
+      value: '{{ filterControlIds }}'
+    - name: redirectControlIds
+      value: '{{ redirectControlIds }}'
+    - name: twowaySynonymsControlIds
+      value: '{{ twowaySynonymsControlIds }}'
+    - name: onewaySynonymsControlIds
+      value: '{{ onewaySynonymsControlIds }}'
+    - name: doNotAssociateControlIds
+      value: '{{ doNotAssociateControlIds }}'
+    - name: replacementControlIds
+      value: '{{ replacementControlIds }}'
+    - name: ignoreControlIds
+      value: '{{ ignoreControlIds }}'
+    - name: diversityLevel
+      value: '{{ diversityLevel }}'
+    - name: diversityType
+      value: '{{ diversityType }}'
+    - name: enableCategoryFilterLevel
+      value: '{{ enableCategoryFilterLevel }}'
+    - name: ignoreRecsDenylist
+      value: '{{ ignoreRecsDenylist }}'
+    - name: personalizationSpec
+      value: '{{ personalizationSpec }}'
+    - name: solutionTypes
+      value: '{{ solutionTypes }}'
 
 ```
 </TabItem>

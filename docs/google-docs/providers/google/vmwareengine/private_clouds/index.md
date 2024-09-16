@@ -141,37 +141,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: networkConfig
-        value: '{{ networkConfig }}'
-      - name: managementCluster
-        value: '{{ managementCluster }}'
-      - name: description
-        value: '{{ description }}'
-      - name: hcx
-        value: '{{ hcx }}'
-      - name: nsx
-        value: '{{ nsx }}'
-      - name: vcenter
-        value: '{{ vcenter }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: type
-        value: '{{ type }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: networkConfig
+      value: '{{ networkConfig }}'
+    - name: managementCluster
+      value: '{{ managementCluster }}'
+    - name: description
+      value: '{{ description }}'
+    - name: hcx
+      value: '{{ hcx }}'
+    - name: nsx
+      value: '{{ nsx }}'
+    - name: vcenter
+      value: '{{ vcenter }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: type
+      value: '{{ type }}'
 
 ```
 </TabItem>

@@ -178,57 +178,56 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: acceleratorType
-        value: '{{ acceleratorType }}'
-      - name: state
-        value: '{{ state }}'
-      - name: healthDescription
-        value: '{{ healthDescription }}'
-      - name: runtimeVersion
-        value: '{{ runtimeVersion }}'
-      - name: networkConfig
-        value: '{{ networkConfig }}'
-      - name: cidrBlock
-        value: '{{ cidrBlock }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: schedulingConfig
-        value: '{{ schedulingConfig }}'
-      - name: networkEndpoints
-        value: '{{ networkEndpoints }}'
-      - name: health
-        value: '{{ health }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: metadata
-        value: '{{ metadata }}'
-      - name: tags
-        value: '{{ tags }}'
-      - name: id
-        value: '{{ id }}'
-      - name: dataDisks
-        value: '{{ dataDisks }}'
-      - name: apiVersion
-        value: '{{ apiVersion }}'
-      - name: symptoms
-        value: '{{ symptoms }}'
-      - name: shieldedInstanceConfig
-        value: '{{ shieldedInstanceConfig }}'
-      - name: acceleratorConfig
-        value: '{{ acceleratorConfig }}'
-      - name: queuedResource
-        value: '{{ queuedResource }}'
-      - name: multisliceNode
-        value: '{{ multisliceNode }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: acceleratorType
+      value: '{{ acceleratorType }}'
+    - name: state
+      value: '{{ state }}'
+    - name: healthDescription
+      value: '{{ healthDescription }}'
+    - name: runtimeVersion
+      value: '{{ runtimeVersion }}'
+    - name: networkConfig
+      value: '{{ networkConfig }}'
+    - name: cidrBlock
+      value: '{{ cidrBlock }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: schedulingConfig
+      value: '{{ schedulingConfig }}'
+    - name: networkEndpoints
+      value: '{{ networkEndpoints }}'
+    - name: health
+      value: '{{ health }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: metadata
+      value: '{{ metadata }}'
+    - name: tags
+      value: '{{ tags }}'
+    - name: id
+      value: '{{ id }}'
+    - name: dataDisks
+      value: '{{ dataDisks }}'
+    - name: apiVersion
+      value: '{{ apiVersion }}'
+    - name: symptoms
+      value: '{{ symptoms }}'
+    - name: shieldedInstanceConfig
+      value: '{{ shieldedInstanceConfig }}'
+    - name: acceleratorConfig
+      value: '{{ acceleratorConfig }}'
+    - name: queuedResource
+      value: '{{ queuedResource }}'
+    - name: multisliceNode
+      value: '{{ multisliceNode }}'
 
 ```
 </TabItem>

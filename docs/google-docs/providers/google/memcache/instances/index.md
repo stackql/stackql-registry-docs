@@ -167,51 +167,50 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: authorizedNetwork
-        value: '{{ authorizedNetwork }}'
-      - name: zones
-        value: '{{ zones }}'
-      - name: nodeCount
-        value: '{{ nodeCount }}'
-      - name: nodeConfig
-        value: '{{ nodeConfig }}'
-      - name: memcacheVersion
-        value: '{{ memcacheVersion }}'
-      - name: parameters
-        value: '{{ parameters }}'
-      - name: memcacheNodes
-        value: '{{ memcacheNodes }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: memcacheFullVersion
-        value: '{{ memcacheFullVersion }}'
-      - name: instanceMessages
-        value: '{{ instanceMessages }}'
-      - name: discoveryEndpoint
-        value: '{{ discoveryEndpoint }}'
-      - name: maintenancePolicy
-        value: '{{ maintenancePolicy }}'
-      - name: maintenanceSchedule
-        value: '{{ maintenanceSchedule }}'
-      - name: reservedIpRangeId
-        value: '{{ reservedIpRangeId }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: authorizedNetwork
+      value: '{{ authorizedNetwork }}'
+    - name: zones
+      value: '{{ zones }}'
+    - name: nodeCount
+      value: '{{ nodeCount }}'
+    - name: nodeConfig
+      value: '{{ nodeConfig }}'
+    - name: memcacheVersion
+      value: '{{ memcacheVersion }}'
+    - name: parameters
+      value: '{{ parameters }}'
+    - name: memcacheNodes
+      value: '{{ memcacheNodes }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: memcacheFullVersion
+      value: '{{ memcacheFullVersion }}'
+    - name: instanceMessages
+      value: '{{ instanceMessages }}'
+    - name: discoveryEndpoint
+      value: '{{ discoveryEndpoint }}'
+    - name: maintenancePolicy
+      value: '{{ maintenancePolicy }}'
+    - name: maintenanceSchedule
+      value: '{{ maintenanceSchedule }}'
+    - name: reservedIpRangeId
+      value: '{{ reservedIpRangeId }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>
