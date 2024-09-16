@@ -57,7 +57,7 @@ AND projectsId = '{{ projectsId }}'
 AND serviceLbPoliciesId = '{{ serviceLbPoliciesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>service_lb_policies_iam_policies</code> resource.
 

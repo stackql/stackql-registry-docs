@@ -37,7 +37,7 @@ Creates, updates, deletes, gets or lists a <code>attributes_config</code> resour
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_catalogs_attributes_config_replace_catalog_attribute" /> | `REPLACE` | <CopyableCode code="catalogsId, locationsId, projectsId" /> | Replaces the specified CatalogAttribute in the AttributesConfig by updating the catalog attribute with the same CatalogAttribute.key. If the CatalogAttribute to replace does not exist, a NOT_FOUND error is returned. |
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>attributes_config</code> resource.
 

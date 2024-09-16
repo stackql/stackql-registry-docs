@@ -56,7 +56,7 @@ WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>environments_iam_policies</code> resource.
 

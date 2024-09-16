@@ -58,7 +58,7 @@ AND projectsId = '{{ projectsId }}'
 AND tablesId = '{{ tablesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>authorized_views_iam_policies</code> resource.
 

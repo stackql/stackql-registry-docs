@@ -57,7 +57,7 @@ AND projectsId = '{{ projectsId }}'
 AND tagTemplatesId = '{{ tagTemplatesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>tag_templates_iam_policies</code> resource.
 

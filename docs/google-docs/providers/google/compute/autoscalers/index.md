@@ -199,7 +199,7 @@ project = '{{ project }}'
 AND zone = '{{ zone }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>autoscalers</code> resource.
 

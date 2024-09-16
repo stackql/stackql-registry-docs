@@ -58,7 +58,7 @@ AND workstationClustersId = '{{ workstationClustersId }}'
 AND workstationConfigsId = '{{ workstationConfigsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>workstation_configs_iam_policies</code> resource.
 

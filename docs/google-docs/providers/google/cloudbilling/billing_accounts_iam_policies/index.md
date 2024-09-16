@@ -55,7 +55,7 @@ FROM google.cloudbilling.billing_accounts_iam_policies
 WHERE billingAccountsId = '{{ billingAccountsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>billing_accounts_iam_policies</code> resource.
 

@@ -65,7 +65,7 @@ AND locationsId = '{{ locationsId }}'
 AND viewsId = '{{ viewsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>views_iam_policies</code> resource.
 

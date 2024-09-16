@@ -55,7 +55,7 @@ FROM google.cloudresourcemanager.organizations_iam_policies
 WHERE organizationsId = '{{ organizationsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>organizations_iam_policies</code> resource.
 

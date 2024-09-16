@@ -168,7 +168,7 @@ true|false,
 </TabItem>
 </Tabs>
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>environments</code> resource.
 

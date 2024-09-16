@@ -475,7 +475,7 @@ WHERE
 bucket = '{{ bucket }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>buckets</code> resource.
 

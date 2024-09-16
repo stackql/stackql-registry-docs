@@ -58,7 +58,7 @@ AND projectsId = '{{ projectsId }}'
 AND versionsId = '{{ versionsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>versions_iam_policies</code> resource.
 

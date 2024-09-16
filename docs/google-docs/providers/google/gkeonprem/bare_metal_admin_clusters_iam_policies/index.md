@@ -57,7 +57,7 @@ AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>bare_metal_admin_clusters_iam_policies</code> resource.
 

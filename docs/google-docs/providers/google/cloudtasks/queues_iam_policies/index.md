@@ -57,7 +57,7 @@ AND projectsId = '{{ projectsId }}'
 AND queuesId = '{{ queuesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>queues_iam_policies</code> resource.
 

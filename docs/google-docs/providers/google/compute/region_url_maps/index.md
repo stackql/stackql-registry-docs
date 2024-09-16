@@ -215,7 +215,7 @@ AND region = '{{ region }}'
 AND urlMap = '{{ urlMap }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>region_url_maps</code> resource.
 

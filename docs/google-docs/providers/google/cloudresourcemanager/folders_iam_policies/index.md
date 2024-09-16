@@ -55,7 +55,7 @@ FROM google.cloudresourcemanager.folders_iam_policies
 WHERE foldersId = '{{ foldersId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>folders_iam_policies</code> resource.
 

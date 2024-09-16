@@ -56,7 +56,7 @@ WHERE projectsId = '{{ projectsId }}'
 AND secretsId = '{{ secretsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>secrets_iam_policies</code> resource.
 

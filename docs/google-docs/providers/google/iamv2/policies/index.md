@@ -71,7 +71,7 @@ AND policiesId1 = '{{ policiesId1 }}'
 AND policiesId2 = '{{ policiesId2 }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>policies</code> resource.
 

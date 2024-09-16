@@ -57,7 +57,7 @@ AND projectsId = '{{ projectsId }}'
 AND regionsId = '{{ regionsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>clusters_iam_policies</code> resource.
 

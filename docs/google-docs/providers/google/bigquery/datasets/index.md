@@ -331,7 +331,7 @@ WHERE
 AND projectId = '{{ projectId }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>datasets</code> resource.
 

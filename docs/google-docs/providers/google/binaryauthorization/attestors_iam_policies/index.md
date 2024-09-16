@@ -56,7 +56,7 @@ WHERE attestorsId = '{{ attestorsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>attestors_iam_policies</code> resource.
 

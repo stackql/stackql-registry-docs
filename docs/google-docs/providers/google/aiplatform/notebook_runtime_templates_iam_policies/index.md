@@ -57,7 +57,7 @@ AND notebookRuntimeTemplatesId = '{{ notebookRuntimeTemplatesId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>notebook_runtime_templates_iam_policies</code> resource.
 

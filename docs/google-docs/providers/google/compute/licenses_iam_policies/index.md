@@ -58,7 +58,7 @@ WHERE project = '{{ project }}'
 AND resource = '{{ resource }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>licenses_iam_policies</code> resource.
 

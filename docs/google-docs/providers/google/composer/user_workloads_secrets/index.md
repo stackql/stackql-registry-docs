@@ -102,7 +102,7 @@ SELECT
 </TabItem>
 </Tabs>
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>user_workloads_secrets</code> resource.
 

@@ -56,7 +56,7 @@ WHERE locationsId = '{{ locationsId }}'
 AND workforcePoolsId = '{{ workforcePoolsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>workforce_pools_iam_policies</code> resource.
 

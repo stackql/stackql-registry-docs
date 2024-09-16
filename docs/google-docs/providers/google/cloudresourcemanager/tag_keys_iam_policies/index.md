@@ -55,7 +55,7 @@ FROM google.cloudresourcemanager.tag_keys_iam_policies
 WHERE tagKeysId = '{{ tagKeysId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>tag_keys_iam_policies</code> resource.
 

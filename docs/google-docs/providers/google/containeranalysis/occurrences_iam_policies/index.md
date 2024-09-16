@@ -59,7 +59,7 @@ WHERE occurrencesId = '{{ occurrencesId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>occurrences_iam_policies</code> resource.
 

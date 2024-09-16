@@ -58,7 +58,7 @@ AND projectsId = '{{ projectsId }}'
 AND zonesId = '{{ zonesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>zones_iam_policies</code> resource.
 

@@ -213,7 +213,7 @@ AND projectId = '{{ projectId }}'
 AND zone = '{{ zone }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>node_pools</code> resource.
 

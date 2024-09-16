@@ -58,7 +58,7 @@ AND privateCloudsId = '{{ privateCloudsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>clusters_iam_policies</code> resource.
 

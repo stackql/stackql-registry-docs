@@ -55,7 +55,7 @@ FROM google.accesscontextmanager.access_policies_iam_policies
 WHERE accessPoliciesId = '{{ accessPoliciesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>access_policies_iam_policies</code> resource.
 

@@ -137,7 +137,7 @@ AND responsePolicy = '{{ responsePolicy }}'
 AND responsePolicyRule = '{{ responsePolicyRule }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>response_policy_rules</code> resource.
 

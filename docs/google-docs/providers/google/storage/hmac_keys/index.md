@@ -106,7 +106,7 @@ SELECT
 </TabItem>
 </Tabs>
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>hmac_keys</code> resource.
 

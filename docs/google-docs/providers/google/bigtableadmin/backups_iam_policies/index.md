@@ -58,7 +58,7 @@ AND instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>backups_iam_policies</code> resource.
 

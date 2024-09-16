@@ -361,7 +361,7 @@ bucket = '{{ bucket }}'
 AND object = '{{ object }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>objects</code> resource.
 

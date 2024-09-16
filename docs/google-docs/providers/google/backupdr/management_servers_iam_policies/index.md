@@ -57,7 +57,7 @@ AND managementServersId = '{{ managementServersId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>management_servers_iam_policies</code> resource.
 

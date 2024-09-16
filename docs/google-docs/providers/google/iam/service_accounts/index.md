@@ -131,7 +131,7 @@ projectsId = '{{ projectsId }}'
 AND serviceAccountsId = '{{ serviceAccountsId }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>service_accounts</code> resource.
 

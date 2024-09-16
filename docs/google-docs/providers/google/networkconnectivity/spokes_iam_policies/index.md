@@ -57,7 +57,7 @@ AND projectsId = '{{ projectsId }}'
 AND spokesId = '{{ spokesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>spokes_iam_policies</code> resource.
 

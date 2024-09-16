@@ -57,7 +57,7 @@ AND projectsId = '{{ projectsId }}'
 AND triggersId = '{{ triggersId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>triggers_iam_policies</code> resource.
 

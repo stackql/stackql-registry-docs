@@ -459,7 +459,7 @@ AND +tableId = '{{ +tableId }}'
 AND projectId = '{{ projectId }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>tables</code> resource.
 

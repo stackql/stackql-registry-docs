@@ -57,7 +57,7 @@ AND projectsId = '{{ projectsId }}'
 AND restorePlansId = '{{ restorePlansId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>restore_plans_iam_policies</code> resource.
 

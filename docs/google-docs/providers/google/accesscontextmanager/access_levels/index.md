@@ -133,7 +133,7 @@ accessLevelsId = '{{ accessLevelsId }}'
 AND accessPoliciesId = '{{ accessPoliciesId }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>access_levels</code> resource.
 

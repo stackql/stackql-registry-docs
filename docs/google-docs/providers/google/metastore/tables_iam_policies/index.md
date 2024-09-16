@@ -58,7 +58,7 @@ AND servicesId = '{{ servicesId }}'
 AND tablesId = '{{ tablesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>tables_iam_policies</code> resource.
 

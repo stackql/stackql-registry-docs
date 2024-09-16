@@ -208,7 +208,7 @@ AND entity = '{{ entity }}'
 AND object = '{{ object }}';
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>object_access_controls</code> resource.
 

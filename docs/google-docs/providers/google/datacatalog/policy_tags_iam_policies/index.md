@@ -58,7 +58,7 @@ AND projectsId = '{{ projectsId }}'
 AND taxonomiesId = '{{ taxonomiesId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>policy_tags_iam_policies</code> resource.
 

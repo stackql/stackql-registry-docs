@@ -56,7 +56,7 @@ WHERE organizationsId = '{{ organizationsId }}'
 AND partnerTenantsId = '{{ partnerTenantsId }}'; 
 ```
 
-## `UPDATE` example
+## `REPLACE` example
 
 Replaces all fields in the specified <code>partner_tenants_iam_policies</code> resource.
 
