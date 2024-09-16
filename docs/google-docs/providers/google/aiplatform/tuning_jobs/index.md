@@ -143,41 +143,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: supervisedTuningSpec
-        value: '{{ supervisedTuningSpec }}'
-      - name: tuningDataStats
-        value: '{{ tuningDataStats }}'
-      - name: name
-        value: '{{ name }}'
-      - name: state
-        value: '{{ state }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: tunedModel
-        value: '{{ tunedModel }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: tunedModelDisplayName
-        value: '{{ tunedModelDisplayName }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: experiment
-        value: '{{ experiment }}'
-      - name: error
-        value: '{{ error }}'
-      - name: description
-        value: '{{ description }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: baseModel
-        value: '{{ baseModel }}'
-      - name: labels
-        value: '{{ labels }}'
+- name: your_resource_model_name
+  props:
+    - name: supervisedTuningSpec
+      value: '{{ supervisedTuningSpec }}'
+    - name: tuningDataStats
+      value: '{{ tuningDataStats }}'
+    - name: name
+      value: '{{ name }}'
+    - name: state
+      value: '{{ state }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: tunedModel
+      value: '{{ tunedModel }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: tunedModelDisplayName
+      value: '{{ tunedModelDisplayName }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: experiment
+      value: '{{ experiment }}'
+    - name: error
+      value: '{{ error }}'
+    - name: description
+      value: '{{ description }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: baseModel
+      value: '{{ baseModel }}'
+    - name: labels
+      value: '{{ labels }}'
 
 ```
 </TabItem>

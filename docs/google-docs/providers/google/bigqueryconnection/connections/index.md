@@ -140,39 +140,38 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: friendlyName
-        value: '{{ friendlyName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: cloudSql
-        value: '{{ cloudSql }}'
-      - name: aws
-        value: '{{ aws }}'
-      - name: azure
-        value: '{{ azure }}'
-      - name: cloudSpanner
-        value: '{{ cloudSpanner }}'
-      - name: cloudResource
-        value: '{{ cloudResource }}'
-      - name: spark
-        value: '{{ spark }}'
-      - name: salesforceDataCloud
-        value: '{{ salesforceDataCloud }}'
-      - name: configuration
-        value: '{{ configuration }}'
-      - name: creationTime
-        value: '{{ creationTime }}'
-      - name: lastModifiedTime
-        value: '{{ lastModifiedTime }}'
-      - name: hasCredential
-        value: '{{ hasCredential }}'
-      - name: kmsKeyName
-        value: '{{ kmsKeyName }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: friendlyName
+      value: '{{ friendlyName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: cloudSql
+      value: '{{ cloudSql }}'
+    - name: aws
+      value: '{{ aws }}'
+    - name: azure
+      value: '{{ azure }}'
+    - name: cloudSpanner
+      value: '{{ cloudSpanner }}'
+    - name: cloudResource
+      value: '{{ cloudResource }}'
+    - name: spark
+      value: '{{ spark }}'
+    - name: salesforceDataCloud
+      value: '{{ salesforceDataCloud }}'
+    - name: configuration
+      value: '{{ configuration }}'
+    - name: creationTime
+      value: '{{ creationTime }}'
+    - name: lastModifiedTime
+      value: '{{ lastModifiedTime }}'
+    - name: hasCredential
+      value: '{{ hasCredential }}'
+    - name: kmsKeyName
+      value: '{{ kmsKeyName }}'
 
 ```
 </TabItem>

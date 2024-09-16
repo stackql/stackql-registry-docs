@@ -124,31 +124,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: activationUpdateTime
-        value: '{{ activationUpdateTime }}'
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: revisionCreateTime
-        value: '{{ revisionCreateTime }}'
-      - name: roleMatch
-        value: '{{ roleMatch }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: phraseMatchRuleGroups
-        value: '{{ phraseMatchRuleGroups }}'
-      - name: revisionId
-        value: '{{ revisionId }}'
-      - name: active
-        value: '{{ active }}'
-      - name: type
-        value: '{{ type }}'
-      - name: versionTag
-        value: '{{ versionTag }}'
+- name: your_resource_model_name
+  props:
+    - name: activationUpdateTime
+      value: '{{ activationUpdateTime }}'
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: revisionCreateTime
+      value: '{{ revisionCreateTime }}'
+    - name: roleMatch
+      value: '{{ roleMatch }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: phraseMatchRuleGroups
+      value: '{{ phraseMatchRuleGroups }}'
+    - name: revisionId
+      value: '{{ revisionId }}'
+    - name: active
+      value: '{{ active }}'
+    - name: type
+      value: '{{ type }}'
+    - name: versionTag
+      value: '{{ versionTag }}'
 
 ```
 </TabItem>

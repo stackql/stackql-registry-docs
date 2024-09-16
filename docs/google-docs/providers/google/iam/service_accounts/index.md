@@ -49,12 +49,12 @@ Creates, updates, deletes, gets or lists a <code>service_accounts</code> resourc
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a ServiceAccount. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="projectsId, serviceAccountsId" /> | Deletes a ServiceAccount. **Warning:** After you delete a service account, you might not be able to undelete it. If you know that you need to re-enable the service account in the future, use DisableServiceAccount instead. If you delete a service account, IAM permanently removes the service account 30 days later. Google Cloud cannot recover the service account after it is permanently removed, even if you file a support request. To help avoid unplanned outages, we recommend that you disable the service account before you delete it. Use DisableServiceAccount to disable the service account, then wait at least 24 hours and watch for unintended consequences. If there are no unintended consequences, you can delete the service account. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="projectsId, serviceAccountsId" /> | Patches a ServiceAccount. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="projectsId, serviceAccountsId" /> | **Note:** We are in the process of deprecating this method. Use PatchServiceAccount instead. Updates a ServiceAccount. You can update only the `display_name` field. |
 | <CopyableCode code="disable" /> | `EXEC` | <CopyableCode code="projectsId, serviceAccountsId" /> | Disables a ServiceAccount immediately. If an application uses the service account to authenticate, that application can no longer call Google APIs or access Google Cloud resources. Existing access tokens for the service account are rejected, and requests for new access tokens will fail. To re-enable the service account, use EnableServiceAccount. After you re-enable the service account, its existing access tokens will be accepted, and you can request new access tokens. To help avoid unplanned outages, we recommend that you disable the service account before you delete it. Use this method to disable the service account, then wait at least 24 hours and watch for unintended consequences. If there are no unintended consequences, you can delete the service account with DeleteServiceAccount. |
 | <CopyableCode code="enable" /> | `EXEC` | <CopyableCode code="projectsId, serviceAccountsId" /> | Enables a ServiceAccount that was disabled by DisableServiceAccount. If the service account is already enabled, then this method has no effect. If the service account was disabled by other means—for example, if Google disabled the service account because it was compromised—you cannot use this method to enable the service account. |
 | <CopyableCode code="sign_blob" /> | `EXEC` | <CopyableCode code="projectsId, serviceAccountsId" /> | **Note:** This method is deprecated. Use the [signBlob](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signBlob) method in the IAM Service Account Credentials API instead. If you currently use this method, see the [migration guide](https://cloud.google.com/iam/help/credentials/migrate-api) for instructions. Signs a blob using the system-managed private key for a ServiceAccount. |
 | <CopyableCode code="sign_jwt" /> | `EXEC` | <CopyableCode code="projectsId, serviceAccountsId" /> | **Note:** This method is deprecated. Use the [signJwt](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signJwt) method in the IAM Service Account Credentials API instead. If you currently use this method, see the [migration guide](https://cloud.google.com/iam/help/credentials/migrate-api) for instructions. Signs a JSON Web Token (JWT) using the system-managed private key for a ServiceAccount. |
 | <CopyableCode code="undelete" /> | `EXEC` | <CopyableCode code="projectsId, serviceAccountsId" /> | Restores a deleted ServiceAccount. **Important:** It is not always possible to restore a deleted service account. Use this method only as a last resort. After you delete a service account, IAM permanently removes the service account 30 days later. There is no way to restore a deleted service account that has been permanently removed. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="projectsId, serviceAccountsId" /> | **Note:** We are in the process of deprecating this method. Use PatchServiceAccount instead. Updates a ServiceAccount. You can update only the `display_name` field. |
 
 ## `SELECT` examples
 
@@ -105,13 +105,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: accountId
-        value: '{{ accountId }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
+- name: your_resource_model_name
+  props:
+    - name: accountId
+      value: '{{ accountId }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
 
 ```
 </TabItem>
@@ -127,6 +126,28 @@ UPDATE google.iam.service_accounts
 SET 
 serviceAccount = '{{ serviceAccount }}',
 updateMask = '{{ updateMask }}'
+WHERE 
+projectsId = '{{ projectsId }}'
+AND serviceAccountsId = '{{ serviceAccountsId }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>service_accounts</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.iam.service_accounts
+SET 
+name = '{{ name }}',
+projectId = '{{ projectId }}',
+uniqueId = '{{ uniqueId }}',
+email = '{{ email }}',
+displayName = '{{ displayName }}',
+etag = '{{ etag }}',
+description = '{{ description }}',
+oauth2ClientId = '{{ oauth2ClientId }}',
+disabled = true|false
 WHERE 
 projectsId = '{{ projectsId }}'
 AND serviceAccountsId = '{{ serviceAccountsId }}';

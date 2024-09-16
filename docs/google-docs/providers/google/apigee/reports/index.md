@@ -61,7 +61,7 @@ Creates, updates, deletes, gets or lists a <code>reports</code> resource.
 | <CopyableCode code="organizations_reports_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Return a list of Custom Reports |
 | <CopyableCode code="organizations_reports_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a Custom Report for an Organization. A Custom Report provides Apigee Customers to create custom dashboards in addition to the standard dashboards which are provided. The Custom Report in its simplest form contains specifications about metrics, dimensions and filters. It is important to note that the custom report by itself does not provide an executable entity. The Edge UI converts the custom report definition into an analytics query and displays the result in a chart. |
 | <CopyableCode code="organizations_reports_delete" /> | `DELETE` | <CopyableCode code="organizationsId, reportsId" /> | Deletes an existing custom report definition |
-| <CopyableCode code="organizations_reports_update" /> | `EXEC` | <CopyableCode code="organizationsId, reportsId" /> | Update an existing custom report definition |
+| <CopyableCode code="organizations_reports_update" /> | `REPLACE` | <CopyableCode code="organizationsId, reportsId" /> | Update an existing custom report definition |
 
 ## `SELECT` examples
 
@@ -165,57 +165,91 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: fromTime
-        value: '{{ fromTime }}'
-      - name: sortByCols
-        value: '{{ sortByCols }}'
-      - name: offset
-        value: '{{ offset }}'
-      - name: environment
-        value: '{{ environment }}'
-      - name: sortOrder
-        value: '{{ sortOrder }}'
-      - name: topk
-        value: '{{ topk }}'
-      - name: name
-        value: '{{ name }}'
-      - name: timeUnit
-        value: '{{ timeUnit }}'
-      - name: chartType
-        value: '{{ chartType }}'
-      - name: lastModifiedAt
-        value: '{{ lastModifiedAt }}'
-      - name: metrics
-        value: '{{ metrics }}'
-      - name: filter
-        value: '{{ filter }}'
-      - name: createdAt
-        value: '{{ createdAt }}'
-      - name: properties
-        value: '{{ properties }}'
-      - name: toTime
-        value: '{{ toTime }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: organization
-        value: '{{ organization }}'
-      - name: comments
-        value: '{{ comments }}'
-      - name: tags
-        value: '{{ tags }}'
-      - name: lastViewedAt
-        value: '{{ lastViewedAt }}'
-      - name: dimensions
-        value: '{{ dimensions }}'
-      - name: limit
-        value: '{{ limit }}'
+- name: your_resource_model_name
+  props:
+    - name: fromTime
+      value: '{{ fromTime }}'
+    - name: sortByCols
+      value: '{{ sortByCols }}'
+    - name: offset
+      value: '{{ offset }}'
+    - name: environment
+      value: '{{ environment }}'
+    - name: sortOrder
+      value: '{{ sortOrder }}'
+    - name: topk
+      value: '{{ topk }}'
+    - name: name
+      value: '{{ name }}'
+    - name: timeUnit
+      value: '{{ timeUnit }}'
+    - name: chartType
+      value: '{{ chartType }}'
+    - name: lastModifiedAt
+      value: '{{ lastModifiedAt }}'
+    - name: metrics
+      value: '{{ metrics }}'
+    - name: filter
+      value: '{{ filter }}'
+    - name: createdAt
+      value: '{{ createdAt }}'
+    - name: properties
+      value: '{{ properties }}'
+    - name: toTime
+      value: '{{ toTime }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: organization
+      value: '{{ organization }}'
+    - name: comments
+      value: '{{ comments }}'
+    - name: tags
+      value: '{{ tags }}'
+    - name: lastViewedAt
+      value: '{{ lastViewedAt }}'
+    - name: dimensions
+      value: '{{ dimensions }}'
+    - name: limit
+      value: '{{ limit }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>reports</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.reports
+SET 
+fromTime = '{{ fromTime }}',
+sortByCols = '{{ sortByCols }}',
+offset = '{{ offset }}',
+environment = '{{ environment }}',
+sortOrder = '{{ sortOrder }}',
+topk = '{{ topk }}',
+name = '{{ name }}',
+timeUnit = '{{ timeUnit }}',
+chartType = '{{ chartType }}',
+lastModifiedAt = '{{ lastModifiedAt }}',
+metrics = '{{ metrics }}',
+filter = '{{ filter }}',
+createdAt = '{{ createdAt }}',
+properties = '{{ properties }}',
+toTime = '{{ toTime }}',
+displayName = '{{ displayName }}',
+organization = '{{ organization }}',
+comments = '{{ comments }}',
+tags = '{{ tags }}',
+lastViewedAt = '{{ lastViewedAt }}',
+dimensions = '{{ dimensions }}',
+limit = '{{ limit }}'
+WHERE 
+organizationsId = '{{ organizationsId }}'
+AND reportsId = '{{ reportsId }}';
+```
 
 ## `DELETE` example
 

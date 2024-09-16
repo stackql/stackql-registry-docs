@@ -135,37 +135,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: ipCidrRange
-        value: '{{ ipCidrRange }}'
-      - name: dnsVerificationIp
-        value: '{{ dnsVerificationIp }}'
-      - name: sharedSecret
-        value: '{{ sharedSecret }}'
-      - name: status
-        value: '{{ status }}'
-      - name: pdpScope
-        value: '{{ pdpScope }}'
-      - name: publicDelegatedPrefixs
-        value: '{{ publicDelegatedPrefixs }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: byoipApiVersion
-        value: '{{ byoipApiVersion }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: ipCidrRange
+      value: '{{ ipCidrRange }}'
+    - name: dnsVerificationIp
+      value: '{{ dnsVerificationIp }}'
+    - name: sharedSecret
+      value: '{{ sharedSecret }}'
+    - name: status
+      value: '{{ status }}'
+    - name: pdpScope
+      value: '{{ pdpScope }}'
+    - name: publicDelegatedPrefixs
+      value: '{{ publicDelegatedPrefixs }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: byoipApiVersion
+      value: '{{ byoipApiVersion }}'
 
 ```
 </TabItem>

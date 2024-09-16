@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>entry_groups_iam_policies</code
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_entry_groups_get_iam_policy" /> | `SELECT` | <CopyableCode code="entryGroupsId, locationsId, projectsId" /> | Gets the access control policy for a resource. May return: * A`NOT_FOUND` error if the resource doesn't exist or you don't have the permission to view it. * An empty policy if the resource exists but doesn't have a set policy. Supported resources are: - Tag templates - Entry groups Note: This method doesn't get policies from Google Cloud Platform resources ingested into Data Catalog. To call this method, you must have the following Google IAM permissions: - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag templates. - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups. |
-| <CopyableCode code="projects_locations_entry_groups_set_iam_policy" /> | `EXEC` | <CopyableCode code="entryGroupsId, locationsId, projectsId" /> | Sets an access control policy for a resource. Replaces any existing policy. Supported resources are: - Tag templates - Entry groups Note: This method sets policies only within Data Catalog and can't be used to manage policies in BigQuery, Pub/Sub, Dataproc Metastore, and any external Google Cloud Platform resources synced with the Data Catalog. To call this method, you must have the following Google IAM permissions: - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups. |
+| <CopyableCode code="projects_locations_entry_groups_set_iam_policy" /> | `REPLACE` | <CopyableCode code="entryGroupsId, locationsId, projectsId" /> | Sets an access control policy for a resource. Replaces any existing policy. Supported resources are: - Tag templates - Entry groups Note: This method sets policies only within Data Catalog and can't be used to manage policies in BigQuery, Pub/Sub, Dataproc Metastore, and any external Google Cloud Platform resources synced with the Data Catalog. To call this method, you must have the following Google IAM permissions: - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups. |
 | <CopyableCode code="projects_locations_entry_groups_test_iam_permissions" /> | `EXEC` | <CopyableCode code="entryGroupsId, locationsId, projectsId" /> | Gets your permissions on a resource. Returns an empty set of permissions if the resource doesn't exist. Supported resources are: - Tag templates - Entry groups Note: This method gets policies only within Data Catalog and can't be used to get policies from BigQuery, Pub/Sub, Dataproc Metastore, and any external Google Cloud Platform resources ingested into Data Catalog. No Google IAM permissions are required to call this method. |
 
 ## `SELECT` examples
@@ -55,4 +55,19 @@ FROM google.datacatalog.entry_groups_iam_policies
 WHERE entryGroupsId = '{{ entryGroupsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>entry_groups_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.datacatalog.entry_groups_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+entryGroupsId = '{{ entryGroupsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

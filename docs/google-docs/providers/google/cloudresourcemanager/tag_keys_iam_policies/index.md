@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>tag_keys_iam_policies</code> re
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="tagKeysId" /> | Gets the access control policy for a TagKey. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the TagKey's resource name. For example, "tagKeys/1234". The caller must have `cloudresourcemanager.googleapis.com/tagKeys.getIamPolicy` permission on the specified TagKey. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="tagKeysId" /> | Sets the access control policy on a TagKey, replacing any existing policy. The `resource` field should be the TagKey's resource name. For example, "tagKeys/1234". The caller must have `resourcemanager.tagKeys.setIamPolicy` permission on the identified tagValue. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="tagKeysId" /> | Sets the access control policy on a TagKey, replacing any existing policy. The `resource` field should be the TagKey's resource name. For example, "tagKeys/1234". The caller must have `resourcemanager.tagKeys.setIamPolicy` permission on the identified tagValue. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="tagKeysId" /> | Returns permissions that a caller has on the specified TagKey. The `resource` field should be the TagKey's resource name. For example, "tagKeys/1234". There are no permissions required for making this API call. |
 
 ## `SELECT` examples
@@ -53,4 +53,18 @@ members,
 role
 FROM google.cloudresourcemanager.tag_keys_iam_policies
 WHERE tagKeysId = '{{ tagKeysId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>tag_keys_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.cloudresourcemanager.tag_keys_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+tagKeysId = '{{ tagKeysId }}';
 ```

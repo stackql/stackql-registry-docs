@@ -127,33 +127,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: instanceFilter
-        value: '{{ instanceFilter }}'
-      - name: patchConfig
-        value: '{{ patchConfig }}'
-      - name: duration
-        value: '{{ duration }}'
-      - name: oneTimeSchedule
-        value: '{{ oneTimeSchedule }}'
-      - name: recurringSchedule
-        value: '{{ recurringSchedule }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: lastExecuteTime
-        value: '{{ lastExecuteTime }}'
-      - name: rollout
-        value: '{{ rollout }}'
-      - name: state
-        value: '{{ state }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: instanceFilter
+      value: '{{ instanceFilter }}'
+    - name: patchConfig
+      value: '{{ patchConfig }}'
+    - name: duration
+      value: '{{ duration }}'
+    - name: oneTimeSchedule
+      value: '{{ oneTimeSchedule }}'
+    - name: recurringSchedule
+      value: '{{ recurringSchedule }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: lastExecuteTime
+      value: '{{ lastExecuteTime }}'
+    - name: rollout
+      value: '{{ rollout }}'
+    - name: state
+      value: '{{ state }}'
 
 ```
 </TabItem>

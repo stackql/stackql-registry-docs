@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>instances_iam_policies</code> r
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_instances_get_iam_policy" /> | `SELECT` | <CopyableCode code="instancesId, projectsId" /> | Gets the access control policy for an instance resource. Returns an empty policy if an instance exists but does not have a policy set. Authorization requires `spanner.instances.getIamPolicy` on resource. |
-| <CopyableCode code="projects_instances_set_iam_policy" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Sets the access control policy on an instance resource. Replaces any existing policy. Authorization requires `spanner.instances.setIamPolicy` on resource. |
+| <CopyableCode code="projects_instances_set_iam_policy" /> | `REPLACE` | <CopyableCode code="instancesId, projectsId" /> | Sets the access control policy on an instance resource. Replaces any existing policy. Authorization requires `spanner.instances.setIamPolicy` on resource. |
 | <CopyableCode code="projects_instances_test_iam_permissions" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Returns permissions that the caller has on the specified instance resource. Attempting this RPC on a non-existent Cloud Spanner instance resource will result in a NOT_FOUND error if the user has `spanner.instances.list` permission on the containing Google Cloud Project. Otherwise returns an empty set of permissions. |
 
 ## `SELECT` examples
@@ -54,4 +54,18 @@ role
 FROM google.spanner.instances_iam_policies
 WHERE instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>instances_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.spanner.instances_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}';
 ```

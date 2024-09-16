@@ -153,43 +153,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: nodeTemplate
-        value: '{{ nodeTemplate }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: status
-        value: '{{ status }}'
-      - name: size
-        value: '{{ size }}'
-      - name: autoscalingPolicy
-        value: '{{ autoscalingPolicy }}'
-      - name: maintenancePolicy
-        value: '{{ maintenancePolicy }}'
-      - name: locationHint
-        value: '{{ locationHint }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: maintenanceWindow
-        value: '{{ maintenanceWindow }}'
-      - name: shareSettings
-        value: '{{ shareSettings }}'
-      - name: maintenanceInterval
-        value: '{{ maintenanceInterval }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: nodeTemplate
+      value: '{{ nodeTemplate }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: status
+      value: '{{ status }}'
+    - name: size
+      value: '{{ size }}'
+    - name: autoscalingPolicy
+      value: '{{ autoscalingPolicy }}'
+    - name: maintenancePolicy
+      value: '{{ maintenancePolicy }}'
+    - name: locationHint
+      value: '{{ locationHint }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: maintenanceWindow
+      value: '{{ maintenanceWindow }}'
+    - name: shareSettings
+      value: '{{ shareSettings }}'
+    - name: maintenanceInterval
+      value: '{{ maintenanceInterval }}'
 
 ```
 </TabItem>

@@ -128,31 +128,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: labels
-        value: '{{ labels }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: versionColumnName
-        value: '{{ versionColumnName }}'
-      - name: valueType
-        value: '{{ valueType }}'
-      - name: disableMonitoring
-        value: '{{ disableMonitoring }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: description
-        value: '{{ description }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: name
-        value: '{{ name }}'
-      - name: monitoringStatsAnomalies
-        value: '{{ monitoringStatsAnomalies }}'
-      - name: pointOfContact
-        value: '{{ pointOfContact }}'
+- name: your_resource_model_name
+  props:
+    - name: labels
+      value: '{{ labels }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: versionColumnName
+      value: '{{ versionColumnName }}'
+    - name: valueType
+      value: '{{ valueType }}'
+    - name: disableMonitoring
+      value: '{{ disableMonitoring }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: description
+      value: '{{ description }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: name
+      value: '{{ name }}'
+    - name: monitoringStatsAnomalies
+      value: '{{ monitoringStatsAnomalies }}'
+    - name: pointOfContact
+      value: '{{ pointOfContact }}'
 
 ```
 </TabItem>

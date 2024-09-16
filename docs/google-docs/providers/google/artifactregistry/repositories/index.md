@@ -152,45 +152,44 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: mavenConfig
-        value: '{{ mavenConfig }}'
-      - name: dockerConfig
-        value: '{{ dockerConfig }}'
-      - name: virtualRepositoryConfig
-        value: '{{ virtualRepositoryConfig }}'
-      - name: remoteRepositoryConfig
-        value: '{{ remoteRepositoryConfig }}'
-      - name: name
-        value: '{{ name }}'
-      - name: format
-        value: '{{ format }}'
-      - name: description
-        value: '{{ description }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: kmsKeyName
-        value: '{{ kmsKeyName }}'
-      - name: mode
-        value: '{{ mode }}'
-      - name: cleanupPolicies
-        value: '{{ cleanupPolicies }}'
-      - name: sizeBytes
-        value: '{{ sizeBytes }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: cleanupPolicyDryRun
-        value: '{{ cleanupPolicyDryRun }}'
-      - name: disallowUnspecifiedMode
-        value: '{{ disallowUnspecifiedMode }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: mavenConfig
+      value: '{{ mavenConfig }}'
+    - name: dockerConfig
+      value: '{{ dockerConfig }}'
+    - name: virtualRepositoryConfig
+      value: '{{ virtualRepositoryConfig }}'
+    - name: remoteRepositoryConfig
+      value: '{{ remoteRepositoryConfig }}'
+    - name: name
+      value: '{{ name }}'
+    - name: format
+      value: '{{ format }}'
+    - name: description
+      value: '{{ description }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: kmsKeyName
+      value: '{{ kmsKeyName }}'
+    - name: mode
+      value: '{{ mode }}'
+    - name: cleanupPolicies
+      value: '{{ cleanupPolicies }}'
+    - name: sizeBytes
+      value: '{{ sizeBytes }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: cleanupPolicyDryRun
+      value: '{{ cleanupPolicyDryRun }}'
+    - name: disallowUnspecifiedMode
+      value: '{{ disallowUnspecifiedMode }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

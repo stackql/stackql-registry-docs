@@ -116,27 +116,26 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: ethereumDetails
-        value: '{{ ethereumDetails }}'
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: blockchainType
-        value: '{{ blockchainType }}'
-      - name: connectionInfo
-        value: '{{ connectionInfo }}'
-      - name: state
-        value: '{{ state }}'
-      - name: privateServiceConnectEnabled
-        value: '{{ privateServiceConnectEnabled }}'
+- name: your_resource_model_name
+  props:
+    - name: ethereumDetails
+      value: '{{ ethereumDetails }}'
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: blockchainType
+      value: '{{ blockchainType }}'
+    - name: connectionInfo
+      value: '{{ connectionInfo }}'
+    - name: state
+      value: '{{ state }}'
+    - name: privateServiceConnectEnabled
+      value: '{{ privateServiceConnectEnabled }}'
 
 ```
 </TabItem>

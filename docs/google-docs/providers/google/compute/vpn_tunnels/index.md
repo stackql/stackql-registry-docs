@@ -176,57 +176,56 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: region
-        value: '{{ region }}'
-      - name: targetVpnGateway
-        value: '{{ targetVpnGateway }}'
-      - name: vpnGateway
-        value: '{{ vpnGateway }}'
-      - name: vpnGatewayInterface
-        value: '{{ vpnGatewayInterface }}'
-      - name: peerExternalGateway
-        value: '{{ peerExternalGateway }}'
-      - name: peerExternalGatewayInterface
-        value: '{{ peerExternalGatewayInterface }}'
-      - name: peerGcpGateway
-        value: '{{ peerGcpGateway }}'
-      - name: router
-        value: '{{ router }}'
-      - name: peerIp
-        value: '{{ peerIp }}'
-      - name: sharedSecret
-        value: '{{ sharedSecret }}'
-      - name: sharedSecretHash
-        value: '{{ sharedSecretHash }}'
-      - name: status
-        value: '{{ status }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: ikeVersion
-        value: '{{ ikeVersion }}'
-      - name: detailedStatus
-        value: '{{ detailedStatus }}'
-      - name: localTrafficSelector
-        value: '{{ localTrafficSelector }}'
-      - name: remoteTrafficSelector
-        value: '{{ remoteTrafficSelector }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: labelFingerprint
-        value: '{{ labelFingerprint }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: region
+      value: '{{ region }}'
+    - name: targetVpnGateway
+      value: '{{ targetVpnGateway }}'
+    - name: vpnGateway
+      value: '{{ vpnGateway }}'
+    - name: vpnGatewayInterface
+      value: '{{ vpnGatewayInterface }}'
+    - name: peerExternalGateway
+      value: '{{ peerExternalGateway }}'
+    - name: peerExternalGatewayInterface
+      value: '{{ peerExternalGatewayInterface }}'
+    - name: peerGcpGateway
+      value: '{{ peerGcpGateway }}'
+    - name: router
+      value: '{{ router }}'
+    - name: peerIp
+      value: '{{ peerIp }}'
+    - name: sharedSecret
+      value: '{{ sharedSecret }}'
+    - name: sharedSecretHash
+      value: '{{ sharedSecretHash }}'
+    - name: status
+      value: '{{ status }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: ikeVersion
+      value: '{{ ikeVersion }}'
+    - name: detailedStatus
+      value: '{{ detailedStatus }}'
+    - name: localTrafficSelector
+      value: '{{ localTrafficSelector }}'
+    - name: remoteTrafficSelector
+      value: '{{ remoteTrafficSelector }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: labelFingerprint
+      value: '{{ labelFingerprint }}'
 
 ```
 </TabItem>

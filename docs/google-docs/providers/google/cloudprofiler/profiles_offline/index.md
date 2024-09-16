@@ -77,23 +77,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: profileType
-        value: '{{ profileType }}'
-      - name: deployment
-        value: '{{ deployment }}'
-      - name: duration
-        value: '{{ duration }}'
-      - name: profileBytes
-        value: '{{ profileBytes }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: startTime
-        value: '{{ startTime }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: profileType
+      value: '{{ profileType }}'
+    - name: deployment
+      value: '{{ deployment }}'
+    - name: duration
+      value: '{{ duration }}'
+    - name: profileBytes
+      value: '{{ profileBytes }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: startTime
+      value: '{{ startTime }}'
 
 ```
 </TabItem>

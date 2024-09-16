@@ -107,23 +107,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: dataplexConfig
-        value: '{{ dataplexConfig }}'
-      - name: state
-        value: '{{ state }}'
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: description
-        value: '{{ description }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
+- name: your_resource_model_name
+  props:
+    - name: dataplexConfig
+      value: '{{ dataplexConfig }}'
+    - name: state
+      value: '{{ state }}'
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: description
+      value: '{{ description }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
 
 ```
 </TabItem>

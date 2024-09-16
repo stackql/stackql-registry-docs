@@ -42,13 +42,13 @@ Creates, updates, deletes, gets or lists a <code>artifacts_iam_policies</code> r
 | <CopyableCode code="projects_locations_apis_versions_artifacts_get_iam_policy" /> | `SELECT` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
 | <CopyableCode code="projects_locations_apis_versions_specs_artifacts_get_iam_policy" /> | `SELECT` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
 | <CopyableCode code="projects_locations_artifacts_get_iam_policy" /> | `SELECT` | <CopyableCode code="artifactsId, locationsId, projectsId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
-| <CopyableCode code="projects_locations_apis_artifacts_set_iam_policy" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
+| <CopyableCode code="projects_locations_apis_artifacts_set_iam_policy" /> | `REPLACE` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
+| <CopyableCode code="projects_locations_apis_versions_artifacts_set_iam_policy" /> | `REPLACE` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
+| <CopyableCode code="projects_locations_apis_versions_specs_artifacts_set_iam_policy" /> | `REPLACE` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
+| <CopyableCode code="projects_locations_artifacts_set_iam_policy" /> | `REPLACE` | <CopyableCode code="artifactsId, locationsId, projectsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
 | <CopyableCode code="projects_locations_apis_artifacts_test_iam_permissions" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId" /> | Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
-| <CopyableCode code="projects_locations_apis_versions_artifacts_set_iam_policy" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
 | <CopyableCode code="projects_locations_apis_versions_artifacts_test_iam_permissions" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> | Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
-| <CopyableCode code="projects_locations_apis_versions_specs_artifacts_set_iam_policy" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
 | <CopyableCode code="projects_locations_apis_versions_specs_artifacts_test_iam_permissions" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> | Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
-| <CopyableCode code="projects_locations_artifacts_set_iam_policy" /> | `EXEC` | <CopyableCode code="artifactsId, locationsId, projectsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
 | <CopyableCode code="projects_locations_artifacts_test_iam_permissions" /> | `EXEC` | <CopyableCode code="artifactsId, locationsId, projectsId" /> | Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
 
 ## `SELECT` examples
@@ -64,4 +64,19 @@ FROM google.apigeeregistry.artifacts_iam_policies
 WHERE artifactsId = '{{ artifactsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>artifacts_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigeeregistry.artifacts_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+artifactsId = '{{ artifactsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

@@ -132,35 +132,34 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: osPolicies
-        value: '{{ osPolicies }}'
-      - name: instanceFilter
-        value: '{{ instanceFilter }}'
-      - name: rollout
-        value: '{{ rollout }}'
-      - name: revisionId
-        value: '{{ revisionId }}'
-      - name: revisionCreateTime
-        value: '{{ revisionCreateTime }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: rolloutState
-        value: '{{ rolloutState }}'
-      - name: baseline
-        value: '{{ baseline }}'
-      - name: deleted
-        value: '{{ deleted }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: uid
-        value: '{{ uid }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: osPolicies
+      value: '{{ osPolicies }}'
+    - name: instanceFilter
+      value: '{{ instanceFilter }}'
+    - name: rollout
+      value: '{{ rollout }}'
+    - name: revisionId
+      value: '{{ revisionId }}'
+    - name: revisionCreateTime
+      value: '{{ revisionCreateTime }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: rolloutState
+      value: '{{ rolloutState }}'
+    - name: baseline
+      value: '{{ baseline }}'
+    - name: deleted
+      value: '{{ deleted }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: uid
+      value: '{{ uid }}'
 
 ```
 </TabItem>

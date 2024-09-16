@@ -99,19 +99,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: gclbObservationSource
-        value: '{{ gclbObservationSource }}'
-      - name: name
-        value: '{{ name }}'
-      - name: state
-        value: '{{ state }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
+- name: your_resource_model_name
+  props:
+    - name: gclbObservationSource
+      value: '{{ gclbObservationSource }}'
+    - name: name
+      value: '{{ name }}'
+    - name: state
+      value: '{{ state }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
 
 ```
 </TabItem>

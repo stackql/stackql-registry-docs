@@ -152,45 +152,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: description
-        value: '{{ description }}'
-      - name: type
-        value: '{{ type }}'
-      - name: addresses
-        value: '{{ addresses }}'
-      - name: ports
-        value: '{{ ports }}'
-      - name: scope
-        value: '{{ scope }}'
-      - name: serverTlsPolicy
-        value: '{{ serverTlsPolicy }}'
-      - name: certificateUrls
-        value: '{{ certificateUrls }}'
-      - name: gatewaySecurityPolicy
-        value: '{{ gatewaySecurityPolicy }}'
-      - name: network
-        value: '{{ network }}'
-      - name: subnetwork
-        value: '{{ subnetwork }}'
-      - name: ipVersion
-        value: '{{ ipVersion }}'
-      - name: envoyHeaders
-        value: '{{ envoyHeaders }}'
-      - name: routingMode
-        value: '{{ routingMode }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: description
+      value: '{{ description }}'
+    - name: type
+      value: '{{ type }}'
+    - name: addresses
+      value: '{{ addresses }}'
+    - name: ports
+      value: '{{ ports }}'
+    - name: scope
+      value: '{{ scope }}'
+    - name: serverTlsPolicy
+      value: '{{ serverTlsPolicy }}'
+    - name: certificateUrls
+      value: '{{ certificateUrls }}'
+    - name: gatewaySecurityPolicy
+      value: '{{ gatewaySecurityPolicy }}'
+    - name: network
+      value: '{{ network }}'
+    - name: subnetwork
+      value: '{{ subnetwork }}'
+    - name: ipVersion
+      value: '{{ ipVersion }}'
+    - name: envoyHeaders
+      value: '{{ envoyHeaders }}'
+    - name: routingMode
+      value: '{{ routingMode }}'
 
 ```
 </TabItem>

@@ -141,39 +141,38 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: indexStats
-        value: '{{ indexStats }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: name
-        value: '{{ name }}'
-      - name: indexUpdateMethod
-        value: '{{ indexUpdateMethod }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: metadata
-        value: '{{ metadata }}'
-      - name: metadataSchemaUri
-        value: '{{ metadataSchemaUri }}'
-      - name: description
-        value: '{{ description }}'
-      - name: deployedIndexes
-        value: '{{ deployedIndexes }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: etag
-        value: '{{ etag }}'
+- name: your_resource_model_name
+  props:
+    - name: indexStats
+      value: '{{ indexStats }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: name
+      value: '{{ name }}'
+    - name: indexUpdateMethod
+      value: '{{ indexUpdateMethod }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: metadata
+      value: '{{ metadata }}'
+    - name: metadataSchemaUri
+      value: '{{ metadataSchemaUri }}'
+    - name: description
+      value: '{{ description }}'
+    - name: deployedIndexes
+      value: '{{ deployedIndexes }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: etag
+      value: '{{ etag }}'
 
 ```
 </TabItem>

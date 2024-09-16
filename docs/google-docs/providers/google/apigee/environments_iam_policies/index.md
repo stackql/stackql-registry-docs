@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>environments_iam_policies</code
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_environments_get_iam_policy" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Gets the IAM policy on an environment. For more information, see [Manage users, roles, and permissions using the API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles). You must have the `apigee.environments.getIamPolicy` permission to call this API. |
-| <CopyableCode code="organizations_environments_set_iam_policy" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Sets the IAM policy on an environment, if the policy already exists it will be replaced. For more information, see [Manage users, roles, and permissions using the API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles). You must have the `apigee.environments.setIamPolicy` permission to call this API. |
+| <CopyableCode code="organizations_environments_set_iam_policy" /> | `REPLACE` | <CopyableCode code="environmentsId, organizationsId" /> | Sets the IAM policy on an environment, if the policy already exists it will be replaced. For more information, see [Manage users, roles, and permissions using the API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles). You must have the `apigee.environments.setIamPolicy` permission to call this API. |
 | <CopyableCode code="organizations_environments_test_iam_permissions" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId" /> | Tests the permissions of a user on an environment, and returns a subset of permissions that the user has on the environment. If the environment does not exist, an empty permission set is returned (a NOT_FOUND error is not returned). |
 
 ## `SELECT` examples
@@ -54,4 +54,19 @@ role
 FROM google.apigee.environments_iam_policies
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>environments_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.environments_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}';
 ```

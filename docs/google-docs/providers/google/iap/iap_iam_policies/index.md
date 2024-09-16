@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>iap_iam_policies</code> resourc
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="v1Id" /> | Gets the access control policy for an Identity-Aware Proxy protected resource. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="v1Id" /> | Sets the access control policy for an Identity-Aware Proxy protected resource. Replaces any existing policy. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="v1Id" /> | Sets the access control policy for an Identity-Aware Proxy protected resource. Replaces any existing policy. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="v1Id" /> | Returns permissions that a caller has on the Identity-Aware Proxy protected resource. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api |
 
 ## `SELECT` examples
@@ -53,4 +53,17 @@ members,
 role
 FROM google.iap.iap_iam_policies
 WHERE v1Id = '{{ v1Id }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>iap_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.iap.iap_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+v1Id = '{{ v1Id }}';
 ```

@@ -121,29 +121,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: nfsShareId
-        value: '{{ nfsShareId }}'
-      - name: id
-        value: '{{ id }}'
-      - name: state
-        value: '{{ state }}'
-      - name: volume
-        value: '{{ volume }}'
-      - name: allowedClients
-        value: '{{ allowedClients }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: requestedSizeGib
-        value: '{{ requestedSizeGib }}'
-      - name: storageType
-        value: '{{ storageType }}'
-      - name: pod
-        value: '{{ pod }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: nfsShareId
+      value: '{{ nfsShareId }}'
+    - name: id
+      value: '{{ id }}'
+    - name: state
+      value: '{{ state }}'
+    - name: volume
+      value: '{{ volume }}'
+    - name: allowedClients
+      value: '{{ allowedClients }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: requestedSizeGib
+      value: '{{ requestedSizeGib }}'
+    - name: storageType
+      value: '{{ storageType }}'
+    - name: pod
+      value: '{{ pod }}'
 
 ```
 </TabItem>

@@ -128,29 +128,28 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: source
-        value: '{{ source }}'
-      - name: destination
-        value: '{{ destination }}'
-      - name: globalSettings
-        value: '{{ globalSettings }}'
-      - name: hasUncommittedChanges
-        value: '{{ hasUncommittedChanges }}'
-      - name: latestCommitId
-        value: '{{ latestCommitId }}'
-      - name: latestCommitTime
-        value: '{{ latestCommitTime }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: displayName
-        value: '{{ displayName }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: source
+      value: '{{ source }}'
+    - name: destination
+      value: '{{ destination }}'
+    - name: globalSettings
+      value: '{{ globalSettings }}'
+    - name: hasUncommittedChanges
+      value: '{{ hasUncommittedChanges }}'
+    - name: latestCommitId
+      value: '{{ latestCommitId }}'
+    - name: latestCommitTime
+      value: '{{ latestCommitTime }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: displayName
+      value: '{{ displayName }}'
 
 ```
 </TabItem>

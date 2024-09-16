@@ -120,29 +120,28 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: state
-        value: '{{ state }}'
-      - name: network
-        value: '{{ network }}'
-      - name: firewallEndpoint
-        value: '{{ firewallEndpoint }}'
-      - name: tlsInspectionPolicy
-        value: '{{ tlsInspectionPolicy }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: disabled
-        value: '{{ disabled }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: state
+      value: '{{ state }}'
+    - name: network
+      value: '{{ network }}'
+    - name: firewallEndpoint
+      value: '{{ firewallEndpoint }}'
+    - name: tlsInspectionPolicy
+      value: '{{ tlsInspectionPolicy }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: disabled
+      value: '{{ disabled }}'
 
 ```
 </TabItem>

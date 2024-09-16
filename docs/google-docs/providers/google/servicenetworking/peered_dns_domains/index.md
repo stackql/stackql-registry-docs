@@ -87,13 +87,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: dnsSuffix
-        value: '{{ dnsSuffix }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: dnsSuffix
+      value: '{{ dnsSuffix }}'
 
 ```
 </TabItem>

@@ -146,39 +146,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: trainingState
-        value: '{{ trainingState }}'
-      - name: servingState
-        value: '{{ servingState }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: type
-        value: '{{ type }}'
-      - name: optimizationObjective
-        value: '{{ optimizationObjective }}'
-      - name: periodicTuningState
-        value: '{{ periodicTuningState }}'
-      - name: lastTuneTime
-        value: '{{ lastTuneTime }}'
-      - name: tuningOperation
-        value: '{{ tuningOperation }}'
-      - name: dataState
-        value: '{{ dataState }}'
-      - name: filteringOption
-        value: '{{ filteringOption }}'
-      - name: servingConfigLists
-        value: '{{ servingConfigLists }}'
-      - name: modelFeaturesConfig
-        value: '{{ modelFeaturesConfig }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: trainingState
+      value: '{{ trainingState }}'
+    - name: servingState
+      value: '{{ servingState }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: type
+      value: '{{ type }}'
+    - name: optimizationObjective
+      value: '{{ optimizationObjective }}'
+    - name: periodicTuningState
+      value: '{{ periodicTuningState }}'
+    - name: lastTuneTime
+      value: '{{ lastTuneTime }}'
+    - name: tuningOperation
+      value: '{{ tuningOperation }}'
+    - name: dataState
+      value: '{{ dataState }}'
+    - name: filteringOption
+      value: '{{ filteringOption }}'
+    - name: servingConfigLists
+      value: '{{ servingConfigLists }}'
+    - name: modelFeaturesConfig
+      value: '{{ modelFeaturesConfig }}'
 
 ```
 </TabItem>

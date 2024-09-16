@@ -112,23 +112,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: filter
-        value: '{{ filter }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: timeout
-        value: '{{ timeout }}'
-      - name: count
-        value: '{{ count }}'
-      - name: validity
-        value: '{{ validity }}'
-      - name: tracesize
-        value: '{{ tracesize }}'
-      - name: name
-        value: '{{ name }}'
+- name: your_resource_model_name
+  props:
+    - name: filter
+      value: '{{ filter }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: timeout
+      value: '{{ timeout }}'
+    - name: count
+      value: '{{ count }}'
+    - name: validity
+      value: '{{ validity }}'
+    - name: tracesize
+      value: '{{ tracesize }}'
+    - name: name
+      value: '{{ name }}'
 
 ```
 </TabItem>

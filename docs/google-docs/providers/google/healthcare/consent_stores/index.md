@@ -102,17 +102,16 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: defaultConsentTtl
-        value: '{{ defaultConsentTtl }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: enableConsentCreateOnUpdate
-        value: '{{ enableConsentCreateOnUpdate }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: defaultConsentTtl
+      value: '{{ defaultConsentTtl }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: enableConsentCreateOnUpdate
+      value: '{{ enableConsentCreateOnUpdate }}'
 
 ```
 </TabItem>

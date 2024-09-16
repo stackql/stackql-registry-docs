@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>triggers_iam_policies</code> re
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, triggersId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, triggersId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="locationsId, projectsId, triggersId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, triggersId" /> | Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
 
 ## `SELECT` examples
@@ -55,4 +55,20 @@ FROM google.eventarc.triggers_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND triggersId = '{{ triggersId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>triggers_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.eventarc.triggers_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND triggersId = '{{ triggersId }}';
 ```

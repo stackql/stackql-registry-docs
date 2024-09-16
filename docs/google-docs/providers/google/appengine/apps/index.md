@@ -140,41 +140,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: id
-        value: '{{ id }}'
-      - name: dispatchRules
-        value: '{{ dispatchRules }}'
-      - name: authDomain
-        value: '{{ authDomain }}'
-      - name: locationId
-        value: '{{ locationId }}'
-      - name: codeBucket
-        value: '{{ codeBucket }}'
-      - name: defaultCookieExpiration
-        value: '{{ defaultCookieExpiration }}'
-      - name: servingStatus
-        value: '{{ servingStatus }}'
-      - name: defaultHostname
-        value: '{{ defaultHostname }}'
-      - name: defaultBucket
-        value: '{{ defaultBucket }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: iap
-        value: '{{ iap }}'
-      - name: gcrDomain
-        value: '{{ gcrDomain }}'
-      - name: databaseType
-        value: '{{ databaseType }}'
-      - name: featureSettings
-        value: '{{ featureSettings }}'
-      - name: generatedCustomerMetadata
-        value: '{{ generatedCustomerMetadata }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: id
+      value: '{{ id }}'
+    - name: dispatchRules
+      value: '{{ dispatchRules }}'
+    - name: authDomain
+      value: '{{ authDomain }}'
+    - name: locationId
+      value: '{{ locationId }}'
+    - name: codeBucket
+      value: '{{ codeBucket }}'
+    - name: defaultCookieExpiration
+      value: '{{ defaultCookieExpiration }}'
+    - name: servingStatus
+      value: '{{ servingStatus }}'
+    - name: defaultHostname
+      value: '{{ defaultHostname }}'
+    - name: defaultBucket
+      value: '{{ defaultBucket }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: iap
+      value: '{{ iap }}'
+    - name: gcrDomain
+      value: '{{ gcrDomain }}'
+    - name: databaseType
+      value: '{{ databaseType }}'
+    - name: featureSettings
+      value: '{{ featureSettings }}'
+    - name: generatedCustomerMetadata
+      value: '{{ generatedCustomerMetadata }}'
 
 ```
 </TabItem>

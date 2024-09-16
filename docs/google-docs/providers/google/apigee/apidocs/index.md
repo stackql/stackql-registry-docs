@@ -44,7 +44,7 @@ Creates, updates, deletes, gets or lists a <code>apidocs</code> resource.
 | <CopyableCode code="organizations_sites_apidocs_list" /> | `SELECT` | <CopyableCode code="organizationsId, sitesId" /> | Returns the catalog items associated with a portal. |
 | <CopyableCode code="organizations_sites_apidocs_create" /> | `INSERT` | <CopyableCode code="organizationsId, sitesId" /> | Creates a new catalog item. |
 | <CopyableCode code="organizations_sites_apidocs_delete" /> | `DELETE` | <CopyableCode code="apidocsId, organizationsId, sitesId" /> | Deletes a catalog item. |
-| <CopyableCode code="organizations_sites_apidocs_update" /> | `EXEC` | <CopyableCode code="apidocsId, organizationsId, sitesId" /> | Updates a catalog item. |
+| <CopyableCode code="organizations_sites_apidocs_update" /> | `REPLACE` | <CopyableCode code="apidocsId, organizationsId, sitesId" /> | Updates a catalog item. |
 
 ## `SELECT` examples
 
@@ -124,47 +124,77 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: graphqlEndpointUrl
-        value: '{{ graphqlEndpointUrl }}'
-      - name: anonAllowed
-        value: '{{ anonAllowed }}'
-      - name: apiProductName
-        value: '{{ apiProductName }}'
-      - name: requireCallbackUrl
-        value: '{{ requireCallbackUrl }}'
-      - name: siteId
-        value: '{{ siteId }}'
-      - name: title
-        value: '{{ title }}'
-      - name: description
-        value: '{{ description }}'
-      - name: graphqlSchema
-        value: '{{ graphqlSchema }}'
-      - name: modified
-        value: '{{ modified }}'
-      - name: graphqlSchemaDisplayName
-        value: '{{ graphqlSchemaDisplayName }}'
-      - name: published
-        value: '{{ published }}'
-      - name: id
-        value: '{{ id }}'
-      - name: imageUrl
-        value: '{{ imageUrl }}'
-      - name: specId
-        value: '{{ specId }}'
-      - name: visibility
-        value: '{{ visibility }}'
-      - name: edgeAPIProductName
-        value: '{{ edgeAPIProductName }}'
-      - name: categoryIds
-        value: '{{ categoryIds }}'
+- name: your_resource_model_name
+  props:
+    - name: graphqlEndpointUrl
+      value: '{{ graphqlEndpointUrl }}'
+    - name: anonAllowed
+      value: '{{ anonAllowed }}'
+    - name: apiProductName
+      value: '{{ apiProductName }}'
+    - name: requireCallbackUrl
+      value: '{{ requireCallbackUrl }}'
+    - name: siteId
+      value: '{{ siteId }}'
+    - name: title
+      value: '{{ title }}'
+    - name: description
+      value: '{{ description }}'
+    - name: graphqlSchema
+      value: '{{ graphqlSchema }}'
+    - name: modified
+      value: '{{ modified }}'
+    - name: graphqlSchemaDisplayName
+      value: '{{ graphqlSchemaDisplayName }}'
+    - name: published
+      value: '{{ published }}'
+    - name: id
+      value: '{{ id }}'
+    - name: imageUrl
+      value: '{{ imageUrl }}'
+    - name: specId
+      value: '{{ specId }}'
+    - name: visibility
+      value: '{{ visibility }}'
+    - name: edgeAPIProductName
+      value: '{{ edgeAPIProductName }}'
+    - name: categoryIds
+      value: '{{ categoryIds }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>apidocs</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.apidocs
+SET 
+graphqlEndpointUrl = '{{ graphqlEndpointUrl }}',
+anonAllowed = true|false,
+apiProductName = '{{ apiProductName }}',
+requireCallbackUrl = true|false,
+siteId = '{{ siteId }}',
+title = '{{ title }}',
+description = '{{ description }}',
+graphqlSchema = '{{ graphqlSchema }}',
+modified = '{{ modified }}',
+graphqlSchemaDisplayName = '{{ graphqlSchemaDisplayName }}',
+published = true|false,
+id = '{{ id }}',
+imageUrl = '{{ imageUrl }}',
+specId = '{{ specId }}',
+visibility = true|false,
+edgeAPIProductName = '{{ edgeAPIProductName }}',
+categoryIds = '{{ categoryIds }}'
+WHERE 
+apidocsId = '{{ apidocsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND sitesId = '{{ sitesId }}';
+```
 
 ## `DELETE` example
 

@@ -132,35 +132,34 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: type
-        value: '{{ type }}'
-      - name: state
-        value: '{{ state }}'
-      - name: uri
-        value: '{{ uri }}'
-      - name: allocatedConnections
-        value: '{{ allocatedConnections }}'
-      - name: hostType
-        value: '{{ hostType }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: type
+      value: '{{ type }}'
+    - name: state
+      value: '{{ state }}'
+    - name: uri
+      value: '{{ uri }}'
+    - name: allocatedConnections
+      value: '{{ allocatedConnections }}'
+    - name: hostType
+      value: '{{ hostType }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

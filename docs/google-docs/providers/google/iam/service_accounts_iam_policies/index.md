@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>service_accounts_iam_policies</
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="projectsId, serviceAccountsId" /> | Gets the IAM policy that is attached to a ServiceAccount. This IAM policy specifies which principals have access to the service account. This method does not tell you whether the service account has been granted any roles on other resources. To check whether a service account has role grants on a resource, use the `getIamPolicy` method for that resource. For example, to view the role grants for a project, call the Resource Manager API's [projects.getIamPolicy](https://cloud.google.com/resource-manager/reference/rest/v1/projects/getIamPolicy) method. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="projectsId, serviceAccountsId" /> | Sets the IAM policy that is attached to a ServiceAccount. Use this method to grant or revoke access to the service account. For example, you could grant a principal the ability to impersonate the service account. This method does not enable the service account to access other resources. To grant roles to a service account on a resource, follow these steps: 1. Call the resource's `getIamPolicy` method to get its current IAM policy. 2. Edit the policy so that it binds the service account to an IAM role for the resource. 3. Call the resource's `setIamPolicy` method to update its IAM policy. For detailed instructions, see [Manage access to project, folders, and organizations](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts) or [Manage access to other resources](https://cloud.google.com/iam/help/access/manage-other-resources). |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="projectsId, serviceAccountsId" /> | Sets the IAM policy that is attached to a ServiceAccount. Use this method to grant or revoke access to the service account. For example, you could grant a principal the ability to impersonate the service account. This method does not enable the service account to access other resources. To grant roles to a service account on a resource, follow these steps: 1. Call the resource's `getIamPolicy` method to get its current IAM policy. 2. Edit the policy so that it binds the service account to an IAM role for the resource. 3. Call the resource's `setIamPolicy` method to update its IAM policy. For detailed instructions, see [Manage access to project, folders, and organizations](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts) or [Manage access to other resources](https://cloud.google.com/iam/help/access/manage-other-resources). |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="projectsId, serviceAccountsId" /> | Tests whether the caller has the specified permissions on a ServiceAccount. |
 
 ## `SELECT` examples
@@ -54,4 +54,19 @@ role
 FROM google.iam.service_accounts_iam_policies
 WHERE projectsId = '{{ projectsId }}'
 AND serviceAccountsId = '{{ serviceAccountsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>service_accounts_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.iam.service_accounts_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+projectsId = '{{ projectsId }}'
+AND serviceAccountsId = '{{ serviceAccountsId }}';
 ```

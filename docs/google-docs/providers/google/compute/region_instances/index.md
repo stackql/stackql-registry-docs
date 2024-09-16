@@ -79,23 +79,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: count
-        value: '{{ count }}'
-      - name: minCount
-        value: '{{ minCount }}'
-      - name: namePattern
-        value: '{{ namePattern }}'
-      - name: perInstanceProperties
-        value: '{{ perInstanceProperties }}'
-      - name: sourceInstanceTemplate
-        value: '{{ sourceInstanceTemplate }}'
-      - name: instanceProperties
-        value: '{{ instanceProperties }}'
-      - name: locationPolicy
-        value: '{{ locationPolicy }}'
+- name: your_resource_model_name
+  props:
+    - name: count
+      value: '{{ count }}'
+    - name: minCount
+      value: '{{ minCount }}'
+    - name: namePattern
+      value: '{{ namePattern }}'
+    - name: perInstanceProperties
+      value: '{{ perInstanceProperties }}'
+    - name: sourceInstanceTemplate
+      value: '{{ sourceInstanceTemplate }}'
+    - name: instanceProperties
+      value: '{{ instanceProperties }}'
+    - name: locationPolicy
+      value: '{{ locationPolicy }}'
 
 ```
 </TabItem>

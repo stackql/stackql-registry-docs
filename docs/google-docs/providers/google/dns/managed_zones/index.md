@@ -57,7 +57,7 @@ Creates, updates, deletes, gets or lists a <code>managed_zones</code> resource.
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="project" /> | Creates a new ManagedZone. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="managedZone, project" /> | Deletes a previously created ManagedZone. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="managedZone, project" /> | Applies a partial update to an existing ManagedZone. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="managedZone, project" /> | Updates an existing ManagedZone. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="managedZone, project" /> | Updates an existing ManagedZone. |
 
 ## `SELECT` examples
 
@@ -146,43 +146,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: dnsName
-        value: '{{ dnsName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: id
-        value: '{{ id }}'
-      - name: nameServers
-        value: '{{ nameServers }}'
-      - name: creationTime
-        value: '{{ creationTime }}'
-      - name: dnssecConfig
-        value: '{{ dnssecConfig }}'
-      - name: nameServerSet
-        value: '{{ nameServerSet }}'
-      - name: visibility
-        value: '{{ visibility }}'
-      - name: privateVisibilityConfig
-        value: '{{ privateVisibilityConfig }}'
-      - name: forwardingConfig
-        value: '{{ forwardingConfig }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: peeringConfig
-        value: '{{ peeringConfig }}'
-      - name: reverseLookupConfig
-        value: '{{ reverseLookupConfig }}'
-      - name: serviceDirectoryConfig
-        value: '{{ serviceDirectoryConfig }}'
-      - name: cloudLoggingConfig
-        value: '{{ cloudLoggingConfig }}'
-      - name: kind
-        value: '{{ kind }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: dnsName
+      value: '{{ dnsName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: id
+      value: '{{ id }}'
+    - name: nameServers
+      value: '{{ nameServers }}'
+    - name: creationTime
+      value: '{{ creationTime }}'
+    - name: dnssecConfig
+      value: '{{ dnssecConfig }}'
+    - name: nameServerSet
+      value: '{{ nameServerSet }}'
+    - name: visibility
+      value: '{{ visibility }}'
+    - name: privateVisibilityConfig
+      value: '{{ privateVisibilityConfig }}'
+    - name: forwardingConfig
+      value: '{{ forwardingConfig }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: peeringConfig
+      value: '{{ peeringConfig }}'
+    - name: reverseLookupConfig
+      value: '{{ reverseLookupConfig }}'
+    - name: serviceDirectoryConfig
+      value: '{{ serviceDirectoryConfig }}'
+    - name: cloudLoggingConfig
+      value: '{{ cloudLoggingConfig }}'
+    - name: kind
+      value: '{{ kind }}'
 
 ```
 </TabItem>
@@ -195,6 +194,36 @@ Updates a <code>managed_zones</code> resource.
 ```sql
 /*+ update */
 UPDATE google.dns.managed_zones
+SET 
+name = '{{ name }}',
+dnsName = '{{ dnsName }}',
+description = '{{ description }}',
+id = '{{ id }}',
+nameServers = '{{ nameServers }}',
+creationTime = '{{ creationTime }}',
+dnssecConfig = '{{ dnssecConfig }}',
+nameServerSet = '{{ nameServerSet }}',
+visibility = '{{ visibility }}',
+privateVisibilityConfig = '{{ privateVisibilityConfig }}',
+forwardingConfig = '{{ forwardingConfig }}',
+labels = '{{ labels }}',
+peeringConfig = '{{ peeringConfig }}',
+reverseLookupConfig = '{{ reverseLookupConfig }}',
+serviceDirectoryConfig = '{{ serviceDirectoryConfig }}',
+cloudLoggingConfig = '{{ cloudLoggingConfig }}',
+kind = '{{ kind }}'
+WHERE 
+managedZone = '{{ managedZone }}'
+AND project = '{{ project }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>managed_zones</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dns.managed_zones
 SET 
 name = '{{ name }}',
 dnsName = '{{ dnsName }}',

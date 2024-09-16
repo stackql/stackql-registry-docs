@@ -137,39 +137,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: custom
-        value: '{{ custom }}'
-      - name: appEngine
-        value: '{{ appEngine }}'
-      - name: cloudEndpoints
-        value: '{{ cloudEndpoints }}'
-      - name: clusterIstio
-        value: '{{ clusterIstio }}'
-      - name: meshIstio
-        value: '{{ meshIstio }}'
-      - name: istioCanonicalService
-        value: '{{ istioCanonicalService }}'
-      - name: cloudRun
-        value: '{{ cloudRun }}'
-      - name: gkeNamespace
-        value: '{{ gkeNamespace }}'
-      - name: gkeWorkload
-        value: '{{ gkeWorkload }}'
-      - name: gkeService
-        value: '{{ gkeService }}'
-      - name: basicService
-        value: '{{ basicService }}'
-      - name: telemetry
-        value: '{{ telemetry }}'
-      - name: userLabels
-        value: '{{ userLabels }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: custom
+      value: '{{ custom }}'
+    - name: appEngine
+      value: '{{ appEngine }}'
+    - name: cloudEndpoints
+      value: '{{ cloudEndpoints }}'
+    - name: clusterIstio
+      value: '{{ clusterIstio }}'
+    - name: meshIstio
+      value: '{{ meshIstio }}'
+    - name: istioCanonicalService
+      value: '{{ istioCanonicalService }}'
+    - name: cloudRun
+      value: '{{ cloudRun }}'
+    - name: gkeNamespace
+      value: '{{ gkeNamespace }}'
+    - name: gkeWorkload
+      value: '{{ gkeWorkload }}'
+    - name: gkeService
+      value: '{{ gkeService }}'
+    - name: basicService
+      value: '{{ basicService }}'
+    - name: telemetry
+      value: '{{ telemetry }}'
+    - name: userLabels
+      value: '{{ userLabels }}'
 
 ```
 </TabItem>

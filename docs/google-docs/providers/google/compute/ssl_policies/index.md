@@ -129,45 +129,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: profile
-        value: '{{ profile }}'
-      - name: minTlsVersion
-        value: '{{ minTlsVersion }}'
-      - name: enabledFeatures
-        value: '{{ enabledFeatures }}'
-      - name: customFeatures
-        value: '{{ customFeatures }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: warnings
-        value:
-          - - name: code
-              value: '{{ code }}'
-            - name: message
-              value: '{{ message }}'
-            - name: data
-              value:
-                - - name: key
-                    value: '{{ key }}'
-                  - name: value
-                    value: '{{ value }}'
-      - name: region
-        value: '{{ region }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: profile
+      value: '{{ profile }}'
+    - name: minTlsVersion
+      value: '{{ minTlsVersion }}'
+    - name: enabledFeatures
+      value: '{{ enabledFeatures }}'
+    - name: customFeatures
+      value: '{{ customFeatures }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: warnings
+      value:
+        - - name: code
+            value: '{{ code }}'
+          - name: message
+            value: '{{ message }}'
+          - name: data
+            value:
+              - - name: key
+                  value: '{{ key }}'
+                - name: value
+                  value: '{{ value }}'
+    - name: region
+      value: '{{ region }}'
 
 ```
 </TabItem>

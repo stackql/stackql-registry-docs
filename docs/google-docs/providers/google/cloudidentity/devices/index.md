@@ -206,73 +206,72 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: lastSyncTime
-        value: '{{ lastSyncTime }}'
-      - name: ownerType
-        value: '{{ ownerType }}'
-      - name: model
-        value: '{{ model }}'
-      - name: osVersion
-        value: '{{ osVersion }}'
-      - name: deviceType
-        value: '{{ deviceType }}'
-      - name: serialNumber
-        value: '{{ serialNumber }}'
-      - name: assetTag
-        value: '{{ assetTag }}'
-      - name: imei
-        value: '{{ imei }}'
-      - name: meid
-        value: '{{ meid }}'
-      - name: wifiMacAddresses
-        value: '{{ wifiMacAddresses }}'
-      - name: networkOperator
-        value: '{{ networkOperator }}'
-      - name: manufacturer
-        value: '{{ manufacturer }}'
-      - name: releaseVersion
-        value: '{{ releaseVersion }}'
-      - name: brand
-        value: '{{ brand }}'
-      - name: buildNumber
-        value: '{{ buildNumber }}'
-      - name: kernelVersion
-        value: '{{ kernelVersion }}'
-      - name: basebandVersion
-        value: '{{ basebandVersion }}'
-      - name: enabledDeveloperOptions
-        value: '{{ enabledDeveloperOptions }}'
-      - name: otherAccounts
-        value: '{{ otherAccounts }}'
-      - name: enabledUsbDebugging
-        value: '{{ enabledUsbDebugging }}'
-      - name: securityPatchTime
-        value: '{{ securityPatchTime }}'
-      - name: bootloaderVersion
-        value: '{{ bootloaderVersion }}'
-      - name: encryptionState
-        value: '{{ encryptionState }}'
-      - name: androidSpecificAttributes
-        value: '{{ androidSpecificAttributes }}'
-      - name: managementState
-        value: '{{ managementState }}'
-      - name: compromisedState
-        value: '{{ compromisedState }}'
-      - name: deviceId
-        value: '{{ deviceId }}'
-      - name: unifiedDeviceId
-        value: '{{ unifiedDeviceId }}'
-      - name: endpointVerificationSpecificAttributes
-        value: '{{ endpointVerificationSpecificAttributes }}'
-      - name: hostname
-        value: '{{ hostname }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: lastSyncTime
+      value: '{{ lastSyncTime }}'
+    - name: ownerType
+      value: '{{ ownerType }}'
+    - name: model
+      value: '{{ model }}'
+    - name: osVersion
+      value: '{{ osVersion }}'
+    - name: deviceType
+      value: '{{ deviceType }}'
+    - name: serialNumber
+      value: '{{ serialNumber }}'
+    - name: assetTag
+      value: '{{ assetTag }}'
+    - name: imei
+      value: '{{ imei }}'
+    - name: meid
+      value: '{{ meid }}'
+    - name: wifiMacAddresses
+      value: '{{ wifiMacAddresses }}'
+    - name: networkOperator
+      value: '{{ networkOperator }}'
+    - name: manufacturer
+      value: '{{ manufacturer }}'
+    - name: releaseVersion
+      value: '{{ releaseVersion }}'
+    - name: brand
+      value: '{{ brand }}'
+    - name: buildNumber
+      value: '{{ buildNumber }}'
+    - name: kernelVersion
+      value: '{{ kernelVersion }}'
+    - name: basebandVersion
+      value: '{{ basebandVersion }}'
+    - name: enabledDeveloperOptions
+      value: '{{ enabledDeveloperOptions }}'
+    - name: otherAccounts
+      value: '{{ otherAccounts }}'
+    - name: enabledUsbDebugging
+      value: '{{ enabledUsbDebugging }}'
+    - name: securityPatchTime
+      value: '{{ securityPatchTime }}'
+    - name: bootloaderVersion
+      value: '{{ bootloaderVersion }}'
+    - name: encryptionState
+      value: '{{ encryptionState }}'
+    - name: androidSpecificAttributes
+      value: '{{ androidSpecificAttributes }}'
+    - name: managementState
+      value: '{{ managementState }}'
+    - name: compromisedState
+      value: '{{ compromisedState }}'
+    - name: deviceId
+      value: '{{ deviceId }}'
+    - name: unifiedDeviceId
+      value: '{{ unifiedDeviceId }}'
+    - name: endpointVerificationSpecificAttributes
+      value: '{{ endpointVerificationSpecificAttributes }}'
+    - name: hostname
+      value: '{{ hostname }}'
 
 ```
 </TabItem>

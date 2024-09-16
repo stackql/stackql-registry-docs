@@ -172,53 +172,52 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: saaEnrollmentResponse
-        value: '{{ saaEnrollmentResponse }}'
-      - name: resourceSettings
-        value: '{{ resourceSettings }}'
-      - name: partner
-        value: '{{ partner }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: resources
-        value: '{{ resources }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: kmsSettings
-        value: '{{ kmsSettings }}'
-      - name: partnerServicesBillingAccount
-        value: '{{ partnerServicesBillingAccount }}'
-      - name: complianceStatus
-        value: '{{ complianceStatus }}'
-      - name: resourceMonitoringEnabled
-        value: '{{ resourceMonitoringEnabled }}'
-      - name: kajEnrollmentState
-        value: '{{ kajEnrollmentState }}'
-      - name: violationNotificationsEnabled
-        value: '{{ violationNotificationsEnabled }}'
-      - name: enableSovereignControls
-        value: '{{ enableSovereignControls }}'
-      - name: billingAccount
-        value: '{{ billingAccount }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: complianceRegime
-        value: '{{ complianceRegime }}'
-      - name: partnerPermissions
-        value: '{{ partnerPermissions }}'
-      - name: compliantButDisallowedServices
-        value: '{{ compliantButDisallowedServices }}'
-      - name: provisionedResourcesParent
-        value: '{{ provisionedResourcesParent }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: ekmProvisioningResponse
-        value: '{{ ekmProvisioningResponse }}'
-      - name: name
-        value: '{{ name }}'
+- name: your_resource_model_name
+  props:
+    - name: saaEnrollmentResponse
+      value: '{{ saaEnrollmentResponse }}'
+    - name: resourceSettings
+      value: '{{ resourceSettings }}'
+    - name: partner
+      value: '{{ partner }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: resources
+      value: '{{ resources }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: kmsSettings
+      value: '{{ kmsSettings }}'
+    - name: partnerServicesBillingAccount
+      value: '{{ partnerServicesBillingAccount }}'
+    - name: complianceStatus
+      value: '{{ complianceStatus }}'
+    - name: resourceMonitoringEnabled
+      value: '{{ resourceMonitoringEnabled }}'
+    - name: kajEnrollmentState
+      value: '{{ kajEnrollmentState }}'
+    - name: violationNotificationsEnabled
+      value: '{{ violationNotificationsEnabled }}'
+    - name: enableSovereignControls
+      value: '{{ enableSovereignControls }}'
+    - name: billingAccount
+      value: '{{ billingAccount }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: complianceRegime
+      value: '{{ complianceRegime }}'
+    - name: partnerPermissions
+      value: '{{ partnerPermissions }}'
+    - name: compliantButDisallowedServices
+      value: '{{ compliantButDisallowedServices }}'
+    - name: provisionedResourcesParent
+      value: '{{ provisionedResourcesParent }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: ekmProvisioningResponse
+      value: '{{ ekmProvisioningResponse }}'
+    - name: name
+      value: '{{ name }}'
 
 ```
 </TabItem>

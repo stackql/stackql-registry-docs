@@ -138,39 +138,38 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: ruleName
-        value: '{{ ruleName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: priority
-        value: '{{ priority }}'
-      - name: match
-        value: '{{ match }}'
-      - name: action
-        value: '{{ action }}'
-      - name: securityProfileGroup
-        value: '{{ securityProfileGroup }}'
-      - name: tlsInspect
-        value: '{{ tlsInspect }}'
-      - name: direction
-        value: '{{ direction }}'
-      - name: targetResources
-        value: '{{ targetResources }}'
-      - name: enableLogging
-        value: '{{ enableLogging }}'
-      - name: ruleTupleCount
-        value: '{{ ruleTupleCount }}'
-      - name: targetServiceAccounts
-        value: '{{ targetServiceAccounts }}'
-      - name: targetSecureTags
-        value: '{{ targetSecureTags }}'
-      - name: disabled
-        value: '{{ disabled }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: ruleName
+      value: '{{ ruleName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: priority
+      value: '{{ priority }}'
+    - name: match
+      value: '{{ match }}'
+    - name: action
+      value: '{{ action }}'
+    - name: securityProfileGroup
+      value: '{{ securityProfileGroup }}'
+    - name: tlsInspect
+      value: '{{ tlsInspect }}'
+    - name: direction
+      value: '{{ direction }}'
+    - name: targetResources
+      value: '{{ targetResources }}'
+    - name: enableLogging
+      value: '{{ enableLogging }}'
+    - name: ruleTupleCount
+      value: '{{ ruleTupleCount }}'
+    - name: targetServiceAccounts
+      value: '{{ targetServiceAccounts }}'
+    - name: targetSecureTags
+      value: '{{ targetSecureTags }}'
+    - name: disabled
+      value: '{{ disabled }}'
 
 ```
 </TabItem>

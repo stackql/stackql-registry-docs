@@ -73,11 +73,11 @@ Creates, updates, deletes, gets or lists a <code>sinks</code> resource.
 | <CopyableCode code="folders_sinks_patch" /> | `UPDATE` | <CopyableCode code="foldersId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
 | <CopyableCode code="organizations_sinks_patch" /> | `UPDATE` | <CopyableCode code="organizationsId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
 | <CopyableCode code="projects_sinks_patch" /> | `UPDATE` | <CopyableCode code="projectsId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
-| <CopyableCode code="billing_accounts_sinks_update" /> | `EXEC` | <CopyableCode code="billingAccountsId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
-| <CopyableCode code="folders_sinks_update" /> | `EXEC` | <CopyableCode code="foldersId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
-| <CopyableCode code="organizations_sinks_update" /> | `EXEC` | <CopyableCode code="organizationsId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
-| <CopyableCode code="projects_sinks_update" /> | `EXEC` | <CopyableCode code="projectsId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
-| <CopyableCode code="sinks_update" /> | `EXEC` | <CopyableCode code="sinkName" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
+| <CopyableCode code="billing_accounts_sinks_update" /> | `REPLACE` | <CopyableCode code="billingAccountsId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
+| <CopyableCode code="folders_sinks_update" /> | `REPLACE` | <CopyableCode code="foldersId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
+| <CopyableCode code="organizations_sinks_update" /> | `REPLACE` | <CopyableCode code="organizationsId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
+| <CopyableCode code="projects_sinks_update" /> | `REPLACE` | <CopyableCode code="projectsId, sinksId" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
+| <CopyableCode code="sinks_update" /> | `REPLACE` | <CopyableCode code="sinkName" /> | Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field. |
 
 ## `SELECT` examples
 
@@ -157,37 +157,36 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: resourceName
-        value: '{{ resourceName }}'
-      - name: destination
-        value: '{{ destination }}'
-      - name: filter
-        value: '{{ filter }}'
-      - name: description
-        value: '{{ description }}'
-      - name: disabled
-        value: '{{ disabled }}'
-      - name: exclusions
-        value: '{{ exclusions }}'
-      - name: outputVersionFormat
-        value: '{{ outputVersionFormat }}'
-      - name: writerIdentity
-        value: '{{ writerIdentity }}'
-      - name: includeChildren
-        value: '{{ includeChildren }}'
-      - name: interceptChildren
-        value: '{{ interceptChildren }}'
-      - name: bigqueryOptions
-        value: '{{ bigqueryOptions }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: resourceName
+      value: '{{ resourceName }}'
+    - name: destination
+      value: '{{ destination }}'
+    - name: filter
+      value: '{{ filter }}'
+    - name: description
+      value: '{{ description }}'
+    - name: disabled
+      value: '{{ disabled }}'
+    - name: exclusions
+      value: '{{ exclusions }}'
+    - name: outputVersionFormat
+      value: '{{ outputVersionFormat }}'
+    - name: writerIdentity
+      value: '{{ writerIdentity }}'
+    - name: includeChildren
+      value: '{{ includeChildren }}'
+    - name: interceptChildren
+      value: '{{ interceptChildren }}'
+    - name: bigqueryOptions
+      value: '{{ bigqueryOptions }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
 
 ```
 </TabItem>
@@ -218,6 +217,32 @@ updateTime = '{{ updateTime }}'
 WHERE 
 foldersId = '{{ foldersId }}'
 AND sinksId = '{{ sinksId }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>sinks</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.logging.sinks
+SET 
+name = '{{ name }}',
+resourceName = '{{ resourceName }}',
+destination = '{{ destination }}',
+filter = '{{ filter }}',
+description = '{{ description }}',
+disabled = true|false,
+exclusions = '{{ exclusions }}',
+outputVersionFormat = '{{ outputVersionFormat }}',
+writerIdentity = '{{ writerIdentity }}',
+includeChildren = true|false,
+interceptChildren = true|false,
+bigqueryOptions = '{{ bigqueryOptions }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}'
+WHERE 
+sinkName = '{{ sinkName }}';
 ```
 
 ## `DELETE` example

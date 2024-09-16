@@ -129,33 +129,32 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: slotCapacity
-        value: '{{ slotCapacity }}'
-      - name: ignoreIdleSlots
-        value: '{{ ignoreIdleSlots }}'
-      - name: autoscale
-        value: '{{ autoscale }}'
-      - name: concurrency
-        value: '{{ concurrency }}'
-      - name: creationTime
-        value: '{{ creationTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: multiRegionAuxiliary
-        value: '{{ multiRegionAuxiliary }}'
-      - name: edition
-        value: '{{ edition }}'
-      - name: primaryLocation
-        value: '{{ primaryLocation }}'
-      - name: secondaryLocation
-        value: '{{ secondaryLocation }}'
-      - name: originalPrimaryLocation
-        value: '{{ originalPrimaryLocation }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: slotCapacity
+      value: '{{ slotCapacity }}'
+    - name: ignoreIdleSlots
+      value: '{{ ignoreIdleSlots }}'
+    - name: autoscale
+      value: '{{ autoscale }}'
+    - name: concurrency
+      value: '{{ concurrency }}'
+    - name: creationTime
+      value: '{{ creationTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: multiRegionAuxiliary
+      value: '{{ multiRegionAuxiliary }}'
+    - name: edition
+      value: '{{ edition }}'
+    - name: primaryLocation
+      value: '{{ primaryLocation }}'
+    - name: secondaryLocation
+      value: '{{ secondaryLocation }}'
+    - name: originalPrimaryLocation
+      value: '{{ originalPrimaryLocation }}'
 
 ```
 </TabItem>

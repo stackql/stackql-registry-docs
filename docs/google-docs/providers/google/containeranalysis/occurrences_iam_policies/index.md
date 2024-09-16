@@ -40,9 +40,9 @@ Creates, updates, deletes, gets or lists a <code>occurrences_iam_policies</code>
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_occurrences_get_iam_policy" /> | `SELECT` | <CopyableCode code="locationsId, occurrencesId, projectsId" /> | Gets the access control policy for a note or an occurrence resource. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. |
 | <CopyableCode code="projects_occurrences_get_iam_policy" /> | `SELECT` | <CopyableCode code="occurrencesId, projectsId" /> | Gets the access control policy for a note or an occurrence resource. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. |
-| <CopyableCode code="projects_locations_occurrences_set_iam_policy" /> | `EXEC` | <CopyableCode code="locationsId, occurrencesId, projectsId" /> | Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. |
+| <CopyableCode code="projects_locations_occurrences_set_iam_policy" /> | `REPLACE` | <CopyableCode code="locationsId, occurrencesId, projectsId" /> | Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. |
+| <CopyableCode code="projects_occurrences_set_iam_policy" /> | `REPLACE` | <CopyableCode code="occurrencesId, projectsId" /> | Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. |
 | <CopyableCode code="projects_locations_occurrences_test_iam_permissions" /> | `EXEC` | <CopyableCode code="locationsId, occurrencesId, projectsId" /> | Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, `containeranalysis.notes.list`). The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. |
-| <CopyableCode code="projects_occurrences_set_iam_policy" /> | `EXEC` | <CopyableCode code="occurrencesId, projectsId" /> | Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. |
 | <CopyableCode code="projects_occurrences_test_iam_permissions" /> | `EXEC` | <CopyableCode code="occurrencesId, projectsId" /> | Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, `containeranalysis.notes.list`). The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. |
 
 ## `SELECT` examples
@@ -57,4 +57,18 @@ role
 FROM google.containeranalysis.occurrences_iam_policies
 WHERE occurrencesId = '{{ occurrencesId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>occurrences_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.containeranalysis.occurrences_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+occurrencesId = '{{ occurrencesId }}'
+AND projectsId = '{{ projectsId }}';
 ```

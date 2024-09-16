@@ -113,19 +113,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: lifecycleState
-        value: '{{ lifecycleState }}'
-      - name: bigqueryDataset
-        value: '{{ bigqueryDataset }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: lifecycleState
+      value: '{{ lifecycleState }}'
+    - name: bigqueryDataset
+      value: '{{ bigqueryDataset }}'
 
 ```
 </TabItem>

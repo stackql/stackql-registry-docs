@@ -46,8 +46,8 @@ Creates, updates, deletes, gets or lists a <code>clusters</code> resource.
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instancesId, projectsId" /> | Lists information about clusters in an instance. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="instancesId, projectsId" /> | Creates a cluster within an instance. Note that exactly one of Cluster.serve_nodes and Cluster.cluster_config.cluster_autoscaling_config can be set. If serve_nodes is set to non-zero, then the cluster is manually scaled. If cluster_config.cluster_autoscaling_config is non-empty, then autoscaling is enabled. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Deletes a cluster from an instance. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Updates a cluster within an instance. Note that UpdateCluster does not support updating cluster_config.cluster_autoscaling_config. In order to update it, you must use PartialUpdateCluster. |
 | <CopyableCode code="partial_update_cluster" /> | `EXEC` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Partially updates a cluster within a project. This method is the preferred way to update a Cluster. To enable and update autoscaling, set cluster_config.cluster_autoscaling_config. When autoscaling is enabled, serve_nodes is treated as an OUTPUT_ONLY field, meaning that updates to it are ignored. Note that an update cannot simultaneously set serve_nodes to non-zero and cluster_config.cluster_autoscaling_config to non-empty, and also specify both in the update_mask. To disable autoscaling, clear cluster_config.cluster_autoscaling_config, and explicitly set a serve_node count via the update_mask. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="clustersId, instancesId, projectsId" /> | Updates a cluster within an instance. Note that UpdateCluster does not support updating cluster_config.cluster_autoscaling_config. In order to update it, you must use PartialUpdateCluster. |
 
 ## `SELECT` examples
 
@@ -109,27 +109,47 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: location
-        value: '{{ location }}'
-      - name: state
-        value: '{{ state }}'
-      - name: serveNodes
-        value: '{{ serveNodes }}'
-      - name: clusterConfig
-        value: '{{ clusterConfig }}'
-      - name: defaultStorageType
-        value: '{{ defaultStorageType }}'
-      - name: encryptionConfig
-        value: '{{ encryptionConfig }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: location
+      value: '{{ location }}'
+    - name: state
+      value: '{{ state }}'
+    - name: serveNodes
+      value: '{{ serveNodes }}'
+    - name: clusterConfig
+      value: '{{ clusterConfig }}'
+    - name: defaultStorageType
+      value: '{{ defaultStorageType }}'
+    - name: encryptionConfig
+      value: '{{ encryptionConfig }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>clusters</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.bigtableadmin.clusters
+SET 
+name = '{{ name }}',
+location = '{{ location }}',
+state = '{{ state }}',
+serveNodes = '{{ serveNodes }}',
+clusterConfig = '{{ clusterConfig }}',
+defaultStorageType = '{{ defaultStorageType }}',
+encryptionConfig = '{{ encryptionConfig }}'
+WHERE 
+clustersId = '{{ clustersId }}'
+AND instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}';
+```
 
 ## `DELETE` example
 

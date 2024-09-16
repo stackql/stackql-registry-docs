@@ -187,61 +187,60 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: platformEdition
-        value: '{{ platformEdition }}'
-      - name: publicIpEnabled
-        value: '{{ publicIpEnabled }}'
-      - name: privateIpEnabled
-        value: '{{ privateIpEnabled }}'
-      - name: lookerVersion
-        value: '{{ lookerVersion }}'
-      - name: egressPublicIp
-        value: '{{ egressPublicIp }}'
-      - name: ingressPrivateIp
-        value: '{{ ingressPrivateIp }}'
-      - name: ingressPublicIp
-        value: '{{ ingressPublicIp }}'
-      - name: lookerUri
-        value: '{{ lookerUri }}'
-      - name: pscEnabled
-        value: '{{ pscEnabled }}'
-      - name: pscConfig
-        value: '{{ pscConfig }}'
-      - name: consumerNetwork
-        value: '{{ consumerNetwork }}'
-      - name: reservedRange
-        value: '{{ reservedRange }}'
-      - name: maintenanceWindow
-        value: '{{ maintenanceWindow }}'
-      - name: denyMaintenancePeriod
-        value: '{{ denyMaintenancePeriod }}'
-      - name: lastDenyMaintenancePeriod
-        value: '{{ lastDenyMaintenancePeriod }}'
-      - name: maintenanceSchedule
-        value: '{{ maintenanceSchedule }}'
-      - name: userMetadata
-        value: '{{ userMetadata }}'
-      - name: customDomain
-        value: '{{ customDomain }}'
-      - name: encryptionConfig
-        value: '{{ encryptionConfig }}'
-      - name: adminSettings
-        value: '{{ adminSettings }}'
-      - name: oauthConfig
-        value: '{{ oauthConfig }}'
-      - name: linkedLspProjectNumber
-        value: '{{ linkedLspProjectNumber }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: platformEdition
+      value: '{{ platformEdition }}'
+    - name: publicIpEnabled
+      value: '{{ publicIpEnabled }}'
+    - name: privateIpEnabled
+      value: '{{ privateIpEnabled }}'
+    - name: lookerVersion
+      value: '{{ lookerVersion }}'
+    - name: egressPublicIp
+      value: '{{ egressPublicIp }}'
+    - name: ingressPrivateIp
+      value: '{{ ingressPrivateIp }}'
+    - name: ingressPublicIp
+      value: '{{ ingressPublicIp }}'
+    - name: lookerUri
+      value: '{{ lookerUri }}'
+    - name: pscEnabled
+      value: '{{ pscEnabled }}'
+    - name: pscConfig
+      value: '{{ pscConfig }}'
+    - name: consumerNetwork
+      value: '{{ consumerNetwork }}'
+    - name: reservedRange
+      value: '{{ reservedRange }}'
+    - name: maintenanceWindow
+      value: '{{ maintenanceWindow }}'
+    - name: denyMaintenancePeriod
+      value: '{{ denyMaintenancePeriod }}'
+    - name: lastDenyMaintenancePeriod
+      value: '{{ lastDenyMaintenancePeriod }}'
+    - name: maintenanceSchedule
+      value: '{{ maintenanceSchedule }}'
+    - name: userMetadata
+      value: '{{ userMetadata }}'
+    - name: customDomain
+      value: '{{ customDomain }}'
+    - name: encryptionConfig
+      value: '{{ encryptionConfig }}'
+    - name: adminSettings
+      value: '{{ adminSettings }}'
+    - name: oauthConfig
+      value: '{{ oauthConfig }}'
+    - name: linkedLspProjectNumber
+      value: '{{ linkedLspProjectNumber }}'
 
 ```
 </TabItem>

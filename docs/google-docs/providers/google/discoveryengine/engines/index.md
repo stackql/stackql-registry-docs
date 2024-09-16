@@ -127,31 +127,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: chatEngineConfig
-        value: '{{ chatEngineConfig }}'
-      - name: searchEngineConfig
-        value: '{{ searchEngineConfig }}'
-      - name: chatEngineMetadata
-        value: '{{ chatEngineMetadata }}'
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: dataStoreIds
-        value: '{{ dataStoreIds }}'
-      - name: solutionType
-        value: '{{ solutionType }}'
-      - name: industryVertical
-        value: '{{ industryVertical }}'
-      - name: commonConfig
-        value: '{{ commonConfig }}'
+- name: your_resource_model_name
+  props:
+    - name: chatEngineConfig
+      value: '{{ chatEngineConfig }}'
+    - name: searchEngineConfig
+      value: '{{ searchEngineConfig }}'
+    - name: chatEngineMetadata
+      value: '{{ chatEngineMetadata }}'
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: dataStoreIds
+      value: '{{ dataStoreIds }}'
+    - name: solutionType
+      value: '{{ solutionType }}'
+    - name: industryVertical
+      value: '{{ industryVertical }}'
+    - name: commonConfig
+      value: '{{ commonConfig }}'
 
 ```
 </TabItem>

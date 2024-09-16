@@ -139,37 +139,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: pemCsr
-        value: '{{ pemCsr }}'
-      - name: config
-        value: '{{ config }}'
-      - name: issuerCertificateAuthority
-        value: '{{ issuerCertificateAuthority }}'
-      - name: lifetime
-        value: '{{ lifetime }}'
-      - name: certificateTemplate
-        value: '{{ certificateTemplate }}'
-      - name: subjectMode
-        value: '{{ subjectMode }}'
-      - name: revocationDetails
-        value: '{{ revocationDetails }}'
-      - name: pemCertificate
-        value: '{{ pemCertificate }}'
-      - name: certificateDescription
-        value: '{{ certificateDescription }}'
-      - name: pemCertificateChain
-        value: '{{ pemCertificateChain }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: pemCsr
+      value: '{{ pemCsr }}'
+    - name: config
+      value: '{{ config }}'
+    - name: issuerCertificateAuthority
+      value: '{{ issuerCertificateAuthority }}'
+    - name: lifetime
+      value: '{{ lifetime }}'
+    - name: certificateTemplate
+      value: '{{ certificateTemplate }}'
+    - name: subjectMode
+      value: '{{ subjectMode }}'
+    - name: revocationDetails
+      value: '{{ revocationDetails }}'
+    - name: pemCertificate
+      value: '{{ pemCertificate }}'
+    - name: certificateDescription
+      value: '{{ certificateDescription }}'
+    - name: pemCertificateChain
+      value: '{{ pemCertificateChain }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
 
 ```
 </TabItem>

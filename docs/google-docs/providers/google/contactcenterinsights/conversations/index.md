@@ -173,53 +173,52 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: transcript
-        value: '{{ transcript }}'
-      - name: latestSummary
-        value: '{{ latestSummary }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: runtimeAnnotations
-        value: '{{ runtimeAnnotations }}'
-      - name: turnCount
-        value: '{{ turnCount }}'
-      - name: qualityMetadata
-        value: '{{ qualityMetadata }}'
-      - name: duration
-        value: '{{ duration }}'
-      - name: dataSource
-        value: '{{ dataSource }}'
-      - name: latestAnalysis
-        value: '{{ latestAnalysis }}'
-      - name: metadataJson
-        value: '{{ metadataJson }}'
-      - name: name
-        value: '{{ name }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: callMetadata
-        value: '{{ callMetadata }}'
-      - name: obfuscatedUserId
-        value: '{{ obfuscatedUserId }}'
-      - name: medium
-        value: '{{ medium }}'
-      - name: dialogflowIntents
-        value: '{{ dialogflowIntents }}'
-      - name: languageCode
-        value: '{{ languageCode }}'
-      - name: ttl
-        value: '{{ ttl }}'
-      - name: agentId
-        value: '{{ agentId }}'
+- name: your_resource_model_name
+  props:
+    - name: transcript
+      value: '{{ transcript }}'
+    - name: latestSummary
+      value: '{{ latestSummary }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: runtimeAnnotations
+      value: '{{ runtimeAnnotations }}'
+    - name: turnCount
+      value: '{{ turnCount }}'
+    - name: qualityMetadata
+      value: '{{ qualityMetadata }}'
+    - name: duration
+      value: '{{ duration }}'
+    - name: dataSource
+      value: '{{ dataSource }}'
+    - name: latestAnalysis
+      value: '{{ latestAnalysis }}'
+    - name: metadataJson
+      value: '{{ metadataJson }}'
+    - name: name
+      value: '{{ name }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: callMetadata
+      value: '{{ callMetadata }}'
+    - name: obfuscatedUserId
+      value: '{{ obfuscatedUserId }}'
+    - name: medium
+      value: '{{ medium }}'
+    - name: dialogflowIntents
+      value: '{{ dialogflowIntents }}'
+    - name: languageCode
+      value: '{{ languageCode }}'
+    - name: ttl
+      value: '{{ ttl }}'
+    - name: agentId
+      value: '{{ agentId }}'
 
 ```
 </TabItem>

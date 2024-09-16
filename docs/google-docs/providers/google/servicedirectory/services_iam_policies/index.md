@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>services_iam_policies</code> re
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Gets the IAM Policy for a resource (namespace or service only). |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Sets the IAM Policy for a resource (namespace or service only). |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Sets the IAM Policy for a resource (namespace or service only). |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="locationsId, namespacesId, projectsId, servicesId" /> | Tests IAM permissions for a resource (namespace or service only). |
 
 ## `SELECT` examples
@@ -56,4 +56,20 @@ WHERE locationsId = '{{ locationsId }}'
 AND namespacesId = '{{ namespacesId }}'
 AND projectsId = '{{ projectsId }}'
 AND servicesId = '{{ servicesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>services_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.servicedirectory.services_iam_policies
+SET 
+policy = '{{ policy }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND namespacesId = '{{ namespacesId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}';
 ```

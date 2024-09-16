@@ -59,8 +59,8 @@ Creates, updates, deletes, gets or lists a <code>apiproducts</code> resource.
 | <CopyableCode code="organizations_apiproducts_delete" /> | `DELETE` | <CopyableCode code="apiproductsId, organizationsId" /> | Deletes an API product from an organization. Deleting an API product causes app requests to the resource URIs defined in the API product to fail. Ensure that you create a new API product to serve existing apps, unless your intention is to disable access to the resources defined in the API product. The API product name required in the request URL is the internal name of the product, not the display name. While they may be the same, it depends on whether the API product was created via the UI or the API. View the list of API products to verify the internal name. |
 | <CopyableCode code="organizations_appgroups_apps_keys_apiproducts_delete" /> | `DELETE` | <CopyableCode code="apiproductsId, appgroupsId, appsId, keysId, organizationsId" /> | Removes an API product from an app's consumer key. After the API product is removed, the app cannot access the API resources defined in that API product. **Note**: The consumer key is not removed, only its association with the API product. |
 | <CopyableCode code="organizations_developers_apps_keys_apiproducts_delete" /> | `DELETE` | <CopyableCode code="apiproductsId, appsId, developersId, keysId, organizationsId" /> | Removes an API product from an app's consumer key. After the API product is removed, the app cannot access the API resources defined in that API product. **Note**: The consumer key is not removed, only its association with the API product. |
+| <CopyableCode code="organizations_apiproducts_update" /> | `REPLACE` | <CopyableCode code="apiproductsId, organizationsId" /> | Updates an existing API product. You must include all required values, whether or not you are updating them, as well as any optional values that you are updating. The API product name required in the request URL is the internal name of the product, not the display name. While they may be the same, it depends on whether the API product was created via UI or API. View the list of API products to identify their internal names. |
 | <CopyableCode code="organizations_apiproducts_attributes" /> | `EXEC` | <CopyableCode code="apiproductsId, organizationsId" /> | Updates or creates API product attributes. This API **replaces** the current list of attributes with the attributes specified in the request body. In this way, you can update existing attributes, add new attributes, or delete existing attributes by omitting them from the request body. **Note**: OAuth access tokens and Key Management Service (KMS) entities (apps, developers, and API products) are cached for 180 seconds (current default). Any custom attributes associated with entities also get cached for at least 180 seconds after entity is accessed during runtime. In this case, the `ExpiresIn` element on the OAuthV2 policy won't be able to expire an access token in less than 180 seconds. |
-| <CopyableCode code="organizations_apiproducts_update" /> | `EXEC` | <CopyableCode code="apiproductsId, organizationsId" /> | Updates an existing API product. You must include all required values, whether or not you are updating them, as well as any optional values that you are updating. The API product name required in the request URL is the internal name of the product, not the display name. While they may be the same, it depends on whether the API product was created via UI or API. View the list of API products to identify their internal names. |
 
 ## `SELECT` examples
 
@@ -152,49 +152,79 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: scopes
-        value: '{{ scopes }}'
-      - name: apiResources
-        value: '{{ apiResources }}'
-      - name: quotaInterval
-        value: '{{ quotaInterval }}'
-      - name: proxies
-        value: '{{ proxies }}'
-      - name: createdAt
-        value: '{{ createdAt }}'
-      - name: approvalType
-        value: '{{ approvalType }}'
-      - name: name
-        value: '{{ name }}'
-      - name: attributes
-        value: '{{ attributes }}'
-      - name: grpcOperationGroup
-        value: '{{ grpcOperationGroup }}'
-      - name: quotaTimeUnit
-        value: '{{ quotaTimeUnit }}'
-      - name: description
-        value: '{{ description }}'
-      - name: quota
-        value: '{{ quota }}'
-      - name: lastModifiedAt
-        value: '{{ lastModifiedAt }}'
-      - name: environments
-        value: '{{ environments }}'
-      - name: graphqlOperationGroup
-        value: '{{ graphqlOperationGroup }}'
-      - name: operationGroup
-        value: '{{ operationGroup }}'
-      - name: quotaCounterScope
-        value: '{{ quotaCounterScope }}'
+- name: your_resource_model_name
+  props:
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: scopes
+      value: '{{ scopes }}'
+    - name: apiResources
+      value: '{{ apiResources }}'
+    - name: quotaInterval
+      value: '{{ quotaInterval }}'
+    - name: proxies
+      value: '{{ proxies }}'
+    - name: createdAt
+      value: '{{ createdAt }}'
+    - name: approvalType
+      value: '{{ approvalType }}'
+    - name: name
+      value: '{{ name }}'
+    - name: attributes
+      value: '{{ attributes }}'
+    - name: grpcOperationGroup
+      value: '{{ grpcOperationGroup }}'
+    - name: quotaTimeUnit
+      value: '{{ quotaTimeUnit }}'
+    - name: description
+      value: '{{ description }}'
+    - name: quota
+      value: '{{ quota }}'
+    - name: lastModifiedAt
+      value: '{{ lastModifiedAt }}'
+    - name: environments
+      value: '{{ environments }}'
+    - name: graphqlOperationGroup
+      value: '{{ graphqlOperationGroup }}'
+    - name: operationGroup
+      value: '{{ operationGroup }}'
+    - name: quotaCounterScope
+      value: '{{ quotaCounterScope }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>apiproducts</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.apiproducts
+SET 
+displayName = '{{ displayName }}',
+scopes = '{{ scopes }}',
+apiResources = '{{ apiResources }}',
+quotaInterval = '{{ quotaInterval }}',
+proxies = '{{ proxies }}',
+createdAt = '{{ createdAt }}',
+approvalType = '{{ approvalType }}',
+name = '{{ name }}',
+attributes = '{{ attributes }}',
+grpcOperationGroup = '{{ grpcOperationGroup }}',
+quotaTimeUnit = '{{ quotaTimeUnit }}',
+description = '{{ description }}',
+quota = '{{ quota }}',
+lastModifiedAt = '{{ lastModifiedAt }}',
+environments = '{{ environments }}',
+graphqlOperationGroup = '{{ graphqlOperationGroup }}',
+operationGroup = '{{ operationGroup }}',
+quotaCounterScope = '{{ quotaCounterScope }}'
+WHERE 
+apiproductsId = '{{ apiproductsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```
 
 ## `DELETE` example
 

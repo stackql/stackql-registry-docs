@@ -132,35 +132,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: description
-        value: '{{ description }}'
-      - name: ipCidrRange
-        value: '{{ ipCidrRange }}'
-      - name: network
-        value: '{{ network }}'
-      - name: usage
-        value: '{{ usage }}'
-      - name: peering
-        value: '{{ peering }}'
-      - name: prefixLength
-        value: '{{ prefixLength }}'
-      - name: targetCidrRange
-        value: '{{ targetCidrRange }}'
-      - name: users
-        value: '{{ users }}'
-      - name: overlaps
-        value: '{{ overlaps }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: description
+      value: '{{ description }}'
+    - name: ipCidrRange
+      value: '{{ ipCidrRange }}'
+    - name: network
+      value: '{{ network }}'
+    - name: usage
+      value: '{{ usage }}'
+    - name: peering
+      value: '{{ peering }}'
+    - name: prefixLength
+      value: '{{ prefixLength }}'
+    - name: targetCidrRange
+      value: '{{ targetCidrRange }}'
+    - name: users
+      value: '{{ users }}'
+    - name: overlaps
+      value: '{{ overlaps }}'
 
 ```
 </TabItem>

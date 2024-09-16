@@ -198,69 +198,68 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: description
-        value: '{{ description }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: location
-        value: '{{ location }}'
-      - name: linkType
-        value: '{{ linkType }}'
-      - name: requestedLinkCount
-        value: '{{ requestedLinkCount }}'
-      - name: interconnectType
-        value: '{{ interconnectType }}'
-      - name: adminEnabled
-        value: '{{ adminEnabled }}'
-      - name: nocContactEmail
-        value: '{{ nocContactEmail }}'
-      - name: customerName
-        value: '{{ customerName }}'
-      - name: operationalStatus
-        value: '{{ operationalStatus }}'
-      - name: provisionedLinkCount
-        value: '{{ provisionedLinkCount }}'
-      - name: interconnectAttachments
-        value: '{{ interconnectAttachments }}'
-      - name: peerIpAddress
-        value: '{{ peerIpAddress }}'
-      - name: googleIpAddress
-        value: '{{ googleIpAddress }}'
-      - name: googleReferenceId
-        value: '{{ googleReferenceId }}'
-      - name: expectedOutages
-        value: '{{ expectedOutages }}'
-      - name: circuitInfos
-        value: '{{ circuitInfos }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: labelFingerprint
-        value: '{{ labelFingerprint }}'
-      - name: state
-        value: '{{ state }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: macsec
-        value: '{{ macsec }}'
-      - name: macsecEnabled
-        value: '{{ macsecEnabled }}'
-      - name: remoteLocation
-        value: '{{ remoteLocation }}'
-      - name: requestedFeatures
-        value: '{{ requestedFeatures }}'
-      - name: availableFeatures
-        value: '{{ availableFeatures }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: description
+      value: '{{ description }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: location
+      value: '{{ location }}'
+    - name: linkType
+      value: '{{ linkType }}'
+    - name: requestedLinkCount
+      value: '{{ requestedLinkCount }}'
+    - name: interconnectType
+      value: '{{ interconnectType }}'
+    - name: adminEnabled
+      value: '{{ adminEnabled }}'
+    - name: nocContactEmail
+      value: '{{ nocContactEmail }}'
+    - name: customerName
+      value: '{{ customerName }}'
+    - name: operationalStatus
+      value: '{{ operationalStatus }}'
+    - name: provisionedLinkCount
+      value: '{{ provisionedLinkCount }}'
+    - name: interconnectAttachments
+      value: '{{ interconnectAttachments }}'
+    - name: peerIpAddress
+      value: '{{ peerIpAddress }}'
+    - name: googleIpAddress
+      value: '{{ googleIpAddress }}'
+    - name: googleReferenceId
+      value: '{{ googleReferenceId }}'
+    - name: expectedOutages
+      value: '{{ expectedOutages }}'
+    - name: circuitInfos
+      value: '{{ circuitInfos }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: labelFingerprint
+      value: '{{ labelFingerprint }}'
+    - name: state
+      value: '{{ state }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: macsec
+      value: '{{ macsec }}'
+    - name: macsecEnabled
+      value: '{{ macsecEnabled }}'
+    - name: remoteLocation
+      value: '{{ remoteLocation }}'
+    - name: requestedFeatures
+      value: '{{ requestedFeatures }}'
+    - name: availableFeatures
+      value: '{{ availableFeatures }}'
 
 ```
 </TabItem>

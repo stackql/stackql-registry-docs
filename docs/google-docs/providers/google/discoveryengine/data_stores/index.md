@@ -132,31 +132,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: industryVertical
-        value: '{{ industryVertical }}'
-      - name: solutionTypes
-        value: '{{ solutionTypes }}'
-      - name: defaultSchemaId
-        value: '{{ defaultSchemaId }}'
-      - name: contentConfig
-        value: '{{ contentConfig }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: workspaceConfig
-        value: '{{ workspaceConfig }}'
-      - name: documentProcessingConfig
-        value: '{{ documentProcessingConfig }}'
-      - name: startingSchema
-        value: '{{ startingSchema }}'
-      - name: servingConfigDataStore
-        value: '{{ servingConfigDataStore }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: industryVertical
+      value: '{{ industryVertical }}'
+    - name: solutionTypes
+      value: '{{ solutionTypes }}'
+    - name: defaultSchemaId
+      value: '{{ defaultSchemaId }}'
+    - name: contentConfig
+      value: '{{ contentConfig }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: workspaceConfig
+      value: '{{ workspaceConfig }}'
+    - name: documentProcessingConfig
+      value: '{{ documentProcessingConfig }}'
+    - name: startingSchema
+      value: '{{ startingSchema }}'
+    - name: servingConfigDataStore
+      value: '{{ servingConfigDataStore }}'
 
 ```
 </TabItem>

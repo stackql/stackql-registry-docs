@@ -135,33 +135,32 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: enableUpdateCreate
-        value: '{{ enableUpdateCreate }}'
-      - name: notificationConfig
-        value: '{{ notificationConfig }}'
-      - name: disableReferentialIntegrity
-        value: '{{ disableReferentialIntegrity }}'
-      - name: disableResourceVersioning
-        value: '{{ disableResourceVersioning }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: version
-        value: '{{ version }}'
-      - name: streamConfigs
-        value: '{{ streamConfigs }}'
-      - name: validationConfig
-        value: '{{ validationConfig }}'
-      - name: defaultSearchHandlingStrict
-        value: '{{ defaultSearchHandlingStrict }}'
-      - name: complexDataTypeReferenceParsing
-        value: '{{ complexDataTypeReferenceParsing }}'
-      - name: notificationConfigs
-        value: '{{ notificationConfigs }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: enableUpdateCreate
+      value: '{{ enableUpdateCreate }}'
+    - name: notificationConfig
+      value: '{{ notificationConfig }}'
+    - name: disableReferentialIntegrity
+      value: '{{ disableReferentialIntegrity }}'
+    - name: disableResourceVersioning
+      value: '{{ disableResourceVersioning }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: version
+      value: '{{ version }}'
+    - name: streamConfigs
+      value: '{{ streamConfigs }}'
+    - name: validationConfig
+      value: '{{ validationConfig }}'
+    - name: defaultSearchHandlingStrict
+      value: '{{ defaultSearchHandlingStrict }}'
+    - name: complexDataTypeReferenceParsing
+      value: '{{ complexDataTypeReferenceParsing }}'
+    - name: notificationConfigs
+      value: '{{ notificationConfigs }}'
 
 ```
 </TabItem>

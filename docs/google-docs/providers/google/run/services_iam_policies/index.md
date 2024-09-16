@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>services_iam_policies</code> re
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Gets the IAM Access Control policy currently in effect for the given Cloud Run Service. This result does not include any inherited policies. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Sets the IAM Access control policy for the specified Service. Overwrites any existing policy. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Sets the IAM Access control policy for the specified Service. Overwrites any existing policy. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, servicesId" /> | Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. |
 
 ## `SELECT` examples
@@ -55,4 +55,20 @@ FROM google.run.services_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND servicesId = '{{ servicesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>services_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.run.services_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}';
 ```

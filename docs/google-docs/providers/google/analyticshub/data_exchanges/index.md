@@ -118,27 +118,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: primaryContact
-        value: '{{ primaryContact }}'
-      - name: documentation
-        value: '{{ documentation }}'
-      - name: listingCount
-        value: '{{ listingCount }}'
-      - name: icon
-        value: '{{ icon }}'
-      - name: sharingEnvironmentConfig
-        value: '{{ sharingEnvironmentConfig }}'
-      - name: discoveryType
-        value: '{{ discoveryType }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: primaryContact
+      value: '{{ primaryContact }}'
+    - name: documentation
+      value: '{{ documentation }}'
+    - name: listingCount
+      value: '{{ listingCount }}'
+    - name: icon
+      value: '{{ icon }}'
+    - name: sharingEnvironmentConfig
+      value: '{{ sharingEnvironmentConfig }}'
+    - name: discoveryType
+      value: '{{ discoveryType }}'
 
 ```
 </TabItem>

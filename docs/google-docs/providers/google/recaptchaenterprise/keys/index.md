@@ -118,29 +118,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: name
-        value: '{{ name }}'
-      - name: webSettings
-        value: '{{ webSettings }}'
-      - name: wafSettings
-        value: '{{ wafSettings }}'
-      - name: testingOptions
-        value: '{{ testingOptions }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: androidSettings
-        value: '{{ androidSettings }}'
-      - name: expressSettings
-        value: '{{ expressSettings }}'
-      - name: iosSettings
-        value: '{{ iosSettings }}'
-      - name: createTime
-        value: '{{ createTime }}'
+- name: your_resource_model_name
+  props:
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: name
+      value: '{{ name }}'
+    - name: webSettings
+      value: '{{ webSettings }}'
+    - name: wafSettings
+      value: '{{ wafSettings }}'
+    - name: testingOptions
+      value: '{{ testingOptions }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: androidSettings
+      value: '{{ androidSettings }}'
+    - name: expressSettings
+      value: '{{ expressSettings }}'
+    - name: iosSettings
+      value: '{{ iosSettings }}'
+    - name: createTime
+      value: '{{ createTime }}'
 
 ```
 </TabItem>

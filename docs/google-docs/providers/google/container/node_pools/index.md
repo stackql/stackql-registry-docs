@@ -65,12 +65,12 @@ Creates, updates, deletes, gets or lists a <code>node_pools</code> resource.
 | <CopyableCode code="projects_locations_clusters_node_pools_delete" /> | `DELETE` | <CopyableCode code="clustersId, locationsId, nodePoolsId, projectsId" /> | Deletes a node pool from a cluster. |
 | <CopyableCode code="projects_zones_clusters_node_pools_delete" /> | `DELETE` | <CopyableCode code="clusterId, nodePoolId, projectId, zone" /> | Deletes a node pool from a cluster. |
 | <CopyableCode code="projects_zones_clusters_node_pools_update" /> | `UPDATE` | <CopyableCode code="clusterId, nodePoolId, projectId, zone" /> | Updates the version and/or image type for the specified node pool. |
+| <CopyableCode code="projects_locations_clusters_node_pools_update" /> | `REPLACE` | <CopyableCode code="clustersId, locationsId, nodePoolsId, projectsId" /> | Updates the version and/or image type for the specified node pool. |
 | <CopyableCode code="projects_locations_clusters_node_pools_complete_upgrade" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, nodePoolsId, projectsId" /> | CompleteNodePoolUpgrade will signal an on-going node pool upgrade to complete. |
 | <CopyableCode code="projects_locations_clusters_node_pools_rollback" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, nodePoolsId, projectsId" /> | Rolls back a previously Aborted or Failed NodePool upgrade. This makes no changes if the last upgrade successfully completed. |
 | <CopyableCode code="projects_locations_clusters_node_pools_set_autoscaling" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, nodePoolsId, projectsId" /> | Sets the autoscaling settings for the specified node pool. |
 | <CopyableCode code="projects_locations_clusters_node_pools_set_management" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, nodePoolsId, projectsId" /> | Sets the NodeManagement options for a node pool. |
 | <CopyableCode code="projects_locations_clusters_node_pools_set_size" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, nodePoolsId, projectsId" /> | Sets the size for a specific node pool. The new size will be used for all replicas, including future replicas created by modifying NodePool.locations. |
-| <CopyableCode code="projects_locations_clusters_node_pools_update" /> | `EXEC` | <CopyableCode code="clustersId, locationsId, nodePoolsId, projectsId" /> | Updates the version and/or image type for the specified node pool. |
 | <CopyableCode code="projects_zones_clusters_node_pools_autoscaling" /> | `EXEC` | <CopyableCode code="clusterId, nodePoolId, projectId, zone" /> | Sets the autoscaling settings for the specified node pool. |
 | <CopyableCode code="projects_zones_clusters_node_pools_rollback" /> | `EXEC` | <CopyableCode code="clusterId, nodePoolId, projectId, zone" /> | Rolls back a previously Aborted or Failed NodePool upgrade. This makes no changes if the last upgrade successfully completed. |
 | <CopyableCode code="projects_zones_clusters_node_pools_set_management" /> | `EXEC` | <CopyableCode code="clusterId, nodePoolId, projectId, zone" /> | Sets the NodeManagement options for a node pool. |
@@ -149,19 +149,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: projectId
-        value: '{{ projectId }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: clusterId
-        value: '{{ clusterId }}'
-      - name: nodePool
-        value: '{{ nodePool }}'
-      - name: parent
-        value: '{{ parent }}'
+- name: your_resource_model_name
+  props:
+    - name: projectId
+      value: '{{ projectId }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: clusterId
+      value: '{{ clusterId }}'
+    - name: nodePool
+      value: '{{ nodePool }}'
+    - name: parent
+      value: '{{ parent }}'
 
 ```
 </TabItem>
@@ -212,6 +211,53 @@ clusterId = '{{ clusterId }}'
 AND nodePoolId = '{{ nodePoolId }}'
 AND projectId = '{{ projectId }}'
 AND zone = '{{ zone }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>node_pools</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.container.node_pools
+SET 
+projectId = '{{ projectId }}',
+zone = '{{ zone }}',
+clusterId = '{{ clusterId }}',
+nodePoolId = '{{ nodePoolId }}',
+nodeVersion = '{{ nodeVersion }}',
+imageType = '{{ imageType }}',
+name = '{{ name }}',
+locations = '{{ locations }}',
+workloadMetadataConfig = '{{ workloadMetadataConfig }}',
+upgradeSettings = '{{ upgradeSettings }}',
+tags = '{{ tags }}',
+taints = '{{ taints }}',
+labels = '{{ labels }}',
+linuxNodeConfig = '{{ linuxNodeConfig }}',
+kubeletConfig = '{{ kubeletConfig }}',
+nodeNetworkConfig = '{{ nodeNetworkConfig }}',
+gcfsConfig = '{{ gcfsConfig }}',
+confidentialNodes = '{{ confidentialNodes }}',
+gvnic = '{{ gvnic }}',
+etag = '{{ etag }}',
+fastSocket = '{{ fastSocket }}',
+loggingConfig = '{{ loggingConfig }}',
+resourceLabels = '{{ resourceLabels }}',
+windowsNodeConfig = '{{ windowsNodeConfig }}',
+accelerators = '{{ accelerators }}',
+machineType = '{{ machineType }}',
+diskType = '{{ diskType }}',
+diskSizeGb = '{{ diskSizeGb }}',
+resourceManagerTags = '{{ resourceManagerTags }}',
+containerdConfig = '{{ containerdConfig }}',
+queuedProvisioning = '{{ queuedProvisioning }}',
+storagePools = '{{ storagePools }}'
+WHERE 
+clustersId = '{{ clustersId }}'
+AND locationsId = '{{ locationsId }}'
+AND nodePoolsId = '{{ nodePoolsId }}'
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

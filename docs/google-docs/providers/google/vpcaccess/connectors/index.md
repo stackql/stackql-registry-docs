@@ -124,31 +124,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: network
-        value: '{{ network }}'
-      - name: ipCidrRange
-        value: '{{ ipCidrRange }}'
-      - name: state
-        value: '{{ state }}'
-      - name: minThroughput
-        value: '{{ minThroughput }}'
-      - name: maxThroughput
-        value: '{{ maxThroughput }}'
-      - name: connectedProjects
-        value: '{{ connectedProjects }}'
-      - name: subnet
-        value: '{{ subnet }}'
-      - name: machineType
-        value: '{{ machineType }}'
-      - name: minInstances
-        value: '{{ minInstances }}'
-      - name: maxInstances
-        value: '{{ maxInstances }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: network
+      value: '{{ network }}'
+    - name: ipCidrRange
+      value: '{{ ipCidrRange }}'
+    - name: state
+      value: '{{ state }}'
+    - name: minThroughput
+      value: '{{ minThroughput }}'
+    - name: maxThroughput
+      value: '{{ maxThroughput }}'
+    - name: connectedProjects
+      value: '{{ connectedProjects }}'
+    - name: subnet
+      value: '{{ subnet }}'
+    - name: machineType
+      value: '{{ machineType }}'
+    - name: minInstances
+      value: '{{ minInstances }}'
+    - name: maxInstances
+      value: '{{ maxInstances }}'
 
 ```
 </TabItem>

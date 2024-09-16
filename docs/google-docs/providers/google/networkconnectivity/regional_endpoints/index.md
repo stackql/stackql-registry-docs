@@ -127,33 +127,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: description
-        value: '{{ description }}'
-      - name: targetGoogleApi
-        value: '{{ targetGoogleApi }}'
-      - name: network
-        value: '{{ network }}'
-      - name: subnetwork
-        value: '{{ subnetwork }}'
-      - name: accessType
-        value: '{{ accessType }}'
-      - name: pscForwardingRule
-        value: '{{ pscForwardingRule }}'
-      - name: ipAddress
-        value: '{{ ipAddress }}'
-      - name: address
-        value: '{{ address }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: description
+      value: '{{ description }}'
+    - name: targetGoogleApi
+      value: '{{ targetGoogleApi }}'
+    - name: network
+      value: '{{ network }}'
+    - name: subnetwork
+      value: '{{ subnetwork }}'
+    - name: accessType
+      value: '{{ accessType }}'
+    - name: pscForwardingRule
+      value: '{{ pscForwardingRule }}'
+    - name: ipAddress
+      value: '{{ ipAddress }}'
+    - name: address
+      value: '{{ address }}'
 
 ```
 </TabItem>

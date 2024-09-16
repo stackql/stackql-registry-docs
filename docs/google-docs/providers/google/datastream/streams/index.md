@@ -133,35 +133,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: sourceConfig
-        value: '{{ sourceConfig }}'
-      - name: destinationConfig
-        value: '{{ destinationConfig }}'
-      - name: state
-        value: '{{ state }}'
-      - name: backfillAll
-        value: '{{ backfillAll }}'
-      - name: backfillNone
-        value: '{{ backfillNone }}'
-      - name: errors
-        value: '{{ errors }}'
-      - name: customerManagedEncryptionKey
-        value: '{{ customerManagedEncryptionKey }}'
-      - name: lastRecoveryTime
-        value: '{{ lastRecoveryTime }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: sourceConfig
+      value: '{{ sourceConfig }}'
+    - name: destinationConfig
+      value: '{{ destinationConfig }}'
+    - name: state
+      value: '{{ state }}'
+    - name: backfillAll
+      value: '{{ backfillAll }}'
+    - name: backfillNone
+      value: '{{ backfillNone }}'
+    - name: errors
+      value: '{{ errors }}'
+    - name: customerManagedEncryptionKey
+      value: '{{ customerManagedEncryptionKey }}'
+    - name: lastRecoveryTime
+      value: '{{ lastRecoveryTime }}'
 
 ```
 </TabItem>

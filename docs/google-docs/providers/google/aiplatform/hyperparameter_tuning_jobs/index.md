@@ -152,45 +152,44 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: trialJobSpec
-        value: '{{ trialJobSpec }}'
-      - name: error
-        value: '{{ error }}'
-      - name: studySpec
-        value: '{{ studySpec }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: trials
-        value: '{{ trials }}'
-      - name: maxTrialCount
-        value: '{{ maxTrialCount }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: state
-        value: '{{ state }}'
-      - name: maxFailedTrialCount
-        value: '{{ maxFailedTrialCount }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: parallelTrialCount
-        value: '{{ parallelTrialCount }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: trialJobSpec
+      value: '{{ trialJobSpec }}'
+    - name: error
+      value: '{{ error }}'
+    - name: studySpec
+      value: '{{ studySpec }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: trials
+      value: '{{ trials }}'
+    - name: maxTrialCount
+      value: '{{ maxTrialCount }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: state
+      value: '{{ state }}'
+    - name: maxFailedTrialCount
+      value: '{{ maxFailedTrialCount }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: parallelTrialCount
+      value: '{{ parallelTrialCount }}'
 
 ```
 </TabItem>

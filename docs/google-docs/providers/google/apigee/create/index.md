@@ -85,27 +85,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: consumerKey
-        value: '{{ consumerKey }}'
-      - name: expiresInSeconds
-        value: '{{ expiresInSeconds }}'
-      - name: consumerSecret
-        value: '{{ consumerSecret }}'
-      - name: attributes
-        value: '{{ attributes }}'
-      - name: apiProducts
-        value: '{{ apiProducts }}'
-      - name: status
-        value: '{{ status }}'
-      - name: issuedAt
-        value: '{{ issuedAt }}'
-      - name: scopes
-        value: '{{ scopes }}'
-      - name: expiresAt
-        value: '{{ expiresAt }}'
+- name: your_resource_model_name
+  props:
+    - name: consumerKey
+      value: '{{ consumerKey }}'
+    - name: expiresInSeconds
+      value: '{{ expiresInSeconds }}'
+    - name: consumerSecret
+      value: '{{ consumerSecret }}'
+    - name: attributes
+      value: '{{ attributes }}'
+    - name: apiProducts
+      value: '{{ apiProducts }}'
+    - name: status
+      value: '{{ status }}'
+    - name: issuedAt
+      value: '{{ issuedAt }}'
+    - name: scopes
+      value: '{{ scopes }}'
+    - name: expiresAt
+      value: '{{ expiresAt }}'
 
 ```
 </TabItem>

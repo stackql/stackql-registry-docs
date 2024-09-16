@@ -58,7 +58,7 @@ Creates, updates, deletes, gets or lists a <code>rateplans</code> resource.
 | <CopyableCode code="organizations_apiproducts_rateplans_list" /> | `SELECT` | <CopyableCode code="apiproductsId, organizationsId" /> | Lists all the rate plans for an API product. |
 | <CopyableCode code="organizations_apiproducts_rateplans_create" /> | `INSERT` | <CopyableCode code="apiproductsId, organizationsId" /> | Create a rate plan that is associated with an API product in an organization. Using rate plans, API product owners can monetize their API products by configuring one or more of the following: - Billing frequency - Initial setup fees for using an API product - Payment funding model (postpaid only) - Fixed recurring or consumption-based charges for using an API product - Revenue sharing with developer partners An API product can have multiple rate plans associated with it but *only one* rate plan can be active at any point of time. **Note: From the developer's perspective, they purchase API products not rate plans. |
 | <CopyableCode code="organizations_apiproducts_rateplans_delete" /> | `DELETE` | <CopyableCode code="apiproductsId, organizationsId, rateplansId" /> | Deletes a rate plan. |
-| <CopyableCode code="organizations_apiproducts_rateplans_update" /> | `EXEC` | <CopyableCode code="apiproductsId, organizationsId, rateplansId" /> | Updates an existing rate plan. |
+| <CopyableCode code="organizations_apiproducts_rateplans_update" /> | `REPLACE` | <CopyableCode code="apiproductsId, organizationsId, rateplansId" /> | Updates an existing rate plan. |
 
 ## `SELECT` examples
 
@@ -156,51 +156,83 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: consumptionPricingRates
-        value: '{{ consumptionPricingRates }}'
-      - name: billingPeriod
-        value: '{{ billingPeriod }}'
-      - name: revenueShareRates
-        value: '{{ revenueShareRates }}'
-      - name: fixedRecurringFee
-        value: '{{ fixedRecurringFee }}'
-      - name: state
-        value: '{{ state }}'
-      - name: revenueShareType
-        value: '{{ revenueShareType }}'
-      - name: consumptionPricingType
-        value: '{{ consumptionPricingType }}'
-      - name: currencyCode
-        value: '{{ currencyCode }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: name
-        value: '{{ name }}'
-      - name: setupFee
-        value: '{{ setupFee }}'
-      - name: lastModifiedAt
-        value: '{{ lastModifiedAt }}'
-      - name: createdAt
-        value: '{{ createdAt }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: apiproduct
-        value: '{{ apiproduct }}'
-      - name: description
-        value: '{{ description }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: fixedFeeFrequency
-        value: '{{ fixedFeeFrequency }}'
-      - name: paymentFundingModel
-        value: '{{ paymentFundingModel }}'
+- name: your_resource_model_name
+  props:
+    - name: consumptionPricingRates
+      value: '{{ consumptionPricingRates }}'
+    - name: billingPeriod
+      value: '{{ billingPeriod }}'
+    - name: revenueShareRates
+      value: '{{ revenueShareRates }}'
+    - name: fixedRecurringFee
+      value: '{{ fixedRecurringFee }}'
+    - name: state
+      value: '{{ state }}'
+    - name: revenueShareType
+      value: '{{ revenueShareType }}'
+    - name: consumptionPricingType
+      value: '{{ consumptionPricingType }}'
+    - name: currencyCode
+      value: '{{ currencyCode }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: name
+      value: '{{ name }}'
+    - name: setupFee
+      value: '{{ setupFee }}'
+    - name: lastModifiedAt
+      value: '{{ lastModifiedAt }}'
+    - name: createdAt
+      value: '{{ createdAt }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: apiproduct
+      value: '{{ apiproduct }}'
+    - name: description
+      value: '{{ description }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: fixedFeeFrequency
+      value: '{{ fixedFeeFrequency }}'
+    - name: paymentFundingModel
+      value: '{{ paymentFundingModel }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>rateplans</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.rateplans
+SET 
+consumptionPricingRates = '{{ consumptionPricingRates }}',
+billingPeriod = '{{ billingPeriod }}',
+revenueShareRates = '{{ revenueShareRates }}',
+fixedRecurringFee = '{{ fixedRecurringFee }}',
+state = '{{ state }}',
+revenueShareType = '{{ revenueShareType }}',
+consumptionPricingType = '{{ consumptionPricingType }}',
+currencyCode = '{{ currencyCode }}',
+startTime = '{{ startTime }}',
+name = '{{ name }}',
+setupFee = '{{ setupFee }}',
+lastModifiedAt = '{{ lastModifiedAt }}',
+createdAt = '{{ createdAt }}',
+displayName = '{{ displayName }}',
+apiproduct = '{{ apiproduct }}',
+description = '{{ description }}',
+endTime = '{{ endTime }}',
+fixedFeeFrequency = '{{ fixedFeeFrequency }}',
+paymentFundingModel = '{{ paymentFundingModel }}'
+WHERE 
+apiproductsId = '{{ apiproductsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND rateplansId = '{{ rateplansId }}';
+```
 
 ## `DELETE` example
 

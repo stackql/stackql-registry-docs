@@ -112,25 +112,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: languagePair
-        value: '{{ languagePair }}'
-      - name: languageCodesSet
-        value: '{{ languageCodesSet }}'
-      - name: inputConfig
-        value: '{{ inputConfig }}'
-      - name: entryCount
-        value: '{{ entryCount }}'
-      - name: submitTime
-        value: '{{ submitTime }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: displayName
-        value: '{{ displayName }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: languagePair
+      value: '{{ languagePair }}'
+    - name: languageCodesSet
+      value: '{{ languageCodesSet }}'
+    - name: inputConfig
+      value: '{{ inputConfig }}'
+    - name: entryCount
+      value: '{{ entryCount }}'
+    - name: submitTime
+      value: '{{ submitTime }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: displayName
+      value: '{{ displayName }}'
 
 ```
 </TabItem>

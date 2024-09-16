@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>tag_values_iam_policies</code> 
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="tagValuesId" /> | Gets the access control policy for a TagValue. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. The caller must have the `cloudresourcemanager.googleapis.com/tagValues.getIamPolicy` permission on the identified TagValue to get the access control policy. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="tagValuesId" /> | Sets the access control policy on a TagValue, replacing any existing policy. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. The caller must have `resourcemanager.tagValues.setIamPolicy` permission on the identified tagValue. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="tagValuesId" /> | Sets the access control policy on a TagValue, replacing any existing policy. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. The caller must have `resourcemanager.tagValues.setIamPolicy` permission on the identified tagValue. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="tagValuesId" /> | Returns permissions that a caller has on the specified TagValue. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. There are no permissions required for making this API call. |
 
 ## `SELECT` examples
@@ -53,4 +53,18 @@ members,
 role
 FROM google.cloudresourcemanager.tag_values_iam_policies
 WHERE tagValuesId = '{{ tagValuesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>tag_values_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.cloudresourcemanager.tag_values_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+tagValuesId = '{{ tagValuesId }}';
 ```

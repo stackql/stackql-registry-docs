@@ -49,7 +49,7 @@ Creates, updates, deletes, gets or lists a <code>appgroups</code> resource.
 | <CopyableCode code="organizations_appgroups_list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists all AppGroups in an organization. A maximum of 1000 AppGroups are returned in the response if PageSize is not specified, or if the PageSize is greater than 1000. |
 | <CopyableCode code="organizations_appgroups_create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates an AppGroup. Once created, user can register apps under the AppGroup to obtain secret key and password. At creation time, the AppGroup's state is set as `active`. |
 | <CopyableCode code="organizations_appgroups_delete" /> | `DELETE` | <CopyableCode code="appgroupsId, organizationsId" /> | Deletes an AppGroup. All app and API keys associations with the AppGroup are also removed. **Warning**: This API will permanently delete the AppGroup and related artifacts. **Note**: The delete operation is asynchronous. The AppGroup app is deleted immediately, but its associated resources, such as apps and API keys, may take anywhere from a few seconds to a few minutes to be deleted. |
-| <CopyableCode code="organizations_appgroups_update" /> | `EXEC` | <CopyableCode code="appgroupsId, organizationsId" /> | Updates an AppGroup. This API replaces the existing AppGroup details with those specified in the request. Include or exclude any existing details that you want to retain or delete, respectively. Note that the state of the AppGroup should be updated using `action`, and not via AppGroup. |
+| <CopyableCode code="organizations_appgroups_update" /> | `REPLACE` | <CopyableCode code="appgroupsId, organizationsId" /> | Updates an AppGroup. This API replaces the existing AppGroup details with those specified in the request. Include or exclude any existing details that you want to retain or delete, respectively. Note that the state of the AppGroup should be updated using `action`, and not via AppGroup. |
 
 ## `SELECT` examples
 
@@ -117,33 +117,55 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: appGroupId
-        value: '{{ appGroupId }}'
-      - name: organization
-        value: '{{ organization }}'
-      - name: channelId
-        value: '{{ channelId }}'
-      - name: status
-        value: '{{ status }}'
-      - name: attributes
-        value: '{{ attributes }}'
-      - name: name
-        value: '{{ name }}'
-      - name: channelUri
-        value: '{{ channelUri }}'
-      - name: lastModifiedAt
-        value: '{{ lastModifiedAt }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: createdAt
-        value: '{{ createdAt }}'
+- name: your_resource_model_name
+  props:
+    - name: appGroupId
+      value: '{{ appGroupId }}'
+    - name: organization
+      value: '{{ organization }}'
+    - name: channelId
+      value: '{{ channelId }}'
+    - name: status
+      value: '{{ status }}'
+    - name: attributes
+      value: '{{ attributes }}'
+    - name: name
+      value: '{{ name }}'
+    - name: channelUri
+      value: '{{ channelUri }}'
+    - name: lastModifiedAt
+      value: '{{ lastModifiedAt }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: createdAt
+      value: '{{ createdAt }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>appgroups</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.appgroups
+SET 
+appGroupId = '{{ appGroupId }}',
+organization = '{{ organization }}',
+channelId = '{{ channelId }}',
+status = '{{ status }}',
+attributes = '{{ attributes }}',
+name = '{{ name }}',
+channelUri = '{{ channelUri }}',
+lastModifiedAt = '{{ lastModifiedAt }}',
+displayName = '{{ displayName }}',
+createdAt = '{{ createdAt }}'
+WHERE 
+appgroupsId = '{{ appgroupsId }}'
+AND organizationsId = '{{ organizationsId }}';
+```
 
 ## `DELETE` example
 

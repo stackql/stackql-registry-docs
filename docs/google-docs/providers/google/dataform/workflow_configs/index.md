@@ -115,25 +115,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: releaseConfig
-        value: '{{ releaseConfig }}'
-      - name: invocationConfig
-        value: '{{ invocationConfig }}'
-      - name: cronSchedule
-        value: '{{ cronSchedule }}'
-      - name: timeZone
-        value: '{{ timeZone }}'
-      - name: recentScheduledExecutionRecords
-        value: '{{ recentScheduledExecutionRecords }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: releaseConfig
+      value: '{{ releaseConfig }}'
+    - name: invocationConfig
+      value: '{{ invocationConfig }}'
+    - name: cronSchedule
+      value: '{{ cronSchedule }}'
+    - name: timeZone
+      value: '{{ timeZone }}'
+    - name: recentScheduledExecutionRecords
+      value: '{{ recentScheduledExecutionRecords }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
 
 ```
 </TabItem>

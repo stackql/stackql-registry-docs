@@ -97,19 +97,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: authorizationType
-        value: '{{ authorizationType }}'
-      - name: assetType
-        value: '{{ assetType }}'
-      - name: authorizationDirection
-        value: '{{ authorizationDirection }}'
-      - name: orgs
-        value: '{{ orgs }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: authorizationType
+      value: '{{ authorizationType }}'
+    - name: assetType
+      value: '{{ assetType }}'
+    - name: authorizationDirection
+      value: '{{ authorizationDirection }}'
+    - name: orgs
+      value: '{{ orgs }}'
 
 ```
 </TabItem>

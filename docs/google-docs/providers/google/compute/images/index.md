@@ -215,83 +215,82 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: sourceType
-        value: '{{ sourceType }}'
-      - name: rawDisk
-        value:
-          - name: source
-            value: '{{ source }}'
-          - name: sha1Checksum
-            value: '{{ sha1Checksum }}'
-          - name: containerType
-            value: '{{ containerType }}'
-      - name: deprecated
-        value: '{{ deprecated }}'
-      - name: status
-        value: '{{ status }}'
-      - name: archiveSizeBytes
-        value: '{{ archiveSizeBytes }}'
-      - name: diskSizeGb
-        value: '{{ diskSizeGb }}'
-      - name: sourceDisk
-        value: '{{ sourceDisk }}'
-      - name: sourceDiskId
-        value: '{{ sourceDiskId }}'
-      - name: licenses
-        value: '{{ licenses }}'
-      - name: family
-        value: '{{ family }}'
-      - name: imageEncryptionKey
-        value: '{{ imageEncryptionKey }}'
-      - name: sourceDiskEncryptionKey
-        value: '{{ sourceDiskEncryptionKey }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: labelFingerprint
-        value: '{{ labelFingerprint }}'
-      - name: guestOsFeatures
-        value: '{{ guestOsFeatures }}'
-      - name: licenseCodes
-        value: '{{ licenseCodes }}'
-      - name: sourceImage
-        value: '{{ sourceImage }}'
-      - name: sourceImageId
-        value: '{{ sourceImageId }}'
-      - name: sourceImageEncryptionKey
-        value: '{{ sourceImageEncryptionKey }}'
-      - name: sourceSnapshot
-        value: '{{ sourceSnapshot }}'
-      - name: sourceSnapshotId
-        value: '{{ sourceSnapshotId }}'
-      - name: sourceSnapshotEncryptionKey
-        value: '{{ sourceSnapshotEncryptionKey }}'
-      - name: storageLocations
-        value: '{{ storageLocations }}'
-      - name: shieldedInstanceInitialState
-        value: '{{ shieldedInstanceInitialState }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: architecture
-        value: '{{ architecture }}'
-      - name: enableConfidentialCompute
-        value: '{{ enableConfidentialCompute }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: sourceType
+      value: '{{ sourceType }}'
+    - name: rawDisk
+      value:
+        - name: source
+          value: '{{ source }}'
+        - name: sha1Checksum
+          value: '{{ sha1Checksum }}'
+        - name: containerType
+          value: '{{ containerType }}'
+    - name: deprecated
+      value: '{{ deprecated }}'
+    - name: status
+      value: '{{ status }}'
+    - name: archiveSizeBytes
+      value: '{{ archiveSizeBytes }}'
+    - name: diskSizeGb
+      value: '{{ diskSizeGb }}'
+    - name: sourceDisk
+      value: '{{ sourceDisk }}'
+    - name: sourceDiskId
+      value: '{{ sourceDiskId }}'
+    - name: licenses
+      value: '{{ licenses }}'
+    - name: family
+      value: '{{ family }}'
+    - name: imageEncryptionKey
+      value: '{{ imageEncryptionKey }}'
+    - name: sourceDiskEncryptionKey
+      value: '{{ sourceDiskEncryptionKey }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: labelFingerprint
+      value: '{{ labelFingerprint }}'
+    - name: guestOsFeatures
+      value: '{{ guestOsFeatures }}'
+    - name: licenseCodes
+      value: '{{ licenseCodes }}'
+    - name: sourceImage
+      value: '{{ sourceImage }}'
+    - name: sourceImageId
+      value: '{{ sourceImageId }}'
+    - name: sourceImageEncryptionKey
+      value: '{{ sourceImageEncryptionKey }}'
+    - name: sourceSnapshot
+      value: '{{ sourceSnapshot }}'
+    - name: sourceSnapshotId
+      value: '{{ sourceSnapshotId }}'
+    - name: sourceSnapshotEncryptionKey
+      value: '{{ sourceSnapshotEncryptionKey }}'
+    - name: storageLocations
+      value: '{{ storageLocations }}'
+    - name: shieldedInstanceInitialState
+      value: '{{ shieldedInstanceInitialState }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: architecture
+      value: '{{ architecture }}'
+    - name: enableConfidentialCompute
+      value: '{{ enableConfidentialCompute }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

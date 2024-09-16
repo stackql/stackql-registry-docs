@@ -135,35 +135,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: description
-        value: '{{ description }}'
-      - name: priority
-        value: '{{ priority }}'
-      - name: action
-        value: '{{ action }}'
-      - name: ipProtocol
-        value: '{{ ipProtocol }}'
-      - name: sourceIpRanges
-        value: '{{ sourceIpRanges }}'
-      - name: sourcePorts
-        value: '{{ sourcePorts }}'
-      - name: destinationIpRanges
-        value: '{{ destinationIpRanges }}'
-      - name: destinationPorts
-        value: '{{ destinationPorts }}'
-      - name: state
-        value: '{{ state }}'
-      - name: uid
-        value: '{{ uid }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: description
+      value: '{{ description }}'
+    - name: priority
+      value: '{{ priority }}'
+    - name: action
+      value: '{{ action }}'
+    - name: ipProtocol
+      value: '{{ ipProtocol }}'
+    - name: sourceIpRanges
+      value: '{{ sourceIpRanges }}'
+    - name: sourcePorts
+      value: '{{ sourcePorts }}'
+    - name: destinationIpRanges
+      value: '{{ destinationIpRanges }}'
+    - name: destinationPorts
+      value: '{{ destinationPorts }}'
+    - name: state
+      value: '{{ state }}'
+    - name: uid
+      value: '{{ uid }}'
 
 ```
 </TabItem>

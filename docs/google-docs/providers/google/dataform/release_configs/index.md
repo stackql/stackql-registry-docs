@@ -115,25 +115,24 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: gitCommitish
-        value: '{{ gitCommitish }}'
-      - name: codeCompilationConfig
-        value: '{{ codeCompilationConfig }}'
-      - name: cronSchedule
-        value: '{{ cronSchedule }}'
-      - name: timeZone
-        value: '{{ timeZone }}'
-      - name: recentScheduledReleaseRecords
-        value: '{{ recentScheduledReleaseRecords }}'
-      - name: releaseCompilationResult
-        value: '{{ releaseCompilationResult }}'
-      - name: disabled
-        value: '{{ disabled }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: gitCommitish
+      value: '{{ gitCommitish }}'
+    - name: codeCompilationConfig
+      value: '{{ codeCompilationConfig }}'
+    - name: cronSchedule
+      value: '{{ cronSchedule }}'
+    - name: timeZone
+      value: '{{ timeZone }}'
+    - name: recentScheduledReleaseRecords
+      value: '{{ recentScheduledReleaseRecords }}'
+    - name: releaseCompilationResult
+      value: '{{ releaseCompilationResult }}'
+    - name: disabled
+      value: '{{ disabled }}'
 
 ```
 </TabItem>

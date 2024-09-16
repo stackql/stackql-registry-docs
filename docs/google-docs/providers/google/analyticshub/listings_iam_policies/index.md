@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>listings_iam_policies</code> re
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_data_exchanges_listings_get_iam_policy" /> | `SELECT` | <CopyableCode code="dataExchangesId, listingsId, locationsId, projectsId" /> | Gets the IAM policy. |
-| <CopyableCode code="projects_locations_data_exchanges_listings_set_iam_policy" /> | `EXEC` | <CopyableCode code="dataExchangesId, listingsId, locationsId, projectsId" /> | Sets the IAM policy. |
+| <CopyableCode code="projects_locations_data_exchanges_listings_set_iam_policy" /> | `REPLACE` | <CopyableCode code="dataExchangesId, listingsId, locationsId, projectsId" /> | Sets the IAM policy. |
 | <CopyableCode code="projects_locations_data_exchanges_listings_test_iam_permissions" /> | `EXEC` | <CopyableCode code="dataExchangesId, listingsId, locationsId, projectsId" /> | Returns the permissions that a caller has. |
 
 ## `SELECT` examples
@@ -56,4 +56,21 @@ WHERE dataExchangesId = '{{ dataExchangesId }}'
 AND listingsId = '{{ listingsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>listings_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.analyticshub.listings_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+dataExchangesId = '{{ dataExchangesId }}'
+AND listingsId = '{{ listingsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

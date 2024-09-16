@@ -133,35 +133,34 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: githubConfig
-        value: '{{ githubConfig }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: bitbucketDataCenterConfig
-        value: '{{ bitbucketDataCenterConfig }}'
-      - name: gitlabConfig
-        value: '{{ gitlabConfig }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: name
-        value: '{{ name }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: githubEnterpriseConfig
-        value: '{{ githubEnterpriseConfig }}'
-      - name: bitbucketCloudConfig
-        value: '{{ bitbucketCloudConfig }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: installationState
-        value: '{{ installationState }}'
-      - name: disabled
-        value: '{{ disabled }}'
+- name: your_resource_model_name
+  props:
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: githubConfig
+      value: '{{ githubConfig }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: bitbucketDataCenterConfig
+      value: '{{ bitbucketDataCenterConfig }}'
+    - name: gitlabConfig
+      value: '{{ gitlabConfig }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: name
+      value: '{{ name }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: githubEnterpriseConfig
+      value: '{{ githubEnterpriseConfig }}'
+    - name: bitbucketCloudConfig
+      value: '{{ bitbucketCloudConfig }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: installationState
+      value: '{{ installationState }}'
+    - name: disabled
+      value: '{{ disabled }}'
 
 ```
 </TabItem>

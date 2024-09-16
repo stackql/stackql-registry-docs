@@ -112,25 +112,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: description
-        value: '{{ description }}'
-      - name: multiClusterRoutingUseAny
-        value: '{{ multiClusterRoutingUseAny }}'
-      - name: singleClusterRouting
-        value: '{{ singleClusterRouting }}'
-      - name: priority
-        value: '{{ priority }}'
-      - name: standardIsolation
-        value: '{{ standardIsolation }}'
-      - name: dataBoostIsolationReadOnly
-        value: '{{ dataBoostIsolationReadOnly }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: description
+      value: '{{ description }}'
+    - name: multiClusterRoutingUseAny
+      value: '{{ multiClusterRoutingUseAny }}'
+    - name: singleClusterRouting
+      value: '{{ singleClusterRouting }}'
+    - name: priority
+      value: '{{ priority }}'
+    - name: standardIsolation
+      value: '{{ standardIsolation }}'
+    - name: dataBoostIsolationReadOnly
+      value: '{{ dataBoostIsolationReadOnly }}'
 
 ```
 </TabItem>

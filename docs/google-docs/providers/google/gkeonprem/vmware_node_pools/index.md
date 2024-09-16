@@ -141,37 +141,36 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: state
-        value: '{{ state }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: nodePoolAutoscaling
-        value: '{{ nodePoolAutoscaling }}'
-      - name: config
-        value: '{{ config }}'
-      - name: status
-        value: '{{ status }}'
-      - name: onPremVersion
-        value: '{{ onPremVersion }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: state
+      value: '{{ state }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: nodePoolAutoscaling
+      value: '{{ nodePoolAutoscaling }}'
+    - name: config
+      value: '{{ config }}'
+    - name: status
+      value: '{{ status }}'
+    - name: onPremVersion
+      value: '{{ onPremVersion }}'
 
 ```
 </TabItem>

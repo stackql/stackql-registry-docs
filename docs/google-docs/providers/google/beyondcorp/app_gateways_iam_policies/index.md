@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>app_gateways_iam_policies</code
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_app_gateways_get_iam_policy" /> | `SELECT` | <CopyableCode code="appGatewaysId, locationsId, projectsId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
-| <CopyableCode code="projects_locations_app_gateways_set_iam_policy" /> | `EXEC` | <CopyableCode code="appGatewaysId, locationsId, projectsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
+| <CopyableCode code="projects_locations_app_gateways_set_iam_policy" /> | `REPLACE` | <CopyableCode code="appGatewaysId, locationsId, projectsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
 | <CopyableCode code="projects_locations_app_gateways_test_iam_permissions" /> | `EXEC` | <CopyableCode code="appGatewaysId, locationsId, projectsId" /> | Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
 
 ## `SELECT` examples
@@ -55,4 +55,20 @@ FROM google.beyondcorp.app_gateways_iam_policies
 WHERE appGatewaysId = '{{ appGatewaysId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>app_gateways_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.beyondcorp.app_gateways_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+appGatewaysId = '{{ appGatewaysId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

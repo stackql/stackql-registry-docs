@@ -128,31 +128,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: gitRemoteSettings
-        value: '{{ gitRemoteSettings }}'
-      - name: npmrcEnvironmentVariablesSecretVersion
-        value: '{{ npmrcEnvironmentVariablesSecretVersion }}'
-      - name: workspaceCompilationOverrides
-        value: '{{ workspaceCompilationOverrides }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: setAuthenticatedUserAdmin
-        value: '{{ setAuthenticatedUserAdmin }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: kmsKeyName
-        value: '{{ kmsKeyName }}'
-      - name: dataEncryptionState
-        value: '{{ dataEncryptionState }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: gitRemoteSettings
+      value: '{{ gitRemoteSettings }}'
+    - name: npmrcEnvironmentVariablesSecretVersion
+      value: '{{ npmrcEnvironmentVariablesSecretVersion }}'
+    - name: workspaceCompilationOverrides
+      value: '{{ workspaceCompilationOverrides }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: setAuthenticatedUserAdmin
+      value: '{{ setAuthenticatedUserAdmin }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: kmsKeyName
+      value: '{{ kmsKeyName }}'
+    - name: dataEncryptionState
+      value: '{{ dataEncryptionState }}'
 
 ```
 </TabItem>

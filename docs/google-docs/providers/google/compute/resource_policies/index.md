@@ -132,35 +132,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: region
-        value: '{{ region }}'
-      - name: description
-        value: '{{ description }}'
-      - name: name
-        value: '{{ name }}'
-      - name: snapshotSchedulePolicy
-        value: '{{ snapshotSchedulePolicy }}'
-      - name: groupPlacementPolicy
-        value: '{{ groupPlacementPolicy }}'
-      - name: instanceSchedulePolicy
-        value: '{{ instanceSchedulePolicy }}'
-      - name: diskConsistencyGroupPolicy
-        value: '{{ diskConsistencyGroupPolicy }}'
-      - name: status
-        value: '{{ status }}'
-      - name: resourceStatus
-        value: '{{ resourceStatus }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: region
+      value: '{{ region }}'
+    - name: description
+      value: '{{ description }}'
+    - name: name
+      value: '{{ name }}'
+    - name: snapshotSchedulePolicy
+      value: '{{ snapshotSchedulePolicy }}'
+    - name: groupPlacementPolicy
+      value: '{{ groupPlacementPolicy }}'
+    - name: instanceSchedulePolicy
+      value: '{{ instanceSchedulePolicy }}'
+    - name: diskConsistencyGroupPolicy
+      value: '{{ diskConsistencyGroupPolicy }}'
+    - name: status
+      value: '{{ status }}'
+    - name: resourceStatus
+      value: '{{ resourceStatus }}'
 
 ```
 </TabItem>

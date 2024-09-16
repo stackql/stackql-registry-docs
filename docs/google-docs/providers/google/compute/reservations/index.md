@@ -145,41 +145,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: description
-        value: '{{ description }}'
-      - name: name
-        value: '{{ name }}'
-      - name: specificReservation
-        value: '{{ specificReservation }}'
-      - name: aggregateReservation
-        value: '{{ aggregateReservation }}'
-      - name: commitment
-        value: '{{ commitment }}'
-      - name: specificReservationRequired
-        value: '{{ specificReservationRequired }}'
-      - name: status
-        value: '{{ status }}'
-      - name: shareSettings
-        value: '{{ shareSettings }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: resourcePolicies
-        value: '{{ resourcePolicies }}'
-      - name: resourceStatus
-        value: '{{ resourceStatus }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: description
+      value: '{{ description }}'
+    - name: name
+      value: '{{ name }}'
+    - name: specificReservation
+      value: '{{ specificReservation }}'
+    - name: aggregateReservation
+      value: '{{ aggregateReservation }}'
+    - name: commitment
+      value: '{{ commitment }}'
+    - name: specificReservationRequired
+      value: '{{ specificReservationRequired }}'
+    - name: status
+      value: '{{ status }}'
+    - name: shareSettings
+      value: '{{ shareSettings }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: resourcePolicies
+      value: '{{ resourcePolicies }}'
+    - name: resourceStatus
+      value: '{{ resourceStatus }}'
 
 ```
 </TabItem>

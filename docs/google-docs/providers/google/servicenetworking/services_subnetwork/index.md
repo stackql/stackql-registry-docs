@@ -107,49 +107,48 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: useCustomComputeIdempotencyWindow
-        value: '{{ useCustomComputeIdempotencyWindow }}'
-      - name: subnetworkUsers
-        value: '{{ subnetworkUsers }}'
-      - name: outsideAllocationPublicIpRange
-        value: '{{ outsideAllocationPublicIpRange }}'
-      - name: role
-        value: '{{ role }}'
-      - name: purpose
-        value: '{{ purpose }}'
-      - name: requestedAddress
-        value: '{{ requestedAddress }}'
-      - name: description
-        value: '{{ description }}'
-      - name: secondaryIpRangeSpecs
-        value: '{{ secondaryIpRangeSpecs }}'
-      - name: requestedRanges
-        value: '{{ requestedRanges }}'
-      - name: consumer
-        value: '{{ consumer }}'
-      - name: skipRequestedAddressValidation
-        value: '{{ skipRequestedAddressValidation }}'
-      - name: region
-        value: '{{ region }}'
-      - name: allowSubnetCidrRoutesOverlap
-        value: '{{ allowSubnetCidrRoutesOverlap }}'
-      - name: checkServiceNetworkingUsePermission
-        value: '{{ checkServiceNetworkingUsePermission }}'
-      - name: subnetwork
-        value: '{{ subnetwork }}'
-      - name: computeIdempotencyWindow
-        value: '{{ computeIdempotencyWindow }}'
-      - name: consumerNetwork
-        value: '{{ consumerNetwork }}'
-      - name: privateIpv6GoogleAccess
-        value: '{{ privateIpv6GoogleAccess }}'
-      - name: ipPrefixLength
-        value: '{{ ipPrefixLength }}'
-      - name: internalRange
-        value: '{{ internalRange }}'
+- name: your_resource_model_name
+  props:
+    - name: useCustomComputeIdempotencyWindow
+      value: '{{ useCustomComputeIdempotencyWindow }}'
+    - name: subnetworkUsers
+      value: '{{ subnetworkUsers }}'
+    - name: outsideAllocationPublicIpRange
+      value: '{{ outsideAllocationPublicIpRange }}'
+    - name: role
+      value: '{{ role }}'
+    - name: purpose
+      value: '{{ purpose }}'
+    - name: requestedAddress
+      value: '{{ requestedAddress }}'
+    - name: description
+      value: '{{ description }}'
+    - name: secondaryIpRangeSpecs
+      value: '{{ secondaryIpRangeSpecs }}'
+    - name: requestedRanges
+      value: '{{ requestedRanges }}'
+    - name: consumer
+      value: '{{ consumer }}'
+    - name: skipRequestedAddressValidation
+      value: '{{ skipRequestedAddressValidation }}'
+    - name: region
+      value: '{{ region }}'
+    - name: allowSubnetCidrRoutesOverlap
+      value: '{{ allowSubnetCidrRoutesOverlap }}'
+    - name: checkServiceNetworkingUsePermission
+      value: '{{ checkServiceNetworkingUsePermission }}'
+    - name: subnetwork
+      value: '{{ subnetwork }}'
+    - name: computeIdempotencyWindow
+      value: '{{ computeIdempotencyWindow }}'
+    - name: consumerNetwork
+      value: '{{ consumerNetwork }}'
+    - name: privateIpv6GoogleAccess
+      value: '{{ privateIpv6GoogleAccess }}'
+    - name: ipPrefixLength
+      value: '{{ ipPrefixLength }}'
+    - name: internalRange
+      value: '{{ internalRange }}'
 
 ```
 </TabItem>

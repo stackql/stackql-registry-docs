@@ -136,37 +136,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: state
-        value: '{{ state }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: mysql
-        value: '{{ mysql }}'
-      - name: postgresql
-        value: '{{ postgresql }}'
-      - name: sqlserver
-        value: '{{ sqlserver }}'
-      - name: oracle
-        value: '{{ oracle }}'
-      - name: cloudsql
-        value: '{{ cloudsql }}'
-      - name: alloydb
-        value: '{{ alloydb }}'
-      - name: error
-        value: '{{ error }}'
-      - name: provider
-        value: '{{ provider }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: state
+      value: '{{ state }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: mysql
+      value: '{{ mysql }}'
+    - name: postgresql
+      value: '{{ postgresql }}'
+    - name: sqlserver
+      value: '{{ sqlserver }}'
+    - name: oracle
+      value: '{{ oracle }}'
+    - name: cloudsql
+      value: '{{ cloudsql }}'
+    - name: alloydb
+      value: '{{ alloydb }}'
+    - name: error
+      value: '{{ error }}'
+    - name: provider
+      value: '{{ provider }}'
 
 ```
 </TabItem>

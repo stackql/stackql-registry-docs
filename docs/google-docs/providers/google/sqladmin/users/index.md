@@ -50,7 +50,7 @@ Creates, updates, deletes, gets or lists a <code>users</code> resource.
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instance, project" /> | Lists users in the specified Cloud SQL instance. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="instance, project" /> | Creates a new user in a Cloud SQL instance. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instance, project" /> | Deletes a user from a Cloud SQL instance. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instance, project" /> | Updates an existing user in a Cloud SQL instance. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="instance, project" /> | Updates an existing user in a Cloud SQL instance. |
 
 ## `SELECT` examples
 
@@ -124,35 +124,58 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: password
-        value: '{{ password }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: name
-        value: '{{ name }}'
-      - name: host
-        value: '{{ host }}'
-      - name: instance
-        value: '{{ instance }}'
-      - name: project
-        value: '{{ project }}'
-      - name: type
-        value: '{{ type }}'
-      - name: sqlserverUserDetails
-        value: '{{ sqlserverUserDetails }}'
-      - name: passwordPolicy
-        value: '{{ passwordPolicy }}'
-      - name: dualPasswordType
-        value: '{{ dualPasswordType }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: password
+      value: '{{ password }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: name
+      value: '{{ name }}'
+    - name: host
+      value: '{{ host }}'
+    - name: instance
+      value: '{{ instance }}'
+    - name: project
+      value: '{{ project }}'
+    - name: type
+      value: '{{ type }}'
+    - name: sqlserverUserDetails
+      value: '{{ sqlserverUserDetails }}'
+    - name: passwordPolicy
+      value: '{{ passwordPolicy }}'
+    - name: dualPasswordType
+      value: '{{ dualPasswordType }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>users</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.sqladmin.users
+SET 
+kind = '{{ kind }}',
+password = '{{ password }}',
+etag = '{{ etag }}',
+name = '{{ name }}',
+host = '{{ host }}',
+instance = '{{ instance }}',
+project = '{{ project }}',
+type = '{{ type }}',
+sqlserverUserDetails = '{{ sqlserverUserDetails }}',
+passwordPolicy = '{{ passwordPolicy }}',
+dualPasswordType = '{{ dualPasswordType }}'
+WHERE 
+instance = '{{ instance }}'
+AND project = '{{ project }}';
+```
 
 ## `DELETE` example
 

@@ -60,7 +60,7 @@ Creates, updates, deletes, gets or lists a <code>region_health_checks</code> res
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, region" /> | Creates a HealthCheck resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="healthCheck, project, region" /> | Deletes the specified HealthCheck resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="healthCheck, project, region" /> | Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="healthCheck, project, region" /> | Updates a HealthCheck resource in the specified project using the data included in the request. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="healthCheck, project, region" /> | Updates a HealthCheck resource in the specified project using the data included in the request. |
 
 ## `SELECT` examples
 
@@ -161,49 +161,48 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: checkIntervalSec
-        value: '{{ checkIntervalSec }}'
-      - name: timeoutSec
-        value: '{{ timeoutSec }}'
-      - name: unhealthyThreshold
-        value: '{{ unhealthyThreshold }}'
-      - name: healthyThreshold
-        value: '{{ healthyThreshold }}'
-      - name: type
-        value: '{{ type }}'
-      - name: tcpHealthCheck
-        value: '{{ tcpHealthCheck }}'
-      - name: sslHealthCheck
-        value: '{{ sslHealthCheck }}'
-      - name: httpHealthCheck
-        value: '{{ httpHealthCheck }}'
-      - name: httpsHealthCheck
-        value: '{{ httpsHealthCheck }}'
-      - name: http2HealthCheck
-        value: '{{ http2HealthCheck }}'
-      - name: grpcHealthCheck
-        value: '{{ grpcHealthCheck }}'
-      - name: sourceRegions
-        value: '{{ sourceRegions }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: region
-        value: '{{ region }}'
-      - name: logConfig
-        value: '{{ logConfig }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: checkIntervalSec
+      value: '{{ checkIntervalSec }}'
+    - name: timeoutSec
+      value: '{{ timeoutSec }}'
+    - name: unhealthyThreshold
+      value: '{{ unhealthyThreshold }}'
+    - name: healthyThreshold
+      value: '{{ healthyThreshold }}'
+    - name: type
+      value: '{{ type }}'
+    - name: tcpHealthCheck
+      value: '{{ tcpHealthCheck }}'
+    - name: sslHealthCheck
+      value: '{{ sslHealthCheck }}'
+    - name: httpHealthCheck
+      value: '{{ httpHealthCheck }}'
+    - name: httpsHealthCheck
+      value: '{{ httpsHealthCheck }}'
+    - name: http2HealthCheck
+      value: '{{ http2HealthCheck }}'
+    - name: grpcHealthCheck
+      value: '{{ grpcHealthCheck }}'
+    - name: sourceRegions
+      value: '{{ sourceRegions }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: region
+      value: '{{ region }}'
+    - name: logConfig
+      value: '{{ logConfig }}'
 
 ```
 </TabItem>
@@ -216,6 +215,40 @@ Updates a <code>region_health_checks</code> resource.
 ```sql
 /*+ update */
 UPDATE google.compute.region_health_checks
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+checkIntervalSec = '{{ checkIntervalSec }}',
+timeoutSec = '{{ timeoutSec }}',
+unhealthyThreshold = '{{ unhealthyThreshold }}',
+healthyThreshold = '{{ healthyThreshold }}',
+type = '{{ type }}',
+tcpHealthCheck = '{{ tcpHealthCheck }}',
+sslHealthCheck = '{{ sslHealthCheck }}',
+httpHealthCheck = '{{ httpHealthCheck }}',
+httpsHealthCheck = '{{ httpsHealthCheck }}',
+http2HealthCheck = '{{ http2HealthCheck }}',
+grpcHealthCheck = '{{ grpcHealthCheck }}',
+sourceRegions = '{{ sourceRegions }}',
+selfLink = '{{ selfLink }}',
+region = '{{ region }}',
+logConfig = '{{ logConfig }}'
+WHERE 
+healthCheck = '{{ healthCheck }}'
+AND project = '{{ project }}'
+AND region = '{{ region }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>region_health_checks</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.region_health_checks
 SET 
 kind = '{{ kind }}',
 id = '{{ id }}',

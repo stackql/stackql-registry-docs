@@ -128,33 +128,32 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: dedicatedServingEndpoint
-        value: '{{ dedicatedServingEndpoint }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: optimized
-        value: '{{ optimized }}'
-      - name: name
-        value: '{{ name }}'
-      - name: bigtable
-        value: '{{ bigtable }}'
-      - name: state
-        value: '{{ state }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: dedicatedServingEndpoint
+      value: '{{ dedicatedServingEndpoint }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: optimized
+      value: '{{ optimized }}'
+    - name: name
+      value: '{{ name }}'
+    - name: bigtable
+      value: '{{ bigtable }}'
+    - name: state
+      value: '{{ state }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

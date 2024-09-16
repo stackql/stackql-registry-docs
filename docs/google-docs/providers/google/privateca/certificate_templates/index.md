@@ -116,27 +116,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: maximumLifetime
-        value: '{{ maximumLifetime }}'
-      - name: predefinedValues
-        value: '{{ predefinedValues }}'
-      - name: identityConstraints
-        value: '{{ identityConstraints }}'
-      - name: passthroughExtensions
-        value: '{{ passthroughExtensions }}'
-      - name: description
-        value: '{{ description }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: maximumLifetime
+      value: '{{ maximumLifetime }}'
+    - name: predefinedValues
+      value: '{{ predefinedValues }}'
+    - name: identityConstraints
+      value: '{{ identityConstraints }}'
+    - name: passthroughExtensions
+      value: '{{ passthroughExtensions }}'
+    - name: description
+      value: '{{ description }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
 
 ```
 </TabItem>

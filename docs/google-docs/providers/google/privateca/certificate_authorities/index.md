@@ -128,47 +128,46 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: type
-        value: '{{ type }}'
-      - name: config
-        value: '{{ config }}'
-      - name: lifetime
-        value: '{{ lifetime }}'
-      - name: keySpec
-        value: '{{ keySpec }}'
-      - name: subordinateConfig
-        value: '{{ subordinateConfig }}'
-      - name: tier
-        value: '{{ tier }}'
-      - name: state
-        value: '{{ state }}'
-      - name: pemCaCertificates
-        value: '{{ pemCaCertificates }}'
-      - name: caCertificateDescriptions
-        value: '{{ caCertificateDescriptions }}'
-      - name: gcsBucket
-        value: '{{ gcsBucket }}'
-      - name: accessUrls
-        value: '{{ accessUrls }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: type
+      value: '{{ type }}'
+    - name: config
+      value: '{{ config }}'
+    - name: lifetime
+      value: '{{ lifetime }}'
+    - name: keySpec
+      value: '{{ keySpec }}'
+    - name: subordinateConfig
+      value: '{{ subordinateConfig }}'
+    - name: tier
+      value: '{{ tier }}'
+    - name: state
+      value: '{{ state }}'
+    - name: pemCaCertificates
+      value: '{{ pemCaCertificates }}'
+    - name: caCertificateDescriptions
+      value: '{{ caCertificateDescriptions }}'
+    - name: gcsBucket
+      value: '{{ gcsBucket }}'
+    - name: accessUrls
+      value: '{{ accessUrls }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

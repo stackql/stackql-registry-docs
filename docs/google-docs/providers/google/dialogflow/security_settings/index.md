@@ -124,31 +124,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: redactionStrategy
-        value: '{{ redactionStrategy }}'
-      - name: redactionScope
-        value: '{{ redactionScope }}'
-      - name: inspectTemplate
-        value: '{{ inspectTemplate }}'
-      - name: deidentifyTemplate
-        value: '{{ deidentifyTemplate }}'
-      - name: retentionWindowDays
-        value: '{{ retentionWindowDays }}'
-      - name: retentionStrategy
-        value: '{{ retentionStrategy }}'
-      - name: purgeDataTypes
-        value: '{{ purgeDataTypes }}'
-      - name: audioExportSettings
-        value: '{{ audioExportSettings }}'
-      - name: insightsExportSettings
-        value: '{{ insightsExportSettings }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: redactionStrategy
+      value: '{{ redactionStrategy }}'
+    - name: redactionScope
+      value: '{{ redactionScope }}'
+    - name: inspectTemplate
+      value: '{{ inspectTemplate }}'
+    - name: deidentifyTemplate
+      value: '{{ deidentifyTemplate }}'
+    - name: retentionWindowDays
+      value: '{{ retentionWindowDays }}'
+    - name: retentionStrategy
+      value: '{{ retentionStrategy }}'
+    - name: purgeDataTypes
+      value: '{{ purgeDataTypes }}'
+    - name: audioExportSettings
+      value: '{{ audioExportSettings }}'
+    - name: insightsExportSettings
+      value: '{{ insightsExportSettings }}'
 
 ```
 </TabItem>

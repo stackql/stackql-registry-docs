@@ -54,12 +54,12 @@ Creates, updates, deletes, gets or lists a <code>workflow_templates</code> resou
 | <CopyableCode code="projects_regions_workflow_templates_create" /> | `INSERT` | <CopyableCode code="projectsId, regionsId" /> | Creates new workflow template. |
 | <CopyableCode code="projects_locations_workflow_templates_delete" /> | `DELETE` | <CopyableCode code="locationsId, projectsId, workflowTemplatesId" /> | Deletes a workflow template. It does not cancel in-progress workflows. |
 | <CopyableCode code="projects_regions_workflow_templates_delete" /> | `DELETE` | <CopyableCode code="projectsId, regionsId, workflowTemplatesId" /> | Deletes a workflow template. It does not cancel in-progress workflows. |
+| <CopyableCode code="projects_locations_workflow_templates_update" /> | `REPLACE` | <CopyableCode code="locationsId, projectsId, workflowTemplatesId" /> | Updates (replaces) workflow template. The updated template must contain version that matches the current server version. |
+| <CopyableCode code="projects_regions_workflow_templates_update" /> | `REPLACE` | <CopyableCode code="projectsId, regionsId, workflowTemplatesId" /> | Updates (replaces) workflow template. The updated template must contain version that matches the current server version. |
 | <CopyableCode code="projects_locations_workflow_templates_instantiate" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, workflowTemplatesId" /> | Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. |
 | <CopyableCode code="projects_locations_workflow_templates_instantiate_inline" /> | `EXEC` | <CopyableCode code="locationsId, projectsId" /> | Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. |
-| <CopyableCode code="projects_locations_workflow_templates_update" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, workflowTemplatesId" /> | Updates (replaces) workflow template. The updated template must contain version that matches the current server version. |
 | <CopyableCode code="projects_regions_workflow_templates_instantiate" /> | `EXEC` | <CopyableCode code="projectsId, regionsId, workflowTemplatesId" /> | Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. |
 | <CopyableCode code="projects_regions_workflow_templates_instantiate_inline" /> | `EXEC` | <CopyableCode code="projectsId, regionsId" /> | Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. |
-| <CopyableCode code="projects_regions_workflow_templates_update" /> | `EXEC` | <CopyableCode code="projectsId, regionsId, workflowTemplatesId" /> | Updates (replaces) workflow template. The updated template must contain version that matches the current server version. |
 
 ## `SELECT` examples
 
@@ -133,35 +133,59 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: id
-        value: '{{ id }}'
-      - name: name
-        value: '{{ name }}'
-      - name: version
-        value: '{{ version }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: placement
-        value: '{{ placement }}'
-      - name: jobs
-        value: '{{ jobs }}'
-      - name: parameters
-        value: '{{ parameters }}'
-      - name: dagTimeout
-        value: '{{ dagTimeout }}'
-      - name: encryptionConfig
-        value: '{{ encryptionConfig }}'
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: '{{ id }}'
+    - name: name
+      value: '{{ name }}'
+    - name: version
+      value: '{{ version }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: placement
+      value: '{{ placement }}'
+    - name: jobs
+      value: '{{ jobs }}'
+    - name: parameters
+      value: '{{ parameters }}'
+    - name: dagTimeout
+      value: '{{ dagTimeout }}'
+    - name: encryptionConfig
+      value: '{{ encryptionConfig }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>workflow_templates</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dataproc.workflow_templates
+SET 
+id = '{{ id }}',
+name = '{{ name }}',
+version = '{{ version }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+labels = '{{ labels }}',
+placement = '{{ placement }}',
+jobs = '{{ jobs }}',
+parameters = '{{ parameters }}',
+dagTimeout = '{{ dagTimeout }}',
+encryptionConfig = '{{ encryptionConfig }}'
+WHERE 
+projectsId = '{{ projectsId }}'
+AND regionsId = '{{ regionsId }}'
+AND workflowTemplatesId = '{{ workflowTemplatesId }}';
+```
 
 ## `DELETE` example
 

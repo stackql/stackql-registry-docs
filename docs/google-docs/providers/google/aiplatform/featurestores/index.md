@@ -126,31 +126,30 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: onlineStorageTtlDays
-        value: '{{ onlineStorageTtlDays }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: name
-        value: '{{ name }}'
-      - name: state
-        value: '{{ state }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: onlineServingConfig
-        value: '{{ onlineServingConfig }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: onlineStorageTtlDays
+      value: '{{ onlineStorageTtlDays }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: name
+      value: '{{ name }}'
+    - name: state
+      value: '{{ state }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: onlineServingConfig
+      value: '{{ onlineServingConfig }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

@@ -44,7 +44,7 @@ Creates, updates, deletes, gets or lists a <code>groups</code> resource.
 | <CopyableCode code="projects_groups_list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists the existing groups. |
 | <CopyableCode code="projects_groups_create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new group. |
 | <CopyableCode code="projects_groups_delete" /> | `DELETE` | <CopyableCode code="groupsId, projectsId" /> | Deletes an existing group. |
-| <CopyableCode code="projects_groups_update" /> | `EXEC` | <CopyableCode code="groupsId, projectsId" /> | Updates an existing group. You can change any group attributes except name. |
+| <CopyableCode code="projects_groups_update" /> | `REPLACE` | <CopyableCode code="groupsId, projectsId" /> | Updates an existing group. You can change any group attributes except name. |
 
 ## `SELECT` examples
 
@@ -97,23 +97,40 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: parentName
-        value: '{{ parentName }}'
-      - name: filter
-        value: '{{ filter }}'
-      - name: isCluster
-        value: '{{ isCluster }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: parentName
+      value: '{{ parentName }}'
+    - name: filter
+      value: '{{ filter }}'
+    - name: isCluster
+      value: '{{ isCluster }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>groups</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.monitoring.groups
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+parentName = '{{ parentName }}',
+filter = '{{ filter }}',
+isCluster = true|false
+WHERE 
+groupsId = '{{ groupsId }}'
+AND projectsId = '{{ projectsId }}';
+```
 
 ## `DELETE` example
 

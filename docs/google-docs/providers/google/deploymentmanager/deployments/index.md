@@ -52,9 +52,9 @@ Creates, updates, deletes, gets or lists a <code>deployments</code> resource.
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a deployment and all of the resources described by the deployment manifest. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="deployment, project" /> | Deletes a deployment and all of the resources in the deployment. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="deployment, project" /> | Patches a deployment and all of the resources described by the deployment manifest. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="deployment, project" /> | Updates a deployment and all of the resources described by the deployment manifest. |
 | <CopyableCode code="cancel_preview" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Cancels and removes the preview currently associated with the deployment. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Stops an ongoing operation. This does not roll back any work that has already been completed, but prevents any new work from being started. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="deployment, project" /> | Updates a deployment and all of the resources described by the deployment manifest. |
 
 ## `SELECT` examples
 
@@ -128,33 +128,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: id
-        value: '{{ id }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: operation
-        value: '{{ operation }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: manifest
-        value: '{{ manifest }}'
-      - name: update
-        value: '{{ update }}'
-      - name: insertTime
-        value: '{{ insertTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: target
-        value: '{{ target }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: '{{ id }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: operation
+      value: '{{ operation }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: manifest
+      value: '{{ manifest }}'
+    - name: update
+      value: '{{ update }}'
+    - name: insertTime
+      value: '{{ insertTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: target
+      value: '{{ target }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
 
 ```
 </TabItem>
@@ -167,6 +166,31 @@ Updates a <code>deployments</code> resource.
 ```sql
 /*+ update */
 UPDATE google.deploymentmanager.deployments
+SET 
+id = '{{ id }}',
+name = '{{ name }}',
+description = '{{ description }}',
+operation = '{{ operation }}',
+fingerprint = '{{ fingerprint }}',
+manifest = '{{ manifest }}',
+update = '{{ update }}',
+insertTime = '{{ insertTime }}',
+updateTime = '{{ updateTime }}',
+target = '{{ target }}',
+labels = '{{ labels }}',
+selfLink = '{{ selfLink }}'
+WHERE 
+deployment = '{{ deployment }}'
+AND project = '{{ project }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>deployments</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.deploymentmanager.deployments
 SET 
 id = '{{ id }}',
 name = '{{ name }}',

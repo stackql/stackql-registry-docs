@@ -143,31 +143,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: preloadedConfig
-        value: '{{ preloadedConfig }}'
-      - name: serialNumber
-        value: '{{ serialNumber }}'
-      - name: activeConfig
-        value: '{{ activeConfig }}'
-      - name: grants
-        value: '{{ grants }}'
-      - name: grantRangeAllowlists
-        value: '{{ grantRangeAllowlists }}'
-      - name: deviceMetadata
-        value: '{{ deviceMetadata }}'
-      - name: currentChannels
-        value: '{{ currentChannels }}'
-      - name: fccId
-        value: '{{ fccId }}'
-      - name: state
-        value: '{{ state }}'
-      - name: name
-        value: '{{ name }}'
+- name: your_resource_model_name
+  props:
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: preloadedConfig
+      value: '{{ preloadedConfig }}'
+    - name: serialNumber
+      value: '{{ serialNumber }}'
+    - name: activeConfig
+      value: '{{ activeConfig }}'
+    - name: grants
+      value: '{{ grants }}'
+    - name: grantRangeAllowlists
+      value: '{{ grantRangeAllowlists }}'
+    - name: deviceMetadata
+      value: '{{ deviceMetadata }}'
+    - name: currentChannels
+      value: '{{ currentChannels }}'
+    - name: fccId
+      value: '{{ fccId }}'
+    - name: state
+      value: '{{ state }}'
+    - name: name
+      value: '{{ name }}'
 
 ```
 </TabItem>

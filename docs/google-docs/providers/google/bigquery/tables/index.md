@@ -91,7 +91,7 @@ Creates, updates, deletes, gets or lists a <code>tables</code> resource.
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="+datasetId, projectId" /> | Creates a new, empty table in the dataset. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="+datasetId, +tableId, projectId" /> | Deletes the table specified by tableId from the dataset. If the table contains data, all the data will be deleted. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="+datasetId, +tableId, projectId" /> | Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource. This method supports RFC5789 patch semantics. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="+datasetId, +tableId, projectId" /> | Updates information in an existing table. The update method replaces the entire Table resource, whereas the patch method only replaces fields that are provided in the submitted Table resource. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="+datasetId, +tableId, projectId" /> | Updates information in an existing table. The update method replaces the entire Table resource, whereas the patch method only replaces fields that are provided in the submitted Table resource. |
 
 ## `SELECT` examples
 
@@ -285,111 +285,110 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: biglakeConfiguration
-        value: '{{ biglakeConfiguration }}'
-      - name: cloneDefinition
-        value: '{{ cloneDefinition }}'
-      - name: clustering
-        value: '{{ clustering }}'
-      - name: creationTime
-        value: '{{ creationTime }}'
-      - name: defaultCollation
-        value: '{{ defaultCollation }}'
-      - name: defaultRoundingMode
-        value: '{{ defaultRoundingMode }}'
-      - name: description
-        value: '{{ description }}'
-      - name: encryptionConfiguration
-        value: '{{ encryptionConfiguration }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: expirationTime
-        value: '{{ expirationTime }}'
-      - name: externalCatalogTableOptions
-        value: '{{ externalCatalogTableOptions }}'
-      - name: externalDataConfiguration
-        value: '{{ externalDataConfiguration }}'
-      - name: friendlyName
-        value: '{{ friendlyName }}'
-      - name: id
-        value: '{{ id }}'
-      - name: kind
-        value: '{{ kind }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: lastModifiedTime
-        value: '{{ lastModifiedTime }}'
-      - name: location
-        value: '{{ location }}'
-      - name: materializedView
-        value: '{{ materializedView }}'
-      - name: materializedViewStatus
-        value: '{{ materializedViewStatus }}'
-      - name: maxStaleness
-        value: '{{ maxStaleness }}'
-      - name: model
-        value: '{{ model }}'
-      - name: numActiveLogicalBytes
-        value: '{{ numActiveLogicalBytes }}'
-      - name: numActivePhysicalBytes
-        value: '{{ numActivePhysicalBytes }}'
-      - name: numBytes
-        value: '{{ numBytes }}'
-      - name: numCurrentPhysicalBytes
-        value: '{{ numCurrentPhysicalBytes }}'
-      - name: numLongTermBytes
-        value: '{{ numLongTermBytes }}'
-      - name: numLongTermLogicalBytes
-        value: '{{ numLongTermLogicalBytes }}'
-      - name: numLongTermPhysicalBytes
-        value: '{{ numLongTermPhysicalBytes }}'
-      - name: numPartitions
-        value: '{{ numPartitions }}'
-      - name: numPhysicalBytes
-        value: '{{ numPhysicalBytes }}'
-      - name: numRows
-        value: '{{ numRows }}'
-      - name: numTimeTravelPhysicalBytes
-        value: '{{ numTimeTravelPhysicalBytes }}'
-      - name: numTotalLogicalBytes
-        value: '{{ numTotalLogicalBytes }}'
-      - name: numTotalPhysicalBytes
-        value: '{{ numTotalPhysicalBytes }}'
-      - name: partitionDefinition
-        value: '{{ partitionDefinition }}'
-      - name: rangePartitioning
-        value: '{{ rangePartitioning }}'
-      - name: replicas
-        value: '{{ replicas }}'
-      - name: requirePartitionFilter
-        value: '{{ requirePartitionFilter }}'
-      - name: resourceTags
-        value: '{{ resourceTags }}'
-      - name: restrictions
-        value: '{{ restrictions }}'
-      - name: schema
-        value: '{{ schema }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: snapshotDefinition
-        value: '{{ snapshotDefinition }}'
-      - name: streamingBuffer
-        value: '{{ streamingBuffer }}'
-      - name: tableConstraints
-        value: '{{ tableConstraints }}'
-      - name: tableReference
-        value: '{{ tableReference }}'
-      - name: tableReplicationInfo
-        value: '{{ tableReplicationInfo }}'
-      - name: timePartitioning
-        value: '{{ timePartitioning }}'
-      - name: type
-        value: '{{ type }}'
-      - name: view
-        value: '{{ view }}'
+- name: your_resource_model_name
+  props:
+    - name: biglakeConfiguration
+      value: '{{ biglakeConfiguration }}'
+    - name: cloneDefinition
+      value: '{{ cloneDefinition }}'
+    - name: clustering
+      value: '{{ clustering }}'
+    - name: creationTime
+      value: '{{ creationTime }}'
+    - name: defaultCollation
+      value: '{{ defaultCollation }}'
+    - name: defaultRoundingMode
+      value: '{{ defaultRoundingMode }}'
+    - name: description
+      value: '{{ description }}'
+    - name: encryptionConfiguration
+      value: '{{ encryptionConfiguration }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: expirationTime
+      value: '{{ expirationTime }}'
+    - name: externalCatalogTableOptions
+      value: '{{ externalCatalogTableOptions }}'
+    - name: externalDataConfiguration
+      value: '{{ externalDataConfiguration }}'
+    - name: friendlyName
+      value: '{{ friendlyName }}'
+    - name: id
+      value: '{{ id }}'
+    - name: kind
+      value: '{{ kind }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: lastModifiedTime
+      value: '{{ lastModifiedTime }}'
+    - name: location
+      value: '{{ location }}'
+    - name: materializedView
+      value: '{{ materializedView }}'
+    - name: materializedViewStatus
+      value: '{{ materializedViewStatus }}'
+    - name: maxStaleness
+      value: '{{ maxStaleness }}'
+    - name: model
+      value: '{{ model }}'
+    - name: numActiveLogicalBytes
+      value: '{{ numActiveLogicalBytes }}'
+    - name: numActivePhysicalBytes
+      value: '{{ numActivePhysicalBytes }}'
+    - name: numBytes
+      value: '{{ numBytes }}'
+    - name: numCurrentPhysicalBytes
+      value: '{{ numCurrentPhysicalBytes }}'
+    - name: numLongTermBytes
+      value: '{{ numLongTermBytes }}'
+    - name: numLongTermLogicalBytes
+      value: '{{ numLongTermLogicalBytes }}'
+    - name: numLongTermPhysicalBytes
+      value: '{{ numLongTermPhysicalBytes }}'
+    - name: numPartitions
+      value: '{{ numPartitions }}'
+    - name: numPhysicalBytes
+      value: '{{ numPhysicalBytes }}'
+    - name: numRows
+      value: '{{ numRows }}'
+    - name: numTimeTravelPhysicalBytes
+      value: '{{ numTimeTravelPhysicalBytes }}'
+    - name: numTotalLogicalBytes
+      value: '{{ numTotalLogicalBytes }}'
+    - name: numTotalPhysicalBytes
+      value: '{{ numTotalPhysicalBytes }}'
+    - name: partitionDefinition
+      value: '{{ partitionDefinition }}'
+    - name: rangePartitioning
+      value: '{{ rangePartitioning }}'
+    - name: replicas
+      value: '{{ replicas }}'
+    - name: requirePartitionFilter
+      value: '{{ requirePartitionFilter }}'
+    - name: resourceTags
+      value: '{{ resourceTags }}'
+    - name: restrictions
+      value: '{{ restrictions }}'
+    - name: schema
+      value: '{{ schema }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: snapshotDefinition
+      value: '{{ snapshotDefinition }}'
+    - name: streamingBuffer
+      value: '{{ streamingBuffer }}'
+    - name: tableConstraints
+      value: '{{ tableConstraints }}'
+    - name: tableReference
+      value: '{{ tableReference }}'
+    - name: tableReplicationInfo
+      value: '{{ tableReplicationInfo }}'
+    - name: timePartitioning
+      value: '{{ timePartitioning }}'
+    - name: type
+      value: '{{ type }}'
+    - name: view
+      value: '{{ view }}'
 
 ```
 </TabItem>
@@ -402,6 +401,71 @@ Updates a <code>tables</code> resource.
 ```sql
 /*+ update */
 UPDATE google.bigquery.tables
+SET 
+biglakeConfiguration = '{{ biglakeConfiguration }}',
+cloneDefinition = '{{ cloneDefinition }}',
+clustering = '{{ clustering }}',
+creationTime = '{{ creationTime }}',
+defaultCollation = '{{ defaultCollation }}',
+defaultRoundingMode = '{{ defaultRoundingMode }}',
+description = '{{ description }}',
+encryptionConfiguration = '{{ encryptionConfiguration }}',
+etag = '{{ etag }}',
+expirationTime = '{{ expirationTime }}',
+externalCatalogTableOptions = '{{ externalCatalogTableOptions }}',
+externalDataConfiguration = '{{ externalDataConfiguration }}',
+friendlyName = '{{ friendlyName }}',
+id = '{{ id }}',
+kind = '{{ kind }}',
+labels = '{{ labels }}',
+lastModifiedTime = '{{ lastModifiedTime }}',
+location = '{{ location }}',
+materializedView = '{{ materializedView }}',
+materializedViewStatus = '{{ materializedViewStatus }}',
+maxStaleness = '{{ maxStaleness }}',
+model = '{{ model }}',
+numActiveLogicalBytes = '{{ numActiveLogicalBytes }}',
+numActivePhysicalBytes = '{{ numActivePhysicalBytes }}',
+numBytes = '{{ numBytes }}',
+numCurrentPhysicalBytes = '{{ numCurrentPhysicalBytes }}',
+numLongTermBytes = '{{ numLongTermBytes }}',
+numLongTermLogicalBytes = '{{ numLongTermLogicalBytes }}',
+numLongTermPhysicalBytes = '{{ numLongTermPhysicalBytes }}',
+numPartitions = '{{ numPartitions }}',
+numPhysicalBytes = '{{ numPhysicalBytes }}',
+numRows = '{{ numRows }}',
+numTimeTravelPhysicalBytes = '{{ numTimeTravelPhysicalBytes }}',
+numTotalLogicalBytes = '{{ numTotalLogicalBytes }}',
+numTotalPhysicalBytes = '{{ numTotalPhysicalBytes }}',
+partitionDefinition = '{{ partitionDefinition }}',
+rangePartitioning = '{{ rangePartitioning }}',
+replicas = '{{ replicas }}',
+requirePartitionFilter = true|false,
+resourceTags = '{{ resourceTags }}',
+restrictions = '{{ restrictions }}',
+schema = '{{ schema }}',
+selfLink = '{{ selfLink }}',
+snapshotDefinition = '{{ snapshotDefinition }}',
+streamingBuffer = '{{ streamingBuffer }}',
+tableConstraints = '{{ tableConstraints }}',
+tableReference = '{{ tableReference }}',
+tableReplicationInfo = '{{ tableReplicationInfo }}',
+timePartitioning = '{{ timePartitioning }}',
+type = '{{ type }}',
+view = '{{ view }}'
+WHERE 
++datasetId = '{{ +datasetId }}'
+AND +tableId = '{{ +tableId }}'
+AND projectId = '{{ projectId }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>tables</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.bigquery.tables
 SET 
 biglakeConfiguration = '{{ biglakeConfiguration }}',
 cloneDefinition = '{{ cloneDefinition }}',

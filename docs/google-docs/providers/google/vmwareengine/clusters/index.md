@@ -119,27 +119,26 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: management
-        value: '{{ management }}'
-      - name: autoscalingSettings
-        value: '{{ autoscalingSettings }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: nodeTypeConfigs
-        value: '{{ nodeTypeConfigs }}'
-      - name: stretchedClusterConfig
-        value: '{{ stretchedClusterConfig }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: management
+      value: '{{ management }}'
+    - name: autoscalingSettings
+      value: '{{ autoscalingSettings }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: nodeTypeConfigs
+      value: '{{ nodeTypeConfigs }}'
+    - name: stretchedClusterConfig
+      value: '{{ stretchedClusterConfig }}'
 
 ```
 </TabItem>

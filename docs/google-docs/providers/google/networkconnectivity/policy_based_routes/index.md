@@ -136,39 +136,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: virtualMachine
-        value: '{{ virtualMachine }}'
-      - name: interconnectAttachment
-        value: '{{ interconnectAttachment }}'
-      - name: nextHopIlbIp
-        value: '{{ nextHopIlbIp }}'
-      - name: nextHopOtherRoutes
-        value: '{{ nextHopOtherRoutes }}'
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: description
-        value: '{{ description }}'
-      - name: network
-        value: '{{ network }}'
-      - name: filter
-        value: '{{ filter }}'
-      - name: priority
-        value: '{{ priority }}'
-      - name: warnings
-        value: '{{ warnings }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: kind
-        value: '{{ kind }}'
+- name: your_resource_model_name
+  props:
+    - name: virtualMachine
+      value: '{{ virtualMachine }}'
+    - name: interconnectAttachment
+      value: '{{ interconnectAttachment }}'
+    - name: nextHopIlbIp
+      value: '{{ nextHopIlbIp }}'
+    - name: nextHopOtherRoutes
+      value: '{{ nextHopOtherRoutes }}'
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: description
+      value: '{{ description }}'
+    - name: network
+      value: '{{ network }}'
+    - name: filter
+      value: '{{ filter }}'
+    - name: priority
+      value: '{{ priority }}'
+    - name: warnings
+      value: '{{ warnings }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: kind
+      value: '{{ kind }}'
 
 ```
 </TabItem>

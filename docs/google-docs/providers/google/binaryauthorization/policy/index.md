@@ -47,7 +47,7 @@ Creates, updates, deletes, gets or lists a <code>policy</code> resource.
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_policy" /> | `SELECT` | <CopyableCode code="projectsId" /> | A policy specifies the attestors that must attest to a container image, before the project is allowed to deploy that image. There is at most one policy per project. All image admission requests are permitted if a project has no policy. Gets the policy for this project. Returns a default policy if the project does not have one. |
-| <CopyableCode code="update_policy" /> | `EXEC` | <CopyableCode code="projectsId" /> | Creates or updates a project's policy, and returns a copy of the new policy. A policy is always updated as a whole, to avoid race conditions with concurrent policy enforcement (or management!) requests. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed. |
+| <CopyableCode code="update_policy" /> | `REPLACE` | <CopyableCode code="projectsId" /> | Creates or updates a project's policy, and returns a copy of the new policy. A policy is always updated as a whole, to avoid race conditions with concurrent policy enforcement (or management!) requests. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed. |
 
 ## `SELECT` examples
 
@@ -68,4 +68,27 @@ kubernetesServiceAccountAdmissionRules,
 updateTime
 FROM google.binaryauthorization.policy
 WHERE projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>policy</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.binaryauthorization.policy
+SET 
+name = '{{ name }}',
+description = '{{ description }}',
+globalPolicyEvaluationMode = '{{ globalPolicyEvaluationMode }}',
+admissionWhitelistPatterns = '{{ admissionWhitelistPatterns }}',
+clusterAdmissionRules = '{{ clusterAdmissionRules }}',
+kubernetesNamespaceAdmissionRules = '{{ kubernetesNamespaceAdmissionRules }}',
+kubernetesServiceAccountAdmissionRules = '{{ kubernetesServiceAccountAdmissionRules }}',
+istioServiceIdentityAdmissionRules = '{{ istioServiceIdentityAdmissionRules }}',
+defaultAdmissionRule = '{{ defaultAdmissionRule }}',
+updateTime = '{{ updateTime }}',
+etag = '{{ etag }}'
+WHERE 
+projectsId = '{{ projectsId }}';
 ```

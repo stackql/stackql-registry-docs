@@ -124,27 +124,26 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: description
-        value: '{{ description }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: lastReplayId
-        value: '{{ lastReplayId }}'
-      - name: channelTopic
-        value: '{{ channelTopic }}'
-      - name: isActive
-        value: '{{ isActive }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: description
+      value: '{{ description }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: lastReplayId
+      value: '{{ lastReplayId }}'
+    - name: channelTopic
+      value: '{{ channelTopic }}'
+    - name: isActive
+      value: '{{ isActive }}'
 
 ```
 </TabItem>

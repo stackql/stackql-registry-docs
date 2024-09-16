@@ -136,37 +136,36 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: network
-        value: '{{ network }}'
-      - name: endpointForwardingRule
-        value: '{{ endpointForwardingRule }}'
-      - name: endpointIp
-        value: '{{ endpointIp }}'
-      - name: description
-        value: '{{ description }}'
-      - name: severity
-        value: '{{ severity }}'
-      - name: threatExceptions
-        value: '{{ threatExceptions }}'
-      - name: state
-        value: '{{ state }}'
-      - name: trafficLogs
-        value: '{{ trafficLogs }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: network
+      value: '{{ network }}'
+    - name: endpointForwardingRule
+      value: '{{ endpointForwardingRule }}'
+    - name: endpointIp
+      value: '{{ endpointIp }}'
+    - name: description
+      value: '{{ description }}'
+    - name: severity
+      value: '{{ severity }}'
+    - name: threatExceptions
+      value: '{{ threatExceptions }}'
+    - name: state
+      value: '{{ state }}'
+    - name: trafficLogs
+      value: '{{ trafficLogs }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

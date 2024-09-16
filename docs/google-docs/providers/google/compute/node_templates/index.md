@@ -143,41 +143,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: nodeType
-        value: '{{ nodeType }}'
-      - name: nodeAffinityLabels
-        value: '{{ nodeAffinityLabels }}'
-      - name: status
-        value: '{{ status }}'
-      - name: statusMessage
-        value: '{{ statusMessage }}'
-      - name: region
-        value: '{{ region }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: nodeTypeFlexibility
-        value: '{{ nodeTypeFlexibility }}'
-      - name: serverBinding
-        value: '{{ serverBinding }}'
-      - name: disks
-        value: '{{ disks }}'
-      - name: accelerators
-        value: '{{ accelerators }}'
-      - name: cpuOvercommitType
-        value: '{{ cpuOvercommitType }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: nodeType
+      value: '{{ nodeType }}'
+    - name: nodeAffinityLabels
+      value: '{{ nodeAffinityLabels }}'
+    - name: status
+      value: '{{ status }}'
+    - name: statusMessage
+      value: '{{ statusMessage }}'
+    - name: region
+      value: '{{ region }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: nodeTypeFlexibility
+      value: '{{ nodeTypeFlexibility }}'
+    - name: serverBinding
+      value: '{{ serverBinding }}'
+    - name: disks
+      value: '{{ disks }}'
+    - name: accelerators
+      value: '{{ accelerators }}'
+    - name: cpuOvercommitType
+      value: '{{ cpuOvercommitType }}'
 
 ```
 </TabItem>

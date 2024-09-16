@@ -126,31 +126,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: pipelineSources
-        value: '{{ pipelineSources }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: lastUpdateTime
-        value: '{{ lastUpdateTime }}'
-      - name: jobCount
-        value: '{{ jobCount }}'
-      - name: workload
-        value: '{{ workload }}'
-      - name: type
-        value: '{{ type }}'
-      - name: scheduleInfo
-        value: '{{ scheduleInfo }}'
-      - name: schedulerServiceAccountEmail
-        value: '{{ schedulerServiceAccountEmail }}'
-      - name: state
-        value: '{{ state }}'
-      - name: name
-        value: '{{ name }}'
+- name: your_resource_model_name
+  props:
+    - name: pipelineSources
+      value: '{{ pipelineSources }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: lastUpdateTime
+      value: '{{ lastUpdateTime }}'
+    - name: jobCount
+      value: '{{ jobCount }}'
+    - name: workload
+      value: '{{ workload }}'
+    - name: type
+      value: '{{ type }}'
+    - name: scheduleInfo
+      value: '{{ scheduleInfo }}'
+    - name: schedulerServiceAccountEmail
+      value: '{{ schedulerServiceAccountEmail }}'
+    - name: state
+      value: '{{ state }}'
+    - name: name
+      value: '{{ name }}'
 
 ```
 </TabItem>

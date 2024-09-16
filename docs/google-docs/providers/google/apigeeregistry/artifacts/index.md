@@ -64,11 +64,11 @@ Creates, updates, deletes, gets or lists a <code>artifacts</code> resource.
 | <CopyableCode code="projects_locations_apis_versions_artifacts_delete" /> | `DELETE` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> | Removes a specified artifact. |
 | <CopyableCode code="projects_locations_apis_versions_specs_artifacts_delete" /> | `DELETE` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> | Removes a specified artifact. |
 | <CopyableCode code="projects_locations_artifacts_delete" /> | `DELETE` | <CopyableCode code="artifactsId, locationsId, projectsId" /> | Removes a specified artifact. |
-| <CopyableCode code="projects_locations_apis_artifacts_replace_artifact" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId" /> | Used to replace a specified artifact. |
-| <CopyableCode code="projects_locations_apis_deployments_artifacts_replace_artifact" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, deploymentsId, locationsId, projectsId" /> | Used to replace a specified artifact. |
-| <CopyableCode code="projects_locations_apis_versions_artifacts_replace_artifact" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> | Used to replace a specified artifact. |
-| <CopyableCode code="projects_locations_apis_versions_specs_artifacts_replace_artifact" /> | `EXEC` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> | Used to replace a specified artifact. |
-| <CopyableCode code="projects_locations_artifacts_replace_artifact" /> | `EXEC` | <CopyableCode code="artifactsId, locationsId, projectsId" /> | Used to replace a specified artifact. |
+| <CopyableCode code="projects_locations_apis_artifacts_replace_artifact" /> | `REPLACE` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId" /> | Used to replace a specified artifact. |
+| <CopyableCode code="projects_locations_apis_deployments_artifacts_replace_artifact" /> | `REPLACE` | <CopyableCode code="apisId, artifactsId, deploymentsId, locationsId, projectsId" /> | Used to replace a specified artifact. |
+| <CopyableCode code="projects_locations_apis_versions_artifacts_replace_artifact" /> | `REPLACE` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, versionsId" /> | Used to replace a specified artifact. |
+| <CopyableCode code="projects_locations_apis_versions_specs_artifacts_replace_artifact" /> | `REPLACE` | <CopyableCode code="apisId, artifactsId, locationsId, projectsId, specsId, versionsId" /> | Used to replace a specified artifact. |
+| <CopyableCode code="projects_locations_artifacts_replace_artifact" /> | `REPLACE` | <CopyableCode code="artifactsId, locationsId, projectsId" /> | Used to replace a specified artifact. |
 
 ## `SELECT` examples
 
@@ -136,31 +136,53 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: mimeType
-        value: '{{ mimeType }}'
-      - name: sizeBytes
-        value: '{{ sizeBytes }}'
-      - name: hash
-        value: '{{ hash }}'
-      - name: contents
-        value: '{{ contents }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: annotations
-        value: '{{ annotations }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: mimeType
+      value: '{{ mimeType }}'
+    - name: sizeBytes
+      value: '{{ sizeBytes }}'
+    - name: hash
+      value: '{{ hash }}'
+    - name: contents
+      value: '{{ contents }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: annotations
+      value: '{{ annotations }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>artifacts</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigeeregistry.artifacts
+SET 
+name = '{{ name }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+mimeType = '{{ mimeType }}',
+sizeBytes = '{{ sizeBytes }}',
+hash = '{{ hash }}',
+contents = '{{ contents }}',
+labels = '{{ labels }}',
+annotations = '{{ annotations }}'
+WHERE 
+artifactsId = '{{ artifactsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
+```
 
 ## `DELETE` example
 

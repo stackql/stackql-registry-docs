@@ -116,25 +116,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: compilationResult
-        value: '{{ compilationResult }}'
-      - name: workflowConfig
-        value: '{{ workflowConfig }}'
-      - name: name
-        value: '{{ name }}'
-      - name: invocationConfig
-        value: '{{ invocationConfig }}'
-      - name: state
-        value: '{{ state }}'
-      - name: invocationTiming
-        value: '{{ invocationTiming }}'
-      - name: resolvedCompilationResult
-        value: '{{ resolvedCompilationResult }}'
-      - name: dataEncryptionState
-        value: '{{ dataEncryptionState }}'
+- name: your_resource_model_name
+  props:
+    - name: compilationResult
+      value: '{{ compilationResult }}'
+    - name: workflowConfig
+      value: '{{ workflowConfig }}'
+    - name: name
+      value: '{{ name }}'
+    - name: invocationConfig
+      value: '{{ invocationConfig }}'
+    - name: state
+      value: '{{ state }}'
+    - name: invocationTiming
+      value: '{{ invocationTiming }}'
+    - name: resolvedCompilationResult
+      value: '{{ resolvedCompilationResult }}'
+    - name: dataEncryptionState
+      value: '{{ dataEncryptionState }}'
 
 ```
 </TabItem>

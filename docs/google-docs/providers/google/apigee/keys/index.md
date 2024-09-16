@@ -50,7 +50,7 @@ Creates, updates, deletes, gets or lists a <code>keys</code> resource.
 | <CopyableCode code="organizations_developers_apps_keys_create" /> | `INSERT` | <CopyableCode code="appsId, developersId, organizationsId" /> | Creates a custom consumer key and secret for a developer app. This is particularly useful if you want to migrate existing consumer keys and secrets to Apigee from another system. Consumer keys and secrets can contain letters, numbers, underscores, and hyphens. No other special characters are allowed. To avoid service disruptions, a consumer key and secret should not exceed 2 KBs each. **Note**: When creating the consumer key and secret, an association to API products will not be made. Therefore, you should not specify the associated API products in your request. Instead, use the UpdateDeveloperAppKey API to make the association after the consumer key and secret are created. If a consumer key and secret already exist, you can keep them or delete them using the DeleteDeveloperAppKey API. **Note**: All keys start out with status=approved, even if status=revoked is passed when the key is created. To revoke a key, use the UpdateDeveloperAppKey API. |
 | <CopyableCode code="organizations_appgroups_apps_keys_delete" /> | `DELETE` | <CopyableCode code="appgroupsId, appsId, keysId, organizationsId" /> | Deletes an app's consumer key and removes all API products associated with the app. After the consumer key is deleted, it cannot be used to access any APIs. |
 | <CopyableCode code="organizations_developers_apps_keys_delete" /> | `DELETE` | <CopyableCode code="appsId, developersId, keysId, organizationsId" /> | Deletes an app's consumer key and removes all API products associated with the app. After the consumer key is deleted, it cannot be used to access any APIs. **Note**: After you delete a consumer key, you may want to: 1. Create a new consumer key and secret for the developer app using the CreateDeveloperAppKey API, and subsequently add an API product to the key using the UpdateDeveloperAppKey API. 2. Delete the developer app, if it is no longer required. |
-| <CopyableCode code="organizations_developers_apps_keys_replace_developer_app_key" /> | `EXEC` | <CopyableCode code="appsId, developersId, keysId, organizationsId" /> | Updates the scope of an app. This API replaces the existing scopes with those specified in the request. Include or exclude any existing scopes that you want to retain or delete, respectively. The specified scopes must already be defined for the API products associated with the app. This API sets the `scopes` element under the `apiProducts` element in the attributes of the app. |
+| <CopyableCode code="organizations_developers_apps_keys_replace_developer_app_key" /> | `REPLACE` | <CopyableCode code="appsId, developersId, keysId, organizationsId" /> | Updates the scope of an app. This API replaces the existing scopes with those specified in the request. Include or exclude any existing scopes that you want to retain or delete, respectively. The specified scopes must already be defined for the API products associated with the app. This API sets the `scopes` element under the `apiProducts` element in the attributes of the app. |
 
 ## `SELECT` examples
 
@@ -122,31 +122,54 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: attributes
-        value: '{{ attributes }}'
-      - name: expiresInSeconds
-        value: '{{ expiresInSeconds }}'
-      - name: issuedAt
-        value: '{{ issuedAt }}'
-      - name: consumerKey
-        value: '{{ consumerKey }}'
-      - name: expiresAt
-        value: '{{ expiresAt }}'
-      - name: apiProducts
-        value: '{{ apiProducts }}'
-      - name: consumerSecret
-        value: '{{ consumerSecret }}'
-      - name: status
-        value: '{{ status }}'
-      - name: scopes
-        value: '{{ scopes }}'
+- name: your_resource_model_name
+  props:
+    - name: attributes
+      value: '{{ attributes }}'
+    - name: expiresInSeconds
+      value: '{{ expiresInSeconds }}'
+    - name: issuedAt
+      value: '{{ issuedAt }}'
+    - name: consumerKey
+      value: '{{ consumerKey }}'
+    - name: expiresAt
+      value: '{{ expiresAt }}'
+    - name: apiProducts
+      value: '{{ apiProducts }}'
+    - name: consumerSecret
+      value: '{{ consumerSecret }}'
+    - name: status
+      value: '{{ status }}'
+    - name: scopes
+      value: '{{ scopes }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>keys</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.keys
+SET 
+consumerKey = '{{ consumerKey }}',
+expiresInSeconds = '{{ expiresInSeconds }}',
+consumerSecret = '{{ consumerSecret }}',
+attributes = '{{ attributes }}',
+apiProducts = '{{ apiProducts }}',
+status = '{{ status }}',
+issuedAt = '{{ issuedAt }}',
+scopes = '{{ scopes }}',
+expiresAt = '{{ expiresAt }}'
+WHERE 
+appsId = '{{ appsId }}'
+AND developersId = '{{ developersId }}'
+AND keysId = '{{ keysId }}'
+AND organizationsId = '{{ organizationsId }}';
+```
 
 ## `DELETE` example
 

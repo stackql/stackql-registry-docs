@@ -144,41 +144,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: metadataSchemaUri
-        value: '{{ metadataSchemaUri }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: metadataArtifact
-        value: '{{ metadataArtifact }}'
-      - name: description
-        value: '{{ description }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: metadata
-        value: '{{ metadata }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: dataItemCount
-        value: '{{ dataItemCount }}'
-      - name: name
-        value: '{{ name }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: modelReference
-        value: '{{ modelReference }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: savedQueries
-        value: '{{ savedQueries }}'
+- name: your_resource_model_name
+  props:
+    - name: metadataSchemaUri
+      value: '{{ metadataSchemaUri }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: metadataArtifact
+      value: '{{ metadataArtifact }}'
+    - name: description
+      value: '{{ description }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: metadata
+      value: '{{ metadata }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: dataItemCount
+      value: '{{ dataItemCount }}'
+    - name: name
+      value: '{{ name }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: modelReference
+      value: '{{ modelReference }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: savedQueries
+      value: '{{ savedQueries }}'
 
 ```
 </TabItem>

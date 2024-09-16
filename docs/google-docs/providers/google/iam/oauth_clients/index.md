@@ -125,31 +125,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: state
-        value: '{{ state }}'
-      - name: disabled
-        value: '{{ disabled }}'
-      - name: clientId
-        value: '{{ clientId }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: clientType
-        value: '{{ clientType }}'
-      - name: allowedGrantTypes
-        value: '{{ allowedGrantTypes }}'
-      - name: allowedScopes
-        value: '{{ allowedScopes }}'
-      - name: allowedRedirectUris
-        value: '{{ allowedRedirectUris }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: state
+      value: '{{ state }}'
+    - name: disabled
+      value: '{{ disabled }}'
+    - name: clientId
+      value: '{{ clientId }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: clientType
+      value: '{{ clientType }}'
+    - name: allowedGrantTypes
+      value: '{{ allowedGrantTypes }}'
+    - name: allowedScopes
+      value: '{{ allowedScopes }}'
+    - name: allowedRedirectUris
+      value: '{{ allowedRedirectUris }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
 
 ```
 </TabItem>

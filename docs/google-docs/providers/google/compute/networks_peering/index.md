@@ -75,17 +75,16 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: peerNetwork
-        value: '{{ peerNetwork }}'
-      - name: autoCreateRoutes
-        value: '{{ autoCreateRoutes }}'
-      - name: networkPeering
-        value: '{{ networkPeering }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: peerNetwork
+      value: '{{ peerNetwork }}'
+    - name: autoCreateRoutes
+      value: '{{ autoCreateRoutes }}'
+    - name: networkPeering
+      value: '{{ networkPeering }}'
 
 ```
 </TabItem>

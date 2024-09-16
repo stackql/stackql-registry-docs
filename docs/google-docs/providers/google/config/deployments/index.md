@@ -177,55 +177,54 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: terraformBlueprint
-        value: '{{ terraformBlueprint }}'
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: state
-        value: '{{ state }}'
-      - name: latestRevision
-        value: '{{ latestRevision }}'
-      - name: stateDetail
-        value: '{{ stateDetail }}'
-      - name: errorCode
-        value: '{{ errorCode }}'
-      - name: deleteResults
-        value: '{{ deleteResults }}'
-      - name: deleteBuild
-        value: '{{ deleteBuild }}'
-      - name: deleteLogs
-        value: '{{ deleteLogs }}'
-      - name: tfErrors
-        value: '{{ tfErrors }}'
-      - name: errorLogs
-        value: '{{ errorLogs }}'
-      - name: artifactsGcsBucket
-        value: '{{ artifactsGcsBucket }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: importExistingResources
-        value: '{{ importExistingResources }}'
-      - name: workerPool
-        value: '{{ workerPool }}'
-      - name: lockState
-        value: '{{ lockState }}'
-      - name: tfVersionConstraint
-        value: '{{ tfVersionConstraint }}'
-      - name: tfVersion
-        value: '{{ tfVersion }}'
-      - name: quotaValidation
-        value: '{{ quotaValidation }}'
-      - name: annotations
-        value: '{{ annotations }}'
+- name: your_resource_model_name
+  props:
+    - name: terraformBlueprint
+      value: '{{ terraformBlueprint }}'
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: state
+      value: '{{ state }}'
+    - name: latestRevision
+      value: '{{ latestRevision }}'
+    - name: stateDetail
+      value: '{{ stateDetail }}'
+    - name: errorCode
+      value: '{{ errorCode }}'
+    - name: deleteResults
+      value: '{{ deleteResults }}'
+    - name: deleteBuild
+      value: '{{ deleteBuild }}'
+    - name: deleteLogs
+      value: '{{ deleteLogs }}'
+    - name: tfErrors
+      value: '{{ tfErrors }}'
+    - name: errorLogs
+      value: '{{ errorLogs }}'
+    - name: artifactsGcsBucket
+      value: '{{ artifactsGcsBucket }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: importExistingResources
+      value: '{{ importExistingResources }}'
+    - name: workerPool
+      value: '{{ workerPool }}'
+    - name: lockState
+      value: '{{ lockState }}'
+    - name: tfVersionConstraint
+      value: '{{ tfVersionConstraint }}'
+    - name: tfVersion
+      value: '{{ tfVersion }}'
+    - name: quotaValidation
+      value: '{{ quotaValidation }}'
+    - name: annotations
+      value: '{{ annotations }}'
 
 ```
 </TabItem>

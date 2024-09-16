@@ -147,39 +147,38 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: buildConfig
-        value: '{{ buildConfig }}'
-      - name: serviceConfig
-        value: '{{ serviceConfig }}'
-      - name: eventTrigger
-        value: '{{ eventTrigger }}'
-      - name: state
-        value: '{{ state }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: stateMessages
-        value: '{{ stateMessages }}'
-      - name: environment
-        value: '{{ environment }}'
-      - name: upgradeInfo
-        value: '{{ upgradeInfo }}'
-      - name: url
-        value: '{{ url }}'
-      - name: kmsKeyName
-        value: '{{ kmsKeyName }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: createTime
-        value: '{{ createTime }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: buildConfig
+      value: '{{ buildConfig }}'
+    - name: serviceConfig
+      value: '{{ serviceConfig }}'
+    - name: eventTrigger
+      value: '{{ eventTrigger }}'
+    - name: state
+      value: '{{ state }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: stateMessages
+      value: '{{ stateMessages }}'
+    - name: environment
+      value: '{{ environment }}'
+    - name: upgradeInfo
+      value: '{{ upgradeInfo }}'
+    - name: url
+      value: '{{ url }}'
+    - name: kmsKeyName
+      value: '{{ kmsKeyName }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: createTime
+      value: '{{ createTime }}'
 
 ```
 </TabItem>

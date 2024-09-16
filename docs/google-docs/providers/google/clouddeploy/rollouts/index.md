@@ -177,53 +177,52 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: description
-        value: '{{ description }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: approveTime
-        value: '{{ approveTime }}'
-      - name: enqueueTime
-        value: '{{ enqueueTime }}'
-      - name: deployStartTime
-        value: '{{ deployStartTime }}'
-      - name: deployEndTime
-        value: '{{ deployEndTime }}'
-      - name: targetId
-        value: '{{ targetId }}'
-      - name: approvalState
-        value: '{{ approvalState }}'
-      - name: state
-        value: '{{ state }}'
-      - name: failureReason
-        value: '{{ failureReason }}'
-      - name: deployingBuild
-        value: '{{ deployingBuild }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: deployFailureCause
-        value: '{{ deployFailureCause }}'
-      - name: phases
-        value: '{{ phases }}'
-      - name: metadata
-        value: '{{ metadata }}'
-      - name: controllerRollout
-        value: '{{ controllerRollout }}'
-      - name: rollbackOfRollout
-        value: '{{ rollbackOfRollout }}'
-      - name: rolledBackByRollouts
-        value: '{{ rolledBackByRollouts }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: description
+      value: '{{ description }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: approveTime
+      value: '{{ approveTime }}'
+    - name: enqueueTime
+      value: '{{ enqueueTime }}'
+    - name: deployStartTime
+      value: '{{ deployStartTime }}'
+    - name: deployEndTime
+      value: '{{ deployEndTime }}'
+    - name: targetId
+      value: '{{ targetId }}'
+    - name: approvalState
+      value: '{{ approvalState }}'
+    - name: state
+      value: '{{ state }}'
+    - name: failureReason
+      value: '{{ failureReason }}'
+    - name: deployingBuild
+      value: '{{ deployingBuild }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: deployFailureCause
+      value: '{{ deployFailureCause }}'
+    - name: phases
+      value: '{{ phases }}'
+    - name: metadata
+      value: '{{ metadata }}'
+    - name: controllerRollout
+      value: '{{ controllerRollout }}'
+    - name: rollbackOfRollout
+      value: '{{ rollbackOfRollout }}'
+    - name: rolledBackByRollouts
+      value: '{{ rolledBackByRollouts }}'
 
 ```
 </TabItem>

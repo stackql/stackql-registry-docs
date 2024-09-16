@@ -117,25 +117,24 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: kind
-        value: '{{ kind }}'
-      - name: autoExpansionMode
-        value: '{{ autoExpansionMode }}'
-      - name: entities
-        value: '{{ entities }}'
-      - name: excludedPhrases
-        value: '{{ excludedPhrases }}'
-      - name: enableFuzzyExtraction
-        value: '{{ enableFuzzyExtraction }}'
-      - name: redact
-        value: '{{ redact }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: kind
+      value: '{{ kind }}'
+    - name: autoExpansionMode
+      value: '{{ autoExpansionMode }}'
+    - name: entities
+      value: '{{ entities }}'
+    - name: excludedPhrases
+      value: '{{ excludedPhrases }}'
+    - name: enableFuzzyExtraction
+      value: '{{ enableFuzzyExtraction }}'
+    - name: redact
+      value: '{{ redact }}'
 
 ```
 </TabItem>

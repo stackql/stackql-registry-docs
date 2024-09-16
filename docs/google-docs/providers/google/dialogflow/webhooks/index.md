@@ -107,21 +107,20 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: genericWebService
-        value: '{{ genericWebService }}'
-      - name: serviceDirectory
-        value: '{{ serviceDirectory }}'
-      - name: timeout
-        value: '{{ timeout }}'
-      - name: disabled
-        value: '{{ disabled }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: genericWebService
+      value: '{{ genericWebService }}'
+    - name: serviceDirectory
+      value: '{{ serviceDirectory }}'
+    - name: timeout
+      value: '{{ timeout }}'
+    - name: disabled
+      value: '{{ disabled }}'
 
 ```
 </TabItem>

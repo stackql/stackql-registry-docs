@@ -53,7 +53,7 @@ Creates, updates, deletes, gets or lists a <code>http_health_checks</code> resou
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project" /> | Creates a HttpHealthCheck resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="httpHealthCheck, project" /> | Deletes the specified HttpHealthCheck resource. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="httpHealthCheck, project" /> | Updates a HttpHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="httpHealthCheck, project" /> | Updates a HttpHealthCheck resource in the specified project using the data included in the request. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="httpHealthCheck, project" /> | Updates a HttpHealthCheck resource in the specified project using the data included in the request. |
 
 ## `SELECT` examples
 
@@ -130,35 +130,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: host
-        value: '{{ host }}'
-      - name: requestPath
-        value: '{{ requestPath }}'
-      - name: port
-        value: '{{ port }}'
-      - name: checkIntervalSec
-        value: '{{ checkIntervalSec }}'
-      - name: timeoutSec
-        value: '{{ timeoutSec }}'
-      - name: unhealthyThreshold
-        value: '{{ unhealthyThreshold }}'
-      - name: healthyThreshold
-        value: '{{ healthyThreshold }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: host
+      value: '{{ host }}'
+    - name: requestPath
+      value: '{{ requestPath }}'
+    - name: port
+      value: '{{ port }}'
+    - name: checkIntervalSec
+      value: '{{ checkIntervalSec }}'
+    - name: timeoutSec
+      value: '{{ timeoutSec }}'
+    - name: unhealthyThreshold
+      value: '{{ unhealthyThreshold }}'
+    - name: healthyThreshold
+      value: '{{ healthyThreshold }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
 
 ```
 </TabItem>
@@ -171,6 +170,32 @@ Updates a <code>http_health_checks</code> resource.
 ```sql
 /*+ update */
 UPDATE google.compute.http_health_checks
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+host = '{{ host }}',
+requestPath = '{{ requestPath }}',
+port = '{{ port }}',
+checkIntervalSec = '{{ checkIntervalSec }}',
+timeoutSec = '{{ timeoutSec }}',
+unhealthyThreshold = '{{ unhealthyThreshold }}',
+healthyThreshold = '{{ healthyThreshold }}',
+selfLink = '{{ selfLink }}'
+WHERE 
+httpHealthCheck = '{{ httpHealthCheck }}'
+AND project = '{{ project }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>http_health_checks</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.http_health_checks
 SET 
 kind = '{{ kind }}',
 id = '{{ id }}',

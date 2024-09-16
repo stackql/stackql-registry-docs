@@ -126,31 +126,30 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: slotCount
-        value: '{{ slotCount }}'
-      - name: plan
-        value: '{{ plan }}'
-      - name: state
-        value: '{{ state }}'
-      - name: commitmentStartTime
-        value: '{{ commitmentStartTime }}'
-      - name: commitmentEndTime
-        value: '{{ commitmentEndTime }}'
-      - name: failureStatus
-        value: '{{ failureStatus }}'
-      - name: renewalPlan
-        value: '{{ renewalPlan }}'
-      - name: multiRegionAuxiliary
-        value: '{{ multiRegionAuxiliary }}'
-      - name: edition
-        value: '{{ edition }}'
-      - name: isFlatRate
-        value: '{{ isFlatRate }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: slotCount
+      value: '{{ slotCount }}'
+    - name: plan
+      value: '{{ plan }}'
+    - name: state
+      value: '{{ state }}'
+    - name: commitmentStartTime
+      value: '{{ commitmentStartTime }}'
+    - name: commitmentEndTime
+      value: '{{ commitmentEndTime }}'
+    - name: failureStatus
+      value: '{{ failureStatus }}'
+    - name: renewalPlan
+      value: '{{ renewalPlan }}'
+    - name: multiRegionAuxiliary
+      value: '{{ multiRegionAuxiliary }}'
+    - name: edition
+      value: '{{ edition }}'
+    - name: isFlatRate
+      value: '{{ isFlatRate }}'
 
 ```
 </TabItem>

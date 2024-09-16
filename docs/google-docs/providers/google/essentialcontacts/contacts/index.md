@@ -117,21 +117,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: validateTime
-        value: '{{ validateTime }}'
-      - name: languageTag
-        value: '{{ languageTag }}'
-      - name: notificationCategorySubscriptions
-        value: '{{ notificationCategorySubscriptions }}'
-      - name: email
-        value: '{{ email }}'
-      - name: validationState
-        value: '{{ validationState }}'
-      - name: name
-        value: '{{ name }}'
+- name: your_resource_model_name
+  props:
+    - name: validateTime
+      value: '{{ validateTime }}'
+    - name: languageTag
+      value: '{{ languageTag }}'
+    - name: notificationCategorySubscriptions
+      value: '{{ notificationCategorySubscriptions }}'
+    - name: email
+      value: '{{ email }}'
+    - name: validationState
+      value: '{{ validationState }}'
+    - name: name
+      value: '{{ name }}'
 
 ```
 </TabItem>

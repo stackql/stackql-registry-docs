@@ -187,61 +187,60 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: idleTimeout
-        value: '{{ idleTimeout }}'
-      - name: runningTimeout
-        value: '{{ runningTimeout }}'
-      - name: maxUsableWorkstations
-        value: '{{ maxUsableWorkstations }}'
-      - name: host
-        value: '{{ host }}'
-      - name: persistentDirectories
-        value: '{{ persistentDirectories }}'
-      - name: ephemeralDirectories
-        value: '{{ ephemeralDirectories }}'
-      - name: container
-        value: '{{ container }}'
-      - name: encryptionKey
-        value: '{{ encryptionKey }}'
-      - name: readinessChecks
-        value: '{{ readinessChecks }}'
-      - name: replicaZones
-        value: '{{ replicaZones }}'
-      - name: degraded
-        value: '{{ degraded }}'
-      - name: conditions
-        value: '{{ conditions }}'
-      - name: enableAuditAgent
-        value: '{{ enableAuditAgent }}'
-      - name: disableTcpConnections
-        value: '{{ disableTcpConnections }}'
-      - name: allowedPorts
-        value: '{{ allowedPorts }}'
-      - name: grantWorkstationAdminRoleOnCreate
-        value: '{{ grantWorkstationAdminRoleOnCreate }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: idleTimeout
+      value: '{{ idleTimeout }}'
+    - name: runningTimeout
+      value: '{{ runningTimeout }}'
+    - name: maxUsableWorkstations
+      value: '{{ maxUsableWorkstations }}'
+    - name: host
+      value: '{{ host }}'
+    - name: persistentDirectories
+      value: '{{ persistentDirectories }}'
+    - name: ephemeralDirectories
+      value: '{{ ephemeralDirectories }}'
+    - name: container
+      value: '{{ container }}'
+    - name: encryptionKey
+      value: '{{ encryptionKey }}'
+    - name: readinessChecks
+      value: '{{ readinessChecks }}'
+    - name: replicaZones
+      value: '{{ replicaZones }}'
+    - name: degraded
+      value: '{{ degraded }}'
+    - name: conditions
+      value: '{{ conditions }}'
+    - name: enableAuditAgent
+      value: '{{ enableAuditAgent }}'
+    - name: disableTcpConnections
+      value: '{{ disableTcpConnections }}'
+    - name: allowedPorts
+      value: '{{ allowedPorts }}'
+    - name: grantWorkstationAdminRoleOnCreate
+      value: '{{ grantWorkstationAdminRoleOnCreate }}'
 
 ```
 </TabItem>

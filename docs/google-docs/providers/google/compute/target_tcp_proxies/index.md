@@ -118,29 +118,28 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: service
-        value: '{{ service }}'
-      - name: proxyHeader
-        value: '{{ proxyHeader }}'
-      - name: proxyBind
-        value: '{{ proxyBind }}'
-      - name: region
-        value: '{{ region }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: service
+      value: '{{ service }}'
+    - name: proxyHeader
+      value: '{{ proxyHeader }}'
+    - name: proxyBind
+      value: '{{ proxyBind }}'
+    - name: region
+      value: '{{ region }}'
 
 ```
 </TabItem>

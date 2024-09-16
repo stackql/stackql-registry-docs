@@ -55,7 +55,7 @@ Creates, updates, deletes, gets or lists a <code>autoscalers</code> resource.
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates an autoscaler in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="autoscaler, project, zone" /> | Deletes the specified autoscaler. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, zone" /> | Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, zone" /> | Updates an autoscaler in the specified project using the data included in the request. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="project, zone" /> | Updates an autoscaler in the specified project using the data included in the request. |
 
 ## `SELECT` examples
 
@@ -137,37 +137,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: target
-        value: '{{ target }}'
-      - name: autoscalingPolicy
-        value: '{{ autoscalingPolicy }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: region
-        value: '{{ region }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: status
-        value: '{{ status }}'
-      - name: statusDetails
-        value: '{{ statusDetails }}'
-      - name: recommendedSize
-        value: '{{ recommendedSize }}'
-      - name: scalingScheduleStatus
-        value: '{{ scalingScheduleStatus }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: target
+      value: '{{ target }}'
+    - name: autoscalingPolicy
+      value: '{{ autoscalingPolicy }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: region
+      value: '{{ region }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: status
+      value: '{{ status }}'
+    - name: statusDetails
+      value: '{{ statusDetails }}'
+    - name: recommendedSize
+      value: '{{ recommendedSize }}'
+    - name: scalingScheduleStatus
+      value: '{{ scalingScheduleStatus }}'
 
 ```
 </TabItem>
@@ -180,6 +179,33 @@ Updates a <code>autoscalers</code> resource.
 ```sql
 /*+ update */
 UPDATE google.compute.autoscalers
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+target = '{{ target }}',
+autoscalingPolicy = '{{ autoscalingPolicy }}',
+zone = '{{ zone }}',
+region = '{{ region }}',
+selfLink = '{{ selfLink }}',
+status = '{{ status }}',
+statusDetails = '{{ statusDetails }}',
+recommendedSize = '{{ recommendedSize }}',
+scalingScheduleStatus = '{{ scalingScheduleStatus }}'
+WHERE 
+project = '{{ project }}'
+AND zone = '{{ zone }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>autoscalers</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.autoscalers
 SET 
 kind = '{{ kind }}',
 id = '{{ id }}',

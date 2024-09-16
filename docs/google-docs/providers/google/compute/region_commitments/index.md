@@ -163,51 +163,50 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: region
-        value: '{{ region }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: status
-        value: '{{ status }}'
-      - name: statusMessage
-        value: '{{ statusMessage }}'
-      - name: plan
-        value: '{{ plan }}'
-      - name: startTimestamp
-        value: '{{ startTimestamp }}'
-      - name: endTimestamp
-        value: '{{ endTimestamp }}'
-      - name: resources
-        value: '{{ resources }}'
-      - name: type
-        value: '{{ type }}'
-      - name: reservations
-        value: '{{ reservations }}'
-      - name: category
-        value: '{{ category }}'
-      - name: licenseResource
-        value: '{{ licenseResource }}'
-      - name: autoRenew
-        value: '{{ autoRenew }}'
-      - name: mergeSourceCommitments
-        value: '{{ mergeSourceCommitments }}'
-      - name: splitSourceCommitment
-        value: '{{ splitSourceCommitment }}'
-      - name: existingReservations
-        value: '{{ existingReservations }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: region
+      value: '{{ region }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: status
+      value: '{{ status }}'
+    - name: statusMessage
+      value: '{{ statusMessage }}'
+    - name: plan
+      value: '{{ plan }}'
+    - name: startTimestamp
+      value: '{{ startTimestamp }}'
+    - name: endTimestamp
+      value: '{{ endTimestamp }}'
+    - name: resources
+      value: '{{ resources }}'
+    - name: type
+      value: '{{ type }}'
+    - name: reservations
+      value: '{{ reservations }}'
+    - name: category
+      value: '{{ category }}'
+    - name: licenseResource
+      value: '{{ licenseResource }}'
+    - name: autoRenew
+      value: '{{ autoRenew }}'
+    - name: mergeSourceCommitments
+      value: '{{ mergeSourceCommitments }}'
+    - name: splitSourceCommitment
+      value: '{{ splitSourceCommitment }}'
+    - name: existingReservations
+      value: '{{ existingReservations }}'
 
 ```
 </TabItem>

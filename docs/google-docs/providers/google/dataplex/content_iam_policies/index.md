@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>content_iam_policies</code> res
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_lakes_content_get_iam_policy" /> | `SELECT` | <CopyableCode code="contentId, lakesId, locationsId, projectsId" /> | Gets the access control policy for a contentitem resource. A NOT_FOUND error is returned if the resource does not exist. An empty policy is returned if the resource exists but does not have a policy set on it.Caller must have Google IAM dataplex.content.getIamPolicy permission on the resource. |
-| <CopyableCode code="projects_locations_lakes_content_set_iam_policy" /> | `EXEC` | <CopyableCode code="contentId, lakesId, locationsId, projectsId" /> | Sets the access control policy on the specified contentitem resource. Replaces any existing policy.Caller must have Google IAM dataplex.content.setIamPolicy permission on the resource. |
+| <CopyableCode code="projects_locations_lakes_content_set_iam_policy" /> | `REPLACE` | <CopyableCode code="contentId, lakesId, locationsId, projectsId" /> | Sets the access control policy on the specified contentitem resource. Replaces any existing policy.Caller must have Google IAM dataplex.content.setIamPolicy permission on the resource. |
 | <CopyableCode code="projects_locations_lakes_content_test_iam_permissions" /> | `EXEC` | <CopyableCode code="contentId, lakesId, locationsId, projectsId" /> | Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (a NOT_FOUND error is not returned).A caller is not required to have Google IAM permission to make this request.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
 
 ## `SELECT` examples
@@ -56,4 +56,21 @@ WHERE contentId = '{{ contentId }}'
 AND lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>content_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dataplex.content_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+contentId = '{{ contentId }}'
+AND lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

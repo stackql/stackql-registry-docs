@@ -167,51 +167,50 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: defaultLanguageCode
-        value: '{{ defaultLanguageCode }}'
-      - name: supportedLanguageCodes
-        value: '{{ supportedLanguageCodes }}'
-      - name: timeZone
-        value: '{{ timeZone }}'
-      - name: description
-        value: '{{ description }}'
-      - name: avatarUri
-        value: '{{ avatarUri }}'
-      - name: speechToTextSettings
-        value: '{{ speechToTextSettings }}'
-      - name: startFlow
-        value: '{{ startFlow }}'
-      - name: securitySettings
-        value: '{{ securitySettings }}'
-      - name: enableStackdriverLogging
-        value: '{{ enableStackdriverLogging }}'
-      - name: enableSpellCorrection
-        value: '{{ enableSpellCorrection }}'
-      - name: enableMultiLanguageTraining
-        value: '{{ enableMultiLanguageTraining }}'
-      - name: locked
-        value: '{{ locked }}'
-      - name: advancedSettings
-        value: '{{ advancedSettings }}'
-      - name: gitIntegrationSettings
-        value: '{{ gitIntegrationSettings }}'
-      - name: textToSpeechSettings
-        value: '{{ textToSpeechSettings }}'
-      - name: genAppBuilderSettings
-        value: '{{ genAppBuilderSettings }}'
-      - name: answerFeedbackSettings
-        value: '{{ answerFeedbackSettings }}'
-      - name: personalizationSettings
-        value: '{{ personalizationSettings }}'
-      - name: clientCertificateSettings
-        value: '{{ clientCertificateSettings }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: defaultLanguageCode
+      value: '{{ defaultLanguageCode }}'
+    - name: supportedLanguageCodes
+      value: '{{ supportedLanguageCodes }}'
+    - name: timeZone
+      value: '{{ timeZone }}'
+    - name: description
+      value: '{{ description }}'
+    - name: avatarUri
+      value: '{{ avatarUri }}'
+    - name: speechToTextSettings
+      value: '{{ speechToTextSettings }}'
+    - name: startFlow
+      value: '{{ startFlow }}'
+    - name: securitySettings
+      value: '{{ securitySettings }}'
+    - name: enableStackdriverLogging
+      value: '{{ enableStackdriverLogging }}'
+    - name: enableSpellCorrection
+      value: '{{ enableSpellCorrection }}'
+    - name: enableMultiLanguageTraining
+      value: '{{ enableMultiLanguageTraining }}'
+    - name: locked
+      value: '{{ locked }}'
+    - name: advancedSettings
+      value: '{{ advancedSettings }}'
+    - name: gitIntegrationSettings
+      value: '{{ gitIntegrationSettings }}'
+    - name: textToSpeechSettings
+      value: '{{ textToSpeechSettings }}'
+    - name: genAppBuilderSettings
+      value: '{{ genAppBuilderSettings }}'
+    - name: answerFeedbackSettings
+      value: '{{ answerFeedbackSettings }}'
+    - name: personalizationSettings
+      value: '{{ personalizationSettings }}'
+    - name: clientCertificateSettings
+      value: '{{ clientCertificateSettings }}'
 
 ```
 </TabItem>

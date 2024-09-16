@@ -196,67 +196,66 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: disableContainerLogging
-        value: '{{ disableContainerLogging }}'
-      - name: completionStats
-        value: '{{ completionStats }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: error
-        value: '{{ error }}'
-      - name: generateExplanation
-        value: '{{ generateExplanation }}'
-      - name: explanationSpec
-        value: '{{ explanationSpec }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: manualBatchTuningParameters
-        value: '{{ manualBatchTuningParameters }}'
-      - name: dedicatedResources
-        value: '{{ dedicatedResources }}'
-      - name: resourcesConsumed
-        value: '{{ resourcesConsumed }}'
-      - name: name
-        value: '{{ name }}'
-      - name: model
-        value: '{{ model }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: unmanagedContainerModel
-        value: '{{ unmanagedContainerModel }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: instanceConfig
-        value: '{{ instanceConfig }}'
-      - name: outputConfig
-        value: '{{ outputConfig }}'
-      - name: outputInfo
-        value: '{{ outputInfo }}'
-      - name: inputConfig
-        value: '{{ inputConfig }}'
-      - name: modelVersionId
-        value: '{{ modelVersionId }}'
-      - name: state
-        value: '{{ state }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: partialFailures
-        value: '{{ partialFailures }}'
-      - name: modelParameters
-        value: '{{ modelParameters }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: startTime
-        value: '{{ startTime }}'
+- name: your_resource_model_name
+  props:
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: disableContainerLogging
+      value: '{{ disableContainerLogging }}'
+    - name: completionStats
+      value: '{{ completionStats }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: error
+      value: '{{ error }}'
+    - name: generateExplanation
+      value: '{{ generateExplanation }}'
+    - name: explanationSpec
+      value: '{{ explanationSpec }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: manualBatchTuningParameters
+      value: '{{ manualBatchTuningParameters }}'
+    - name: dedicatedResources
+      value: '{{ dedicatedResources }}'
+    - name: resourcesConsumed
+      value: '{{ resourcesConsumed }}'
+    - name: name
+      value: '{{ name }}'
+    - name: model
+      value: '{{ model }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: unmanagedContainerModel
+      value: '{{ unmanagedContainerModel }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: instanceConfig
+      value: '{{ instanceConfig }}'
+    - name: outputConfig
+      value: '{{ outputConfig }}'
+    - name: outputInfo
+      value: '{{ outputInfo }}'
+    - name: inputConfig
+      value: '{{ inputConfig }}'
+    - name: modelVersionId
+      value: '{{ modelVersionId }}'
+    - name: state
+      value: '{{ state }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: partialFailures
+      value: '{{ partialFailures }}'
+    - name: modelParameters
+      value: '{{ modelParameters }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: startTime
+      value: '{{ startTime }}'
 
 ```
 </TabItem>

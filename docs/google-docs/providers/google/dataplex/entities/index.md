@@ -57,7 +57,7 @@ Creates, updates, deletes, gets or lists a <code>entities</code> resource.
 | <CopyableCode code="projects_locations_lakes_zones_entities_list" /> | `SELECT` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | List metadata entities in a zone. |
 | <CopyableCode code="projects_locations_lakes_zones_entities_create" /> | `INSERT` | <CopyableCode code="lakesId, locationsId, projectsId, zonesId" /> | Create a metadata entity. |
 | <CopyableCode code="projects_locations_lakes_zones_entities_delete" /> | `DELETE` | <CopyableCode code="entitiesId, lakesId, locationsId, projectsId, zonesId" /> | Delete a metadata entity. |
-| <CopyableCode code="projects_locations_lakes_zones_entities_update" /> | `EXEC` | <CopyableCode code="entitiesId, lakesId, locationsId, projectsId, zonesId" /> | Update a metadata entity. Only supports full resource update. |
+| <CopyableCode code="projects_locations_lakes_zones_entities_update" /> | `REPLACE` | <CopyableCode code="entitiesId, lakesId, locationsId, projectsId, zonesId" /> | Update a metadata entity. Only supports full resource update. |
 
 ## `SELECT` examples
 
@@ -158,49 +158,82 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: id
-        value: '{{ id }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: type
-        value: '{{ type }}'
-      - name: asset
-        value: '{{ asset }}'
-      - name: dataPath
-        value: '{{ dataPath }}'
-      - name: dataPathPattern
-        value: '{{ dataPathPattern }}'
-      - name: catalogEntry
-        value: '{{ catalogEntry }}'
-      - name: system
-        value: '{{ system }}'
-      - name: format
-        value: '{{ format }}'
-      - name: compatibility
-        value: '{{ compatibility }}'
-      - name: access
-        value: '{{ access }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: schema
-        value: '{{ schema }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: id
+      value: '{{ id }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: type
+      value: '{{ type }}'
+    - name: asset
+      value: '{{ asset }}'
+    - name: dataPath
+      value: '{{ dataPath }}'
+    - name: dataPathPattern
+      value: '{{ dataPathPattern }}'
+    - name: catalogEntry
+      value: '{{ catalogEntry }}'
+    - name: system
+      value: '{{ system }}'
+    - name: format
+      value: '{{ format }}'
+    - name: compatibility
+      value: '{{ compatibility }}'
+    - name: access
+      value: '{{ access }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: schema
+      value: '{{ schema }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>entities</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dataplex.entities
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+createTime = '{{ createTime }}',
+updateTime = '{{ updateTime }}',
+id = '{{ id }}',
+etag = '{{ etag }}',
+type = '{{ type }}',
+asset = '{{ asset }}',
+dataPath = '{{ dataPath }}',
+dataPathPattern = '{{ dataPathPattern }}',
+catalogEntry = '{{ catalogEntry }}',
+system = '{{ system }}',
+format = '{{ format }}',
+compatibility = '{{ compatibility }}',
+access = '{{ access }}',
+uid = '{{ uid }}',
+schema = '{{ schema }}'
+WHERE 
+entitiesId = '{{ entitiesId }}'
+AND lakesId = '{{ lakesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND zonesId = '{{ zonesId }}';
+```
 
 ## `DELETE` example
 

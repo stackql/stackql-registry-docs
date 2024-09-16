@@ -127,33 +127,32 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: bucket
-        value: '{{ bucket }}'
-      - name: anywhereCacheId
-        value: '{{ anywhereCacheId }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: state
-        value: '{{ state }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: ttl
-        value: '{{ ttl }}'
-      - name: admissionPolicy
-        value: '{{ admissionPolicy }}'
-      - name: pendingUpdate
-        value: '{{ pendingUpdate }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: bucket
+      value: '{{ bucket }}'
+    - name: anywhereCacheId
+      value: '{{ anywhereCacheId }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: state
+      value: '{{ state }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: ttl
+      value: '{{ ttl }}'
+    - name: admissionPolicy
+      value: '{{ admissionPolicy }}'
+    - name: pendingUpdate
+      value: '{{ pendingUpdate }}'
 
 ```
 </TabItem>

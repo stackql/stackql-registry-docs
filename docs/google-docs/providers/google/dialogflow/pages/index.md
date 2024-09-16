@@ -126,29 +126,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: entryFulfillment
-        value: '{{ entryFulfillment }}'
-      - name: form
-        value: '{{ form }}'
-      - name: transitionRouteGroups
-        value: '{{ transitionRouteGroups }}'
-      - name: transitionRoutes
-        value: '{{ transitionRoutes }}'
-      - name: eventHandlers
-        value: '{{ eventHandlers }}'
-      - name: advancedSettings
-        value: '{{ advancedSettings }}'
-      - name: knowledgeConnectorSettings
-        value: '{{ knowledgeConnectorSettings }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: entryFulfillment
+      value: '{{ entryFulfillment }}'
+    - name: form
+      value: '{{ form }}'
+    - name: transitionRouteGroups
+      value: '{{ transitionRouteGroups }}'
+    - name: transitionRoutes
+      value: '{{ transitionRoutes }}'
+    - name: eventHandlers
+      value: '{{ eventHandlers }}'
+    - name: advancedSettings
+      value: '{{ advancedSettings }}'
+    - name: knowledgeConnectorSettings
+      value: '{{ knowledgeConnectorSettings }}'
 
 ```
 </TabItem>

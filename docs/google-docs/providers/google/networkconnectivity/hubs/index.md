@@ -131,35 +131,34 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: description
-        value: '{{ description }}'
-      - name: uniqueId
-        value: '{{ uniqueId }}'
-      - name: state
-        value: '{{ state }}'
-      - name: routingVpcs
-        value: '{{ routingVpcs }}'
-      - name: routeTables
-        value: '{{ routeTables }}'
-      - name: spokeSummary
-        value: '{{ spokeSummary }}'
-      - name: policyMode
-        value: '{{ policyMode }}'
-      - name: presetTopology
-        value: '{{ presetTopology }}'
-      - name: exportPsc
-        value: '{{ exportPsc }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: description
+      value: '{{ description }}'
+    - name: uniqueId
+      value: '{{ uniqueId }}'
+    - name: state
+      value: '{{ state }}'
+    - name: routingVpcs
+      value: '{{ routingVpcs }}'
+    - name: routeTables
+      value: '{{ routeTables }}'
+    - name: spokeSummary
+      value: '{{ spokeSummary }}'
+    - name: policyMode
+      value: '{{ policyMode }}'
+    - name: presetTopology
+      value: '{{ presetTopology }}'
+    - name: exportPsc
+      value: '{{ exportPsc }}'
 
 ```
 </TabItem>

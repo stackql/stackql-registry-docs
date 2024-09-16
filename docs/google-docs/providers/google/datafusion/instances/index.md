@@ -221,79 +221,78 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: type
-        value: '{{ type }}'
-      - name: enableStackdriverLogging
-        value: '{{ enableStackdriverLogging }}'
-      - name: enableStackdriverMonitoring
-        value: '{{ enableStackdriverMonitoring }}'
-      - name: privateInstance
-        value: '{{ privateInstance }}'
-      - name: networkConfig
-        value: '{{ networkConfig }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: options
-        value: '{{ options }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: stateMessage
-        value: '{{ stateMessage }}'
-      - name: serviceEndpoint
-        value: '{{ serviceEndpoint }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: version
-        value: '{{ version }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: availableVersion
-        value: '{{ availableVersion }}'
-      - name: apiEndpoint
-        value: '{{ apiEndpoint }}'
-      - name: gcsBucket
-        value: '{{ gcsBucket }}'
-      - name: accelerators
-        value: '{{ accelerators }}'
-      - name: p4ServiceAccount
-        value: '{{ p4ServiceAccount }}'
-      - name: tenantProjectId
-        value: '{{ tenantProjectId }}'
-      - name: dataprocServiceAccount
-        value: '{{ dataprocServiceAccount }}'
-      - name: enableRbac
-        value: '{{ enableRbac }}'
-      - name: cryptoKeyConfig
-        value: '{{ cryptoKeyConfig }}'
-      - name: disabledReason
-        value: '{{ disabledReason }}'
-      - name: eventPublishConfig
-        value: '{{ eventPublishConfig }}'
-      - name: enableZoneSeparation
-        value: '{{ enableZoneSeparation }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: workforceIdentityServiceEndpoint
-        value: '{{ workforceIdentityServiceEndpoint }}'
-      - name: patchRevision
-        value: '{{ patchRevision }}'
-      - name: dataplexDataLineageIntegrationEnabled
-        value: '{{ dataplexDataLineageIntegrationEnabled }}'
-      - name: maintenancePolicy
-        value: '{{ maintenancePolicy }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: type
+      value: '{{ type }}'
+    - name: enableStackdriverLogging
+      value: '{{ enableStackdriverLogging }}'
+    - name: enableStackdriverMonitoring
+      value: '{{ enableStackdriverMonitoring }}'
+    - name: privateInstance
+      value: '{{ privateInstance }}'
+    - name: networkConfig
+      value: '{{ networkConfig }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: options
+      value: '{{ options }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: stateMessage
+      value: '{{ stateMessage }}'
+    - name: serviceEndpoint
+      value: '{{ serviceEndpoint }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: version
+      value: '{{ version }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: availableVersion
+      value: '{{ availableVersion }}'
+    - name: apiEndpoint
+      value: '{{ apiEndpoint }}'
+    - name: gcsBucket
+      value: '{{ gcsBucket }}'
+    - name: accelerators
+      value: '{{ accelerators }}'
+    - name: p4ServiceAccount
+      value: '{{ p4ServiceAccount }}'
+    - name: tenantProjectId
+      value: '{{ tenantProjectId }}'
+    - name: dataprocServiceAccount
+      value: '{{ dataprocServiceAccount }}'
+    - name: enableRbac
+      value: '{{ enableRbac }}'
+    - name: cryptoKeyConfig
+      value: '{{ cryptoKeyConfig }}'
+    - name: disabledReason
+      value: '{{ disabledReason }}'
+    - name: eventPublishConfig
+      value: '{{ eventPublishConfig }}'
+    - name: enableZoneSeparation
+      value: '{{ enableZoneSeparation }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: workforceIdentityServiceEndpoint
+      value: '{{ workforceIdentityServiceEndpoint }}'
+    - name: patchRevision
+      value: '{{ patchRevision }}'
+    - name: dataplexDataLineageIntegrationEnabled
+      value: '{{ dataplexDataLineageIntegrationEnabled }}'
+    - name: maintenancePolicy
+      value: '{{ maintenancePolicy }}'
 
 ```
 </TabItem>

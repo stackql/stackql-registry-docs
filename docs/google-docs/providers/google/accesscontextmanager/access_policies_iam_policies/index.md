@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>access_policies_iam_policies</c
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="accessPoliciesId" /> | Gets the IAM policy for the specified Access Context Manager access policy. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="accessPoliciesId" /> | Sets the IAM policy for the specified Access Context Manager access policy. This method replaces the existing IAM policy on the access policy. The IAM policy controls the set of users who can perform specific operations on the Access Context Manager access policy. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="accessPoliciesId" /> | Sets the IAM policy for the specified Access Context Manager access policy. This method replaces the existing IAM policy on the access policy. The IAM policy controls the set of users who can perform specific operations on the Access Context Manager access policy. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="accessPoliciesId" /> | Returns the IAM permissions that the caller has on the specified Access Context Manager resource. The resource can be an AccessPolicy, AccessLevel, or ServicePerimeter. This method does not support other resources. |
 
 ## `SELECT` examples
@@ -53,4 +53,18 @@ members,
 role
 FROM google.accesscontextmanager.access_policies_iam_policies
 WHERE accessPoliciesId = '{{ accessPoliciesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>access_policies_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.accesscontextmanager.access_policies_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+accessPoliciesId = '{{ accessPoliciesId }}';
 ```

@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>databases_iam_policies</code> r
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="databasesId, locationsId, projectsId, servicesId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="databasesId, locationsId, projectsId, servicesId" /> | Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="databasesId, locationsId, projectsId, servicesId" /> | Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. |
 
 ## `SELECT` examples
 
@@ -55,4 +55,21 @@ WHERE databasesId = '{{ databasesId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND servicesId = '{{ servicesId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>databases_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.metastore.databases_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+databasesId = '{{ databasesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND servicesId = '{{ servicesId }}';
 ```

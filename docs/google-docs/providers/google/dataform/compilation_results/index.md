@@ -122,29 +122,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: gitCommitish
-        value: '{{ gitCommitish }}'
-      - name: workspace
-        value: '{{ workspace }}'
-      - name: releaseConfig
-        value: '{{ releaseConfig }}'
-      - name: name
-        value: '{{ name }}'
-      - name: codeCompilationConfig
-        value: '{{ codeCompilationConfig }}'
-      - name: resolvedGitCommitSha
-        value: '{{ resolvedGitCommitSha }}'
-      - name: dataformCoreVersion
-        value: '{{ dataformCoreVersion }}'
-      - name: compilationErrors
-        value: '{{ compilationErrors }}'
-      - name: dataEncryptionState
-        value: '{{ dataEncryptionState }}'
-      - name: createTime
-        value: '{{ createTime }}'
+- name: your_resource_model_name
+  props:
+    - name: gitCommitish
+      value: '{{ gitCommitish }}'
+    - name: workspace
+      value: '{{ workspace }}'
+    - name: releaseConfig
+      value: '{{ releaseConfig }}'
+    - name: name
+      value: '{{ name }}'
+    - name: codeCompilationConfig
+      value: '{{ codeCompilationConfig }}'
+    - name: resolvedGitCommitSha
+      value: '{{ resolvedGitCommitSha }}'
+    - name: dataformCoreVersion
+      value: '{{ dataformCoreVersion }}'
+    - name: compilationErrors
+      value: '{{ compilationErrors }}'
+    - name: dataEncryptionState
+      value: '{{ dataEncryptionState }}'
+    - name: createTime
+      value: '{{ createTime }}'
 
 ```
 </TabItem>

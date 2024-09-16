@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>organizations_iam_policies</cod
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Gets the access control policy for an organization resource. The policy may be empty if no such policy or resource exists. The `resource` field should be the organization's resource name, for example: "organizations/123". Authorization requires the IAM permission `resourcemanager.organizations.getIamPolicy` on the specified organization. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Sets the access control policy on an organization resource. Replaces any existing policy. The `resource` field should be the organization's resource name, for example: "organizations/123". Authorization requires the IAM permission `resourcemanager.organizations.setIamPolicy` on the specified organization. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="organizationsId" /> | Sets the access control policy on an organization resource. Replaces any existing policy. The `resource` field should be the organization's resource name, for example: "organizations/123". Authorization requires the IAM permission `resourcemanager.organizations.setIamPolicy` on the specified organization. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Returns the permissions that a caller has on the specified organization. The `resource` field should be the organization's resource name, for example: "organizations/123". There are no permissions required for making this API call. |
 
 ## `SELECT` examples
@@ -53,4 +53,18 @@ members,
 role
 FROM google.cloudresourcemanager.organizations_iam_policies
 WHERE organizationsId = '{{ organizationsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>organizations_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.cloudresourcemanager.organizations_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+organizationsId = '{{ organizationsId }}';
 ```

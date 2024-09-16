@@ -47,8 +47,8 @@ Creates, updates, deletes, gets or lists a <code>instances</code> resource.
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists information about instances in a project. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="projectsId" /> | Create an instance within a project. Note that exactly one of Cluster.serve_nodes and Cluster.cluster_config.cluster_autoscaling_config can be set. If serve_nodes is set to non-zero, then the cluster is manually scaled. If cluster_config.cluster_autoscaling_config is non-empty, then autoscaling is enabled. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instancesId, projectsId" /> | Delete an instance from a project. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="instancesId, projectsId" /> | Updates an instance within a project. This method updates only the display name and type for an Instance. To update other Instance properties, such as labels, use PartialUpdateInstance. |
 | <CopyableCode code="partial_update_instance" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Partially updates an instance within a project. This method can modify all fields of an Instance and is the preferred way to update an Instance. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Updates an instance within a project. This method updates only the display name and type for an Instance. To update other Instance properties, such as labels, use PartialUpdateInstance. |
 
 ## `SELECT` examples
 
@@ -102,21 +102,41 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: parent
-        value: '{{ parent }}'
-      - name: instanceId
-        value: '{{ instanceId }}'
-      - name: instance
-        value: '{{ instance }}'
-      - name: clusters
-        value: '{{ clusters }}'
+- name: your_resource_model_name
+  props:
+    - name: parent
+      value: '{{ parent }}'
+    - name: instanceId
+      value: '{{ instanceId }}'
+    - name: instance
+      value: '{{ instance }}'
+    - name: clusters
+      value: '{{ clusters }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>instances</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.bigtableadmin.instances
+SET 
+name = '{{ name }}',
+displayName = '{{ displayName }}',
+state = '{{ state }}',
+type = '{{ type }}',
+labels = '{{ labels }}',
+createTime = '{{ createTime }}',
+satisfiesPzs = true|false,
+satisfiesPzi = true|false
+WHERE 
+instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}';
+```
 
 ## `DELETE` example
 

@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>billing_accounts_iam_policies</
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="billingAccountsId" /> | Gets the access control policy for a billing account. The caller must have the `billing.accounts.getIamPolicy` permission on the account, which is often given to billing account [viewers](https://cloud.google.com/billing/docs/how-to/billing-access). |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="billingAccountsId" /> | Sets the access control policy for a billing account. Replaces any existing policy. The caller must have the `billing.accounts.setIamPolicy` permission on the account, which is often given to billing account [administrators](https://cloud.google.com/billing/docs/how-to/billing-access). |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="billingAccountsId" /> | Sets the access control policy for a billing account. Replaces any existing policy. The caller must have the `billing.accounts.setIamPolicy` permission on the account, which is often given to billing account [administrators](https://cloud.google.com/billing/docs/how-to/billing-access). |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="billingAccountsId" /> | Tests the access control policy for a billing account. This method takes the resource and a set of permissions as input and returns the subset of the input permissions that the caller is allowed for that resource. |
 
 ## `SELECT` examples
@@ -53,4 +53,18 @@ members,
 role
 FROM google.cloudbilling.billing_accounts_iam_policies
 WHERE billingAccountsId = '{{ billingAccountsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>billing_accounts_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.cloudbilling.billing_accounts_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+billingAccountsId = '{{ billingAccountsId }}';
 ```

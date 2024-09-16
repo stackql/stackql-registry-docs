@@ -67,9 +67,9 @@ Creates, updates, deletes, gets or lists a <code>organizations</code> resource.
 | <CopyableCode code="organizations_list" /> | `SELECT` | <CopyableCode code="" /> | Lists the Apigee organizations and associated Google Cloud projects that you have permission to access. See [Understanding organizations](https://cloud.google.com/apigee/docs/api-platform/fundamentals/organization-structure). |
 | <CopyableCode code="organizations_create" /> | `INSERT` | <CopyableCode code="" /> | Creates an Apigee organization. See [Create an Apigee organization](https://cloud.google.com/apigee/docs/api-platform/get-started/create-org). |
 | <CopyableCode code="organizations_delete" /> | `DELETE` | <CopyableCode code="organizationsId" /> | Delete an Apigee organization. For organizations with BillingType EVALUATION, an immediate deletion is performed. For paid organizations (Subscription or Pay-as-you-go), a soft-deletion is performed. The organization can be restored within the soft-deletion period, which is specified using the `retention` field in the request or by filing a support ticket with Apigee. During the data retention period specified in the request, the Apigee organization cannot be recreated in the same Google Cloud project. **IMPORTANT: The default data retention setting for this operation is 7 days. To permanently delete the organization in 24 hours, set the retention parameter to `MINIMUM`.** |
+| <CopyableCode code="organizations_update" /> | `REPLACE` | <CopyableCode code="organizationsId" /> | Updates the properties for an Apigee organization. No other fields in the organization profile will be updated. |
 | <CopyableCode code="organizations_set_addons" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Configures the add-ons for the Apigee organization. The existing add-on configuration will be fully replaced. |
 | <CopyableCode code="organizations_set_sync_authorization" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Sets the permissions required to allow the Synchronizer to download environment data from the control plane. You must call this API to enable proper functioning of hybrid. Pass the ETag when calling `setSyncAuthorization` to ensure that you are updating the correct version. To get an ETag, call [getSyncAuthorization](getSyncAuthorization). If you don't pass the ETag in the call to `setSyncAuthorization`, then the existing authorization is overwritten indiscriminately. For more information, see [Configure the Synchronizer](https://cloud.google.com/apigee/docs/hybrid/latest/synchronizer-access). **Note**: Available to Apigee hybrid only. |
-| <CopyableCode code="organizations_update" /> | `EXEC` | <CopyableCode code="organizationsId" /> | Updates the properties for an Apigee organization. No other fields in the organization profile will be updated. |
 
 ## `SELECT` examples
 
@@ -191,69 +191,108 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: lastModifiedAt
-        value: '{{ lastModifiedAt }}'
-      - name: subscriptionPlan
-        value: '{{ subscriptionPlan }}'
-      - name: portalDisabled
-        value: '{{ portalDisabled }}'
-      - name: caCertificate
-        value: '{{ caCertificate }}'
-      - name: disableVpcPeering
-        value: '{{ disableVpcPeering }}'
-      - name: apiConsumerDataLocation
-        value: '{{ apiConsumerDataLocation }}'
-      - name: analyticsRegion
-        value: '{{ analyticsRegion }}'
-      - name: billingType
-        value: '{{ billingType }}'
-      - name: authorizedNetwork
-        value: '{{ authorizedNetwork }}'
-      - name: controlPlaneEncryptionKeyName
-        value: '{{ controlPlaneEncryptionKeyName }}'
-      - name: runtimeDatabaseEncryptionKeyName
-        value: '{{ runtimeDatabaseEncryptionKeyName }}'
-      - name: expiresAt
-        value: '{{ expiresAt }}'
-      - name: runtimeType
-        value: '{{ runtimeType }}'
-      - name: environments
-        value: '{{ environments }}'
-      - name: type
-        value: '{{ type }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: apiConsumerDataEncryptionKeyName
-        value: '{{ apiConsumerDataEncryptionKeyName }}'
-      - name: name
-        value: '{{ name }}'
-      - name: properties
-        value: '{{ properties }}'
-      - name: projectId
-        value: '{{ projectId }}'
-      - name: description
-        value: '{{ description }}'
-      - name: state
-        value: '{{ state }}'
-      - name: customerName
-        value: '{{ customerName }}'
-      - name: apigeeProjectId
-        value: '{{ apigeeProjectId }}'
-      - name: attributes
-        value: '{{ attributes }}'
-      - name: subscriptionType
-        value: '{{ subscriptionType }}'
-      - name: addonsConfig
-        value: '{{ addonsConfig }}'
-      - name: createdAt
-        value: '{{ createdAt }}'
+- name: your_resource_model_name
+  props:
+    - name: lastModifiedAt
+      value: '{{ lastModifiedAt }}'
+    - name: subscriptionPlan
+      value: '{{ subscriptionPlan }}'
+    - name: portalDisabled
+      value: '{{ portalDisabled }}'
+    - name: caCertificate
+      value: '{{ caCertificate }}'
+    - name: disableVpcPeering
+      value: '{{ disableVpcPeering }}'
+    - name: apiConsumerDataLocation
+      value: '{{ apiConsumerDataLocation }}'
+    - name: analyticsRegion
+      value: '{{ analyticsRegion }}'
+    - name: billingType
+      value: '{{ billingType }}'
+    - name: authorizedNetwork
+      value: '{{ authorizedNetwork }}'
+    - name: controlPlaneEncryptionKeyName
+      value: '{{ controlPlaneEncryptionKeyName }}'
+    - name: runtimeDatabaseEncryptionKeyName
+      value: '{{ runtimeDatabaseEncryptionKeyName }}'
+    - name: expiresAt
+      value: '{{ expiresAt }}'
+    - name: runtimeType
+      value: '{{ runtimeType }}'
+    - name: environments
+      value: '{{ environments }}'
+    - name: type
+      value: '{{ type }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: apiConsumerDataEncryptionKeyName
+      value: '{{ apiConsumerDataEncryptionKeyName }}'
+    - name: name
+      value: '{{ name }}'
+    - name: properties
+      value: '{{ properties }}'
+    - name: projectId
+      value: '{{ projectId }}'
+    - name: description
+      value: '{{ description }}'
+    - name: state
+      value: '{{ state }}'
+    - name: customerName
+      value: '{{ customerName }}'
+    - name: apigeeProjectId
+      value: '{{ apigeeProjectId }}'
+    - name: attributes
+      value: '{{ attributes }}'
+    - name: subscriptionType
+      value: '{{ subscriptionType }}'
+    - name: addonsConfig
+      value: '{{ addonsConfig }}'
+    - name: createdAt
+      value: '{{ createdAt }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>organizations</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.organizations
+SET 
+lastModifiedAt = '{{ lastModifiedAt }}',
+subscriptionPlan = '{{ subscriptionPlan }}',
+portalDisabled = true|false,
+caCertificate = '{{ caCertificate }}',
+disableVpcPeering = true|false,
+apiConsumerDataLocation = '{{ apiConsumerDataLocation }}',
+analyticsRegion = '{{ analyticsRegion }}',
+billingType = '{{ billingType }}',
+authorizedNetwork = '{{ authorizedNetwork }}',
+controlPlaneEncryptionKeyName = '{{ controlPlaneEncryptionKeyName }}',
+runtimeDatabaseEncryptionKeyName = '{{ runtimeDatabaseEncryptionKeyName }}',
+expiresAt = '{{ expiresAt }}',
+runtimeType = '{{ runtimeType }}',
+environments = '{{ environments }}',
+type = '{{ type }}',
+displayName = '{{ displayName }}',
+apiConsumerDataEncryptionKeyName = '{{ apiConsumerDataEncryptionKeyName }}',
+name = '{{ name }}',
+properties = '{{ properties }}',
+projectId = '{{ projectId }}',
+description = '{{ description }}',
+state = '{{ state }}',
+customerName = '{{ customerName }}',
+apigeeProjectId = '{{ apigeeProjectId }}',
+attributes = '{{ attributes }}',
+subscriptionType = '{{ subscriptionType }}',
+addonsConfig = '{{ addonsConfig }}',
+createdAt = '{{ createdAt }}'
+WHERE 
+organizationsId = '{{ organizationsId }}';
+```
 
 ## `DELETE` example
 

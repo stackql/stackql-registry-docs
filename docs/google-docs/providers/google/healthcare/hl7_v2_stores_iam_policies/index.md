@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>hl7_v2_stores_iam_policies</cod
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="datasetsId, hl7V2StoresId, locationsId, projectsId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="datasetsId, hl7V2StoresId, locationsId, projectsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="datasetsId, hl7V2StoresId, locationsId, projectsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="datasetsId, hl7V2StoresId, locationsId, projectsId" /> | Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
 
 ## `SELECT` examples
@@ -56,4 +56,21 @@ WHERE datasetsId = '{{ datasetsId }}'
 AND hl7V2StoresId = '{{ hl7V2StoresId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>hl7_v2_stores_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.healthcare.hl7_v2_stores_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+datasetsId = '{{ datasetsId }}'
+AND hl7V2StoresId = '{{ hl7V2StoresId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

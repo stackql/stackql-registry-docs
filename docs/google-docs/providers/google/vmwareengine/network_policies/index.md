@@ -120,29 +120,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: internetAccess
-        value: '{{ internetAccess }}'
-      - name: externalIp
-        value: '{{ externalIp }}'
-      - name: edgeServicesCidr
-        value: '{{ edgeServicesCidr }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: vmwareEngineNetwork
-        value: '{{ vmwareEngineNetwork }}'
-      - name: description
-        value: '{{ description }}'
-      - name: vmwareEngineNetworkCanonical
-        value: '{{ vmwareEngineNetworkCanonical }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: internetAccess
+      value: '{{ internetAccess }}'
+    - name: externalIp
+      value: '{{ externalIp }}'
+    - name: edgeServicesCidr
+      value: '{{ edgeServicesCidr }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: vmwareEngineNetwork
+      value: '{{ vmwareEngineNetwork }}'
+    - name: description
+      value: '{{ description }}'
+    - name: vmwareEngineNetworkCanonical
+      value: '{{ vmwareEngineNetworkCanonical }}'
 
 ```
 </TabItem>

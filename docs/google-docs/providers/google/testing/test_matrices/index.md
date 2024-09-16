@@ -132,37 +132,36 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: testMatrixId
-        value: '{{ testMatrixId }}'
-      - name: projectId
-        value: '{{ projectId }}'
-      - name: clientInfo
-        value: '{{ clientInfo }}'
-      - name: testSpecification
-        value: '{{ testSpecification }}'
-      - name: environmentMatrix
-        value: '{{ environmentMatrix }}'
-      - name: testExecutions
-        value: '{{ testExecutions }}'
-      - name: resultStorage
-        value: '{{ resultStorage }}'
-      - name: state
-        value: '{{ state }}'
-      - name: timestamp
-        value: '{{ timestamp }}'
-      - name: invalidMatrixDetails
-        value: '{{ invalidMatrixDetails }}'
-      - name: extendedInvalidMatrixDetails
-        value: '{{ extendedInvalidMatrixDetails }}'
-      - name: flakyTestAttempts
-        value: '{{ flakyTestAttempts }}'
-      - name: outcomeSummary
-        value: '{{ outcomeSummary }}'
-      - name: failFast
-        value: '{{ failFast }}'
+- name: your_resource_model_name
+  props:
+    - name: testMatrixId
+      value: '{{ testMatrixId }}'
+    - name: projectId
+      value: '{{ projectId }}'
+    - name: clientInfo
+      value: '{{ clientInfo }}'
+    - name: testSpecification
+      value: '{{ testSpecification }}'
+    - name: environmentMatrix
+      value: '{{ environmentMatrix }}'
+    - name: testExecutions
+      value: '{{ testExecutions }}'
+    - name: resultStorage
+      value: '{{ resultStorage }}'
+    - name: state
+      value: '{{ state }}'
+    - name: timestamp
+      value: '{{ timestamp }}'
+    - name: invalidMatrixDetails
+      value: '{{ invalidMatrixDetails }}'
+    - name: extendedInvalidMatrixDetails
+      value: '{{ extendedInvalidMatrixDetails }}'
+    - name: flakyTestAttempts
+      value: '{{ flakyTestAttempts }}'
+    - name: outcomeSummary
+      value: '{{ outcomeSummary }}'
+    - name: failFast
+      value: '{{ failFast }}'
 
 ```
 </TabItem>

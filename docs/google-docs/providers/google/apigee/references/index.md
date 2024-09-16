@@ -42,7 +42,7 @@ Creates, updates, deletes, gets or lists a <code>references</code> resource.
 | <CopyableCode code="organizations_environments_references_get" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Gets a Reference resource. |
 | <CopyableCode code="organizations_environments_references_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a Reference in the specified environment. |
 | <CopyableCode code="organizations_environments_references_delete" /> | `DELETE` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Deletes a Reference from an environment. Returns the deleted Reference resource. |
-| <CopyableCode code="organizations_environments_references_update" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Updates an existing Reference. Note that this operation has PUT semantics; it will replace the entirety of the existing Reference with the resource in the request body. |
+| <CopyableCode code="organizations_environments_references_update" /> | `REPLACE` | <CopyableCode code="environmentsId, organizationsId, referencesId" /> | Updates an existing Reference. Note that this operation has PUT semantics; it will replace the entirety of the existing Reference with the resource in the request body. |
 
 ## `SELECT` examples
 
@@ -96,21 +96,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: resourceType
-        value: '{{ resourceType }}'
-      - name: description
-        value: '{{ description }}'
-      - name: refers
-        value: '{{ refers }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: resourceType
+      value: '{{ resourceType }}'
+    - name: description
+      value: '{{ description }}'
+    - name: refers
+      value: '{{ refers }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>references</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.references
+SET 
+name = '{{ name }}',
+resourceType = '{{ resourceType }}',
+description = '{{ description }}',
+refers = '{{ refers }}'
+WHERE 
+environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND referencesId = '{{ referencesId }}';
+```
 
 ## `DELETE` example
 

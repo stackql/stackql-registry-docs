@@ -182,59 +182,58 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: network
-        value: '{{ network }}'
-      - name: ipCidrRange
-        value: '{{ ipCidrRange }}'
-      - name: reservedInternalRange
-        value: '{{ reservedInternalRange }}'
-      - name: gatewayAddress
-        value: '{{ gatewayAddress }}'
-      - name: region
-        value: '{{ region }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: privateIpGoogleAccess
-        value: '{{ privateIpGoogleAccess }}'
-      - name: secondaryIpRanges
-        value: '{{ secondaryIpRanges }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: enableFlowLogs
-        value: '{{ enableFlowLogs }}'
-      - name: privateIpv6GoogleAccess
-        value: '{{ privateIpv6GoogleAccess }}'
-      - name: ipv6CidrRange
-        value: '{{ ipv6CidrRange }}'
-      - name: externalIpv6Prefix
-        value: '{{ externalIpv6Prefix }}'
-      - name: internalIpv6Prefix
-        value: '{{ internalIpv6Prefix }}'
-      - name: purpose
-        value: '{{ purpose }}'
-      - name: role
-        value: '{{ role }}'
-      - name: state
-        value: '{{ state }}'
-      - name: logConfig
-        value: '{{ logConfig }}'
-      - name: stackType
-        value: '{{ stackType }}'
-      - name: ipv6AccessType
-        value: '{{ ipv6AccessType }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: network
+      value: '{{ network }}'
+    - name: ipCidrRange
+      value: '{{ ipCidrRange }}'
+    - name: reservedInternalRange
+      value: '{{ reservedInternalRange }}'
+    - name: gatewayAddress
+      value: '{{ gatewayAddress }}'
+    - name: region
+      value: '{{ region }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: privateIpGoogleAccess
+      value: '{{ privateIpGoogleAccess }}'
+    - name: secondaryIpRanges
+      value: '{{ secondaryIpRanges }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: enableFlowLogs
+      value: '{{ enableFlowLogs }}'
+    - name: privateIpv6GoogleAccess
+      value: '{{ privateIpv6GoogleAccess }}'
+    - name: ipv6CidrRange
+      value: '{{ ipv6CidrRange }}'
+    - name: externalIpv6Prefix
+      value: '{{ externalIpv6Prefix }}'
+    - name: internalIpv6Prefix
+      value: '{{ internalIpv6Prefix }}'
+    - name: purpose
+      value: '{{ purpose }}'
+    - name: role
+      value: '{{ role }}'
+    - name: state
+      value: '{{ state }}'
+    - name: logConfig
+      value: '{{ logConfig }}'
+    - name: stackType
+      value: '{{ stackType }}'
+    - name: ipv6AccessType
+      value: '{{ ipv6AccessType }}'
 
 ```
 </TabItem>

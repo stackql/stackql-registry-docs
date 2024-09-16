@@ -171,53 +171,52 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: state
-        value: '{{ state }}'
-      - name: statusMessage
-        value: '{{ statusMessage }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: tier
-        value: '{{ tier }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: fileShares
-        value: '{{ fileShares }}'
-      - name: networks
-        value: '{{ networks }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: kmsKeyName
-        value: '{{ kmsKeyName }}'
-      - name: suspensionReasons
-        value: '{{ suspensionReasons }}'
-      - name: replication
-        value: '{{ replication }}'
-      - name: tags
-        value: '{{ tags }}'
-      - name: protocol
-        value: '{{ protocol }}'
-      - name: configurablePerformanceEnabled
-        value: '{{ configurablePerformanceEnabled }}'
-      - name: performanceConfig
-        value: '{{ performanceConfig }}'
-      - name: performanceLimits
-        value: '{{ performanceLimits }}'
-      - name: deletionProtectionEnabled
-        value: '{{ deletionProtectionEnabled }}'
-      - name: deletionProtectionReason
-        value: '{{ deletionProtectionReason }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: state
+      value: '{{ state }}'
+    - name: statusMessage
+      value: '{{ statusMessage }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: tier
+      value: '{{ tier }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: fileShares
+      value: '{{ fileShares }}'
+    - name: networks
+      value: '{{ networks }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: kmsKeyName
+      value: '{{ kmsKeyName }}'
+    - name: suspensionReasons
+      value: '{{ suspensionReasons }}'
+    - name: replication
+      value: '{{ replication }}'
+    - name: tags
+      value: '{{ tags }}'
+    - name: protocol
+      value: '{{ protocol }}'
+    - name: configurablePerformanceEnabled
+      value: '{{ configurablePerformanceEnabled }}'
+    - name: performanceConfig
+      value: '{{ performanceConfig }}'
+    - name: performanceLimits
+      value: '{{ performanceLimits }}'
+    - name: deletionProtectionEnabled
+      value: '{{ deletionProtectionEnabled }}'
+    - name: deletionProtectionReason
+      value: '{{ deletionProtectionReason }}'
 
 ```
 </TabItem>

@@ -42,7 +42,7 @@ Creates, updates, deletes, gets or lists a <code>resourcefiles</code> resource.
 | <CopyableCode code="organizations_environments_resourcefiles_list" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId" /> | Lists all resource files, optionally filtering by type. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
 | <CopyableCode code="organizations_environments_resourcefiles_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a resource file. Specify the `Content-Type` as `application/octet-stream` or `multipart/form-data`. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
 | <CopyableCode code="organizations_environments_resourcefiles_delete" /> | `DELETE` | <CopyableCode code="environmentsId, name, organizationsId, type" /> | Deletes a resource file. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
-| <CopyableCode code="organizations_environments_resourcefiles_update" /> | `EXEC` | <CopyableCode code="environmentsId, name, organizationsId, type" /> | Updates a resource file. Specify the `Content-Type` as `application/octet-stream` or `multipart/form-data`. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
+| <CopyableCode code="organizations_environments_resourcefiles_update" /> | `REPLACE` | <CopyableCode code="environmentsId, name, organizationsId, type" /> | Updates a resource file. Specify the `Content-Type` as `application/octet-stream` or `multipart/form-data`. For more information about resource files, see [Resource files](https://cloud.google.com/apigee/docs/api-platform/develop/resource-files). |
 
 ## `SELECT` examples
 
@@ -92,19 +92,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: contentType
-        value: '{{ contentType }}'
-      - name: extensions
-        value: '{{ extensions }}'
-      - name: data
-        value: '{{ data }}'
+- name: your_resource_model_name
+  props:
+    - name: contentType
+      value: '{{ contentType }}'
+    - name: extensions
+      value: '{{ extensions }}'
+    - name: data
+      value: '{{ data }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>resourcefiles</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.resourcefiles
+SET 
+contentType = '{{ contentType }}',
+extensions = '{{ extensions }}',
+data = '{{ data }}'
+WHERE 
+environmentsId = '{{ environmentsId }}'
+AND name = '{{ name }}'
+AND organizationsId = '{{ organizationsId }}'
+AND type = '{{ type }}';
+```
 
 ## `DELETE` example
 

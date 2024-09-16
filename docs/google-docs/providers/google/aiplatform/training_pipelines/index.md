@@ -148,43 +148,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: trainingTaskDefinition
-        value: '{{ trainingTaskDefinition }}'
-      - name: inputDataConfig
-        value: '{{ inputDataConfig }}'
-      - name: trainingTaskMetadata
-        value: '{{ trainingTaskMetadata }}'
-      - name: parentModel
-        value: '{{ parentModel }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: modelToUpload
-        value: '{{ modelToUpload }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: modelId
-        value: '{{ modelId }}'
-      - name: state
-        value: '{{ state }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: trainingTaskInputs
-        value: '{{ trainingTaskInputs }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: name
-        value: '{{ name }}'
-      - name: error
-        value: '{{ error }}'
+- name: your_resource_model_name
+  props:
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: trainingTaskDefinition
+      value: '{{ trainingTaskDefinition }}'
+    - name: inputDataConfig
+      value: '{{ inputDataConfig }}'
+    - name: trainingTaskMetadata
+      value: '{{ trainingTaskMetadata }}'
+    - name: parentModel
+      value: '{{ parentModel }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: modelToUpload
+      value: '{{ modelToUpload }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: modelId
+      value: '{{ modelId }}'
+    - name: state
+      value: '{{ state }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: trainingTaskInputs
+      value: '{{ trainingTaskInputs }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: name
+      value: '{{ name }}'
+    - name: error
+      value: '{{ error }}'
 
 ```
 </TabItem>

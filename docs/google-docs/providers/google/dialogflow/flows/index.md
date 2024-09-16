@@ -131,31 +131,30 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: description
-        value: '{{ description }}'
-      - name: transitionRoutes
-        value: '{{ transitionRoutes }}'
-      - name: eventHandlers
-        value: '{{ eventHandlers }}'
-      - name: transitionRouteGroups
-        value: '{{ transitionRouteGroups }}'
-      - name: nluSettings
-        value: '{{ nluSettings }}'
-      - name: advancedSettings
-        value: '{{ advancedSettings }}'
-      - name: knowledgeConnectorSettings
-        value: '{{ knowledgeConnectorSettings }}'
-      - name: multiLanguageSettings
-        value: '{{ multiLanguageSettings }}'
-      - name: locked
-        value: '{{ locked }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: description
+      value: '{{ description }}'
+    - name: transitionRoutes
+      value: '{{ transitionRoutes }}'
+    - name: eventHandlers
+      value: '{{ eventHandlers }}'
+    - name: transitionRouteGroups
+      value: '{{ transitionRouteGroups }}'
+    - name: nluSettings
+      value: '{{ nluSettings }}'
+    - name: advancedSettings
+      value: '{{ advancedSettings }}'
+    - name: knowledgeConnectorSettings
+      value: '{{ knowledgeConnectorSettings }}'
+    - name: multiLanguageSettings
+      value: '{{ multiLanguageSettings }}'
+    - name: locked
+      value: '{{ locked }}'
 
 ```
 </TabItem>

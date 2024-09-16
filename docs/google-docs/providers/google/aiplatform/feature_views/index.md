@@ -133,33 +133,32 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: bigQuerySource
-        value: '{{ bigQuerySource }}'
-      - name: name
-        value: '{{ name }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: featureRegistrySource
-        value: '{{ featureRegistrySource }}'
-      - name: indexConfig
-        value: '{{ indexConfig }}'
-      - name: vertexRagSource
-        value: '{{ vertexRagSource }}'
-      - name: syncConfig
-        value: '{{ syncConfig }}'
+- name: your_resource_model_name
+  props:
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: bigQuerySource
+      value: '{{ bigQuerySource }}'
+    - name: name
+      value: '{{ name }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: featureRegistrySource
+      value: '{{ featureRegistrySource }}'
+    - name: indexConfig
+      value: '{{ indexConfig }}'
+    - name: vertexRagSource
+      value: '{{ vertexRagSource }}'
+    - name: syncConfig
+      value: '{{ syncConfig }}'
 
 ```
 </TabItem>

@@ -159,43 +159,42 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: gceSetup
-        value: '{{ gceSetup }}'
-      - name: proxyUri
-        value: '{{ proxyUri }}'
-      - name: instanceOwners
-        value: '{{ instanceOwners }}'
-      - name: creator
-        value: '{{ creator }}'
-      - name: state
-        value: '{{ state }}'
-      - name: upgradeHistory
-        value: '{{ upgradeHistory }}'
-      - name: id
-        value: '{{ id }}'
-      - name: healthState
-        value: '{{ healthState }}'
-      - name: healthInfo
-        value: '{{ healthInfo }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: disableProxyAccess
-        value: '{{ disableProxyAccess }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: thirdPartyProxyUrl
-        value: '{{ thirdPartyProxyUrl }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: gceSetup
+      value: '{{ gceSetup }}'
+    - name: proxyUri
+      value: '{{ proxyUri }}'
+    - name: instanceOwners
+      value: '{{ instanceOwners }}'
+    - name: creator
+      value: '{{ creator }}'
+    - name: state
+      value: '{{ state }}'
+    - name: upgradeHistory
+      value: '{{ upgradeHistory }}'
+    - name: id
+      value: '{{ id }}'
+    - name: healthState
+      value: '{{ healthState }}'
+    - name: healthInfo
+      value: '{{ healthInfo }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: disableProxyAccess
+      value: '{{ disableProxyAccess }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: thirdPartyProxyUrl
+      value: '{{ thirdPartyProxyUrl }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

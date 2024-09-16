@@ -147,43 +147,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: notebookRuntimeTemplateResourceName
-        value: '{{ notebookRuntimeTemplateResourceName }}'
-      - name: executionTimeout
-        value: '{{ executionTimeout }}'
-      - name: gcsOutputUri
-        value: '{{ gcsOutputUri }}'
-      - name: serviceAccount
-        value: '{{ serviceAccount }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: dataformRepositorySource
-        value: '{{ dataformRepositorySource }}'
-      - name: executionUser
-        value: '{{ executionUser }}'
-      - name: scheduleResourceName
-        value: '{{ scheduleResourceName }}'
-      - name: name
-        value: '{{ name }}'
-      - name: gcsNotebookSource
-        value: '{{ gcsNotebookSource }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: directNotebookSource
-        value: '{{ directNotebookSource }}'
-      - name: status
-        value: '{{ status }}'
-      - name: jobState
-        value: '{{ jobState }}'
+- name: your_resource_model_name
+  props:
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: notebookRuntimeTemplateResourceName
+      value: '{{ notebookRuntimeTemplateResourceName }}'
+    - name: executionTimeout
+      value: '{{ executionTimeout }}'
+    - name: gcsOutputUri
+      value: '{{ gcsOutputUri }}'
+    - name: serviceAccount
+      value: '{{ serviceAccount }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: dataformRepositorySource
+      value: '{{ dataformRepositorySource }}'
+    - name: executionUser
+      value: '{{ executionUser }}'
+    - name: scheduleResourceName
+      value: '{{ scheduleResourceName }}'
+    - name: name
+      value: '{{ name }}'
+    - name: gcsNotebookSource
+      value: '{{ gcsNotebookSource }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: directNotebookSource
+      value: '{{ directNotebookSource }}'
+    - name: status
+      value: '{{ status }}'
+    - name: jobState
+      value: '{{ jobState }}'
 
 ```
 </TabItem>

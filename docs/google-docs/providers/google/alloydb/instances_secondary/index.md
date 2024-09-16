@@ -121,63 +121,62 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: state
-        value: '{{ state }}'
-      - name: instanceType
-        value: '{{ instanceType }}'
-      - name: machineConfig
-        value: '{{ machineConfig }}'
-      - name: availabilityType
-        value: '{{ availabilityType }}'
-      - name: gceZone
-        value: '{{ gceZone }}'
-      - name: databaseFlags
-        value: '{{ databaseFlags }}'
-      - name: writableNode
-        value: '{{ writableNode }}'
-      - name: nodes
-        value: '{{ nodes }}'
-      - name: queryInsightsConfig
-        value: '{{ queryInsightsConfig }}'
-      - name: readPoolConfig
-        value: '{{ readPoolConfig }}'
-      - name: ipAddress
-        value: '{{ ipAddress }}'
-      - name: publicIpAddress
-        value: '{{ publicIpAddress }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: etag
-        value: '{{ etag }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: clientConnectionConfig
-        value: '{{ clientConnectionConfig }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: pscInstanceConfig
-        value: '{{ pscInstanceConfig }}'
-      - name: networkConfig
-        value: '{{ networkConfig }}'
-      - name: outboundPublicIpAddresses
-        value: '{{ outboundPublicIpAddresses }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: state
+      value: '{{ state }}'
+    - name: instanceType
+      value: '{{ instanceType }}'
+    - name: machineConfig
+      value: '{{ machineConfig }}'
+    - name: availabilityType
+      value: '{{ availabilityType }}'
+    - name: gceZone
+      value: '{{ gceZone }}'
+    - name: databaseFlags
+      value: '{{ databaseFlags }}'
+    - name: writableNode
+      value: '{{ writableNode }}'
+    - name: nodes
+      value: '{{ nodes }}'
+    - name: queryInsightsConfig
+      value: '{{ queryInsightsConfig }}'
+    - name: readPoolConfig
+      value: '{{ readPoolConfig }}'
+    - name: ipAddress
+      value: '{{ ipAddress }}'
+    - name: publicIpAddress
+      value: '{{ publicIpAddress }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: etag
+      value: '{{ etag }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: clientConnectionConfig
+      value: '{{ clientConnectionConfig }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: pscInstanceConfig
+      value: '{{ pscInstanceConfig }}'
+    - name: networkConfig
+      value: '{{ networkConfig }}'
+    - name: outboundPublicIpAddresses
+      value: '{{ outboundPublicIpAddresses }}'
 
 ```
 </TabItem>

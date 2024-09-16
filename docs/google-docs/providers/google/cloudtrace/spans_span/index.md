@@ -95,37 +95,36 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: spanId
-        value: '{{ spanId }}'
-      - name: parentSpanId
-        value: '{{ parentSpanId }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: attributes
-        value: '{{ attributes }}'
-      - name: stackTrace
-        value: '{{ stackTrace }}'
-      - name: timeEvents
-        value: '{{ timeEvents }}'
-      - name: links
-        value: '{{ links }}'
-      - name: status
-        value: '{{ status }}'
-      - name: sameProcessAsParentSpan
-        value: '{{ sameProcessAsParentSpan }}'
-      - name: childSpanCount
-        value: '{{ childSpanCount }}'
-      - name: spanKind
-        value: '{{ spanKind }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: spanId
+      value: '{{ spanId }}'
+    - name: parentSpanId
+      value: '{{ parentSpanId }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: attributes
+      value: '{{ attributes }}'
+    - name: stackTrace
+      value: '{{ stackTrace }}'
+    - name: timeEvents
+      value: '{{ timeEvents }}'
+    - name: links
+      value: '{{ links }}'
+    - name: status
+      value: '{{ status }}'
+    - name: sameProcessAsParentSpan
+      value: '{{ sameProcessAsParentSpan }}'
+    - name: childSpanCount
+      value: '{{ childSpanCount }}'
+    - name: spanKind
+      value: '{{ spanKind }}'
 
 ```
 </TabItem>

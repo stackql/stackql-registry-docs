@@ -112,25 +112,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: description
-        value: '{{ description }}'
-      - name: loadBalancingAlgorithm
-        value: '{{ loadBalancingAlgorithm }}'
-      - name: autoCapacityDrain
-        value: '{{ autoCapacityDrain }}'
-      - name: failoverConfig
-        value: '{{ failoverConfig }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: description
+      value: '{{ description }}'
+    - name: loadBalancingAlgorithm
+      value: '{{ loadBalancingAlgorithm }}'
+    - name: autoCapacityDrain
+      value: '{{ autoCapacityDrain }}'
+    - name: failoverConfig
+      value: '{{ failoverConfig }}'
 
 ```
 </TabItem>

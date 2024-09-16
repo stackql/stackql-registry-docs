@@ -45,7 +45,7 @@ Creates, updates, deletes, gets or lists a <code>response_policy_rules</code> re
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="project, responsePolicy" /> | Creates a new Response Policy Rule. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="project, responsePolicy, responsePolicyRule" /> | Deletes a previously created Response Policy Rule. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="project, responsePolicy, responsePolicyRule" /> | Applies a partial update to an existing Response Policy Rule. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="project, responsePolicy, responsePolicyRule" /> | Updates an existing Response Policy Rule. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="project, responsePolicy, responsePolicyRule" /> | Updates an existing Response Policy Rule. |
 
 ## `SELECT` examples
 
@@ -101,19 +101,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: ruleName
-        value: '{{ ruleName }}'
-      - name: dnsName
-        value: '{{ dnsName }}'
-      - name: localData
-        value: '{{ localData }}'
-      - name: behavior
-        value: '{{ behavior }}'
-      - name: kind
-        value: '{{ kind }}'
+- name: your_resource_model_name
+  props:
+    - name: ruleName
+      value: '{{ ruleName }}'
+    - name: dnsName
+      value: '{{ dnsName }}'
+    - name: localData
+      value: '{{ localData }}'
+    - name: behavior
+      value: '{{ behavior }}'
+    - name: kind
+      value: '{{ kind }}'
 
 ```
 </TabItem>
@@ -126,6 +125,25 @@ Updates a <code>response_policy_rules</code> resource.
 ```sql
 /*+ update */
 UPDATE google.dns.response_policy_rules
+SET 
+ruleName = '{{ ruleName }}',
+dnsName = '{{ dnsName }}',
+localData = '{{ localData }}',
+behavior = '{{ behavior }}',
+kind = '{{ kind }}'
+WHERE 
+project = '{{ project }}'
+AND responsePolicy = '{{ responsePolicy }}'
+AND responsePolicyRule = '{{ responsePolicyRule }}';
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>response_policy_rules</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dns.response_policy_rules
 SET 
 ruleName = '{{ ruleName }}',
 dnsName = '{{ dnsName }}',

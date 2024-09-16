@@ -145,41 +145,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: resourcePools
-        value: '{{ resourcePools }}'
-      - name: error
-        value: '{{ error }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: network
-        value: '{{ network }}'
-      - name: resourceRuntimeSpec
-        value: '{{ resourceRuntimeSpec }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: resourceRuntime
-        value: '{{ resourceRuntime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: reservedIpRanges
-        value: '{{ reservedIpRanges }}'
-      - name: name
-        value: '{{ name }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
+- name: your_resource_model_name
+  props:
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: resourcePools
+      value: '{{ resourcePools }}'
+    - name: error
+      value: '{{ error }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: network
+      value: '{{ network }}'
+    - name: resourceRuntimeSpec
+      value: '{{ resourceRuntimeSpec }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: resourceRuntime
+      value: '{{ resourceRuntime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: reservedIpRanges
+      value: '{{ reservedIpRanges }}'
+    - name: name
+      value: '{{ name }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
 
 ```
 </TabItem>

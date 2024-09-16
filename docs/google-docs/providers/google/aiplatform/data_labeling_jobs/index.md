@@ -152,45 +152,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: encryptionSpec
-        value: '{{ encryptionSpec }}'
-      - name: labelerCount
-        value: '{{ labelerCount }}'
-      - name: annotationLabels
-        value: '{{ annotationLabels }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: inputsSchemaUri
-        value: '{{ inputsSchemaUri }}'
-      - name: inputs
-        value: '{{ inputs }}'
-      - name: datasets
-        value: '{{ datasets }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: name
-        value: '{{ name }}'
-      - name: state
-        value: '{{ state }}'
-      - name: currentSpend
-        value: '{{ currentSpend }}'
-      - name: activeLearningConfig
-        value: '{{ activeLearningConfig }}'
-      - name: labelingProgress
-        value: '{{ labelingProgress }}'
-      - name: instructionUri
-        value: '{{ instructionUri }}'
-      - name: specialistPools
-        value: '{{ specialistPools }}'
-      - name: error
-        value: '{{ error }}'
+- name: your_resource_model_name
+  props:
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: encryptionSpec
+      value: '{{ encryptionSpec }}'
+    - name: labelerCount
+      value: '{{ labelerCount }}'
+    - name: annotationLabels
+      value: '{{ annotationLabels }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: inputsSchemaUri
+      value: '{{ inputsSchemaUri }}'
+    - name: inputs
+      value: '{{ inputs }}'
+    - name: datasets
+      value: '{{ datasets }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: name
+      value: '{{ name }}'
+    - name: state
+      value: '{{ state }}'
+    - name: currentSpend
+      value: '{{ currentSpend }}'
+    - name: activeLearningConfig
+      value: '{{ activeLearningConfig }}'
+    - name: labelingProgress
+      value: '{{ labelingProgress }}'
+    - name: instructionUri
+      value: '{{ instructionUri }}'
+    - name: specialistPools
+      value: '{{ specialistPools }}'
+    - name: error
+      value: '{{ error }}'
 
 ```
 </TabItem>

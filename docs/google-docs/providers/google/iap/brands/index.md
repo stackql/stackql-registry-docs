@@ -91,17 +91,16 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: supportEmail
-        value: '{{ supportEmail }}'
-      - name: applicationTitle
-        value: '{{ applicationTitle }}'
-      - name: orgInternalOnly
-        value: '{{ orgInternalOnly }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: supportEmail
+      value: '{{ supportEmail }}'
+    - name: applicationTitle
+      value: '{{ applicationTitle }}'
+    - name: orgInternalOnly
+      value: '{{ orgInternalOnly }}'
 
 ```
 </TabItem>

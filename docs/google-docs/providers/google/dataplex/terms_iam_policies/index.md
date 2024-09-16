@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>terms_iam_policies</code> resou
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_glossaries_terms_get_iam_policy" /> | `SELECT` | <CopyableCode code="glossariesId, locationsId, projectsId, termsId" /> | Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. |
-| <CopyableCode code="projects_locations_glossaries_terms_set_iam_policy" /> | `EXEC` | <CopyableCode code="glossariesId, locationsId, projectsId, termsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. |
+| <CopyableCode code="projects_locations_glossaries_terms_set_iam_policy" /> | `REPLACE` | <CopyableCode code="glossariesId, locationsId, projectsId, termsId" /> | Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. |
 | <CopyableCode code="projects_locations_glossaries_terms_test_iam_permissions" /> | `EXEC` | <CopyableCode code="glossariesId, locationsId, projectsId, termsId" /> | Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. |
 
 ## `SELECT` examples
@@ -56,4 +56,21 @@ WHERE glossariesId = '{{ glossariesId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND termsId = '{{ termsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>terms_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.dataplex.terms_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+glossariesId = '{{ glossariesId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND termsId = '{{ termsId }}';
 ```

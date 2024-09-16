@@ -156,47 +156,46 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: status
-        value: '{{ status }}'
-      - name: sourceDisk
-        value: '{{ sourceDisk }}'
-      - name: sourceDiskId
-        value: '{{ sourceDiskId }}'
-      - name: diskSizeGb
-        value: '{{ diskSizeGb }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: selfLinkWithId
-        value: '{{ selfLinkWithId }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: labelFingerprint
-        value: '{{ labelFingerprint }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: region
-        value: '{{ region }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: architecture
-        value: '{{ architecture }}'
-      - name: resourceStatus
-        value: '{{ resourceStatus }}'
-      - name: satisfiesPzi
-        value: '{{ satisfiesPzi }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: status
+      value: '{{ status }}'
+    - name: sourceDisk
+      value: '{{ sourceDisk }}'
+    - name: sourceDiskId
+      value: '{{ sourceDiskId }}'
+    - name: diskSizeGb
+      value: '{{ diskSizeGb }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: selfLinkWithId
+      value: '{{ selfLinkWithId }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: labelFingerprint
+      value: '{{ labelFingerprint }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: region
+      value: '{{ region }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: architecture
+      value: '{{ architecture }}'
+    - name: resourceStatus
+      value: '{{ resourceStatus }}'
+    - name: satisfiesPzi
+      value: '{{ satisfiesPzi }}'
 
 ```
 </TabItem>

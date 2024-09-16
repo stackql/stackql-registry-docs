@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>instances_iam_policies</code> r
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_iam_policy" /> | `SELECT` | <CopyableCode code="instancesId, projectsId" /> | Gets the access control policy for an instance resource. Returns an empty policy if an instance exists but does not have a policy set. |
-| <CopyableCode code="set_iam_policy" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Sets the access control policy on an instance resource. Replaces any existing policy. |
+| <CopyableCode code="set_iam_policy" /> | `REPLACE` | <CopyableCode code="instancesId, projectsId" /> | Sets the access control policy on an instance resource. Replaces any existing policy. |
 | <CopyableCode code="test_iam_permissions" /> | `EXEC` | <CopyableCode code="instancesId, projectsId" /> | Returns permissions that the caller has on the specified instance resource. |
 
 ## `SELECT` examples
@@ -54,4 +54,19 @@ role
 FROM google.bigtableadmin.instances_iam_policies
 WHERE instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>instances_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.bigtableadmin.instances_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+instancesId = '{{ instancesId }}'
+AND projectsId = '{{ projectsId }}';
 ```

@@ -153,45 +153,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: locationId
-        value: '{{ locationId }}'
-      - name: type
-        value: '{{ type }}'
-      - name: concurrencyMode
-        value: '{{ concurrencyMode }}'
-      - name: versionRetentionPeriod
-        value: '{{ versionRetentionPeriod }}'
-      - name: earliestVersionTime
-        value: '{{ earliestVersionTime }}'
-      - name: pointInTimeRecoveryEnablement
-        value: '{{ pointInTimeRecoveryEnablement }}'
-      - name: appEngineIntegrationMode
-        value: '{{ appEngineIntegrationMode }}'
-      - name: keyPrefix
-        value: '{{ keyPrefix }}'
-      - name: deleteProtectionState
-        value: '{{ deleteProtectionState }}'
-      - name: cmekConfig
-        value: '{{ cmekConfig }}'
-      - name: previousId
-        value: '{{ previousId }}'
-      - name: sourceInfo
-        value: '{{ sourceInfo }}'
-      - name: etag
-        value: '{{ etag }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: locationId
+      value: '{{ locationId }}'
+    - name: type
+      value: '{{ type }}'
+    - name: concurrencyMode
+      value: '{{ concurrencyMode }}'
+    - name: versionRetentionPeriod
+      value: '{{ versionRetentionPeriod }}'
+    - name: earliestVersionTime
+      value: '{{ earliestVersionTime }}'
+    - name: pointInTimeRecoveryEnablement
+      value: '{{ pointInTimeRecoveryEnablement }}'
+    - name: appEngineIntegrationMode
+      value: '{{ appEngineIntegrationMode }}'
+    - name: keyPrefix
+      value: '{{ keyPrefix }}'
+    - name: deleteProtectionState
+      value: '{{ deleteProtectionState }}'
+    - name: cmekConfig
+      value: '{{ cmekConfig }}'
+    - name: previousId
+      value: '{{ previousId }}'
+    - name: sourceInfo
+      value: '{{ sourceInfo }}'
+    - name: etag
+      value: '{{ etag }}'
 
 ```
 </TabItem>

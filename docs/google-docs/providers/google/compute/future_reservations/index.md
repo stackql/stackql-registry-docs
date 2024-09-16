@@ -149,43 +149,42 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: selfLinkWithId
-        value: '{{ selfLinkWithId }}'
-      - name: zone
-        value: '{{ zone }}'
-      - name: description
-        value: '{{ description }}'
-      - name: name
-        value: '{{ name }}'
-      - name: specificSkuProperties
-        value: '{{ specificSkuProperties }}'
-      - name: timeWindow
-        value: '{{ timeWindow }}'
-      - name: shareSettings
-        value: '{{ shareSettings }}'
-      - name: namePrefix
-        value: '{{ namePrefix }}'
-      - name: status
-        value: '{{ status }}'
-      - name: planningStatus
-        value: '{{ planningStatus }}'
-      - name: autoCreatedReservationsDeleteTime
-        value: '{{ autoCreatedReservationsDeleteTime }}'
-      - name: autoCreatedReservationsDuration
-        value: '{{ autoCreatedReservationsDuration }}'
-      - name: autoDeleteAutoCreatedReservations
-        value: '{{ autoDeleteAutoCreatedReservations }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: selfLinkWithId
+      value: '{{ selfLinkWithId }}'
+    - name: zone
+      value: '{{ zone }}'
+    - name: description
+      value: '{{ description }}'
+    - name: name
+      value: '{{ name }}'
+    - name: specificSkuProperties
+      value: '{{ specificSkuProperties }}'
+    - name: timeWindow
+      value: '{{ timeWindow }}'
+    - name: shareSettings
+      value: '{{ shareSettings }}'
+    - name: namePrefix
+      value: '{{ namePrefix }}'
+    - name: status
+      value: '{{ status }}'
+    - name: planningStatus
+      value: '{{ planningStatus }}'
+    - name: autoCreatedReservationsDeleteTime
+      value: '{{ autoCreatedReservationsDeleteTime }}'
+    - name: autoCreatedReservationsDuration
+      value: '{{ autoCreatedReservationsDuration }}'
+    - name: autoDeleteAutoCreatedReservations
+      value: '{{ autoDeleteAutoCreatedReservations }}'
 
 ```
 </TabItem>

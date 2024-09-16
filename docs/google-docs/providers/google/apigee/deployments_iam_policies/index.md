@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>deployments_iam_policies</code>
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="organizations_environments_deployments_get_iam_policy" /> | `SELECT` | <CopyableCode code="deploymentsId, environmentsId, organizationsId" /> | Gets the IAM policy on a deployment. For more information, see [Manage users, roles, and permissions using the API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles). You must have the `apigee.deployments.getIamPolicy` permission to call this API. |
-| <CopyableCode code="organizations_environments_deployments_set_iam_policy" /> | `EXEC` | <CopyableCode code="deploymentsId, environmentsId, organizationsId" /> | Sets the IAM policy on a deployment, if the policy already exists it will be replaced. For more information, see [Manage users, roles, and permissions using the API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles). You must have the `apigee.deployments.setIamPolicy` permission to call this API. |
+| <CopyableCode code="organizations_environments_deployments_set_iam_policy" /> | `REPLACE` | <CopyableCode code="deploymentsId, environmentsId, organizationsId" /> | Sets the IAM policy on a deployment, if the policy already exists it will be replaced. For more information, see [Manage users, roles, and permissions using the API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles). You must have the `apigee.deployments.setIamPolicy` permission to call this API. |
 | <CopyableCode code="organizations_environments_deployments_test_iam_permissions" /> | `EXEC` | <CopyableCode code="deploymentsId, environmentsId, organizationsId" /> | Tests the permissions of a user on a deployment, and returns a subset of permissions that the user has on the deployment. If the deployment does not exist, an empty permission set is returned (a NOT_FOUND error is not returned). |
 
 ## `SELECT` examples
@@ -55,4 +55,20 @@ FROM google.apigee.deployments_iam_policies
 WHERE deploymentsId = '{{ deploymentsId }}'
 AND environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>deployments_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.deployments_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+deploymentsId = '{{ deploymentsId }}'
+AND environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}';
 ```

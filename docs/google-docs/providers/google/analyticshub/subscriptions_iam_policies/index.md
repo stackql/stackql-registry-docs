@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>subscriptions_iam_policies</cod
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="projects_locations_subscriptions_get_iam_policy" /> | `SELECT` | <CopyableCode code="locationsId, projectsId, subscriptionsId" /> | Gets the IAM policy. |
-| <CopyableCode code="projects_locations_subscriptions_set_iam_policy" /> | `EXEC` | <CopyableCode code="locationsId, projectsId, subscriptionsId" /> | Sets the IAM policy. |
+| <CopyableCode code="projects_locations_subscriptions_set_iam_policy" /> | `REPLACE` | <CopyableCode code="locationsId, projectsId, subscriptionsId" /> | Sets the IAM policy. |
 
 ## `SELECT` examples
 
@@ -54,4 +54,20 @@ FROM google.analyticshub.subscriptions_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND subscriptionsId = '{{ subscriptionsId }}'; 
+```
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>subscriptions_iam_policies</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.analyticshub.subscriptions_iam_policies
+SET 
+policy = '{{ policy }}',
+updateMask = '{{ updateMask }}'
+WHERE 
+locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'
+AND subscriptionsId = '{{ subscriptionsId }}';
 ```

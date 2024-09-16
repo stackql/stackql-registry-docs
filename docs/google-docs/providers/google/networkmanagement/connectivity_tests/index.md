@@ -130,35 +130,34 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: source
-        value: '{{ source }}'
-      - name: destination
-        value: '{{ destination }}'
-      - name: protocol
-        value: '{{ protocol }}'
-      - name: relatedProjects
-        value: '{{ relatedProjects }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: reachabilityDetails
-        value: '{{ reachabilityDetails }}'
-      - name: probingDetails
-        value: '{{ probingDetails }}'
-      - name: bypassFirewallChecks
-        value: '{{ bypassFirewallChecks }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: source
+      value: '{{ source }}'
+    - name: destination
+      value: '{{ destination }}'
+    - name: protocol
+      value: '{{ protocol }}'
+    - name: relatedProjects
+      value: '{{ relatedProjects }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: reachabilityDetails
+      value: '{{ reachabilityDetails }}'
+    - name: probingDetails
+      value: '{{ probingDetails }}'
+    - name: bypassFirewallChecks
+      value: '{{ bypassFirewallChecks }}'
 
 ```
 </TabItem>

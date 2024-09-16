@@ -87,6 +87,7 @@ Creates, updates, deletes, gets or lists a <code>instances</code> resource.
 | <CopyableCode code="bulk_insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates multiple instances. Count specifies the number of instances to create. For more information, see About bulk creation of VMs. |
 | <CopyableCode code="insert" /> | `INSERT` | <CopyableCode code="project, zone" /> | Creates an instance resource in the specified project using the data included in the request. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instance, project, zone" /> | Deletes the specified Instance resource. For more information, see Deleting an instance. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="instance, project, zone" /> | Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See Updating a running instance for a list of updatable instance properties. |
 | <CopyableCode code="attach_disk" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Attaches an existing Disk resource to an instance. You must first create the disk before you can attach it. It is not possible to create and attach a disk at the same time. For more information, read Adding a persistent disk to your instance. |
 | <CopyableCode code="detach_disk" /> | `EXEC` | <CopyableCode code="deviceName, instance, project, zone" /> | Detaches a disk from an instance. |
 | <CopyableCode code="perform_maintenance" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Perform a manual maintenance on the instance. |
@@ -111,7 +112,6 @@ Creates, updates, deletes, gets or lists a <code>instances</code> resource.
 | <CopyableCode code="start_with_encryption_key" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Starts an instance that was stopped using the instances().stop method. For more information, see Restart an instance. |
 | <CopyableCode code="stop" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur VM usage charges while they are stopped. However, resources that the VM is using, such as persistent disks and static IP addresses, will continue to be charged until they are deleted. For more information, see Stopping an instance. |
 | <CopyableCode code="suspend" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | This method suspends a running instance, saving its state to persistent storage, and allows you to resume the instance at a later time. Suspended instances have no compute costs (cores or RAM), and incur only storage charges for the saved VM memory and localSSD data. Any charged resources the virtual machine was using, such as persistent disks and static IP addresses, will continue to be charged while the instance is suspended. For more information, see Suspending and resuming an instance. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="instance, project, zone" /> | Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See Updating a running instance for a list of updatable instance properties. |
 
 ## `SELECT` examples
 
@@ -211,27 +211,86 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: count
-        value: '{{ count }}'
-      - name: minCount
-        value: '{{ minCount }}'
-      - name: namePattern
-        value: '{{ namePattern }}'
-      - name: perInstanceProperties
-        value: '{{ perInstanceProperties }}'
-      - name: sourceInstanceTemplate
-        value: '{{ sourceInstanceTemplate }}'
-      - name: instanceProperties
-        value: '{{ instanceProperties }}'
-      - name: locationPolicy
-        value: '{{ locationPolicy }}'
+- name: your_resource_model_name
+  props:
+    - name: count
+      value: '{{ count }}'
+    - name: minCount
+      value: '{{ minCount }}'
+    - name: namePattern
+      value: '{{ namePattern }}'
+    - name: perInstanceProperties
+      value: '{{ perInstanceProperties }}'
+    - name: sourceInstanceTemplate
+      value: '{{ sourceInstanceTemplate }}'
+    - name: instanceProperties
+      value: '{{ instanceProperties }}'
+    - name: locationPolicy
+      value: '{{ locationPolicy }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>instances</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.compute.instances
+SET 
+kind = '{{ kind }}',
+id = '{{ id }}',
+creationTimestamp = '{{ creationTimestamp }}',
+name = '{{ name }}',
+description = '{{ description }}',
+tags = '{{ tags }}',
+machineType = '{{ machineType }}',
+status = '{{ status }}',
+statusMessage = '{{ statusMessage }}',
+zone = '{{ zone }}',
+canIpForward = true|false,
+networkInterfaces = '{{ networkInterfaces }}',
+disks = '{{ disks }}',
+metadata = '{{ metadata }}',
+serviceAccounts = '{{ serviceAccounts }}',
+selfLink = '{{ selfLink }}',
+scheduling = '{{ scheduling }}',
+cpuPlatform = '{{ cpuPlatform }}',
+labels = '{{ labels }}',
+params = '{{ params }}',
+labelFingerprint = '{{ labelFingerprint }}',
+instanceEncryptionKey = '{{ instanceEncryptionKey }}',
+minCpuPlatform = '{{ minCpuPlatform }}',
+guestAccelerators = '{{ guestAccelerators }}',
+startRestricted = true|false,
+deletionProtection = true|false,
+resourcePolicies = '{{ resourcePolicies }}',
+sourceMachineImage = '{{ sourceMachineImage }}',
+reservationAffinity = '{{ reservationAffinity }}',
+hostname = '{{ hostname }}',
+displayDevice = '{{ displayDevice }}',
+shieldedInstanceConfig = '{{ shieldedInstanceConfig }}',
+shieldedInstanceIntegrityPolicy = '{{ shieldedInstanceIntegrityPolicy }}',
+sourceMachineImageEncryptionKey = '{{ sourceMachineImageEncryptionKey }}',
+confidentialInstanceConfig = '{{ confidentialInstanceConfig }}',
+fingerprint = '{{ fingerprint }}',
+privateIpv6GoogleAccess = '{{ privateIpv6GoogleAccess }}',
+advancedMachineFeatures = '{{ advancedMachineFeatures }}',
+lastStartTimestamp = '{{ lastStartTimestamp }}',
+lastStopTimestamp = '{{ lastStopTimestamp }}',
+lastSuspendedTimestamp = '{{ lastSuspendedTimestamp }}',
+satisfiesPzs = true|false,
+satisfiesPzi = true|false,
+resourceStatus = '{{ resourceStatus }}',
+networkPerformanceConfig = '{{ networkPerformanceConfig }}',
+keyRevocationActionType = '{{ keyRevocationActionType }}'
+WHERE 
+instance = '{{ instance }}'
+AND project = '{{ project }}'
+AND zone = '{{ zone }}';
+```
 
 ## `DELETE` example
 

@@ -45,7 +45,7 @@ Creates, updates, deletes, gets or lists a <code>targetservers</code> resource.
 | <CopyableCode code="organizations_environments_targetservers_get" /> | `SELECT` | <CopyableCode code="environmentsId, organizationsId, targetserversId" /> | Gets a TargetServer resource. |
 | <CopyableCode code="organizations_environments_targetservers_create" /> | `INSERT` | <CopyableCode code="environmentsId, organizationsId" /> | Creates a TargetServer in the specified environment. |
 | <CopyableCode code="organizations_environments_targetservers_delete" /> | `DELETE` | <CopyableCode code="environmentsId, organizationsId, targetserversId" /> | Deletes a TargetServer from an environment. Returns the deleted TargetServer resource. |
-| <CopyableCode code="organizations_environments_targetservers_update" /> | `EXEC` | <CopyableCode code="environmentsId, organizationsId, targetserversId" /> | Updates an existing TargetServer. Note that this operation has PUT semantics; it will replace the entirety of the existing TargetServer with the resource in the request body. |
+| <CopyableCode code="organizations_environments_targetservers_update" /> | `REPLACE` | <CopyableCode code="environmentsId, organizationsId, targetserversId" /> | Updates an existing TargetServer. Note that this operation has PUT semantics; it will replace the entirety of the existing TargetServer with the resource in the request body. |
 
 ## `SELECT` examples
 
@@ -108,27 +108,47 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: sSLInfo
-        value: '{{ sSLInfo }}'
-      - name: host
-        value: '{{ host }}'
-      - name: name
-        value: '{{ name }}'
-      - name: isEnabled
-        value: '{{ isEnabled }}'
-      - name: port
-        value: '{{ port }}'
-      - name: description
-        value: '{{ description }}'
-      - name: protocol
-        value: '{{ protocol }}'
+- name: your_resource_model_name
+  props:
+    - name: sSLInfo
+      value: '{{ sSLInfo }}'
+    - name: host
+      value: '{{ host }}'
+    - name: name
+      value: '{{ name }}'
+    - name: isEnabled
+      value: '{{ isEnabled }}'
+    - name: port
+      value: '{{ port }}'
+    - name: description
+      value: '{{ description }}'
+    - name: protocol
+      value: '{{ protocol }}'
 
 ```
 </TabItem>
 </Tabs>
+
+## `UPDATE` example
+
+Replaces all fields in the specified <code>targetservers</code> resource.
+
+```sql
+/*+ update */
+REPLACE google.apigee.targetservers
+SET 
+sSLInfo = '{{ sSLInfo }}',
+host = '{{ host }}',
+name = '{{ name }}',
+isEnabled = true|false,
+port = '{{ port }}',
+description = '{{ description }}',
+protocol = '{{ protocol }}'
+WHERE 
+environmentsId = '{{ environmentsId }}'
+AND organizationsId = '{{ organizationsId }}'
+AND targetserversId = '{{ targetserversId }}';
+```
 
 ## `DELETE` example
 

@@ -153,43 +153,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: reason
-        value: '{{ reason }}'
-      - name: visibility
-        value: '{{ visibility }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: encryptedCredential
-        value: '{{ encryptedCredential }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: creatorEmail
-        value: '{{ creatorEmail }}'
-      - name: credentialType
-        value: '{{ credentialType }}'
-      - name: validTime
-        value: '{{ validTime }}'
-      - name: state
-        value: '{{ state }}'
-      - name: lastModifierEmail
-        value: '{{ lastModifierEmail }}'
-      - name: overrideValidTime
-        value: '{{ overrideValidTime }}'
-      - name: expiryNotificationDuration
-        value: '{{ expiryNotificationDuration }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: certificateId
-        value: '{{ certificateId }}'
-      - name: decryptedCredential
-        value: '{{ decryptedCredential }}'
+- name: your_resource_model_name
+  props:
+    - name: reason
+      value: '{{ reason }}'
+    - name: visibility
+      value: '{{ visibility }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: encryptedCredential
+      value: '{{ encryptedCredential }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: creatorEmail
+      value: '{{ creatorEmail }}'
+    - name: credentialType
+      value: '{{ credentialType }}'
+    - name: validTime
+      value: '{{ validTime }}'
+    - name: state
+      value: '{{ state }}'
+    - name: lastModifierEmail
+      value: '{{ lastModifierEmail }}'
+    - name: overrideValidTime
+      value: '{{ overrideValidTime }}'
+    - name: expiryNotificationDuration
+      value: '{{ expiryNotificationDuration }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: certificateId
+      value: '{{ certificateId }}'
+    - name: decryptedCredential
+      value: '{{ decryptedCredential }}'
 
 ```
 </TabItem>

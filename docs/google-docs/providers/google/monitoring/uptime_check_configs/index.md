@@ -137,39 +137,38 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: monitoredResource
-        value: '{{ monitoredResource }}'
-      - name: resourceGroup
-        value: '{{ resourceGroup }}'
-      - name: syntheticMonitor
-        value: '{{ syntheticMonitor }}'
-      - name: httpCheck
-        value: '{{ httpCheck }}'
-      - name: tcpCheck
-        value: '{{ tcpCheck }}'
-      - name: period
-        value: '{{ period }}'
-      - name: timeout
-        value: '{{ timeout }}'
-      - name: contentMatchers
-        value: '{{ contentMatchers }}'
-      - name: checkerType
-        value: '{{ checkerType }}'
-      - name: selectedRegions
-        value: '{{ selectedRegions }}'
-      - name: isInternal
-        value: '{{ isInternal }}'
-      - name: internalCheckers
-        value: '{{ internalCheckers }}'
-      - name: userLabels
-        value: '{{ userLabels }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: monitoredResource
+      value: '{{ monitoredResource }}'
+    - name: resourceGroup
+      value: '{{ resourceGroup }}'
+    - name: syntheticMonitor
+      value: '{{ syntheticMonitor }}'
+    - name: httpCheck
+      value: '{{ httpCheck }}'
+    - name: tcpCheck
+      value: '{{ tcpCheck }}'
+    - name: period
+      value: '{{ period }}'
+    - name: timeout
+      value: '{{ timeout }}'
+    - name: contentMatchers
+      value: '{{ contentMatchers }}'
+    - name: checkerType
+      value: '{{ checkerType }}'
+    - name: selectedRegions
+      value: '{{ selectedRegions }}'
+    - name: isInternal
+      value: '{{ isInternal }}'
+    - name: internalCheckers
+      value: '{{ internalCheckers }}'
+    - name: userLabels
+      value: '{{ userLabels }}'
 
 ```
 </TabItem>

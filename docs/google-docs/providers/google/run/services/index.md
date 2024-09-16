@@ -212,75 +212,74 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: uid
-        value: '{{ uid }}'
-      - name: generation
-        value: '{{ generation }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: annotations
-        value: '{{ annotations }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: updateTime
-        value: '{{ updateTime }}'
-      - name: deleteTime
-        value: '{{ deleteTime }}'
-      - name: expireTime
-        value: '{{ expireTime }}'
-      - name: creator
-        value: '{{ creator }}'
-      - name: lastModifier
-        value: '{{ lastModifier }}'
-      - name: client
-        value: '{{ client }}'
-      - name: clientVersion
-        value: '{{ clientVersion }}'
-      - name: ingress
-        value: '{{ ingress }}'
-      - name: launchStage
-        value: '{{ launchStage }}'
-      - name: binaryAuthorization
-        value: '{{ binaryAuthorization }}'
-      - name: template
-        value: '{{ template }}'
-      - name: traffic
-        value: '{{ traffic }}'
-      - name: scaling
-        value: '{{ scaling }}'
-      - name: defaultUriDisabled
-        value: '{{ defaultUriDisabled }}'
-      - name: urls
-        value: '{{ urls }}'
-      - name: customAudiences
-        value: '{{ customAudiences }}'
-      - name: observedGeneration
-        value: '{{ observedGeneration }}'
-      - name: terminalCondition
-        value: '{{ terminalCondition }}'
-      - name: conditions
-        value: '{{ conditions }}'
-      - name: latestReadyRevision
-        value: '{{ latestReadyRevision }}'
-      - name: latestCreatedRevision
-        value: '{{ latestCreatedRevision }}'
-      - name: trafficStatuses
-        value: '{{ trafficStatuses }}'
-      - name: uri
-        value: '{{ uri }}'
-      - name: satisfiesPzs
-        value: '{{ satisfiesPzs }}'
-      - name: reconciling
-        value: '{{ reconciling }}'
-      - name: etag
-        value: '{{ etag }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: uid
+      value: '{{ uid }}'
+    - name: generation
+      value: '{{ generation }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: annotations
+      value: '{{ annotations }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: updateTime
+      value: '{{ updateTime }}'
+    - name: deleteTime
+      value: '{{ deleteTime }}'
+    - name: expireTime
+      value: '{{ expireTime }}'
+    - name: creator
+      value: '{{ creator }}'
+    - name: lastModifier
+      value: '{{ lastModifier }}'
+    - name: client
+      value: '{{ client }}'
+    - name: clientVersion
+      value: '{{ clientVersion }}'
+    - name: ingress
+      value: '{{ ingress }}'
+    - name: launchStage
+      value: '{{ launchStage }}'
+    - name: binaryAuthorization
+      value: '{{ binaryAuthorization }}'
+    - name: template
+      value: '{{ template }}'
+    - name: traffic
+      value: '{{ traffic }}'
+    - name: scaling
+      value: '{{ scaling }}'
+    - name: defaultUriDisabled
+      value: '{{ defaultUriDisabled }}'
+    - name: urls
+      value: '{{ urls }}'
+    - name: customAudiences
+      value: '{{ customAudiences }}'
+    - name: observedGeneration
+      value: '{{ observedGeneration }}'
+    - name: terminalCondition
+      value: '{{ terminalCondition }}'
+    - name: conditions
+      value: '{{ conditions }}'
+    - name: latestReadyRevision
+      value: '{{ latestReadyRevision }}'
+    - name: latestCreatedRevision
+      value: '{{ latestCreatedRevision }}'
+    - name: trafficStatuses
+      value: '{{ trafficStatuses }}'
+    - name: uri
+      value: '{{ uri }}'
+    - name: satisfiesPzs
+      value: '{{ satisfiesPzs }}'
+    - name: reconciling
+      value: '{{ reconciling }}'
+    - name: etag
+      value: '{{ etag }}'
 
 ```
 </TabItem>

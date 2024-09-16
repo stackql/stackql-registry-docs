@@ -139,39 +139,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: name
-        value: '{{ name }}'
-      - name: inputUri
-        value: '{{ inputUri }}'
-      - name: outputUri
-        value: '{{ outputUri }}'
-      - name: templateId
-        value: '{{ templateId }}'
-      - name: config
-        value: '{{ config }}'
-      - name: state
-        value: '{{ state }}'
-      - name: createTime
-        value: '{{ createTime }}'
-      - name: startTime
-        value: '{{ startTime }}'
-      - name: endTime
-        value: '{{ endTime }}'
-      - name: ttlAfterCompletionDays
-        value: '{{ ttlAfterCompletionDays }}'
-      - name: labels
-        value: '{{ labels }}'
-      - name: error
-        value: '{{ error }}'
-      - name: mode
-        value: '{{ mode }}'
-      - name: batchModePriority
-        value: '{{ batchModePriority }}'
-      - name: optimization
-        value: '{{ optimization }}'
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: '{{ name }}'
+    - name: inputUri
+      value: '{{ inputUri }}'
+    - name: outputUri
+      value: '{{ outputUri }}'
+    - name: templateId
+      value: '{{ templateId }}'
+    - name: config
+      value: '{{ config }}'
+    - name: state
+      value: '{{ state }}'
+    - name: createTime
+      value: '{{ createTime }}'
+    - name: startTime
+      value: '{{ startTime }}'
+    - name: endTime
+      value: '{{ endTime }}'
+    - name: ttlAfterCompletionDays
+      value: '{{ ttlAfterCompletionDays }}'
+    - name: labels
+      value: '{{ labels }}'
+    - name: error
+      value: '{{ error }}'
+    - name: mode
+      value: '{{ mode }}'
+    - name: batchModePriority
+      value: '{{ batchModePriority }}'
+    - name: optimization
+      value: '{{ optimization }}'
 
 ```
 </TabItem>

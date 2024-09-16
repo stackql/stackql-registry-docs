@@ -139,39 +139,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - name: instance
-    props:
-      - name: kind
-        value: '{{ kind }}'
-      - name: id
-        value: '{{ id }}'
-      - name: creationTimestamp
-        value: '{{ creationTimestamp }}'
-      - name: name
-        value: '{{ name }}'
-      - name: description
-        value: '{{ description }}'
-      - name: rules
-        value: '{{ rules }}'
-      - name: fingerprint
-        value: '{{ fingerprint }}'
-      - name: selfLink
-        value: '{{ selfLink }}'
-      - name: selfLinkWithId
-        value: '{{ selfLinkWithId }}'
-      - name: associations
-        value: '{{ associations }}'
-      - name: ruleTupleCount
-        value: '{{ ruleTupleCount }}'
-      - name: shortName
-        value: '{{ shortName }}'
-      - name: displayName
-        value: '{{ displayName }}'
-      - name: parent
-        value: '{{ parent }}'
-      - name: region
-        value: '{{ region }}'
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: '{{ kind }}'
+    - name: id
+      value: '{{ id }}'
+    - name: creationTimestamp
+      value: '{{ creationTimestamp }}'
+    - name: name
+      value: '{{ name }}'
+    - name: description
+      value: '{{ description }}'
+    - name: rules
+      value: '{{ rules }}'
+    - name: fingerprint
+      value: '{{ fingerprint }}'
+    - name: selfLink
+      value: '{{ selfLink }}'
+    - name: selfLinkWithId
+      value: '{{ selfLinkWithId }}'
+    - name: associations
+      value: '{{ associations }}'
+    - name: ruleTupleCount
+      value: '{{ ruleTupleCount }}'
+    - name: shortName
+      value: '{{ shortName }}'
+    - name: displayName
+      value: '{{ displayName }}'
+    - name: parent
+      value: '{{ parent }}'
+    - name: region
+      value: '{{ region }}'
 
 ```
 </TabItem>
